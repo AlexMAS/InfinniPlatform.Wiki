@@ -1,0 +1,14 @@
+---
+layout: default
+title: SignOut
+position: 11
+categories: 
+tags: 
+---
+
+<p>Осуществляет выход пользователя из системы.</p><p>&nbsp; &nbsp;</p><h4>Request</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[HTTP POST /Auth/SignOut]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Success responce (equal 200)</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[null]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Failure responce (not equal 200)</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"type": "object",
+	"extends": {
+		"$ref": "http://demo.infinnity.ru:8081/display/MC/AuthErrorInfo"
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

@@ -1,0 +1,17 @@
+---
+layout: default
+title: FontVariant
+position: 4
+categories: 
+tags: 
+---
+
+<p>Вертикальное выравнивание шрифта.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="info"><ac:rich-text-body><p>Некоторые шрифты могут не поддерживать вертикальное выравнивание.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Type</h4><p>enum</p><p>&nbsp;&nbsp;</p><h4>Description &nbsp;</h4><table><tbody><tr><th>Value</th><th>Description</th></tr><tr><td colspan="1">Normal</td><td colspan="1"><p>Без выравнивания.</p></td></tr><tr><td colspan="1">Subscript</td><td colspan="1">Подстрочное выравнивание (подстрочный индекс).</td></tr><tr><td colspan="1">Superscript</td><td colspan="1">Надстрочное выравнивание (надстрочный индекс).</td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "FontVariant",
+  "description": "Вертикальное выравнивание шрифта",
+  "enum": [
+    "Normal",
+    "Subscript",
+    "Superscript"
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Example</h4><p><ac:image><ri:attachment ri:filename="FontVariant.PNG" /></ac:image></p><p>&nbsp;</p><p>&nbsp;</p>

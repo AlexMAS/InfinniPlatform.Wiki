@@ -1,0 +1,40 @@
+---
+layout: default
+title: PrintElementBlockContainer
+position: 0
+categories: 
+tags: 
+---
+
+<p>Типы блочных элементов печатного представления.</p><p>&nbsp; &nbsp;</p><h4>Type</h4><p>object</p><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "PrintElementBlockContainer",
+  "description": "Типы блочных элементов печатного представления",
+  "type": "object",
+  "properties": {
+    "Section": {
+      "description": "Блочный элемент печатного представления для группировки множества блочных элементов",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElementSection"
+    },
+    "Paragraph": {
+      "description": "Блочный элемент печатного представления для группировки однострочных элементов в абзац",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElementParagraph"
+    },
+    "List": {
+      "description": "Блочный элемент печатного представления для отображения списка",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElementList"
+    },
+    "Table": {
+      "description": "Блочный элемент печатного представления для отображения таблицы",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElementTable"
+    },
+    "Line": {
+      "description": "Блочный элемент печатного представления для отображения горизонтальной линии",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElementLine"
+    },
+    "PageBreak": {
+      "description": "Блочный элемент печатного представления для разрыва страницы",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElementPageBreak"
+    }
+  },
+  "additionalProperties": false
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

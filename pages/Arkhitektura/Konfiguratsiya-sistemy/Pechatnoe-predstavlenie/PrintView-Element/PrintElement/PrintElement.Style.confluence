@@ -1,0 +1,142 @@
+---
+layout: default
+title: PrintElement.Style
+position: 1
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(0,51,102);">Наименование стиля.</span></p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="info"><ac:rich-text-body><p>Элементы печатного представления могут использовать стили представления (<ac:link><ri:page ri:content-title="PrintView" /></ac:link>.Styles), ссылаясь на них по имени.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Type</h4><p>string</p><p>&nbsp; &nbsp;</p><h4>Example</h4><p><ac:link><ri:attachment ri:filename="PrintElement.Style.pdf" /></ac:link></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Styles": [
+    {
+      "Name": "H1",
+      "Margin": {
+        "Top": 5,
+        "Bottom": 5
+      },
+      "Font": {
+        "Size": 16,
+        "Weight": "Bold"
+      },
+      "TextAlignment": "Center"
+    },
+    {
+      "Name": "H2",
+      "Margin": {
+        "Top": 5,
+        "Bottom": 5
+      },
+      "Font": {
+        "Size": 14,
+        "Weight": "Bold"
+      },
+      "TextAlignment": "Center"
+    },
+    {
+      "Name": "H3",
+      "Margin": {
+        "Top": 5,
+        "Bottom": 5
+      },
+      "Font": {
+        "Size": 12,
+        "Weight": "Bold"
+      },
+      "TextAlignment": "Center"
+    },
+    {
+      "Name": "General",
+      "Margin": {
+        "Top": 5,
+        "Bottom": 5
+      },
+      "Font": {
+        "Size": 10
+      },
+      "TextAlignment": "Justify"
+    }
+  ],
+  "Blocks": [
+    {
+      "Paragraph": {
+        "Style": "H1",
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "Header1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Style": "General",
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "General text text text text text text text text text text text text text text text text text 
+text text text text text text text text text text text text text text text text text text text text text text text 
+text text text text text text text text text text text text text text text text text text text text text text text 
+text text."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Style": "H2",
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "Header2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Style": "General",
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "General text text text text text text text text text text text text text text text text text 
+text text text text text text text text text text text text text text text text text text text text text text text 
+text text text text text text text text text text text text text text text text text text text text text text text 
+text text."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Style": "H3",
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "Header3"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Style": "General",
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "General text text text text text text text text text text text text text text text text text 
+text text text text text text text text text text text text text text text text text text text text text text text 
+text text text text text text text text text text text text text text text text text text text text text text text 
+text text."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

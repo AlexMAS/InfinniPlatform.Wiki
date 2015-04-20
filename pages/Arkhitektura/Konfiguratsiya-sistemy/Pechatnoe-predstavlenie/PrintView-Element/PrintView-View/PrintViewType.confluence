@@ -1,0 +1,16 @@
+---
+layout: default
+title: PrintViewType
+position: 
+categories: 
+tags: 
+---
+
+<p>Тип печатного представления.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="info"><ac:rich-text-body><p>Тип печатного представления не влияет на способ его отображения и используется аналогично типу визуального представления (<ac:link><ri:page ri:content-title="ViewType" /></ac:link>). Например, тип может указываться при запросе печатной формы документа или печатной формы списка документов (<ac:link><ri:page ri:content-title="PrintViewAction" /></ac:link>). Также тип может быть использован в качестве одного из входных параметров генератора (<ac:link><ri:page ri:content-title="Generator" /></ac:link>) <span style="line-height: 1.4285715;">печатных представлений.</span></p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Type</h4><p>enum</p><p>&nbsp; &nbsp;</p><h4>Description &nbsp;</h4><table><tbody><tr><th>Value</th><th>Description</th></tr><tr><td colspan="1">ObjectView</td><td colspan="1"><p>Печатное представление документа.</p></td></tr><tr><td colspan="1">ListView</td><td colspan="1">Печатное представление списка документов.</td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "PrintViewType",
+  "description": "Тип печатного представления",
+  "enum": [
+    "ObjectView",
+    "ListView"
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Example</h4><p>Если тип печатного представления равен &quot;<span>ObjectView</span>&quot;, то предполагается, что <ac:link><ri:page ri:content-title="PrintElement.Source" /><ac:plain-text-link-body><![CDATA[источником данных печатного представления ($)]]></ac:plain-text-link-body></ac:link> является один документ.</p><p>Если тип печатного представления равен &quot;<span>ListView</span>&quot;, то предполагается, что&nbsp;<ac:link><ri:page ri:content-title="PrintElement.Source" /><ac:plain-text-link-body><![CDATA[источником данных печатного представления ($)]]></ac:plain-text-link-body></ac:link> является массив документов.</p><p>&nbsp; &nbsp;</p><p>&nbsp;</p>

@@ -1,0 +1,37 @@
+---
+layout: default
+title: Size
+position: 
+categories: 
+tags: 
+---
+
+<p>Размеры прямоугольника.</p><p>&nbsp; &nbsp;</p><h4>Type</h4><p>object</p><p>&nbsp;&nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "Size",
+  "description": "Размеры прямоугольника",
+  "type": "object",
+  "properties": {
+    "Width": {
+      "description": "Ширина",
+      "type": "number",
+      "minimum": 0,
+      "exclusiveMinimum": false
+    },
+    "Height": {
+      "description": "Высота",
+      "type": "number",
+      "minimum": 0,
+      "exclusiveMinimum": false
+    },
+    "SizeUnit": {
+      "description": "Единица измерения размеров",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/SizeUnit",
+      "default": "Pt"
+    }
+  },
+  "additionalProperties": false
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Example</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Width": 10,
+  "Height": 20,
+  "SizeUnit": "Cm"
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

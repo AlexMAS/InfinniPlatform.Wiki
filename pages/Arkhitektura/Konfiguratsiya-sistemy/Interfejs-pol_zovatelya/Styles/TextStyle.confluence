@@ -1,0 +1,26 @@
+---
+layout: default
+title: TextStyle
+position: 
+categories: 
+tags: 
+---
+
+<p>Стиль текста.</p><p>&nbsp; &nbsp;&nbsp;</p><h4>Description</h4><p>Определяет шрифт (Font Family), размер (Font Size) и насыщенность (Font Weight) выводимого на экран текста.</p><p>&nbsp; &nbsp;</p><h4>Schema &nbsp; &nbsp;</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "TextStyle",
+  "description": "Стиль текста",
+  "enum": [
+    "Display4",
+    "Display3",
+    "Display2",
+    "Display1",
+    "Headline",
+    "Title",
+    "Subhead",
+    "Body2",
+    "Body1",
+    "Caption",
+    "Menu",
+    "Button"
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;&nbsp;</p><h4>Implementation</h4><p>В основу стилизации текста положены принципы&nbsp;<a href="http://www.google.com/design/spec/style/typography.html" style="line-height: 1.4285715;">Material Design</a>&nbsp;и рекоммендации&nbsp;<a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/ColorImagesText.html" style="line-height: 1.4285715;">iOS Human Interface Guidelines</a>.&nbsp;Базовый набор стилей основан на типографической шкале с ограниченным набором размеров шрифта (12, 14, 16, 20 и 34), которые хорошо сочетаются друг с другом.&nbsp;Физические размеры шрифта должны определяется в зависимости от разрешающей способности экрана (например, используя подход <span style="color: rgb(34,34,34);"><a href="http://developer.android.com/guide/topics/resources/more-resources.html#Dimension">Scale-Independent Pixels</a></span>). Ниже приведены основные рекомендации для каждого из стилей.</p><p>&nbsp; &nbsp;</p><table><tbody><tr><th>Name</th><th>Font Weigh</th><th>Font Size</th></tr><tr><td>Display4</td><td>Light</td><td>112sp</td></tr><tr><td>Display3</td><td>Regular</td><td>56sp</td></tr><tr><td>Display2</td><td>Regular</td><td>45sp</td></tr><tr><td>Display1</td><td>Regular</td><td>34sp</td></tr><tr><td>Headline</td><td>Regular</td><td>24sp</td></tr><tr><td>Title</td><td>Medium</td><td>20sp</td></tr><tr><td>Subhead</td><td>Regular</td><td><span>16sp (Device), </span>15sp (Desktop)</td></tr><tr><td>Body2</td><td>Medium</td><td><span>14sp (Device), </span><span>13sp (Desktop)</span></td></tr><tr><td>Body1</td><td>Regular</td><td><span>14sp (Device), </span><span>13sp (Desktop)</span></td></tr><tr><td>Caption</td><td>Regular</td><td>12sp</td></tr><tr><td>Menu</td><td>Medium</td><td>13sp</td></tr><tr><td>Button</td><td><span>Medium + Uppercase</span></td><td>14sp</td></tr></tbody></table><p>&nbsp; &nbsp;</p><p>Ни в коем случае нельзя использовать разные шрифты (Font Family).</p><p>Всте стили шрифта должны быть удобочитаемы (любой текст должен быть разборчивыми).</p><p>При создании стиля рекомендуется использовать насыщенность шрифта с уровнем Regular.</p><p>Крайне не рекомендуется использовать насыщенность шрифта с уровнем Bold, так как он является слишком тяжелым.</p><p>&nbsp; &nbsp;</p><h4>Using</h4><p>Используя различные стили шрифта можно визуально расставлять акценты приоритетности содержания, поскольку не все содержание одинаково важно для пользователя. В общем случае, выбирайте стиль с большим размером шрифта, если хотите увеличить приоритетность выводимой информации и/или обеспечить простоту чтения. При этом не забывайте о балансе между размером шрифта и количеством выводимой информации. Большие размеры чаще всего используют при выводе коротких строк (названия, заголовки, подзаголовки и т.п.), маленькие размеры используют для вывода дополнительной инфорамации, представленной, как правило, строками большого размера (детальное описание, примечание и т.п.).</p><p>Поскольку текст выводится в рамках какой-то ограниченной области, то есть вероятность, что он будет представлен в виде нескольких строк. Если так, то нужно подобрать такой стиль, чтобы длина строки была комфортна для чтения. Согласно рекомендациям&nbsp;<span style="color: rgb(33,33,33);"><a href="http://baymard.com/blog/line-length-readability">Baymard Institute</a>&nbsp;длина строки, удобная для чтения, составляет 50-60 символов. Слишком широкая текстовая колонка усложняет чтение, так как пользователю трудно переводить взгляд с конца одной строки на начало следующей. Слишком узкая текстовая колонка заставляет слишком часто переводить взгляд с конца одной строки на начало следующей, вследствие чего нарушается ритм чтения и усиливается напряжение. Усиление напряжения утомляет пользователя, он, недочитывая одну строку, переходит к следующей, следовательно, может не пропустить потенциально важную информацию.</span></p><p>&nbsp;</p><h4>Examples</h4><p>Ниже приведент пример реализации стиля текста.&nbsp;Данный пример не затрагивает цветовое оформление, так как за это отвечает&nbsp;<ac:link><ri:page ri:content-title="ColorStyle" /></ac:link>.</p><p><ac:image><ri:attachment ri:filename="TextStyle_01.png" /></ac:image></p><p>&nbsp;&nbsp;</p><h4>Links</h4><p><ac:link><ri:page ri:content-title="ColorStyle" /></ac:link></p><p>&nbsp;</p><p>&nbsp;</p>

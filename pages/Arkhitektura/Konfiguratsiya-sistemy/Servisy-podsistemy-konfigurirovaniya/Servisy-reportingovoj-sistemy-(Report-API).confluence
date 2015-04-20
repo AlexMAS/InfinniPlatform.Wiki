@@ -1,0 +1,41 @@
+---
+layout: default
+title: Сервисы репортинговой системы (Report API)
+position: 5
+categories: 
+tags: 
+---
+
+<h2>Запрос отчета по указанному идентификатору шаблона</h2><p>Запрос на получение сформированного отчета в формате pdf должен осуществляться синхронно, без использования ajax запросов (JQuery).</p><p>Метаданные запрашиваемого отчета описаны в <ac:link><ri:page ri:content-title="PrintReportAction" /></ac:link></p><table><tbody><tr><th>Свойство PrintReportAction</th><th>Параметр сервиса</th></tr><tr><td>ConfigId</td><td>Configuration</td></tr><tr><td>ReportId</td><td>Template</td></tr><tr><td>Parameters</td><td>Parameters</td></tr><tr><td>-</td><td>FileFormat</td></tr></tbody></table><ac:structured-macro ac:name="info"><ac:parameter ac:name="title">Внимание</ac:parameter><ac:rich-text-body><p>Значение параметра FileFormat в данный момент должно быть всегда 0, что соответствует формату отчета pdf. Поддержка остальных форматов планируется в будущих релизах.</p></ac:rich-text-body></ac:structured-macro><table><tbody><tr><th>Наименование</th><th>Значение</th></tr><tr><td>Url</td><td><p><a href="http://10.0.0.12:9999/SystemConfig/UrlEncodedData/Reporting/GetReport">http://</a><a href="http://localhost.:9999/SystemConfig/StandardApi/Reporting/getReport">&lt;servername&gt;:&lt;serverport&gt;</a><a href="http://10.0.0.12:9999/SystemConfig/UrlEncodedData/Reporting/GetReport">/SystemConfig/UrlEncodedData/Reporting/GetReport</a></p></td></tr><tr><td>VerbType</td><td>POST</td></tr><tr><td>Список передаваемых параметров запроса</td><td><table><tbody><tr><th>Параметр</th><th>Значение</th></tr><tr><td>Form</td><td><pre>{<br />   FileFormat: &lt;reportFormat&gt;,<br />   Parameters: [<br />     {<br />         Name: &lt;parameterName&gt;,<br />         Value: &lt;parameterValue&gt;<br />     }<br />  ],<br />   Configuration : &lt;reportConfiguration&gt;,<br />   Template : &lt;reportName&gt;    <br />}</pre></td></tr></tbody></table><p>&nbsp;</p><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Пример параметров запроса</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:parameter ac:name="collapse">true</ac:parameter><ac:plain-text-body><![CDATA[{
+   FileFormat:0,
+   Parameters: [
+     {
+         Name: "HospitalizationId",
+         Value: "224427715e-1f73-4077-a58b-9be70c502287"
+     }
+  ],
+   Configuration : "EmergencyRoom",
+   Template : "MedicalHistoryReport"    
+}]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table><h1>Запрос печатной формы</h1><p>Запрос на получение сформированного отчета в формате pdf должен осуществляться синхронно, без использования ajax запросов (JQuery).</p><p>Метаданные запрашиваемой формы описаны в&nbsp;<a href="http://demo.infinnity.ru:8081/display/MC/PrintViewAction">PrintViewAction</a></p><table><tbody><tr><th>Наименование</th><th>Значение</th></tr><tr><td>Url</td><td><a href="http://10.0.0.12:9999/SystemConfig/UrlEncodedData/Reporting/GetPrintView">http://&lt;server&gt;:&lt;port&gt;/SystemConfig/UrlEncodedData/Reporting/GetPrintView</a>&nbsp;</td></tr><tr><td>VerbType</td><td>GET</td></tr><tr><td>Список передаваемых параметров запроса</td><td><table><tbody><tr><th>Параметр</th><th>Значение</th></tr><tr><td>Form</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{ 
+	ConfigId: <Configuration>, 
+	DocumentId : <Document>, 
+    UpdateAction : <UpdateAction>,
+	PrintViewId : <Print view identifier>, 
+	PrintViewType : <PrintViewType>, 
+	PageNumber : <number of data page>,
+	PageSize : <page size>,
+	Query : <array of criteria>
+}]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table><p>Пример параметра запроса:</p><table><tbody><tr><th>Параметр</th><th>Значение</th></tr><tr><td>Form</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Пример заполнения параметров</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{ 
+	ConfigId: "Ehr", 
+	DocumentId : "Header", 
+    UpdateAction : "PreprocessPrintData"
+	PrintViewId : "PrintPreview", 
+	PrintViewType : "ObjectView", 
+	PageNumber : 0,
+	PageSize : 100,
+	Query : [{
+	    Property : "Id",
+   		 CriteriaType : 1,
+	    Value : "29704258-E7CB-4C50-8D5A-BE0110850468"		
+	}]
+}]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table></td></tr><tr><td colspan="1">Пример запроса</td><td colspan="1"><a>http://&lt;server&gt;:&lt;port&gt;/SystemConfig/UrlEncodedData/Reporting/GetPrintView/?Form=%7B%22ConfigId%22%3A%22Ehr%22%2C%22DocumentId%22%3A%22Header%22%2C%22PrintViewId%22%3A%22PrintView%22%2C%22PrintViewType%22%3A%22ObjectView%22%2C%22PageNumber%22%3A0%2C%22PageSize%22%3A100%2C%22Query%22%3A%5B%7B%22Property%22%3A%22Id%22%2C%22Value%22%3A%2229704258-E7CB-4C50-8D5A-BE0110850468%22%2C%22CriteriaType%22%3A1%7D%5D%7D</a></td></tr><tr><td colspan="1">Пример ответа</td><td colspan="1"><pre class="cm-s-default">%PDF-1.4<br />%����<br />% PDFsharp Version 1.32.2608.0 (verbose mode)<br />% Creation date: 27.11.2014 15:38:17             <br />% Creation time: 0.614 seconds                   <br />% File size: 21608 bytes                         <br />% Pages: 1                                       <br />% Objects: 11                                    <br />%--------------------------------------------------------------------------------------------------<br />1 0 obj   % PdfSharp.Pdf.PdfDocumentInformation<br />&lt;&lt;<br />  /CreationDate (D:20141127153817+06'00')<br />  /Creator (PDFsharp 1.32.2608-w \(www.pdfsharp.net\))<br />  /Producer (PDFsharp 1.32.2608-w \(www.pdfsharp.net\))<br />&gt;&gt;<br />endobj<br />%--------------------------------------------------------------------------------------------------<br />2 0 obj   % PdfSharp.Pdf.Advanced.PdfCatalog<br />&lt;&lt;<br />  /Pages 3 0 R<br />  /Type /Catalog<br />&gt;&gt;<br />endobj<br />%--------------------------------------------------------------------------------------------------<br />3 0 obj   % PdfSharp.Pdf.PdfPages<br />&lt;&lt;<br />  /Count 1<br />  /Kids [4 0 R]</pre><p><em><strong>&lt;Далее остальной контент печатной формы&gt;</strong></em></p></td></tr></tbody></table><ac:structured-macro ac:name="info"><ac:parameter ac:name="title">Внимание!</ac:parameter><ac:rich-text-body><p>Список допустимых значений <a href="http://demo.infinnity.ru:8081/display/MC/PrintViewType">PrintViewType</a></p></ac:rich-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

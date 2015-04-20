@@ -1,0 +1,38 @@
+---
+layout: default
+title: MedicationAdministrationProcedure
+position: 2
+categories: 
+tags: 
+---
+
+<p>Instances of <em>Medication Administration Procedure</em> describe the route by which the medication is to enter the body, the administration site where the medication makes its entry or contact and the method of administration to be used.&nbsp;</p><p>&nbsp;&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">MedicationAdministrationProcedure</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "Type": "Object",
+    "Caption": "Medication Administration Procedure",
+    "Description": "Medication Administration Procedure",
+	"Properties": {
+		"Route" : {
+            "Type": "String",
+            "Caption": "Route",
+            "Description": "Route by which the medication is to enter the body"
+		},
+		"AdministrationSite" : {
+			"Type": "String",
+            "Caption": "Site",
+            "Description": "Where the medication makes its entry or contact"
+		},
+		"AdministrationMethod" : {
+			"Type": "String",
+            "Caption": "Method",
+            "Description": "Method of administration to be used"		
+		}
+	}		
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Example1</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Route" : "intravenous",
+	"AdministrationSite" : "affected area",
+	"AdministrationMethod" : "inject"
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Example2</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Route" : "-",
+	"AdministrationSite" : "-",
+	"AdministrationMethod" : "inhale"
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

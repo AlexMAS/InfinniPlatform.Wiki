@@ -1,0 +1,97 @@
+---
+layout: default
+title: Font.Variant
+position: 5
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(0,51,102);">Вертикальное выравнивание шрифта.</span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(0,51,102);">Type</span></h4><p><span style="color: rgb(0,51,102);"><ac:link><ri:page ri:content-title="FontVariant" /></ac:link><br /></span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(0,51,102);">Example</span></h4><p><span style="color: rgb(0,51,102);"><ac:link><ri:attachment ri:filename="Font.Variant.pdf" /></ac:link><br /></span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Blocks": [
+    {
+      "Paragraph": {
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "a"
+            }
+          },
+          {
+            "Run": {
+              "Font": {
+                "Variant": "Superscript"
+              },
+              "Text": "2"
+            }
+          },
+          {
+            "Run": {
+              "Text": " + b"
+            }
+          },
+          {
+            "Run": {
+              "Font": {
+                "Variant": "Superscript"
+              },
+              "Text": "2"
+            }
+          },
+          {
+            "Run": {
+              "Text": " = c"
+            }
+          },
+          {
+            "Run": {
+              "Font": {
+                "Variant": "Superscript"
+              },
+              "Text": "2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "H"
+            }
+          },
+          {
+            "Run": {
+              "Font": {
+                "Variant": "Subscript"
+              },
+              "Text": "2"
+            }
+          },
+          {
+            "Run": {
+              "Text": "SO"
+            }
+          },
+          {
+            "Run": {
+              "Font": {
+                "Variant": "Subscript"
+              },
+              "Text": "4"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Font": {
+    "Family": "Palatino Linotype"
+  },
+  "PageSize": {
+    "Width": 200,
+    "Height": 150,
+    "SizeUnit": "Px"
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);"><br /></span></p><p><span style="color: rgb(0,51,102);"><br /></span></p>

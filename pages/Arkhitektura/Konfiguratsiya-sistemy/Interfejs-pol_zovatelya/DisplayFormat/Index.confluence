@@ -1,0 +1,31 @@
+---
+layout: default
+title: DisplayFormat
+position: 9
+categories: 
+tags: 
+---
+
+<p>Формат отображения данных.</p><p>Формат отображения данных для указания способа отображения данных. Для описания способа ввода данных используется&nbsp;<ac:link><ri:page ri:content-title="EditMask" /></ac:link>.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>Базовый тип для формата отображения данных описан в разделе <ac:link><ri:page ri:content-title="BaseFormat" /></ac:link>.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp;&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "DisplayFormat",
+	"description": "Формат отображения данных",
+	"type": "object",
+	"properties": {
+		"BooleanFormat": {
+			"description": "Формат отображения логического значения",
+			"$ref": "http://demo.infinnity.ru:8081/display/MC/BooleanFormat"
+		},
+		"DateTimeFormat": {
+			"description": "Формат отображения даты/времени",
+			"$ref": "http://demo.infinnity.ru:8081/display/MC/DateTimeFormat"
+		},
+		"NumberFormat": {
+			"description": "Формат отображения числового значения",
+			"$ref": "http://demo.infinnity.ru:8081/display/MC/NumberFormat"
+		},
+		"ObjectFormat": {
+			"description": "Формат отображения объекта",
+			"$ref": "http://demo.infinnity.ru:8081/display/MC/ObjectFormat"
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><p>&nbsp;</p>

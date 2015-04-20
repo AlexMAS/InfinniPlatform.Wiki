@@ -1,0 +1,9 @@
+---
+layout: default
+title: Culture
+position: 0
+categories: 
+tags: 
+---
+
+<p><span>Культура (языковые и региональные настройки)</span><span style="color: rgb(42,42,42);">.</span></p><p><span style="color: rgb(42,42,42);">Культура предоставляет сведения о наименовании культуры, а также о формате представления значений для различных типов данных.</span></p><p><span style="color: rgb(42,42,42);"><br /></span></p><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td>Name: string</td><td><a href="http://tools.ietf.org/html/rfc5646">Наименование культуры</a>.</td></tr><tr><td colspan="1">Caption: string</td><td colspan="1">Отображаемое наименование культуры.</td></tr><tr><td colspan="1">DateTimeFormatInfo: <ac:link><ri:page ri:content-title="DateTimeFormatInfo" /></ac:link></td><td colspan="1">Сведения о формате представления даты и времени.</td></tr><tr><td colspan="1">NumberFormatInfo: <ac:link><ri:page ri:content-title="NumberFormatInfo" /></ac:link></td><td colspan="1">Сведения о формате представления числовых значений.</td></tr></tbody></table><p><span style="color: rgb(42,42,42);"><br /></span></p><p><span style="color: rgb(42,42,42);"><br /></span></p>

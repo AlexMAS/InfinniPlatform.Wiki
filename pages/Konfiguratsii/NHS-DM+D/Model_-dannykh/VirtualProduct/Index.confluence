@@ -1,0 +1,332 @@
+---
+layout: default
+title: VirtualProduct
+position: 1
+categories: 
+tags: 
+---
+
+<p>Virtual Medicinal Product (VMP) - виртуальное лекарственное средство - абстрактное понятие, которое описывает общие свойства одного или нескольких клинически эквивалентных лекарственных средств. Иначе говоря, это описание&nbsp;generic-продукта, которое не имеет информации о поставщике или торговой марке. Например, &quot;Atenolol 100 mg tablets&quot;, &quot;Generic Estracombi TTS transdermal patches&quot;, &quot;Fluorouracil 5% cream&quot;.</p><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">VirtualProduct</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Type": "Object",
+	"Caption": "Virtual Medicinal Product (VMP)",
+	"Description": "Виртуальное лекарственное средство",
+	"Properties": {
+		"Id": {
+			"Type": "String",
+			"Caption": "Identifier",
+			"Description": "Идентификатор виртуального лекарственного средства (VPID)"
+		},
+		"IdPrev": {
+			"Type": "String",
+			"Caption": "Previous identifier",
+			"Description": "Предыдущий идентификатор виртуального лекарственного средства (VPIDPREV)"
+		},
+		"IdDate": {
+			"Type": "DateTime",
+			"Caption": "Identifier date",
+			"Description": "Дата утверждения идентификатора виртуального лекарственного средства (VPIDDT)"
+		},
+		"Name": {
+			"Type": "String",
+			"Caption": "Name",
+			"Description": "Наименование виртуального лекарственного средства (NM)"
+		},
+		"NameShort": {
+			"Type": "String",
+			"Caption": "Abbreviated name",
+			"Description": "Краткое наименование виртуального лекарственного средства (ABBREVNM)"
+		},
+		"NamePrev": {
+			"Type": "String",
+			"Caption": "Previous name",
+			"Description": "Предыдущее наименование виртуального лекарственного средства (NMPREV)"
+		},
+		"NameDate": {
+			"Type": "DateTime",
+			"Caption": "Date of name applicability",
+			"Description": "Дата утверждения наименования виртуального лекарственного средства (NMDT)"
+		},
+		"NameSourceId": {
+			"Type": "Object",
+			"Caption": "Basis of name",
+			"Description": "Источник наименования виртуального лекарственного средства (BASISCD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "VirtualProductNameSourceLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"NameSourceIdPrev": {
+			"Type": "Object",
+			"Caption": "Basis of previous name",
+			"Description": "Предыдущий источник наименования виртуального лекарственного средства (BASIS_PREVCD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "VirtualProductNameSourceLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"NameChangeReasonId": {
+			"Type": "Object",
+			"Caption": "Reason for name change",
+			"Description": "Причина изменения наименования виртуального лекарственного средства (NMCHANGECD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "VirtualProductNameChangeReasonLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"VirtualTherapeuticMoietyId": {
+			"Type": "Object",
+			"Caption": "Virtual therapeutic moiety",
+			"Description": "Действующее вещество виртуального лекарственного средства (VTMID)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "VirtualTherapeuticMoiety",
+					"Inline": false
+				}
+			}
+		},
+		"SugarFreeId": {
+			"Type": "Object",
+			"Caption": "Sugar free",
+			"Description": "Признак отсутствия сахара в виртуальном лекарственном средстве (SUG_F)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "VirtualProductSugarFreeLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"GlutenFreeId": {
+			"Type": "Object",
+			"Caption": "Gluten free",
+			"Description": "Признак отсутствия глютена в виртуальном лекарственном средстве (GLU_F)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "VirtualProductGlutenFreeLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"PreservativeFreeId": {
+			"Type": "Object",
+			"Caption": "Preservative free",
+			"Description": "Признак отсутствия консервантов в виртуальном лекарственном средстве (PRES_F)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "VirtualProductPreservativeFreeLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"CfcFreeId": {
+			"Type": "Object",
+			"Caption": "CFC free",
+			"Description": "Признак отсутствия фреонов в виртуальном лекарственном средстве (CFC_F)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "VirtualProductCfcFreeLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"CombinationId": {
+			"Type": "Object",
+			"Caption": "Combination",
+			"Description": "Тип комбинирования виртуального лекарственного средства (COMBPRODCD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "ProductCombinationLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"PrescribingStatusId": {
+			"Type": "Object",
+			"Caption": "Prescribing status",
+			"Description": "Способ назначения виртуального лекарственного средства (PRES_STATCD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "VirtualProductPrescribingStatusLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"NonAvailabilityId": {
+			"Type": "Object",
+			"Caption": "Non-availability",
+			"Description": "Признак отсутствия виртуального лекарственного средства (NON_AVAILCD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "VirtualProductNonAvailabilityLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"NonAvailabilityDate": {
+			"Type": "DateTime",
+			"Caption": "Non-availability status date",
+			"Description": "Дата утверждения текущего кода признака отсутствия виртуального лекарственного средства (NON_AVAILDT)"
+		},
+		"DoseFormId": {
+			"Type": "Object",
+			"Caption": "Dose form",
+			"Description": "Форма дозировки виртуального лекарственного средства (DF_INDCD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "VirtualProductDoseFormLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"DoseFormSize": {
+			"Type": "Float",
+			"Caption": "Dose form size",
+			"Description": "Размер формы дозировки виртуального лекарственного средства (UDFS)"
+		},
+		"DoseFormUnitId": {
+			"Type": "Object",
+			"Caption": "Dose form units",
+			"Description": "Единица измерения размера формы дозировки виртуального лекарственного средства (UDFS_UOMCD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "UnitOfMeasureLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"DoseUnitId": {
+			"Type": "Object",
+			"Caption": "Unit dose unit of measure",
+			"Description": "Единица измерения одной дозы виртуального лекарственного средства (UNIT_DOSE_UOMCD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "UnitOfMeasureLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"ControlCategory": {
+			"Type": "Object",
+			"Caption": "Controlled Drug Prescribing Information",
+			"Description": "Категория контроля виртуального лекарственного средства (VIRTUAL_MED_PRODUCTS.CONTROL_DRUG_INFO)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "VirtualProductControlCategory",
+					"Inline": true
+				}
+			}
+		},
+		"Form": {
+			"Type": "Object",
+			"Caption": "Form Information",
+			"Description": "Физическая форма виртуального лекарственного средства (VIRTUAL_MED_PRODUCTS.DRUG_FORM)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "VirtualProductFormLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"Routes": {
+			"Type": "Array",
+			"Caption": "Drug Route Information",
+			"Description": "Способы применения виртуального лекарственного средства (VIRTUAL_MED_PRODUCTS.DRUG_ROUTE)",
+			"Items": {
+				"Type": "Object",
+				"TypeInfo": {
+					"DocumentLink": {
+						"ConfigId": "Dmd",
+						"DocumentId": "ProductRouteLoockup",
+						"Inline": false
+					}
+				}
+			}
+		},
+		"Ontologies": {
+			"Type": "Array",
+			"Caption": "Ontology Form & Route Information",
+			"Description": "Описание форм и способов применения виртуального лекарственного средства (VIRTUAL_MED_PRODUCTS.ONT_DRUG_FORM)",
+			"Items": {
+				"Type": "Object",
+				"TypeInfo": {
+					"DocumentLink": {
+						"ConfigId": "Dmd",
+						"DocumentId": "VirtualProductOntologyLoockup",
+						"Inline": false
+					}
+				}
+			}
+		},
+		"Ingredients": {
+			"Type": "Array",
+			"Caption": "Virtual Product Ingredient",
+			"Description": "Ингредиенты виртуального лекарственного средства (VIRTUAL_MED_PRODUCTS.VIRTUAL_PRODUCT_INGREDIENT)",
+			"Items": {
+				"Type": "Object",
+				"TypeInfo": {
+					"DocumentLink": {
+						"ConfigId": "Dmd",
+						"DocumentId": "VirtualProductIngredient",
+						"Inline": true
+					}
+				}
+			}
+		},
+		"ActualProducts": {
+			"Type": "Array",
+			"Caption": "Actual Medicinal Product",
+			"Description": "Существующие лекарственные средства виртуального лекарственного средства (ACTUAL_MEDICINAL_PRODUCTS.AMPS)",
+			"Items": {
+				"Type": "Object",
+				"TypeInfo": {
+					"DocumentLink": {
+						"ConfigId": "Dmd",
+						"DocumentId": "ActualProduct",
+						"Inline": false
+					}
+				}
+			}
+		},
+		"VirtualPacks": {
+			"Type": "Array",
+			"Caption": "Virtual Medicinal Product Pack",
+			"Description": "Упаковки виртуального лекарственного средства (VIRTUAL_MED_PRODUCT_PACK.VMPPS)",
+			"Items": {
+				"Type": "Object",
+				"TypeInfo": {
+					"DocumentLink": {
+						"ConfigId": "Dmd",
+						"DocumentId": "VirtualProductPack",
+						"Inline": false
+					}
+				}
+			}
+		},
+		"IsInvalid": {
+			"Type": "Bool",
+			"Caption": "Invalidity flag",
+			"Description": "Запись виртуальном лекарственном средстве является недействительной (INVALID)"
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

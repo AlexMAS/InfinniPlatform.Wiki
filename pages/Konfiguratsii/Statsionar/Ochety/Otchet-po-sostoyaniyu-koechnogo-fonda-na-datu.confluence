@@ -1,0 +1,9 @@
+---
+layout: default
+title: Отчет по состоянию коечного фонда на дату
+position: 1
+categories: 
+tags: 
+---
+
+<table><tbody><tr><th>&nbsp;</th><th>&nbsp;</th></tr><tr><td>Место вызова</td><td>Журнал &quot;Отделение стационара&quot;</td></tr><tr><td>Параметры</td><td><ul><li>Дата</li><li>Палата (множественный)</li><li>Койка (множественный)</li></ul></td></tr><tr><td>Заголовок</td><td>Состояние коечного фонда на [Дата]</td></tr><tr><td colspan="1">Колонки</td><td colspan="1"><ul><li>Палата</li><li>Койка</li><li>Состояние</li></ul></td></tr></tbody></table>

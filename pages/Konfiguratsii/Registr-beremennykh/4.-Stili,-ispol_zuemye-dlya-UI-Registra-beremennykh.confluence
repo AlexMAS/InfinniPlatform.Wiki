@@ -1,0 +1,9 @@
+---
+layout: default
+title: 4. Стили, используемые для UI Регистра беременных
+position: 3
+categories: 
+tags: 
+---
+
+<table><tbody><tr><th>Название</th><th>Описание</th></tr><tr><td>bold-label</td><td><p>Устанавливает <span style="color: rgb(0,0,0);">полужирное начертание для </span>label</p></td></tr><tr><td colspan="1">small-label</td><td colspan="1">Миниатюрные <span>label'ы</span></td></tr><tr><td colspan="1">big-label</td><td colspan="1"><span>Крупные </span><span>label'ы</span></td></tr><tr><td colspan="1">text-left</td><td colspan="1">Выравнивание по левому краю</td></tr><tr><td colspan="1">text-right</td><td colspan="1"><span>Выравнивание по правому краю</span></td></tr><tr><td colspan="1">text-center</td><td colspan="1"><span>Выравнивание по центру</span></td></tr></tbody></table><p>&nbsp;</p><p>Для того чтобы установить стиль, нужно добавить параметр <em><strong>Style</strong></em>.</p><p><em>Пример:</em></p><p>&nbsp;{<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color: rgb(160,82,45);">&quot;Label&quot;</span>: {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(160,82,45);">&quot;Text&quot;</span>:&nbsp;<span style="color: rgb(160,82,45);">&quot;Дата и время&quot;</span>,<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(160,82,45);">&quot;Style&quot;</span>:&nbsp;<span style="color: rgb(160,82,45);">&quot;bold-label big-label&quot;</span><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br />} - крупный&nbsp;<span>label с полужирным начертанием</span></p><p>&nbsp;</p>

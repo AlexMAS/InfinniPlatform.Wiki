@@ -1,0 +1,37 @@
+---
+layout: default
+title: TextBox
+position: 4
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(42,42,42);">Элемент представления&nbsp;для отображения или редактирования неформатированного текста.</span></p><p><span style="color: rgb(42,42,42);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(42,42,42);">Sketch</span></h4><p><ac:image><ri:attachment ri:filename="TextBox.png" /></ac:image></p><p>&nbsp; &nbsp;</p><h4>Methods</h4><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">GetMultiline(): boolean</td><td colspan="1">Возвращает значение, определяющее, разрешен ли многострочный текст.</td></tr><tr><td colspan="1">SetMultiline(boolean value)</td><td colspan="1">Устанавливает значение, определяющее, разрешен ли многострочный текст.</td></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">GetLineCount(): int</td><td colspan="1">Возвращает видимое количество строк.</td></tr><tr><td colspan="1">SetLineCount(int value)</td><td colspan="1">Устанавливает видимое количество строк.</td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Events</h4><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Schema &nbsp;</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "TextBox",
+  "description": "Элемент представления для отображения или редактирования неформатированного текста",
+  "type": "object",
+  "extends": {
+    "$ref": "http://demo.infinnity.ru:8081/display/MC/BaseTextElement"
+  },
+  "properties": {
+    "Multiline": {
+      "description": "Разрешен ли многострочный текст",
+      "type": "boolean",
+      "default": false
+    },
+    "LineCount": {
+      "description": "Видимое количество строк",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;&nbsp;</p><h4>Examples</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Label": "Фамилия",
+  "LabelFloating": true,
+  "Value": {
+    "PropertyBinding": {
+      "DataSource": "MainDataSource",
+      "Property": "LastName"
+    }
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

@@ -1,0 +1,27 @@
+---
+layout: default
+title: Действие открытия представления
+position: 1
+categories: 
+tags: 
+---
+
+<p>Действие открытия представления (см. раздел&nbsp;<ac:link><ri:page ri:content-title="OpenViewAction" /></ac:link>) предназначено для открытия указанного в метаданных представления. Реализация построителя для этого действия очень простая, несмотря на то, что вызывает достаточно много вопросов у разработчиков. В приведенном ниже примере показана реализация этого действия. Класс <ac:link><ri:page ri:content-title="Command" /></ac:link>, принимает в конструкции функцию, которая должна быть выполнена при вызове действия. В текущей реализации эта функция с помощью фабрики элементов создает и открывает соответствующее представление.</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[class OpenViewActionBuilder
+{
+	object Build(factory, view, metadataValue)
+	{
+		return new Command(function() {
+			ExecuteAction(factory, view, metadataValue);
+		});
+	}
+ 
+	void ExecuteAction(factory, view, metadataValue)
+	{
+		var linkView = factory.Build(view, metadataValue.View);
+ 
+		if (linkView != null)
+		{
+			linkView.OpenView();
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

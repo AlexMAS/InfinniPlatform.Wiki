@@ -1,0 +1,23 @@
+---
+layout: default
+title: BaseMessage
+position: 0
+categories: 
+tags: 
+---
+
+<p>Базовый класс для тела сообщения.</p><p>&nbsp;</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>В качестве источника сообщения (см. Source) передается ссылка на элемент представления, который был источником соответствующего сообщения. В явном виде данное значение использовать не рекомендуется, поскольку источником сообщения может быть кто угодно. Данное значение добавлено лишь для облегчения процесса отладки. С сообщением также может быть связано контекстно-зависимое значение (см. Value), которое может использоваться при обработке сообщения.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "BaseMessage",
+  "description": "Базовый класс для тела сообщения",
+  "type": "object",
+  "properties": {
+    "Source": {
+      "description": "Источник сообщения",
+      "type": "any"
+    },
+    "Value": {
+      "description": "Контекстно-зависимое значение",
+      "type": "any"
+    }
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

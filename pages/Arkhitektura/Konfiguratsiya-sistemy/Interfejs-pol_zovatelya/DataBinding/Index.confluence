@@ -1,0 +1,50 @@
+---
+layout: default
+title: DataBinding
+position: 8
+categories: 
+tags: 
+---
+
+<p>Контейнер для описания связи между элементом&nbsp;представления и данными.</p><p>&nbsp;</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>Базовый тип для привязки данных описан в разделе <ac:link><ri:page ri:content-title="BaseDataBinding" /></ac:link>.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "DataBinding",
+	"description": "Контейнер для описания связи между элементом представления и данными",
+	"type": "object",
+	"properties": {
+		"ObjectBinding": {
+			"description": "Описывает связь между элементом представления и произвольным объектом",
+			"$ref": "http://demo.infinnity.ru:8081/display/MC/ObjectBinding"
+		},
+		"PropertyBinding": {
+			"description": "Описывает связь между элементом представления и свойством источника данных",
+			"$ref": "http://demo.infinnity.ru:8081/display/MC/PropertyBinding"
+		},
+		"ParameterBinding": {
+			"description": "Описывает связь между элементом представления и параметром представления",
+			"$ref": "http://demo.infinnity.ru:8081/display/MC/ParameterBinding"
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #1</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"ObjectBinding": {
+		"Value": 3.14
+	}
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #2</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"PropertyBinding": {
+		"DataSource": "PatientsDataSource",
+		"Property": "$.Addresses"
+	}
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #3</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"PropertyBinding": {
+		"DataSource": "DiseasesDataSource",
+		"Property": "$.DisplayName"
+	}
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #4</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"ParameterBinding": {
+		"Parameter": "PatientId"
+	}
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #5</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"ParameterBinding": {
+		"Parameter": "Patient",
+		"Property": "Id"
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

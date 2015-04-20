@@ -1,0 +1,35 @@
+---
+layout: default
+title: NumberFormat
+position: 3
+categories: 
+tags: 
+---
+
+<p>Формат отображения числового значения.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p><span>Строка форматирования должна записываться в формате, который описан в разделе&nbsp;<ac:link><ri:page ri:content-title="NumberFormatting" /></ac:link></span><span>.</span></p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="expand"><ac:parameter ac:name="title">Methods</ac:parameter><ac:rich-text-body><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">GetFormat(): string</td><td colspan="1">Возвращает строку форматирования числового значения.</td></tr><tr><td colspan="1">SetFormat(string value)</td><td colspan="1">Устанавливает строку форматирования числового значения.</td></tr></tbody></table></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "NumberFormat",
+	"description": "Формат отображения числового значения",
+	"type": "object",
+	"extends": {
+		"$ref": "http://demo.infinnity.ru:8081/display/MC/BaseFormat"
+	},
+	"properties": {
+		"Format": {
+			"description": "Строка форматирования числового значения",
+			"type": "string",
+			"required": true,
+			"default": "n"
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Format": "n3"
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><h4>Примеры форматирования</h4><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[// Given
+var value = 123.4567;
+var target = new NumberFormat();
+target.SetFormat("n3");
+
+// When
+var result = target.Format(value);
+
+// Then
+Assert.AreEqual("123.457", result); // en-US]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

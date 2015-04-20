@@ -1,0 +1,25 @@
+---
+layout: default
+title: ApplicationUserLogin
+position: 3
+categories: 
+tags: 
+---
+
+<p>Имя входа пользователя системы у внешнего провайдера.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">DataSchema</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Type": "Object",
+	"Caption": "Имя входа пользователя системы у внешнего провайдера",
+	"Properties": {
+		"Provider": {
+			"Type": "String",
+			"Caption": "Провайдер входа в систему"
+		},
+		"ProviderKey": {
+			"Type": "String",
+			"Caption": "Ключ, представляющий имя входа для провайдера"
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Provider": "Google",
+	"ProviderKey": "https://www.google.com/accounts/o8/id?id=AIxOawlYjDIea-6N19tDINhYaNLCxWiJ7o8Wc_o"
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

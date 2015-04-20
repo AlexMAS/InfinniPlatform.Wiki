@@ -1,0 +1,26 @@
+---
+layout: default
+title: DataGridGroup
+position: 
+categories: 
+tags: 
+---
+
+<p>Группа таблицы.</p><p>&nbsp; &nbsp;</p><h4>Sketch</h4><p><ac:image><ri:attachment ri:filename="DataGrid_SingleSelect_Group.png" /></ac:image>&nbsp; &nbsp;<ac:image><ri:attachment ri:filename="DataGrid_MultiSelect_Group.png" /></ac:image></p><p>&nbsp; &nbsp;</p><h4>Methods</h4><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">GetValueProperty(): string</td><td colspan="1">Возвращает свойство элемента источника данных, которое используется для группировки.</td></tr><tr><td colspan="1">SetValueProperty(string value)</td><td colspan="1">Устанавливает свойство элемента источника данных, которое используется для группировки.</td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Events</h4><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "DataGridGroup",
+  "description": "Группа таблицы",
+  "type": "object",
+  "properties": {
+    "Name": {
+      "description": "Наименование группы",
+      "type": "string"
+    },
+    "ValueProperty": {
+      "description": "Свойство элемента источника данных, которое используется для группировки",
+      "type": "string",
+      "required": true
+    }
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Examples</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "ValueProperty": "Country"
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

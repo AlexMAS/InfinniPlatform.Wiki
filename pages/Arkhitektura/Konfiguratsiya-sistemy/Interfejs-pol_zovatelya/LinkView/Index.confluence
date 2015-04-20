@@ -1,0 +1,32 @@
+---
+layout: default
+title: LinkView
+position: 11
+categories: 
+tags: 
+---
+
+<p>Контейнер для описания ссылки на представление.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>Базовый тип для ссылки на представление описан в разделе <ac:link><ri:page ri:content-title="BaseLinkView" /></ac:link>.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp;&nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "LinkView",
+  "description": "Контейнер для описания ссылки на представление",
+  "type": "object",
+  "properties": {
+    "ExistsView": {
+      "description": "Ссылка на существующее представление",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/ExistsView"
+    },
+    "AutoView": {
+      "description": "Автоматически генерируемое представление",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/AutoView"
+    },
+    "InlineView": {
+      "description": "Встроенное представление",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/InlineView"
+    },
+    "ChildView": {
+      "description": "Ссылка на дочернее представление",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/ChildView"
+    }
+  },
+  "additionalProperties": false
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

@@ -1,0 +1,127 @@
+---
+layout: default
+title: GridPanel
+position: 3
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(0,51,102);">Контейнер элементов представления в виде сетки.</span></p><p><span style="color: rgb(0,51,102);"><br /></span></p><p><span style="color: rgb(0,51,102);"><ac:image><ri:attachment ri:filename="GridPanel.png" /></ac:image><br /></span></p><p>&nbsp;</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>Сетка должна удовлетворять следующим условиям:</p><ul><li><span>Границы строк и ячеек не отображаются.</span></li><li>Сетка занимает все доступное пространство по ширине.</li><li>Высота строки должна быть равна высоте самого большого элемента.</li><li>Ячейки могут размещать внутри себя любые элементы представления, в том числе другие сетки.</li></ul></ac:rich-text-body></ac:structured-macro><p>&nbsp;&nbsp;</p><ac:structured-macro ac:name="expand"><ac:parameter ac:name="title">Methods</ac:parameter><ac:rich-text-body><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">GetColumns(): integer</td><td colspan="1">Возвращает количество колонок.</td></tr><tr><td colspan="1">SetColumns(integer value)</td><td colspan="1">Устанавливает количество колонок.</td></tr><tr><td colspan="1">AddRow(): <ac:link><ri:page ri:content-title="GridPanelRow" /></ac:link></td><td colspan="1">Добавляет строку.</td></tr><tr><td colspan="1">GetRows(): array&lt;<ac:link><ri:page ri:content-title="GridPanelRow" /></ac:link>&gt;</td><td colspan="1">Возвращает список строк.</td></tr></tbody></table></ac:rich-text-body></ac:structured-macro><ac:structured-macro ac:name="expand"><ac:parameter ac:name="title">Events</ac:parameter><ac:rich-text-body><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr></tbody></table></ac:rich-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span><span style="color: rgb(0,51,102);">&nbsp;</span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "GridPanel",
+	"description": "Контейнер элементов представления в виде сетки",
+	"type": "object",
+	"extends": {
+		"$ref": "http://demo.infinnity.ru:8081/display/MC/Element"
+	},
+	"properties": {
+		"Columns": {
+			"description": "Количество колонок",
+			"type": "integer",
+			"default": 12
+		},
+		"Rows": {
+			"description": "Список строк",
+			"type": "array",
+			"items": {
+				"$ref": "http://demo.infinnity.ru:8081/display/MC/GridPanelRow"
+			}
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);">&nbsp;</span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Name": "GridPanel1",
+	"Rows": [
+		{
+			"Cells": [
+				{
+					"ColumnSpan": 6,
+					"Items": [
+						{
+							"Label": {
+								"Name": "FirstNameLabel",
+								"Text": "First Name:"
+							}
+						}
+					]
+				},
+				{
+					"ColumnSpan": 6,
+					"Items": [
+						{
+							"TextBox": {
+								"Name": "FirstNameEditor",
+								"Value": {
+									"PropertyBinding": {
+										"DataSource": "PatientDataSource",
+										"Property": "FirstName"
+									}
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"Cells": [
+				{
+					"ColumnSpan": 6,
+					"Items": [
+						{
+							"Label": {
+								"Name": "MiddleNameLabel",
+								"Text": "Middle Name:"
+							}
+						}
+					]
+				},
+				{
+					"ColumnSpan": 6,
+					"Items": [
+						{
+							"TextBox": {
+								"Name": "MiddleNameEditor",
+								"Value": {
+									"PropertyBinding": {
+										"DataSource": "PatientDataSource",
+										"Property": "MiddleName"
+									}
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"Cells": [
+				{
+					"ColumnSpan": 6,
+					"Items": [
+						{
+							"Label": {
+								"Name": "LastNameLabel",
+								"Text": "Last Name:"
+							}
+						}
+					]
+				},
+				{
+					"ColumnSpan": 6,
+					"Items": [
+						{
+							"TextBox": {
+								"Name": "LastNameEditor",
+								"Value": {
+									"PropertyBinding": {
+										"DataSource": "PatientDataSource",
+										"Property": "LastName"
+									}
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>Ниже приведена схема расположения элементов для приведенного выше примера.</p><p>&nbsp;</p><p><ac:image><ri:attachment ri:filename="GridPanel_Ex.png" /></ac:image></p><p>&nbsp;</p><p>&nbsp;</p>

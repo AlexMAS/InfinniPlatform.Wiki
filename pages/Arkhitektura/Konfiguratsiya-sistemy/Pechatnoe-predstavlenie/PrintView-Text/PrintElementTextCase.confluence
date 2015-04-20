@@ -1,0 +1,19 @@
+---
+layout: default
+title: PrintElementTextCase
+position: 0
+categories: 
+tags: 
+---
+
+<p>Регистр символов текста элемента печатного представления.</p><p>&nbsp; &nbsp;</p><h4>Type</h4><p>enum</p><p>&nbsp;&nbsp;</p><h4>Description &nbsp;</h4><table><tbody><tr><th>Value</th><th>Description</th></tr><tr><td colspan="1">Normal</td><td colspan="1"><p>Текст элемента печатного представления остается без изменений.</p><ac:structured-macro ac:name="info"><ac:rich-text-body><p><span style="color: rgb(0,0,0);">Пример: &quot;Какой-то текст&quot; &rarr; &quot;Какой-то текст&quot;.</span></p></ac:rich-text-body></ac:structured-macro></td></tr><tr><td colspan="1">SentenceCase</td><td colspan="1"><p><span><span>Текст элемента печатного представления </span></span>интерпретируется, как предложение, которое должно начинаться с заглавной буквы.</p><ac:structured-macro ac:name="info"><ac:rich-text-body><p><span style="color: rgb(0,0,0);">Пример: &quot;текст некоторого предложения&quot; &rarr; &quot;Текст некоторого предложения&quot;.</span></p></ac:rich-text-body></ac:structured-macro></td></tr><tr><td colspan="1">Lowercase</td><td colspan="1"><p><span>Текст элемента печатного представления </span>приводится к нижнему регистру.</p><ac:structured-macro ac:name="info"><ac:rich-text-body><p><span style="color: rgb(0,0,0);">Пример: &quot;КАКОЙ-ТО ТЕКСТ&quot; </span><span style="color: rgb(0,0,0);">&rarr;</span><span style="color: rgb(0,0,0);"> &quot;какой-то текст&quot;.</span></p></ac:rich-text-body></ac:structured-macro></td></tr><tr><td colspan="1">Uppercase</td><td colspan="1"><p><span>Текст элемента печатного представления </span><span>приводится к верхнему регистру.</span></p><ac:structured-macro ac:name="info"><ac:rich-text-body><p><span style="color: rgb(0,0,0);">Пример: &quot;какой-то текст&quot; </span><span style="color: rgb(0,0,0);">&rarr;</span><span style="color: rgb(0,0,0);"> &quot;КАКОЙ-ТО ТЕКСТ&quot;.</span></p></ac:rich-text-body></ac:structured-macro></td></tr><tr><td colspan="1">ToggleCase</td><td colspan="1"><p><span>Текст элемента печатного представления </span><span>меняет регистр символов.</span></p><ac:structured-macro ac:name="info"><ac:rich-text-body><p><span style="color: rgb(0,0,0);">Пример: &quot;какой-то ТЕКСТ&quot; </span><span style="color: rgb(0,0,0);">&rarr;</span><span style="color: rgb(0,0,0);"> &quot;КАКОЙ-ТО текст&quot;, &quot;КАКОЙ-ТО текст&quot; </span><span style="color: rgb(0,0,0);">&rarr;</span><span style="color: rgb(0,0,0);"> &quot;какой-то ТЕКСТ&quot;.</span></p></ac:rich-text-body></ac:structured-macro></td></tr></tbody></table><p>&nbsp; &nbsp;&nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "PrintElementTextCase",
+  "description": "Регистр символов текста элемента печатного представления",
+  "enum": [
+    "Normal",
+    "SentenceCase",
+    "Lowercase",
+    "Uppercase",
+    "ToggleCase"
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Example</h4><p><ac:image><ri:attachment ri:filename="PrintElementTextCase.PNG" /></ac:image></p><p>&nbsp;</p><p>&nbsp;</p>

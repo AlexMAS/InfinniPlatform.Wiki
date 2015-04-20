@@ -1,0 +1,168 @@
+---
+layout: default
+title: Сервисы подсистемы авторизации (Authorization API)
+position: 6
+categories: 
+tags: 
+---
+
+<h3>Аутентификация (Вход в систему) пользователя с использованием внутреннего хранилища пользователей системы</h3><table><tbody><tr><th>Атрибут</th><th>Реализация</th></tr><tr><td>Метод запроса с использованием API на C#</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[new SignInApi().SignInInternal("Admin", "Admin", false);]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>REST запрос с клиента</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[POST http://<serverName>:<port>/RestfulApi/StandardApi/authorization/signin
+
+]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Form Data</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "id" : null,
+    "changesObject" : {
+        "UserName" : "TestUser",
+        "Password" : "Password1",
+        "Remember" : true
+	 },
+    "replace" : false
+}]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>Возвращаемый результат</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Результат выполнения запроса</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[ ]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table><h3>Выход из системы пользователя с использованием внутреннего хранилища пользователей</h3><table><tbody><tr><th>Атрибут</th><th>Реализация</th></tr><tr><td>Метод запроса с использованием API на C#</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[new SignInApi().SignOutInternal();]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>REST запрос с клиента</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[POST http://<serverName>:<port>/RestfulApi/StandardApi/authorization/signout]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Form Data</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "id" : null,
+    "changesObject" : {
+     },
+    "replace" : false
+}]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>Возвращаемый результат</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Результат выполнения запроса</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[ ]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table><h3>Добавление нового пользователя системы</h3><table><tbody><tr><th>Атрибут</th><th>Реализация</th></tr><tr><td>Метод запроса с использованием API на C#</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[new AclApi().AddUser("TestUser", "Password1");]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>REST запрос с клиента</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[POST http://<serverName>:<port>/RestfulApi/StandardApi/authorization/adduser]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Body</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "id" : null,
+    "changesObject" : {
+        "UserName" : "TestUser",
+        "Password" : "Password1"
+    },
+    "replace" : false
+}]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>Возвращаемый результат</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Результат выполнения запроса</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "ValidationMessage" : "User created successfully",
+    "IsValid" : true
+}]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table><h3>Удаление существующего пользователя</h3><table><tbody><tr><th>Атрибут</th><th>Реализация</th></tr><tr><td>Метод запроса с использованием API на C#</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[new AclApi().RemoveUser("TestUser");]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>REST запрос с клиента</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[POST http://<serverName>:<port>/RestfulApi/StandardApi/authorization/removeuser]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Body</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "id" : null,
+    "changesObject" : {
+        "UserName" : "TestUser"        
+    },
+    "replace" : false
+}]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>Возвращаемый результат</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Результат выполнения запроса</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "IsValid": true,
+    "ValidationMessage": "User deleted"
+}]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table><h3>Получение списка ролей всех пользователей системы</h3><table><tbody><tr><td>Метод запроса с использованием API на C#</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[new AclApi().GetUserRoles();]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>REST запрос с клиента</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[POST http://<serverName>:<port>/RestfulApi/StandardApi/authorization/getuserroles ]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Body</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "id" : null,
+    "changesObject" : null,
+    "replace" : false
+}]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>Возвращаемый результат</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Результат выполнения запроса</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[[{
+    "Name": "TestRole",
+    "Caption": "TestRole",
+    "Description": "TestRole",
+    "Id": "55cc763e-4649-40f7-a7db-3d87f6bfddea",
+    "TimeStamp": "2014-10-14T16:16:02.2766601+06:00"
+}]]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table><h3>Удаление роли у пользователя</h3><table><tbody><tr><td>Метод запроса с использованием API на C#</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[new AclApi().RemoveUserRole("TestUser","TestRole");]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>REST запрос с клиента</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[POST http://<serverName>:<port>/RestfulApi/StandardApi/authorization/removeuserrole ]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Body</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "id": null,
+    "changesObject": {
+        "UserName": "TestUser",
+        "RoleName": "TestRole"
+    },
+    "replace": false
+}]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>Возвращаемый результат</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Результат выполнения запроса</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"IsValid" : "true",
+	"ValidationMessage" : "user deleted."
+}]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table><h3>Создание новой роли</h3><table><tbody><tr><td>Метод запроса с использованием API на C#</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[new AclApi().AddRole("TestRole","Тестовый заголовок","Тестовое описание");]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>REST запрос с клиента</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[POST http://<serverName>:<port>/RestfulApi/StandardApi/authorization/addrole]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Body</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "id" : null,
+    "changesObject" : {
+        "RoleName" : "TestRole",
+        "RoleCaption" : "TestRole",
+        "RoleDescription" : "TestRole"
+    },
+    "replace" : false
+}]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>Возвращаемый результат</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Результат выполнения запроса</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"IsValid" : "true",
+	"ValidationMessage" : "Role added."
+}]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table><h3>Удалить существующую роль</h3><table><tbody><tr><td>Метод запроса с использованием API на C#</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[new AclApi().RemoveRole("TestRole");]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>REST запрос с клиента</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[POST http://<serverName>:<port>/RestfulApi/StandardApi/authorization/addrole]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Body</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "id" : null,
+    "changesObject" : {
+        "RoleName" : "TestRole",
+    },
+    "replace" : false
+}]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>Возвращаемый результат</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Результат выполнения запроса</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"IsValid" : "true",
+	"ValidationMessage" : "Role removed."
+}]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table><h3>Предоставление доступа</h3><table><tbody><tr><td>Метод запроса с использованием API на C#</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[new AclApi().GrantAccess("TestUser", "Demography", "Patient");]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>REST запрос с клиента</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[POST http://<serverName>:<port>/RestfulApi/StandardApi/authorization/applyaccess ]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Body</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "id": null,
+    "changesObject": {
+        "Configuration": "Demography",
+        "Metadata": "Patient",
+        "Action": null,
+        "RecordId": null,
+        "UserName": "TestUser1",
+        "Result": true
+    },
+    "replace": false
+}]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>Возвращаемый результат</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Результат выполнения запроса</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "Id": "36445adf-95e0-4ca0-984d-7211422dc1cf",
+    "Configuration": "Demography",
+	"Metadata": "Patient",
+    "UserName": "TestUser1",
+    "Result": true,
+    "Version": "version_restfulapi"
+}]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table><h3>Запрет доступа</h3><table><tbody><tr><td>Метод запроса с использованием API на C#</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[new AclApi().DenyAccess("TestUser", "Demography", "Patient");]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>REST запрос с клиента</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[POST http://<serverName>:<port>/RestfulApi/StandardApi/authorization/applyaccess ]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Body</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "id": null,
+    "changesObject": {
+        "Configuration": "Demography",
+        "Metadata": "Patient",
+        "Action": null,
+        "RecordId": null,
+        "UserName": "TestUser1",
+        "Result": false
+    },
+    "replace": false
+}]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>Возвращаемый результат</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Результат выполнения запроса</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "Id": "36445adf-95e0-4ca0-984d-7211422dc1cf",
+    "Configuration": "Demography",
+	"Metadata": "Patient",
+    "UserName": "TestUser1",
+    "Result": false,
+    "Version": "version_restfulapi"
+}]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table><h3>Запрет доступа для всех пользователей</h3><table><tbody><tr><td>Метод запроса с использованием API на C#</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[new AclApi().DenyAccessAll("Demography", "Patient");]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>REST запрос с клиента</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[POST http://<serverName>:<port>/RestfulApi/StandardApi/authorization/applyaccess ]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Body</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "id": null,
+    "changesObject": {
+        "Configuration": "Demography",
+        "Metadata": "Patient",
+        "Action": null,
+        "RecordId": null,
+        "UserName": "Default",
+        "Result": false
+    },
+    "replace": false
+}]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>Возвращаемый результат</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Результат выполнения запроса</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "Id": "36445adf-95e0-4ca0-984d-7211422dc1cf",
+    "Configuration": "Demography",
+	"Metadata": "Patient",
+    "UserName": "Default",
+    "Result": false,
+    "Version": "version_restfulapi"
+}]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table><ac:structured-macro ac:name="info"><ac:parameter ac:name="title">Внимание!</ac:parameter><ac:rich-text-body><p>Предоставление доступа и запрет доступа для ролей осуществляется аналогично предоставлению доступа и запрета доступа для пользователей, только вместо имени пользователя указывается имя роли.</p></ac:rich-text-body></ac:structured-macro><h3>Предоставление роли администратора</h3><table><tbody><tr><td>Метод запроса с использованием API на C#</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[new AdminApi().GrantAdminRole("TestUser");]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>REST запрос с клиента</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[POST http://<serverName>:<port>/RestfulApi/StandardApi/authorization/grantadminrole ]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Body</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "id": null,
+    "changesObject": {
+        "UserName": "TestUser"
+    },
+    "replace": false
+}]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>Возвращаемый результат</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Результат выполнения запроса</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "Id": "0699e727-907c-4720-9579-d641fa4e34f6",
+    "UserName": "TestUser",
+    "Version": "version_restfulapi"
+}]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table><h3>Запрет роли администратора</h3><table><tbody><tr><td>Метод запроса с использованием API на C#</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[new AdminApi().DenyAdminRole("TestUser");]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>REST запрос с клиента</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[POST http://<serverName>:<port>/RestfulApi/StandardApi/authorization/denyadminrole ]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Body</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "id": null,
+    "changesObject": {
+        "UserName": "TestUser"
+    },
+    "replace": false
+}]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>Возвращаемый результат</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Результат выполнения запроса</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "Id": "0699e727-907c-4720-9579-d641fa4e34f6",
+    "UserName": "TestUser",
+    "Version": "version_restfulapi"
+}]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table><h3>Смена пароля пользователя</h3><table><tbody><tr><td>Метод запроса с использованием API на C#</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[new SignInApi().ChangePassword("TestUser","Password1","Password2");]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>REST запрос с клиента</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Фрагмент кода</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[POST http://<serverName>:<port>/RestfulApi/StandardApi/authorization/changepassword ]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Body</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "id": null,
+    "changesObject": {
+        "UserName": "TestUser",
+        "OldPassword": "Password1",
+        "NewPassword": "Password2"
+    },
+    "replace": false
+}]]></ac:plain-text-body></ac:structured-macro></td></tr><tr><td>Возвращаемый результат</td><td><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Результат выполнения запроса</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+    "ValidationMessage": "User password updated successfully",
+    "IsValid": true
+}]]></ac:plain-text-body></ac:structured-macro></td></tr></tbody></table>

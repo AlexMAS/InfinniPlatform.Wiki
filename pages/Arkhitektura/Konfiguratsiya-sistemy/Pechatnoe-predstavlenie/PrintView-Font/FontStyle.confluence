@@ -1,0 +1,17 @@
+---
+layout: default
+title: FontStyle
+position: 1
+categories: 
+tags: 
+---
+
+<p>Стиль шрифта.</p><p>&nbsp; &nbsp;&nbsp;</p><ac:structured-macro ac:name="info"><ac:rich-text-body><p>Некоторые шрифты могут не поддерживать определенные стили шрифта. Например, курсив - это специальный шрифт имитирующий рукописный, наклонный же образуется путем программного (искусственного) наклона обычных знаков вправо. Таким образом, наклонный обычно используется для имитации курсива в случае, если у используемого шрифта отсутствует курсивное начертание.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Type</h4><p>enum</p><p>&nbsp; &nbsp;</p><h4>Description &nbsp;</h4><table><tbody><tr><th>Value</th><th>Description</th></tr><tr><td colspan="1">Normal</td><td colspan="1"><p>Обычный.</p></td></tr><tr><td colspan="1">Italic</td><td colspan="1">Курсив.</td></tr><tr><td colspan="1">Oblique</td><td colspan="1"><p>Наклонный.</p></td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "FontStyle",
+  "description": "Стиль шрифта",
+  "enum": [
+    "Normal",
+    "Italic",
+    "Oblique"
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Example</h4><p><ac:image><ri:attachment ri:filename="FontStyle.PNG" /></ac:image></p><p>&nbsp;</p><p>&nbsp;</p>

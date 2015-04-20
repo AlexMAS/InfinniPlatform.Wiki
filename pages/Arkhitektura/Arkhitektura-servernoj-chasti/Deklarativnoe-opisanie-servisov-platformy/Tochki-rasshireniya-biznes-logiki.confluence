@@ -1,0 +1,19 @@
+---
+layout: default
+title: Точки расширения бизнес-логики
+position: 
+categories: 
+tags: 
+---
+
+<p>Точки расширения бизнес-логики используются для вызова custom end-user business logic в точках расширения логики зарегистрированных типов сервисов. Зарегистрированные типы сервисов и список их точек расширения см. <ac:link><ri:page ri:content-title="Декларативное описание сервисов платформы" /><ac:plain-text-link-body><![CDATA[здесь]]></ac:plain-text-link-body></ac:link></p><p>Каждый тип обработчика имеет свой список точек расширения бизнес-логики, каждая из которых будет вызываться в нужный момент.</p><p>Для каждой точки расширения может быть указан или не указан свой <strong><em>скриптовый обработчик</em></strong>. Если скриптовый обработчик для точки расширения указан - он будет вызван, если не указан, точка расширения будет проигнорирована.</p><p>В текущей реализации возможна установка пользовательских скриптовых расширений только на языке C#.</p><p>При вызове скриптового обработчика он получает в параметрах так называемый <em><strong>контекст исполнения</strong></em>. Существует несколько основных типов контекста исполнения. Все они описываются в сборке InfinniPlatform.API</p><table><tbody><tr><th>Тип</th><th>Предназначение</th></tr><tr><td>FilterEventContext</td><td>Контекст обработчика фильтрации событий</td></tr><tr><td colspan="1">ApplyContext</td><td colspan="1">Контекст обработчика перехода изменяемого объекта из состояния в состояние</td></tr><tr><td colspan="1">ApplyResultContext</td><td colspan="1">Контекст подготовки результата обработки изменяемого объекта</td></tr><tr><td colspan="1">SearchContext</td><td colspan="1">Контекст поиска объекта по указанным параметрам</td></tr><tr><td colspan="1">UploadContext</td><td colspan="1">Контекст загрузки файлового контента</td></tr></tbody></table><p>Каждый из указанных выше типов контекста имеет свой набор предустановленных свойств и методов, которые необходимы будут прикладному разработчику для написания кода данного скриптового обработчика точки расширения.</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Пример скриптового обработчика C#</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[    public sealed class ActionUnitSaveOrganization 
+    {
+        public void Action(IApplyContext target)
+        {
+            target.Item.Token = Guid.NewGuid().ToString();
+            if (target.Item.GetProperty("Status") == null)
+            {
+                target.Item.PublicId = Guid.NewGuid().ToString();
+            }
+        }
+    }]]></ac:plain-text-body></ac:structured-macro>

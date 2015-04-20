@@ -1,0 +1,18 @@
+---
+layout: default
+title: PrintElementRotation
+position: 6
+categories: 
+tags: 
+---
+
+<p>Поворот элемента печатного представления.</p><p>&nbsp; &nbsp;</p><h4>Type</h4><p>enum</p><p>&nbsp; &nbsp;</p><h4>Description &nbsp;</h4><table><tbody><tr><th>Value</th><th>Description</th></tr><tr><td colspan="1">Rotate0</td><td colspan="1">Без поворота.</td></tr><tr><td colspan="1">Rotate90</td><td colspan="1">Поворот на 90&deg; по часовой стрелке.</td></tr><tr><td colspan="1">Rotate180</td><td colspan="1"><span>Поворот на 180</span><span>&deg; по часовой стрелке.</span></td></tr><tr><td colspan="1">Rotate270</td><td colspan="1"><span>Поворот на 270</span><span>&deg; по часовой стрелке.</span></td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "PrintElementRotation",
+  "description": "Поворот элемента печатного представления",
+  "enum": [
+    "Rotate0",
+    "Rotate90",
+    "Rotate180",
+    "Rotate270"
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;&nbsp;</p><h4>Example</h4><p><ac:image><ri:attachment ri:filename="PrintElementRotation.PNG" /></ac:image></p><p>&nbsp;</p><p>&nbsp;</p>

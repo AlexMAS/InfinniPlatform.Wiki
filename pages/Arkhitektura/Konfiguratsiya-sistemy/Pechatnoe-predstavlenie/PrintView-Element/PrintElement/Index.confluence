@@ -1,0 +1,52 @@
+---
+layout: default
+title: PrintElement
+position: 3
+categories: 
+tags: 
+---
+
+<p>Элемент печатного представления.</p><p>&nbsp; &nbsp;</p><h4>Type</h4><p>object</p><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "PrintElement",
+  "description": "Элемент печатного представления",
+  "type": "object",
+  "properties": {
+    "Name": {
+      "description": "Наименование элемента",
+      "type": "string",
+      "minLength": 1
+    },
+    "Style": {
+      "description": "Наименование стиля",
+      "type": "string",
+      "minLength": 1
+    },
+    "Font": {
+      "description": "Настройки шрифта",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/Font"
+    },
+    "Foreground": {
+      "description": "Цвет содержимого",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/Color"
+    },
+    "Background": {
+      "description": "Цвет фона содержимого",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/Color"
+    },
+    "TextCase": {
+      "description": "Регистр символов текста",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElementTextCase"
+    },
+    "Visibility": {
+      "description": "Видимость элемента печатного представления",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElementVisibility",
+      "default": "Source"
+    },
+    "Source": {
+      "description": "Источник данных",
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

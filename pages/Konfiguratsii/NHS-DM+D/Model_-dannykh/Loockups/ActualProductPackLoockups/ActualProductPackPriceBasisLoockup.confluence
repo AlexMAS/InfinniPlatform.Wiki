@@ -1,0 +1,20 @@
+---
+layout: default
+title: ActualProductPackPriceBasisLoockup
+position: 5
+categories: 
+tags: 
+---
+
+<p>Основание ценообразования упаковки существующего лекарственного средства.</p><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">ActualProductPackPriceBasisLoockup</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Type": "Object",
+	"Caption": "Actual product pack price basis",
+	"Description": "Основание ценообразования упаковки существующего лекарственного средства (LOOKUP.PRICE_BASIS)",
+	"TypeInfo": {
+		"DocumentLink": {
+			"ConfigId": "Dmd",
+			"DocumentId": "LoockupEntry",
+			"Inline": true
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

@@ -1,0 +1,24 @@
+---
+layout: default
+title: PrintElementListMarkerStyle
+position: 4
+categories: 
+tags: 
+---
+
+<p>Стиль маркера элементов списка.</p><p>&nbsp; &nbsp;</p><h4>Type</h4><p>object</p><p>&nbsp; &nbsp;</p><h4>Description &nbsp;</h4><table><tbody><tr><th>Value</th><th>Description</th></tr><tr><td colspan="1">None</td><td colspan="1"><p><span style="color: rgb(42,42,42);">Маркер не отображается.</span></p></td></tr><tr><td colspan="1">Disc</td><td colspan="1"><span style="color: rgb(42,42,42);">Маркер отображается в виде </span><span style="color: rgb(42,42,42);">закрашенного круга.</span></td></tr><tr><td colspan="1">Circle</td><td colspan="1"><span style="color: rgb(42,42,42);"><span style="color: rgb(42,42,42);">Маркер отображается в виде </span>незакрашенного круга.</span></td></tr><tr><td colspan="1">Square</td><td colspan="1"><p><span style="color: rgb(42,42,42);"><span style="color: rgb(42,42,42);">Маркер отображается в виде незакрашенного квадрата.</span></span></p></td></tr><tr><td colspan="1">Box</td><td colspan="1"><p><span style="color: rgb(42,42,42);"><span>Маркер отображается в виде закрашенного квадрата.</span></span></p></td></tr><tr><td colspan="1">LowerRoman</td><td colspan="1">Маркер отображается строчными римскими цифрами (например, i, ii, iii, iv, v).</td></tr><tr><td colspan="1">UpperRoman</td><td colspan="1"><span>Маркер отображается прописными римскими цифрами (например, I, II, III, IV, V).</span></td></tr><tr><td colspan="1">LowerLatin</td><td colspan="1"><span>Маркер отображается строчными латинскими буквами (например, a, b, c, d, e, f).</span></td></tr><tr><td colspan="1">UpperLatin</td><td colspan="1"><span>Маркер отображается прописными латинскими буквами (например, A, B, C, D, E, F).</span></td></tr><tr><td colspan="1">Decimal</td><td colspan="1"><span>Маркер отображается арабскими цифрами (например, 1, 2, 3, 4, 5).</span></td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "PrintElementListMarkerStyle",
+  "description": "Стиль маркера элементов списка",
+  "enum": [
+    "None",
+    "Disc",
+    "Circle",
+    "Square",
+    "Box",
+    "LowerRoman",
+    "UpperRoman",
+    "LowerLatin",
+    "UpperLatin",
+    "Decimal"
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Example</h4><p><ac:image><ri:attachment ri:filename="PrintElementListMarkerStyle.png" /></ac:image></p><p>&nbsp;</p><p>&nbsp;</p>

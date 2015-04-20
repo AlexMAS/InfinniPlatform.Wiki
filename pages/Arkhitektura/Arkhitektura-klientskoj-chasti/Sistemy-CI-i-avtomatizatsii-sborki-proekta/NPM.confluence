@@ -1,0 +1,9 @@
+---
+layout: default
+title: NPM
+position: 
+categories: 
+tags: 
+---
+
+<p><a href="http://npmjs.org/">Npm</a><span style="color: rgb(0,0,0);">&nbsp;&mdash; это пакетный менеджер&nbsp;</span><a href="http://nodejs.org/">Node.js</a><span style="color: rgb(0,0,0);">. С его помощью можно управлять модулями и зависимостями node. Npm устанавливается вместе с Node.js.</span></p><p><span style="color: rgb(0,0,0);">Npm загружает все модули, необходимые для развертывания и сборки UI платформы. Список этих модулей находится в файле package.json в корне проекта.</span></p><p>&nbsp;</p><p>Для загрузки всех описанных в package.json модулей используется команда:</p><ac:structured-macro ac:name="code"><ac:plain-text-body><![CDATA[npm install]]></ac:plain-text-body></ac:structured-macro><p>Если требуется загрузить пакет не указанный в общем списке - используется та же команда с указанием имени пакета. Например:</p><ac:structured-macro ac:name="code"><ac:plain-text-body><![CDATA[npm install grunt]]></ac:plain-text-body></ac:structured-macro><p>или если модуль должен быть установлен глобально в системе, то:</p><ac:structured-macro ac:name="code"><ac:plain-text-body><![CDATA[npm install -g grunt]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>В случае, если требуется внести загружаемый модуль в общий список в package.json, то можно добавить его вручную. При этом обязательно нужно указать версию модуля.</p><p>Также возможно автоматически внести модуль в packege.json при первой установке, если указать для &quot;npm install&quot; дополнительный параметр&nbsp;&quot;&ndash;save&quot;:</p><ac:structured-macro ac:name="code"><ac:plain-text-body><![CDATA[npm install --save-dev grunt]]></ac:plain-text-body></ac:structured-macro>

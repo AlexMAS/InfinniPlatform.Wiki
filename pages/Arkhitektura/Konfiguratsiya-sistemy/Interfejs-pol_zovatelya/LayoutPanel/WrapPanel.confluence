@@ -1,0 +1,115 @@
+---
+layout: default
+title: WrapPanel
+position: 4
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(0,51,102);">Контейнер элементов представления для размещения элементов слева направо и сверху вниз.</span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><p><span style="color: rgb(0,51,102);"><ac:image><ri:attachment ri:filename="WrapPanel.png" /></ac:image></span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>Элемент WrapPanel должен удовлетворят следующим условиям:</p><ul><li>Границы ячеек не отображаются.</li><li>Элемент занимает все доступное пространство по ширине.</li><li>Элемент имеет регулярную структуру, которая задается рядами и колонками.</li><li>Высота горизонтального ряда ячеек равна высоте самого большого элемента в этом ряду.</li><li>Ячейки могут размещать внутри себя любые элементы представления, в том числе другие WrapPanel.</li><li>Размер ячейки задается количеством колонок, если ячейка не вмещается в остаток колонок ряда, она переносится на новый ряд.</li><li>При изменении размеров элемента расположение ячеек не меняется, ячейки остаются на своих местах, но их размер меняется пропорционально.</li><li>Если размер ячейки превышает количество колонок ряда, она занимает весь ряд.</li><li>Ячейки располагаются в порядке добавления (объявления в метаданных).</li></ul></ac:rich-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><ac:structured-macro ac:name="expand"><ac:parameter ac:name="title">Methods</ac:parameter><ac:rich-text-body><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">GetColumns(): integer</td><td colspan="1">Возвращает количество колонок.</td></tr><tr><td colspan="1">SetColumns(integer value)</td><td colspan="1">Устанавливает количество колонок.</td></tr><tr><td colspan="1">AddCell(integer columnSpan): <ac:link><ri:page ri:content-title="GridPanelCell" /></ac:link></td><td colspan="1">Добавляет ячейку.</td></tr><tr><td colspan="1">GetCells(): array&lt;<ac:link><ri:page ri:content-title="GridPanelCell" /></ac:link>&gt;</td><td colspan="1">Возвращает список ячеек.</td></tr></tbody></table></ac:rich-text-body></ac:structured-macro><ac:structured-macro ac:name="expand"><ac:parameter ac:name="title">Events</ac:parameter><ac:rich-text-body><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr></tbody></table></ac:rich-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "WrapPanel",
+	"description": "Контейнер элементов представления для размещения элементов слева направо и сверху вниз",
+	"type": "object",
+	"extends": {
+		"$ref": "http://demo.infinnity.ru:8081/display/MC/Element"
+	},
+	"properties": {
+		"Columns": {
+			"description": "Количество колонок",
+			"type": "integer",
+			"default": 12
+		},
+		"Cells": {
+			"description": "Список ячеек",
+			"type": "array",
+			"items": {
+				"$ref": "http://demo.infinnity.ru:8081/display/MC/GridPanelCell"
+			}
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);">&nbsp;&nbsp;</span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Name": "WrapPanel1",
+	"Cells": [
+		{
+			"ColSpan": 6,
+			"Items": [
+				{
+					"Label": {
+						"Name": "FirstNameLabel",
+						"Text": "First Name:"
+					}
+				}
+			]
+		},
+		{
+			"ColSpan": 6,
+			"Items": [
+				{
+					"TextBox": {
+						"Name": "FirstNameEditor",
+						"Value": {
+							"PropertyBinding": {
+								"DataSource": "PatientDataSource",
+								"Property": "FirstName"
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"ColSpan": 6,
+			"Items": [
+				{
+					"Label": {
+						"Name": "MiddleNameLabel",
+						"Text": "Middle Name:"
+					}
+				}
+			]
+		},
+		{
+			"ColSpan": 6,
+			"Items": [
+				{
+					"TextBox": {
+						"Name": "MiddleNameEditor",
+						"Value": {
+							"PropertyBinding": {
+								"DataSource": "PatientDataSource",
+								"Property": "MiddleName"
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"ColSpan": 6,
+			"Items": [
+				{
+					"Label": {
+						"Name": "LastNameLabel",
+						"Text": "Last Name:"
+					}
+				}
+			]
+		},
+		{
+			"ColSpan": 6,
+			"Items": [
+				{
+					"TextBox": {
+						"Name": "LastNameEditor",
+						"Value": {
+							"PropertyBinding": {
+								"DataSource": "PatientDataSource",
+								"Property": "LastName"
+							}
+						}
+					}
+				}
+			]
+		}
+	]
+}]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);">&nbsp;</span></p><p>&nbsp;</p>

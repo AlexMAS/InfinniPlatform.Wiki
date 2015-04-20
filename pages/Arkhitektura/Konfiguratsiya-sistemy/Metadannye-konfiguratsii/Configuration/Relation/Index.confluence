@@ -1,0 +1,55 @@
+---
+layout: default
+title: Relation
+position: 5
+categories: 
+tags: 
+---
+
+<p>Отношение между объектами метаданных.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>Отношение между объектами метаданных описывает функциональную связь между объектами метаданных. На данный момент существует единственный тип отношения - <ac:link><ri:page ri:content-title="DocumentRelation" /></ac:link>, - который описывает функциональную связь &quot;Родитель - Потомок&quot; между двумя документами. Эта информация может быть использована, например, при осуществлении каскадного удаления и т.п.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "Relation",
+	"description": "Отношение между объектами метаданных",
+	"type": "object",
+	"properties": {
+		"DocumentRelation": {
+			"description": "Отношение между документами",
+			"$ref": "http://demo.infinnity.ru:8081/display/MC/DocumentRelation"
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Примеры</h4><p>Отношение между документом &quot;Patient&quot; (&quot;Пациент&quot;) и &quot;ExaminationDentist&quot; (&quot;Осмотр стоматолога&quot;) описывает связь, когда дочерний документ (&quot;ExaminationDentist&quot;) ссылается на родительский (&quot;Patient&quot;) через свойство (&quot;PatientId&quot;).</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #1</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"DocumentRelation": {
+		"Parent": {
+			"ConfigId": "MyConfig1",
+			"DocumentId": "Patient"
+		},
+		"Child": {
+			"ConfigId": "MyConfig1",
+			"DocumentId": "ExaminationDentist",
+			"Property": "PatientId.Id"
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><p>Следующий пример аналогичен вышеприведенному и описывает отношение между документом &quot;MedicalWorker&quot; (&quot;Медицинский работник&quot;) и &quot;ExaminationDentist&quot; (&quot;Осмотр стоматолога&quot;).</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #2</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"DocumentRelation": {
+		"Parent": {
+			"ConfigId": "MyConfig1",
+			"DocumentId": "MedicalWorker"
+		},
+		"Child": {
+			"ConfigId": "MyConfig1",
+			"DocumentId": "ExaminationDentist",
+			"Property": "MedicalWorkerId.Id"
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><p>Отношение между документом &quot;ExaminationDentist&quot; (&quot;Осмотр стоматолога&quot;) и &quot;Radiograph&quot; (&quot;Рентгенограмма&quot;) описывает связь,&nbsp;когда родительский документ (&quot;ExaminationDentist&quot;) ссылается на дочерние (&quot;Radiograph&quot;) через свойство (&quot;Radiographs&quot;).</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #3</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"DocumentRelation": {
+		"Parent": {
+			"ConfigId": "MyConfig1",
+			"DocumentId": "ExaminationDentist",
+			"Property": "Radiographs.$.Id"
+		},
+		"Child": {
+			"ConfigId": "MyConfig1",
+			"DocumentId": "Radiograph"
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

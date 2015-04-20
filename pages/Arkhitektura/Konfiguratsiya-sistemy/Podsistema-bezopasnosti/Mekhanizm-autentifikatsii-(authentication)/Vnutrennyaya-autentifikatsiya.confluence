@@ -1,0 +1,9 @@
+---
+layout: default
+title: Внутренняя аутентификация
+position: 0
+categories: 
+tags: 
+---
+
+<p>Внутренняя аутентификация реализуется средствами системы и в качестве удостоверения пользователя использует пару &quot;имя пользователя - пароль&quot;.</p><p>&nbsp; &nbsp;</p><p><ac:image><ri:attachment ri:filename="SignInInternal.png" /></ac:image></p><p>&nbsp;</p><p>&nbsp;</p>

@@ -1,0 +1,61 @@
+---
+layout: default
+title: Menu
+position: 3
+categories: 
+tags: 
+---
+
+<p>Меню конфигурации.</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>Меню конфигурации описывает <strong>не</strong> визуальный элемент, а структуру меню пользователя и действия, которые должны осуществляться при выборе пунктов меню. Каждая конфигурация (<ac:link><ri:page ri:content-title="Configuration" /></ac:link>) содержит список меню (Menu), потенциально доступных пользователю. Доступность меню определяется системой с учетом прав пользователя (во многом именно по этой причине меню было выделено, как отдельный раздел конфигурирования).</p></ac:rich-text-body></ac:structured-macro><p><span style="background-color: transparent;line-height: 1.4285715;">&nbsp;&nbsp;</span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "Menu",
+	"description": "Меню конфигурации",
+	"type": "object",
+	"extends": {
+		"$ref": "http://demo.infinnity.ru:8081/display/MC/ObjectMetadata"
+	},
+	"properties": {
+		"Items": {
+			"description": "Список элементов меню",
+			"type": "array",
+			"items": {
+				"$ref": "http://demo.infinnity.ru:8081/display/MC/MenuItem"
+			}
+		},
+		"Roles": {
+			"description": "Список ролей пользователя",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Name": "Menu1",
+	"Caption": "Main Menu",
+	"Items": [
+		{
+		    "Text": "File",
+		    "Items": [
+		        {
+        		    "Text": "New"
+		        },
+        		{
+        		    "Text": "Open"
+		        },
+        		{
+        		    "Text": "Save"
+		        },
+        		{
+        		    "Text": "Save as..."
+		        },
+        		{
+        		    "Text": "Exit"
+		        }
+		    ]
+		}
+	],
+	"Roles": [
+		"Admin",
+		"Bookkeeper"
+	]
+} ]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);"><br /></span></p><p><span style="color: rgb(0,51,102);"><br /></span></p>

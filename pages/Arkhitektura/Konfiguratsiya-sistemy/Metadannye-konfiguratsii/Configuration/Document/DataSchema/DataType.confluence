@@ -1,0 +1,23 @@
+---
+layout: default
+title: DataType
+position: 
+categories: 
+tags: 
+---
+
+<p>Базовые типы данных.</p><p>&nbsp;</p><table><tbody><tr><th>Значение</th><th>Наименование</th><th colspan="1"><span>Описание</span></th></tr><tr><td colspan="1">Bool</td><td colspan="1">Логическое значение.</td><td colspan="1">Допустимые значения: true, false.</td></tr><tr><td colspan="1">Integer</td><td colspan="1">Целое число.</td><td colspan="1"><span>Допустимые значения</span>: -2147483648 ... 2147483647.</td></tr><tr><td colspan="1">Float</td><td colspan="1">Дробное число.</td><td colspan="1"><span>Допустимые значения </span>(стандарт <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754</a>): -1.79769313486232E+308 ... 1.79769313486232E+308.</td></tr><tr><td colspan="1">String</td><td colspan="1">Строка.</td><td colspan="1">Значение представлено в формате <a href="http://en.wikipedia.org/wiki/Utf-8">UTF-8</a>.</td></tr><tr><td colspan="1">DateTime</td><td colspan="1">Дата / время.</td><td colspan="1"><span>Значение представлено в </span>формате <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>.</td></tr><tr><td colspan="1">Uuid</td><td colspan="1">Уникальный идентификатор.</td><td colspan="1"><span>Значение представлено в </span>формате <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>.</td></tr><tr><td colspan="1">Binary</td><td colspan="1">Двоичные данные.</td><td colspan="1"><span>Значение представлено в </span>формате <ac:link><ri:page ri:content-title="BlobData" /></ac:link>.</td></tr><tr><td colspan="1">Object</td><td colspan="1">Объект.</td><td colspan="1"><span>Значение представлено в </span>виде пар &quot;свойство-значение&quot;.</td></tr><tr><td colspan="1">Array</td><td colspan="1">Массив.</td><td colspan="1">Значение представлено в виде массива объектов или базовых типов.</td></tr></tbody></table><p><span>&nbsp; &nbsp;&nbsp;</span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "DataType",
+	"description": "Базовые типы данных",
+	"enum": [
+		"Bool",
+		"Integer",
+		"Float",
+		"String",
+		"DateTime",
+		"Uuid",
+		"Binary",
+		"Object",
+		"Array"
+	]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

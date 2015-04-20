@@ -1,0 +1,42 @@
+---
+layout: default
+title: Операция получения списка документов по фильтру (GetDocument)
+position: 
+categories: 
+tags: 
+---
+
+<p>Перед рассмотрением операций, следует ознакомиться с <ac:link><ri:page ri:content-title="Обработка запросов REST и формирование роутинга для запросов" /><ac:plain-text-link-body><![CDATA[правилами формирования запросов REST]]></ac:plain-text-link-body></ac:link></p><h4>Внутренняя реализация</h4><p>На основе обработчика <ac:link><ri:page ri:content-title="Обработчик запросов изменения данных (ApplyChangesHandler)" /><ac:plain-text-link-body><![CDATA[ApplyEventsHandler]]></ac:plain-text-link-body></ac:link></p><p><ac:link><ri:page ri:content-title="Точки расширения бизнес-логики" /><ac:plain-text-link-body><![CDATA[Точки расширения]]></ac:plain-text-link-body></ac:link>:</p><table><tbody><tr><th>Тип точки расширения</th><th>Скриптовый модуль</th></tr><tr><td>GetResult</td><td><p>InfinniConfiguration.RestfulApi.ActionUnits.ActionUnitGetDocument</p></td></tr></tbody></table><h4>Запрос</h4><p>POST <a href="http://10.10.1.82:9999/RestfulApi/StandardApi/configuration/getdocument">http://&lt;ServerName&gt;:&lt;PortName&gt;/RestfulApi/StandardApi/configuration/getdocument</a></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">BODY</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+   "id":null,
+   "replace": False
+   "changesObject":
+   {
+      "Configuration": "<Configuration name>",
+      "Metadata": "<Metadata name>",
+      "Filter": [<Filter object>],
+      "PageNumber": <Page number>,
+      "PageSize": <Page size>,
+      "Sorting": <Sorting object>
+   }
+}]]></ac:plain-text-body></ac:structured-macro><p>В теле запроса передаются следующие аргументы (вместо &lt;parameter name&gt; указывается нужное значение)</p><p>&lt;Configuration name&gt; - идентификатор конфигурации (см. <ac:link><ri:page ri:content-title="Обработка запросов REST и формирование роутинга для запросов" /><ac:plain-text-link-body><![CDATA[правила формирования запросов REST]]></ac:plain-text-link-body></ac:link>)</p><p>&lt;Metadata name&gt; - наименование объекта метаданных (см. <ac:link><ri:page ri:content-title="Обработка запросов REST и формирование роутинга для запросов" /><ac:plain-text-link-body><![CDATA[правила формирования запросов REST]]></ac:plain-text-link-body></ac:link>)</p><p>&lt;Filter object&gt; -объект фильтра для поискового запроса (см. структура фильтра поискового запроса), может содержать null либо значение фильтра</p><p>&lt;Page number&gt; -номер страницы результатов поискового запроса, по умолчанию 0</p><p>&lt;Page size&gt; -размер страницы поискового запроса, по умолчанию 10</p><p>&lt;Sorting object&gt; - объект задаёт правила сортировки результатов запроса.</p><p>Ответ сервера (пример):</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Пример ответа сервера на запрос документов</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[[
+   {
+      "Id":"a3d04fdb-1490-4a15-b856-95d534d68403",
+      "ModuleId":"InfinniConfiguration.Integration.dll",
+      "ConfigurationName":"Integration",
+      "Version":"test_from_config",
+      "Status":"Published",
+      "ContentId":"f8aec337-f779-426c-b60d-3a37c6eac71e",
+      "PdbId":"66a11a71-9c23-4800-a276-813b2f052eb1",
+      "TimeStamp":"2014-04-04T17:10:03.5309912+06:00"
+   },
+   {
+      "Id":"bcad4212-34e6-44ff-a28e-41d6c288b5fb",
+      "ModuleId":"InfinniConfiguration.Integration.dll",
+      "ConfigurationName":"Integration",
+      "Version":"test_version",
+      "Status":"Published",
+      "ContentId":"91ba62ba-c191-4243-9b24-a25383fd1f29",
+      "PdbId":"a64a1b32-8dbf-42b1-b485-b13d76779f73",
+      "TimeStamp":"2014-04-04T17:15:06.1866742+06:00"
+   }
+]]]></ac:plain-text-body></ac:structured-macro><p>2.</p><p>&nbsp;</p>

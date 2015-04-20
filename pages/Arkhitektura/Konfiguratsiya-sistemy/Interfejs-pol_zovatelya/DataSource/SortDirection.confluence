@@ -1,0 +1,17 @@
+---
+layout: default
+title: SortDirection
+position: 4
+categories: 
+tags: 
+---
+
+<p>Направление операции сортировки данных.</p><p>&nbsp; &nbsp;</p><h4>Description</h4><table><tbody><tr><th>Value</th><th>Description</th></tr><tr><td>None</td><td>Нет сортировки.</td></tr><tr><td><span style="color: rgb(42,42,42);">Ascending</span></td><td>Сортировка по возрастанию.</td></tr><tr><td>Descending</td><td>Сортировка по убыванию.</td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "SortDirection",
+  "description": "Направление операции сортировки данных",
+  "enum": [
+    "None",
+    "Ascending",
+    "Descending"
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

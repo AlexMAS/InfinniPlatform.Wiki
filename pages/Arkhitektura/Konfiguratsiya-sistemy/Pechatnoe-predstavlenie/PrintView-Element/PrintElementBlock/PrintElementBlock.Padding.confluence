@@ -1,0 +1,126 @@
+---
+layout: default
+title: PrintElementBlock.Padding
+position: 
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(0,51,102);">Отступ от края элемента до содержимого элемента.<br /></span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span><span style="color: rgb(0,51,102);">&nbsp;</span></p><h4><span style="color: rgb(0,51,102);">Type</span></h4><p><span style="color: rgb(0,51,102);"><ac:link><ri:page ri:content-title="Thickness" /></ac:link></span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(0,51,102);">Example</span></h4><p><span style="color: rgb(0,51,102);">&nbsp;<ac:link><ri:attachment ri:filename="PrintElementBlock.Padding.pdf" /></ac:link></span><span style="color: rgb(0,51,102);">&nbsp;</span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Blocks": [
+    {
+      "Section": {
+        "Padding": {
+          "All": 0
+        },
+        "Margin": {
+          "All": 0
+        },
+        "Blocks": [
+          {
+            "Paragraph": {
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "Default paragraph."
+                  }
+                }
+              ],
+              "Background": "White"
+            }
+          },
+          {
+            "Paragraph": {
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "Default paragraph."
+                  }
+                }
+              ],
+              "Background": "White"
+            }
+          },
+          {
+            "Paragraph": {
+              "Margin": {
+                "All": 50,
+                "SizeUnit": "Px"
+              },
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "This paragraph has a magin of 50 pixels set, but no padding."
+                  }
+                }
+              ],
+              "Background": "LightBlue"
+            }
+          },
+          {
+            "Paragraph": {
+              "Padding": {
+                "All": 50,
+                "SizeUnit": "Px"
+              },
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "This paragraph has padding of 50 pixels set, but no margin."
+                  }
+                }
+              ],
+              "Background": "LightCoral"
+            }
+          },
+          {
+            "Paragraph": {
+              "Margin": {
+                "All": 50,
+                "SizeUnit": "Px"
+              },
+              "Padding": {
+                "All": 50,
+                "SizeUnit": "Px"
+              },
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "This paragraph has both padding and margin set to 50 pixels."
+                  }
+                }
+              ],
+              "Background": "LightGreen"
+            }
+          },
+          {
+            "Paragraph": {
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "Default paragraph."
+                  }
+                }
+              ],
+              "Background": "White"
+            }
+          },
+          {
+            "Paragraph": {
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "Default paragraph."
+                  }
+                }
+              ],
+              "Background": "White"
+            }
+          }
+        ],
+        "Background": "Gray"
+      }
+    }
+  ],
+  "Background": "LightSlateGray"
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

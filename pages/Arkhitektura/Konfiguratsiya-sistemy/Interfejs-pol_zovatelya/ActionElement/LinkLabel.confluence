@@ -1,0 +1,76 @@
+---
+layout: default
+title: LinkLabel
+position: 5
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(42,42,42);">Элемент представления&nbsp;для отображения данных в виде текстовой метки со ссылкой.</span></p><p><span style="color: rgb(42,42,42);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(42,42,42);">Sketch</span></h4><p><ac:image><ri:attachment ri:filename="Link.png" /></ac:image></p><p>&nbsp; &nbsp;</p><h4>Methods</h4><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">GetHorizontalTextAlignment(): <ac:link><ri:page ri:content-title="HorizontalTextAlignment" /></ac:link></td><td colspan="1">Возвращает горизонтальное выравнивание текста внутри элемента.</td></tr><tr><td colspan="1">SetHorizontalTextAlignment(<ac:link><ri:page ri:content-title="HorizontalTextAlignment" /></ac:link> value)</td><td colspan="1">Устанавливает горизонтальное выравнивание текста внутри элемента.</td></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">GetForeground(): <ac:link><ri:page ri:content-title="TextStyle" /></ac:link></td><td colspan="1">Возвращает цвет текста.</td></tr><tr><td colspan="1">SetForeground(<ac:link><ri:page ri:content-title="TextStyle" /></ac:link>&nbsp;value)</td><td colspan="1">Устанавливает цвет текста.</td></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">GetBackground(): <ac:link><ri:page ri:content-title="TextStyle" /></ac:link></td><td colspan="1">Возвращает цвет фона.</td></tr><tr><td colspan="1">SetBackground(<ac:link><ri:page ri:content-title="TextStyle" /></ac:link>&nbsp;value)</td><td colspan="1">Устанавливает цвет фона.</td></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">GetTextStyle(): <ac:link><ri:page ri:content-title="TextStyle" /></ac:link></td><td colspan="1">Возвращает стиль текста.</td></tr><tr><td colspan="1">SetTextStyle(<ac:link><ri:page ri:content-title="TextStyle" /></ac:link>&nbsp;value)</td><td colspan="1">Устанавливает стиль текста.</td></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">GetTextTrimming(): boolean</td><td colspan="1">Возвращает значение, определяющее, усекается ли текст многоточием при переполнении.</td></tr><tr><td colspan="1">SetTextTrimming(boolean value)</td><td colspan="1">Устанавливает значение, определяющее, усекается ли текст многоточием при переполнении.</td></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">GetTextWrapping(): boolean</td><td colspan="1">Возвращает значение, определяющее, переносится ли текст на новую строчку при переполнении.</td></tr><tr><td colspan="1">SetTextWrapping(boolean value)</td><td colspan="1">Устанавливает значение, определяющее, переносится ли текст на новую строчку при переполнении.</td></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">GetLineCount(): int</td><td colspan="1">Возвращает видимое количество строк.</td></tr><tr><td colspan="1">SetLineCount(int value)</td><td colspan="1">Устанавливает видимое количество строк.</td></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">Get<span style="color: rgb(0,51,102);">DisplayFormat</span>(): <ac:link><ri:page ri:content-title="BaseFormat" /></ac:link></td><td colspan="1">Возвращает формат отображения данных.</td></tr><tr><td colspan="1">Set<span style="color: rgb(0,51,102);">DisplayFormat</span>(<ac:link><ri:page ri:content-title="BaseFormat" /></ac:link> value)</td><td colspan="1">Устанавливает формат отображения данных.</td></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">GetValue(): any</td><td colspan="1">Возвращает значение.</td></tr><tr><td colspan="1">SetValue(any value)</td><td colspan="1">Устанавливает значение.</td></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">GetReference(): string</td><td colspan="1">Возвращает ссылку.</td></tr><tr><td colspan="1">SetReference(string value)</td><td colspan="1">Устанавливает ссылку.</td></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">GetAction(): <ac:link><ri:page ri:content-title="Command" /></ac:link></td><td colspan="1">Возвращает действие, выполняемое при нажатии на ссылку.</td></tr><tr><td colspan="1">SetAction(<ac:link><ri:page ri:content-title="Command" /></ac:link> value)</td><td colspan="1">Устанавливает действие, выполняемое при нажатии на ссылку.</td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Events</h4><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">OnClick(<ac:link><ri:page ri:content-title="Context" /></ac:link> context, <ac:link><ri:page ri:content-title="BaseMessage" /></ac:link> argument)</td><td colspan="1">Возвращает или устанавливает обработчик события нажатия на ссылку.</td></tr></tbody></table><p>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "LinkLabel",
+  "description": "Элемент представления для отображения данных в виде текстовой метки со ссылкой",
+  "type": "object",
+  "extends": {
+    "$ref": "http://demo.infinnity.ru:8081/display/MC/Element"
+  },
+  "properties": {
+    "Foreground": {
+      "description": "Цвет текста",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/ColorStyle",
+      "default": "Black"
+    },
+    "Background": {
+      "description": "Цвет фона",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/ColorStyle",
+      "default": "Transparent"
+    },
+    "HorizontalTextAlignment": {
+      "description": "Горизонтальное выравнивание текста внутри элемента",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/HorizontalTextAlignment",
+      "default": "Left"
+    },
+    "TextStyle": {
+      "description": "Стиль текста",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/TextStyle",
+      "default": "Body1"
+    },
+    "TextTrimming": {
+      "description": "Усекается ли текст многоточием при переполнении",
+      "type": "boolean",
+      "default": true
+    },
+    "TextWrapping": {
+      "description": "Переносится ли текст на новую строчку при переполнении",
+      "type": "boolean",
+      "default": true
+    },
+    "LineCount": {
+      "description": "Видимое количество строк",
+      "type": "integer"
+    },
+    "DisplayFormat": {
+      "description": "Формат отображения значения",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/DisplayFormat"
+    },
+    "Value": {
+      "description": "Привязка данных для значения",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/DataBinding"
+    },
+    "Reference": {
+      "description": "Привязка данных для ссылки",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/DataBinding"
+    },
+    "Action": {
+      "description": "Действие при нажатии на ссылку",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/Action"
+    },
+    "OnClick": {
+      "description": "Обработчик события нажатия на ссылку",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/LinkScript"
+    }
+  },
+  "additionalProperties": false
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Examples</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Text": "Перейти",
+  "Reference": "http://some"
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

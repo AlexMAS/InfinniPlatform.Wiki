@@ -1,0 +1,18 @@
+---
+layout: default
+title: PrintElementBarcodeQrErrorCorrection
+position: 3
+categories: 
+tags: 
+---
+
+<p>Уровень защиты от ошибок штрих-кода в формате QR.</p><p>&nbsp; &nbsp;</p><h4>Type</h4><p>enum</p><p>&nbsp; &nbsp;</p><h4>Description &nbsp;</h4><table><tbody><tr><th>Value</th><th>Description</th></tr><tr><td colspan="1">Low</td><td colspan="1"><p>7% данных могут быть восстановлены.</p></td></tr><tr><td colspan="1">Medium</td><td colspan="1">15<span>% данных могут быть восстановлены.</span></td></tr><tr><td colspan="1">Quartile</td><td colspan="1">25<span>% данных могут быть восстановлены.</span></td></tr><tr><td colspan="1">High</td><td colspan="1">30<span>% данных могут быть восстановлены.</span></td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "PrintElementBarcodeQrErrorCorrection",
+  "description": "Уровень защиты от ошибок штрих-кода в формате QR",
+  "enum": [
+    "Low",
+    "Medium",
+    "Quartile",
+    "High"
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

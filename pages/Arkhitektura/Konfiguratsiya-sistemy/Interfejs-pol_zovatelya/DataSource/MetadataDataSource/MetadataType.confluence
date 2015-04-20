@@ -1,0 +1,27 @@
+---
+layout: default
+title: MetadataType
+position: 
+categories: 
+tags: 
+---
+
+<p>Тип метаданных.</p><p>&nbsp;</p><ac:structured-macro ac:name="info"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>В будущем список типов метаданных может расширяться.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp;&nbsp;</p><table><tbody><tr><th>Значение</th><th>Описание</th></tr><tr><td colspan="1">Configuration</td><td colspan="1">Метаданные конфигурации.</td></tr><tr><td colspan="1">Document</td><td colspan="1">Метаданные документа.</td></tr><tr><td colspan="1">Scenario</td><td colspan="1">Метаданные сценария.</td></tr><tr><td colspan="1"><span>Process</span></td><td colspan="1"><span>Метаданные бизнес-процесса.</span></td></tr><tr><td colspan="1">Service</td><td colspan="1"><span>Метаданные сервиса.</span></td></tr><tr><td colspan="1">View</td><td colspan="1">Метаданные представления.</td></tr><tr><td colspan="1">Report</td><td colspan="1">Метаданные отчета.</td></tr><tr><td colspan="1">Menu</td><td colspan="1">Метаданные меню.</td></tr><tr><td>Exchange</td><td>Метаданные точки обмена сообщениями.</td></tr><tr><td colspan="1">ValidationErrors</td><td colspan="1">Метаданные валидации ошибок документа</td></tr><tr><td colspan="1">ValidationWarnings</td><td colspan="1">Метаданные валидации предупреждений документа</td></tr><tr><td colspan="1">Generator</td><td colspan="1">Метаданные генератора.</td></tr></tbody></table><p>&nbsp;</p><p>&nbsp;&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "MetadataType",
+	"description": "Тип метаданных",
+	"enum": [
+		"Configuration",
+		"Document",
+		"Classifier",
+		"ComplexType",
+		"Scenario",
+		"Workflow",
+		"Service",
+		"View",
+		"Report",
+		"Menu",
+		"Exchange",
+		"ValidationErrors",
+		"ValidationWarnings"
+	 ]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

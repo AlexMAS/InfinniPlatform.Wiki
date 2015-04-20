@@ -1,0 +1,170 @@
+---
+layout: default
+title: Справочники ИЭМК 2.0
+position: 2
+categories: 
+tags: 
+---
+
+<h1>Необходимо прогрузить с НСИ Росминздрава</h1><table><tbody><tr><th>OID</th><th>Название</th><th colspan="1">&nbsp;</th></tr><tr><td>1.2.643.5.1.13.2.1.1.178</td><td><span style="color: rgb(0,0,0);">Регистр медицинских организаций Российской Федерации. Версия 2</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>1</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td>1.2.643.5.1.13.2.1.1.156</td><td><span style="color: rgb(0,0,0);">Классификатор половой принадлежности</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>2</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td>1.2.643.5.1.13.2.1.1.63</td><td><span style="color: rgb(0,0,0);">Общероссийский классификатор стран мира</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>3</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td>1.2.643.5.1.13.2.1.1.573</td><td><span style="color: rgb(0,0,0);">Классификатор жителя города или села</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>4</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td>1.2.643.5.1.13.2.1.1.366</td><td><span style="color: rgb(0,0,0);">Классификатор социальных статусов (в том числе занятости) населения</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>5</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td>1.2.643.5.1.13.2.1.1.215</td><td><span style="color: rgb(0,0,0);">Классификатор состояний в браке</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>6</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td>1.2.643.5.1.13.2.1.1.62</td><td><span style="color: rgb(0,0,0);">Общероссийский классификатор видов экономической деятельности</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>7</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td>1.2.643.5.1.13.2.1.1.358</td><td><span style="color: rgb(0,0,0);">Классификатор категорий льгот</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>8</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td colspan="1">1.2.643.5.1.13.2.1.1.635</td><td colspan="1"><span style="color: rgb(0,0,0);">Реестр страховых медицинских организаций (ФОМС)</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>9</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td colspan="1">1.2.643.5.1.13.2.1.1.661</td><td colspan="1"><span style="color: rgb(0,0,0);">Классификатор адресов России</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>10</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td colspan="1">1.2.643.5.1.13.2.1.1.663</td><td colspan="1"><span style="color: rgb(0,0,0);">Классификатор адресов России. Улицы</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>11</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td colspan="1">1.2.643.5.1.13.2.1.1.498</td><td colspan="1"><span style="color: rgb(0,0,0);">Классификатор документов, удостоверяющих личность гражданина Российской Федерации</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>12</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td colspan="1">1.2.643.5.1.13.2.1.1.181</td><td colspan="1"><span style="color: rgb(0,0,0);">Номенклатура специальностей специалистов с высшим и послевузовским медицинским и фармацевтическим образованием в сфере здравоохранения и специальностей среднего медицинского и фармацевтического персонала</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>13</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td colspan="1">1.2.643.5.1.13.2.1.1.607</td><td colspan="1"><span style="color: rgb(0,0,0);">Номенклатура должностей медицинских работников и фармацевтических работников</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>14</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td colspan="1"><span>1.2.643.5.1.13.2.1.1.542</span></td><td colspan="1"><span style="color: rgb(0,0,0);">Классификатор исходов госпитализации</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>15</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td colspan="1">1.2.643.5.1.13.2.1.1.646</td><td colspan="1"><span style="color: rgb(0,0,0);">Система электронных медицинских документов</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>16</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td colspan="1">1.2.643.5.1.13.2.1.1.103</td><td colspan="1"><span style="color: rgb(0,0,0);">Классификатор медицинской помощи по условиям оказания</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>17</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td colspan="1">1.2.643.5.1.13.2.1.1.109</td><td colspan="1"><span style="color: rgb(0,0,0);">Классификатор случаев госпитализации в данном году</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>18</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td colspan="1"><span style="color: rgb(0,0,0);">1.2.643.5.1.13.2.1.1.688</span></td><td colspan="1"><span style="color: rgb(0,0,0);">Классификатор результатов госпитализации (исхода заболевания, причин выписки). Версия 2</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>21</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td colspan="1">1.2.643.5.1.13.2.1.1.537</td><td colspan="1"><span style="color: rgb(0,0,0);">Справочник времени доставки больного в стационар от начала заболевания (получения травмы)</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>19</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td colspan="1">&nbsp;1.2.643.5.1.13.2.1.1.281</td><td colspan="1"><span style="color: rgb(0,0,0);">Классификатор каналов госпитализации в лечебно-профилактическую организацию</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>27</ac:task-id>
+<ac:task-status>incomplete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr></tbody></table><h1>Региональные справочники</h1><table><tbody><tr><th>Название в системе</th><th>Название</th><th colspan="1">Исходник</th><th>&nbsp;</th></tr><tr><td>LpuTFoms</td><td>Перечень ЛПУ в ЧО</td><td colspan="1">&nbsp;</td><td><ac:task-list>
+<ac:task>
+<ac:task-id>24</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr><tr><td colspan="1">Outcome</td><td colspan="1"><p>Исход обращения</p></td><td colspan="1"><span style="color: rgb(0,0,0);">V012&nbsp;</span></td><td colspan="1"><ac:task-list>
+<ac:task>
+<ac:task-id>26</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body><span>&nbsp;</span></ac:task-body>
+</ac:task>
+</ac:task-list>
+</td></tr></tbody></table><p>&nbsp;</p><h1>Локальные справочники</h1><table><tbody><tr><td><p><strong>Название поля</strong></p></td><td><p><strong>Ресурс</strong></p></td><td><p><strong>Официальное название</strong></p></td><td><p><strong>OID</strong></p></td><td><p><strong>Значения (для локальных справочников)</strong></p></td><td><p><strong>Документ</strong></p></td></tr><tr><td><p>Вид адреса</p></td><td><p>Локальный</p></td><td><p>AddressType</p></td><td><p>&nbsp;</p></td><th><p>&nbsp;</p><table><tbody><tr><td><p align="center" class="Standard"><strong>Значение</strong></p></td><td><p align="center" class="Standard"><strong>Расшифровка</strong></p></td></tr><tr><td><p class="Standard">H</p></td><td><p class="Standard">Домашний адрес (Адрес постоянного места жительства)</p></td></tr><tr><td><p class="Standard">HP</p></td><td><p class="Standard">Адрес регистрации</p></td></tr><tr><td><p class="Standard">HV</p></td><td><p class="Standard">Адрес на время отпуска</p></td></tr><tr><td><p class="Standard">WP</p></td><td><p class="Standard">Служебный адрес</p></td></tr><tr><td><p class="Standard">DIR</p></td><td><p class="Standard">Прямой почтовый или телекоммуникационный адрес рабочего места</p></td></tr><tr><td><p class="Standard">BAD</p></td><td><p class="Standard">Неправильный адрес</p></td></tr><tr><td><p class="Standard">TMP</p></td><td><p class="Standard">Временный адрес</p></td></tr><tr><td><p class="Standard">PST</p></td><td><p class="Standard">Адрес для писем</p></td></tr><tr><td><p class="Standard">PHYS</p></td><td><p class="Standard">Физический адрес организации</p></td></tr></tbody></table><p>&nbsp;</p></th><td><p><strong>Пациент, Сотрудник</strong></p></td></tr><tr><td><p>Тип контакта</p></td><td><p>Локальный</p></td><td><p>ContactType</p></td><td><p>&nbsp;</p></td><th><p>&nbsp;</p><table><tbody><tr><td><p align="center" class="Standard"><strong>Значение</strong></p></td><td><p align="center" class="Standard"><strong>Расшифровка</strong></p></td></tr><tr><td><p class="Standard">H</p></td><td><p class="Standard">Домашний телефон (по адресу ПМЖ)</p></td></tr><tr><td><p class="Standard">HP</p></td><td><p class="Standard">Домашний телефон (по адресу регистрации)</p></td></tr><tr><td><p class="Standard">WP</p></td><td><p class="Standard">Служебный&nbsp; телефон</p></td></tr><tr><td><p class="Standard">MC</p></td><td><p class="Standard">Мобильный телефон</p></td></tr><tr><td><p class="Standard">01</p></td><td><p class="Standard">Факс</p></td></tr><tr><td><p class="Standard">02</p></td><td><p class="Standard">E-mail</p></td></tr></tbody></table><p>&nbsp;</p></th><td><p><strong>Пациент, Сотрудник</strong></p></td></tr><tr><td><p>Отношение к пациенту</p></td><td><p>Локальный <br class="atl-forced-newline" /> <strong>1.2.643.5.1.13.2.7.1.15</strong></p></td><td><p>Relationship</p></td><td><p>&nbsp;</p></td><th><p>1 Родитель<br />2 Ребенок<br />3 Другие родственники<br />4 Законный представитель<br />5 Двоюродный брат<br />6 Сожитель (-ница)<br />7 Тетя по материнской линии<br />8 Приемный ребенок<br />9 Внук<br />10 Дед<br />11 Прадед<br />12 Сводный брат<br />13 Двоюродная бабушка<br />14 Двоюродный дядя по материнской линии<br />15 Дед по материнской линии<br />16 Прадед по материнской линии<br />17 Дядя по материнской линии<br />18 Внебрачный ребенок<br />19 Биологический родитель<br />20 Родной брат<br />21 Племянник<br />22 Усыновленный ребенок<br />23 Тетя по отцовской линии<br />24 Двоюродный дядя по отцовской линии<br />25 Дед по отцовской линии<br />26 Прадед по отцовской линии<br />27 Дядя по отцовской линии<br />28 Сосед<br />29 Супруг (-а)<br />30 Приемный родитель<br />31 Мать<br />32 Отец<br />33 Представитель органа опеки (опекун)</p></th><td><p><strong>Пациент</strong></p><div><strong><br /></strong></div></td></tr><tr><td colspan="1"><strong>Тип внешнего идентификатора</strong></td><td colspan="1">Локальный <strong>1.2.643.5.1.13.2.7.1.62</strong></td><td colspan="1">ExternalID</td><td colspan="1">&nbsp;</td><td colspan="1"><table><tbody><tr><th><p class="TableContents"><strong>CODE</strong></p></th><th><p class="TableContents"><strong>NAME</strong></p></th><th><p class="TableContents"><strong>SHORT_NAME</strong></p></th></tr><tr><td><p class="TableContents">1</p></td><td><p class="TableContents">Полис обязательного медицинского страхования&nbsp;</p></td><td><p class="TableContents">Полис ОМС</p></td></tr><tr><td><p class="TableContents">2</p></td><td><p class="TableContents">Полис добровольного медицинского страхования</p></td><td><p class="TableContents">Полис ДМС</p></td></tr><tr><td><p class="TableContents">3</p></td><td><p class="TableContents">Страховой номер индивидуального лицевого счёта</p></td><td><p class="TableContents">СНИЛС</p></td></tr><tr><td><p class="TableContents">4</p></td><td><p class="TableContents">Индивидуальный номер налогоплательщика</p></td><td><p class="TableContents">ИНН</p></td></tr><tr><td colspan="1"><p class="TableContents">5</p></td><td colspan="1"><p class="TableContents">Документ, удостоверяющий личность</p></td><td colspan="1"><p class="TableContents">&nbsp;</p></td></tr><tr><td colspan="1"><p class="TableContents">9</p></td><td colspan="1"><p class="TableContents">Локальный идентификатор пациента в МО</p></td><td colspan="1"><p class="TableContents">Идентификатор пациента</p></td></tr><tr><td colspan="1"><p class="TableContents">10</p></td><td colspan="1"><p class="TableContents">Номер карты пациента в МО</p></td><td colspan="1"><p class="TableContents">Номер карты</p></td></tr></tbody></table></td><td colspan="1">Сотрудник, Пациент</td></tr><tr><td colspan="1">Роль в оказании медицинской помощи</td><td colspan="1"><span>Локальный </span>1.2.643.5.1.13.2.7.1.30</td><td colspan="1">ServiceRole</td><td colspan="1">&nbsp;</td><td colspan="1"><table><tbody><tr><th><p class="TableContents"><strong>CODE</strong></p></th><th><p class="TableContents"><strong>NAME</strong></p></th></tr><tr><td><p class="TableContents">DEP</p></td><td><p class="TableContents">Подразделение</p></td></tr><tr><td><p class="TableContents">REF</p></td><td><p class="TableContents">Учреждение</p></td></tr><tr><td><p class="TableContents">DOC</p></td><td><p class="TableContents">Врач&nbsp;</p></td></tr><tr><td><p class="TableContents">DOCOBS</p></td><td><p class="TableContents">Лечащий врач</p></td></tr><tr><td><p class="TableContents">PAT</p></td><td><p class="TableContents">Пациент</p></td></tr><tr><td><p class="TableContents">PAYOR</p></td><td><p class="TableContents">Плательщик</p></td></tr><tr><td><p class="TableContents">ERL</p></td><td><p class="TableContents">Регистратор</p></td></tr><tr><td><p class="TableContents">WARD</p></td><td><p class="TableContents">Отделение пребывания</p></td></tr><tr><td><p class="TableContents">FSTUD</p></td><td><p class="TableContents">Ординатор</p></td></tr><tr><td><p class="TableContents">PSTUD</p></td><td><p class="TableContents">Интерн</p></td></tr></tbody></table></td><td colspan="1">Эпикриз стационара выписной</td></tr><tr><td colspan="1"><h4>Тип направления</h4></td><td colspan="1"><span>Локальный <strong>1.2.643.5.1.13.2.7.1.2</strong></span></td><td colspan="1">DirectionType</td><td colspan="1">&nbsp;</td><td colspan="1"><table><tbody><tr><th><p class="TableContents"><strong>CODE</strong></p></th><th><p class="TableContents"><strong>NAME</strong></p></th></tr><tr><td><p class="TableContents">1</p></td><td><p class="TableContents">Госпитализация</p></td></tr><tr><td><p class="TableContents">2</p></td><td><p class="TableContents">Обследование</p></td></tr><tr><td><p class="TableContents">3</p></td><td><p class="TableContents">Консультация</p></td></tr></tbody></table></td><td colspan="1">Для интеграции с ФИЭМК (Направление)</td></tr><tr><td colspan="1"><h4>Тип направления (Локальный)</h4></td><td colspan="1"><span>Локальный</span></td><td colspan="1"><span>LocalDirectionType</span></td><td colspan="1">&nbsp;</td><td colspan="1"><p>1 - <span>Госпитализация</span></p><p><span>2 - Лабораторный анализ</span></p><p><span>3 - Консультация</span></p><p><span>4 - Инструментальное исследование</span></p><p><span><br /></span></p></td><td colspan="1">Направление</td></tr><tr><td colspan="1">Уровень конфиденциальности</td><td colspan="1">Локальный 2.16.840.1.113883.5.25</td><td colspan="1">ConfidentialityLevel</td><td colspan="1">&nbsp;</td><td colspan="1"><div align="center"><table><thead><tr><td><p class="100"><strong>Код</strong></p></td><td><p class="100"><strong>Название</strong></p></td></tr></thead><tbody><tr><td><p align="center" class="10">D</p></td><td><p class="10">Для врача</p></td></tr><tr><td><p align="center" class="10">I</p></td><td><p class="10">Для конкретного лица</p></td></tr><tr><td><p align="center" class="10">N</p></td><td><p class="10">Обычный</p></td></tr><tr><td><p align="center" class="10">R</p></td><td><p class="10">Средний</p></td></tr><tr><td><p align="center" class="10">V</p></td><td><p class="10">Высокий</p></td></tr><tr><td><p align="center" class="10">ETH</p></td><td><p class="10">Наркология</p></td></tr><tr><td><p align="center" class="10">HIV</p></td><td><p class="10">ВИЧ</p></td></tr><tr><td><p align="center" class="10">PSY</p></td><td><p class="10">Психиатрия</p></td></tr><tr><td><p align="center" class="10">SDV</p></td><td><p class="10">Насилие</p></td></tr></tbody></table></div></td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">Типы документа</td><td colspan="1">Локальный 1.2.643.5.1.13.2.1.1.646 (расширенный)</td><td colspan="1">DocumentType</td><td colspan="1">&nbsp;</td><td colspan="1"><table><tbody><tr><th>Код</th><th>Название</th></tr><tr><td>1</td><td><span style="color: rgb(0,0,0);">Эпикриз стационара</span></td></tr><tr><td>2</td><td><span style="color: rgb(0,0,0);">Амбулаторный эпикриз</span></td></tr><tr><td>3</td><td><span style="color: rgb(0,0,0);">Направление</span></td></tr><tr><td>5</td><td><span style="color: rgb(0,0,0);">Протокол консультации</span></td></tr><tr><td>6</td><td><span style="color: rgb(0,0,0);">Протокол инструментального исследования</span></td></tr><tr><td>7</td><td><span style="color: rgb(0,0,0);">Протокол лабораторного исследования</span></td></tr><tr><td>8</td><td><span style="color: rgb(0,0,0);">Медицинская справка о допуске к управлению транспортными средствами</span></td></tr><tr><td>9</td><td><span style="color: rgb(0,0,0);">Эпикриз оказания скорой и неотложной помощи</span></td></tr><tr><td>10</td><td>Заборы био-материала</td></tr><tr><td colspan="1">11</td><td colspan="1"><span>Прививки</span></td></tr><tr><td colspan="1">12</td><td colspan="1"><span>Форма 025</span></td></tr><tr><td colspan="1">13</td><td colspan="1"><span>Профосмотры</span></td></tr><tr><td colspan="1">14</td><td colspan="1"><span>Допдиспансеризация</span></td></tr><tr><td colspan="1">15</td><td colspan="1"><span>Заключения комиссии</span></td></tr><tr><td colspan="1">16</td><td colspan="1"><span>Карта лечения</span></td></tr><tr><td colspan="1">17</td><td colspan="1"><span>Осмотры ФТО</span></td></tr><tr><td colspan="1">18</td><td colspan="1"><span>Дневной стационар</span></td></tr><tr><td colspan="1">19</td><td colspan="1"><span>Осмотры врачей в отделении стационара&nbsp;</span></td></tr><tr><td colspan="1">20</td><td colspan="1"><span>Осмотры врачей в приемном покое</span></td></tr><tr><td colspan="1">21</td><td colspan="1"><span>Резюме анестезиолога</span></td></tr><tr><td colspan="1">22</td><td colspan="1"><span>Сестринские карты&nbsp;</span></td></tr><tr><td colspan="1">23</td><td colspan="1"><span>Патологоанатомия</span></td></tr><tr><td colspan="1">24</td><td colspan="1"><span>Заключение ВК</span></td></tr><tr><td colspan="1">25</td><td colspan="1"><span>Заключение заведующего</span></td></tr><tr><td colspan="1">26</td><td colspan="1"><span>Скорая помощь</span></td></tr><tr><td colspan="1">27</td><td colspan="1"><span>Трансфузиология</span></td></tr><tr><td colspan="1">28</td><td colspan="1"><span>Ресурсы</span></td></tr><tr><td colspan="1">29</td><td colspan="1"><span>Лист назначений</span></td></tr><tr><td colspan="1">30</td><td colspan="1"><span>Отмена назначения</span></td></tr><tr><td colspan="1">31</td><td colspan="1"><span>Диета</span></td></tr><tr><td colspan="1">32</td><td colspan="1"><span>Протоколы манипуляций</span></td></tr><tr><td colspan="1">33</td><td colspan="1">Листки нетрудоспособности</td></tr></tbody></table></td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">Статус пациента</td><td colspan="1">Локальный</td><td colspan="1">PatientStatus</td><td colspan="1">&nbsp;</td><td colspan="1"><p>1-Опубликован</p><p>2-Помечен на удаление</p><p>3-Удален</p></td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">Результат публикации</td><td colspan="1">Локальный</td><td colspan="1">FederalPublicResult&nbsp;</td><td colspan="1">&nbsp;</td><td colspan="1"><p>1-Публикация в ФИЭМК невозможна</p><p>2-Не опубликован</p><p>3-В процессе публикации</p><p>4-Опубликован</p><p>5-Ошибка публикации</p></td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">Тип полиса</td><td colspan="1"><span>Локальный</span></td><td colspan="1">PolicyType</td><td colspan="1">&nbsp;</td><td colspan="1"><p>1 Полис ОМС старого образца<br />2 Временное свидетельство, подтверждающее оформление полиса обязательного медицинского страхования</p><p>3 Полис ОМС единого образца</p><p>4 ДМС<br />5 договор<br />6 ДМС-Антиклещ</p></td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1"><span style="color: rgb(0,0,0);">&nbsp;Тип документа для фильтра в навигаторе (ИЭМК)</span></td><td colspan="1"><span>Локальный</span></td><td colspan="1"><span style="color: rgb(0,0,0);">DocumentTypeForFilter</span></td><td colspan="1">&nbsp;</td><td colspan="1"><div>1 Эпикриз стационара</div><div>2 Форма 025</div><div>3 Направление</div><div>5 Протокол консультации</div><div>6 Протокол инструментального исследования</div><div>7 Протокол лабораторного исследования</div><div>8 Медицинская справка о допуске к управлению транспортными средствами</div><div>9 Эпикриз оказания скорой и неотложной помощи</div><div>10 Заборы био-материала</div><div>11 Прививки</div><div>13 Профосмотры</div><div>14 Допдиспансеризация</div><div>15 Заключения комиссии</div><div>16 Карта лечения</div><div>17 Осмотры ФТО</div><div>18 Дневной стационар</div><div>19 Осмотры врачей в отделении стационара&nbsp;</div><div>20 Осмотры врачей в приемном покое</div><div>21 Резюме анестезиолога</div><div>22 Сестринские карты&nbsp;</div><div>23 Патологоанатомия</div><div>24 Заключение ВК</div><div>25 Заключение заведующего</div><div>26 Скорая помощь</div><div>27 Трансфузиология</div><div>28 Ресурсы</div><div>29 Лист назначений</div><div>30 Отмена назначения</div><div>31 Диета</div><div>32 Протоколы манипуляций</div></td><td colspan="1">&nbsp;</td></tr></tbody></table>

@@ -1,0 +1,54 @@
+---
+layout: default
+title: MenuItem
+position: 
+categories: 
+tags: 
+---
+
+<p>Элемент меню.</p><p>&nbsp;&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "MenuItem",
+	"description": "Элемент меню",
+	"type": "object",
+	"properties": {
+		"Text": {
+			"description": "Текст элемента меню",
+			"type": "string",
+			"required": true
+		},
+		"Image": {
+			"description": "Изображение элемента меню",
+			"type": "string"
+		},
+		"Action": {
+			"description": "Действие при выборе элемента меню",
+			"$ref": "http://demo.infinnity.ru:8081/display/MC/Action"
+		},
+		"Items": {
+			"description": "Список дочерних элементов меню",
+			"type": "array",
+			"items": {
+				"$ref": "http://demo.infinnity.ru:8081/display/MC/MenuItem"
+			}
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Text": "File",
+	"Items": [
+		{
+			"Text": "New"
+		},
+		{
+			"Text": "Open"
+		},
+		{
+			"Text": "Save"
+		},
+		{
+			"Text": "Save as..."
+		},
+		{
+			"Text": "Exit"
+		}
+	]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

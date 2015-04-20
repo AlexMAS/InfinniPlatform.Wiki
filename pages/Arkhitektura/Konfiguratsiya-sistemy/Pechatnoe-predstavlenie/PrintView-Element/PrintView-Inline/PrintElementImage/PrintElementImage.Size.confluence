@@ -1,0 +1,68 @@
+---
+layout: default
+title: PrintElementImage.Size
+position: 0
+categories: 
+tags: 
+---
+
+<p>Размеры изображения.</p><p>&nbsp; &nbsp;</p><h4>Type</h4><p><ac:link><ri:page ri:content-title="Size" /></ac:link></p><p>&nbsp; &nbsp;</p><h4>Example</h4><p><ac:link><ri:attachment ri:filename="PrintElementImage.Size.pdf" /></ac:link></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Blocks": [
+    {
+      "Paragraph": {
+        "Inlines": [
+          {
+            "Image": {
+              "Size": {
+                "Width": 50,
+                "Height": 25,
+                "SizeUnit": "Px"
+              },
+              "Data": "Qk0GAQAAAAAAAD4AAAAoAAAAMgAAABkAAAABAAEAAAAAAMgAAAATCwAAEwsAAAAAAAAAAAAAAAAAAP///wD////////AAP//////
+/8AAwAAAAAAAwADAAAAAAADAAMAAAAAAAMAAx//////4wADH//////jAAMf/////+MAAx//////4wADH//////jAAMf/////+MAA
+x//////4wADH//////jAAMf/////+MAAx//////4wADH//////jAAMf/////+MAAx//////4wADH//////jAAMf/////+MAAwAAA
+AAAAwADAAAAAAADAAMAAAAAAAMAA////////wAD////////AAA=="
+            }
+          },
+          {
+            "Image": {
+              "Size": {
+                "Width": 100,
+                "Height": 50,
+                "SizeUnit": "Px"
+              },
+              "Data": "Qk0GAQAAAAAAAD4AAAAoAAAAMgAAABkAAAABAAEAAAAAAMgAAAATCwAAEwsAAAAAAAAAAAAAAAAAAP///wD////////AAP//////
+/8AAwAAAAAAAwADAAAAAAADAAMAAAAAAAMAAx//////4wADH//////jAAMf/////+MAAx//////4wADH//////jAAMf/////+MAA
+x//////4wADH//////jAAMf/////+MAAx//////4wADH//////jAAMf/////+MAAx//////4wADH//////jAAMf/////+MAAwAAA
+AAAAwADAAAAAAADAAMAAAAAAAMAA////////wAD////////AAA=="
+            }
+          },
+          {
+            "Image": {
+              "Size": {
+                "Width": 150,
+                "Height": 75,
+                "SizeUnit": "Px"
+              },
+              "Data": "Qk0GAQAAAAAAAD4AAAAoAAAAMgAAABkAAAABAAEAAAAAAMgAAAATCwAAEwsAAAAAAAAAAAAAAAAAAP///wD////////AAP//////
+/8AAwAAAAAAAwADAAAAAAADAAMAAAAAAAMAAx//////4wADH//////jAAMf/////+MAAx//////4wADH//////jAAMf/////+MAA
+x//////4wADH//////jAAMf/////+MAAx//////4wADH//////jAAMf/////+MAAx//////4wADH//////jAAMf/////+MAAwAAA
+AAAAwADAAAAAAADAAMAAAAAAAMAA////////wAD////////AAA=="
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "PageSize": {
+    "Width": 400,
+    "Height": 150,
+    "SizeUnit": "Px"
+  },
+  "PagePadding": {
+    "Left": 10,
+    "Top": 10,
+    "Right": 10,
+    "Bottom": 10
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

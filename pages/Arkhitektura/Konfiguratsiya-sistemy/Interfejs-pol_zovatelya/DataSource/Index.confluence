@@ -1,0 +1,42 @@
+---
+layout: default
+title: DataSource
+position: 7
+categories: 
+tags: 
+---
+
+<p>Контейнер для описания источника данных представления.</p><p>&nbsp;</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>Базовый тип для источников данных описан в разделе <ac:link><ri:page ri:content-title="BaseDataSource" /></ac:link>.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "DataSource",
+	"description": "Контейнер для описания источника данных представления",
+	"type": "object",
+	"properties": {
+		"ObjectDataSource": {
+			"description": "Источник данных представления для произвольного массива",
+			"$ref": "http://demo.infinnity.ru:8081/display/MC/ObjectDataSource"
+		},
+		"DocumentDataSource": {
+			"description": "Источник данных представления для документов",
+			"$ref": "http://demo.infinnity.ru:8081/display/MC/DocumentDataSource"
+		},
+		"MetadataDataSource": {
+			"description": "Источник данных представления для метаданных конфигурации",
+			"$ref":"http://demo.infinnity.ru:8081/display/MC/MetadataDataSource"
+		}
+    }
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #1</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"ObjectDataSource": {
+		"Name": "AddressTypeDataSource",
+		"Value": [
+			"Почтовый",
+			"Юридический",
+			"Фактический"
+		]
+	}
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #2</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"DocumentDataSource": {
+		"Name": "PatientDataSource",
+		"ConfigId": "Integration",
+		"DocumentId": "Patient"
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

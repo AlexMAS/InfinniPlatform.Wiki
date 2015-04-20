@@ -1,0 +1,20 @@
+---
+layout: default
+title: ActualProductFlavourLoockup
+position: 1
+categories: 
+tags: 
+---
+
+<p>Вкусовые качества существующего лекарственного средства.</p><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">ActualProductFlavourLoockup</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Type": "Object",
+	"Caption": "Actual product flavour",
+	"Description": "Вкусовые качества существующего лекарственного средства (LOOKUP.FLAVOUR)",
+	"TypeInfo": {
+		"DocumentLink": {
+			"ConfigId": "Dmd",
+			"DocumentId": "LoockupEntry",
+			"Inline": true
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

@@ -1,0 +1,35 @@
+---
+layout: default
+title: ApplicationRole
+position: 1
+categories: 
+tags: 
+---
+
+<p>Сведения о роли системы.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">DataSchema</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Type": "Object",
+	"Caption": "Сведения о роли системы",
+	"Properties": {
+		"Id": {
+			"Type": "String",
+			"Caption": "Уникальный идентификатор роли"
+		},
+		"Name": {
+			"Type": "String",
+			"Caption": "Наименование роли"
+		},
+		"Caption": {
+			"Type": "String",
+			"Caption": "Заголовок роли"
+		},
+		"Description": {
+			"Type": "String",
+			"Caption": "Описание роли"
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Id": "ProjectManager",
+	"Name": "ProjectManager",
+	"Caption": "Менеджер проекта",
+	"Description": "Доступны все операции по управлению проектом"
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

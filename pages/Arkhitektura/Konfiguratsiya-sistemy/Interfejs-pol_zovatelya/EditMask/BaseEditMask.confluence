@@ -1,0 +1,20 @@
+---
+layout: default
+title: BaseEditMask
+position: 0
+categories: 
+tags: 
+---
+
+<p>Базовый набор свойств маски ввода данных.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "BaseEditMask",
+	"description": "Базовый набор свойств маски ввода данных",
+	"type": "object",
+	"properties": {
+		"Mask": {
+			"description": "Маска ввода данных",
+			"type": "string",
+			"required": true
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

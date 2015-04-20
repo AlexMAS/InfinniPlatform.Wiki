@@ -1,0 +1,17 @@
+---
+layout: default
+title: PrintElementImageStretch
+position: 3
+categories: 
+tags: 
+---
+
+<p>Растягивание изображения.</p><p>&nbsp; &nbsp;</p><h4>Type</h4><p>enum</p><p>&nbsp; &nbsp;</p><h4>Description &nbsp;</h4><table><tbody><tr><th>Value</th><th>Description</th></tr><tr><td colspan="1">None</td><td colspan="1"><p>Не растягивать изображение.</p></td></tr><tr><td colspan="1">Fill</td><td colspan="1">Растягивать изображение по размеру контейнера.</td></tr><tr><td colspan="1">Uniform</td><td colspan="1"><span>Растягивать изображение по размеру контейнера с сохранением пропорций.</span></td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "PrintElementImageStretch",
+  "description": "Растягивание изображения",
+  "enum": [
+    "None",
+    "Fill",
+    "Uniform"
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Example</h4><p><ac:image><ri:attachment ri:filename="PrintElementImageStretch.PNG" /></ac:image></p><p>&nbsp;</p><p>&nbsp;</p>

@@ -1,0 +1,223 @@
+---
+layout: default
+title: PrintElementImage.Rotation
+position: 1
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(0,51,102);">Поворот изображения.</span><span style="color: rgb(0,51,102);">&nbsp;&nbsp;</span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;&nbsp;</span></p><h4>Type<span style="color: rgb(0,51,102);">&nbsp;</span></h4><p><span style="color: rgb(0,51,102);"><ac:link><ri:page ri:content-title="PrintElementRotation" /></ac:link><br /></span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(0,51,102);">Example</span></h4><p><span style="color: rgb(0,51,102);"><ac:link><ri:attachment ri:filename="PrintElementImage.Rotation.pdf" /></ac:link></span><span style="color: rgb(0,51,102);">&nbsp;</span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Blocks": [
+    {
+      "Section": {
+        "TextAlignment": "Center",
+        "Blocks": [
+          {
+            "Paragraph": {
+              "Inlines": [
+                {
+                  "Image": {
+                    "Rotation": "Rotate0",
+                    "Data": "Qk1+BgAAAAAAAD4AAAAoAAAAZAAAAGQAAAABAAEAAAAAAEAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wD////////////////w
+AAAA////////////////8AAAAP////////////////AAAAD////////////////wAAAA////////////////8AAAAP//////////
+//////AAAAD4AAAAAAAAAAAAAAHwAAAA+AAAAAAAAAAAAAAB8AAAAPgAAAAAAAAAAAAAAfAAAAD4//////////////HwAAAA+P//
+///////////x8AAAAPj/////////////8fAAAAD4//////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAA
+AAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH/////////
+///x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f//
+//////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAA
+APjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f//////////
+//HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////
+////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA
++PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////
+8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH/////
+///////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD4
+8f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x
+8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f//////
+//////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx
+////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////Hw
+AAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////
+////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH/
+///////////x8AAAAPjx////////////8fAAAAD4//////////////HwAAAA+P/////////////x8AAAAPj/////////////8fAA
+AAD4//////////////HwAAAA+P/////////////x8AAAAPgAAAAAAAAAAAAAAfAAAAD4AAAAAAAAAAAAAAHwAAAA+AAAAAAAAAAA
+AAAB8AAAAP////////////////AAAAD////////////////wAAAA////////////////8AAAAP////////////////AAAAD/////
+///////////wAAAA"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Paragraph": {
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "Rotate0"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "TextAlignment": "Center",
+        "Blocks": [
+          {
+            "Paragraph": {
+              "Inlines": [
+                {
+                  "Image": {
+                    "Rotation": "Rotate90",
+                    "Data": "Qk1+BgAAAAAAAD4AAAAoAAAAZAAAAGQAAAABAAEAAAAAAEAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wD////////////////w
+AAAA////////////////8AAAAP////////////////AAAAD////////////////wAAAA////////////////8AAAAP//////////
+//////AAAAD4AAAAAAAAAAAAAAHwAAAA+AAAAAAAAAAAAAAB8AAAAPgAAAAAAAAAAAAAAfAAAAD4//////////////HwAAAA+P//
+///////////x8AAAAPj/////////////8fAAAAD4//////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAA
+AAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH/////////
+///x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f//
+//////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAA
+APjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f//////////
+//HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////
+////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA
++PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////
+8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH/////
+///////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD4
+8f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x
+8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f//////
+//////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx
+////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////Hw
+AAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////
+////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH/
+///////////x8AAAAPjx////////////8fAAAAD4//////////////HwAAAA+P/////////////x8AAAAPj/////////////8fAA
+AAD4//////////////HwAAAA+P/////////////x8AAAAPgAAAAAAAAAAAAAAfAAAAD4AAAAAAAAAAAAAAHwAAAA+AAAAAAAAAAA
+AAAB8AAAAP////////////////AAAAD////////////////wAAAA////////////////8AAAAP////////////////AAAAD/////
+///////////wAAAA"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Paragraph": {
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "Rotate90"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "TextAlignment": "Center",
+        "Blocks": [
+          {
+            "Paragraph": {
+              "Inlines": [
+                {
+                  "Image": {
+                    "Rotation": "Rotate180",
+                    "Data": "Qk1+BgAAAAAAAD4AAAAoAAAAZAAAAGQAAAABAAEAAAAAAEAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wD////////////////w
+AAAA////////////////8AAAAP////////////////AAAAD////////////////wAAAA////////////////8AAAAP//////////
+//////AAAAD4AAAAAAAAAAAAAAHwAAAA+AAAAAAAAAAAAAAB8AAAAPgAAAAAAAAAAAAAAfAAAAD4//////////////HwAAAA+P//
+///////////x8AAAAPj/////////////8fAAAAD4//////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAA
+AAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH/////////
+///x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f//
+//////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAA
+APjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f//////////
+//HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////
+////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA
++PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////
+8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH/////
+///////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD4
+8f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x
+8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f//////
+//////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx
+////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////Hw
+AAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////
+////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH/
+///////////x8AAAAPjx////////////8fAAAAD4//////////////HwAAAA+P/////////////x8AAAAPj/////////////8fAA
+AAD4//////////////HwAAAA+P/////////////x8AAAAPgAAAAAAAAAAAAAAfAAAAD4AAAAAAAAAAAAAAHwAAAA+AAAAAAAAAAA
+AAAB8AAAAP////////////////AAAAD////////////////wAAAA////////////////8AAAAP////////////////AAAAD/////
+///////////wAAAA"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Paragraph": {
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "Rotate180"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "TextAlignment": "Center",
+        "Blocks": [
+          {
+            "Paragraph": {
+              "Inlines": [
+                {
+                  "Image": {
+                    "Rotation": "Rotate270",
+                    "Data": "Qk1+BgAAAAAAAD4AAAAoAAAAZAAAAGQAAAABAAEAAAAAAEAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wD////////////////w
+AAAA////////////////8AAAAP////////////////AAAAD////////////////wAAAA////////////////8AAAAP//////////
+//////AAAAD4AAAAAAAAAAAAAAHwAAAA+AAAAAAAAAAAAAAB8AAAAPgAAAAAAAAAAAAAAfAAAAD4//////////////HwAAAA+P//
+///////////x8AAAAPj/////////////8fAAAAD4//////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAA
+AAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH/////////
+///x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f//
+//////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAA
+APjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f//////////
+//HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////
+////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA
++PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////
+8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH/////
+///////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD4
+8f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x
+8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f//////
+//////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx
+////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////Hw
+AAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////
+////8fAAAAD48f////////////HwAAAA+PH////////////x8AAAAPjx////////////8fAAAAD48f////////////HwAAAA+PH/
+///////////x8AAAAPjx////////////8fAAAAD4//////////////HwAAAA+P/////////////x8AAAAPj/////////////8fAA
+AAD4//////////////HwAAAA+P/////////////x8AAAAPgAAAAAAAAAAAAAAfAAAAD4AAAAAAAAAAAAAAHwAAAA+AAAAAAAAAAA
+AAAB8AAAAP////////////////AAAAD////////////////wAAAA////////////////8AAAAP////////////////AAAAD/////
+///////////wAAAA"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Paragraph": {
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "Rotate270"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Font": {
+    "Size": 8
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);"><br /></span></p><p><span style="color: rgb(0,51,102);"><br /></span></p>

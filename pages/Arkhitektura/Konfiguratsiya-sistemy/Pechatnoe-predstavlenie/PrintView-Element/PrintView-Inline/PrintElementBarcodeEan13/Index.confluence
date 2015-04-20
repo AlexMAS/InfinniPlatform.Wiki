@@ -1,0 +1,75 @@
+---
+layout: default
+title: PrintElementBarcodeEan13
+position: 9
+categories: 
+tags: 
+---
+
+<p>Однострочный элемент печатного представления для отображения штрих-кода в формате EAN13.</p><p>&nbsp; &nbsp;</p><h4>Type</h4><p>object</p><p>&nbsp; &nbsp;</p><h4>Extends</h4><p><ac:link><ri:page ri:content-title="PrintElementInline" /></ac:link></p><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "PrintElementBarcodeEan13",
+  "description": "Однострочный элемент печатного представления для отображения штрих-кода в формате EAN13",
+  "type": "object",
+  "extends": {
+    "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElementInline"
+  },
+  "properties": {
+    "Text": {
+      "description": "Текст для кодирования",
+      "type": "string",
+      "pattern": "[0-9]+"
+    },
+    "ShowText": {
+      "description": "Показывать ли текст в штрих-коде",
+      "type": "boolean",
+      "default": true
+    },
+    "SourceFormat": {
+      "description": "Формат отображения значения источника данных",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/DisplayFormat"
+    },
+    "CalcCheckSum": {
+      "description": "Автоматически рассчитывать контрольную сумму",
+      "type": "boolean",
+      "default": true
+    },
+    "WideBarRatio": {
+      "description": "Относительная ширина штрихов в штрих-коде",
+      "type": "number",
+      "default": 2,
+      "minimum": 2,
+      "exclusiveMinimum": false
+    },
+    "Rotation": {
+      "description": "Поворот изображения штрих-кода",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElementRotation",
+      "default": "Rotate0"
+    }
+  },
+  "additionalProperties": false
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Example</h4><p><ac:link><ri:attachment ri:filename="PrintElementBarcodeEan13.pdf" /></ac:link></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Blocks": [
+    {
+      "Paragraph": {
+        "Inlines": [
+          {
+            "BarcodeEan13": {
+              "Text": "123456789012"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "PageSize": {
+    "Width": 200,
+    "Height": 100,
+    "SizeUnit": "Px"
+  },
+  "PagePadding": {
+    "Left": 10,
+    "Top": 10,
+    "Right": 10,
+    "Bottom": 10
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

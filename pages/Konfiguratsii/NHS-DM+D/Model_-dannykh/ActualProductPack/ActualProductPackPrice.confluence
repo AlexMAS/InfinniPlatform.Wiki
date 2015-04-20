@@ -1,0 +1,42 @@
+---
+layout: default
+title: ActualProductPackPrice
+position: 3
+categories: 
+tags: 
+---
+
+<p>Цена упаковки виртуального лекарственного средства.</p><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">ActualProductPackPrice</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Type": "Object",
+	"Caption": "Medicinal Product Price",
+	"Description": "Цена упаковки виртуального лекарственного средства",
+	"Properties": {
+		"Price": {
+			"Type": "Float",
+			"Caption": "Price",
+			"Description": "Цена упаковки существующего лекарственного средства в Pence (Sterling) (PRICE)"
+		},
+		"PricePrev": {
+			"Type": "Float",
+			"Caption": "Price prior to change date",
+			"Description": "Предыдущая цена упаковки существующего лекарственного средства в Pence (Sterling) (PRICE_PREV)"
+		},
+		"PriceDate": {
+			"Type": "DateTime",
+			"Caption": "Date of price validity",
+			"Description": "Дата утверждения текущей цены упаковки существующего лекарственного средства (PRICEDT)"
+		},
+		"PriceBasisId": {
+			"Type": "Object",
+			"Caption": "Price basis",
+			"Description": "Основание ценообразования упаковки существующего лекарственного средства (REIMB_STATCD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "ActualProductPackPriceBasisLoockup",
+					"Inline": false
+				}
+			}
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

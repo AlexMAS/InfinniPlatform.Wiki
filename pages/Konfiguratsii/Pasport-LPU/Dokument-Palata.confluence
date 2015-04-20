@@ -1,0 +1,9 @@
+---
+layout: default
+title: Документ "Палата"
+position: 
+categories: 
+tags: 
+---
+
+<h1>Документ &quot;Палата&quot; (Ward)</h1><p><strong>Поля:</strong></p><p>Элемент справочника WardAppointment</p><table><thead><tr><td><p><strong>Наименование</strong></p></td><td><p><strong>Тип Данных</strong></p></td><td><p><strong>Заголовок</strong></p></td><td><p><strong>Описание</strong></p></td><td><p><strong>Множественность</strong></p></td></tr></thead><tbody><tr><td><p>Department</p></td><td><p><a href="http://knowledge:8081/pages/viewpage.action?pageId=49250352">Элемент справочника &quot;Отделения&quot;</a></p></td><td><p>Отделение</p></td><td><p>Отделение, в котором расположена палата</p></td><td><p>[1..1]</p></td></tr><tr><td><p>Number</p></td><td><p>String</p></td><td><p>Номер</p></td><td><p>Номер палаты</p></td><td><p>[1..1]</p></td></tr><tr><td>PlaceCount</td><td><p>Integer</p></td><td><p>Количество мест</p></td><td><p>Вместимость коек в одну палату</p></td><td><p>[0..1]</p></td></tr><tr><td colspan="1"><span>AppointmentWard</span></td><td colspan="1"><ac:link><ri:page ri:content-title="Используемые справочники" /><ac:plain-text-link-body><![CDATA[Элемент справочника "WardAppointment"]]></ac:plain-text-link-body></ac:link></td><td colspan="1">Назначение палаты</td><td colspan="1"><span>Тип пациентов, которые могут быть госпитализированы в данную палату</span></td><td colspan="1"><span>0..1</span></td></tr></tbody></table>

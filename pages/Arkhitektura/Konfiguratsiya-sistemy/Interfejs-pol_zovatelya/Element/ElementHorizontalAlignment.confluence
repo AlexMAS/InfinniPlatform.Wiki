@@ -1,0 +1,18 @@
+---
+layout: default
+title: ElementHorizontalAlignment
+position: 1
+categories: 
+tags: 
+---
+
+<p>Горизонтальное выравнивание в родительском элементе.</p><p>&nbsp;</p><table><tbody><tr><th>Значение</th><th>Описание</th></tr><tr><td colspan="1"><span style="color: rgb(42,42,42);">Left</span></td><td colspan="1">Элемент выравнивается по левому краю родительского элемента.</td></tr><tr><td><span style="color: rgb(42,42,42);">Center</span></td><td>Элемент выравнивается по центру горизонтали родительского элемента.</td></tr><tr><td><span style="color: rgb(42,42,42);">Right</span></td><td>Элемент выравнивается по правому краю родительского элемента.</td></tr><tr><td><span style="color: rgb(42,42,42);">Stretch</span></td><td>Элемент занимает всю область родительского элемента по горизонтали.</td></tr></tbody></table><p><span style="background-color: transparent;line-height: 1.4285715;">&nbsp; &nbsp;&nbsp;</span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "ElementHorizontalAlignment",
+	"description": "Горизонтальное выравнивание в родительском элементе",
+	"enum": [
+		"Left",
+		"Center",
+		"Right",
+		"Stretch"
+	]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

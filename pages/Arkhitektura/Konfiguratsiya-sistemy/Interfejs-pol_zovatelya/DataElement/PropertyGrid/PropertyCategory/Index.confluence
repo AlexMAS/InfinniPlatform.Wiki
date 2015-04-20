@@ -1,0 +1,72 @@
+---
+layout: default
+title: PropertyCategory
+position: 
+categories: 
+tags: 
+---
+
+<p>Описание способа отображения категории свойств объекта.</p><p>&nbsp;</p><ac:structured-macro ac:name="expand"><ac:parameter ac:name="title">Methods</ac:parameter><ac:rich-text-body><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">GetCategories(): array&lt;<ac:link />&gt;</td><td colspan="1">Возвращает список категорий.</td></tr><tr><td colspan="1">GetProperties(): array&lt;<ac:link><ri:page ri:content-title="PropertyEditor" /></ac:link>&gt;</td><td colspan="1">Возвращает список свойств категории.</td></tr><tr><td colspan="1">GetText(): string</td><td colspan="1">Возвращает текст заголовка категории.</td></tr><tr><td colspan="1">SetText(string)</td><td colspan="1"><span>Устанавливает текст заголовка категории.</span></td></tr><tr><td colspan="1">GetImage(): string</td><td colspan="1"><span>Возвращает изображение заголовка категории.</span></td></tr><tr><td colspan="1">SetImage(string)</td><td colspan="1"><span>Устанавливает изображение заголовка категории.</span></td></tr><tr><td colspan="1">GetExpandable(): boolean</td><td colspan="1">Возвращает значение, определяющее, разрешено ли сворачивание категории.</td></tr><tr><td colspan="1">SetExpandable(boolean)</td><td colspan="1">Устанавливает значение, определяющее, разрешено ли сворачивание категории.</td></tr><tr><td colspan="1">Expand()</td><td colspan="1">Разворачивает категорию, если сворачивание разрешено и категория свернута.</td></tr><tr><td colspan="1">Collapse()</td><td colspan="1">Сворачивает категорию, если сворачивание разрешено и категория развернута.</td></tr></tbody></table></ac:rich-text-body></ac:structured-macro><ac:structured-macro ac:name="expand"><ac:parameter ac:name="title">Events</ac:parameter><ac:rich-text-body><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">OnExpand</td><td colspan="1">Событие разворачивания категории.&nbsp;</td></tr><tr><td colspan="1">OnCollapse</td><td colspan="1">Событие сворачивания категории.</td></tr></tbody></table></ac:rich-text-body></ac:structured-macro><p><span style="color: rgb(42,42,42);">&nbsp;&nbsp;</span>&nbsp;&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "PropertyCategory",
+	"description": "Описание способа отображения категории свойств объекта",
+	"type": "object",
+	"properties": {
+		"Categories": {
+			"description": "Список категорий",
+			"type": "array",
+			"items": {
+				"$ref": "http://demo.infinnity.ru:8081/display/MC/PropertyCategory"
+			}
+		},
+		"Properties": {
+			"description": "Список свойств категории",
+			"type": "array",
+			"items": {
+				"$ref": "http://demo.infinnity.ru:8081/display/MC/PropertyEditor"
+			}
+		},
+		"Text": {
+			"description": "Текст заголовка категории",
+			"type": "string"
+		},
+		"Image": {
+			"description": "Изображение заголовка категории",
+			"type": "string",
+			"default": null
+		},
+		"Expandable": {
+			"description": "Разрешено ли сворачивание категории",
+			"type": "boolean",
+			"default": false
+		},
+		"Expanded": {
+			"description": "Развернута ли категория",
+			"type": "boolean",
+			"default": true
+		},
+		"OnExpand": {
+			"description": "Обработчик события разворачивания категории",
+			"$ref": "http://demo.infinnity.ru:8081/display/MC/LinkScript"
+		},
+		"OnCollapse": {
+			"description": "Обработчик события сворачивания категории",
+			"$ref": "http://demo.infinnity.ru:8081/display/MC/LinkScript"
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Text": "Общая информация",
+	"Properties": [
+		{
+			"Text": "Имя",
+			"Property": "FirstName"
+		},
+		{
+			"Text": "Отчество",
+			"Property": "MiddleName"
+		},
+		{
+			"Text": "Фамилия",
+			"Property": "LastName"
+		}
+	]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

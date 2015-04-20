@@ -1,0 +1,17 @@
+---
+layout: default
+title: VerticalTextAlignment
+position: 4
+categories: 
+tags: 
+---
+
+<p>Вертикальное выравнивание текста внутри элемента.</p><p>&nbsp;</p><table><tbody><tr><th>Значение</th><th>Описание</th></tr><tr><td>Top</td><td>По верхнему краю.</td></tr><tr><td>Center</td><td>По центру.</td></tr><tr><td>Bottom</td><td>По нижнему краю.</td></tr></tbody></table><p>&nbsp;&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "VerticalTextAlignment",
+	"description": "Вертикальное выравнивание текста внутри элемента",
+	"enum": [
+		"Top",
+		"Center",
+		"Bottom"
+	]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

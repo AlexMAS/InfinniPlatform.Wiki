@@ -1,0 +1,43 @@
+---
+layout: default
+title: DatePicker
+position: 6
+categories: 
+tags: 
+---
+
+<p>Элемент представления&nbsp;для отображения и редактирования даты.</p><p><span style="color: rgb(42,42,42);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(42,42,42);">Sketch</span></h4><p><ac:image><ri:attachment ri:filename="DatePicker_01.png" /></ac:image></p><p>&nbsp; &nbsp; &nbsp;&nbsp;</p><h4>Methods</h4><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">GetMode(): <ac:link><ri:page ri:content-title="DatePickerMode" /></ac:link></td><td colspan="1">Возвращает режим работы элемента.</td></tr><tr><td colspan="1">SetMode(<ac:link><ri:page ri:content-title="DatePickerMode" /></ac:link> value)</td><td colspan="1">Устанавливает режим работы элемента.</td></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">GetMinDate(): datetime</td><td colspan="1">Возвращает минимально возможную дату для выбора.</td></tr><tr><td colspan="1">SetMinDate(datetime)</td><td colspan="1">Устанавливает минимально возможную дату для выбора.</td></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">GetMaxDate(): datetime</td><td colspan="1">Возвращает максимально возможную дату для выбора.</td></tr><tr><td colspan="1">SetMaxDate(datetime)</td><td colspan="1">Устанавливает максимально возможную дату для выбора.</td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Events</h4><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "DatePicker",
+  "description": "Элемент представления для отображения и редактирования даты",
+  "type": "object",
+  "extends": {
+    "$ref": "http://demo.infinnity.ru:8081/display/MC/BaseTextElement"
+  },
+  "properties": {
+    "Mode": {
+      "description": "Режим работы элемента",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/DatePickerMode",
+      "default": "Date"
+    },
+    "MinDate": {
+      "description": "Минимально возможная дата для выбора",
+      "type": "string",
+      "format": "date-time"
+    },
+    "MaxDate": {
+      "description": "Максимально возможная дата для выбора",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Examples</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Label": "Дата рождения",
+  "LabelFloating": true,
+  "Value": {
+    "PropertyBinding": {
+      "DataSource": "MainDataSource",
+      "Property": "BirthDate"
+    }
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

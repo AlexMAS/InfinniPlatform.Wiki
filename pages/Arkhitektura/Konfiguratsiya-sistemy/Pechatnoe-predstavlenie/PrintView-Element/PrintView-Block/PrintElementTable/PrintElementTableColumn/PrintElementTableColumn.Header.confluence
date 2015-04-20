@@ -1,0 +1,202 @@
+---
+layout: default
+title: PrintElementTableColumn.Header
+position: 1
+categories: 
+tags: 
+---
+
+<p>Заголовок столбца.</p><p>&nbsp;&nbsp;</p><ac:structured-macro ac:name="info"><ac:rich-text-body><p>Выводится в случае, если&nbsp;<ac:link><ri:page ri:content-title="PrintElementTable" /></ac:link>.ShowHeader=true (значение по умолчанию).</p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Type</h4><p><ac:link><ri:page ri:content-title="PrintElementTableCell" /></ac:link></p><p>&nbsp; &nbsp;</p><h4>Exmaple</h4><p><ac:link><ri:attachment ri:filename="PrintElementTableColumn.Header.pdf" /></ac:link></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Blocks": [
+    {
+      "Table": {
+        "ShowHeader": true,
+        "Columns": [
+          {
+            "Size": 100,
+            "SizeUnit": "Px",
+            "Header": {
+              "Background": "#F0F0F0",
+              "Block": {
+                "Paragraph": {
+                  "Inlines": [
+                    {
+                      "Run": {
+                        "Text": "Header1"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "Size": 200,
+            "SizeUnit": "Px",
+            "Header": {
+              "Background": "#F0F0F0",
+              "Block": {
+                "Paragraph": {
+                  "Inlines": [
+                    {
+                      "Run": {
+                        "Text": "Header2"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "Header": {
+              "Background": "#F0F0F0",
+              "Block": {
+                "Paragraph": {
+                  "Inlines": [
+                    {
+                      "Run": {
+                        "Text": "Header3"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "Rows": [
+          {
+            "Cells": [
+              {
+                "Block": {
+                  "Paragraph": {
+                    "Inlines": [
+                      {
+                        "Run": {
+                          "Text": "11"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "Block": {
+                  "Paragraph": {
+                    "Inlines": [
+                      {
+                        "Run": {
+                          "Text": "12"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "Block": {
+                  "Paragraph": {
+                    "Inlines": [
+                      {
+                        "Run": {
+                          "Text": "13"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "Cells": [
+              {
+                "Block": {
+                  "Paragraph": {
+                    "Inlines": [
+                      {
+                        "Run": {
+                          "Text": "21"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "Block": {
+                  "Paragraph": {
+                    "Inlines": [
+                      {
+                        "Run": {
+                          "Text": "22"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "Block": {
+                  "Paragraph": {
+                    "Inlines": [
+                      {
+                        "Run": {
+                          "Text": "23"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "Cells": [
+              {
+                "Block": {
+                  "Paragraph": {
+                    "Inlines": [
+                      {
+                        "Run": {
+                          "Text": "31"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "Block": {
+                  "Paragraph": {
+                    "Inlines": [
+                      {
+                        "Run": {
+                          "Text": "32"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "Block": {
+                  "Paragraph": {
+                    "Inlines": [
+                      {
+                        "Run": {
+                          "Text": "33"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

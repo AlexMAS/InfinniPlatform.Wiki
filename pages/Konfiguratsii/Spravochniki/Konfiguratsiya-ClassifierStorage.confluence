@@ -1,0 +1,17 @@
+---
+layout: default
+title: Конфигурация ClassifierStorage
+position: 
+categories: 
+tags: 
+---
+
+<p>Конфигурация позволяет хранить данные о справочниках в индексах ElasticSearch.&nbsp;Каждому загруженному справочнику соответствуют собственные метаданные конфигурации. Например, для справочника с CodeSystem &quot;oid_1_2_643_5_1_13_2_1_1_55<span style="color: rgb(0,0,0);">&quot; будут создано хранилище метаданных с именем &quot;oid_1_2_643_5_1_13_2_1_1_55<span style="color: rgb(0,0,0);">&quot;. Все операции по редактированию, удалению, добавлению значений в справочник производятся аналогично операциям для других документов. </span></span></p><p><span style="color: rgb(0,0,0);"><span style="color: rgb(0,0,0);">Каждое значение в справочнике должно иметь следующий обязательный набор полей:</span></span></p><ul><li>Id</li><li>Code</li><li>DisplayName</li><li>ParentId<br /><br /></li></ul><div>Пример значения справочника <span style="line-height: 1.4285715;">(набор полей может быть дополнен полями, специфичными для каждого конкретного справочника):</span></div><div><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:plain-text-body><![CDATA[{
+    ID: 1
+    TYPE_NAME: Интернатура
+    Id: 1
+    Status: Published
+    Code: 1
+    DisplayName: Интернатура
+    ParentId: 
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p></div><div><p style="margin-left: 60.0px;">&nbsp;</p></div>

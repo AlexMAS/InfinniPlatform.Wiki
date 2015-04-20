@@ -1,0 +1,43 @@
+---
+layout: default
+title: ObjectBinding
+position: 1
+categories: 
+tags: 
+---
+
+<p>Описывает связь между элементом представления и произвольным объектом.</p><p>&nbsp;</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>Данные тип привязки используется в случаях, когда в качестве источника данных выступает некоторая константа.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "ObjectBinding",
+	"description": "Описывает связь между элементом представления и произвольным объектом",
+	"extends": {
+		"$ref": "http://demo.infinnity.ru:8081/display/MC/BaseDataBinding"
+	},
+	"type": "object",
+	"properties": {
+		"Value": {
+			"description": "Произвольный объект",
+			"type": "any",
+			"default": null
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #1</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Value": 3.14
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #2</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Value": "Поиск"
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #3</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Value": {
+		"Id": "DF6DE0B0-3F52-45DE-AADF-83233C8EFF90",
+		"DisplayName": "Мужской"
+	}
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #4</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Value": [
+		{
+			"Id": "DF6DE0B0-3F52-45DE-AADF-83233C8EFF90",
+			"DisplayName": "Мужской"
+		},
+		{
+			"Id": "FCEDF30F-AA4F-44B3-B374-CCBD0FF7C0F6",
+			"DisplayName": "Женский"
+		}
+	]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

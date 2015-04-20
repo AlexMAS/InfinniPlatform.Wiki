@@ -1,0 +1,32 @@
+---
+layout: default
+title: PrintView.PagePadding
+position: 2
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(0,51,102);">Отступ от края страницы до содержимого страницы.</span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span><span style="color: rgb(0,51,102);">&nbsp;</span></p><ac:structured-macro ac:name="info"><ac:rich-text-body><p>По умолчанию <span style="color: rgb(0,51,102);">отступ от края страницы до её содержимого </span>равен 1 см (со всех сторон).</p></ac:rich-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(0,51,102);">Type</span></h4><p><span style="color: rgb(0,51,102);"><ac:link><ri:page ri:content-title="Thickness" /></ac:link></span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(0,51,102);">Example</span></h4><p><span style="color: rgb(0,51,102);"><ac:link><ri:attachment ri:filename="PrintView.PagePadding.pdf" /></ac:link><br /></span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "PagePadding": {
+    "Left": 1,
+    "Top": 2,
+    "Right": 3,
+    "Bottom": 4,
+    "SizeUnit": "Cm"
+  },
+  "Background": "Gray",
+  "Blocks": [
+    {
+      "Paragraph": {
+        "Background": "White",
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "PagePadding: Left: 1cm, Top: 2cm, Right: 3cm, Bottom: 4cm"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);"><br /></span></p><p>&nbsp;</p>

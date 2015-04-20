@@ -1,0 +1,234 @@
+---
+layout: default
+title: PrintElementTableColumn.Size
+position: 0
+categories: 
+tags: 
+---
+
+<p>Ширина столбца.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="info"><ac:rich-text-body><p>Если ширина не указана, она высчитывается автоматически из оставшегося пространства родительского блока.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Type</h4><p><span style="color: rgb(0,51,102);">number</span></p><p>&nbsp; &nbsp;</p><h4>Exmaple</h4><p><ac:link><ri:attachment ri:filename="PrintElementTableColumn.Size.pdf" /></ac:link></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Blocks": [
+    {
+      "Table": {
+        "ShowHeader": true,
+        "Margin": {
+          "Bottom": 10
+        },
+        "Columns": [
+          {
+            "Size": 100,
+            "SizeUnit": "Px",
+            "Header": {
+              "Block": {
+                "Paragraph": {
+                  "Inlines": [
+                    {
+                      "Run": {
+                        "Text": "Size=100px"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "Size": 200,
+            "SizeUnit": "Px",
+            "Header": {
+              "Block": {
+                "Paragraph": {
+                  "Inlines": [
+                    {
+                      "Run": {
+                        "Text": "Size=200px"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "Header": {
+              "Block": {
+                "Paragraph": {
+                  "Inlines": [
+                    {
+                      "Run": {
+                        "Text": "Size=Auto"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Table": {
+        "ShowHeader": true,
+        "Margin": {
+          "Bottom": 10
+        },
+        "Columns": [
+          {
+            "Size": 100,
+            "SizeUnit": "Px",
+            "Header": {
+              "Block": {
+                "Paragraph": {
+                  "Inlines": [
+                    {
+                      "Run": {
+                        "Text": "Size=100px"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "Size": 200,
+            "SizeUnit": "Px",
+            "Header": {
+              "Block": {
+                "Paragraph": {
+                  "Inlines": [
+                    {
+                      "Run": {
+                        "Text": "Size=200px"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "Header": {
+              "Block": {
+                "Paragraph": {
+                  "Inlines": [
+                    {
+                      "Run": {
+                        "Text": "Size=Auto"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "Header": {
+              "Block": {
+                "Paragraph": {
+                  "Inlines": [
+                    {
+                      "Run": {
+                        "Text": "Size=Auto"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Table": {
+        "ShowHeader": true,
+        "Margin": {
+          "Bottom": 10
+        },
+        "Columns": [
+          {
+            "Size": 100,
+            "SizeUnit": "Px",
+            "Header": {
+              "Block": {
+                "Paragraph": {
+                  "Inlines": [
+                    {
+                      "Run": {
+                        "Text": "Size=100px"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "Size": 200,
+            "SizeUnit": "Px",
+            "Header": {
+              "Block": {
+                "Paragraph": {
+                  "Inlines": [
+                    {
+                      "Run": {
+                        "Text": "Size=200px"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "Header": {
+              "Block": {
+                "Paragraph": {
+                  "Inlines": [
+                    {
+                      "Run": {
+                        "Text": "Size=Auto"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "Header": {
+              "Block": {
+                "Paragraph": {
+                  "Inlines": [
+                    {
+                      "Run": {
+                        "Text": "Size=Auto"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "Header": {
+              "Block": {
+                "Paragraph": {
+                  "Inlines": [
+                    {
+                      "Run": {
+                        "Text": "Size=Auto"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

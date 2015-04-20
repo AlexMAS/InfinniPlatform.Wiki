@@ -1,0 +1,65 @@
+---
+layout: default
+title: PrintElementSpan
+position: 1
+categories: 
+tags: 
+---
+
+<p>Однострочный элемент печатного представления для группировки множества однострочных элементов.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="info"><ac:rich-text-body><p>Сгруппировав несколько однострочных элементов, можно установить им единые стилевые настройки или единый источник данных.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Type</h4><p>object</p><p>&nbsp; &nbsp;</p><h4>Extends</h4><p><ac:link><ri:page ri:content-title="PrintElementInline" /></ac:link></p><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "PrintElementSpan",
+  "description": "Однострочный элемент печатного представления для группировки множества однострочных элементов",
+  "type": "object",
+  "extends": {
+    "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElementInline"
+  },
+  "properties": {
+    "Inlines": {
+      "description": "Список однострочных элементов печатного представления",
+      "type": "array",
+      "items": {
+        "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElementInlineContainer"
+      }
+    }
+  },
+  "additionalProperties": false
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Example</h4><p><ac:link><ri:attachment ri:filename="PrintElementSpan.pdf" /></ac:link></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Blocks": [
+    {
+      "Paragraph": {
+        "Inlines": [
+          {
+            "Span": {
+              "Font": {
+                "Weight": "Bold"
+              },
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "Phrase 1. "
+                  }
+                },
+                {
+                  "Run": {
+                    "Text": "Phrase 2. "
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "PageSize": {
+    "Width": 200,
+    "Height": 100,
+    "SizeUnit": "Px"
+  },
+  "PagePadding": {
+    "Left": 0,
+    "Top": 0,
+    "Right": 0,
+    "Bottom": 0
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

@@ -1,0 +1,57 @@
+---
+layout: default
+title: ExtensionPanel
+position: 7
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(0,51,102);">Контейнер для встраивания внешнего компонента.</span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>Параметры передаются ИЗ вьюшки, на которой располагается ExtensionPanel, В ExtensionPanel ЧЕРЕЗ любой из существующих типов DataBinding-а (не важно какой - ObjectBinding, PropertyBinding или ParameterBinding). Соответственно, связь между вьюшкой, на которой располагается ExtensionPanel, и ExtensionPanel описывается атрибутом Parameters. Этот атрибут имеет точно такую же сигнатуру, как и аналогичный атрибут в LinkView (см. <ac:link><ri:page ri:content-title="BaseLinkView" /></ac:link>). Массив Parameters содержит элементы { Name, Value }. В Name указывается строковое наименование параметра, которный находится В ExtensionPanel; в Value указывается DataBinding на значение, которое находится ВО вьюшке, на которой располагается ExtensionPanel. (Обратите внимание, что ExtensionPanel зависит от View, а не наоборот!)</p></ac:rich-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);">&nbsp;</span><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><ac:structured-macro ac:name="expand"><ac:parameter ac:name="title">Events</ac:parameter><ac:rich-text-body><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr></tbody></table></ac:rich-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span><span style="color: rgb(0,51,102);">&nbsp;</span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "ExtensionPanel",
+  "description": "Контейнер для встраивания внешнего компонента",
+  "type": "object",
+  "extends": {
+    "$ref": "http://demo.infinnity.ru:8081/display/MC/Element"
+  },
+  "properties": {
+    "ExtensionName": {
+      "description": "Наименование внешнего компонента",
+      "type": "string",
+      "required": true
+    },
+    "Parameters": {
+      "description": "Правила передачи параметров во внешний компонент",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "description": "Наименование параметра внешнего компонента",
+            "type": "string",
+            "required": true
+          },
+          "Value": {
+            "description": "Значение передаваемого во внешний компонент параметра",
+            "$ref": "http://demo.infinnity.ru:8081/display/MC/DataBinding",
+            "required": true
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Name": "ExtensionPanel1",
+  "ExtensionName": "MyScheduler",
+  "Parameters": [
+    {
+      "Name": "PatinetId",
+      "Value": {
+        "PropertyBinding": {
+          "DataSource": "MainDataSource",
+          "Property": "$.Id"
+        }
+      }
+    }
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);"><br /></span></p><p><span style="color: rgb(0,51,102);"><br /></span></p>

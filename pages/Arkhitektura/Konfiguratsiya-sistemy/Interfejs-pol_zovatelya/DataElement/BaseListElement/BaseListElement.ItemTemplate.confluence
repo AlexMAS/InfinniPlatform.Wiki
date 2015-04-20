@@ -1,0 +1,48 @@
+---
+layout: default
+title: BaseListElement.ItemTemplate
+position: 6
+categories: 
+tags: 
+---
+
+<p>Визуальный шаблон для отображения элемента списка.</p><p>&nbsp; &nbsp;</p><p>Элементы, отображаемые в списках, как правило, представлены сложными объектами, которые кроме понятных человеку атрибутов, могут содержать служебную информацию (идентификаторы и т.п.).&nbsp;Всякий раз, когда пользователь работает со списком, ему, как правило, не нужно видеть все атрибуты элементов, поскольку только несколько из них по каким-то причинам являются для него значимыми. Настройка ItemTemplate определяет декларативную функцию формирования визуальных элементов для отображения их в списке. Например, пользователь открывает список контактов, чтобы найти и выбрать абонента, которому он хочет позвонить. При этом в списке он хочет видеть фотографию и имя контакта.&nbsp;В этом случае атрибут ItemTemplate&nbsp;должен содержать соответствующий шаблон отображения элементов списка.</p><p>&nbsp; &nbsp;</p><h4>Examples</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "ValueProperty": "Phone",
+  "ItemTemplate": {
+    "StackPanel": {
+      "Orientation": "Horizontal",
+      "Items": [
+        {
+          "ImageBox": {
+            "Value": {
+              "PropertyBinding": {
+                "DataSource": "MainDataSource",
+                "Property": "$.Photo"
+              }
+            }
+          }
+        },
+        {
+          "Label": {
+            "DisplayFormat": {
+              "ObjectFormat": {
+                "Format": "{LastName}, {FirstName}"
+              }
+            },
+            "Value": {
+              "PropertyBinding": {
+                "DataSource": "MainDataSource",
+                "Property": "$"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "Items": {
+    "PropertyBinding": {
+      "DataSource": "MainDataSource"
+    }
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

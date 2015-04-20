@@ -1,0 +1,9 @@
+---
+layout: default
+title: BaseListGroup.Collapsed
+position: 8
+categories: 
+tags: 
+---
+
+<p>Свернута ли группа.</p><p>&nbsp; &nbsp;</p><p>Данное свойство определяет свернута (Collapsed=true) или развернута (Collapsed=false) группа элементов. Если сворачивание запрещено (<ac:link><ri:page ri:content-title="BaseListGroup.Collapsible" /><ac:plain-text-link-body><![CDATA[Collapsible]]></ac:plain-text-link-body></ac:link>=false), группа развернута, а значение данного свойства игнорируется. Если совойство Collapsed&nbsp;определено в метаданных элемента, оно является значением по умолчанию для всех групп списка.</p><p>&nbsp;</p><p>&nbsp;</p>

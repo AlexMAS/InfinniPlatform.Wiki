@@ -1,0 +1,32 @@
+---
+layout: default
+title: ChangeProfile
+position: 4
+categories: 
+tags: 
+---
+
+<p>Изменяет персональную информацию текущего пользователя.</p><p>&nbsp; &nbsp;</p><h4>Request</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[HTTP POST /Auth/ChangeProfile
+{
+	"type": "object",
+	"properties": {
+		"DisplayName": {
+			"description": "Отображаемое имя пользователя",
+			"type": "string"
+		},
+		"Description": {
+			"description": "Описание пользователя",
+			"type": "string"
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Success responce (equal 200)</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"type": "object",
+	"extends": {
+		"$ref": "http://demo.infinnity.ru:8081/display/MC/AuthUserInfo"
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Failure responce (not equal 200)</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"type": "object",
+	"extends": {
+		"$ref": "http://demo.infinnity.ru:8081/display/MC/AuthErrorInfo"
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

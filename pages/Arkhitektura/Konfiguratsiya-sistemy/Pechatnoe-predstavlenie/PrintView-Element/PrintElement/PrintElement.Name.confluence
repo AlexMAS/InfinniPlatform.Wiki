@@ -1,0 +1,66 @@
+---
+layout: default
+title: PrintElement.Name
+position: 0
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(0,51,102);">Наименование элемента.</span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><ac:structured-macro ac:name="info"><ac:rich-text-body><p><span style="color: rgb(0,51,102);">Может быть использовано прикладным разработчиком для поиска нужного элемента печатного представления в метаданных.</span></p></ac:rich-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(0,51,102);">Type</span></h4><p><span style="color: rgb(0,51,102);">string</span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(0,51,102);">Example</span></h4><p><span style="color: rgb(0,51,102);"><ac:link><ri:attachment ri:filename="PrintElement.Name.pdf" /></ac:link><br /></span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Blocks": [
+    {
+      "Section": {
+        "Name": "Header",
+        "Blocks": [
+          {
+            "Paragraph": {
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "Header"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "Name": "Body",
+        "Blocks": [
+          {
+            "Paragraph": {
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "Body"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "Name": "Footer",
+        "Blocks": [
+          {
+            "Paragraph": {
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "Footer"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);"><br /></span></p><p><span style="color: rgb(0,51,102);"><br /></span></p>

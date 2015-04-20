@@ -1,0 +1,54 @@
+---
+layout: default
+title: PrintElementUnderline
+position: 4
+categories: 
+tags: 
+---
+
+<p>Однострочный элемент печатного представления, текстовое содержимое которого отображается с эффектом подчеркивания.</p><p>&nbsp; &nbsp;</p><h4>Type</h4><p>object</p><p>&nbsp; &nbsp;</p><h4>Extends</h4><p><ac:link><ri:page ri:content-title="PrintElementSpan" /></ac:link></p><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "PrintElementUnderline",
+  "description": "Однострочный элемент печатного представления, текстовое содержимое которого отображается с эффектом подчеркивания",
+  "type": "object",
+  "extends": {
+    "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElementSpan"
+  },
+  "properties": {},
+  "additionalProperties": false
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Example</h4><p><ac:link><ri:attachment ri:filename="PrintElementUnderline.pdf" /></ac:link></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Blocks": [
+    {
+      "Paragraph": {
+        "Inlines": [
+          {
+            "Underline": {
+              "Inlines": [
+                {
+                  "Run": {
+                    "Text": "Phrase 1. "
+                  }
+                },
+                {
+                  "Run": {
+                    "Text": "Phrase 2. "
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "PageSize": {
+    "Width": 200,
+    "Height": 100,
+    "SizeUnit": "Px"
+  },
+  "PagePadding": {
+    "Left": 0,
+    "Top": 0,
+    "Right": 0,
+    "Bottom": 0
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

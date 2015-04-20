@@ -1,0 +1,60 @@
+---
+layout: default
+title: DataGrid
+position: 12
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(42,42,42);">Элемент представления&nbsp;для отображения данных в виде таблицы.</span></p><p><span style="color: rgb(42,42,42);"><span style="color: rgb(42,42,42);">Элемент может работать в двух режимах: выбор одного значения, выбор нескольких значений (см. рис.).</span></span></p><p><span style="color: rgb(42,42,42);">&nbsp; &nbsp;&nbsp;</span></p><h4><span style="color: rgb(42,42,42);">Sketch</span></h4><p><span style="color: rgb(42,42,42);"><ac:image><ri:attachment ri:filename="DataGrid_SingleSelect.png" /></ac:image>&nbsp;&nbsp;<ac:image><ri:attachment ri:filename="DataGrid_MultiSelect.png" /></ac:image><br /></span></p><p>&nbsp; &nbsp;</p><h4>Methods</h4><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">AddColumn(<ac:link><ri:page ri:content-title="DataGridColumn" /></ac:link> value)</td><td colspan="1">Добавляет колонку таблицы.</td></tr><tr><td colspan="1">RemoveColumn(<ac:link><ri:page ri:content-title="DataGridColumn" /></ac:link> value)</td><td colspan="1">Удаляет колонку таблицы.</td></tr><tr><td colspan="1">GetColumn(string name): <ac:link><ri:page ri:content-title="DataGridColumn" /></ac:link></td><td colspan="1">Возвращает колонку таблицы по имени.</td></tr><tr><td colspan="1">GetColumns(): array&lt;<ac:link><ri:page ri:content-title="DataGridColumn" /></ac:link>&gt;</td><td colspan="1">Возвращает список колонок таблицы.</td></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">AddGroup(<ac:link><ri:page ri:content-title="DataGridGroup" /></ac:link>&nbsp;value)</td><td colspan="1">Добавляет группу таблицы.</td></tr><tr><td colspan="1">RemoveGroup(<ac:link><ri:page ri:content-title="DataGridGroup" /></ac:link>&nbsp;value)</td><td colspan="1">Удаляет группу таблицы.</td></tr><tr><td colspan="1">GetGroup(string name): <ac:link><ri:page ri:content-title="DataGridGroup" /></ac:link></td><td colspan="1">Возвращает группу таблицы по имени.</td></tr><tr><td colspan="1">GetGroups(): array&lt;<ac:link><ri:page ri:content-title="DataGridColumn" /></ac:link>&gt;</td><td colspan="1">Возвращает список групп таблицы.</td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4>Events</h4><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr></tbody></table><p>&nbsp; &nbsp;</p><h4><span style="color: rgb(42,42,42);">Schema &nbsp;</span>&nbsp;&nbsp;</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "DataGrid",
+  "description": "Элемент представления ля отображения данных в виде таблицы",
+  "type": "object",
+  "extends": {
+    "$ref": "http://demo.infinnity.ru:8081/display/MC/BaseListElement"
+  },
+  "properties": {
+    "Columns": {
+      "description": "Список колонок таблицы",
+      "type": "array",
+      "items": {
+        "$ref": "http://demo.infinnity.ru:8081/display/MC/DataGridColumn"
+      }
+    },
+    "Groups": {
+      "description": "Список групп таблицы",
+      "type": "array",
+      "items": {
+        "$ref": "http://demo.infinnity.ru:8081/display/MC/DataGridGroup"
+      }
+    }
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Examples</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Columns": [
+    {
+      "Text": "Фамилия",
+      "DisplayProperty": "LastName"
+    },
+    {
+      "Text": "Имя",
+      "DisplayProperty": "FirstName"
+    },
+    {
+      "Text": "Отчество",
+      "DisplayProperty": "MiddleName"
+    }
+  ],
+  "Groups": [
+    {
+      "ValueProperty": "Country"
+    },
+    {
+      "ValueProperty": "City"
+    }
+  ],
+  "Items": {
+    "PropertyBinding": {
+      "DataSource": "PatientsDataSource"
+    }
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(42,42,42);">&nbsp;</span></p><p>&nbsp;</p>

@@ -1,0 +1,232 @@
+---
+layout: default
+title: ActualProduct
+position: 3
+categories: 
+tags: 
+---
+
+<p>Actual Medicinal Product (AMP) - существующее лекарственное средство - понятие, которое описывает свойства определенного лекарственного средства. Это описание также включает информацию о поставщике или торговой марке. Например, &quot;Atenolol 100mg tablets (Almus Pharmaceuticals Ltd)&quot;, &quot;Atenolol 100mg tablets (Almus Pharmaceuticals Ltd)&quot;, &quot;Efudix 5% cream (Meda Pharmaceuticals Ltd)&quot;.</p><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">ActualProduct</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Type": "Object",
+	"Caption": "Actual Medicinal Product (AMP)",
+	"Description": "Существующее лекарственное средство",
+	"Properties": {
+		"Id": {
+			"Type": "String",
+			"Caption": "Identifier",
+			"Description": "Идентификатор существующего лекарственного средства (APID)"
+		},
+		"Name": {
+			"Type": "String",
+			"Caption": "Name",
+			"Description": "Наименование существующего лекарственного средства (NM)"
+		},
+		"NameShort": {
+			"Type": "String",
+			"Caption": "Abbreviated name",
+			"Description": "Краткое наименование существующего лекарственного средства (ABBREVNM)"
+		},
+		"NamePrev": {
+			"Type": "String",
+			"Caption": "Previous name",
+			"Description": "Предыдущее наименование существующего лекарственного средства (NMPREV)"
+		},
+		"NameDate": {
+			"Type": "DateTime",
+			"Caption": "Date of name applicability",
+			"Description": "Дата утверждения текущего наименования существующего лекарственного средства (NMDT)"
+		},
+		"Description": {
+			"Type": "String",
+			"Caption": "Description",
+			"Description": "Описание существующего лекарственного средства (DESC)"
+		},
+		"SupplierId": {
+			"Type": "Object",
+			"Caption": "Supplier",
+			"Description": "Поставщик существующего лекарственного средства (SUPPCD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "ActualProductSupplierLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"VirtualProductId": {
+			"Type": "Object",
+			"Caption": "Virtual Medicinal Product",
+			"Description": "Виртуальное лекарственное средство (VPID)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "VirtualProduct",
+					"Inline": false
+				}
+			}
+		},
+		"CombinationId": {
+			"Type": "Object",
+			"Caption": "Combination",
+			"Description": "Тип комбинирования существующего лекарственного средства (COMBPRODCD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "ProductCombinationLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"FlavourId": {
+			"Type": "Object",
+			"Caption": "Flavour",
+			"Description": "Вкусовые качества существующего лекарственного средства (FLAVOURCD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "ActualProductFlavourLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"EmaMonitoringId": {
+			"Type": "Object",
+			"Caption": "EMA monitoring",
+			"Description": "Признак контроля EMA существующего лекарственного средства (EMA)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "ActualProductEmaMonitoringLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"ParallelImportId": {
+			"Type": "Object",
+			"Caption": "Parallel import",
+			"Description": "Признак параллельного импорта существующего лекарственного средства (PARALLEL_IMPORT)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "ActualProductParallelImportLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"AvailabilityRestrictionId": {
+			"Type": "Object",
+			"Caption": "Restrictions on availability",
+			"Description": "Ограничение на доступность существующего лекарственного средства (AVAIL_RESTRICTCD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "ActualProductAvailabilityRestrictionLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"LicensingAuthorityId": {
+			"Type": "Object",
+			"Caption": "Licensing authority",
+			"Description": "Орган лицензирования существующего лекарственного средства (LIC_AUTHCD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "ActualProductLicensingAuthorityLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"LicensingAuthorityIdPrev": {
+			"Type": "Object",
+			"Caption": "Previous Licensing authority",
+			"Description": "Предыдущий орган лицензирования существующего лекарственного средства (LIC_AUTH_PREVCD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "ActualProductLicensingAuthorityLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"LicensingAuthorityDate": {
+			"Type": "DateTime",
+			"Caption": "Date of change of licensing authority",
+			"Description": "Дата получения текущей лицензии существующего лекарственного средства (LIC_AUTHCHANGEDT)"
+		},
+		"LicensingAuthorityChangeReasonId": {
+			"Type": "Object",
+			"Caption": "Licensing authority change reason",
+			"Description": "Причина изменения органа лицензирования существующего лекарственного средства (LIC_AUTHCHANGECD)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "ActualProductLicensingAuthorityChangeReasonLoockup",
+					"Inline": false
+				}
+			}
+		},
+		"Appliance": {
+			"Type": "Object",
+			"Caption": "Appliance Product Information",
+			"Description": "Устройство существующего лекарственного средства (ACTUAL_MEDICINAL_PRODUCTS.AP_INFORMATIO)",
+			"TypeInfo": {
+				"DocumentLink": {
+					"ConfigId": "Dmd",
+					"DocumentId": "ActualProductAppliance",
+					"Inline": true
+				}
+			}
+		},
+		"LicensedRoutes": {
+			"Type": "Array",
+			"Caption": "Licensed Route",
+			"Description": "Залицинзированный способ применения существующего лекарственного средства (ACTUAL_MEDICINAL_PRODUCTS.LICENSED_ROUTE)",
+			"Items": {
+				"Type": "Object",
+				"TypeInfo": {
+					"DocumentLink": {
+						"ConfigId": "Dmd",
+						"DocumentId": "ProductRouteLoockup",
+						"Inline": false
+					}
+				}
+			}
+		},
+		"Ingredients": {
+			"Type": "Array",
+			"Caption": "Actual Product Excipient",
+			"Description": "Ингредиенты существующего лекарственного средства (ACTUAL_MEDICINAL_PRODUCTS.AP_INGREDIENT)",
+			"Items": {
+				"Type": "Object",
+				"TypeInfo": {
+					"DocumentLink": {
+						"ConfigId": "Dmd",
+						"DocumentId": "ActualProductIngredient",
+						"Inline": true
+					}
+				}
+			}
+		},
+		"ActualPacks": {
+			"Type": "Array",
+			"Caption": "Actual Medicinal Product Pack",
+			"Description": "Упаковки существующего лекарственного средства (ACTUAL_MEDICINAL_PROD_PACKS.AMPPS)",
+			"Items": {
+				"Type": "Object",
+				"TypeInfo": {
+					"DocumentLink": {
+						"ConfigId": "Dmd",
+						"DocumentId": "ActualProductPack",
+						"Inline": false
+					}
+				}
+			}
+		},
+		"IsInvalid": {
+			"Type": "Bool",
+			"Caption": "Invalidity flag",
+			"Description": "Запись о существующем лекарственном средстве является недействительной (INVALID)"
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

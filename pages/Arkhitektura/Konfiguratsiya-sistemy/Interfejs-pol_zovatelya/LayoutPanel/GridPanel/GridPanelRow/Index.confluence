@@ -1,0 +1,22 @@
+---
+layout: default
+title: GridPanelRow
+position: 
+categories: 
+tags: 
+---
+
+<p>Описание строки сетки.</p><p>&nbsp;</p><ac:structured-macro ac:name="expand"><ac:parameter ac:name="title">Methods</ac:parameter><ac:rich-text-body><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">AddCell(integer columnSpan): <ac:link><ri:page ri:content-title="GridPanelCell" /></ac:link></td><td colspan="1">Добавляет ячейку.</td></tr><tr><td colspan="1">GetCells(): array&lt;<ac:link><ri:page ri:content-title="GridPanelCell" /></ac:link>&gt;</td><td colspan="1">Возвращает список ячеек.</td></tr></tbody></table></ac:rich-text-body></ac:structured-macro><p>&nbsp;&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "GridPanelRow",
+	"description": "Описание строки сетки",
+	"type": "object",
+	"properties": {
+		"Cells": {
+			"description": "Список ячеек",
+			"type": "array",
+			"items": {
+				"$ref": "http://demo.infinnity.ru:8081/display/MC/GridPanelCell"
+			}
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

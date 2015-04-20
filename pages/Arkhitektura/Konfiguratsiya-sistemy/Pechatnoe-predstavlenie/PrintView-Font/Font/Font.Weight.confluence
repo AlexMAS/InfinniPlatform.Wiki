@@ -1,0 +1,146 @@
+---
+layout: default
+title: Font.Weight
+position: 4
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(0,51,102);">Насыщенность шрифта.</span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(0,51,102);">Type</span></h4><p><span style="color: rgb(0,51,102);"><ac:link><ri:page ri:content-title="FontWeight" /></ac:link><br /></span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(0,51,102);">Example</span></h4><p><span style="color: rgb(0,51,102);"><ac:link><ri:attachment ri:filename="Font.Weight.pdf" /></ac:link></span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Blocks": [
+    {
+      "Paragraph": {
+        "Font": {
+          "Weight": "UltraLight"
+        },
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "Weight UltraLight"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Font": {
+          "Weight": "ExtraLight"
+        },
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "Weight ExtraLight"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Font": {
+          "Weight": "Light"
+        },
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "Weight Light"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Font": {
+          "Weight": "Normal"
+        },
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "Weight Normal"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Font": {
+          "Weight": "Medium"
+        },
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "Weight Medium"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Font": {
+          "Weight": "SemiBold"
+        },
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "Weight SemiBold"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Font": {
+          "Weight": "Bold"
+        },
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "Weight Bold"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Font": {
+          "Weight": "ExtraBold"
+        },
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "Weight ExtraBold"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Font": {
+          "Weight": "UltraBold"
+        },
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "Weight UltraBold"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Font": {
+    "Family": "Gil Sans MT"
+  },
+  "PageSize": {
+    "Width": 300,
+    "Height": 300,
+    "SizeUnit": "Px"
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);"><br /></span></p><p>&nbsp;</p>

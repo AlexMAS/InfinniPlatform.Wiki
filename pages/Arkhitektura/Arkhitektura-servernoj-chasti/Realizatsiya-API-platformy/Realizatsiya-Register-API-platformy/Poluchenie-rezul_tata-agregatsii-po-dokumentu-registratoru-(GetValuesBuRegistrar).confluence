@@ -1,0 +1,28 @@
+---
+layout: default
+title: Получение результата агрегации по документу-регистратору (GetValuesBуRegistrar)
+position: 
+categories: 
+tags: 
+---
+
+<p>Перед рассмотрением операций, следует ознакомиться с&nbsp;<ac:link><ri:page ri:content-title="Обработка запросов REST и формирование роутинга для запросов" /><ac:plain-text-link-body><![CDATA[правилами формирования запросов REST]]></ac:plain-text-link-body></ac:link></p><h4>Внутренняя реализация</h4><p>Запрос позволяет получить информацию о ресурсах по документу-регистратору. Запрос позволяет указать измерения, по которым производить агрегацию. Если список измерений&nbsp;не задан,&nbsp;в качестве измерений будут взяты все свойства регистра, помеченные как Dimension. При выполнении запроса учитываются только те значения регистра, дата которых предшествует дате актуальности регистра ActualDate.<span style="color: rgb(102,255,102);">&nbsp;</span></p><h4>Запрос</h4><p>POST&nbsp;<a href="http://10.10.1.82:9999/SystemConfig/StandardApi/metadata/GetRegisterValuesByRegistrar">http://&lt;ServerName&gt;:&lt;PortName&gt;/SystemConfig/StandardApi/metadata/GetRegisterValuesByRegistrar</a></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">BODY</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": null,
+	"changesObject": {
+		"Configuration": "<Configuration name>",
+		"Register": "<Register name>",
+		"Registrar": "<Registrar>",		
+		"Dimensions": <Dimensions>,
+		"ValueProperty": "<Value property>"
+	},
+	"replace": false
+}]]></ac:plain-text-body></ac:structured-macro><p>В теле запроса передаются следующие аргументы</p><p>&lt;Configuration name&gt; - идентификатор конфигурации (см.&nbsp;<ac:link><ri:page ri:content-title="Обработка запросов REST и формирование роутинга для запросов" /><ac:plain-text-link-body><![CDATA[правила формирования запросов REST]]></ac:plain-text-link-body></ac:link>)</p><p>&lt;Register name&gt; - наименование регистра (см.&nbsp;<ac:link><ri:page ri:content-title="Обработка запросов REST и формирование роутинга для запросов" /><ac:plain-text-link-body><![CDATA[правила формирования запросов REST]]></ac:plain-text-link-body></ac:link>)</p><p>&lt;Registrar&gt; - идентификатор документа-регистратора</p><p>&lt;Dimensions&gt; - измерения, по которым выполнять агрегацию. Например,&nbsp;[&quot;Room&quot;, &quot;Bed&quot;]</p><p>&lt;Value property&gt; -&nbsp;Свойство, по которому будет вычислено агрегирующее значение. Например, &quot;Value&quot;</p><h4>Ответ</h4><p>Ответ сервера (пример):</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Пример ответа сервера на запрос документов</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[[{
+	"Room": "палата 33",
+	"Bed": "койка 3",
+	"Value": -1.0
+},
+{
+	"Room": "палата 54",
+	"Bed": "койка 1",
+	"Value": 1.0
+}]]]></ac:plain-text-body></ac:structured-macro>

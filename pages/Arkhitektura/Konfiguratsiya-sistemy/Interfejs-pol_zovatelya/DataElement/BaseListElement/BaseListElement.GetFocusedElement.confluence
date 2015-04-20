@@ -1,0 +1,9 @@
+---
+layout: default
+title: BaseListElement.GetFocusedElement
+position: 16
+categories: 
+tags: 
+---
+
+<p>Возвращает визуальный элемент, отображающий элемент списка, на котором установлен фокус ввода.</p><p>В зависимости от реализации и/или режима работы фокус ввода может совпадать или не совпадать с выбранным значением. Тем не менее, в&nbsp;каждый момент времени фокс ввода может быть установлен только на&nbsp;<strong>одном</strong>&nbsp;элементе.&nbsp;Метод GetFocusedElement() работает симметрично методу&nbsp;<ac:link><ri:page ri:content-title="BaseListElement.SetFocusedElement" /><ac:plain-text-link-body><![CDATA[SetFocusedElement]]></ac:plain-text-link-body></ac:link>(). Логика его работы полностью совпадает с логикой работы метода&nbsp;<ac:link><ri:page ri:content-title="BaseListElement.GetFocusedItem" /><ac:plain-text-link-body><![CDATA[GetFocusedItem]]></ac:plain-text-link-body></ac:link>() за исключением того, что возвращается не элемент данных, на который установлен фокус ввода, а визуальный элемент, который его отображает.</p><p>&nbsp;</p><p>&nbsp;</p>

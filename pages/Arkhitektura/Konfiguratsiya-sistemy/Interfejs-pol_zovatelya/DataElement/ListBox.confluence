@@ -1,0 +1,57 @@
+---
+layout: default
+title: ListBox
+position: 10
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(42,42,42);">Элемент представления&nbsp;для выбора одного или нескольких значений из списка.</span></p><p><span style="color: rgb(42,42,42);">Элемент может работать в двух режимах: выбор одного значения, выбор нескольких значений (см. рис.).</span></p><p><span style="color: rgb(42,42,42);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(42,42,42);">Sketch</span></h4><p><ac:image><ri:attachment ri:filename="ListBox_SingleSelect.png" /></ac:image>&nbsp; &nbsp;<ac:image><ri:attachment ri:filename="ListBox_MultiSelect.png" /></ac:image></p><p>&nbsp;&nbsp;&nbsp;&nbsp;</p><h4>Methods</h4><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr></tbody></table><p>&nbsp; &nbsp;&nbsp;</p><h4>Events</h4><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr></tbody></table><p>&nbsp; &nbsp;&nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "ListBox",
+  "description": "Элемент представления для выбора одного или нескольких значений из списка",
+  "type": "object",
+  "extends": {
+    "$ref": "http://demo.infinnity.ru:8081/display/MC/BaseListElement"
+  },
+  "properties": {},
+  "additionalProperties": false
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Implementation</h4><p>ListBox не должен иметь каких-либо границ, рамок и т.п. элементов, поскольку для этих целей служит&nbsp;<ac:link><ri:page ri:content-title="BaseListElement.ItemTemplate" /><ac:plain-text-link-body><![CDATA[ItemTemplate]]></ac:plain-text-link-body></ac:link>.</p><p>&nbsp;</p><h4>Examples</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "ValueProperty": "Phone",
+  "ItemTemplate": {
+    "StackPanel": {
+      "Orientation": "Horizontal",
+      "Items": [
+        {
+          "ImageBox": {
+            "Value": {
+              "PropertyBinding": {
+                "DataSource": "MainDataSource",
+                "Property": "$.Photo"
+              }
+            }
+          }
+        },
+        {
+          "Label": {
+            "DisplayFormat": {
+              "ObjectFormat": {
+                "Format": "{LastName}, {FirstName}"
+              }
+            },
+            "Value": {
+              "PropertyBinding": {
+                "DataSource": "MainDataSource",
+                "Property": "$"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "Items": {
+    "PropertyBinding": {
+      "DataSource": "MainDataSource"
+    }
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><p>&nbsp;</p>

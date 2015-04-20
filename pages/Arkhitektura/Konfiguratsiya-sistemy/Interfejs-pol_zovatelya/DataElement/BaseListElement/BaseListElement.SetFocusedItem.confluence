@@ -1,0 +1,21 @@
+---
+layout: default
+title: BaseListElement.SetFocusedItem
+position: 15
+categories: 
+tags: 
+---
+
+<p>Устанавливает элемент списка, на который нужно установить фокус ввода.</p><p>В зависимости от реализации и/или режима работы фокус ввода может совпадать или не совпадать с выбранным значением. Тем не менее, в&nbsp;каждый момент времени фокс ввода может быть установлен только на&nbsp;<strong>одном</strong>&nbsp;элементе.&nbsp;Метод SetFocusedItem() работает симметрично методу&nbsp;<ac:link><ri:page ri:content-title="BaseListElement.GetFocusedItem" /><ac:plain-text-link-body><![CDATA[GetFocusedItem]]></ac:plain-text-link-body></ac:link>().&nbsp;Ниже приводятся примеры, поясняющие логику работы метода.</p><p>&nbsp; &nbsp;</p><p><u>Например, задан следующий список элементов</u>.</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Items": {
+    "ObjectBinding": {
+      "Value": [
+        { "Code": 100, "Name": "Вася" },
+        { "Code": 200, "Name": "Петя" },
+        { "Code": 300, "Name": "Коля" }
+      ]
+    }
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p>Если&nbsp;вызвать метод SetFocusedItem() и передать ему&nbsp;второй элемент в списке (&quot;Петя&quot;), на этот элемент будет установлен фокус ввода:</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[SetFocusedItem({ Code: 200, Name: 'Петя' })
+GetFocusedItem() === { Code: 200, Name: 'Петя' }]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><p><u>Вне зависимости от содержимого списка</u>.</p><p>Если&nbsp;вызвать метод SetFocusedItem() и передать ему&nbsp;<code>null</code>, фокус ввода, если он был установлен на каком-либо элементе, будет снят:</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[SetFocusedItem(null)
+GetFocusedItem() === null]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><p>&nbsp;</p>

@@ -1,0 +1,9 @@
+---
+layout: default
+title: ValidationOperator
+position: 1
+categories: 
+tags: 
+---
+
+<p>Оператор для проверки объекта.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p><span>Базовый тип для операторов проверки описан в разделе <ac:link><ri:page ri:content-title="BaseValidationOperator" /></ac:link>.</span></p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><p><ac:structured-macro ac:name="pagetree"><ac:parameter ac:name="root"><ac:link><ri:shortcut ri:key="self" ri:parameter="" /></ac:link></ac:parameter></ac:structured-macro></p><p>&nbsp;</p><p>&nbsp;</p>

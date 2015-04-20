@@ -1,0 +1,35 @@
+---
+layout: default
+title: PrintElementBlock
+position: 4
+categories: 
+tags: 
+---
+
+<p>Блочный элемент печатного представления.</p><p>&nbsp; &nbsp;</p><h4>Type</h4><p>object</p><p>&nbsp; &nbsp;</p><h4>Extends</h4><p><ac:link><ri:page ri:content-title="PrintElementVisibility" /></ac:link></p><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "PrintElementBlock",
+  "description": "Блочный элемент печатного представления",
+  "type": "object",
+  "extends": {
+    "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElement"
+  },
+  "properties": {
+    "Border": {
+      "description": "Границы элемента",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElementBorder"
+    },
+    "Margin": {
+      "description": "Отступ от края элемента до родительского элемента",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/Thickness"
+    },
+    "Padding": {
+      "description": "Отступ от края элемента до содержимого элемента",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/Thickness"
+    },
+    "TextAlignment": {
+      "description": "Горизонтальное выравнивание текста элемента",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/PrintElementTextAlignment"
+    }
+  },
+  "additionalProperties": false
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

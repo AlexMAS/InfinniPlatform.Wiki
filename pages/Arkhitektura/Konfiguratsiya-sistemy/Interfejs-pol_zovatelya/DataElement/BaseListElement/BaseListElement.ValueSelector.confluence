@@ -1,0 +1,30 @@
+---
+layout: default
+title: BaseListElement.ValueSelector
+position: 1
+categories: 
+tags: 
+---
+
+<p>Функция выборки значения из элемента списка.</p><p>Данная настройка игнорируется, если задано значение для&nbsp;<ac:link><ri:page ri:content-title="BaseListElement.ValueProperty" /><ac:plain-text-link-body><![CDATA[ValueProperty]]></ac:plain-text-link-body></ac:link>.</p><p>&nbsp; &nbsp;</p><p>Всякий раз, когда пользователь работает со списком, он выбирает один&nbsp;(<ac:link><ri:page ri:content-title="BaseListElement.MultiSelect" /><ac:plain-text-link-body><![CDATA[MultiSelect]]></ac:plain-text-link-body></ac:link>=false) или несколько (<ac:link><ri:page ri:content-title="BaseListElement.MultiSelect" /><ac:plain-text-link-body><![CDATA[MultiSelect]]></ac:plain-text-link-body></ac:link>=true) элементов, которые по каким-то причинам являются для него значимыми. При этом значимой частью для пользователя может являться весь выбранный элемент, один или несколько из его атрибутов, либо результат некоторого выражения, вычисленного на основе атрибутов элемента. Настройка ValueSelector определяет императивную функцию извлечения значимой части данных из выбранных элементов. Эту функцию использует метод&nbsp;<ac:link><ri:page ri:content-title="BaseListElement.GetValue" /><ac:plain-text-link-body><![CDATA[GetValue]]></ac:plain-text-link-body></ac:link>(). Например, пользователь открывает список контактов, чтобы найти и выбрать абонента, которому он хочет позвонить. В этом примере значимой частью данных для пользователя является только атрибут контакта, содержащий номер телефона. Однако номер телефона может содержать не только цифры, но и символы форматирования (пробелы, скобки, дефисы), которые не являются занчимыми. С помощью&nbsp;ValueSelector можно определить функцию, которая будет удалять символы форматирования, извлекая только значимую часть данных номера телефона.</p><p>&nbsp; &nbsp;</p><h4>Examples</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA["Scripts": [
+  {
+    "Name": "PhoneNumberSelector",
+    "Body": "argument.Value.replace(/[^0-9]/g, '')"
+  }
+]
+   
+...
+   
+{
+  "ValueSelector": "PhoneNumberSelector",
+  "DisplayProperty": "Name",
+  "Items": {
+    "ObjectBinding": {
+      "Value": [
+        { "Code": 100, "Name": "Вася", "Phone": "+1 (234) 567-890" },
+        { "Code": 200, "Name": "Петя", "Phone": "+1 (234) 567-891" },
+        { "Code": 300, "Name": "Коля", "Phone": "+1 (234) 567-892" }
+      ]
+    }
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

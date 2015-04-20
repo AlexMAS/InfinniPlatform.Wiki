@@ -1,0 +1,9 @@
+---
+layout: default
+title: Технологии
+position: 6
+categories: 
+tags: 
+---
+
+<p>Данный раздел посвящен описанию технологий, которые прямо или косвенно связаны с проектом.</p><p>&nbsp;</p><p><ac:structured-macro ac:name="pagetree"><ac:parameter ac:name="root"><ac:link><ri:shortcut ri:key="self" ri:parameter="" /></ac:link></ac:parameter></ac:structured-macro></p><p>&nbsp;</p><p>Прочие технологии, использующиеся в проекте:</p><ul><li>Microsoft Windows Server 2008 R2/2012 R2 (<a href="http://www.microsoft.com/windowsserver2008">http://www.microsoft.com/windowsserver2008</a>, <a href="http://www.microsoft.com/windowsserver2012">http://www.microsoft.com/windowsserver2012</a>)</li><li>Microsoft .Net Framework 4.5 (<a href="http://msdn2.microsoft.com/netframework">http://msdn2.microsoft.com/netframework</a>)</li><li>Microsoft Visual Studio 2012 (<a href="http://msdn.microsoft.com/vstudio">http://msdn.microsoft.com/vstudio</a>)</li><li>Elastic Search (<a href="http://www.elasticsearch.org/">http://www.elasticsearch.org/</a>)</li><li>Cassandra (<a href="http://cassandra.apache.org/">http://cassandra.apache.org/</a>)</li><li>RabbitMQ (<a href="http://www.rabbitmq.com/">http://www.rabbitmq.com/</a>)</li><li>.NET DevExpress WPF/WinForms Suite (<a href="https://www.devexpress.com/">https://www.devexpress.com/</a>)</li><li>jQuery (<a href="http://jquery.com/">http://jquery.com/</a>)</li><li>Backbone (<a href="http://backbonejs.org/">http://backbonejs.org/</a>)</li><li>Underscore (<a href="http://underscorejs.org/">http://underscorejs.org/</a>)</li><li>Bootstrap (<a href="http://getbootstrap.com/">http://getbootstrap.com/</a>)</li><li>SignalR (<a href="http://signalr.net/">http://signalr.net/</a>)</li></ul><p>&nbsp;</p>

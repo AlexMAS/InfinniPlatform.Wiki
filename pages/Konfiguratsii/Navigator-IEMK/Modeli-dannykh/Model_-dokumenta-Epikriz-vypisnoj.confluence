@@ -1,0 +1,1675 @@
+---
+layout: default
+title: Модель документа "Эпикриз выписной"
+position: 
+categories: 
+tags: 
+---
+
+<p>Представляет описание секций документа &quot;Эпикриз&quot;.</p><h4>Структура данных:</h4><table><colgroup><col /> <col /> <col /> <col /> <col /> </colgroup><tbody><tr><td><h4>Наименование</h4></td><td><h4>Тип данных</h4></td><td><h4>Заголовок</h4></td><td><h4>Описание</h4></td><td><h4>Множественность</h4></td></tr><tr><td>DocumentId</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link></td><td>Уникальный номер экземпляра документа</td><td><span>Уникальный номер экземпляра документа в рамках организации</span></td><td>[1..1]</td></tr><tr><td colspan="1">PatientId</td><td colspan="1"><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link></td><td colspan="1">Уникальный идентификатор пациента</td><td colspan="1">Уникальный идентификатор пациента</td><td colspan="1">[1..1]</td></tr><tr><td colspan="1">MedicalWorkerId</td><td colspan="1"><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link></td><td colspan="1">Уникальный идентификатора медицинского работника</td><td colspan="1">Уникальный идентификатора медицинского работника</td><td colspan="1">[1..1]</td></tr><tr><td colspan="1">Date</td><td colspan="1"><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[DateTime]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td colspan="1">Дата создания документа</td><td colspan="1">Дата создания документа</td><td colspan="1">[1..1]</td></tr><tr><td colspan="1">Confidentiality</td><td colspan="1">Элемент справочника 2.16.840.1.113883.5.25</td><td colspan="1">Уровень конфиденциальности документа</td><td colspan="1">Уровень конфиденциальности документа</td><td colspan="1">[1..1]</td></tr><tr><td colspan="1">GuardianConfidentialityCode</td><td colspan="1">Элемент справочника 1.2.643.5.1.13.2.7.1.9</td><td colspan="1">Уровень доступа опекуна/попечителя</td><td colspan="1">Уровень доступа опекуна/попечителя</td><td colspan="1">[0..1]</td></tr><tr><td colspan="1">PatientConfidentialityCode</td><td colspan="1">Элемент справочника 1.2.643.5.1.13.2.7.1.10</td><td colspan="1">Уровень доступа врача</td><td colspan="1">Уровень доступа врача</td><td colspan="1">[0..1]</td></tr><tr><td>CaseNumber</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Номер истории болезни</td><td>Номер истории болезни, к которой относится документ</td><td>[1..1]</td></tr><tr><td>DocumentVersionNumber</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[Integer]]></ac:plain-text-link-body></ac:link></td><td>Версия данного документа</td><td>Версия данного документа</td><td>[1..1]</td></tr><tr><td>DocumentOwner</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Владелец документа</td><td>Код учреждения в реестре Минздрава РФ</td><td>[1..1]</td></tr><tr><td>DocumentOwnerName</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Владелец документа</td><td>Наименование учреждения</td><td>[1..1]</td></tr><tr><td>StatementTime</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[DateTime]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span><span>&nbsp;</span></td><td>Дата и время утверждения</td><td>Дата и время утверждения</td><td>[1..1]</td></tr><tr><td>AuthenticatorId</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Код учреждения в реестре Минздрава РФ</td><td>Код учреждения в реестре Минздрава РФ, к которой относится работник, подписавший документ</td><td>[1..1]</td></tr><tr><td>AuthenticatorPersonId</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Код медицинского работника, подписавшего документ</td><td>Код медицинского работника, подписавшего документ</td><td>[1..1]</td></tr><tr><td>AuthenticatorCode</td><td>Элемент справочника 1.2.643.5.1.13.2.1.1.607</td><td>Код должности роли медицинского работника</td><td>Код должности роли медицинского работника, подписавшего документ</td><td>[1..1]</td></tr><tr><td>AuthenticatorParticipant</td><td>Элемент справочника 1.2.643.5.1.13.2.7.1.30</td><td>Роль в оказании медицинской помощи</td><td>Роль в оказании медицинской помощи подписавшего документ</td><td>[1..1]</td></tr><tr><td>AuthenticatorLastName</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Фамилия подписавшего документ</td><td>Фамилия подписавшего документ</td><td>[1..1]</td></tr><tr><td>AuthenticatorFirstName</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Имя подписавшего документ</td><td>Имя подписавшего документ</td><td>[1..1]</td></tr><tr><td>AuthenticatorMiddleName</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Отчество подписавшего документ</td><td>Отчество подписавшего документ</td><td>[1..1]</td></tr><tr><td>CaseHistoryNumber</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Номер истории болезни случая заболевания</td><td>OID и номер истории болезни должны образовывать уникальную комбинацию в рамках всей системы</td><td>[1..1]</td></tr><tr><td>CaseType</td><td>Элемент справочника 1.2.643.5.1.13.2.7.1.1</td><td>Тип случая заболевания</td><td>Тип случая заболевания (госпитализация)</td><td>[1..1]</td></tr><tr><td>HospitalizationIssueDate</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[DateTime]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span><span>&nbsp;</span></td><td>Дата и время начала госпитализации</td><td>Дата и время начала госпитализации в рамках случая оказания медицинской помощи</td><td>[1..1]</td></tr><tr><td>HospitalizationExpiryDate</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[DateTime]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span><span>&nbsp;</span></td><td>Дата и время окончания госпитализации</td><td>Дата и время окончания госпитализации в рамках случая оказания медицинской помощи</td><td>[1..1]</td></tr><tr><td>HospitalizationDispositionCode</td><td>Элемент справочника 1.2.643.5.1.13.2.1.1.542</td><td>Исход госпитализации</td><td>Исход госпитализации в рамках случая оказания медицинской помощи</td><td>[1..1]</td></tr><tr><td><strong>Hospitalization</strong></td><td><strong>Group</strong></td><td><strong>Госпитализация</strong></td><td><strong>Случай оказания медицинской помощи (Госпитализация стационар, дневной стационар)</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../WhoDelivered</td><td>Элемент справочника 1.2.643.5.1.13.2.1.1.281</td><td>Кем доставлен</td><td>Кем доставлен</td><td>[1..1]</td></tr><tr><td>.../NumberOfDays</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[Integer]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Общее количество койко-дней</td><td>Общее количество койко-дней в рамках случая оказания медицинской помощи</td><td>[1..1]</td></tr><tr><td>.../HospitalizationInThisYear</td><td>Элемент справочника 1.2.643.5.1.13.2.1.1.109</td><td>Госпитализирован по поводу данного заболевания в текущем году</td><td>Госпитализирован по поводу данного заболевания в текущем году</td><td>[1..1]</td></tr><tr><td>.../TimeAfterBegining</td><td>Элемент справочника 1.2.643.5.1.13.2.1.1.537</td><td>Время доставки в стационар от начала заболевания</td><td>Время доставки в стационар от начала заболевания в рамках случая оказания медицинской помощи</td><td>[1..1]</td></tr><tr><td><strong>HospitalStay</strong></td><td><strong>Group</strong></td><td><strong>Пребывание в стационаре</strong></td><td><strong>Пребывание в стационаре</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст описания пребывания в стационаре. Включает сведения об отделениях пребывания, датах перемещения по отделениям.</td><td>[1..1]</td></tr><tr><td><strong>.../BranchStay</strong></td><td><strong>Group</strong></td><td><strong>Отделение пребывания</strong></td><td><strong>Раздел предназначен для описания движения пациента в стационаре. Включает сведения о госпитализации, нахождении в отделениях пребывания.</strong></td><td><strong>[1..*]</strong></td></tr><tr><td>.../.../StartTime</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[DateTime]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span><span>&nbsp;</span></td><td>Дата и время поступления</td><td>Дата и время поступления</td><td>[1..1]</td></tr><tr><td>.../.../StopTime</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[DateTime]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span><span>&nbsp;</span></td><td>Дата и время выбытия</td><td>Дата и время выбытия</td><td>[1..1]</td></tr><tr><td><strong>.../.../Department</strong></td><td><strong>Group</strong></td><td><strong>Отделение пребывания</strong></td><td><strong>Отделение пребывания</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../TermsOfCare</td><td>Элемент справочника 1.2.643.5.1.13.2.1.1.103</td><td>Условия оказания медицинской помощи</td><td>Условия оказания медицинской помощи</td><td>[1..1]</td></tr><tr><td>.../.../.../LengthOfStay</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[Integer]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Длительность пребывания</td><td>Длительность пребывания на койке в днях</td><td>[1..1]</td></tr><tr><td><strong>.../.../Performer</strong></td><td><strong>Group</strong></td><td><strong>Исполнитель</strong></td><td><strong>Сведения об отделении</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../PerformerType</td><td>Элемент справочника 1.2.643.5.1.13.2.7.1.30</td><td>Тип исполнителя</td><td>Тип исполнителя</td><td>[1..1]</td></tr><tr><td><strong>.../.../.../AssignedPerformer</strong></td><td><strong>Group</strong></td><td><strong>Исполнитель</strong></td><td><strong>Детальная информация об исполнителе</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../.../OrganizationRegisterId</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Регистрационный код отделения</td><td>Регистрационный код отделения в МО</td><td>[1..1]</td></tr><tr><td>.../.../.../.../LastName</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Фамилия</td><td>Фамилия</td><td>[1..1]</td></tr><tr><td>.../.../.../.../FirstName</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Имя</td><td>Имя</td><td>[1..1]</td></tr><tr><td>.../.../.../.../MiddleName</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Отчество</td><td>Отчество</td><td>[1..1]</td></tr><tr><td><strong>.../.../.../.../BedProfile</strong></td><td><strong>Group</strong></td><td><strong>Профиль койки</strong></td><td><strong>Профиль койки</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../.../.../ProfileCode</td><td>Элемент справочника 1.2.643.5.1.13.2.1.1.221</td><td>Профиль койки</td><td>Профиль койки</td><td>[1..1]</td></tr><tr><td><strong>.../.../.../.../RepresentedOrganization</strong></td><td><strong>Group</strong></td><td><strong>Организация</strong></td><td><strong>Организация</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../.../.../OrganizationName</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Название отделения</td><td>Название отделения</td><td>[1..1]</td></tr><tr><td><strong>DiagnosisGroup</strong></td><td><strong>Group</strong></td><td><strong>Диагноз</strong></td><td><strong>Диагноз</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст описания пребывания в стационаре. Включает сведения об отделениях пребывания, датах перемещения по отделениям.</td><td>[1..1]</td></tr><tr><td><strong>.../Diagnosis</strong></td><td><strong>Group</strong></td><td><strong>Диагноз</strong></td><td><strong>Диагноз</strong></td><td><strong>[1..*]</strong></td></tr><tr><td><strong>.../.../Observation</strong></td><td><strong>Group</strong></td><td><strong>Наблюдения</strong></td><td><strong>Наблюдения</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../EventType</td><td>Элемент справочника 1.2.643.5.1.13.2.7.1.12</td><td>Тип события</td><td>Тип события</td><td>[1..1]</td></tr><tr><td>.../.../.../Mkb10Diagnosis</td><td>Элемент справочника 1.2.643.5.1.13.2.1.1.641</td><td>Диагноз в соответствии с МКБ-10</td><td>Диагноз в соответствии с МКБ-10</td><td>[1..1]</td></tr><tr><td>.../.../.../DiagnosisType</td><td>Элемент справочника 1.2.643.5.1.13.2.7.1.13</td><td>Тип диагноза</td><td>Тип диагноза</td><td>[1..1]</td></tr><tr><td><strong>InitialInspection</strong></td><td><strong>Group</strong></td><td><strong>Первичный осмотр</strong></td><td><strong>Первичный осмотр предоставляет собой сведения об эпизоде медицинской помощи, регистрируемом на первом этапе оказания медицинской помощи</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../LifeAnamnesis</strong></td><td><strong>Group</strong></td><td><strong>Анамнез жизни</strong></td><td><strong>Данная секция может содержать неструктурированную информацию об анамнезе жизни пациента. В этом случае содержание подсекции представляет собой неформатированный человекочитаемый текст в элементе text. Также информация может быть структурирована на несколько подсекций: 1.&nbsp; Социальный анамнез 2.&nbsp; Семейный анамнез 3.&nbsp; Факторы риска 4.&nbsp; Общебиографические сведения</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../.../BiographicalInformation</strong></td><td><strong>Group</strong></td><td><strong>Общебиографические сведения</strong></td><td><strong>Анамнез жизни: Общебиографические сведения (секция-&gt;компонент 1)</strong></td><td><strong>[1..*]</strong></td></tr><tr><td>.../.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../.../SolialStatus</strong></td><td><strong>Group</strong></td><td><strong>Социальный статус</strong></td><td><strong>Анамнез жизни: Социальный статус (секция-&gt;компонент 2)</strong></td><td><strong>[1..*]</strong></td></tr><tr><td>.../.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../.../FamilyAnamnesis</strong></td><td><strong>Group</strong></td><td><strong>Семейный анамнез</strong></td><td><strong>Анамнез жизни: Семейный (наследственный) анамнез (секция -&gt;&nbsp; компонент 3)</strong></td><td><strong>[1..*]</strong></td></tr><tr><td>.../.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../.../.../RiskFactorGroup</strong></td><td><strong>Group</strong></td><td><strong>Фактор риска</strong></td><td><strong>Основное заболевание родственника - фактор риска</strong></td><td><strong>[1..1]</strong></td></tr><tr><td><strong>.../.../.../.../RiskFactor</strong></td><td><strong>Group</strong></td><td><strong>Фактор риска</strong></td><td><strong>Основное заболевание родственника - фактор риска</strong></td><td><strong>[1..*]</strong></td></tr><tr><td>.../.../.../.../.../Disease</td><td>Элемент справочника 1.2.643.5.1.13.2.1.1.641</td><td>Заболевание</td><td>Заболевание</td><td>[1..1]</td></tr><tr><td>.../.../.../.../.../PatientRelationship</td><td>Элемент справочника 1.2.643.5.1.13.2.7.1.15</td><td>Отношение к пациенту</td><td>Отношение к пациенту</td><td>[1..1]</td></tr><tr><td>.../.../.../.../.../PatientRelationshipDescription</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Отношение к пациенту</td><td>Отношение к пациенту</td><td>[1..1]</td></tr><tr><td><strong>.../.../RiskFactors</strong></td><td><strong>Group</strong></td><td><strong>Факторы риска</strong></td><td><strong>Анамнез жизни: Факторы риска (секция-&gt;компонент 4)</strong></td><td><strong>[1..*]</strong></td></tr><tr><td>.../.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../.../.../RiskFactors</strong></td><td><strong>Group</strong></td><td><strong>Фактор риска</strong></td><td><strong>Основное заболевание родственника - фактор риска</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../.../EffectiveTime</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[DateTime]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span><span>&nbsp;</span></td><td>Дата</td><td>Дата</td><td>[1..1]</td></tr><tr><td>.../.../.../.../RiskFactorsCode</td><td>Элемент справочника 1.2.643.5.1.13.2.1.1.325</td><td>Фактор риска</td><td>Фактор риска</td><td>[1..1]</td></tr><tr><td><strong>.../HistoryOfDisease</strong></td><td><strong>Group</strong></td><td><strong>Анамнез заболевания</strong></td><td><strong>Данная секция описывает важный относительно данного заболевания анамнез пациента и может содержать неструктурированную информацию об анамнезе болезни, либо информация может быть разделена на три подсекции - &laquo;История настоящего заболевания&raquo;, &laquo;Перенесенные заболевания&raquo; и &laquo;Предыдущие госпитализации&raquo;.</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../.../HistoryOfCurrentDisease</strong></td><td><strong>Group</strong></td><td><strong>История настоящего заболевания</strong></td><td><strong>История настоящего заболевания (секция-&gt;компонент 1)</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../.../LifeAnamnesis</strong></td><td><strong>Group</strong></td><td><strong>Перенесенные заболевания</strong></td><td><strong>Перенесенные заболевания (секция-&gt;компонент 2)</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../.../PreviousHospitalization</strong></td><td><strong>Group</strong></td><td><strong>Предыдущие госпитализации</strong></td><td><strong>Предыдущие госпитализации (секция-&gt;компонент 3)</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../.../.../Hospitalization</strong></td><td><strong>Group</strong></td><td><strong>госпитализация</strong></td><td><strong>госпитализация</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../.../StartTime</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[DateTime]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span><span>&nbsp;</span></td><td>Дата и время начала госпитализации</td><td>Дата и время начала госпитализации</td><td>[1..1]</td></tr><tr><td>.../.../.../.../StopTime</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[DateTime]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span><span>&nbsp;</span></td><td>Дата и время окончания госпитализации</td><td>Дата и время окончания госпитализации</td><td>[1..1]</td></tr><tr><td>.../.../.../.../OrganizationId</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Код организации</td><td>Код организации</td><td>[1..1]</td></tr><tr><td><strong>.../.../.../.../RepresentedOrganization</strong></td><td><strong>Group</strong></td><td><strong>Организация</strong></td><td><strong>Организация</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../.../.../OrganizationName</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Название отделения</td><td>Название отделения</td><td>[1..1]</td></tr><tr><td><strong>.../ObjectiveData</strong></td><td><strong>Group</strong></td><td><strong>Объективные данные</strong></td><td><strong>Данная секция содержит информацию о физикальном исследовании пациента и содержит неструктурированную информацию об обследовании в элементе text. Информация может быть структурирована на несколько секций: Функциональное обследование, Психический статус, Неврологический статус, Состояние по системам</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../.../FunctionalInspection</strong></td><td><strong>Group</strong></td><td><strong>Функциональное обследование</strong></td><td><strong>Функциональное обследование</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../.../MentalStatus</strong></td><td><strong>Group</strong></td><td><strong>Психический статус</strong></td><td><strong>Психический статус</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../.../NeurologicalStatus</strong></td><td><strong>Group</strong></td><td><strong>Неврологический статус</strong></td><td><strong>Неврологический статус</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../.../PhysicalExamination</strong></td><td><strong>Group</strong></td><td><strong>Физикальное обследование</strong></td><td><strong>Физикальное обследование</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../PreliminaryDiagnosis</strong></td><td><strong>Group</strong></td><td><strong>Предварительный диагноз</strong></td><td><strong>Предварительный диагноз</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../InspectionPlan</strong></td><td><strong>Group</strong></td><td><strong>План обследования</strong></td><td><strong>План обследования</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../TreatmentPlanning</strong></td><td><strong>Group</strong></td><td><strong>План лечения</strong></td><td><strong>План лечения</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>InformationOnTreatment</strong></td><td><strong>Group</strong></td><td><strong>Информация о лечении</strong></td><td><strong>Информация о лечении</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>PatientCondition</strong></td><td><strong>Group</strong></td><td><strong>Состояние пациента</strong></td><td><strong>Состояние пациента</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>ServicesData</strong></td><td><strong>Group</strong></td><td><strong>Данные по услугам</strong></td><td><strong>Данные по услугам</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../Text</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Текст</td><td>Форматированный текст</td><td>[1..1]</td></tr><tr><td><strong>.../ServiceDescription</strong></td><td><strong>Group</strong></td><td><strong>Описание услуги</strong></td><td><strong>Описание услуги</strong></td><td><strong>[1..*]</strong></td></tr><tr><td>.../.../Service</td><td>Элемент справочника 1.2.643.5.1.13.2.1.1.473</td><td>Услуга</td><td>Услуга</td><td>[1..1]</td></tr><tr><td>.../.../AccountingUnitCare</td><td>Элемент справочника 1.2.643.5.1.13.2.1.1.80</td><td>Единица учета медицинской помощи</td><td>Единица учета медицинской помощи</td><td>[1..1]</td></tr><tr><td>.../.../ServiceQuantity</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[Integer]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Количество услуг</td><td>Количество услуг</td><td>[1..1]</td></tr><tr><td><strong>.../.../StayDepartmentData</strong></td><td><strong>Group</strong></td><td><strong>Данные об отделении пребывания</strong></td><td><strong>Данные об отделении пребывания</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../DepartmentStay</td><td>Элемент справочника 1.2.643.5.1.13.2.7.1.12</td><td>Пребывание в отделении</td><td>Пребывание в отделении</td><td>[1..1]</td></tr><tr><td>.../.../.../StartTime</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[DateTime]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span><span>&nbsp;</span></td><td>Дата и время поступления</td><td>Дата и время поступления</td><td>[1..1]</td></tr><tr><td>.../.../.../StopTime</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[DateTime]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span><span>&nbsp;</span></td><td>Дата и время выбытия</td><td>Дата и время выбытия</td><td>[1..1]</td></tr><tr><td><strong>.../.../.../Performer</strong></td><td><strong>Group</strong></td><td><strong>Исполнитель</strong></td><td><strong>Сведения об отделении</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../.../PerformerType</td><td>Элемент справочника 1.2.643.5.1.13.2.7.1.30</td><td>Тип исполнителя</td><td>Тип исполнителя</td><td>[1..1]</td></tr><tr><td><strong>.../.../.../.../AssignedPerformer</strong></td><td><strong>Group</strong></td><td><strong>Исполнитель</strong></td><td><strong>Детальная информация об исполнителе</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../.../.../RegisterId</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Регистрационный код отделения</td><td>Регистрационный код отделения в МО</td><td>[1..1]</td></tr><tr><td><strong>.../.../.../.../.../BedProfile</strong></td><td><strong>Group</strong></td><td><strong>Профиль койки</strong></td><td><strong>Профиль койки</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../.../.../.../BedProfileCode</td><td>Элемент справочника 1.2.643.5.1.13.2.1.1.221</td><td>Профиль койки</td><td>Профиль койки</td><td>[1..1]</td></tr><tr><td><strong>.../.../.../.../.../RepresentedOrganization</strong></td><td><strong>Group</strong></td><td><strong>Организация</strong></td><td><strong>Организация</strong></td><td><strong>[1..1]</strong></td></tr><tr><td>.../.../.../.../.../.../OrganizationName</td><td><ac:link><ri:page ri:content-title="Типы данных" /><ac:plain-text-link-body><![CDATA[String]]></ac:plain-text-link-body></ac:link><span>&nbsp;</span></td><td>Название отделения</td><td>Название отделения</td><td>[1..1]</td></tr></tbody></table><p>&nbsp;</p><div class="wiki-content"><h4>JSON-модель:</h4><div><div class="syntaxhighlighter nogutter  java"><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:plain-text-body><![CDATA[{
+    "Id": "0505fe63-7849-46da-98c6-fde11763c475",
+    "Name": "1.2.643.5.1.13.2.7.5.1",
+    "Type": "Document",
+    "Description": "Эпикриз в стационаре выписной",
+    "Model": {
+        "Name": "EpicrisisModel",
+        "Caption": "Модель тела документа (эпикриз в стационаре выписной)",
+        "Description": "Модель содержимого CDA документа",
+        "MultiplicityFrom": 1,
+        "MultiplicityTo": 1,
+        "Groups": [        
+        {
+            "Name": "Hospitalization",
+            "Caption": "Госпитализация",
+            "Description": "Случай оказания медицинской помощи (Госпитализация стационар, дневной стационар)",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1,
+            "Properties": [{
+                "Type": "LinkClassifier",
+                "Name": "WhoDelivered",
+                "Caption": "Кем доставлен",
+                "Description": "Кем доставлен",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1,
+                "Attributes": {
+                    "ClassifierLink": {
+                        "ConfigId": "ClassifierStorage",
+                        "ConfigVersion": "1.0.0.0",
+                        "ClassifierId": "1.2.643.5.1.13.2.1.1.281"
+                    }
+                }
+            },
+            {
+                "Type": "Integer",
+                "Name": "NumberOfDays",
+                "Caption": "Общее количество койко-дней",
+                "Description": "Общее количество койко-дней в рамках случая оказания медицинской помощи",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1
+            },
+            {
+                "Type": "LinkClassifier",
+                "Name": "HospitalizationInThisYear",
+                "Caption": "Госпитализирован по поводу данного заболевания в текущем году",
+                "Description": "Госпитализирован по поводу данного заболевания в текущем году",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1,
+                "Attributes": {
+                    "ClassifierLink": {
+                        "ConfigId": "ClassifierStorage",
+                        "ConfigVersion": "1.0.0.0",
+                        "ClassifierId": "1.2.643.5.1.13.2.1.1.109"
+                    }
+                }
+            },
+            {
+                "Type": "LinkClassifier",
+                "Name": "TimeAfterBegining",
+                "Caption": "Время доставки в стационар от начала заболевания",
+                "Description": "Время доставки в стационар от начала заболевания в рамках случая оказания медицинской помощи",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1,
+                "Attributes": {
+                    "ClassifierLink": {
+                        "ConfigId": "ClassifierStorage",
+                        "ConfigVersion": "1.0.0.0",
+                        "ClassifierId": "1.2.643.5.1.13.2.1.1.537"
+                    }
+                }
+            }]
+        },
+        {
+            "Name": "HospitalStay",
+            "Caption": "Пребывание в стационаре",
+            "Description": "Пребывание в стационаре",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1,
+            "Groups": [{
+                "Name": "BranchStay",
+                "Caption": "Отделение пребывания",
+                "Description": "Раздел предназначен для описания движения пациента в стационаре. Включает сведения о госпитализации, нахождении в отделениях пребывания.",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": null,
+                "Groups": [{
+                    "Name": "Department",
+                    "Caption": "Отделение пребывания",
+                    "Description": "Отделение пребывания",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1,
+                    "Properties": [{
+                        "Type": "LinkClassifier",
+                        "Name": "TermsOfCare",
+                        "Caption": "Условия оказания медицинской помощи",
+                        "Description": "Условия оказания медицинской помощи",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1,
+                        "Attributes": {
+                            "ClassifierLink": {
+                                "ConfigId": "ClassifierStorage",
+                                "ConfigVersion": "1.0.0.0",
+                                "ClassifierId": "1.2.643.5.1.13.2.1.1.103"
+                            }
+                        }
+                    },                    
+                    {
+                        "Type": "Integer",
+                        "Name": "LengthOfStay",
+                        "Caption": "Длительность пребывания",
+                        "Description": "Длительность пребывания на койке в днях",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1
+                    }]
+                },
+                {
+                    "Name": "Performer",
+                    "Caption": "Исполнитель",
+                    "Description": "Сведения об отделении",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1,
+                    "Groups": [{
+                        "Name": "AssignedPerformer",
+                        "Caption": "Исполнитель",
+                        "Description": "Детальная информация об исполнителе",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1,
+                        "Groups": [{
+                            "Name": "BedProfile",
+                            "Caption": "Профиль койки",
+                            "Description": "Профиль койки",
+                            "MultiplicityFrom": 1,
+                            "MultiplicityTo": 1,                            
+                            "Properties": [{
+                                "Type": "LinkClassifier",
+                                "Name": "ProfileCode",
+                                "Caption": "Профиль койки",
+                                "Description": "Профиль койки",
+                                "MultiplicityFrom": 1,
+                                "MultiplicityTo": 1,
+                                "Attributes": {
+                                    "ClassifierLink": {
+                                        "ConfigId": "ClassifierStorage",
+                                        "ConfigVersion": "1.0.0.0",
+                                        "ClassifierId": "1.2.643.5.1.13.2.1.1.221"
+                                    }
+                                }
+                            }]
+                        },
+                        {
+                            "Name": "RepresentedOrganization",
+                            "Caption": "Организация",
+                            "Description": "Организация",
+                            "MultiplicityFrom": 1,
+                            "MultiplicityTo": 1,                            
+                            "Properties": [{
+                                "Type": "String",
+                                "Name": "OrganizationName",
+                                "Caption": "Название отделения",
+                                "Description": "Название отделения",
+                                "MultiplicityFrom": 1,
+                                "MultiplicityTo": 1
+                            }]
+                        }],
+                        "Properties": [{
+                            "Type": "String",
+                            "Name": "OrganizationRegisterId",
+                            "Caption": "Регистрационный код отделения",
+                            "Description": "Регистрационный код отделения в МО",
+                            "MultiplicityFrom": 1,
+                            "MultiplicityTo": 1
+                        },
+                        {
+                            "Type": "String",
+                            "Name": "LastName",
+                            "Caption": "Фамилия",
+                            "Description": "Фамилия",
+                            "MultiplicityFrom": 1,
+                            "MultiplicityTo": 1
+                        },
+                        {
+                            "Type": "String",
+                            "Name": "FirstName",
+                            "Caption": "Имя",
+                            "Description": "Имя",
+                            "MultiplicityFrom": 1,
+                            "MultiplicityTo": 1
+                        },
+                        {
+                            "Type": "String",
+                            "Name": "MiddleName",
+                            "Caption": "Отчество",
+                            "Description": "Отчество",
+                            "MultiplicityFrom": 1,
+                            "MultiplicityTo": 1
+                        }]
+                    }],
+                    "Properties": [{
+                        "Type": "LinkClassifier",
+                        "Name": "PerformerType",
+                        "Caption": "Тип исполнителя",
+                        "Description": "Тип исполнителя",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1,
+                        "Attributes": {
+                            "ClassifierLink": {
+                                "ConfigId": "ClassifierStorage",
+                                "ConfigVersion": "1.0.0.0",
+                                "ClassifierId": "1.2.643.5.1.13.2.7.1.30"
+                            }
+                        }
+                    }]
+                }],
+                "Properties": [{
+                    "Type": "DateTime",
+                    "Name": "StartTime",
+                    "Caption": "Дата и время поступления",
+                    "Description": "Дата и время поступления",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1
+                },
+                {
+                    "Type": "DateTime",
+                    "Name": "StopTime",
+                    "Caption": "Дата и время выбытия",
+                    "Description": "Дата и время выбытия",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1
+                }]
+            }
+            ],
+            "Properties": [
+            {
+                "Type": "String",
+                "Name": "Text",
+                "Caption": "Текст",
+                "Description": "Форматированный текст описания пребывания в стационаре. Включает сведения об отделениях пребывания, датах перемещения по отделениям.",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1
+            }]
+        },
+        {
+            "Name": "DiagnosisGroup",
+            "Caption": "Диагноз",
+            "Description": "Диагноз",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1,
+            "Groups": [{
+                "Name": "Diagnosis",
+                "Caption": "Диагноз",
+                "Description": "Диагноз",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": null,
+                "Groups": [{
+                    "Name": "Observation",
+                    "Caption": "Наблюдения",
+                    "Description": "Наблюдения",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1,
+                    "Properties": [{
+                        "Type": "LinkClassifier",
+                        "Name": "EventType",
+                        "Caption": "Тип события",
+                        "Description": "Тип события",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1,
+                        "Attributes": {
+                            "ClassifierLink": {
+                                "ConfigId": "ClassifierStorage",
+                                "ConfigVersion": "1.0.0.0",
+                                "ClassifierId": "1.2.643.5.1.13.2.7.1.12"
+                            }
+                        }
+                    },
+                    {
+                        "Type": "LinkClassifier",
+                        "Name": "Mkb10Diagnosis",
+                        "Caption": "Диагноз в соответствии с МКБ-10",
+                        "Description": "Диагноз в соответствии с МКБ-10",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1,
+                        "Attributes": {
+                            "ClassifierLink": {
+                                "ConfigId": "ClassifierStorage",
+                                "ConfigVersion": "1.0.0.0",
+                                "ClassifierId": "1.2.643.5.1.13.2.1.1.641"
+                            }
+                        }
+                    },                   
+                    {
+                        "Type": "LinkClassifier",
+                        "Name": "DiagnosisType",
+                        "Caption": "Тип диагноза",
+                        "Description": "Тип диагноза",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1,
+                        "Attributes": {
+                            "ClassifierLink": {
+                                "ConfigId": "ClassifierStorage",
+                                "ConfigVersion": "1.0.0.0",
+                                "ClassifierId": "1.2.643.5.1.13.2.7.1.13"
+                            }
+                        }
+                    }]
+                }]
+            }],
+            "Properties": [
+            {
+                "Type": "String",
+                "Name": "Text",
+                "Caption": "Текст",
+                "Description": "Форматированный текст описания пребывания в стационаре. Включает сведения об отделениях пребывания, датах перемещения по отделениям.",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1
+            }]
+        },
+        {
+            "Name": "InitialInspection",
+            "Caption": "Первичный осмотр",
+            "Description": "Первичный осмотр предоставляет собой сведения об эпизоде медицинской помощи, регистрируемом на первом этапе оказания медицинской помощи",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1,
+            "Groups": [            
+            {
+                "Name": "LifeAnamnesis",
+                "Caption": "Анамнез жизни",
+                "Description": "Данная секция может содержать неструктурированную информацию об анамнезе жизни пациента. В этом случае содержание подсекции представляет собой неформатированный человекочитаемый текст в элементе text. Также информация может быть структурирована на несколько подсекций: 1.  Социальный анамнез 2.  Семейный анамнез 3.  Факторы риска 4.  Общебиографические сведения",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1,
+                "Groups": [{
+                    "Name": "BiographicalInformation",
+                    "Caption": "Общебиографические сведения",
+                    "Description": "Анамнез жизни: Общебиографические сведения (секция->компонент 1)",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": null,
+                    "Properties": [
+                    {
+                        "Type": "String",
+                        "Name": "Text",
+                        "Caption": "Текст",
+                        "Description": "Форматированный текст",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1
+                    }]
+                },
+                {
+                    "Name": "SolialStatus",
+                    "Caption": "Социальный статус",
+                    "Description": "Анамнез жизни: Социальный статус (секция->компонент 2)",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": null,
+                    "Properties": [
+                    {
+                        "Type": "String",
+                        "Name": "Text",
+                        "Caption": "Текст",
+                        "Description": "Форматированный текст",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1
+                    }]
+                },
+                {
+                    "Name": "FamilyAnamnesis",
+                    "Caption": "Семейный анамнез",
+                    "Description": "Анамнез жизни: Семейный (наследственный) анамнез (секция ->  компонент 3)",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": null,
+                    "Properties": [
+                    {
+                        "Type": "String",
+                        "Name": "Text",
+                        "Caption": "Текст",
+                        "Description": "Форматированный текст",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1
+                    }],
+                    "Groups": [{
+                        "Name": "RiskFactorGroup",
+                        "Caption": "Фактор риска",
+                        "Description": "Основное заболевание родственника - фактор риска",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1,                        
+                        "Groups": [{
+                            "Name": "RiskFactor",
+                            "Caption": "Фактор риска",
+                            "Description": "Основное заболевание родственника - фактор риска",
+                            "MultiplicityFrom": 1,
+                            "MultiplicityTo": null,
+                            "Properties": [{
+                                "Type": "LinkClassifier",
+                                "Name": "Disease",
+                                "Caption": "Заболевание",
+                                "Description": "Заболевание",
+                                "MultiplicityFrom": 1,
+                                "MultiplicityTo": 1,
+                                "Attributes": {
+                                    "ClassifierLink": {
+                                        "ConfigId": "ClassifierStorage",
+                                        "ConfigVersion": "1.0.0.0",
+                                        "ClassifierId": "1.2.643.5.1.13.2.1.1.641"
+                                    }
+                                }
+                            },
+                            {
+                                "Type": "LinkClassifier",
+                                "Name": "PatientRelationship",
+                                "Caption": "Отношение к пациенту",
+                                "Description": "Отношение к пациенту",
+                                "MultiplicityFrom": 1,
+                                "MultiplicityTo": 1,
+                                "Attributes": {
+                                    "ClassifierLink": {
+                                        "ConfigId": "ClassifierStorage",
+                                        "ConfigVersion": "1.0.0.0",
+                                        "ClassifierId": "1.2.643.5.1.13.2.7.1.15"
+                                    }
+                                }
+                            },
+                            {
+                                "Type": "String",
+                                "Name": "PatientRelationshipDescription",
+                                "Caption": "Отношение к пациенту",
+                                "Description": "Отношение к пациенту",
+                                "MultiplicityFrom": 1,
+                                "MultiplicityTo": 1
+                            }]
+                        }]
+                    }]
+                },
+                {
+                    "Name": "RiskFactors",
+                    "Caption": "Факторы риска",
+                    "Description": "Анамнез жизни: Факторы риска (секция->компонент 4)",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": null,
+                    "Properties": [
+                    {
+                        "Type": "String",
+                        "Name": "Text",
+                        "Caption": "Текст",
+                        "Description": "Форматированный текст",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1
+                    }],
+                    "Groups": [{
+                        "Name": "RiskFactors",
+                        "Caption": "Фактор риска",
+                        "Description": "Основное заболевание родственника - фактор риска",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1,
+                        "Properties": [{
+                            "Type": "DateTime",
+                            "Name": "EffectiveTime",
+                            "Caption": "Дата",
+                            "Description": "Дата",
+                            "MultiplicityFrom": 1,
+                            "MultiplicityTo": 1
+                        },
+                        {
+                            "Type": "LinkClassifier",
+                            "Name": "RiskFactorsCode",
+                            "Caption": "Фактор риска",
+                            "Description": "Фактор риска",
+                            "MultiplicityFrom": 1,
+                            "MultiplicityTo": 1,
+                            "Attributes": {
+                                "ClassifierLink": {
+                                    "ConfigId": "ClassifierStorage",
+                                    "ConfigVersion": "1.0.0.0",
+                                    "ClassifierId": "1.2.643.5.1.13.2.1.1.325"
+                                }
+                            }
+                        }]
+                    }]
+                }],
+                "Properties": [
+                {
+                    "Type": "String",
+                    "Name": "Text",
+                    "Caption": "Текст",
+                    "Description": "Форматированный текст",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1
+                }]
+            },
+            {
+                "Name": "HistoryOfDisease",
+                "Caption": "Анамнез заболевания",
+                "Description": "Данная секция описывает важный относительно данного заболевания анамнез пациента и может содержать неструктурированную информацию об анамнезе болезни, либо информация может быть разделена на три подсекции - «История настоящего заболевания», «Перенесенные заболевания» и «Предыдущие госпитализации».",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1,
+                "Groups": [{
+                    "Name": "HistoryOfCurrentDisease",
+                    "Caption": "История настоящего заболевания",
+                    "Description": "История настоящего заболевания (секция->компонент 1)",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1,
+                    "Properties": [
+                    {
+                        "Type": "String",
+                        "Name": "Text",
+                        "Caption": "Текст",
+                        "Description": "Форматированный текст",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1
+                    }]
+                },
+                {
+                    "Name": "LifeAnamnesis",
+                    "Caption": "Перенесенные заболевания",
+                    "Description": "Перенесенные заболевания (секция->компонент 2)",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1,
+                    "Properties": [
+                    {
+                        "Type": "String",
+                        "Name": "text",
+                        "Caption": "Текст",
+                        "Description": "Форматированный текст",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1
+                    }]
+                },
+                {
+                    "Name": "PreviousHospitalization",
+                    "Caption": "Предыдущие госпитализации",
+                    "Description": "Предыдущие госпитализации (секция->компонент 3)",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1,
+                    "Properties": [
+                    {
+                        "Type": "String",
+                        "Name": "Text",
+                        "Caption": "Текст",
+                        "Description": "Форматированный текст",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1
+                    }],
+                    "Groups": [{
+                        "Name": "Hospitalization",
+                        "Caption": "госпитализация",
+                        "Description": "госпитализация",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1,
+                        "Properties": [{
+                            "Type": "DateTime",
+                            "Name": "StartTime",
+                            "Caption": "Дата и время начала госпитализации",
+                            "Description": "Дата и время начала госпитализации",
+                            "MultiplicityFrom": 1,
+                            "MultiplicityTo": 1
+                        },
+                        {
+                            "Type": "DateTime",
+                            "Name": "StopTime",
+                            "Caption": "Дата и время окончания госпитализации",
+                            "Description": "Дата и время окончания госпитализации",
+                            "MultiplicityFrom": 1,
+                            "MultiplicityTo": 1
+                        },
+                        {
+                            "Type": "String",
+                            "Name": "OrganizationId",
+                            "Caption": "Код организации",
+                            "Description": "Код организации",
+                            "MultiplicityFrom": 1,
+                            "MultiplicityTo": 1
+                        }],
+                        "Groups": [{
+                            "Name": "RepresentedOrganization",
+                            "Caption": "Организация",
+                            "Description": "Организация",
+                            "MultiplicityFrom": 1,
+                            "MultiplicityTo": 1,                            
+                            "Properties": [{
+                                "Type": "String",
+                                "Name": "OrganizationName",
+                                "Caption": "Название отделения",
+                                "Description": "Название отделения",
+                                "MultiplicityFrom": 1,
+                                "MultiplicityTo": 1
+                            }]
+                        }]
+                    }]
+                }],
+                "Properties": [
+                {
+                    "Type": "String",
+                    "Name": "Text",
+                    "Caption": "Текст",
+                    "Description": "Форматированный текст",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1
+                }]
+            },
+            {
+                "Name": "ObjectiveData",
+                "Caption": "Объективные данные",
+                "Description": "Данная секция содержит информацию о физикальном исследовании пациента и содержит неструктурированную информацию об обследовании в элементе text. Информация может быть структурирована на несколько секций: Функциональное обследование, Психический статус, Неврологический статус, Состояние по системам",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1,
+                "Groups": [{
+                    "Name": "FunctionalInspection",
+                    "Caption": "Функциональное обследование",
+                    "Description": "Функциональное обследование",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1,
+                    "Properties": [
+                    {
+                        "Type": "String",
+                        "Name": "Text",
+                        "Caption": "Текст",
+                        "Description": "Форматированный текст",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1
+                    }]                    
+                },
+                {
+                    "Name": "MentalStatus",
+                    "Caption": "Психический статус",
+                    "Description": "Психический статус",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1,
+                    "Properties": [
+                    {
+                        "Type": "String",
+                        "Name": "Text",
+                        "Caption": "Текст",
+                        "Description": "Форматированный текст",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1
+                    }]
+                },
+                {
+                    "Name": "NeurologicalStatus",
+                    "Caption": "Неврологический статус",
+                    "Description": "Неврологический статус",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1,
+                    "Properties": [
+                    {
+                        "Type": "String",
+                        "Name": "Text",
+                        "Caption": "Текст",
+                        "Description": "Форматированный текст",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1
+                    }]
+                },
+                {
+                    "Name": "PhysicalExamination",
+                    "Caption": "Физикальное обследование",
+                    "Description": "Физикальное обследование",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1,
+                    "Properties": [
+                    {
+                        "Type": "String",
+                        "Name": "Text",
+                        "Caption": "Текст",
+                        "Description": "Форматированный текст",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1
+                    }]
+                }],
+                "Properties": [
+                {
+                    "Type": "String",
+                    "Name": "Text",
+                    "Caption": "Текст",
+                    "Description": "Форматированный текст",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1
+                }]
+            },
+            {
+                "Name": "PreliminaryDiagnosis",
+                "Caption": "Предварительный диагноз",
+                "Description": "Предварительный диагноз",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1,                
+                "Properties": [
+                {
+                    "Type": "String",
+                    "Name": "Text",
+                    "Caption": "Текст",
+                    "Description": "Форматированный текст",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1
+                }]
+            },
+            {
+                "Name": "InspectionPlan",
+                "Caption": "План обследования",
+                "Description": "План обследования",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1,                
+                "Properties": [
+                {
+                    "Type": "String",
+                    "Name": "Text",
+                    "Caption": "Текст",
+                    "Description": "Форматированный текст",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1
+                }]
+            },
+            {
+                "Name": "TreatmentPlanning",
+                "Caption": "План лечения",
+                "Description": "План лечения",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1,                
+                "Properties": [
+                {
+                    "Type": "String",
+                    "Name": "Text",
+                    "Caption": "Текст",
+                    "Description": "Форматированный текст",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1
+                }]
+            }],
+            "Properties": [
+            {
+                "Type": "String",
+                "Name": "Text",
+                "Caption": "Текст",
+                "Description": "Форматированный текст",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1
+            }]
+        },
+        {
+            "Name": "InformationOnTreatment",
+            "Caption": "Информация о лечении",
+            "Description": "Информация о лечении",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1,            
+            "Properties": [
+            {
+                "Type": "String",
+                "Name": "Text",
+                "Caption": "Текст",
+                "Description": "Форматированный текст",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1
+            }]
+        },
+        {
+            "Name": "PatientCondition",
+            "Caption": "Состояние пациента",
+            "Description": "Состояние пациента",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1,            
+            "Properties": [
+            {
+                "Type": "String",
+                "Name": "Text",
+                "Caption": "Текст",
+                "Description": "Форматированный текст",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1
+            }]
+        },
+        {
+            "Name": "ServicesData",
+            "Caption": "Данные по услугам",
+            "Description": "Данные по услугам",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1,
+            "Groups": [{
+                "Name": "ServiceDescription",
+                "Caption": "Описание услуги",
+                "Description": "Описание услуги",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": null,
+                "Groups": [{
+                    "Name": "StayDepartmentData",
+                    "Caption": "Данные об отделении пребывания",
+                    "Description": "Данные об отделении пребывания",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1,
+                    "Groups": [{
+                        "Name": "Performer",
+                        "Caption": "Исполнитель",
+                        "Description": "Сведения об отделении",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1,
+                        "Groups": [{
+                            "Name": "AssignedPerformer",
+                            "Caption": "Исполнитель",
+                            "Description": "Детальная информация об исполнителе",
+                            "MultiplicityFrom": 1,
+                            "MultiplicityTo": 1,
+                            "Groups": [{
+                                "Name": "BedProfile",
+                                "Caption": "Профиль койки",
+                                "Description": "Профиль койки",
+                                "MultiplicityFrom": 1,
+                                "MultiplicityTo": 1,                               
+                                "Properties": [{
+                                    "Type": "LinkClassifier",
+                                    "Name": "BedProfileCode",
+                                    "Caption": "Профиль койки",
+                                    "Description": "Профиль койки",
+                                    "MultiplicityFrom": 1,
+                                    "MultiplicityTo": 1,
+                                    "Attributes": {
+                                        "ClassifierLink": {
+                                            "ConfigId": "ClassifierStorage",
+                                            "ConfigVersion": "1.0.0.0",
+                                            "ClassifierId": "1.2.643.5.1.13.2.1.1.221"
+                                        }
+                                    }
+                                }]
+                            },
+                            {
+                                "Name": "RepresentedOrganization",
+                                "Caption": "Организация",
+                                "Description": "Организация",
+                                "MultiplicityFrom": 1,
+                                "MultiplicityTo": 1,                                
+                                "Properties": [{
+                                    "Type": "String",
+                                    "Name": "OrganizationName",
+                                    "Caption": "Название отделения",
+                                    "Description": "Название отделения",
+                                    "MultiplicityFrom": 1,
+                                    "MultiplicityTo": 1
+                                }]
+                            }],
+                            "Properties": [{
+                                "Type": "String",
+                                "Name": "RegisterId",
+                                "Caption": "Регистрационный код отделения",
+                                "Description": "Регистрационный код отделения в МО",
+                                "MultiplicityFrom": 1,
+                                "MultiplicityTo": 1
+                            }]
+                        }],
+                        "Properties": [{
+                            "Type": "LinkClassifier",
+                            "Name": "PerformerType",
+                            "Caption": "Тип исполнителя",
+                            "Description": "Тип исполнителя",
+                            "MultiplicityFrom": 1,
+                            "MultiplicityTo": 1,
+                            "Attributes": {
+                                "ClassifierLink": {
+                                    "ConfigId": "ClassifierStorage",
+                                    "ConfigVersion": "1.0.0.0",
+                                    "ClassifierId": "1.2.643.5.1.13.2.7.1.30"
+                                }
+                            }
+                        }]
+                    }],
+                    "Properties": [{
+                        "Type": "LinkClassifier",
+                        "Name": "DepartmentStay",
+                        "Caption": "Пребывание в отделении",
+                        "Description": "Пребывание в отделении",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1,
+                        "Attributes": {
+                            "ClassifierLink": {
+                                "ConfigId": "ClassifierStorage",
+                                "ConfigVersion": "1.0.0.0",
+                                "ClassifierId": "1.2.643.5.1.13.2.7.1.12"
+                            }
+                        }
+                    },
+                    {
+                        "Type": "DateTime",
+                        "Name": "StartTime",
+                        "Caption": "Дата и время поступления",
+                        "Description": "Дата и время поступления",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1
+                    },
+                    {
+                        "Type": "DateTime",
+                        "Name": "StopTime",
+                        "Caption": "Дата и время выбытия",
+                        "Description": "Дата и время выбытия",
+                        "MultiplicityFrom": 1,
+                        "MultiplicityTo": 1
+                    }]
+                }],
+                "Properties": [{
+                    "Type": "LinkClassifier",
+                    "Name": "Service",
+                    "Caption": "Услуга",
+                    "Description": "Услуга",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1,
+                    "Attributes": {
+                        "ClassifierLink": {
+                            "ConfigId": "ClassifierStorage",
+                            "ConfigVersion": "1.0.0.0",
+                            "ClassifierId": "1.2.643.5.1.13.2.1.1.473"
+                        }
+                    }
+                },
+                {
+                    "Type": "LinkClassifier",
+                    "Name": "AccountingUnitCare",
+                    "Caption": "Единица учета медицинской помощи",
+                    "Description": "Единица учета медицинской помощи",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1,
+                    "Attributes": {
+                        "ClassifierLink": {
+                            "ConfigId": "ClassifierStorage",
+                            "ConfigVersion": "1.0.0.0",
+                            "ClassifierId": "1.2.643.5.1.13.2.1.1.80"
+                        }
+                    }
+                },          
+                {
+                    "Type": "Integer",
+                    "Name": "ServiceQuantity",
+                    "Caption": "Количество услуг",
+                    "Description": "Количество услуг",
+                    "MultiplicityFrom": 1,
+                    "MultiplicityTo": 1
+                }]
+            }],
+            "Properties": [
+            {
+                "Type": "String",
+                "Name": "Text",
+                "Caption": "Текст",
+                "Description": "Форматированный текст",
+                "MultiplicityFrom": 1,
+                "MultiplicityTo": 1
+            }]
+        }
+        ],
+        "Properties": [
+        {
+            "Type": "String",
+            "Name": "DocumentId",
+            "Caption": "Уникальный номер экземпляра документа",
+            "Description": "Уникальный номер экземпляра документа",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        }, 
+        {
+            "Type": "String",
+            "Name": "PatientId",
+            "Caption": "Уникальный идентификатор пациента",
+            "Description": "Уникальный идентификатор пациента",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        }, 
+        {
+            "Type": "String",
+            "Name": "MedicalWorkerId",
+            "Caption": "Уникальный идентификатора медицинского работника",
+            "Description": "Уникальный идентификатора медицинского работника",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        },       
+        {
+            "Type": "DateTime",
+            "Name": "Date",
+            "Caption": "Дата создания документа",
+            "Description": "Дата создания документа",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        },
+        {
+            "Type": "LinkClassifier",
+            "Name": "Confidentiality",
+            "Caption": "Уровень конфиденциальности документа",
+            "Description": "Уровень конфиденциальности документа",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1,
+            "Attributes": {
+                "ClassifierLink": {
+                    "ConfigId": "ClassifierStorage",
+                    "ConfigVersion": "1.0.0.0",
+                    "ClassifierId": "2.16.840.1.113883.5.25"
+                }
+            }
+        },
+        {
+            "Type": "LinkClassifier",
+            "Name": "GuardianConfidentialityCode",
+            "Caption": "Уровень доступа опекуна/попечителя",
+            "Description": "Уровень доступа опекуна/попечителя",
+            "MultiplicityFrom": 0,
+            "MultiplicityTo": 1,
+            "Attributes": {
+                "ClassifierLink": {
+                    "ConfigId": "ClassifierStorage",
+                    "ConfigVersion": "1.0.0.0",
+                    "ClassifierId": "1.2.643.5.1.13.2.7.1.9"
+                }
+            }
+        },
+        {
+            "Type": "LinkClassifier",
+            "Name": "PatientConfidentialityCode",
+            "Caption": "Уровень доступа врача",
+            "Description": "Уровень доступа врача",
+            "MultiplicityFrom": 0,
+            "MultiplicityTo": 1,
+            "Attributes": {
+                "ClassifierLink": {
+                    "ConfigId": "ClassifierStorage",
+                    "ConfigVersion": "1.0.0.0",
+                    "ClassifierId": "1.2.643.5.1.13.2.7.1.10"
+                }
+            }
+        },
+        {
+            "Type": "String",
+            "Name": "CaseNumber",
+            "Caption": "Номер истории болезни",
+            "Description": "Номер истории болезни, к которой относится документ",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        },
+        {
+            "Type": "Integer",
+            "Name": "DocumentVersionNumber",
+            "Caption": "Версия данного документа",
+            "Description": "Версия данного документа",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        },
+        {
+            "Type": "String",
+            "Name": "DocumentOwner",
+            "Caption": "Владелец документа",
+            "Description": "Код учреждения в реестре Минздрава РФ",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        },
+        {
+            "Type": "String",
+            "Name": "DocumentOwnerName",
+            "Caption": "Владелец документа",
+            "Description": "Наименование учреждения",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        },
+        {
+            "Type": "DateTime",
+            "Name": "StatementTime",
+            "Caption": "Дата и время утверждения",
+            "Description": "Дата и время утверждения",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        },
+        {
+            "Type": "String",
+            "Name": "AuthenticatorId",
+            "Caption": "Код учреждения в реестре Минздрава РФ",
+            "Description": "Код учреждения в реестре Минздрава РФ, к которой относится работник, подписавший документ",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        },
+        {
+            "Type": "String",
+            "Name": "AuthenticatorPersonId",
+            "Caption": "Код медицинского работника, подписавшего документ",
+            "Description": "Код медицинского работника, подписавшего документ",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        },
+        {
+            "Type": "LinkClassifier",
+            "Name": "AuthenticatorCode",
+            "Caption": "Код должности роли медицинского работника",
+            "Description": "Код должности роли медицинского работника, подписавшего документ",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1,
+            "Attributes": {
+                "ClassifierLink": {
+                    "ConfigId": "ClassifierStorage",
+                    "ConfigVersion": "1.0.0.0",
+                    "ClassifierId": "1.2.643.5.1.13.2.1.1.607"
+                }
+            }
+        },
+        {
+            "Type": "LinkClassifier",
+            "Name": "AuthenticatorParticipant",
+            "Caption": "Роль в оказании медицинской помощи",
+            "Description": "Роль в оказании медицинской помощи подписавшего документ",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1,
+            "Attributes": {
+                "ClassifierLink": {
+                    "ConfigId": "ClassifierStorage",
+                    "ConfigVersion": "1.0.0.0",
+                    "ClassifierId": "1.2.643.5.1.13.2.7.1.30"
+                }
+            }
+        },
+        {
+            "Type": "String",
+            "Name": "AuthenticatorLastName",
+            "Caption": "Фамилия подписавшего документ",
+            "Description": "Фамилия подписавшего документ",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        },
+        {
+            "Type": "String",
+            "Name": "AuthenticatorFirstName",
+            "Caption": "Имя подписавшего документ",
+            "Description": "Имя подписавшего документ",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        },
+        {
+            "Type": "String",
+            "Name": "AuthenticatorMiddleName",
+            "Caption": "Отчество подписавшего документ",
+            "Description": "Отчество подписавшего документ",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        },
+        {
+            "Type": "String",
+            "Name": "CaseHistoryNumber",
+            "Caption": "Номер истории болезни случая заболевания",
+            "Description": "OID и номер истории болезни должны образовывать уникальную комбинацию в рамках всей системы",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        },
+        {
+            "Type": "LinkClassifier",
+            "Name": "CaseType",
+            "Caption": "Тип случая заболевания",
+            "Description": "Тип случая заболевания (госпитализация)",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1,
+            "Attributes": {
+                "ClassifierLink": {
+                    "ConfigId": "ClassifierStorage",
+                    "ConfigVersion": "1.0.0.0",
+                    "ClassifierId": "1.2.643.5.1.13.2.7.1.1"
+                }
+            }
+        },
+        {
+            "Type": "DateTime",
+            "Name": "HospitalizationIssueDate",
+            "Caption": "Дата и время начала госпитализации",
+            "Description": "Дата и время начала госпитализации в рамках случая оказания медицинской помощи",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        },
+        {
+            "Type": "DateTime",
+            "Name": "HospitalizationExpiryDate",
+            "Caption": "Дата и время окончания госпитализации",
+            "Description": "Дата и время окончания госпитализации в рамках случая оказания медицинской помощи",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1
+        },
+        {
+            "Type": "LinkClassifier",
+            "Name": "HospitalizationDispositionCode",
+            "Caption": "Исход госпитализации",
+            "Description": "Исход госпитализации в рамках случая оказания медицинской помощи",
+            "MultiplicityFrom": 1,
+            "MultiplicityTo": 1,
+            "Attributes": {
+                "ClassifierLink": {
+                    "ConfigId": "ClassifierStorage",
+                    "ConfigVersion": "1.0.0.0",
+                    "ClassifierId": "1.2.643.5.1.13.2.1.1.542"
+                }
+            }
+        }
+        ]
+    }
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p></div></div><h4>Пример данных:</h4><div><div class="syntaxhighlighter nogutter  java"><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:plain-text-body><![CDATA[{
+  "Hospitalization": {
+    "WhoDelivered": {
+      "Code": "4",
+      "CodeSystem": "1.2.643.5.1.13.2.1.1.281",
+      "CodeSystemName": "Классификатор каналов госпитализации в лечебно-профилактическую организацию",
+      "DisplayName": "Перевод из ЛПУ неприкрепленного района"
+    },
+    "NumberOfDays": 2,
+    "HospitalizationInThisYear": {
+      "Code": "2",
+      "CodeSystem": "1.2.643.5.1.13.2.1.1.109",
+      "CodeSystemName": "Классификатор случаев госпитализации в данном году",
+      "DisplayName": "Госпитализирован повторно в данном году по данному заболеванию"
+    },
+    "TimeAfterBegining": {
+      "Code": "3",
+      "CodeSystem": "1.2.643.5.1.13.2.1.1.537",
+      "CodeSystemName": "Справочник времени доставки больного в стационар от начала заболевания (получения травмы)",
+      "DisplayName": "позднее 24-х часов"
+    }
+  },
+  "HospitalStay": {
+    "BranchStay": [
+      {
+        "Department": {
+          "TermsOfCare": {
+            "Code": "1",
+            "CodeSystem": "1.2.643.5.1.13.2.1.1.103",
+            "CodeSystemName": "Классификатор медицинской помощи по условиям оказания",
+            "DisplayName": "Стационарная медицинская помощь"
+          },
+          "LengthOfStay": 2
+        },
+        "Performer": {
+          "AssignedPerformer": {
+            "BedProfile": {
+              "ProfileCode": {
+                "Code": "191",
+                "CodeSystem": "1.2.643.5.1.13.2.1.1.221",
+                "CodeSystemName": "Номенклатура коечного фонда медицинской организации",
+                "DisplayName": "Абдоминальной хирургии "
+              }
+            },
+            "RepresentedOrganization": {
+              "OrganizationName": "ЗАО Фирма"
+            },
+            "OrganizationRegisterId": "ЗАО Фирма",
+            "LastName": "Петров",
+            "FirstName": "Сидор",
+            "MiddleName": "Иванович"
+          },
+          "PerformerType": {
+            "Code": "ERL",
+            "CodeSystem": "1.2.643.5.1.13.2.7.1.30",
+            "CodeSystemName": "Роль в оказании медицинской помощи",
+            "DisplayName": "Регистратор"
+          }
+        },
+        "StartTime": "28.03.2014",
+        "StopTime": "28.03.2014"
+      },
+      {
+        "Department": {
+          "TermsOfCare": {
+            "Code": "1",
+            "CodeSystem": "1.2.643.5.1.13.2.1.1.103",
+            "CodeSystemName": "Классификатор медицинской помощи по условиям оказания",
+            "DisplayName": "Стационарная медицинская помощь"
+          },
+          "LengthOfStay": 2
+        },
+        "Performer": {
+          "AssignedPerformer": {
+            "BedProfile": {
+              "ProfileCode": {
+                "Code": "35",
+                "CodeSystem": "1.2.643.5.1.13.2.1.1.221",
+                "CodeSystemName": "Номенклатура коечного фонда медицинской организации",
+                "DisplayName": "Онкологические для взрослых"
+              }
+            },
+            "RepresentedOrganization": {
+              "OrganizationName": "ЗАО Фирма"
+            },
+            "OrganizationRegisterId": "ЗАО Фирма",
+            "LastName": "Петров",
+            "FirstName": "Сидор",
+            "MiddleName": "Иванович"
+          },
+          "PerformerType": {
+            "Code": "REF",
+            "CodeSystem": "1.2.643.5.1.13.2.7.1.30",
+            "CodeSystemName": "Роль в оказании медицинской помощи",
+            "DisplayName": "Учреждение"
+          }
+        },
+        "StartTime": "28.03.2014",
+        "StopTime": "28.03.2014"
+      }
+    ],
+    "Text": "Значение"
+  },
+  "DiagnosisGroup": {
+    "Diagnosis": [
+      {
+        "Observation": {
+          "EventType": {
+            "Code": "COMPLNT",
+            "CodeSystem": "1.2.643.5.1.13.2.7.1.12",
+            "CodeSystemName": "Система кодирования событий",
+            "DisplayName": "Жалоба"
+          },
+          "Mkb10Diagnosis": {
+            "Code": "20",
+            "CodeSystem": "1.2.643.5.1.13.2.1.1.641",
+            "CodeSystemName": "Международная классификация болезней и состояний, связанных со здоровьем, Десятого пересмотра. Версия 2",
+            "DisplayName": "0101A030"
+          },
+          "DiagnosisType": {
+            "Code": "MAIN_COMPL",
+            "CodeSystem": "1.2.643.5.1.13.2.7.1.13",
+            "CodeSystemName": "Тип диагноза",
+            "DisplayName": "Осложнение основного заболевания"
+          }
+        }
+      },
+      {
+        "Observation": {
+          "EventType": {
+            "Code": "DRAG",
+            "CodeSystem": "1.2.643.5.1.13.2.7.1.12",
+            "CodeSystemName": "Система кодирования событий",
+            "DisplayName": "Назначенные препараты"
+          },
+          "Mkb10Diagnosis": {
+            "Code": "164",
+            "CodeSystem": "1.2.643.5.1.13.2.1.1.641",
+            "CodeSystemName": "Международная классификация болезней и состояний, связанных со здоровьем, Десятого пересмотра. Версия 2",
+            "DisplayName": "0103A28"
+          },
+          "DiagnosisType": {
+            "Code": "BY_ILLNESS",
+            "CodeSystem": "1.2.643.5.1.13.2.7.1.13",
+            "CodeSystemName": "Тип диагноза",
+            "DisplayName": "Сопутствующее заболевание"
+          }
+        }
+      }
+    ],
+    "Text": "Значение"
+  },
+  "InitialInspection": {
+    "LifeAnamnesis": {
+      "BiographicalInformation": [
+        {
+          "Text": "Значение"
+        },
+        {
+          "Text": "Значение"
+        }
+      ],
+      "SolialStatus": [
+        {
+          "Text": "Значение"
+        },
+        {
+          "Text": "Значение"
+        }
+      ],
+      "FamilyAnamnesis": [
+        {
+          "RiskFactorGroup": {
+            "RiskFactor": [
+              {
+                "Disease": {
+                  "Code": "296",
+                  "CodeSystem": "1.2.643.5.1.13.2.1.1.641",
+                  "CodeSystemName": "Международная классификация болезней и состояний, связанных со здоровьем, Десятого пересмотра. Версия 2",
+                  "DisplayName": "0105A541"
+                },
+                "PatientRelationship": {
+                  "Code": "28",
+                  "CodeSystem": "1.2.643.5.1.13.2.7.1.15",
+                  "CodeSystemName": "Отношение к пациенту",
+                  "DisplayName": "Сосед"
+                },
+                "PatientRelationshipDescription": "Значение"
+              },
+              {
+                "Disease": {
+                  "Code": "448",
+                  "CodeSystem": "1.2.643.5.1.13.2.1.1.641",
+                  "CodeSystemName": "Международная классификация болезней и состояний, связанных со здоровьем, Десятого пересмотра. Версия 2",
+                  "DisplayName": "0110A931"
+                },
+                "PatientRelationship": {
+                  "Code": "15",
+                  "CodeSystem": "1.2.643.5.1.13.2.7.1.15",
+                  "CodeSystemName": "Отношение к пациенту",
+                  "DisplayName": "Дед по материнской линии"
+                },
+                "PatientRelationshipDescription": "Значение"
+              }
+            ]
+          },
+          "Text": "Значение"
+        },
+        {
+          "RiskFactorGroup": {
+            "RiskFactor": [
+              {
+                "Disease": {
+                  "Code": "87",
+                  "CodeSystem": "1.2.643.5.1.13.2.1.1.641",
+                  "CodeSystemName": "Международная классификация болезней и состояний, связанных со здоровьем, Десятого пересмотра. Версия 2",
+                  "DisplayName": "0102A163"
+                },
+                "PatientRelationship": {
+                  "Code": "2",
+                  "CodeSystem": "1.2.643.5.1.13.2.7.1.15",
+                  "CodeSystemName": "Отношение к пациенту",
+                  "DisplayName": "Ребенок"
+                },
+                "PatientRelationshipDescription": "Значение"
+              },
+              {
+                "Disease": {
+                  "Code": "448",
+                  "CodeSystem": "1.2.643.5.1.13.2.1.1.641",
+                  "CodeSystemName": "Международная классификация болезней и состояний, связанных со здоровьем, Десятого пересмотра. Версия 2",
+                  "DisplayName": "0110A931"
+                },
+                "PatientRelationship": {
+                  "Code": "18",
+                  "CodeSystem": "1.2.643.5.1.13.2.7.1.15",
+                  "CodeSystemName": "Отношение к пациенту",
+                  "DisplayName": "Внебрачный ребенок"
+                },
+                "PatientRelationshipDescription": "Значение"
+              }
+            ]
+          },
+          "Text": "Значение"
+        }
+      ],
+      "RiskFactors": [
+        {
+          "RiskFactors": {
+            "EffectiveTime": "28.03.2014",
+            "RiskFactorsCode": {
+              "Code": "1",
+              "CodeSystem": "1.2.643.5.1.13.2.1.1.325",
+              "CodeSystemName": "Классификатор факторов риска и медицинского анамнеза больного с острым нарушением мозгового кровообращения",
+              "DisplayName": "Артериальная гипертензия"
+            }
+          },
+          "Text": "Значение"
+        },
+        {
+          "RiskFactors": {
+            "EffectiveTime": "28.03.2014",
+            "RiskFactorsCode": {
+              "Code": "23",
+              "CodeSystem": "1.2.643.5.1.13.2.1.1.325",
+              "CodeSystemName": "Классификатор факторов риска и медицинского анамнеза больного с острым нарушением мозгового кровообращения",
+              "DisplayName": "Принимает варфарин"
+            }
+          },
+          "Text": "Значение"
+        }
+      ],
+      "Text": "Значение"
+    },
+    "HistoryOfDisease": {
+      "HistoryOfCurrentDisease": {
+        "Text": "Значение"
+      },
+      "LifeAnamnesis": {
+        "text": "Значение"
+      },
+      "PreviousHospitalization": {
+        "Hospitalization": {
+          "RepresentedOrganization": {
+            "OrganizationName": "ЗАО Фирма"
+          },
+          "StartTime": "28.03.2014",
+          "StopTime": "28.03.2014",
+          "OrganizationId": "ЗАО Фирма"
+        },
+        "Text": "Значение"
+      },
+      "Text": "Значение"
+    },
+    "ObjectiveData": {
+      "FunctionalInspection": {
+        "Text": "Значение"
+      },
+      "MentalStatus": {
+        "Text": "Значение"
+      },
+      "NeurologicalStatus": {
+        "Text": "Значение"
+      },
+      "PhysicalExamination": {
+        "Text": "Значение"
+      },
+      "Text": "Значение"
+    },
+    "PreliminaryDiagnosis": {
+      "Text": "Значение"
+    },
+    "InspectionPlan": {
+      "Text": "Значение"
+    },
+    "TreatmentPlanning": {
+      "Text": "Значение"
+    },
+    "Text": "Значение"
+  },
+  "InformationOnTreatment": {
+    "Text": "Значение"
+  },
+  "PatientCondition": {
+    "Text": "Значение"
+  },
+  "ServicesData": {
+    "ServiceDescription": [
+      {
+        "StayDepartmentData": {
+          "Performer": {
+            "AssignedPerformer": {
+              "BedProfile": {
+                "BedProfileCode": {
+                  "Code": "81",
+                  "CodeSystem": "1.2.643.5.1.13.2.1.1.221",
+                  "CodeSystemName": "Номенклатура коечного фонда медицинской организации",
+                  "DisplayName": "Реанимационные койки в составе других отделений"
+                }
+              },
+              "RepresentedOrganization": {
+                "OrganizationName": "ЗАО Фирма"
+              },
+              "RegisterId": "Значение"
+            },
+            "PerformerType": {
+              "Code": "PAYOR",
+              "CodeSystem": "1.2.643.5.1.13.2.7.1.30",
+              "CodeSystemName": "Роль в оказании медицинской помощи",
+              "DisplayName": "Плательщик"
+            }
+          },
+          "DepartmentStay": {
+            "Code": "DEATH",
+            "CodeSystem": "1.2.643.5.1.13.2.7.1.12",
+            "CodeSystemName": "Система кодирования событий",
+            "DisplayName": "Смерть"
+          },
+          "StartTime": "28.03.2014",
+          "StopTime": "28.03.2014"
+        },
+        "Service": {
+          "Code": "2574",
+          "CodeSystem": "1.2.643.5.1.13.2.1.1.473",
+          "CodeSystemName": "Номенклатура медицинских услуг",
+          "DisplayName": "Исследование уровня андростендиона в крови"
+        },
+        "AccountingUnitCare": {
+          "Code": "3",
+          "CodeSystem": "1.2.643.5.1.13.2.1.1.80",
+          "CodeSystemName": "Классификатор единиц учета медицинской помощи",
+          "DisplayName": "Анестезиологическое пособие"
+        },
+        "ServiceQuantity": 2
+      },
+      {
+        "StayDepartmentData": {
+          "Performer": {
+            "AssignedPerformer": {
+              "BedProfile": {
+                "BedProfileCode": {
+                  "Code": "68",
+                  "CodeSystem": "1.2.643.5.1.13.2.1.1.221",
+                  "CodeSystemName": "Номенклатура коечного фонда медицинской организации",
+                  "DisplayName": "Хирургические гнойные для взрослых"
+                }
+              },
+              "RepresentedOrganization": {
+                "OrganizationName": "ЗАО Фирма"
+              },
+              "RegisterId": "Значение"
+            },
+            "PerformerType": {
+              "Code": "ERL",
+              "CodeSystem": "1.2.643.5.1.13.2.7.1.30",
+              "CodeSystemName": "Роль в оказании медицинской помощи",
+              "DisplayName": "Регистратор"
+            }
+          },
+          "DepartmentStay": {
+            "Code": "PRVHOSP",
+            "CodeSystem": "1.2.643.5.1.13.2.7.1.12",
+            "CodeSystemName": "Система кодирования событий",
+            "DisplayName": "Предыдущая госпитализация"
+          },
+          "StartTime": "28.03.2014",
+          "StopTime": "28.03.2014"
+        },
+        "Service": {
+          "Code": "2586",
+          "CodeSystem": "1.2.643.5.1.13.2.1.1.473",
+          "CodeSystemName": "Номенклатура медицинских услуг",
+          "DisplayName": "Исследование уровня эстрона в крови"
+        },
+        "AccountingUnitCare": {
+          "Code": "16",
+          "CodeSystem": "1.2.643.5.1.13.2.1.1.80",
+          "CodeSystemName": "Классификатор единиц учета медицинской помощи",
+          "DisplayName": "Медико-экономический стандарт"
+        },
+        "ServiceQuantity": 2
+      }
+    ],
+    "Text": "Значение"
+  },
+  "DocumentId": "Значение",
+  "PatientId": "Значение",
+  "MedicalWorkerId": "Значение",
+  "Date": "28.03.2014",
+  "Confidentiality": {
+    "Code": "R",
+    "CodeSystem": "2.16.840.1.113883.5.25",
+    "CodeSystemName": "Уровень конфиденциальности медицинского документа",
+    "DisplayName": "Средний"
+  },
+  "GuardianConfidentialityCode": {
+    "Code": "R",
+    "CodeSystem": "1.2.643.5.1.13.2.7.1.9",
+    "CodeSystemName": "Уровень конфиденциальности для опекуна",
+    "DisplayName": "Ограничен"
+  },
+  "PatientConfidentialityCode": {
+    "Code": "V",
+    "CodeSystem": "1.2.643.5.1.13.2.7.1.10",
+    "CodeSystemName": "Уровень конфиденциальности для врача",
+    "DisplayName": "Особые ограничения"
+  },
+  "CaseNumber": "23456",
+  "DocumentVersionNumber": 2,
+  "DocumentOwner": "Значение",
+  "DocumentOwnerName": "Значение",
+  "StatementTime": "28.03.2014",
+  "AuthenticatorId": "Значение",
+  "AuthenticatorPersonId": "Значение",
+  "AuthenticatorCode": {
+    "Code": "53",
+    "CodeSystem": "1.2.643.5.1.13.2.1.1.607",
+    "CodeSystemName": "Номенклатура должностей медицинских работников и фармацевтических работников",
+    "DisplayName": "врач-психиатр"
+  },
+  "AuthenticatorParticipant": {
+    "Code": "ERL",
+    "CodeSystem": "1.2.643.5.1.13.2.7.1.30",
+    "CodeSystemName": "Роль в оказании медицинской помощи",
+    "DisplayName": "Регистратор"
+  },
+  "AuthenticatorLastName": "Петров",
+  "AuthenticatorFirstName": "Сидор",
+  "AuthenticatorMiddleName": "Иванович",
+  "CaseHistoryNumber": "23456",
+  "CaseType": {
+    "Code": "STAT",
+    "CodeSystem": "1.2.643.5.1.13.2.7.1.1",
+    "CodeSystemName": "Вид случая заболевания",
+    "DisplayName": "Госпитализация"
+  },
+  "HospitalizationIssueDate": "28.03.2014",
+  "HospitalizationExpiryDate": "28.03.2014",
+  "HospitalizationDispositionCode": {
+    "Code": "1",
+    "CodeSystem": "1.2.643.5.1.13.2.1.1.542",
+    "CodeSystemName": "Классификатор исходов госпитализации",
+    "DisplayName": "выписан"
+  }
+}]]></ac:plain-text-body></ac:structured-macro></div></div></div>

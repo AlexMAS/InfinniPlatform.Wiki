@@ -1,0 +1,32 @@
+---
+layout: default
+title: BinaryLink
+position: 0
+categories: 
+tags: 
+---
+
+<p>Ссылка на двоичные данные.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>Ссылка на двоичные данные определяет дополнительную информацию о свойствах с типом <ac:link><ri:page ri:content-title="DataType" /><ac:plain-text-link-body><![CDATA[Binary]]></ac:plain-text-link-body></ac:link>.</p><p>&nbsp;</p><p><strong>Список допустимых форматов данных</strong> (AcceptTypes) в формате <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">IANA Media Types</a> (MIME). Эта информация может быть использована, например, на уровне генератора представлений следующим образом: если встретился тип, который начинается с &quot;image/&quot;, то пользователю будет отображен <ac:link><ri:page ri:content-title="ImageBox" /></ac:link>, в противном случае будет отображен <ac:link><ri:page ri:content-title="UploadFileBox" /></ac:link>. Также можно настроить фильтр в диалоге выбора файла. Серверная сторона также может использовать эти данные, например, чтобы не позволять клиенту делать выгрузку файлов в недопустимом формате. Если список допустимых форматов данных не определен, допустимы данные любого типа.</p><p>&nbsp;</p><p><strong>Максимальный размер данных в байтах</strong> (MaxSize). Эта информация может быть использована, как на стороне клиента, так и на стороне сервера. Клиентская сторона может предупреждать пользователя о максимально допустимом размере файла, либо вообще не позволять выбирать файл большего размера. Серверная сторона может не позволять клиенту делать выгрузку файлов, размер которых превышает максимально допустимый. Если максимальный размер данных не определен, меньше или равен 0, допустимы данные любого размера. Тем не менее, нужно понимать, что серверная сторона может на уровне реализации установить максимальный размер данных.</p><p>&nbsp;</p><p><strong>Разрешать ссылку на данные</strong> (Resolve). Эта настройка отвечает <span>за логику выборки документов, в котором&nbsp;присутствуют свойства с типом <ac:link><ri:page ri:content-title="DataType" /><ac:plain-text-link-body><![CDATA[Binary]]></ac:plain-text-link-body></ac:link><span>. По умолчанию разрешение ссылки на данные выключено (Resolve=false). Когда клиент запросит у сервера данные документа, у полученного документа свойства с типом <ac:link><ri:page ri:content-title="DataType" /><ac:plain-text-link-body><![CDATA[Binary]]></ac:plain-text-link-body></ac:link> с выключенным разрешением ссылок <span>(Resolve=false)</span>, будут содержать структуру <ac:link><ri:page ri:content-title="BlobData" /></ac:link> без свойство Data (иными словами, <ac:link><ri:page ri:content-title="BlobData" /></ac:link>.Data === undefined). Свойства <span>с типом </span><ac:link><ri:page ri:content-title="DataType" /><ac:plain-text-link-body><![CDATA[Binary]]></ac:plain-text-link-body></ac:link> с включенным разрешением ссылок <span>(Resolve=true), будут содержать структуру <ac:link><ri:page ri:content-title="BlobData" /></ac:link><span> со свойством Data <span>(иными словами, </span><ac:link><ri:page ri:content-title="BlobData" /></ac:link><span>.Data !== undefined). <span>Соответственно, в случае, когда данные (Data) с сервера не приходят <span>(иными словами, </span><ac:link><ri:page ri:content-title="BlobData" /></ac:link><span>.Data === undefined)</span>, предполагается, что клиент сам решает, когда следует загружать данные. Для загрузки данных клиент отправляет серверу дополнительный запрос, передавая в параметрах запроса уникальный идентификатор BLOB (<ac:link><ri:page ri:content-title="BlobData" /></ac:link><span>.</span>Info.Id). Наконец, свойства <span>с типом </span><ac:link><ri:page ri:content-title="DataType" /><ac:plain-text-link-body><![CDATA[Binary]]></ac:plain-text-link-body></ac:link>, не имеющие значения, будут содержать нулевой указатель (null).</span></span></span></span><br /></span></span></p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "BinaryLink",
+	"description": "Ссылка на двоичные данные",
+	"type": "object",
+	"properties": {
+		"AcceptTypes": {
+			"description": "Список допустимых форматов данных",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"MaxSize": {
+			"description": "Максимальный размер данных в байтах",
+			"type": "integer",
+			"default": 0
+		},
+		"Resolve": {
+			"description": "Разрешать ссылку на данные",
+			"type": "boolean",
+			"default": false
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

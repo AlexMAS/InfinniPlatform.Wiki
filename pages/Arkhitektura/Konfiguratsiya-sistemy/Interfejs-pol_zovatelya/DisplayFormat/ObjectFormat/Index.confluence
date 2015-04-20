@@ -1,0 +1,56 @@
+---
+layout: default
+title: ObjectFormat
+position: 4
+categories: 
+tags: 
+---
+
+<p>Формат отображения объекта.</p><p>&nbsp;</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>Правила построения строки форматирования описаны в разделе <ac:link><ri:page ri:content-title="ObjectFomatting" /></ac:link>.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp;&nbsp;</p><ac:structured-macro ac:name="expand"><ac:parameter ac:name="title">Methods</ac:parameter><ac:rich-text-body><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">GetFormat(): string</td><td colspan="1">Возвращает строку форматирования объекта.</td></tr><tr><td>SetFormat(string value)</td><td>Устанавливает строку форматирования объекта.</td></tr></tbody></table></ac:rich-text-body></ac:structured-macro><p>&nbsp;&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "ObjectFormat",
+	"description": "Формат отображения объекта",
+	"type": "object",
+	"extends": {
+		"$ref": "http://demo.infinnity.ru:8081/display/MC/BaseFormat"
+	},
+	"properties": {
+		"Format": {
+			"description": "Строка форматирования объекта",
+			"type": "string",
+			"required": true
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #1</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Format": "{:n3}"
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #2</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Format": "Birth date: {BirthDate:d}"
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example #3</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Format": "Weight: {Weight:n2} kg"
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Примеры форматирования</h4><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">#1</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[// Given
+var value = 123.4567;
+var target = new ObjectFormat();
+target.SetFormat("{:n3}");
+
+// When
+var result = target.Format(value);
+
+// Then
+Assert.AreEqual("123.457", result); // en-US]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">#2</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[// Given
+var value = { BirthDate: new DateTime(2014, 9, 4) };
+var target = new ObjectFormat();
+target.SetFormatString("Birth date: {BirthDate:d}");
+
+// When
+var result = target.Format(value);
+
+// Then
+Assert.AreEqual("Birth date: 9/4/2014", result); // en-US]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">#3</ac:parameter><ac:parameter ac:name="language">c#</ac:parameter><ac:plain-text-body><![CDATA[// Given
+var value = { Weight: 123.4567 };
+var target = new CustomFormat();
+target.SetFormatString("Weight: {Weight:n2} kg");
+
+// When
+var result = target.Format(value);
+
+// Then
+Assert.AreEqual("Weight: 123.46 kg", result); // en-US]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

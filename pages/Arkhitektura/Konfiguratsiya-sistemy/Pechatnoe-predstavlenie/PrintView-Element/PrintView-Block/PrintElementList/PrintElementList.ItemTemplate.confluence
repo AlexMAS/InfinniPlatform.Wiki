@@ -1,0 +1,33 @@
+---
+layout: default
+title: PrintElementList.ItemTemplate
+position: 3
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(0,51,102);"><span style="color: rgb(0,51,102);">Шаблон элементов списка</span>.</span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(0,51,102);">Type</span></h4><p><span style="color: rgb(0,51,102);"><ac:link><ri:page ri:content-title="PrintElementBlockContainer" /></ac:link><br /></span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(0,51,102);">Example</span></h4><p><span style="color: rgb(0,51,102);"><ac:link><ri:attachment ri:filename="PrintElementList.ItemTemplate.pdf" /></ac:link><br /></span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Blocks": [
+    {
+      "List": {
+        "Source": "$",
+        "MarkerStyle": "Decimal",
+        "ItemTemplate": {
+          "Paragraph": {
+            "Inlines": [
+              {
+                "Run": {
+                  "SourceFormat": {
+                    "ObjectFormat": {
+                      "Format": "{FirstName} {MiddleName} {LastName}"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);"><br /></span></p><p><span style="color: rgb(0,51,102);"><br /></span></p>

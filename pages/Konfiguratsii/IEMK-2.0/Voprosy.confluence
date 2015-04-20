@@ -1,0 +1,80 @@
+---
+layout: default
+title: Вопросы
+position: 7
+categories: 
+tags: 
+---
+
+<ac:task-list>
+<ac:task>
+<ac:task-id>4</ac:task-id>
+<ac:task-status>incomplete</ac:task-status>
+<ac:task-body><span>Терминология &quot;Страховая компания&quot; (1.2.643.5.1.13.2.1.1.635) не совпадает с терминологией, используемой в медике</span></ac:task-body>
+</ac:task>
+<ac:task>
+<ac:task-id>5</ac:task-id>
+<ac:task-status>incomplete</ac:task-status>
+<ac:task-body><span>Терминология &quot;Специальности&quot; (1.2.643.5.1.13.2.1.1.181)&nbsp;не совпадает с терминологией, используемой в медике</span></ac:task-body>
+</ac:task>
+<ac:task>
+<ac:task-id>6</ac:task-id>
+<ac:task-status>incomplete</ac:task-status>
+<ac:task-body><span>Терминолония &quot;Должности&quot; (1.2.643.5.1.13.2.1.1.607)&nbsp;не совпадает с терминологией, используемой в медике</span></ac:task-body>
+</ac:task>
+<ac:task>
+<ac:task-id>7</ac:task-id>
+<ac:task-status>incomplete</ac:task-status>
+<ac:task-body><span>Терминолония &quot;ЛПУ&quot; (<span style="color: rgb(0,0,0);">1.2.643.5.1.13.2.1.1.178</span>)&nbsp;не совпадает с терминологией, используемой в медике</span></ac:task-body>
+</ac:task>
+<ac:task>
+<ac:task-id>8</ac:task-id>
+<ac:task-status>incomplete</ac:task-status>
+<ac:task-body><span>Терминология &nbsp;&quot;Классификатор половой принадлежности&quot; (<span>1.2.643.5.1.13.2.1.1.156</span>)&nbsp;не совпадает с терминологией, используемой в медике. Соответствие:&nbsp;1 &ndash; если Sex в регистре Patient = 1, 2 - если Sex в регистре Patient = 0</span></ac:task-body>
+</ac:task>
+<ac:task>
+<ac:task-id>9</ac:task-id>
+<ac:task-status>incomplete</ac:task-status>
+<ac:task-body><span><span>Терминология &quot;<span style="color: rgb(0,0,0);">Классификатор состояний в браке</span>&quot; (1.2.643.5.1.13.2.1.1.215)&nbsp;не совпадает с терминологией, используемой в медике. Соответствие (М+-УИ 1.2.643.5.1.13.2.1.1.215):&nbsp;</span></span>Холост - 1,&nbsp;Не замужем - 1,&nbsp;Женат - 2,&nbsp;Замужем - 2,&nbsp;Вдовец - 4,&nbsp;Вдова -4</ac:task-body>
+</ac:task>
+<ac:task>
+<ac:task-id>10</ac:task-id>
+<ac:task-status>incomplete</ac:task-status>
+<ac:task-body>Терминология &quot;<span style="color: rgb(128,128,128);">Классификатор документов, удостоверяющих личность гражданина Российской Федерации</span>&quot; (1.2.643.5.1.13.2.1.1.498)&nbsp;не совпадает с терминологией, используемой в медике.&nbsp;Соответствие (М+-УИ 1.2.643.5.1.13.2.1.1.498):&nbsp;1 паспорт гражданина СССР - 1,&nbsp;10 свидетельство о регистрации ходатайства о признании иммигранта беженце - 10,&nbsp;11 вид на жительство - 11,&nbsp;12 удостоверение беженца в Российской Федерации - 12, 13 временное удостоверение личности гражданина Российской Федерации - 13,&nbsp;14 паспорт гражданина Российской Федерации - 14, 15 заграничный паспорт гражданина Российской Федерации - 15,&nbsp;16 паспорт моряка- 17,&nbsp;17 военный билет офицера запаса - 18,&nbsp;18 иные документы - 19, &nbsp;2 загранпаспорт гражданина СССР - 2,&nbsp;3 свидетельство о рождении Российский Федерации -3,&nbsp;4 &nbsp; удостоверение личности офицера - 4,&nbsp;5 справка об освобождении из места лишения свободы - 5, 6&nbsp;паспорт Минморфлота -6,&nbsp;7 военный билет - 7,&nbsp;8 дипломатический паспорт гражданина Российской Федерации -8,&nbsp;9 иностранный паспорт - 9,&nbsp;23 Разрешение на временное проживание - 21,&nbsp;24 Свидетельство о рождении, выданное не в Российской Федерации - 16</ac:task-body>
+</ac:task>
+<ac:task>
+<ac:task-id>11</ac:task-id>
+<ac:task-status>incomplete</ac:task-status>
+<ac:task-body>В М+ отсутствует аналог справочника 1.2.643.5.1.13.2.7.1.30</ac:task-body>
+</ac:task>
+<ac:task>
+<ac:task-id>12</ac:task-id>
+<ac:task-status>incomplete</ac:task-status>
+<ac:task-body>Необходимо соответствие для справочника&nbsp;1.2.643.5.1.13.2.1.1.537</ac:task-body>
+</ac:task>
+<ac:task>
+<ac:task-id>13</ac:task-id>
+<ac:task-status>incomplete</ac:task-status>
+<ac:task-body>Необходимо соответствие для справочника&nbsp;1.2.643.5.1.13.2.1.1.109</ac:task-body>
+</ac:task>
+<ac:task>
+<ac:task-id>14</ac:task-id>
+<ac:task-status>incomplete</ac:task-status>
+<ac:task-body>Необходимо соответствие для справочника&nbsp;1.2.643.5.1.13.2.1.1.281</ac:task-body>
+</ac:task>
+<ac:task>
+<ac:task-id>15</ac:task-id>
+<ac:task-status>incomplete</ac:task-status>
+<ac:task-body>Необходимо соответствие для справочника&nbsp;1.2.643.5.1.13.2.1.1.542</ac:task-body>
+</ac:task>
+<ac:task>
+<ac:task-id>16</ac:task-id>
+<ac:task-status>incomplete</ac:task-status>
+<ac:task-body>Необходимо расширение для справочника&nbsp;<span style="color: rgb(0,0,0);">&nbsp;</span><span style="color: rgb(0,0,0);">1.2.643.5.1.13.2.1.1.646 для общего заголовка</span></ac:task-body>
+</ac:task>
+<ac:task>
+<ac:task-id>17</ac:task-id>
+<ac:task-status>incomplete</ac:task-status>
+<ac:task-body><span style="color: rgb(0,0,0);">Переподключить терминологию в Медик &quot;Кем доставлен&quot; для выписки и 66 формы</span></ac:task-body>
+</ac:task>
+</ac:task-list>

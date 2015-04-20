@@ -1,0 +1,9 @@
+---
+layout: default
+title: Реализация Register API платформы
+position: 
+categories: 
+tags: 
+---
+
+<p>Register API платформы содержит операции для получения данных из регистров конфигурации.</p><p>Регистр в данном случае является хранилищем JSON документов, обладающих определенной структурой (см. <ac:link><ri:page ri:content-title="Register" /><ac:plain-text-link-body><![CDATA[информацию по метаданным регистра]]></ac:plain-text-link-body></ac:link>).</p><p>Перед рассмотрением операций, следует ознакомиться с&nbsp;<ac:link><ri:page ri:content-title="Обработка запросов REST и формирование роутинга для запросов" /><ac:plain-text-link-body><![CDATA[правилами формирования запросов REST]]></ac:plain-text-link-body></ac:link></p>

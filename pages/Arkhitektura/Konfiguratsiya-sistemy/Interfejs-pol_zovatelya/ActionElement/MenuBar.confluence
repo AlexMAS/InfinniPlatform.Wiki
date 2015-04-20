@@ -1,0 +1,26 @@
+---
+layout: default
+title: MenuBar
+position: 1
+categories: 
+tags: 
+---
+
+<p>Элемент представления в виде иерархического меню.</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>При загрузке данного элемента представления происходит обращение к серверу, который возвращает список доступных меню (<ac:link><ri:page ri:content-title="Menu" /></ac:link>) для данного пользователя. При обращении к серверу указывается идентификатор конфигурации (ConfigId), определенный в метаданных элемента. Сервер, получив запрос на предоставление списка доступных меню, производит поиск меню в указанной конфигурации с учетом прав текущего пользователя. В итоге, если пользователю не доступно ни одного меню, данный элемент представления не отображается; если пользователю доступно несколько меню (более одного), выбирается меню, соответствующее текущей активной роли пользователя.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp;&nbsp;</p><p><span style="color: rgb(0,51,102);">Визуально меню должно быть вертикальным, иерархическим. Раскрытие и сворачивание элементов меню должно осуществляться по клику мышки. Также должна быть реализована поддержка клавиатурной навигации. Элементы меню, содержащие подпункты должны визуально отличаться от конечных элементов меню. Если меню не помещается в размеры экрана, должны появляться стрелки для прокрутки, например, так, как показано на рисунке ниже.</span><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><p><span style="color: rgb(0,51,102);"><ac:image><ri:attachment ri:filename="Menu_Ex_01.png" /></ac:image></span></p><p><span style="color: rgb(0,51,102);"><br /></span></p><p><span style="color: rgb(0,51,102);">Помимо этого должна <span style="color: rgb(0,51,102);">существовать возможность осуществлять полнотекстовый поиск по элементам меню. Строка поиска находится над меню первого уровня.&nbsp;После того, как пользователь начинает вводить название пункта меню в поиск, список меню заменяется списком путей, в которых присутствуют искомые разделы.&nbsp;Если отфильтрованный пункт меню не является последним в иерархии, то при нажатии на него, открывается полноценное меню с уже выбранным необходимым разделом.</span></span></p><p><span style="color: rgb(0,51,102);"><span style="color: rgb(0,51,102);"><ac:image><ri:attachment ri:filename="Menu_Ex_02.png" /></ac:image><br /></span></span></p><p><span style="color: rgb(0,51,102);"><span style="color: rgb(0,51,102);"><br /></span></span></p><p><span style="color: rgb(0,51,102);">Схематичный вид меню приведен на рисунке ниже. &nbsp;&nbsp;</span></p><p><ac:image><ri:attachment ri:filename="Menu_Ex1.png" /></ac:image></p><p>&nbsp;</p><ac:structured-macro ac:name="expand"><ac:parameter ac:name="title">Methods</ac:parameter><ac:rich-text-body><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table></ac:rich-text-body></ac:structured-macro><ac:structured-macro ac:name="expand"><ac:parameter ac:name="title">Events</ac:parameter><ac:rich-text-body><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "MenuBar",
+	"description": "Элемент представления в виде иерархического меню",
+	"type": "object",
+	"extends": {
+		"$ref": "http://demo.infinnity.ru:8081/display/MC/Element"
+	},
+	"properties": {
+		"ConfigId": {
+			"description": "Идентификатор конфигурации",
+			"type": "string",
+			"required": true
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Name": "MenuBar1",
+	"ConfigId": "Integration"
+} ]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);"><br /></span></p><p>&nbsp;</p>

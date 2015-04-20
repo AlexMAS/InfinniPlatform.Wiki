@@ -1,0 +1,16 @@
+---
+layout: default
+title: ScriptUnitType
+position: 
+categories: 
+tags: 
+---
+
+<p>Тип сценария.</p><p>&nbsp;</p><table><tbody><tr><th>Наименование</th><th>Код значения</th><th colspan="1">Описание</th></tr><tr><td colspan="1">Action</td><td colspan="1">1</td><td colspan="1">Некое полезное действие.</td></tr><tr><td colspan="1">Validator</td><td colspan="1">2</td><td colspan="1">Проверка корректности переданной информации.</td></tr></tbody></table><p>&nbsp; &nbsp;&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "ScriptUnitType",
+	"description": "Тип сценария",
+	"enum": [
+		"Action",
+		"Validator"
+	]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

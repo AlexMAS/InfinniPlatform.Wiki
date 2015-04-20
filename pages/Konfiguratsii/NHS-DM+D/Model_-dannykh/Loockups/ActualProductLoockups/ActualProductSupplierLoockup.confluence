@@ -1,0 +1,20 @@
+---
+layout: default
+title: ActualProductSupplierLoockup
+position: 0
+categories: 
+tags: 
+---
+
+<p>Поставщик существующего лекарственного средства.</p><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">ActualProductSupplierLoockup</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Type": "Object",
+	"Caption": "Actual product supplier",
+	"Description": "Поставщик существующего лекарственного средства (LOOKUP.SUPPLIER)",
+	"TypeInfo": {
+		"DocumentLink": {
+			"ConfigId": "Dmd",
+			"DocumentId": "LoockupSupplierEntry",
+			"Inline": true
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

@@ -1,0 +1,59 @@
+---
+layout: default
+title: IsNull
+position: 0
+categories: 
+tags: 
+---
+
+<p>Объект является нулевым указателем.</p><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "IsNull",
+	"description": "Объект является нулевым указателем",
+	"type": "object",
+	"extends": {
+		"$ref": "http://wiki.infinnity.lan:8081/display/MC/BaseValidationOperator"
+	},
+	"properties": {
+		"Message": {
+			"description": "Сообщение об ошибке",
+			"type": "string"
+		},
+		"Property": {
+			"description": "Наименование свойства",
+			"type": "string"
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Пример #1</h4><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Expression Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[(target == null) ]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Message": "Сообщение об ошибке, если условие не выполняется"
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Test Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[// Given
+var target1 = null;
+var target2 = 1234;
+var validator = new IsNull { Message = "Error" };
+ 
+// When
+string message1, message2;
+var result1 = validator.Validate(target1, out message1);
+var result2 = validator.Validate(target2, out message2);
+ 
+// Then
+Assert.IsTrue(result1);
+Assert.IsNull(message1);
+Assert.IsFalse(result2);
+Assert.AreEqual("Error", message2);]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Пример #2</h4><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Expression Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[(target.Property1 == null) ]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Message": "Сообщение об ошибке, если условие не выполняется",
+	"Property": "Property1"
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Test Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[// Given
+var target1 = new { Property1 = null };
+var target2 = new { Property1 = 1234 };
+var validator = new IsNull { Message = "Error", Property = "Property1" } ;
+ 
+// When
+string message1, message2;
+var result1 = validator.Validate(target1, out message1);
+var result2 = validator.Validate(target2, out message2);
+ 
+// Then
+Assert.IsTrue(result1);
+Assert.IsNull(message1);
+Assert.IsFalse(result2);
+Assert.AreEqual("Error", message2);]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

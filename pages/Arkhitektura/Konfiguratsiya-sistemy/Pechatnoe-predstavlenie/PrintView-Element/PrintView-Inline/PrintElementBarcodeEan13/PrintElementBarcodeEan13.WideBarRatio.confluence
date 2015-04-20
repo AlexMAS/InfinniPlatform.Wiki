@@ -1,0 +1,63 @@
+---
+layout: default
+title: PrintElementBarcodeEan13.WideBarRatio
+position: 2
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(0,51,102);"><span style="color: rgb(0,51,102);">Относительная ширина штрихов в штрих-коде</span>.</span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><h4><span style="color: rgb(0,51,102);">Type</span></h4><p><span style="color: rgb(0,51,102);"><span style="color: rgb(0,51,102);">number</span></span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;&nbsp;</span></p><h4><span style="color: rgb(0,51,102);">Example</span></h4><p><ac:link><ri:attachment ri:filename="PrintElementBarcodeEan13.WideBarRatio.pdf" /></ac:link></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Blocks": [
+    {
+      "Paragraph": {
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "WideBarRatio=2"
+            }
+          },
+          {
+            "LineBreak": {}
+          },
+          {
+            "BarcodeEan13": {
+              "Text": "123456789012",
+              "WideBarRatio": 2
+            }
+          },
+          {
+            "LineBreak": {}
+          },
+          {
+            "LineBreak": {}
+          },
+          {
+            "Run": {
+              "Text": "WideBarRatio=4"
+            }
+          },
+          {
+            "LineBreak": {}
+          },
+          {
+            "BarcodeEan13": {
+              "Text": "123456789012",
+              "WideBarRatio": 4
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "PageSize": {
+    "Width": 200,
+    "Height": 300,
+    "SizeUnit": "Px"
+  },
+  "PagePadding": {
+    "Left": 10,
+    "Top": 10,
+    "Right": 10,
+    "Bottom": 10
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);"><br /></span></p><p><span style="color: rgb(0,51,102);"><br /></span></p>

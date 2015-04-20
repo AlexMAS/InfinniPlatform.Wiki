@@ -1,0 +1,9 @@
+---
+layout: default
+title: Системы CI и автоматизации сборки проекта
+position: 
+categories: 
+tags: 
+---
+
+<p>На проекте InfinniPlatform.UI используются утилиты npm и bower.</p><p>Npm - это менеджер управления пакетами Nodejs.</p><p>Bower - это утилита управления клиентскими библиотеками.</p>

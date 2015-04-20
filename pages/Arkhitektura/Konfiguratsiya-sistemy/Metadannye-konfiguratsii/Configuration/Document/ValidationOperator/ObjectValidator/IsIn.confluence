@@ -1,0 +1,76 @@
+---
+layout: default
+title: IsIn
+position: 17
+categories: 
+tags: 
+---
+
+<p>Объект содержится в заданной коллекции.</p><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "IsIn",
+	"description": "Объект содержится в заданной коллекции",
+	"type": "object",
+	"extends": {
+		"$ref": "http://wiki.infinnity.lan:8081/display/MC/BaseValidationOperator"
+	},
+	"properties": {
+		"Message": {
+			"description": "Сообщение об ошибке",
+			"type": "string"
+		},
+		"Property": {
+			"description": "Наименование свойства",
+			"type": "string"
+		},
+		"Items": {
+			"description": "Значение оператора",
+			"type": "array",
+			"items": {
+				"type": "any"
+			}
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Пример #1</h4><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Expression Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[(target != null && target in [ 1, 2, 3 ])]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Message": "Сообщение об ошибке, если условие не выполняется",
+	"Items": [ 1, 2, 3 ]
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Test Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[// Given
+var target1 = 1;
+var target2 = 2;
+var target3 = 4;
+var validator = new IsIn { Message = "Error", Items = [ 1, 2, 3 ] };
+ 
+// When
+string message1, message2, message3;
+var result1 = validator.Validate(target1, out message1);
+var result2 = validator.Validate(target2, out message2);
+var result3 = validator.Validate(target3, out message3);
+ 
+// Then
+Assert.IsTrue(result1);
+Assert.IsNull(message1);
+Assert.IsTrue(result2);
+Assert.IsNull(message2);
+Assert.IsFalse(result3);
+Assert.AreEqual("Error", message3);]]></ac:plain-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><h4>Пример #2</h4><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Expression Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[(target.Property1 != null && target.Property1 in [ 1, 2, 3 ])]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Message": "Сообщение об ошибке, если условие не выполняется",
+	"Property": "Property1",
+	"Items": [ 1, 2, 3 ]
+}]]></ac:plain-text-body></ac:structured-macro><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Test Example</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[// Given
+var target1 = new { Property1 = 1 };
+var target2 = new { Property1 = 2 };
+var target3 = new { Property1 = 4 };
+var validator = new IsIn { Message = "Error", Property = "Property1", Items = [ 1, 2, 3 ] };
+ 
+// When
+string message1, message2, message3;
+var result1 = validator.Validate(target1, out message1);
+var result2 = validator.Validate(target2, out message2);
+var result3 = validator.Validate(target3, out message3);
+ 
+// Then
+Assert.IsTrue(result1);
+Assert.IsNull(message1);
+Assert.IsTrue(result2);
+Assert.IsNull(message2);
+Assert.IsFalse(result3);
+Assert.AreEqual("Error", message3);]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

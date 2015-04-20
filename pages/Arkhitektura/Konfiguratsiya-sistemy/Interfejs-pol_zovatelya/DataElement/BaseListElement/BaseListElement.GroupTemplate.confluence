@@ -1,0 +1,9 @@
+---
+layout: default
+title: BaseListElement.GroupTemplate
+position: 7
+categories: 
+tags: 
+---
+
+<p>Шаблон для создания групп элементов списка.</p><p>&nbsp; &nbsp;</p><p>Элементы списка могут быть сгруппированы. Правила группировки и отображения групп настраиваются с помощью свойства GroupTemplate.</p><p>&nbsp; &nbsp;</p><h4>Examples</h4><p>&nbsp;</p><p><ac:link><ri:page ri:content-title="ComboBox" /></ac:link></p><p><ac:image><ri:attachment ri:filename="ComboBox_SingleSelect_Group.png" /></ac:image>&nbsp; &nbsp;<ac:image><ri:attachment ri:filename="ComboBox_MultiSelect_Group.png" /></ac:image></p><p>&nbsp; &nbsp;</p><p><ac:link><ri:page ri:content-title="ListBox" /></ac:link></p><p><ac:image><ri:attachment ri:filename="ListBox_SingleSelect_Group.png" /></ac:image>&nbsp; &nbsp;<ac:image><ri:attachment ri:filename="ListBox_MultiSelect_Group.png" /></ac:image></p><p>&nbsp; &nbsp;</p><p><ac:link><ri:page ri:content-title="RadioGroup" /></ac:link></p><p><ac:image><ri:attachment ri:filename="RadioGroup_Group.png" /></ac:image></p><p>&nbsp; &nbsp;</p><p><ac:link><ri:page ri:content-title="DataGrid" /></ac:link></p><p><ac:image><ri:attachment ri:filename="DataGrid_SingleSelect_Group.png" /></ac:image>&nbsp; &nbsp;<ac:image><ri:attachment ri:filename="DataGrid_MultiSelect_Group.png" /></ac:image></p><p>&nbsp;</p><p>&nbsp;</p>

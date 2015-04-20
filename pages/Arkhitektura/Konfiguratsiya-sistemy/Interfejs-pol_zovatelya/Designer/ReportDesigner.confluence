@@ -1,0 +1,18 @@
+---
+layout: default
+title: ReportDesigner
+position: 2
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(0,51,102);">Конфигуратор отчетов</span>.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "ReportDesigner",
+	"description": "Конфигуратор отчетов",
+	"type": "object",
+	"extends": {
+		"$ref": "http://demo.infinnity.ru:8081/display/MC/Element"
+	},
+	"properties": {
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

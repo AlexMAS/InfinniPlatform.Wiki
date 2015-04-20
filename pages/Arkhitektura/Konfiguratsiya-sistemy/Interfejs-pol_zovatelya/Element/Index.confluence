@@ -1,0 +1,56 @@
+---
+layout: default
+title: Element
+position: 3
+categories: 
+tags: 
+---
+
+<p>Базовый тип для визуальных элементов представления.</p><p>&nbsp;</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>Данный раздел описывает базовый API и метаданные для всех типов элементов представления.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="expand"><ac:parameter ac:name="title">Methods</ac:parameter><ac:rich-text-body><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">GetView(): <ac:link><ri:page ri:content-title="View" /></ac:link></td><td colspan="1">Возвращает родительское представление.</td></tr><tr><td colspan="1">GetName(): string</td><td colspan="1">Возвращает наименование элемента.</td></tr><tr><td colspan="1">SetName(string value)</td><td colspan="1">Устанавливает наименование элемента.</td></tr><tr><td colspan="1">GetText(): string</td><td colspan="1">Возвращает текст заголовка элемента.</td></tr><tr><td colspan="1">SetText(string value)</td><td colspan="1">Устанавливает текст заголовка элемента.</td></tr><tr><td colspan="1">GetEnabled(): boolean</td><td colspan="1">Возвращает значение, определяющее, возможен ли доступ к элементу.</td></tr><tr><td colspan="1">SetEnabled(boolean value)</td><td colspan="1">Устанавливает значение, определяющее, возможен ли доступ к элементу.</td></tr><tr><td colspan="1">GetVisible(): boolean</td><td colspan="1">Возвращает значение, определяющее, отображается ли элемент в интерфейсе.</td></tr><tr><td colspan="1">SetVisible(boolean value)</td><td colspan="1">Устанавливает значение, определяющее, отображается ли элемент в интерфейсе.</td></tr><tr><td colspan="1">GetVerticalAlignment(): <ac:link><ri:page ri:content-title="ElementVerticalAlignment" /></ac:link></td><td colspan="1">Возвращает вертикальное выравнивание в родительском элементе.</td></tr><tr><td colspan="1">SetVerticalAlignment(<ac:link><ri:page ri:content-title="ElementVerticalAlignment" /></ac:link> value)</td><td colspan="1">Устанавливает вертикальное выравнивание в родительском элементе.</td></tr><tr><td colspan="1">GetHorizontalAlignment(): <ac:link><ri:page ri:content-title="ElementHorizontalAlignment" /></ac:link></td><td colspan="1">Возвращает горизонтальное выравнивание в родительском элементе.</td></tr><tr><td colspan="1">SetHorizontalAlignment(<ac:link><ri:page ri:content-title="ElementHorizontalAlignment" /></ac:link> value)</td><td colspan="1">Устанавливает горизонтальное выравнивание в родительском элементе.</td></tr><tr><td colspan="1">GetChildElements(): array&lt;<ac:link />&gt;</td><td colspan="1">Возвращает список дочерних элементов.</td></tr></tbody></table></ac:rich-text-body></ac:structured-macro><ac:structured-macro ac:name="expand"><ac:parameter ac:name="title">Events</ac:parameter><ac:rich-text-body><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td><span>OnLoaded(<ac:link><ri:page ri:content-title="Context" /></ac:link> context, object arguments)</span></td><td>Возвращает или устанавливает обработчик события о том, что элемент загружен.</td></tr><tr><td colspan="1"><span>OnGotFocus(</span><ac:link><ri:page ri:content-title="Context" /></ac:link><span> context, object arguments)</span></td><td colspan="1"><span>Возвращает или устанавливает обработчик </span>события о том, что элемент получил фокус ввода.</td></tr><tr><td colspan="1"><span>OnLostFocus(</span><ac:link><ri:page ri:content-title="Context" /></ac:link><span> context, object arguments)</span></td><td colspan="1"><span>Возвращает или устанавливает обработчик </span>события о том, что элемент потерял фокус ввода.</td></tr></tbody></table></ac:rich-text-body></ac:structured-macro><p>&nbsp;&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">javascript</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "Element",
+  "description": "Базовый тип для визуальных элементов представления",
+  "type": "object",
+  "properties": {
+    "Name": {
+      "description": "Наименование элемента",
+      "type": "string"
+    },
+    "Text": {
+      "description": "Текст заголовка элемента",
+      "type": "string"
+    },
+    "Enabled": {
+      "description": "Возможен ли доступ к элементу",
+      "type": "boolean",
+      "default": true
+    },
+    "Visible": {
+      "description": "Отображается ли элемент в интерфейсе",
+      "type": "boolean",
+      "default": true
+    },
+    "VerticalAlignment": {
+      "description": "Вертикальное выравнивание в родительском элементе",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/ElementVerticalAlignment",
+      "default": "Stretch"
+    },
+    "HorizontalAlignment": {
+      "description": "Горизонтальное выравнивание в родительском элементе",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/ElementHorizontalAlignment",
+      "default": "Stretch"
+    },
+    "OnLoaded": {
+      "description": "Обработчик события о том, что элемент загружен",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/LinkScript"
+    },
+    "OnGotFocus": {
+      "description": "Обработчик события о том, что элемент получил фокус ввода",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/LinkScript"
+    },
+    "OnLostFocus": {
+      "description": "Обработчик события о том, что элемент потерял фокус ввода",
+      "$ref": "http://demo.infinnity.ru:8081/display/MC/LinkScript"
+    }
+  },
+  "additionalProperties": false
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

@@ -1,0 +1,9 @@
+---
+layout: default
+title: Реализация Document API платформы
+position: 
+categories: 
+tags: 
+---
+
+<ac:structured-macro ac:name="warning"><ac:parameter ac:name="title">Внимание!</ac:parameter><ac:rich-text-body><p>Данный документ устарел и требует переработки</p></ac:rich-text-body></ac:structured-macro><p>&nbsp;</p><p>Document API платформы содержит операции для получения и обработки документов прикладной конфигурации.</p><p>Документом в данном случае является любой JSON документ, хранящийся в индексе.</p><p>Перед рассмотрением операций, следует ознакомиться с <ac:link><ri:page ri:content-title="Обработка запросов REST и формирование роутинга для запросов" /><ac:plain-text-link-body><![CDATA[правилами формирования запросов REST]]></ac:plain-text-link-body></ac:link></p><h3>Операции, доступные в API:</h3><ol><li><ac:link><ri:page ri:content-title="Операция получения списка документов по фильтру (GetDocument)" /><ac:plain-text-link-body><![CDATA[Операция получения списка документов по фильтру (GetDocument)]]></ac:plain-text-link-body></ac:link></li><li><ac:link><ri:page ri:content-title="Операция сохранения документа (SetDocument)" /><ac:plain-text-link-body><![CDATA[Операция сохранения документа (SetDocument)]]></ac:plain-text-link-body></ac:link></li><li><ac:link><ri:page ri:content-title="Операция удаления документа (DeleteDocument)" /><ac:plain-text-link-body><![CDATA[Операция удаления документа (DeleteDocument)]]></ac:plain-text-link-body></ac:link></li><li>Получение Bynary Content</li><li>Сохранение Bynary Content</li><li>Удаление Bynary Content</li></ol>

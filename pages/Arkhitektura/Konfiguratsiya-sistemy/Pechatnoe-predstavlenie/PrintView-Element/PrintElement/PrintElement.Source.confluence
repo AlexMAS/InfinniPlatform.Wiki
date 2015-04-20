@@ -1,0 +1,87 @@
+---
+layout: default
+title: PrintElement.Source
+position: 7
+categories: 
+tags: 
+---
+
+<p>Источник данных.</p><p>&nbsp; &nbsp;</p><h4>Type</h4><p>string</p><p>&nbsp; &nbsp;</p><h4>Description</h4><p>Метаданные печатного представления (<ac:link><ri:page ri:content-title="PrintView" /></ac:link>) в конечном счете представляют собой совокупность настроек, которые определяют требования к визуальному представлению некоторых данных. (В текущем контексте под визуальным представлением данных следует понимать в первую очередь то, как конечный пользователь видит эти данные на экране монитора и при выводе их на печать.) Если данные для визуализации жестко заданы в метаданных печатного представления, то речь идет о &quot;статическом&quot; печатном представлении. Содержимое и внешний вид &quot;статических&quot; представлений всегда остается неизменным. Если данные для визуализации должны браться из внешнего источника, то речь идет о &quot;динамическом&quot; печатном представлении. Содержимое и внешний вид &quot;динамических&quot; представлений зависит от данных источника. Однако зачастую печатное представление представляет собой комбинацию &quot;статических&quot; и &quot;динамических&quot; фрагментов. &quot;Статические&quot; фрагменты метаданных задают общую, неизменную структуру, &quot;динамические&quot; определяют вариативную часть.</p><p>В качестве источника данных печатного представления могут выступать любые данные. Иначе говоря, источником данных, может быть как объект с простым типом данных (например, строка или число), так и объект сложного типа (например, объект или массив). Для записи ссылок на данные источника используется точечная нотация (dot notation), правила которой определены ниже.</p><p>&nbsp;</p><p>1. Доступ к источнику данных:</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[$]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;&nbsp;</p><p>2.&nbsp;Доступ к свойству объекта:</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[<property>]]></ac:plain-text-body></ac:structured-macro><p>где&nbsp;<em>&lt;property&gt;</em>&nbsp;- наименование свойства объекта.</p><p>&nbsp;</p><p>3. Доступ к свойству вложенного объекта:</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[<subobject>.<property>]]></ac:plain-text-body></ac:structured-macro><p>где&nbsp;<em>&lt;subobject&gt;</em>&nbsp;- наименование свойства объекта, в котором хранится вложенный объект;&nbsp;<em>&lt;property&gt;</em>&nbsp;- наименование свойства вложенного объекта.</p><p>&nbsp;</p><p>4. Доступ к элементу коллекции:</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[<array>.<index>]]></ac:plain-text-body></ac:structured-macro><p>где&nbsp;<em>&lt;array&gt;</em>&nbsp;- наименование коллекции;&nbsp;<em>&lt;index&gt;</em>&nbsp;- индекс элемента коллекции, отсчитываемый от 0.</p><p>&nbsp; &nbsp;</p><p>5. Возможны различные комбинации указанных выше правил.</p><p>&nbsp; &nbsp;</p><p>Метаданные печатного представления задают древовидную структуру элементов (<ac:link><ri:page ri:content-title="PrintElement" /></ac:link>).&nbsp;Каждый элементов в свою очередь может ссылаться на определенное свойство источника данных. При этом, в зависимости от того, какой объект будет браться в качестве источника данных, ссылка на данные может быть &quot;абсолютной&quot; или &quot;относительной&quot;. Например, ссылка &quot;$.FirstName&quot; является &quot;абсолютной&quot;, так как содержит полный путь к свойству источника данных печатного представления. С другой стороны ссылка &quot;FirstName&quot; является &quot;относительной&quot;, так как содержит только путь к свойству объекта, который выступал источником для родительского элемента.</p><p>&nbsp; &nbsp;</p><h4>Example</h4><p><ac:link><ri:attachment ri:filename="PrintElement.Source.pdf" /></ac:link></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Source": "$",
+  "Blocks": [
+    {
+      "Paragraph": {
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "Пациент:"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Inlines": [
+          {
+            "Run": {
+              "Source": "LastName"
+            }
+          },
+          {
+            "Run": {
+              "Text": " "
+            }
+          },
+          {
+            "Run": {
+              "Source": "FirstName"
+            }
+          },
+          {
+            "Run": {
+              "Text": " "
+            }
+          },
+          {
+            "Run": {
+              "Source": "MiddleName"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Inlines": [
+          {
+            "Run": {
+              "Text": "Адреса:"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "List": {
+        "Source": "Addresses",
+        "MarkerStyle": "None",
+        "ItemTemplate": {
+          "Paragraph": {
+            "Inlines": [
+              {
+                "Run": {
+                  "SourceFormat": {
+                    "ObjectFormat": {
+                      "Format": "{Type.DisplayName}: {AddressLine}"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

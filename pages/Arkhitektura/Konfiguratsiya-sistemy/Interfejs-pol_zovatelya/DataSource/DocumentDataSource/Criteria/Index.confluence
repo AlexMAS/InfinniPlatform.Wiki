@@ -1,0 +1,28 @@
+---
+layout: default
+title: Criteria
+position: 
+categories: 
+tags: 
+---
+
+<p>Критерий фильтрации документа.</p><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">JSON Data Schema</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"id": "Criteria",
+	"description": "Критерий фильтрации документа",
+	"type": "object",
+	"properties": {
+		"Property": {
+			"description": "Наименование свойства документа",
+			"type": "string"
+		},
+		"Value": {
+			"description": "Значение критерия фильтрации",
+			"type": "any"
+		},
+		"CriteriaType": {
+			"description": "Операция фильтрации",
+			"$ref": "http://demo.infinnity.ru:8081/display/MC/CriteriaType",
+			"required": true
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

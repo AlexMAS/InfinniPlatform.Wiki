@@ -1,0 +1,59 @@
+---
+layout: default
+title: Font.Family
+position: 0
+categories: 
+tags: 
+---
+
+<p><span style="color: rgb(0,51,102);">Семейство шрифта.</span></p><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><ac:structured-macro ac:name="info"><ac:rich-text-body><p>Семейство шрифта задается строкой, которая определяет имя семейства. Например, &quot;Arial&quot;. Однако, можно определить и несколько шрифтов, перечислив их имена через запятую. Например, &quot;Century Gothic, Arial&quot;. В последнем случае первый шрифт в списке будет основным, последующие будут играть роль резервных и будут использоваться в порядке перечисления, если предыдущий шрифт в списке отсутствует или по каким-либо причинам неприменим.</p></ac:rich-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);">&nbsp; &nbsp;</span></p><h4>Type<span style="line-height: 1.4285715;color: rgb(0,51,102);">&nbsp;</span></h4><p>string</p><p>&nbsp; &nbsp;</p><h4><span style="color: rgb(0,51,102);">Example</span></h4><p><span style="color: rgb(0,51,102);"><ac:link><ri:attachment ri:filename="Font.Family.pdf" /></ac:link><br /></span></p><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "Blocks": [
+    {
+      "Paragraph": {
+        "Inlines": [
+          {
+            "Run": {
+              "Font": {
+                "Family": "Arial"
+              },
+              "Text": "Arial"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Inlines": [
+          {
+            "Run": {
+              "Font": {
+                "Family": "Times New Roman"
+              },
+              "Text": "Times New Roman"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Paragraph": {
+        "Inlines": [
+          {
+            "Run": {
+              "Font": {
+                "Family": "Courier New"
+              },
+              "Text": "Courier New"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "PageSize": {
+    "Width": 200,
+    "Height": 150,
+    "SizeUnit": "Px"
+  }
+}]]></ac:plain-text-body></ac:structured-macro><p><span style="color: rgb(0,51,102);"><br /></span></p><p>&nbsp;</p>

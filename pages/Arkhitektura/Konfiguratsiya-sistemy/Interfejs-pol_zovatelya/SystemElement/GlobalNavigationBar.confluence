@@ -1,0 +1,18 @@
+---
+layout: default
+title: GlobalNavigationBar
+position: 
+categories: 
+tags: 
+---
+
+<p>Элемент представления для отображения <ac:link><ri:page ri:content-title="Панель глобальной навигации (Global Navigation Bar)" /><ac:plain-text-link-body><![CDATA[панели глобальной навигации]]></ac:plain-text-link-body></ac:link>.</p><p>&nbsp; &nbsp;</p><h4>Schema</h4><ac:structured-macro ac:name="code"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+  "id": "GlobalNavigationBar",
+  "description": "Элемент представления для отображения панели глобальной навигации",
+  "type": "object",
+  "extends": {
+    "$ref": "http://demo.infinnity.ru:8081/display/MC/Element"
+  },
+  "properties": {},
+  "additionalProperties": false
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

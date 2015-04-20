@@ -1,0 +1,40 @@
+---
+layout: default
+title: LoockupSupplierEntry
+position: 2
+categories: 
+tags: 
+---
+
+<p>Запись справочника поставщиков.</p><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">Data Schema</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Type": "Object",
+	"Caption": "Supplier entry",
+	"Description": "Запись справочника поставщиков",
+	"Properties": {
+		"Id": {
+			"Type": "String",
+			"Caption": "Identifier",
+			"Description": "Идентификатор поставщика (CD)"
+		},
+		"IdPrev": {
+			"Type": "String",
+			"Caption": "Previous identifier",
+			"Description": "Предыдущий идентификатор поставщика (CDPREV)"
+		},
+		"IdDate": {
+			"Type": "DateTime",
+			"Caption": "Identifier date",
+			"Description": "Дата утверждения текущего идентификатора поставщика (CDDT)"
+		},
+		"DisplayName": {
+			"Type": "String",
+			"Caption": "Display name",
+			"Description": "Наименование поставщика (DESC)"
+		},
+		"IsInvalid": {
+			"Type": "Bool",
+			"Caption": "Invalidity flag",
+			"Description": "Запись о поставщике является недействительной (INVALID)"
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

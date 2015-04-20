@@ -1,0 +1,9 @@
+---
+layout: default
+title: Стационар
+position: 8
+categories: 
+tags: 
+---
+
+<p>Подсистема &quot;Стационар&quot; состоит из модулей:</p><ul style="list-style-type: square;"><li>Приёмный покой</li><li>Отделение стационара</li><li>Коечный фонд</li></ul><p>Лечение в стационаре проводится в рамках &quot;случая лечения в стационаре&quot;.</p><p>Случай заводится при первом обращении пациента в приемный покой и закрывается при формировании документов: &quot;Выписка&quot;, &quot;Отказ от госпитализации&quot;.&nbsp;Случай создается в фоновом режиме при создании первого документа в отделении &quot;Приемный покой&quot; (&quot;Осмотр в приемном покое&quot;, &quot;Отказ от госпитализации&quot; или &quot;Госпитализация&quot;). Все последующие документы привязываются к случаю.</p><p>Укрупненная Activity Diagram:</p><p><ac:image><ri:attachment ri:filename="Hospital.jpg" /></ac:image></p><div class="WordSection1"><h1>WorkFlow процесса</h1><p>&nbsp;<ac:image><ri:attachment ri:filename="image2014-9-22-175228.png" /></ac:image></p></div><p>&nbsp;</p>

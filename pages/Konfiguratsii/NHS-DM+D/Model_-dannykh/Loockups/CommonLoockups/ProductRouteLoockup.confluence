@@ -1,0 +1,20 @@
+---
+layout: default
+title: ProductRouteLoockup
+position: 3
+categories: 
+tags: 
+---
+
+<p>Способ применения лекарственного средства.</p><p>&nbsp;</p><ac:structured-macro ac:name="code"><ac:parameter ac:name="title">ProductRouteLoockup</ac:parameter><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[{
+	"Type": "Object",
+	"Caption": "Product route",
+	"Description": "Способ применения лекарственного средства (LOOKUP.ROUTE)",
+	"TypeInfo": {
+		"DocumentLink": {
+			"ConfigId": "Dmd",
+			"DocumentId": "LoockupHistoryEntry",
+			"Inline": true
+		}
+	}
+}]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

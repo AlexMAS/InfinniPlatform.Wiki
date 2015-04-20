@@ -1,0 +1,9 @@
+---
+layout: default
+title: Реализация MetadataApi платформы
+position: 
+categories: 
+tags: 
+---
+
+<p>MetadataApi предназначен для оперирования метаданными прикладных конфигураций.</p><p>MetadataApi также сейчас рефакторится, описание операций, реализуемых MetadataApi будет добавлено в ближайшие дни.</p>

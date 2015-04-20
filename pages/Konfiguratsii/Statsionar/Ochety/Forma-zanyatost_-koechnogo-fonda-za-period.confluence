@@ -1,0 +1,9 @@
+---
+layout: default
+title: Форма "занятость коечного фонда за период"
+position: 2
+categories: 
+tags: 
+---
+
+<table><tbody><tr><th>&nbsp;</th><th>&nbsp;</th></tr><tr><td>Место вызова</td><td>Главное меню, пункт &quot;Занятость КФ&quot;</td></tr><tr><td>Параметры</td><td><ul><li>Период</li><li>Палата (множественное)</li><li>Койка (множественное)</li></ul></td></tr><tr><td>Заголовок</td><td>Занятость коечного фонда за период [Период]</td></tr><tr><td colspan="1">Колонки</td><td colspan="1"><ul><li>Палата</li><li>Койка</li><li>Период, разбитый на дни</li></ul></td></tr></tbody></table>
