@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: AuthUserInfo
 position: 0

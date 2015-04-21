@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Паспорт ЛПУ
 position: 14

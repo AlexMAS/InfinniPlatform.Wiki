@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: DocumentDataSource
 position: 2

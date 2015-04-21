@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Правила описания полей документов
 position: 

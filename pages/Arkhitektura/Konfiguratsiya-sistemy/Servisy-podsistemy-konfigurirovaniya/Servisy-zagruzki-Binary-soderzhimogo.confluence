@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Сервисы загрузки Binary содержимого
 position: 7

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: OpenMode
 position: 2

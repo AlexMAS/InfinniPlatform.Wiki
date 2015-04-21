@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Таблицы
 position: 10

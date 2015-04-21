@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Модель данных пациента
 position: 

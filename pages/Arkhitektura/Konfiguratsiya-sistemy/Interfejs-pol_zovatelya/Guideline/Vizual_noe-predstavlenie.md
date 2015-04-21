@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Визуальное представление
 position: 0

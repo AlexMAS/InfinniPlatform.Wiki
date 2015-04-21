@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ToolBarItem
 position: 0

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ElementHorizontalAlignment
 position: 1

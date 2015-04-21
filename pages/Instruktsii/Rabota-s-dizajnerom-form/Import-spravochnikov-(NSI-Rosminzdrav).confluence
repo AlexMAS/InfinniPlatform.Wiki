@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Импорт справочников (НСИ Росминздрав)
 position: 

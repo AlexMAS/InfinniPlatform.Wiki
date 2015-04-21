@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Справочники ИЭМК 2.0
 position: 2

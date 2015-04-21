@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Домашняя страница системы
 position: 1

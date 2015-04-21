@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Context
 position: 0

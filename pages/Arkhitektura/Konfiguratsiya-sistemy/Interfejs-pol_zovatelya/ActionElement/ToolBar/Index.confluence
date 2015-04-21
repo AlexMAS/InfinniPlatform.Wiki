@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ToolBar
 position: 2

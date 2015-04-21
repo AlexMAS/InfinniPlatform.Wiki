@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Clipboard
 position: 1

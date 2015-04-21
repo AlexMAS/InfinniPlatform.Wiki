@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: PrintElementBold
 position: 2

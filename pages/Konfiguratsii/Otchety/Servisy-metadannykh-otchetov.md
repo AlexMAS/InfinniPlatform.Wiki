@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Сервисы метаданных отчетов
 position: 

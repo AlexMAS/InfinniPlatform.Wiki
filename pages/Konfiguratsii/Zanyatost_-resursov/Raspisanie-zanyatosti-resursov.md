@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Расписание занятости ресурсов
 position: 

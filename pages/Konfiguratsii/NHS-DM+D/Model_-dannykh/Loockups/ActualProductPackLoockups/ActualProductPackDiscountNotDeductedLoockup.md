@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ActualProductPackDiscountNotDeductedLoockup
 position: 3

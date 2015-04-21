@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Шаблон формы выбора элементов списка
 position: 4

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Ссылка на представление
 position: 0

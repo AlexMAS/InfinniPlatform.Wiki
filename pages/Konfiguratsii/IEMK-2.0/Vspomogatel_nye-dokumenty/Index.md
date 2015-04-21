@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Вспомогательные документы
 position: 1

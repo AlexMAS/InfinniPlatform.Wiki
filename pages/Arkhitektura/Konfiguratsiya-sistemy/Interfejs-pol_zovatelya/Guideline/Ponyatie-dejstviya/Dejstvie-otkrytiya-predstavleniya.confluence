@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Действие открытия представления
 position: 1

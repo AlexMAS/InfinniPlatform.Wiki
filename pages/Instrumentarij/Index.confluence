@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Инструментарий
 position: 7

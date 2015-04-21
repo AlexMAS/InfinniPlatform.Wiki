@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Кадры
 position: 15

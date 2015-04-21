@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BinaryLink
 position: 0

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: IsNull
 position: 0

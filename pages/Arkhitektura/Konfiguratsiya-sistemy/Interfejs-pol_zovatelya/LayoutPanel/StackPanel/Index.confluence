@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: StackPanel
 position: 2

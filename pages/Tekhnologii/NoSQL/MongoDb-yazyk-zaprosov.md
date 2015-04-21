@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: MongoDb: язык запросов
 position: 0

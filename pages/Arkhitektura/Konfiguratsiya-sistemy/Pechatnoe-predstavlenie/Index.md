@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Печатное представление
 position: 3

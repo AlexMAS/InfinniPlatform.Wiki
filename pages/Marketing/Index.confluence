@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Маркетинг
 position: 9

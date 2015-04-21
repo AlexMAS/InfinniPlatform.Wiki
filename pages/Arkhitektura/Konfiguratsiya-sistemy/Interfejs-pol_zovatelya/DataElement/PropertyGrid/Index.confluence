@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: PropertyGrid
 position: 14

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Получение 'сырых' данных из регистра (GetRegisterEntries)
 position: 

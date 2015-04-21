@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Arguments
 position: 1

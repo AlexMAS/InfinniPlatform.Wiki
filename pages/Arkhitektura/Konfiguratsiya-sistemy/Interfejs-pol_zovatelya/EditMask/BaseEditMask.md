@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BaseEditMask
 position: 0

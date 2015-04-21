@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ChildView
 position: 6

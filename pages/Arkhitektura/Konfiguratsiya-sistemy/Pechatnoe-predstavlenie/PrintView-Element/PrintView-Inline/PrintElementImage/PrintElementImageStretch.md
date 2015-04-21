@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: PrintElementImageStretch
 position: 3

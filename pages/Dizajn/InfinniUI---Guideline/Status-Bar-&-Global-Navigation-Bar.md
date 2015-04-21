@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Status Bar & Global Navigation Bar
 position: 2

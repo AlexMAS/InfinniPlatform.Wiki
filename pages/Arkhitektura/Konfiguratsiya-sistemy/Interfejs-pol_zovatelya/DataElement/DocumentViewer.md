@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: DocumentViewer
 position: 20

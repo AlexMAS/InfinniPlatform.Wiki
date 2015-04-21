@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Меню
 position: 4

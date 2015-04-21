@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Операция получения документов из разных конфигураций (GetDocumentCrossConfig)
 position: 

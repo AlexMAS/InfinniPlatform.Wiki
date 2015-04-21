@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ActualProductPack
 position: 4

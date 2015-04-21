@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Область представления (View Panel)
 position: 2

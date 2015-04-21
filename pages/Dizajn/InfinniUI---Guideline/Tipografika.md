@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Типографика
 position: 1

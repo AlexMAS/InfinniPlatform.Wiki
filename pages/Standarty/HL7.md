@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: HL7
 position: 

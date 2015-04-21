@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ApplicationClaimType
 position: 4

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: PrintView.PageSize
 position: 1

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Реализация DocumentDataSource
 position: 0

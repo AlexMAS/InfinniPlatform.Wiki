@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Culture
 position: 0

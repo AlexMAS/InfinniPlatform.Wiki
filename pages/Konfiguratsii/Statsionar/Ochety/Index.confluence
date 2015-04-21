@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Очеты
 position: 2

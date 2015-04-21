@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: DeleteItemAction
 position: 8

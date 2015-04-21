@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Guideline
 position: 0

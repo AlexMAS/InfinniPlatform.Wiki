@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ActionElement
 position: 14

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Примеры серверного кода
 position: 4

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ActualProductLicensingAuthorityChangeReasonLoockup
 position: 6

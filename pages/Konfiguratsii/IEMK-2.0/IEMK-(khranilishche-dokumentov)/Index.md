@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ИЭМК (хранилище документов)
 position: 5

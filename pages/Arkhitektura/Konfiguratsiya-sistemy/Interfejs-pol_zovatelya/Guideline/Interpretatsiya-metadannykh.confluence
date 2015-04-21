@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Интерпретация метаданных
 position: 1

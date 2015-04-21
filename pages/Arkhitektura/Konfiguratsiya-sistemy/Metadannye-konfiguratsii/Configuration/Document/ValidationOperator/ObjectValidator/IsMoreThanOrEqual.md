@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: IsMoreThanOrEqual
 position: 16

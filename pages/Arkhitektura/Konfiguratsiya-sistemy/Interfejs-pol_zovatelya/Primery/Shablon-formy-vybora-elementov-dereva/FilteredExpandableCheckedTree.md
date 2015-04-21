@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: FilteredExpandableCheckedTree
 position: 7

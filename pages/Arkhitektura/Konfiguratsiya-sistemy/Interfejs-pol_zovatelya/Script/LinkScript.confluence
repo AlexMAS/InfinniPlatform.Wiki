@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: LinkScript
 position: 2

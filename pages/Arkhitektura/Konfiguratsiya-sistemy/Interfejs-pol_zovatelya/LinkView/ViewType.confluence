@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ViewType
 position: 1

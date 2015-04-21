@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: PrintElementVisibility
 position: 7

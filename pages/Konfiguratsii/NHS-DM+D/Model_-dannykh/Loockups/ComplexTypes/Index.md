@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ComplexTypes
 position: 4

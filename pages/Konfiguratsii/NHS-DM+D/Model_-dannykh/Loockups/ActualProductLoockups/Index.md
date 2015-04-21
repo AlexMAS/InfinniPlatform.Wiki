@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ActualProductLoockups
 position: 8

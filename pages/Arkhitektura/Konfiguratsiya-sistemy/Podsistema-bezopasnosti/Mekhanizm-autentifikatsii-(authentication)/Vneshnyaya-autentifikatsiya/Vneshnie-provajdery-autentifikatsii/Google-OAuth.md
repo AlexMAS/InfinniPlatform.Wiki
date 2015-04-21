@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Google OAuth
 position: 0

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ActionBarPopupButton
 position: 2

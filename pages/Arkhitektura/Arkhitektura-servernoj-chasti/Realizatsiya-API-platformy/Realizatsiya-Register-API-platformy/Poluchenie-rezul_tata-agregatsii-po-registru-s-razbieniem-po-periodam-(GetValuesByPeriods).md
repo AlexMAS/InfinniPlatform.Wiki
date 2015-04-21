@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Получение результата агрегации по регистру с разбиением по периодам (GetValuesByPeriods)
 position: 

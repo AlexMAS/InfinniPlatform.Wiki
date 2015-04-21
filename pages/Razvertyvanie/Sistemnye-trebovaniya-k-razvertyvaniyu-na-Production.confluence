@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Системные требования к развертыванию на Production
 position: 

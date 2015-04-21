@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: IngredientLoockup
 position: 4

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Документ "Выписка"
 position: 

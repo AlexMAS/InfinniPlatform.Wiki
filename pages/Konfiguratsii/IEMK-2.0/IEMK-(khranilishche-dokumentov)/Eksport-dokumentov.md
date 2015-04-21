@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Экспорт документов
 position: 2

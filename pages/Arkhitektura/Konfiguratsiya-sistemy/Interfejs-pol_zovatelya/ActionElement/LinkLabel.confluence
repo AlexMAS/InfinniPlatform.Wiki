@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: LinkLabel
 position: 5

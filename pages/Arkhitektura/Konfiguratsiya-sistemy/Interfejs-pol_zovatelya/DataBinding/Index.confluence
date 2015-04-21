@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: DataBinding
 position: 8

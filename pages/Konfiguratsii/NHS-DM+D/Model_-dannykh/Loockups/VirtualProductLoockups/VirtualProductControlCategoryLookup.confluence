@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: VirtualProductControlCategoryLookup
 position: 8

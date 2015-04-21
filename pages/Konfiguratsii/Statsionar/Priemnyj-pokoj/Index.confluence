@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Приемный покой
 position: 0

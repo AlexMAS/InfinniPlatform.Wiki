@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Action
 position: 12

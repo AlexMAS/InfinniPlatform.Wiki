@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Интерфейс конфигурации
 position: 3

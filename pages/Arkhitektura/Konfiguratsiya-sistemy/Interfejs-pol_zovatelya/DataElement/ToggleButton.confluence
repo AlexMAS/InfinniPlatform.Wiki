@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ToggleButton
 position: 8

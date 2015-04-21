@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Relation
 position: 5

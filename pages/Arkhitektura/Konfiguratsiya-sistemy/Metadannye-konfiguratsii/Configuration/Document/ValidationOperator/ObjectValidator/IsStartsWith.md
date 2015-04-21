@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: IsStartsWith
 position: 10

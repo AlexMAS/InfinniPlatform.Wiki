@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Шаблон формы выбора элементов дерева
 position: 5

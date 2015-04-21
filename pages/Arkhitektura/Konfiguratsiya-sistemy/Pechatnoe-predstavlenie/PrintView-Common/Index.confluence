@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: PrintView: Common
 position: 4

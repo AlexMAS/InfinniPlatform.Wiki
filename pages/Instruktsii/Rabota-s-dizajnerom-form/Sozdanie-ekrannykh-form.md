@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Создание экранных форм
 position: 

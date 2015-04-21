@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Обновление пациента
 position: 2

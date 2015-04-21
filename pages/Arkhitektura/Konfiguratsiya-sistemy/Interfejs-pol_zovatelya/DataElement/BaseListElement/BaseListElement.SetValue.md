@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BaseListElement.SetValue
 position: 9

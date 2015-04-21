@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Интерфейс пользователя
 position: 2

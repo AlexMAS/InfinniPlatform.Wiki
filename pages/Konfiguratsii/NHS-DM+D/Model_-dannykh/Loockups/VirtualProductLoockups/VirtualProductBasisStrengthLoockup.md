@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: VirtualProductBasisStrengthLoockup
 position: 7

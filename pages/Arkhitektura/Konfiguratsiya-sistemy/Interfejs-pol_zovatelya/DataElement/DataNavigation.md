@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: DataNavigation
 position: 19

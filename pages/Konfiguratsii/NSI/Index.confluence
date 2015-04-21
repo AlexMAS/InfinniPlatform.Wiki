@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: НСИ
 position: 6

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: IsContains
 position: 9

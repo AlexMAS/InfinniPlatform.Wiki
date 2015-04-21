@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Навигатор ИЭМК
 position: 2

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Naming Convention
 position: 12

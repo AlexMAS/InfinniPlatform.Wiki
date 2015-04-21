@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: AcknowledgePolicy
 position: 1

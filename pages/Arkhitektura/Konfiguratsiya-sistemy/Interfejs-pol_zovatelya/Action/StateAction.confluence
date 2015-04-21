@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: StateAction
 position: 10

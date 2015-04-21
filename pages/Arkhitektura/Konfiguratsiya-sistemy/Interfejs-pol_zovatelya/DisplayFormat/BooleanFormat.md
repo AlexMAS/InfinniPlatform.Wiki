@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BooleanFormat
 position: 1

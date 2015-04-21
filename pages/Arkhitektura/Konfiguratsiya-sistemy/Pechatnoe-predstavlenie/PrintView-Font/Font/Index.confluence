@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Font
 position: 0

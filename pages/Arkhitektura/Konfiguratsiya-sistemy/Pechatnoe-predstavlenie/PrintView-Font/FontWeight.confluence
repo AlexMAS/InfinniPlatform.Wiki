@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: FontWeight
 position: 3

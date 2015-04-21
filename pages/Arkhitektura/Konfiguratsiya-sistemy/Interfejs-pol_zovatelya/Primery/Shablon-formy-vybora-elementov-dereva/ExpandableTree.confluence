@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ExpandableTree
 position: 2

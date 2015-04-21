@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Импорт из файлов формата dbf и xls
 position: 

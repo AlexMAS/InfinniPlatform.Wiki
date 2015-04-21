@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Общие требования
 position: 2

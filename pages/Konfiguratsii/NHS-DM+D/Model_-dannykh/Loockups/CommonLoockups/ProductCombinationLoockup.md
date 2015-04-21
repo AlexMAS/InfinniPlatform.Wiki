@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ProductCombinationLoockup
 position: 1

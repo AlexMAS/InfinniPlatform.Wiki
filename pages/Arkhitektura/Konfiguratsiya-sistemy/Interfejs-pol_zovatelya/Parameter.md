@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Parameter
 position: 6

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Получение значений из таблицы итогов на дату, ближайшую к заданной (GetRegisterTotals)
 position: 

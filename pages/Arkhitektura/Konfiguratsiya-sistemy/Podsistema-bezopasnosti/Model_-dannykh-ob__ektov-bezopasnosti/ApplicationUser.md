@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ApplicationUser
 position: 0

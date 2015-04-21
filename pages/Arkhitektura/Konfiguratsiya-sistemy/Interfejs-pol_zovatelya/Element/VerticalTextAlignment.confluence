@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: VerticalTextAlignment
 position: 4

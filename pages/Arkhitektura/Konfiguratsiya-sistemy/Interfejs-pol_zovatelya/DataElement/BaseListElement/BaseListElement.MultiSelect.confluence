@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BaseListElement.MultiSelect
 position: 0

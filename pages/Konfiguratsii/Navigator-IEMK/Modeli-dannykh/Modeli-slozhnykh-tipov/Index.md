@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Модели сложных типов
 position: 

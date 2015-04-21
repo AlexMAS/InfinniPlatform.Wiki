@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Установка InfinniFront.Android на эмулятор
 position: 

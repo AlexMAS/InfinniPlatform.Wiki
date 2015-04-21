@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Общая модель системы
 position: 

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Отделение стационара
 position: 1

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: MenuBar
 position: 1

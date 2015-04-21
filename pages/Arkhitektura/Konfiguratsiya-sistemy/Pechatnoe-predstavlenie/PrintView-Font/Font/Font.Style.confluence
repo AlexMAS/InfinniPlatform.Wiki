@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Font.Style
 position: 2

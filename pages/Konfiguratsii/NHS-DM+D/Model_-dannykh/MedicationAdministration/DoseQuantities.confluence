@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: DoseQuantities
 position: 0

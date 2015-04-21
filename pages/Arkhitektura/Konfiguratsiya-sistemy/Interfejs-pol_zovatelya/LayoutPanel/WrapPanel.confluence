@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: WrapPanel
 position: 4

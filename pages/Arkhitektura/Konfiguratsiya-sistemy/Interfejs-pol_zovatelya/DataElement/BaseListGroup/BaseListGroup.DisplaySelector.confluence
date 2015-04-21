@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BaseListGroup.DisplaySelector
 position: 2

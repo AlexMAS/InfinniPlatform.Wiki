@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Session
 position: 2

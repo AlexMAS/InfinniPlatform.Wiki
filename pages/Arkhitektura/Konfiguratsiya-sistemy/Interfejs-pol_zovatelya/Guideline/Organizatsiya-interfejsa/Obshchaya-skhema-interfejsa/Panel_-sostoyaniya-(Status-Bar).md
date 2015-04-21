@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Панель состояния (Status Bar)
 position: 0

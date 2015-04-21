@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Интеграция с ФИЭМК
 position: 6

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Журнал "Пациенты"
 position: 0

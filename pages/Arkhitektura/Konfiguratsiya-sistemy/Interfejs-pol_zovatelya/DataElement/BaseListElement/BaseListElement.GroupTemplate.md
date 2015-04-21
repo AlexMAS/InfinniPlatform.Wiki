@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BaseListElement.GroupTemplate
 position: 7

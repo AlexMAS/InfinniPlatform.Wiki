@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: TemplateEditMask
 position: 3

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Внутренняя аутентификация
 position: 0

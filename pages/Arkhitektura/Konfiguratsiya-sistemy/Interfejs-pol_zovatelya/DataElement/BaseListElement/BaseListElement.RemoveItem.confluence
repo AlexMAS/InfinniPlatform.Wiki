@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BaseListElement.RemoveItem
 position: 19

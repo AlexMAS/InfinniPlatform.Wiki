@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Архитектура серверной части
 position: 1

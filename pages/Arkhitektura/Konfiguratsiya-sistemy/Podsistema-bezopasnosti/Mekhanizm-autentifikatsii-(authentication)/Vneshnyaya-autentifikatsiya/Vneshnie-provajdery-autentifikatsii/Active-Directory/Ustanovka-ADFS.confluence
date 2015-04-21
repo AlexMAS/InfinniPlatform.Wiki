@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Установка ADFS
 position: 0

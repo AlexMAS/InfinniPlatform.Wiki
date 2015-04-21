@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Generator
 position: 5

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Сервисы построения отчетов
 position: 

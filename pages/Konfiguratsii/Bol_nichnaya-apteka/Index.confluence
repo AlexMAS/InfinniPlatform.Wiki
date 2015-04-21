@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Больничная аптека
 position: 4

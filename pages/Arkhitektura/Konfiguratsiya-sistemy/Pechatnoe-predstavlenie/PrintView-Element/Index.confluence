@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: PrintView: Element
 position: 0

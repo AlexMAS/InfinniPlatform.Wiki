@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BaseListGroup.DisplayProperty
 position: 3

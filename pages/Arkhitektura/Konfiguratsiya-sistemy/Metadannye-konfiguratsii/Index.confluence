@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Метаданные конфигурации
 position: 0

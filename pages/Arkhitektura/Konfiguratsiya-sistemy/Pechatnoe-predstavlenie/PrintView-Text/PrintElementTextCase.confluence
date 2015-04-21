@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: PrintElementTextCase
 position: 0

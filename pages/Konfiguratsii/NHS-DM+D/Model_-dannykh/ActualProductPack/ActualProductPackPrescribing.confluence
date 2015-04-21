@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ActualProductPackPrescribing
 position: 0

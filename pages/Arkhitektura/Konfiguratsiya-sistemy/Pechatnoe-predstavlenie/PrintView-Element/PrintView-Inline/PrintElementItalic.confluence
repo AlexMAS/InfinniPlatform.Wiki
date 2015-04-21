@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: PrintElementItalic
 position: 3

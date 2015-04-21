@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Panel
 position: 0

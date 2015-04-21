@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: DotNotation
 position: 4

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Привязка к данным
 position: 4

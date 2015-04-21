@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Реализация Register API платформы
 position: 

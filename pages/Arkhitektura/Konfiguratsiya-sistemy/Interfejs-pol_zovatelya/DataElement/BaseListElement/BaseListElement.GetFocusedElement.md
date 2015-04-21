@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BaseListElement.GetFocusedElement
 position: 16

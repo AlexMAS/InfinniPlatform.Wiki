@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Организация интерфейса
 position: 7

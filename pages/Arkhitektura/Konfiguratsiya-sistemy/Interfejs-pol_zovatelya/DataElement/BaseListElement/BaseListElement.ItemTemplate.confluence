@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BaseListElement.ItemTemplate
 position: 6

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Адреса (Address)
 position: 

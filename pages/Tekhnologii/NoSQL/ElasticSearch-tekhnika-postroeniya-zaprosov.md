@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ElasticSearch: техника построения запросов
 position: 2

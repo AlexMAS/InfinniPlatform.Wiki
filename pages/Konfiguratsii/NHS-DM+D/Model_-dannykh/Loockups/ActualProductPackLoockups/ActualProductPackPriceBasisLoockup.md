@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ActualProductPackPriceBasisLoockup
 position: 5

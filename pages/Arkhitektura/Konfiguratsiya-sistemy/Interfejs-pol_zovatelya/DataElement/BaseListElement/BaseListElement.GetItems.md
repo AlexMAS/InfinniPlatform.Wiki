@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BaseListElement.GetItems
 position: 20

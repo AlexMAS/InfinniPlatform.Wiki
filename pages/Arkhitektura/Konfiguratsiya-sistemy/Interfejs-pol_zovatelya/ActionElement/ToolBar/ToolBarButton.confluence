@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: ToolBarButton
 position: 1

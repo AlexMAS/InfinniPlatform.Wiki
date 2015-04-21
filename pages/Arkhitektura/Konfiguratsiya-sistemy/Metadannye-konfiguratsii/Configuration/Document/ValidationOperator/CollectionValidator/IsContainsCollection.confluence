@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: IsContainsCollection
 position: 3

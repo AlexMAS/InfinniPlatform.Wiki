@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: UploadFileBox
 position: 16

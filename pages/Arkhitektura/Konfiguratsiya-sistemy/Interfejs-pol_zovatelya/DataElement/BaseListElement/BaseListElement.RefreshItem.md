@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BaseListElement.RefreshItem
 position: 22

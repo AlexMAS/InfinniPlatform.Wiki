@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BaseMessage
 position: 0

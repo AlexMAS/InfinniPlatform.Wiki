@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Обработчик запросов изменения данных (ApplyChangesHandler)
 position: 

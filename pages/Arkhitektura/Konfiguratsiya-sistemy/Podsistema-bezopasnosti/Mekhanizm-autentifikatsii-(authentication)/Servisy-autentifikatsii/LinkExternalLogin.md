@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: LinkExternalLogin
 position: 9

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BaseListElement.ValueSelector
 position: 1

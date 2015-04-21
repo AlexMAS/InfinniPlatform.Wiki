@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Контактные данные (ContactInformation)
 position: 

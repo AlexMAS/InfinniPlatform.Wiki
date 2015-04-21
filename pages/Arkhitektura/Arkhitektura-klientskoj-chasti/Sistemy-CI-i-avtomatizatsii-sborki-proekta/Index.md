@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Системы CI и автоматизации сборки проекта
 position: 

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Active Directory
 position: 1

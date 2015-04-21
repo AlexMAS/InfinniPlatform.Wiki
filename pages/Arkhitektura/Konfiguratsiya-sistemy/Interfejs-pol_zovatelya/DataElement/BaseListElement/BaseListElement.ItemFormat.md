@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BaseListElement.ItemFormat
 position: 5

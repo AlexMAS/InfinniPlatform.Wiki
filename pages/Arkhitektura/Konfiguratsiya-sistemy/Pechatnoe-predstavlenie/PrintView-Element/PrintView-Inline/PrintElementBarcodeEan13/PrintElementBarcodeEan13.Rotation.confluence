@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: PrintElementBarcodeEan13.Rotation
 position: 3

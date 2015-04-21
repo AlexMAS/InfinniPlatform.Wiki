@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: LoockupEntry
 position: 0

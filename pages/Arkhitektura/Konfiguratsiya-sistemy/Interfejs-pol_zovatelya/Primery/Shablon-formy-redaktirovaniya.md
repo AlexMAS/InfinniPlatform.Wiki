@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Шаблон формы редактирования
 position: 2

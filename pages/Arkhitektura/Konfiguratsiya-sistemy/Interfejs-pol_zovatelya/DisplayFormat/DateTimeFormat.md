@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: DateTimeFormat
 position: 2

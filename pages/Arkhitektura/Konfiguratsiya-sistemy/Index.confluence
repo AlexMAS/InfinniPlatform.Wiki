@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Конфигурация системы
 position: 3

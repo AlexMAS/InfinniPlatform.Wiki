@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: BaseListElement.SetFocusedValue
 position: 13

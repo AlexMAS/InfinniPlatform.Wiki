@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Подготовка развертывания FrontEnd-части
 position: 

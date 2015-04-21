@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Exchange
 position: 2

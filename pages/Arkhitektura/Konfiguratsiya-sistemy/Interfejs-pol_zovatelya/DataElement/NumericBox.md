@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: NumericBox
 position: 5

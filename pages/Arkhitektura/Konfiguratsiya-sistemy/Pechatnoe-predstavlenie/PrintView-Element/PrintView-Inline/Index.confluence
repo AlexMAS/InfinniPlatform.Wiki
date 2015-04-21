@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: PrintView: Inline
 position: 1

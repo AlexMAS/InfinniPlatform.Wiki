@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: PrintView.PagePadding
 position: 2

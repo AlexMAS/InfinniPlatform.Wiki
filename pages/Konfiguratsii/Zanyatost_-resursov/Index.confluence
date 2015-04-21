@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Занятость ресурсов
 position: 11

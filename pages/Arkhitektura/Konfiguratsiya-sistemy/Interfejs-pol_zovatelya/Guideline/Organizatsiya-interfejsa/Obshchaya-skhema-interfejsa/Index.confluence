@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Общая схема интерфейса
 position: 0

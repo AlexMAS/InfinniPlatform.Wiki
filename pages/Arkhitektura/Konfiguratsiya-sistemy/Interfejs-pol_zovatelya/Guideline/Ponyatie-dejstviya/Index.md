@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Понятие действия
 position: 5
