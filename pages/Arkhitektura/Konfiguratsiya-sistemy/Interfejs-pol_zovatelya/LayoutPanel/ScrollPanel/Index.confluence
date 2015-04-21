@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ScrollPanel
+title: "ScrollPanel"
 position: 6
 categories: 
 tags: 

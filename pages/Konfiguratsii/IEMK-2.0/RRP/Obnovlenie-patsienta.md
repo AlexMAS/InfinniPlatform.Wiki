@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Обновление пациента
+title: "Обновление пациента"
 position: 2
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintReportAction
+title: "PrintReportAction"
 position: 14
 categories: 
 tags: 

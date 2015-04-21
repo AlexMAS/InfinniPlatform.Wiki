@@ -1,6 +1,6 @@
 ---
 layout: default
-title: FilteredList
+title: "FilteredList"
 position: 2
 categories: 
 tags: 

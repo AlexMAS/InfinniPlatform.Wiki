@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ActualProductPackDiscountNotDeductedLoockup
+title: "ActualProductPackDiscountNotDeductedLoockup"
 position: 3
 categories: 
 tags: 

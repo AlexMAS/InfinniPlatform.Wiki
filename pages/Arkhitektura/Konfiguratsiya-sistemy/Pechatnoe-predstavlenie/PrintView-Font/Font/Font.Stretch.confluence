@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Font.Stretch
+title: "Font.Stretch"
 position: 3
 categories: 
 tags: 

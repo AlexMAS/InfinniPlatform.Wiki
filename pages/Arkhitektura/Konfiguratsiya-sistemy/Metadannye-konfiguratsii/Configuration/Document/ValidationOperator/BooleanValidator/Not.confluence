@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Not
+title: "Not"
 position: 
 categories: 
 tags: 

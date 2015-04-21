@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Конфигурация ClassifierLoader
+title: "Конфигурация ClassifierLoader"
 position: 
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SimpleList
+title: "SimpleList"
 position: 
 categories: 
 tags: 

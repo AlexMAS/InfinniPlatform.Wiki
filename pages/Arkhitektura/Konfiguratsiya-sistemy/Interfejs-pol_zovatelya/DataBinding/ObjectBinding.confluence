@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ObjectBinding
+title: "ObjectBinding"
 position: 1
 categories: 
 tags: 

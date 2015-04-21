@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementBarcodeEan13
+title: "PrintElementBarcodeEan13"
 position: 9
 categories: 
 tags: 

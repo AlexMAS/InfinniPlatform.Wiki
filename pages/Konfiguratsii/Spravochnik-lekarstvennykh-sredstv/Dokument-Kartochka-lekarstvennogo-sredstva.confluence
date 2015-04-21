@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Документ Карточка лекарственного средства
+title: "Документ Карточка лекарственного средства"
 position: 
 categories: 
 tags: 

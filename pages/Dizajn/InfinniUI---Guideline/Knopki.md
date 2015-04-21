@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Кнопки
+title: "Кнопки"
 position: 6
 categories: 
 tags: 

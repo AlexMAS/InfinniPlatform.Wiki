@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Удаление пациента
+title: "Удаление пациента"
 position: 3
 categories: 
 tags: 

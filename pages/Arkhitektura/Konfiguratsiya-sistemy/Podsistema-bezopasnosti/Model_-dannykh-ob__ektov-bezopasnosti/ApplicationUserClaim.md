@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ApplicationUserClaim
+title: "ApplicationUserClaim"
 position: 2
 categories: 
 tags: 

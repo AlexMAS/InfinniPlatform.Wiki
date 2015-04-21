@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Clipboard
+title: "Clipboard"
 position: 1
 categories: 
 tags: 

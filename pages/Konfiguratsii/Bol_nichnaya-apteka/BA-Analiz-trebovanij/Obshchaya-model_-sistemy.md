@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Общая модель системы
+title: "Общая модель системы"
 position: 
 categories: 
 tags: 

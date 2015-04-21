@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Документ "Талон на ресурс"
+title: "Документ "Талон на ресурс""
 position: 
 categories: 
 tags: 

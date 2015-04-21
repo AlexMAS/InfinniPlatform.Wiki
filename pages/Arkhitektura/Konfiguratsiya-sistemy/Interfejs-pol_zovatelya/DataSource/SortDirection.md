@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SortDirection
+title: "SortDirection"
 position: 4
 categories: 
 tags: 

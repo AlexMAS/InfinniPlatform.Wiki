@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementParagraph.IndentSize
+title: "PrintElementParagraph.IndentSize"
 position: 
 categories: 
 tags: 

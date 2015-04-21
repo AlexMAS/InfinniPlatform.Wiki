@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintView.ViewType
+title: "PrintView.ViewType"
 position: 0
 categories: 
 tags: 

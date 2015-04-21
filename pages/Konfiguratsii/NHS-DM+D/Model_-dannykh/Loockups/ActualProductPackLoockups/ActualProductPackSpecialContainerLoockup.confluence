@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ActualProductPackSpecialContainerLoockup
+title: "ActualProductPackSpecialContainerLoockup"
 position: 2
 categories: 
 tags: 

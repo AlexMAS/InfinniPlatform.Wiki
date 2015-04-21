@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementBlock.TextAlignment
+title: "PrintElementBlock.TextAlignment"
 position: 
 categories: 
 tags: 

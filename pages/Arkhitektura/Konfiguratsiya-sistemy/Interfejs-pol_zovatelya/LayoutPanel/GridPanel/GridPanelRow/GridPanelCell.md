@@ -1,6 +1,6 @@
 ---
 layout: default
-title: GridPanelCell
+title: "GridPanelCell"
 position: 
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ElementVerticalAlignment
+title: "ElementVerticalAlignment"
 position: 2
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Механизм аутентификации (authentication)
+title: "Механизм аутентификации (authentication)"
 position: 0
 categories: 
 tags: 

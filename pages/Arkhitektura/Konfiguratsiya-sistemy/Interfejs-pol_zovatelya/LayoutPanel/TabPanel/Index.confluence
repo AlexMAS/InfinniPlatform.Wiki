@@ -1,6 +1,6 @@
 ---
 layout: default
-title: TabPanel
+title: "TabPanel"
 position: 1
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Шаблон формы журнала документов
+title: "Шаблон формы журнала документов"
 position: 3
 categories: 
 tags: 

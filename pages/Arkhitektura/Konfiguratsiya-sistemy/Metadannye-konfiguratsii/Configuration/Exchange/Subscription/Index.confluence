@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Subscription
+title: "Subscription"
 position: 
 categories: 
 tags: 

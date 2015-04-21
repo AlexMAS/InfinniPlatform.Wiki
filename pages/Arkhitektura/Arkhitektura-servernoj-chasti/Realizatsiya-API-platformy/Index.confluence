@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Реализация API платформы
+title: "Реализация API платформы"
 position: 
 categories: 
 tags: 

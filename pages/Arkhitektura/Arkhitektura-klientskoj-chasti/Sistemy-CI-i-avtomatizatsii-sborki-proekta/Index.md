@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Системы CI и автоматизации сборки проекта
+title: "Системы CI и автоматизации сборки проекта"
 position: 
 categories: 
 tags: 

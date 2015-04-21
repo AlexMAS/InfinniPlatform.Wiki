@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Схема аутентификации
+title: "Схема аутентификации"
 position: 3
 categories: 
 tags: 

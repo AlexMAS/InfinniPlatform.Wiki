@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ApplicationUser
+title: "ApplicationUser"
 position: 0
 categories: 
 tags: 

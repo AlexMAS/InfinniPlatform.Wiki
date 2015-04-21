@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ColorStyle
+title: "ColorStyle"
 position: 
 categories: 
 tags: 

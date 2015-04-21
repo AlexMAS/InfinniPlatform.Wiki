@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DayOfWeek
+title: "DayOfWeek"
 position: 
 categories: 
 tags: 

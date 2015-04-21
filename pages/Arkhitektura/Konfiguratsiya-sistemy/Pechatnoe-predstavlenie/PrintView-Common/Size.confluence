@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Size
+title: "Size"
 position: 
 categories: 
 tags: 

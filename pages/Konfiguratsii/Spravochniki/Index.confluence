@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Справочники
+title: "Справочники"
 position: 1
 categories: 
 tags: 

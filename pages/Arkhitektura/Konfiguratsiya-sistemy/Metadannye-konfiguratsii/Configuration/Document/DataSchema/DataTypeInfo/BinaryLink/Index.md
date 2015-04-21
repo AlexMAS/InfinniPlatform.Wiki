@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BinaryLink
+title: "BinaryLink"
 position: 0
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: WrapPanel
+title: "WrapPanel"
 position: 4
 categories: 
 tags: 

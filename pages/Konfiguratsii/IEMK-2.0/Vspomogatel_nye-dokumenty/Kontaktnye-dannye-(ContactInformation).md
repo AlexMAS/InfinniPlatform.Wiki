@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Контактные данные (ContactInformation)
+title: "Контактные данные (ContactInformation)"
 position: 
 categories: 
 tags: 

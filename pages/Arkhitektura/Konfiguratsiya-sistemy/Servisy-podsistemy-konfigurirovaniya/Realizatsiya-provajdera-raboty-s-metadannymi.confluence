@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Реализация провайдера работы с метаданными
+title: "Реализация провайдера работы с метаданными"
 position: 1
 categories: 
 tags: 

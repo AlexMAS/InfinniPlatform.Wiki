@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Color
+title: "Color"
 position: 
 categories: 
 tags: 

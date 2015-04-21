@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Сервисы аутентификации
+title: "Сервисы аутентификации"
 position: 2
 categories: 
 tags: 

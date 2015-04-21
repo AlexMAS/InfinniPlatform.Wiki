@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Домашняя страница системы
+title: "Домашняя страница системы"
 position: 1
 categories: 
 tags: 

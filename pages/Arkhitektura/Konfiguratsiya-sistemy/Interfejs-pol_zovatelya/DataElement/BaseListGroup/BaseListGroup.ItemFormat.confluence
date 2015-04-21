@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListGroup.ItemFormat
+title: "BaseListGroup.ItemFormat"
 position: 4
 categories: 
 tags: 

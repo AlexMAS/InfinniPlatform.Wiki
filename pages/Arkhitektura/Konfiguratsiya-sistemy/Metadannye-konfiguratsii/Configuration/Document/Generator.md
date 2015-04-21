@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Generator
+title: "Generator"
 position: 5
 categories: 
 tags: 

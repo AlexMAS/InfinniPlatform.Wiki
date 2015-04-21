@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DataType
+title: "DataType"
 position: 
 categories: 
 tags: 

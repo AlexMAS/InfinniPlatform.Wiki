@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Область представления (View Panel)
+title: "Область представления (View Panel)"
 position: 2
 categories: 
 tags: 

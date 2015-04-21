@@ -1,6 +1,6 @@
 ---
 layout: default
-title: БА: Анализ регулирующих документов
+title: "БА: Анализ регулирующих документов"
 position: 
 categories: 
 tags: 

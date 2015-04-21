@@ -1,6 +1,6 @@
 ---
 layout: default
-title: VisualElement
+title: "VisualElement"
 position: 2
 categories: 
 tags: 

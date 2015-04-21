@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Визуальное представление
+title: "Визуальное представление"
 position: 0
 categories: 
 tags: 

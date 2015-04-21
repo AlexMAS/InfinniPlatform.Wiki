@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DialogResult
+title: "DialogResult"
 position: 
 categories: 
 tags: 

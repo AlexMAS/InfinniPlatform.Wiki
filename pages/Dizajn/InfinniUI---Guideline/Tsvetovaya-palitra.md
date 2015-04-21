@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Цветовая палитра
+title: "Цветовая палитра"
 position: 0
 categories: 
 tags: 

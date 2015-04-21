@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Configuration
+title: "Configuration"
 position: 
 categories: 
 tags: 

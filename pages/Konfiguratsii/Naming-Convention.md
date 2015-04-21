@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Naming Convention
+title: "Naming Convention"
 position: 12
 categories: 
 tags: 

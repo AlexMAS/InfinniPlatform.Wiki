@@ -1,6 +1,6 @@
 ---
 layout: default
-title: InfinniPlatform Home
+title: "InfinniPlatform Home"
 position: 
 categories: 
 tags: 

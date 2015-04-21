@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DatePicker
+title: "DatePicker"
 position: 6
 categories: 
 tags: 

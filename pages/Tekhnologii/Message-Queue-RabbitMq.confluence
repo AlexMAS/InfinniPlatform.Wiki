@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Message Queue: RabbitMq
+title: "Message Queue: RabbitMq"
 position: 
 categories: 
 tags: 

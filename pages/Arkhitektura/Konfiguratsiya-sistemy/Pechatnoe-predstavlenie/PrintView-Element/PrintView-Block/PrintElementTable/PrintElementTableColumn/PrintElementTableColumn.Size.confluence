@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementTableColumn.Size
+title: "PrintElementTableColumn.Size"
 position: 0
 categories: 
 tags: 

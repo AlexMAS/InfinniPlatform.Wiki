@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Очеты
+title: "Очеты"
 position: 2
 categories: 
 tags: 

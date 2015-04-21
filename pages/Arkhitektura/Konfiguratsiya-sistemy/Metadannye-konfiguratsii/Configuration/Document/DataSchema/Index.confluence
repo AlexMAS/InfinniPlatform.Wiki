@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DataSchema
+title: "DataSchema"
 position: 0
 categories: 
 tags: 

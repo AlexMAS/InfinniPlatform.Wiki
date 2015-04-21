@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListGroup.DisplayProperty
+title: "BaseListGroup.DisplayProperty"
 position: 3
 categories: 
 tags: 

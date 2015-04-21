@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementImage.Rotation
+title: "PrintElementImage.Rotation"
 position: 1
 categories: 
 tags: 

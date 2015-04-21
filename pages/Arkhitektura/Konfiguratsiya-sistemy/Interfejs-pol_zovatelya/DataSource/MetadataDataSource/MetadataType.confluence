@@ -1,6 +1,6 @@
 ---
 layout: default
-title: MetadataType
+title: "MetadataType"
 position: 
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ContextTypeKind
+title: "ContextTypeKind"
 position: 
 categories: 
 tags: 

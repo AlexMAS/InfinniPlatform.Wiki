@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Модель документа "Эпикриз выписной"
+title: "Модель документа "Эпикриз выписной""
 position: 
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: MessageBody
+title: "MessageBody"
 position: 1
 categories: 
 tags: 

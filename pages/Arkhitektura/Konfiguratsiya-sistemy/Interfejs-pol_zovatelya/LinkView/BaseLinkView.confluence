@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseLinkView
+title: "BaseLinkView"
 position: 0
 categories: 
 tags: 

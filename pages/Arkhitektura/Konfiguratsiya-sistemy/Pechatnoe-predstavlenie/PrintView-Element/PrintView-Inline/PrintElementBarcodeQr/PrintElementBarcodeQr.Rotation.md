@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementBarcodeQr.Rotation
+title: "PrintElementBarcodeQr.Rotation"
 position: 2
 categories: 
 tags: 

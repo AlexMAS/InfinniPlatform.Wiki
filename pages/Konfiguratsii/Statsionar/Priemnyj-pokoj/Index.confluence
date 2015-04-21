@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Приемный покой
+title: "Приемный покой"
 position: 0
 categories: 
 tags: 

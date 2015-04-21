@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ForeignKey
+title: "ForeignKey"
 position: 
 categories: 
 tags: 

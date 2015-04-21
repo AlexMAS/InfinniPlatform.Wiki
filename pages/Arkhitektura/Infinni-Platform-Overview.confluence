@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Infinni Platform Overview
+title: "Infinni Platform Overview"
 position: 0
 categories: 
 tags: 

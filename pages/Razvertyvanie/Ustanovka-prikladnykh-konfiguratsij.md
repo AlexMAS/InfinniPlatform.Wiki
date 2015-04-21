@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Установка прикладных конфигураций
+title: "Установка прикладных конфигураций"
 position: 
 categories: 
 tags: 

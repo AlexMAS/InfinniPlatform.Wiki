@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Общие требования
+title: "Общие требования"
 position: 2
 categories: 
 tags: 

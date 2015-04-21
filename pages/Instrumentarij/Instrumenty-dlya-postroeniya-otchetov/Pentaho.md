@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Pentaho
+title: "Pentaho"
 position: 
 categories: 
 tags: 

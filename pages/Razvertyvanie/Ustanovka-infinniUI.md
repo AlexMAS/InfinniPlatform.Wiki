@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Установка infinniUI
+title: "Установка infinniUI"
 position: 
 categories: 
 tags: 

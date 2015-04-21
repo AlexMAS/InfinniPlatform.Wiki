@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintView: Inline
+title: "PrintView: Inline"
 position: 1
 categories: 
 tags: 

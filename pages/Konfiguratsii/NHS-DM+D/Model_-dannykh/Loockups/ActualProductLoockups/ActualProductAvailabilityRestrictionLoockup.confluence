@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ActualProductAvailabilityRestrictionLoockup
+title: "ActualProductAvailabilityRestrictionLoockup"
 position: 4
 categories: 
 tags: 

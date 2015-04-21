@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Управление ресурсом
+title: "Управление ресурсом"
 position: 
 categories: 
 tags: 

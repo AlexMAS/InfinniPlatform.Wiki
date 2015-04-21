@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Декларативное описание сервисов платформы
+title: "Декларативное описание сервисов платформы"
 position: 
 categories: 
 tags: 

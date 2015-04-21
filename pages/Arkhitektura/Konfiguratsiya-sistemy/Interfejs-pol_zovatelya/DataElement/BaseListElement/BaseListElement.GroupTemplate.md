@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListElement.GroupTemplate
+title: "BaseListElement.GroupTemplate"
 position: 7
 categories: 
 tags: 

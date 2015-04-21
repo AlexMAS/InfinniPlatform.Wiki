@@ -1,6 +1,6 @@
 ---
 layout: default
-title: List
+title: "List"
 position: 0
 categories: 
 tags: 

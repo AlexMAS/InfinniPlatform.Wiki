@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Интеграция с ФИЭМК
+title: "Интеграция с ФИЭМК"
 position: 6
 categories: 
 tags: 

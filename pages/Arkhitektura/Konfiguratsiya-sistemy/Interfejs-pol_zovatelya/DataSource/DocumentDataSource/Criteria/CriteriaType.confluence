@@ -1,6 +1,6 @@
 ---
 layout: default
-title: CriteriaType
+title: "CriteriaType"
 position: 
 categories: 
 tags: 

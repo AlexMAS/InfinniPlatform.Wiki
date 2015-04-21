@@ -1,6 +1,6 @@
 ---
 layout: default
-title: LoockupSupplierEntry
+title: "LoockupSupplierEntry"
 position: 2
 categories: 
 tags: 

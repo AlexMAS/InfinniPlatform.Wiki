@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Culture
+title: "Culture"
 position: 0
 categories: 
 tags: 

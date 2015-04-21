@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Обработчик запросов изменения данных (ApplyChangesHandler)
+title: "Обработчик запросов изменения данных (ApplyChangesHandler)"
 position: 
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Bower
+title: "Bower"
 position: 
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Модель данных медицинской организации
+title: "Модель данных медицинской организации"
 position: 
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ограничения подхода
+title: "Ограничения подхода"
 position: 6
 categories: 
 tags: 

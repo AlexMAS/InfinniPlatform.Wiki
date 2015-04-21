@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Стандарты
+title: "Стандарты"
 position: 1
 categories: 
 tags: 

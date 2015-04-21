@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Getting Started
+title: "Getting Started"
 position: 0
 categories: 
 tags: 

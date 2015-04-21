@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ApplicationClaimType
+title: "ApplicationClaimType"
 position: 4
 categories: 
 tags: 

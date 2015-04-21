@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementBarcodeQrErrorCorrection
+title: "PrintElementBarcodeQrErrorCorrection"
 position: 3
 categories: 
 tags: 

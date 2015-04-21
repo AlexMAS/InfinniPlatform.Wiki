@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Process
+title: "Process"
 position: 3
 categories: 
 tags: 

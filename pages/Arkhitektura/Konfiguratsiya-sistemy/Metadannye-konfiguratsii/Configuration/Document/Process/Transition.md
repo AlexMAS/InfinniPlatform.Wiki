@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Transition
+title: "Transition"
 position: 
 categories: 
 tags: 

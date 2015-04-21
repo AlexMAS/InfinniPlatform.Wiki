@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementList.ItemTemplate
+title: "PrintElementList.ItemTemplate"
 position: 3
 categories: 
 tags: 

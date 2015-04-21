@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Инструкции
+title: "Инструкции"
 position: 8
 categories: 
 tags: 

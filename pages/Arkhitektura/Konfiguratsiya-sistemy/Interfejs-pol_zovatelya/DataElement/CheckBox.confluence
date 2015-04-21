@@ -1,6 +1,6 @@
 ---
 layout: default
-title: CheckBox
+title: "CheckBox"
 position: 7
 categories: 
 tags: 

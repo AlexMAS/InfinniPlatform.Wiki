@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Session
+title: "Session"
 position: 2
 categories: 
 tags: 

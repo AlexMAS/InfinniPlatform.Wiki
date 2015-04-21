@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListElement.SetFocusedItem
+title: "BaseListElement.SetFocusedItem"
 position: 15
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: AuthUserInfo
+title: "AuthUserInfo"
 position: 0
 categories: 
 tags: 

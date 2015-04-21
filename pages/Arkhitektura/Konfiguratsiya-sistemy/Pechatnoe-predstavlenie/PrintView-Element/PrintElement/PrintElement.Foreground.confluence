@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElement.Foreground
+title: "PrintElement.Foreground"
 position: 3
 categories: 
 tags: 

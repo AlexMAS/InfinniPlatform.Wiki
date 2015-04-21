@@ -1,6 +1,6 @@
 ---
 layout: default
-title: FilteredTree
+title: "FilteredTree"
 position: 4
 categories: 
 tags: 

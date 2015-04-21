@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ExtensionPanel
+title: "ExtensionPanel"
 position: 7
 categories: 
 tags: 

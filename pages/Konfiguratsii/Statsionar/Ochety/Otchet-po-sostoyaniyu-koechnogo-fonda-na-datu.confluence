@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Отчет по состоянию коечного фонда на дату
+title: "Отчет по состоянию коечного фонда на дату"
 position: 1
 categories: 
 tags: 

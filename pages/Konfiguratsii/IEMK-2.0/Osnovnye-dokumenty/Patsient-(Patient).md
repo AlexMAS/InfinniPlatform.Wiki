@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Пациент (Patient)
+title: "Пациент (Patient)"
 position: 
 categories: 
 tags: 

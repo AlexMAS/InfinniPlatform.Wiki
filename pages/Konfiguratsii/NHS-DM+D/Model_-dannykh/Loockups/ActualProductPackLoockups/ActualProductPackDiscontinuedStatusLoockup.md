@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ActualProductPackDiscontinuedStatusLoockup
+title: "ActualProductPackDiscontinuedStatusLoockup"
 position: 1
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Журнал Справочник лекарственных средств
+title: "Журнал Справочник лекарственных средств"
 position: 
 categories: 
 tags: 

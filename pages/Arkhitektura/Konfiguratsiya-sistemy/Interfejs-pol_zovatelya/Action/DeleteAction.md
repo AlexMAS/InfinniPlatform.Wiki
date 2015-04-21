@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DeleteAction
+title: "DeleteAction"
 position: 7
 categories: 
 tags: 

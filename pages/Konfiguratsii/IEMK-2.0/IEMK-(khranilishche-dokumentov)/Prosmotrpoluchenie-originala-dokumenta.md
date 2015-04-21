@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Просмотр/получение оригинала документа
+title: "Просмотр/получение оригинала документа"
 position: 0
 categories: 
 tags: 

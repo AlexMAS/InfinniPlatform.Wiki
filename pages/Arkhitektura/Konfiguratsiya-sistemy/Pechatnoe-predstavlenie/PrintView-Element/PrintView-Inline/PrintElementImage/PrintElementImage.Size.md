@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementImage.Size
+title: "PrintElementImage.Size"
 position: 0
 categories: 
 tags: 

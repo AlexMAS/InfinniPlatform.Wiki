@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DatePickerMode
+title: "DatePickerMode"
 position: 
 categories: 
 tags: 

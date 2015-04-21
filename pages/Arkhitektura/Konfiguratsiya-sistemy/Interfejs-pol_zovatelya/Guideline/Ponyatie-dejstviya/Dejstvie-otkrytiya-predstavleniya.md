@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Действие открытия представления
+title: "Действие открытия представления"
 position: 1
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Criteria
+title: "Criteria"
 position: 
 categories: 
 tags: 

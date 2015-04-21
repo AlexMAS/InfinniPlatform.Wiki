@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListElement.SetFocusedValue
+title: "BaseListElement.SetFocusedValue"
 position: 13
 categories: 
 tags: 

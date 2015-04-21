@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Модель данных пациента
+title: "Модель данных пациента"
 position: 
 categories: 
 tags: 

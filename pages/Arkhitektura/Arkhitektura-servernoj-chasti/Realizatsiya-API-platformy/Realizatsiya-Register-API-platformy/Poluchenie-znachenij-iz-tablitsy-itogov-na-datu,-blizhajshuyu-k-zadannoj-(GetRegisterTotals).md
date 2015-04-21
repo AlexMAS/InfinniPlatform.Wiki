@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Получение значений из таблицы итогов на дату, ближайшую к заданной (GetRegisterTotals)
+title: "Получение значений из таблицы итогов на дату, ближайшую к заданной (GetRegisterTotals)"
 position: 
 categories: 
 tags: 

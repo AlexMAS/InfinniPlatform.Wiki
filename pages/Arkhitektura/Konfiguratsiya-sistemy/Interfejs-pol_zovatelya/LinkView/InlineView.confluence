@@ -1,6 +1,6 @@
 ---
 layout: default
-title: InlineView
+title: "InlineView"
 position: 5
 categories: 
 tags: 

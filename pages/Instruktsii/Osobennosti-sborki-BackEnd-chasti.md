@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Особенности сборки BackEnd-части
+title: "Особенности сборки BackEnd-части"
 position: 
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Action Bar
+title: "Action Bar"
 position: 3
 categories: 
 tags: 

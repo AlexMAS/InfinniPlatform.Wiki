@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListGroup.DisplaySelector
+title: "BaseListGroup.DisplaySelector"
 position: 2
 categories: 
 tags: 

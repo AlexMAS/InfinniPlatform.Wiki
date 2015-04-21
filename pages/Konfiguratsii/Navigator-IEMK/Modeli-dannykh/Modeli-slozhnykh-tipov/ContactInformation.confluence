@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ContactInformation
+title: "ContactInformation"
 position: 
 categories: 
 tags: 

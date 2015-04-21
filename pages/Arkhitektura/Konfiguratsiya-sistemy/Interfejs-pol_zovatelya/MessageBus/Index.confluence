@@ -1,6 +1,6 @@
 ---
 layout: default
-title: MessageBus
+title: "MessageBus"
 position: 17
 categories: 
 tags: 

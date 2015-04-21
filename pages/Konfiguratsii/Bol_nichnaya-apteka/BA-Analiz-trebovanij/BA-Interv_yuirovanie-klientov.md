@@ -1,6 +1,6 @@
 ---
 layout: default
-title: БА: Интервьюирование клиентов
+title: "БА: Интервьюирование клиентов"
 position: 
 categories: 
 tags: 

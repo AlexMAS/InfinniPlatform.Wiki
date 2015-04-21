@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Register
+title: "Register"
 position: 1
 categories: 
 tags: 

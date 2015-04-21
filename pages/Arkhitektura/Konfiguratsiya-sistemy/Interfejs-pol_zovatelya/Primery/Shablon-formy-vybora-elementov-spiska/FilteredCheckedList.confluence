@@ -1,6 +1,6 @@
 ---
 layout: default
-title: FilteredCheckedList
+title: "FilteredCheckedList"
 position: 3
 categories: 
 tags: 

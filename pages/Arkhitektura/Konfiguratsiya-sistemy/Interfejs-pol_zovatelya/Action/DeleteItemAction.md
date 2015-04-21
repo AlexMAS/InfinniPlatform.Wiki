@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DeleteItemAction
+title: "DeleteItemAction"
 position: 8
 categories: 
 tags: 

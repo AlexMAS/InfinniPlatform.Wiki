@@ -1,6 +1,6 @@
 ---
 layout: default
-title: FilterPanel
+title: "FilterPanel"
 position: 18
 categories: 
 tags: 

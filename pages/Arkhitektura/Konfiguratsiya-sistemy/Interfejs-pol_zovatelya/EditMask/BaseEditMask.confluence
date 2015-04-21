@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseEditMask
+title: "BaseEditMask"
 position: 0
 categories: 
 tags: 

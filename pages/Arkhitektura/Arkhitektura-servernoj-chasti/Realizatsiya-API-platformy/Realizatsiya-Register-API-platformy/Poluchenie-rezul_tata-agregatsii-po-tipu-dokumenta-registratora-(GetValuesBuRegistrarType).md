@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Получение результата агрегации по типу документа-регистратора (GetValuesBуRegistrarType)
+title: "Получение результата агрегации по типу документа-регистратора (GetValuesBуRegistrarType)"
 position: 
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElement.Style
+title: "PrintElement.Style"
 position: 1
 categories: 
 tags: 

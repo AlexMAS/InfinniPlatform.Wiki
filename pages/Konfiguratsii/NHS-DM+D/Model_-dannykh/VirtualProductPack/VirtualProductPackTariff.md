@@ -1,6 +1,6 @@
 ---
 layout: default
-title: VirtualProductPackTariff
+title: "VirtualProductPackTariff"
 position: 
 categories: 
 tags: 

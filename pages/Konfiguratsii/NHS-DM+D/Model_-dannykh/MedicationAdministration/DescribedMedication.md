@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DescribedMedication
+title: "DescribedMedication"
 position: 1
 categories: 
 tags: 

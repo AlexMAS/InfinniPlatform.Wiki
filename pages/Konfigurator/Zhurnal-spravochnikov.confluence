@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Журнал справочников
+title: "Журнал справочников"
 position: 
 categories: 
 tags: 

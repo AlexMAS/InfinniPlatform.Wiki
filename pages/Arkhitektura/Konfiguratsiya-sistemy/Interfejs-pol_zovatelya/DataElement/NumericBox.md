@@ -1,6 +1,6 @@
 ---
 layout: default
-title: NumericBox
+title: "NumericBox"
 position: 5
 categories: 
 tags: 

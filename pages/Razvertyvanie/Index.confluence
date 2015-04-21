@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Развертывание
+title: "Развертывание"
 position: 11
 categories: 
 tags: 

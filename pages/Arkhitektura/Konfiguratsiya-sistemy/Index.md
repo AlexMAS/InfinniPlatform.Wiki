@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Конфигурация системы
+title: "Конфигурация системы"
 position: 3
 categories: 
 tags: 

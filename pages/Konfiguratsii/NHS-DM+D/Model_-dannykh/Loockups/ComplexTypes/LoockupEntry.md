@@ -1,6 +1,6 @@
 ---
 layout: default
-title: LoockupEntry
+title: "LoockupEntry"
 position: 0
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ActualProduct
+title: "ActualProduct"
 position: 3
 categories: 
 tags: 

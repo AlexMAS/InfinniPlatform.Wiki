@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Получение результата агрегации по регистру в период между двумя датами (GetValuesBetweenDates)
+title: "Получение результата агрегации по регистру в период между двумя датами (GetValuesBetweenDates)"
 position: 
 categories: 
 tags: 

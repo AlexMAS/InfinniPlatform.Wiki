@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Модели сложных типов
+title: "Модели сложных типов"
 position: 
 categories: 
 tags: 

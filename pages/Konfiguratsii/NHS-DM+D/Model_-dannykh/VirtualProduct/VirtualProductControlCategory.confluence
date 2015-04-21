@@ -1,6 +1,6 @@
 ---
 layout: default
-title: VirtualProductControlCategory
+title: "VirtualProductControlCategory"
 position: 
 categories: 
 tags: 

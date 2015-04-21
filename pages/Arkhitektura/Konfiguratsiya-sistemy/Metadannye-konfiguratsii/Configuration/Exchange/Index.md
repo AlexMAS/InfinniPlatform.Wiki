@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Exchange
+title: "Exchange"
 position: 2
 categories: 
 tags: 

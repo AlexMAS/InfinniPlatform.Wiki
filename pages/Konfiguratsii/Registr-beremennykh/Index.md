@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Регистр беременных
+title: "Регистр беременных"
 position: 9
 categories: 
 tags: 

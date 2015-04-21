@@ -1,6 +1,6 @@
 ---
 layout: default
-title: AuthErrorInfo
+title: "AuthErrorInfo"
 position: 1
 categories: 
 tags: 

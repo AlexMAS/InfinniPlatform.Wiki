@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ИЭМК (хранилище документов)
+title: "ИЭМК (хранилище документов)"
 position: 5
 categories: 
 tags: 

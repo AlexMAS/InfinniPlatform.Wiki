@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Операция удаления документа (DeleteDocument)
+title: "Операция удаления документа (DeleteDocument)"
 position: 
 categories: 
 tags: 

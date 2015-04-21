@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementTextAlignment
+title: "PrintElementTextAlignment"
 position: 1
 categories: 
 tags: 

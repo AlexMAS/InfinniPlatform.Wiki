@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Типографика
+title: "Типографика"
 position: 1
 categories: 
 tags: 

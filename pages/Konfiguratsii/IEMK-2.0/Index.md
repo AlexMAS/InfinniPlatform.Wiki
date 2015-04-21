@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ИЭМК 2.0
+title: "ИЭМК 2.0"
 position: 3
 categories: 
 tags: 

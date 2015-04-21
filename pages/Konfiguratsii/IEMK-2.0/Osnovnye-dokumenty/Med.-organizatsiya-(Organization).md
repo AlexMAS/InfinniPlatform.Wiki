@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Мед. организация (Organization)
+title: "Мед. организация (Organization)"
 position: 
 categories: 
 tags: 

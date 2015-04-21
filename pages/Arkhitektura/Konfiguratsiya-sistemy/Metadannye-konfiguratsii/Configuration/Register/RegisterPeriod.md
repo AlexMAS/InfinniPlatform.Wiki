@@ -1,6 +1,6 @@
 ---
 layout: default
-title: RegisterPeriod
+title: "RegisterPeriod"
 position: 1
 categories: 
 tags: 

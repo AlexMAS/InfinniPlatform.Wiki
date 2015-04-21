@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Конфигуратор
+title: "Конфигуратор"
 position: 5
 categories: 
 tags: 

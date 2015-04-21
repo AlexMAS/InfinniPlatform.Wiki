@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ActualProductPackPrice
+title: "ActualProductPackPrice"
 position: 3
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Panel
+title: "Panel"
 position: 0
 categories: 
 tags: 

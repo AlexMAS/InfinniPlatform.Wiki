@@ -1,6 +1,6 @@
 ---
 layout: default
-title: MenuItem
+title: "MenuItem"
 position: 
 categories: 
 tags: 

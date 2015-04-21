@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintView: Block
+title: "PrintView: Block"
 position: 0
 categories: 
 tags: 

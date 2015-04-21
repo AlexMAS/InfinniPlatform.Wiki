@@ -1,6 +1,6 @@
 ---
 layout: default
-title: IsEqual
+title: "IsEqual"
 position: 1
 categories: 
 tags: 

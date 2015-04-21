@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DocumentRelation
+title: "DocumentRelation"
 position: 
 categories: 
 tags: 

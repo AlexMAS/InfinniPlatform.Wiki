@@ -1,6 +1,6 @@
 ---
 layout: default
-title: AcknowledgePolicy
+title: "AcknowledgePolicy"
 position: 1
 categories: 
 tags: 

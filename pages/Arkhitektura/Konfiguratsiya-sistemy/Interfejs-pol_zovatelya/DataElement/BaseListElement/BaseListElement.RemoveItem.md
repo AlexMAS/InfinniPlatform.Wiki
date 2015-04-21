@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListElement.RemoveItem
+title: "BaseListElement.RemoveItem"
 position: 19
 categories: 
 tags: 

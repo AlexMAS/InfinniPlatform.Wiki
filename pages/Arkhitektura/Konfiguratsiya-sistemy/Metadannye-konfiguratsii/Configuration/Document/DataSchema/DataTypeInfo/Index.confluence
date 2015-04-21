@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DataTypeInfo
+title: "DataTypeInfo"
 position: 
 categories: 
 tags: 

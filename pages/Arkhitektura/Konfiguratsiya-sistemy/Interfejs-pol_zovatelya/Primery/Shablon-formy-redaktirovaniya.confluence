@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Шаблон формы редактирования
+title: "Шаблон формы редактирования"
 position: 2
 categories: 
 tags: 

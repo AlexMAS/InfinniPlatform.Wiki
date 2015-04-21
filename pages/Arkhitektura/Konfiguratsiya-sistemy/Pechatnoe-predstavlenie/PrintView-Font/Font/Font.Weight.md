@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Font.Weight
+title: "Font.Weight"
 position: 4
 categories: 
 tags: 

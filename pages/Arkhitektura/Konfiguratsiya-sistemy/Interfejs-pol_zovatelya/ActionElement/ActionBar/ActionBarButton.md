@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ActionBarButton
+title: "ActionBarButton"
 position: 1
 categories: 
 tags: 

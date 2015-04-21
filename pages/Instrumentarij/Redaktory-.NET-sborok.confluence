@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Редакторы .NET-сборок
+title: "Редакторы .NET-сборок"
 position: 
 categories: 
 tags: 

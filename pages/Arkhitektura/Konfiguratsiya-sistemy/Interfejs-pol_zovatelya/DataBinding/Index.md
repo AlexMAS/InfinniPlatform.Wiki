@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DataBinding
+title: "DataBinding"
 position: 8
 categories: 
 tags: 

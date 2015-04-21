@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Font.Style
+title: "Font.Style"
 position: 2
 categories: 
 tags: 

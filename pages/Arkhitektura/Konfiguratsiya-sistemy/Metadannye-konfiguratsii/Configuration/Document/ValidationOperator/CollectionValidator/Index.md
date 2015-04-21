@@ -1,6 +1,6 @@
 ---
 layout: default
-title: CollectionValidator
+title: "CollectionValidator"
 position: 
 categories: 
 tags: 

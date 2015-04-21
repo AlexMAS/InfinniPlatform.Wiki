@@ -1,6 +1,6 @@
 ---
 layout: default
-title: And
+title: "And"
 position: 
 categories: 
 tags: 

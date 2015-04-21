@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SearchPanel
+title: "SearchPanel"
 position: 17
 categories: 
 tags: 

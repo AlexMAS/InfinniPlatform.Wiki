@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Описание модульной архитектуры платформы.
+title: "Описание модульной архитектуры платформы."
 position: 
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Эскизы визуальных форм
+title: "Эскизы визуальных форм"
 position: 
 categories: 
 tags: 

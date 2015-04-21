@@ -1,6 +1,6 @@
 ---
 layout: default
-title: RegisterProperty
+title: "RegisterProperty"
 position: 2
 categories: 
 tags: 

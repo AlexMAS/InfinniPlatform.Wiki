@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintView.PageSize
+title: "PrintView.PageSize"
 position: 1
 categories: 
 tags: 

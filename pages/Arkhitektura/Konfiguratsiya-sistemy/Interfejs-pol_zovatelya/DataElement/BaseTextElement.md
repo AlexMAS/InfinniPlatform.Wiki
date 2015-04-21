@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseTextElement
+title: "BaseTextElement"
 position: 0
 categories: 
 tags: 

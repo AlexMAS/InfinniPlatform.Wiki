@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Loockups
+title: "Loockups"
 position: 5
 categories: 
 tags: 

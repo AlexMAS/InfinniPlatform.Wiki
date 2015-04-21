@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Сервисы получения метаданных представлений (View)
+title: "Сервисы получения метаданных представлений (View)"
 position: 2
 categories: 
 tags: 

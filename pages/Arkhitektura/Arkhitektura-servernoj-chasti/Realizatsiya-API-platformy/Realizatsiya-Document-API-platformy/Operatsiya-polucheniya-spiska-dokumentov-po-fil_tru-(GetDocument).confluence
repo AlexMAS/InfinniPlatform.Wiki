@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Операция получения списка документов по фильтру (GetDocument)
+title: "Операция получения списка документов по фильтру (GetDocument)"
 position: 
 categories: 
 tags: 

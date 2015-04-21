@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Стационар
+title: "Стационар"
 position: 8
 categories: 
 tags: 

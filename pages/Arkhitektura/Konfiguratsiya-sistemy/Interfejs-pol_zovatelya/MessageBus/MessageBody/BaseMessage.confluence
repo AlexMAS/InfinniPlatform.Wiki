@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseMessage
+title: "BaseMessage"
 position: 0
 categories: 
 tags: 

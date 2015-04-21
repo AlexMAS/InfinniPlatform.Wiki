@@ -1,6 +1,6 @@
 ---
 layout: default
-title: LayoutPanel
+title: "LayoutPanel"
 position: 13
 categories: 
 tags: 

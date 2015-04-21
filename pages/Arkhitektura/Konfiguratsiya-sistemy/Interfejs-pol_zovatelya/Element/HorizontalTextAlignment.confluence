@@ -1,6 +1,6 @@
 ---
 layout: default
-title: HorizontalTextAlignment
+title: "HorizontalTextAlignment"
 position: 3
 categories: 
 tags: 

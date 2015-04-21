@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementImageStretch
+title: "PrintElementImageStretch"
 position: 3
 categories: 
 tags: 

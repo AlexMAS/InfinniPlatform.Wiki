@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Label
+title: "Label"
 position: 3
 categories: 
 tags: 

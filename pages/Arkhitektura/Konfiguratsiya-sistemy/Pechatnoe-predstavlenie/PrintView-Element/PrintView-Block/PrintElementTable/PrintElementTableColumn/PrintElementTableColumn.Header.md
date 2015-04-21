@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementTableColumn.Header
+title: "PrintElementTableColumn.Header"
 position: 1
 categories: 
 tags: 

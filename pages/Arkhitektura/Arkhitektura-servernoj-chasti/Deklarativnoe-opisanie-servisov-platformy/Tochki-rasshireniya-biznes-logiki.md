@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Точки расширения бизнес-логики
+title: "Точки расширения бизнес-логики"
 position: 
 categories: 
 tags: 

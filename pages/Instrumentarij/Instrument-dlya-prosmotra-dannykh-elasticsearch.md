@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Инструмент для просмотра данных elasticsearch
+title: "Инструмент для просмотра данных elasticsearch"
 position: 
 categories: 
 tags: 

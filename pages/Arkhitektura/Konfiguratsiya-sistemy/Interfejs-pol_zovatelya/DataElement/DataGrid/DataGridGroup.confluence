@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DataGridGroup
+title: "DataGridGroup"
 position: 
 categories: 
 tags: 

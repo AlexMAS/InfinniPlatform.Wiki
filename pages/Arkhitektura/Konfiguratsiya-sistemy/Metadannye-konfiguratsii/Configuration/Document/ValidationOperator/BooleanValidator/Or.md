@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Or
+title: "Or"
 position: 
 categories: 
 tags: 

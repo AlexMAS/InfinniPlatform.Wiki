@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ToolBarItem
+title: "ToolBarItem"
 position: 0
 categories: 
 tags: 

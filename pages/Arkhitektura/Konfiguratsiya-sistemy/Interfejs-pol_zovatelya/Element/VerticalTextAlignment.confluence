@@ -1,6 +1,6 @@
 ---
 layout: default
-title: VerticalTextAlignment
+title: "VerticalTextAlignment"
 position: 4
 categories: 
 tags: 

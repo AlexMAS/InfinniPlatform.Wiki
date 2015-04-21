@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ComboBox
+title: "ComboBox"
 position: 9
 categories: 
 tags: 

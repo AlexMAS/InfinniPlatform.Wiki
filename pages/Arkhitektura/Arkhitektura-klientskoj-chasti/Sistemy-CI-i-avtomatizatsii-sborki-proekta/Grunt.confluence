@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Grunt
+title: "Grunt"
 position: 
 categories: 
 tags: 

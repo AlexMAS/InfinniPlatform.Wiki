@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Модель документа "Направление"
+title: "Модель документа "Направление""
 position: 
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Font.Variant
+title: "Font.Variant"
 position: 5
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Бизнес-сценарии
+title: "Бизнес-сценарии"
 position: 1
 categories: 
 tags: 

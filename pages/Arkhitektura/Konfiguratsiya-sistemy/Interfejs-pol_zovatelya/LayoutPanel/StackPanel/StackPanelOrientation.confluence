@@ -1,6 +1,6 @@
 ---
 layout: default
-title: StackPanelOrientation
+title: "StackPanelOrientation"
 position: 
 categories: 
 tags: 

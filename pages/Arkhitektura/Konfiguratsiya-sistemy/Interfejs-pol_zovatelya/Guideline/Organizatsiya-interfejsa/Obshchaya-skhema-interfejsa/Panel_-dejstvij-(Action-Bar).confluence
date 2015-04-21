@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Панель действий (Action Bar)
+title: "Панель действий (Action Bar)"
 position: 1
 categories: 
 tags: 

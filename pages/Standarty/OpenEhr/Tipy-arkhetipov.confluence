@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Типы архетипов
+title: "Типы архетипов"
 position: 
 categories: 
 tags: 

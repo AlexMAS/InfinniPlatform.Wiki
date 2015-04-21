@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Август 2013: Планирование задач
+title: "Август 2013: Планирование задач"
 position: 
 categories: 
 tags: 

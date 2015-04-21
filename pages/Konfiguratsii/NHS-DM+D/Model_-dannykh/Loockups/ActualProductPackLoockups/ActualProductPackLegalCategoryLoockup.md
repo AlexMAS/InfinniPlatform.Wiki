@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ActualProductPackLegalCategoryLoockup
+title: "ActualProductPackLegalCategoryLoockup"
 position: 0
 categories: 
 tags: 

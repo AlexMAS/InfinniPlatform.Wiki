@@ -1,6 +1,6 @@
 ---
 layout: default
-title: НСИ
+title: "НСИ"
 position: 6
 categories: 
 tags: 

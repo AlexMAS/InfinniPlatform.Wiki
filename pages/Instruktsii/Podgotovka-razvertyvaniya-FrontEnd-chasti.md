@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Подготовка развертывания FrontEnd-части
+title: "Подготовка развертывания FrontEnd-части"
 position: 
 categories: 
 tags: 

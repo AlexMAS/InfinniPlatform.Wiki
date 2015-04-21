@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Интерфейс конфигурации
+title: "Интерфейс конфигурации"
 position: 3
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ElasticSearch: техника построения запросов
+title: "ElasticSearch: техника построения запросов"
 position: 2
 categories: 
 tags: 

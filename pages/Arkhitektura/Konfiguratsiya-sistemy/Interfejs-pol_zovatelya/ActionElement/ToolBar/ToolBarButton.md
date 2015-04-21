@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ToolBarButton
+title: "ToolBarButton"
 position: 1
 categories: 
 tags: 

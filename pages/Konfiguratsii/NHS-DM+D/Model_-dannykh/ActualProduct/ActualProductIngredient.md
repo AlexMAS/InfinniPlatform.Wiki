@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ActualProductIngredient
+title: "ActualProductIngredient"
 position: 
 categories: 
 tags: 

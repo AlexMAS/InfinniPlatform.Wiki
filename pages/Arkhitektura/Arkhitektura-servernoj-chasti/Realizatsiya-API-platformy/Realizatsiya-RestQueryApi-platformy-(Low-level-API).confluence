@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Реализация RestQueryApi платформы (Low-level API)
+title: "Реализация RestQueryApi платформы (Low-level API)"
 position: 
 categories: 
 tags: 

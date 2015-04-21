@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Модель данных
+title: "Модель данных"
 position: 0
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Parameter
+title: "Parameter"
 position: 6
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: CheckedTree
+title: "CheckedTree"
 position: 1
 categories: 
 tags: 

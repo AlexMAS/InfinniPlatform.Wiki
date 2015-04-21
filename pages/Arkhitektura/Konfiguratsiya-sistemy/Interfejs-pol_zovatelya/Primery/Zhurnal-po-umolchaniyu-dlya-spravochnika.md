@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Журнал по умолчанию для справочника
+title: "Журнал по умолчанию для справочника"
 position: 1
 categories: 
 tags: 

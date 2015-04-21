@@ -1,6 +1,6 @@
 ---
 layout: default
-title: БА: Анализ основных конкурентов
+title: "БА: Анализ основных конкурентов"
 position: 
 categories: 
 tags: 

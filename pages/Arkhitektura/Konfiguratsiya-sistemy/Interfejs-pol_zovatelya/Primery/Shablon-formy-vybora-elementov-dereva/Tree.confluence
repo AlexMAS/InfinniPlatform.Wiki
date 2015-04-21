@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Tree
+title: "Tree"
 position: 0
 categories: 
 tags: 

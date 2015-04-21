@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ExchangeType
+title: "ExchangeType"
 position: 
 categories: 
 tags: 

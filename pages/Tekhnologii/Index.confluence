@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Технологии
+title: "Технологии"
 position: 6
 categories: 
 tags: 

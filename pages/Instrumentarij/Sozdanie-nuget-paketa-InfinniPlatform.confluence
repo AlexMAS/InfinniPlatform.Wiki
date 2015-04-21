@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Создание nuget-пакета InfinniPlatform
+title: "Создание nuget-пакета InfinniPlatform"
 position: 
 categories: 
 tags: 

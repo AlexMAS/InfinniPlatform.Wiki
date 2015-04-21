@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Инструментарий
+title: "Инструментарий"
 position: 7
 categories: 
 tags: 

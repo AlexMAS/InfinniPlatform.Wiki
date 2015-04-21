@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Механизм авторизации (authorization)
+title: "Механизм авторизации (authorization)"
 position: 1
 categories: 
 tags: 

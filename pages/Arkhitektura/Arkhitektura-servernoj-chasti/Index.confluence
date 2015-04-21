@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Архитектура серверной части
+title: "Архитектура серверной части"
 position: 1
 categories: 
 tags: 

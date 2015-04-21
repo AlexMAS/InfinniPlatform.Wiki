@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Пример клиентского кода
+title: "Пример клиентского кода"
 position: 5
 categories: 
 tags: 

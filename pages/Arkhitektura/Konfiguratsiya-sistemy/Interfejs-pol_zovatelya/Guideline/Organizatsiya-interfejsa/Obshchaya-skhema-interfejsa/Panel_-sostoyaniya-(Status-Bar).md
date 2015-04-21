@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Панель состояния (Status Bar)
+title: "Панель состояния (Status Bar)"
 position: 0
 categories: 
 tags: 

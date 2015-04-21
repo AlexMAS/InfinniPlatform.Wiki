@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListGroup.ValueProperty
+title: "BaseListGroup.ValueProperty"
 position: 1
 categories: 
 tags: 

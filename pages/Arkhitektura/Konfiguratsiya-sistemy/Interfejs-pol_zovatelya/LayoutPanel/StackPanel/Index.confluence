@@ -1,6 +1,6 @@
 ---
 layout: default
-title: StackPanel
+title: "StackPanel"
 position: 2
 categories: 
 tags: 

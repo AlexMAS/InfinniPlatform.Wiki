@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Отношение к пациенту
+title: "Отношение к пациенту"
 position: 
 categories: 
 tags: 

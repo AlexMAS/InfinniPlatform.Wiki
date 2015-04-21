@@ -1,6 +1,6 @@
 ---
 layout: default
-title: LinkScript
+title: "LinkScript"
 position: 2
 categories: 
 tags: 

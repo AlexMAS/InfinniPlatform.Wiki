@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementBarcodeEan13.WideBarRatio
+title: "PrintElementBarcodeEan13.WideBarRatio"
 position: 2
 categories: 
 tags: 

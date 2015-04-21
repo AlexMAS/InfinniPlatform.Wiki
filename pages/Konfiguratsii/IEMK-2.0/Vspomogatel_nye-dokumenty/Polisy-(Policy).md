@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Полисы (Policy)
+title: "Полисы (Policy)"
 position: 
 categories: 
 tags: 

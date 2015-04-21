@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ElementHorizontalAlignment
+title: "ElementHorizontalAlignment"
 position: 1
 categories: 
 tags: 

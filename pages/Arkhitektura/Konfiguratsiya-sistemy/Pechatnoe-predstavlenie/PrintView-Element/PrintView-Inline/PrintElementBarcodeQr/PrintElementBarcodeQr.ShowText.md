@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementBarcodeQr.ShowText
+title: "PrintElementBarcodeQr.ShowText"
 position: 0
 categories: 
 tags: 

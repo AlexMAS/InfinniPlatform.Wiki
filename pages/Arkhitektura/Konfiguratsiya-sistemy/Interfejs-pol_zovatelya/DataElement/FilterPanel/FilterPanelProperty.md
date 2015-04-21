@@ -1,6 +1,6 @@
 ---
 layout: default
-title: FilterPanelProperty
+title: "FilterPanelProperty"
 position: 
 categories: 
 tags: 

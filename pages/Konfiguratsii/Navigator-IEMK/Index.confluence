@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Навигатор ИЭМК
+title: "Навигатор ИЭМК"
 position: 2
 categories: 
 tags: 

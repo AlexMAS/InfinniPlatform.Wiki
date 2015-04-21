@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Операция получения документов из разных конфигураций (GetDocumentCrossConfig)
+title: "Операция получения документов из разных конфигураций (GetDocumentCrossConfig)"
 position: 
 categories: 
 tags: 

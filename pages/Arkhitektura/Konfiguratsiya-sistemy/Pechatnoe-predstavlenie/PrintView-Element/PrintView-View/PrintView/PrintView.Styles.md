@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintView.Styles
+title: "PrintView.Styles"
 position: 3
 categories: 
 tags: 

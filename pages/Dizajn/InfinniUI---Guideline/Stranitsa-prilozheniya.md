@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Страница приложения
+title: "Страница приложения"
 position: 12
 categories: 
 tags: 

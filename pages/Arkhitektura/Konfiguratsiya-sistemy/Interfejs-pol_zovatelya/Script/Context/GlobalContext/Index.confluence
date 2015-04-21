@@ -1,6 +1,6 @@
 ---
 layout: default
-title: GlobalContext
+title: "GlobalContext"
 position: 
 categories: 
 tags: 

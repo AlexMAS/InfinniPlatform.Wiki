@@ -1,6 +1,6 @@
 ---
 layout: default
-title: VirtualProductGlutenFreeLoockup
+title: "VirtualProductGlutenFreeLoockup"
 position: 10
 categories: 
 tags: 

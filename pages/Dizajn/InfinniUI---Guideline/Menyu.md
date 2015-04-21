@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Меню
+title: "Меню"
 position: 4
 categories: 
 tags: 

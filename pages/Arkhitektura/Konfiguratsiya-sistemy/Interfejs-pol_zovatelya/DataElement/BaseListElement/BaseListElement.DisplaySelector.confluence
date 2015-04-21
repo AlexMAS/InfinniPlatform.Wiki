@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListElement.DisplaySelector
+title: "BaseListElement.DisplaySelector"
 position: 3
 categories: 
 tags: 

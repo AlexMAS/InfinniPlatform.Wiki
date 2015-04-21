@@ -1,6 +1,6 @@
 ---
 layout: default
-title: CancelAction
+title: "CancelAction"
 position: 2
 categories: 
 tags: 

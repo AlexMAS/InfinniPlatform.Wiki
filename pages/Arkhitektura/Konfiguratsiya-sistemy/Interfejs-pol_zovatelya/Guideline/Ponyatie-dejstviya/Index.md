@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Понятие действия
+title: "Понятие действия"
 position: 5
 categories: 
 tags: 

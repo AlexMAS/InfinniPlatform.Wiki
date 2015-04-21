@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementBarcodeQr.ErrorCorrection
+title: "PrintElementBarcodeQr.ErrorCorrection"
 position: 1
 categories: 
 tags: 

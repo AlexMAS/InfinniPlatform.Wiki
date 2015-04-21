@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Обработчик запроса на агрегацию данных (SearchDocumentAggregationHandler)
+title: "Обработчик запроса на агрегацию данных (SearchDocumentAggregationHandler)"
 position: 
 categories: 
 tags: 

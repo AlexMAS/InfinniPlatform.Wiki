@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Паспорт ЛПУ
+title: "Паспорт ЛПУ"
 position: 14
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DataGrid
+title: "DataGrid"
 position: 12
 categories: 
 tags: 

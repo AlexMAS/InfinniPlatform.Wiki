@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ComplexTypes
+title: "ComplexTypes"
 position: 4
 categories: 
 tags: 

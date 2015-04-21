@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintView: Border
+title: "PrintView: Border"
 position: 1
 categories: 
 tags: 

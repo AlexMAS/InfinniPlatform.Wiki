@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DataNavigation
+title: "DataNavigation"
 position: 19
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElement.Visibility
+title: "PrintElement.Visibility"
 position: 6
 categories: 
 tags: 

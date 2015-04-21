@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BooleanValidator
+title: "BooleanValidator"
 position: 
 categories: 
 tags: 

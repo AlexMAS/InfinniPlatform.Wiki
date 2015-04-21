@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Подсистема безопасности
+title: "Подсистема безопасности"
 position: 1
 categories: 
 tags: 

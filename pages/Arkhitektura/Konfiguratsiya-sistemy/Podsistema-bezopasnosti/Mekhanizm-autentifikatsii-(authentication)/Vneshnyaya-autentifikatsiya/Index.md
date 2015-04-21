@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Внешняя аутентификация
+title: "Внешняя аутентификация"
 position: 1
 categories: 
 tags: 

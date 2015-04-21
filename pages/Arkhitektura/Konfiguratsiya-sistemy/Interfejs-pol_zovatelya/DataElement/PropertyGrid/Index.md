@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PropertyGrid
+title: "PropertyGrid"
 position: 14
 categories: 
 tags: 

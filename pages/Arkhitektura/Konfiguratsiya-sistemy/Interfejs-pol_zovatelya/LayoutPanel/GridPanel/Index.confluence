@@ -1,6 +1,6 @@
 ---
 layout: default
-title: GridPanel
+title: "GridPanel"
 position: 3
 categories: 
 tags: 

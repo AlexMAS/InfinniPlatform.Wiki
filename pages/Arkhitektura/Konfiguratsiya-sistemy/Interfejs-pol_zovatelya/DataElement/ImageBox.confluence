@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ImageBox
+title: "ImageBox"
 position: 15
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ToolBar
+title: "ToolBar"
 position: 2
 categories: 
 tags: 

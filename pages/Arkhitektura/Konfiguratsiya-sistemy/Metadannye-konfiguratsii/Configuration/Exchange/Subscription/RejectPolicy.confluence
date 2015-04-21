@@ -1,6 +1,6 @@
 ---
 layout: default
-title: RejectPolicy
+title: "RejectPolicy"
 position: 2
 categories: 
 tags: 

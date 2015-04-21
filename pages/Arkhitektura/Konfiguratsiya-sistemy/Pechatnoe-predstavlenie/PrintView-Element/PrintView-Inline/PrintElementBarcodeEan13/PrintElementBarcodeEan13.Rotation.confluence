@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementBarcodeEan13.Rotation
+title: "PrintElementBarcodeEan13.Rotation"
 position: 3
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementBold
+title: "PrintElementBold"
 position: 2
 categories: 
 tags: 

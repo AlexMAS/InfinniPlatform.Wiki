@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Правила описания полей документов
+title: "Правила описания полей документов"
 position: 
 categories: 
 tags: 

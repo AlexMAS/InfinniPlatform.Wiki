@@ -1,6 +1,6 @@
 ---
 layout: default
-title: NumberFormatting
+title: "NumberFormatting"
 position: 
 categories: 
 tags: 

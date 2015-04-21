@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Google OAuth
+title: "Google OAuth"
 position: 0
 categories: 
 tags: 

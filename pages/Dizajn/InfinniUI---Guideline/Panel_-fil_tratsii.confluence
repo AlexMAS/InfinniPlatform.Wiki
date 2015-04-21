@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Панель фильтрации
+title: "Панель фильтрации"
 position: 11
 categories: 
 tags: 

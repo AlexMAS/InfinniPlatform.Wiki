@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListElement.ValueSelector
+title: "BaseListElement.ValueSelector"
 position: 1
 categories: 
 tags: 

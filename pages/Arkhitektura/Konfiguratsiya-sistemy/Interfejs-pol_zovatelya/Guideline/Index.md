@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Guideline
+title: "Guideline"
 position: 0
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementInline
+title: "PrintElementInline"
 position: 5
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Интерпретация метаданных
+title: "Интерпретация метаданных"
 position: 1
 categories: 
 tags: 

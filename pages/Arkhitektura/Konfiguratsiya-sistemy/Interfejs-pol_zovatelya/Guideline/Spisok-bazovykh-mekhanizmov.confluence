@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Список базовых механизмов
+title: "Список базовых механизмов"
 position: 8
 categories: 
 tags: 

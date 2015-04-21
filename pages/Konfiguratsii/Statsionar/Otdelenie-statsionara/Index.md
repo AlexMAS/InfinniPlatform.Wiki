@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Отделение стационара
+title: "Отделение стационара"
 position: 1
 categories: 
 tags: 

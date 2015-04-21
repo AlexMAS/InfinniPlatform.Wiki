@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Документы, удостоверяющие личность (IdentityCard)
+title: "Документы, удостоверяющие личность (IdentityCard)"
 position: 
 categories: 
 tags: 

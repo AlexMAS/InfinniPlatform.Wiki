@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Примеры
+title: "Примеры"
 position: 19
 categories: 
 tags: 

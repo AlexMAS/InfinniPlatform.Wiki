@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Шаблон формы выбора элементов дерева
+title: "Шаблон формы выбора элементов дерева"
 position: 5
 categories: 
 tags: 

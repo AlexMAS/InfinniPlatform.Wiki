@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Электронная медицинская карта (ЭМК)
+title: "Электронная медицинская карта (ЭМК)"
 position: 4
 categories: 
 tags: 

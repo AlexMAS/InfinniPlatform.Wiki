@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementBarcodeEan13.ShowText
+title: "PrintElementBarcodeEan13.ShowText"
 position: 0
 categories: 
 tags: 

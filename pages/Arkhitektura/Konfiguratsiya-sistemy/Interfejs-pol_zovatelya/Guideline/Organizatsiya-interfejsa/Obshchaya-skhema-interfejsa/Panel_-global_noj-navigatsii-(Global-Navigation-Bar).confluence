@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Панель глобальной навигации (Global Navigation Bar)
+title: "Панель глобальной навигации (Global Navigation Bar)"
 position: 3
 categories: 
 tags: 

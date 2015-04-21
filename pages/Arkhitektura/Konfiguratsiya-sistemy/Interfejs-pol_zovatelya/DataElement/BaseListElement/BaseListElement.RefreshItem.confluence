@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListElement.RefreshItem
+title: "BaseListElement.RefreshItem"
 position: 22
 categories: 
 tags: 

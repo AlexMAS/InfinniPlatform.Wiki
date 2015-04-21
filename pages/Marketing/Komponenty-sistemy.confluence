@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Компоненты системы
+title: "Компоненты системы"
 position: 
 categories: 
 tags: 

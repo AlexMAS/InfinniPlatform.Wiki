@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintView
+title: "PrintView"
 position: 
 categories: 
 tags: 

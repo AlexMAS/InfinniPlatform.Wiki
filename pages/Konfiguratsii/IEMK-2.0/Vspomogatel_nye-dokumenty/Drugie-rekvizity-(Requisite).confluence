@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Другие реквизиты (Requisite)
+title: "Другие реквизиты (Requisite)"
 position: 
 categories: 
 tags: 

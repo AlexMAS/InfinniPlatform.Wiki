@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DotNotation
+title: "DotNotation"
 position: 4
 categories: 
 tags: 

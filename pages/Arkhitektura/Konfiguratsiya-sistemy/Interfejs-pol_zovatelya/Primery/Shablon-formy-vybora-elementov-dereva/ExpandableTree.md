@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ExpandableTree
+title: "ExpandableTree"
 position: 2
 categories: 
 tags: 

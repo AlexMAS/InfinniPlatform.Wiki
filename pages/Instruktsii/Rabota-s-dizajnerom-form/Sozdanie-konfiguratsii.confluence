@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Создание конфигурации
+title: "Создание конфигурации"
 position: 
 categories: 
 tags: 

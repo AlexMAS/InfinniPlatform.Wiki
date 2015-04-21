@@ -1,6 +1,6 @@
 ---
 layout: default
-title: GetCurrentUser
+title: "GetCurrentUser"
 position: 2
 categories: 
 tags: 

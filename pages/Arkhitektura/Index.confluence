@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Архитектура
+title: "Архитектура"
 position: 3
 categories: 
 tags: 

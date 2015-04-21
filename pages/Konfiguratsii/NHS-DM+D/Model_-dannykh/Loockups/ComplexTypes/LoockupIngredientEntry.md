@@ -1,6 +1,6 @@
 ---
 layout: default
-title: LoockupIngredientEntry
+title: "LoockupIngredientEntry"
 position: 3
 categories: 
 tags: 

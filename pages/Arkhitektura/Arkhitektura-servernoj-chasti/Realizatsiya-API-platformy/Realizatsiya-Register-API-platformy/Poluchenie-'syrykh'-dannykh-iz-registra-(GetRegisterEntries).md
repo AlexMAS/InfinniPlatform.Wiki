@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Получение 'сырых' данных из регистра (GetRegisterEntries)
+title: "Получение 'сырых' данных из регистра (GetRegisterEntries)"
 position: 
 categories: 
 tags: 

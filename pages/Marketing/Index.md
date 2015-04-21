@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Маркетинг
+title: "Маркетинг"
 position: 9
 categories: 
 tags: 

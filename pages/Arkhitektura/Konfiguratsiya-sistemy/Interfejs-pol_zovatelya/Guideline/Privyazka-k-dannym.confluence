@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Привязка к данным
+title: "Привязка к данным"
 position: 4
 categories: 
 tags: 

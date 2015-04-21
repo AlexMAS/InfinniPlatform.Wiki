@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Документ «Случай лечения в стационаре»
+title: "Документ «Случай лечения в стационаре»"
 position: 0
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementImage.Stretch
+title: "PrintElementImage.Stretch"
 position: 2
 categories: 
 tags: 

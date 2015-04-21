@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementVisibility
+title: "PrintElementVisibility"
 position: 7
 categories: 
 tags: 

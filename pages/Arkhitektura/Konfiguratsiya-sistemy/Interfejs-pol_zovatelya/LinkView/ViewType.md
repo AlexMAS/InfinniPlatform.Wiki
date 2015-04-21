@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ViewType
+title: "ViewType"
 position: 1
 categories: 
 tags: 

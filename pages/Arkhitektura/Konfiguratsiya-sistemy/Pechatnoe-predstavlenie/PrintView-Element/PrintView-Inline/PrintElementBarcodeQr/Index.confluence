@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementBarcodeQr
+title: "PrintElementBarcodeQr"
 position: 10
 categories: 
 tags: 

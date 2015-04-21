@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Status Bar & Global Navigation Bar
+title: "Status Bar & Global Navigation Bar"
 position: 2
 categories: 
 tags: 

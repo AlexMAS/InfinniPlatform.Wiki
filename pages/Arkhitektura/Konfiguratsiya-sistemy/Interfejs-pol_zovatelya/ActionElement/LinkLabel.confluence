@@ -1,6 +1,6 @@
 ---
 layout: default
-title: LinkLabel
+title: "LinkLabel"
 position: 5
 categories: 
 tags: 

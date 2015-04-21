@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListElement.GetValue
+title: "BaseListElement.GetValue"
 position: 8
 categories: 
 tags: 

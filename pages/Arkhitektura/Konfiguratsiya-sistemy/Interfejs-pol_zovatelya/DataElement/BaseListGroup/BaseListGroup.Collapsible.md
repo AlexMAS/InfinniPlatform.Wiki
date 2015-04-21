@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListGroup.Collapsible
+title: "BaseListGroup.Collapsible"
 position: 7
 categories: 
 tags: 

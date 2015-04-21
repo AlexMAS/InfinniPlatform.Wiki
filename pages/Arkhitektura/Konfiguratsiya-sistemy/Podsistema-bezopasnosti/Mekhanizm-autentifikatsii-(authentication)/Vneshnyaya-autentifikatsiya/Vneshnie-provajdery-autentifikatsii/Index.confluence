@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Внешние провайдеры аутентификации
+title: "Внешние провайдеры аутентификации"
 position: 
 categories: 
 tags: 

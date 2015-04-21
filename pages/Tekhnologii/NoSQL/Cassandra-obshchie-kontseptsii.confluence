@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Cassandra: общие концепции
+title: "Cassandra: общие концепции"
 position: 1
 categories: 
 tags: 

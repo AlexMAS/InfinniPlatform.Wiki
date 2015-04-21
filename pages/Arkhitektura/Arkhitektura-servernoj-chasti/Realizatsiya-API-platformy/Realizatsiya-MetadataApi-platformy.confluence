@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Реализация MetadataApi платформы
+title: "Реализация MetadataApi платформы"
 position: 
 categories: 
 tags: 

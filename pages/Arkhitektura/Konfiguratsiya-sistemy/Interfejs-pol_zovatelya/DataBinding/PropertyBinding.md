@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PropertyBinding
+title: "PropertyBinding"
 position: 2
 categories: 
 tags: 

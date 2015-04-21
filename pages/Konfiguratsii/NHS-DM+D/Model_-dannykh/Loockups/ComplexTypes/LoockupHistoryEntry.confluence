@@ -1,6 +1,6 @@
 ---
 layout: default
-title: LoockupHistoryEntry
+title: "LoockupHistoryEntry"
 position: 1
 categories: 
 tags: 

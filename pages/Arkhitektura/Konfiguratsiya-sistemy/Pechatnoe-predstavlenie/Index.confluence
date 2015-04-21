@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Печатное представление
+title: "Печатное представление"
 position: 3
 categories: 
 tags: 

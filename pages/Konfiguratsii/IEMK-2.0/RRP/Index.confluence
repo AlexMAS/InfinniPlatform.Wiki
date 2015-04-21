@@ -1,6 +1,6 @@
 ---
 layout: default
-title: РРП
+title: "РРП"
 position: 4
 categories: 
 tags: 

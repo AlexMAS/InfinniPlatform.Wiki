@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Заголовок
+title: "Заголовок"
 position: 
 categories: 
 tags: 

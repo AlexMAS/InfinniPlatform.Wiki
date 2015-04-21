@@ -1,6 +1,6 @@
 ---
 layout: default
-title: RegisterType
+title: "RegisterType"
 position: 0
 categories: 
 tags: 

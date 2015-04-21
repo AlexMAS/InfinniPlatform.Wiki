@@ -1,6 +1,6 @@
 ---
 layout: default
-title: MedicationAdministrationProcedure
+title: "MedicationAdministrationProcedure"
 position: 2
 categories: 
 tags: 

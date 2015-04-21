@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Документ «Госпитализация»
+title: "Документ «Госпитализация»"
 position: 1
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Интерфейс пользователя
+title: "Интерфейс пользователя"
 position: 2
 categories: 
 tags: 

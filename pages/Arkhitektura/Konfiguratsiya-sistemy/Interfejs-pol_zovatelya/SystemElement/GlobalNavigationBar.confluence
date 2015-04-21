@@ -1,6 +1,6 @@
 ---
 layout: default
-title: GlobalNavigationBar
+title: "GlobalNavigationBar"
 position: 
 categories: 
 tags: 

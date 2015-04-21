@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Занятость ресурсов
+title: "Занятость ресурсов"
 position: 11
 categories: 
 tags: 

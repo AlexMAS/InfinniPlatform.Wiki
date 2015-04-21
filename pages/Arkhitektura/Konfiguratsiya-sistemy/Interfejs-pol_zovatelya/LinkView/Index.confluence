@@ -1,6 +1,6 @@
 ---
 layout: default
-title: LinkView
+title: "LinkView"
 position: 11
 categories: 
 tags: 

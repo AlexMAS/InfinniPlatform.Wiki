@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Лист динамического контроля
+title: "Лист динамического контроля"
 position: 3
 categories: 
 tags: 

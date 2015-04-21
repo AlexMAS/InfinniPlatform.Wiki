@@ -1,6 +1,6 @@
 ---
 layout: default
-title: VirtualProductOntologyLoockup
+title: "VirtualProductOntologyLoockup"
 position: 6
 categories: 
 tags: 

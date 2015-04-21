@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ссылка на представление
+title: "Ссылка на представление"
 position: 0
 categories: 
 tags: 

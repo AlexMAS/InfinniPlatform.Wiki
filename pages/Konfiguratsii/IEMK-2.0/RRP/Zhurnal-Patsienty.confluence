@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Журнал "Пациенты"
+title: "Журнал "Пациенты""
 position: 0
 categories: 
 tags: 

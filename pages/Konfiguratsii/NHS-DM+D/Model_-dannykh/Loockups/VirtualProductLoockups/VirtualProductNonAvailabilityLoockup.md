@@ -1,6 +1,6 @@
 ---
 layout: default
-title: VirtualProductNonAvailabilityLoockup
+title: "VirtualProductNonAvailabilityLoockup"
 position: 3
 categories: 
 tags: 

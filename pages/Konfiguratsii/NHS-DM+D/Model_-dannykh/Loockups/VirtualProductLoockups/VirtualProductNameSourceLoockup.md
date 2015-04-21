@@ -1,6 +1,6 @@
 ---
 layout: default
-title: VirtualProductNameSourceLoockup
+title: "VirtualProductNameSourceLoockup"
 position: 0
 categories: 
 tags: 

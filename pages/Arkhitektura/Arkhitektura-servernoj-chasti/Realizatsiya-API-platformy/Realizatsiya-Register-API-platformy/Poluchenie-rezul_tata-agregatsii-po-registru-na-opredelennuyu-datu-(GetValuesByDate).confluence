@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Получение результата агрегации по регистру на определенную дату (GetValuesByDate)
+title: "Получение результата агрегации по регистру на определенную дату (GetValuesByDate)"
 position: 
 categories: 
 tags: 

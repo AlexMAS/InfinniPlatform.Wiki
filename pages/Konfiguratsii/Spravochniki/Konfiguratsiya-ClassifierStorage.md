@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Конфигурация ClassifierStorage
+title: "Конфигурация ClassifierStorage"
 position: 
 categories: 
 tags: 

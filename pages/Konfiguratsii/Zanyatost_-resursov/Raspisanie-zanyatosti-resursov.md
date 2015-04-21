@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Расписание занятости ресурсов
+title: "Расписание занятости ресурсов"
 position: 
 categories: 
 tags: 

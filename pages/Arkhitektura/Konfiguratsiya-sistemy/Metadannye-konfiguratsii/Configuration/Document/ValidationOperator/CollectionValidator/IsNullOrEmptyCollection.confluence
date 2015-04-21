@@ -1,6 +1,6 @@
 ---
 layout: default
-title: IsNullOrEmptyCollection
+title: "IsNullOrEmptyCollection"
 position: 2
 categories: 
 tags: 

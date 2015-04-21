@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BooleanFormat
+title: "BooleanFormat"
 position: 1
 categories: 
 tags: 

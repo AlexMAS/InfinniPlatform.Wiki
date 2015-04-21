@@ -1,6 +1,6 @@
 ---
 layout: default
-title: MenuBar
+title: "MenuBar"
 position: 1
 categories: 
 tags: 

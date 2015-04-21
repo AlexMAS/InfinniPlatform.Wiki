@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListElement.ItemFormat
+title: "BaseListElement.ItemFormat"
 position: 5
 categories: 
 tags: 

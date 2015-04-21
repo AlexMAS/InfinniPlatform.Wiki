@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Документ "Палата"
+title: "Документ "Палата""
 position: 
 categories: 
 tags: 

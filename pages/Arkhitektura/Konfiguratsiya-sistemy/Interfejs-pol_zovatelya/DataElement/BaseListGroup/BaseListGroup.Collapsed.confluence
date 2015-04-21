@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListGroup.Collapsed
+title: "BaseListGroup.Collapsed"
 position: 8
 categories: 
 tags: 

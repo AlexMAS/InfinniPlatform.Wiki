@@ -1,6 +1,6 @@
 ---
 layout: default
-title: View
+title: "View"
 position: 4
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: VirtualProductIngredient
+title: "VirtualProductIngredient"
 position: 
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Обсуждения
+title: "Обсуждения"
 position: 2
 categories: 
 tags: 

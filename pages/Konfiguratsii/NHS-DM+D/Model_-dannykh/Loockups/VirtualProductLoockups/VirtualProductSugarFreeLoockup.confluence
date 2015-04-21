@@ -1,6 +1,6 @@
 ---
 layout: default
-title: VirtualProductSugarFreeLoockup
+title: "VirtualProductSugarFreeLoockup"
 position: 9
 categories: 
 tags: 

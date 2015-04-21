@@ -1,6 +1,6 @@
 ---
 layout: default
-title: OpenEhr
+title: "OpenEhr"
 position: 
 categories: 
 tags: 

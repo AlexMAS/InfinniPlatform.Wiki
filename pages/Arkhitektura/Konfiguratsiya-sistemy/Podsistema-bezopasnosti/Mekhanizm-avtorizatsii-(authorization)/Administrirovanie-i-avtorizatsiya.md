@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Администрирование и авторизация
+title: "Администрирование и авторизация"
 position: 
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: VirtualProductControlCategoryLookup
+title: "VirtualProductControlCategoryLookup"
 position: 8
 categories: 
 tags: 

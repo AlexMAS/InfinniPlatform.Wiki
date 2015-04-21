@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PropertyCategory
+title: "PropertyCategory"
 position: 
 categories: 
 tags: 

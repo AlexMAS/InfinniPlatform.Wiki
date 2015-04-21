@@ -1,6 +1,6 @@
 ---
 layout: default
-title: MessageType
+title: "MessageType"
 position: 0
 categories: 
 tags: 

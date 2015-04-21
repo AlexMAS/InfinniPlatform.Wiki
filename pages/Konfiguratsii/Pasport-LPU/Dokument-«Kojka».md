@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Документ «Койка»
+title: "Документ «Койка»"
 position: 
 categories: 
 tags: 

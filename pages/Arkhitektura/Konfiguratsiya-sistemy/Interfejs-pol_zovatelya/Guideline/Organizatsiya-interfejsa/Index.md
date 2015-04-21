@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Организация интерфейса
+title: "Организация интерфейса"
 position: 7
 categories: 
 tags: 

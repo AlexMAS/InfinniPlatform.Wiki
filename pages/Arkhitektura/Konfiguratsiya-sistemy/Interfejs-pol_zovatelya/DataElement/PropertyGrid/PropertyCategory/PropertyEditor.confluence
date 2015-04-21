@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PropertyEditor
+title: "PropertyEditor"
 position: 
 categories: 
 tags: 

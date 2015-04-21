@@ -1,6 +1,6 @@
 ---
 layout: default
-title: LinkViewItem
+title: "LinkViewItem"
 position: 
 categories: 
 tags: 

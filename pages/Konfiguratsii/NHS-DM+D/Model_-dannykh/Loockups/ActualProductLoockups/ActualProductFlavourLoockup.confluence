@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ActualProductFlavourLoockup
+title: "ActualProductFlavourLoockup"
 position: 1
 categories: 
 tags: 

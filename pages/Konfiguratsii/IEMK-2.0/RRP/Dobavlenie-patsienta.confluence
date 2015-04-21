@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Добавление пациента
+title: "Добавление пациента"
 position: 1
 categories: 
 tags: 

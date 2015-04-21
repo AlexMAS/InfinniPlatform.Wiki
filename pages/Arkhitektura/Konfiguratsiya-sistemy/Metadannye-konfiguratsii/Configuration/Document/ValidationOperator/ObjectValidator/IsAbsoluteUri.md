@@ -1,6 +1,6 @@
 ---
 layout: default
-title: IsAbsoluteUri
+title: "IsAbsoluteUri"
 position: 5
 categories: 
 tags: 

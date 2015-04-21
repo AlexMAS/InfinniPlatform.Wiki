@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementBarcodeEan13.CalcCheckSum
+title: "PrintElementBarcodeEan13.CalcCheckSum"
 position: 1
 categories: 
 tags: 

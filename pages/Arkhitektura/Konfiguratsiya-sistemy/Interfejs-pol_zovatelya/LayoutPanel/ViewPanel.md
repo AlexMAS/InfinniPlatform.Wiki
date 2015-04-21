@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ViewPanel
+title: "ViewPanel"
 position: 5
 categories: 
 tags: 

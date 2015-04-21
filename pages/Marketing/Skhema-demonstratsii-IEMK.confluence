@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Схема демонстрации ИЭМК
+title: "Схема демонстрации ИЭМК"
 position: 
 categories: 
 tags: 

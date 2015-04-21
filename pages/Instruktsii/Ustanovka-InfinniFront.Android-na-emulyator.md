@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Установка InfinniFront.Android на эмулятор
+title: "Установка InfinniFront.Android на эмулятор"
 position: 
 categories: 
 tags: 

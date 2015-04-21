@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DisplayFormat
+title: "DisplayFormat"
 position: 9
 categories: 
 tags: 

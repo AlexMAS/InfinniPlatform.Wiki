@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Общая схема интерфейса
+title: "Общая схема интерфейса"
 position: 0
 categories: 
 tags: 

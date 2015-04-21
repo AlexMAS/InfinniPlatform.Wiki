@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Таблицы
+title: "Таблицы"
 position: 10
 categories: 
 tags: 

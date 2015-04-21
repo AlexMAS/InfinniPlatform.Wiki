@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ChildView
+title: "ChildView"
 position: 6
 categories: 
 tags: 

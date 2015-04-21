@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementTableColumn.CellTemplate
+title: "PrintElementTableColumn.CellTemplate"
 position: 2
 categories: 
 tags: 

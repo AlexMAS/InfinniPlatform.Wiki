@@ -1,6 +1,6 @@
 ---
 layout: default
-title: NoSQL
+title: "NoSQL"
 position: 
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Кадры
+title: "Кадры"
 position: 15
 categories: 
 tags: 

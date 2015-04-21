@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Управление базовым расписанием ресурсов
+title: "Управление базовым расписанием ресурсов"
 position: 
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: МИС Медик+
+title: "МИС Медик+"
 position: 2
 categories: 
 tags: 

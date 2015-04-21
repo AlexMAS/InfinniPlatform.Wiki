@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListElement.DisplayProperty
+title: "BaseListElement.DisplayProperty"
 position: 4
 categories: 
 tags: 

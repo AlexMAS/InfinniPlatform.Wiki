@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListGroup.ItemTemplate
+title: "BaseListGroup.ItemTemplate"
 position: 5
 categories: 
 tags: 

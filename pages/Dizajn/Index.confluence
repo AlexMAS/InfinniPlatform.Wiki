@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Дизайн
+title: "Дизайн"
 position: 12
 categories: 
 tags: 

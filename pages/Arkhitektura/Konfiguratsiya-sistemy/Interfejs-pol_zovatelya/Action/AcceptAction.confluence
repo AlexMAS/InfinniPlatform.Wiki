@@ -1,6 +1,6 @@
 ---
 layout: default
-title: AcceptAction
+title: "AcceptAction"
 position: 1
 categories: 
 tags: 

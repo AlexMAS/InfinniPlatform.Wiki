@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ChangeProfile
+title: "ChangeProfile"
 position: 4
 categories: 
 tags: 

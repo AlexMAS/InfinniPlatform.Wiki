@@ -1,6 +1,6 @@
 ---
 layout: default
-title: VirtualProductPack
+title: "VirtualProductPack"
 position: 2
 categories: 
 tags: 

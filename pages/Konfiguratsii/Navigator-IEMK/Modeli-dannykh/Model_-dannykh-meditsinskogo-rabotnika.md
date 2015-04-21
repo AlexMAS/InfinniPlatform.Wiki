@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Модель данных медицинского работника
+title: "Модель данных медицинского работника"
 position: 
 categories: 
 tags: 

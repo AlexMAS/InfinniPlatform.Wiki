@@ -1,6 +1,6 @@
 ---
 layout: default
-title: FilteredExpandableCheckedTree
+title: "FilteredExpandableCheckedTree"
 position: 7
 categories: 
 tags: 

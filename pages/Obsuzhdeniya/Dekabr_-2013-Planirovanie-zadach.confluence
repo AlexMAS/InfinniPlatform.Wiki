@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Декабрь 2013: Планирование задач
+title: "Декабрь 2013: Планирование задач"
 position: 
 categories: 
 tags: 

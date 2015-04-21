@@ -1,6 +1,6 @@
 ---
 layout: default
-title: VirtualProductBasisStrengthLoockup
+title: "VirtualProductBasisStrengthLoockup"
 position: 7
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ToolBarSeparator
+title: "ToolBarSeparator"
 position: 3
 categories: 
 tags: 

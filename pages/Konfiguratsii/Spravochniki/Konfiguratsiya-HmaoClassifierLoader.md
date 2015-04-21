@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Конфигурация HmaoClassifierLoader
+title: "Конфигурация HmaoClassifierLoader"
 position: 
 categories: 
 tags: 

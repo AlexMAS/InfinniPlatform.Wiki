@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Сервисы подсистемы авторизации (Authorization API)
+title: "Сервисы подсистемы авторизации (Authorization API)"
 position: 6
 categories: 
 tags: 

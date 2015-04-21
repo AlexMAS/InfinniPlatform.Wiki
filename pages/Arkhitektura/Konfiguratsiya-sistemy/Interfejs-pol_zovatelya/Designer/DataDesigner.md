@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DataDesigner
+title: "DataDesigner"
 position: 0
 categories: 
 tags: 

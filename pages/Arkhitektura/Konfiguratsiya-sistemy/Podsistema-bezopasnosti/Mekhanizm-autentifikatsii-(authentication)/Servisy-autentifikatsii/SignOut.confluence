@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SignOut
+title: "SignOut"
 position: 11
 categories: 
 tags: 

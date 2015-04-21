@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElement.TextCase
+title: "PrintElement.TextCase"
 position: 5
 categories: 
 tags: 

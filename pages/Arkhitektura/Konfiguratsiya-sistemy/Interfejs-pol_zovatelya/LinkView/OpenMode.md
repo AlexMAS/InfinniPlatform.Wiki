@@ -1,6 +1,6 @@
 ---
 layout: default
-title: OpenMode
+title: "OpenMode"
 position: 2
 categories: 
 tags: 

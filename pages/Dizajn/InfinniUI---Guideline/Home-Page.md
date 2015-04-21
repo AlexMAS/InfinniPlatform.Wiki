@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Home Page
+title: "Home Page"
 position: 5
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PrintElementItalic
+title: "PrintElementItalic"
 position: 3
 categories: 
 tags: 

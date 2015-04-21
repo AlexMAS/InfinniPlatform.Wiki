@@ -1,6 +1,6 @@
 ---
 layout: default
-title: FontVariant
+title: "FontVariant"
 position: 4
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ProductCombinationLoockup
+title: "ProductCombinationLoockup"
 position: 1
 categories: 
 tags: 

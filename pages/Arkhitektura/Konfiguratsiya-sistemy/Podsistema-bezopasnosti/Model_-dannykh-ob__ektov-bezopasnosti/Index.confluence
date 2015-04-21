@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Модель данных объектов безопасности
+title: "Модель данных объектов безопасности"
 position: 2
 categories: 
 tags: 

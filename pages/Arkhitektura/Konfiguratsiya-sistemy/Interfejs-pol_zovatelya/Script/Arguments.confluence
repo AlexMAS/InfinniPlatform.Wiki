@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Arguments
+title: "Arguments"
 position: 1
 categories: 
 tags: 

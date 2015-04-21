@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListGroup.ValueSelector
+title: "BaseListGroup.ValueSelector"
 position: 0
 categories: 
 tags: 

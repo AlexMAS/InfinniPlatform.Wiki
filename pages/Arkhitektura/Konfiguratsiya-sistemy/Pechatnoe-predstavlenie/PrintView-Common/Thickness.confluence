@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Thickness
+title: "Thickness"
 position: 
 categories: 
 tags: 

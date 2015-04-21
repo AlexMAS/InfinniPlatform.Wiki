@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListElement.ValueProperty
+title: "BaseListElement.ValueProperty"
 position: 2
 categories: 
 tags: 

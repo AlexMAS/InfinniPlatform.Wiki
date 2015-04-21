@@ -1,6 +1,6 @@
 ---
 layout: default
-title: FontStretch
+title: "FontStretch"
 position: 2
 categories: 
 tags: 

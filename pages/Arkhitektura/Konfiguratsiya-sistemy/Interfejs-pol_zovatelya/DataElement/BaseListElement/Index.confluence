@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseListElement
+title: "BaseListElement"
 position: 1
 categories: 
 tags: 

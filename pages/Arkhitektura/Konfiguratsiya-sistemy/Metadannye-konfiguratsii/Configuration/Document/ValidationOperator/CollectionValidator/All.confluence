@@ -1,6 +1,6 @@
 ---
 layout: default
-title: All
+title: "All"
 position: 0
 categories: 
 tags: 

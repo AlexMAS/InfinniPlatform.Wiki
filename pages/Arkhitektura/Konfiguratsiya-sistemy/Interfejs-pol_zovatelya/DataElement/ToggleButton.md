@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ToggleButton
+title: "ToggleButton"
 position: 8
 categories: 
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BaseDataBinding
+title: "BaseDataBinding"
 position: 0
 categories: 
 tags: 

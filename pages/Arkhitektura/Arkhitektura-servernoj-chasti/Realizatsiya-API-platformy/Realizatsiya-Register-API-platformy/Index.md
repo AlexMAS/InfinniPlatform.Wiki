@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Реализация Register API платформы
+title: "Реализация Register API платформы"
 position: 
 categories: 
 tags: 

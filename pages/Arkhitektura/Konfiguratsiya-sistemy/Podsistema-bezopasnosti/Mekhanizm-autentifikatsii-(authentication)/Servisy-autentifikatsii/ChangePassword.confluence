@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ChangePassword
+title: "ChangePassword"
 position: 3
 categories: 
 tags: 
