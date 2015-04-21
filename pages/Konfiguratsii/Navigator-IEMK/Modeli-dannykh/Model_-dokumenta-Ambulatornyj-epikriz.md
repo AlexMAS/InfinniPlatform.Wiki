@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Модель документа "Амбулаторный эпикриз""
+title: "Модель документа \"Амбулаторный эпикриз\""
 position: 
 categories: 
 tags: 

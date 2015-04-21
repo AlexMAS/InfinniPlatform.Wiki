@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Ведение журнала "Отделения""
+title: "Ведение журнала \"Отделения\""
 position: 
 categories: 
 tags: 

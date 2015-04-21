@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Ведение журнала "Кабинеты""
+title: "Ведение журнала \"Кабинеты\""
 position: 
 categories: 
 tags: 

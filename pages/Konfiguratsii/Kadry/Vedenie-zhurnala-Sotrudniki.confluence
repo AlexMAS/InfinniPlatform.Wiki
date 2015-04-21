@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Ведение журнала "Сотрудники""
+title: "Ведение журнала \"Сотрудники\""
 position: 
 categories: 
 tags: 

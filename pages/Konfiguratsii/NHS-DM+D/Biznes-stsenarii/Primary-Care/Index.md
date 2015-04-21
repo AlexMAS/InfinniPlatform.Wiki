@@ -14,7 +14,7 @@ tags:
 
 Получить подробную документацию о всех доступных сервисах конфигурации можно по адресу:
 
-http://<servername>:<port>/systemconfig/standardapi/metadata/helpconfiguration/?query={%22id%22:%22dmd%22}
+http://<servername>:<port>/systemconfig/standardapi/metadata/helpconfiguration/?query={"id":"dmd"}
 
 |№|Сценарий|Рекомендации|
 |-|--------|------------|

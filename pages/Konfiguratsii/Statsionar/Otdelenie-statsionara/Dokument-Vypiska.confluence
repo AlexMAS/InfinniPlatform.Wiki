@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Документ "Выписка""
+title: "Документ \"Выписка\""
 position: 
 categories: 
 tags: 
