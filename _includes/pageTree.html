@@ -1,0 +1,15 @@
+<div id="PageTree"></div>
+
+<script>
+	$(document).ready(function() {
+		var pageTreeContainer = document.getElementById('PageTree');
+		
+		if (pageTreeContainer !== null && pageTreeContainer !== undefined) {
+			var pageTreeElement = pageTreeFactoryInstance.createPageTreeElement('{{ include.path }}');
+			
+			if (pageTreeElement !== null && pageTreeElement !== undefined) {
+				pageTreeContainer.appendChild(pageTreeElement);
+			}
+		}
+	});
+</script>

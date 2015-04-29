@@ -1,0 +1,99 @@
+---
+---
+@charset "utf-8";
+
+$indent: 18px;
+$fontSize: 14px;
+$fontSizeRoot: 18px;
+$fontColor: rgba(1, 1, 1, 0.87);
+
+.PageTree {
+	padding: 0;
+	margin: 0;
+	font-style: normal;
+	font-weight: normal;
+	font-size: $fontSize;
+	color: $fontColor;
+}
+
+.PageTree a {
+	color: $fontColor;
+}
+
+.PageTree li {
+	list-style-type: none;
+}
+
+.PageTreeNode {
+	margin-left: $indent;
+    zoom: 1;
+}
+
+.PageTreeAction {
+	width: $indent;
+	height: $indent;
+	float: left;
+}
+
+.PageTreeContent {
+	margin-left: $indent;
+	min-height: $indent;
+}
+
+.PageTreeRootNode {
+	margin-left: 0;
+	margin-top: $indent;
+	margin-bottom: $indent;
+}
+
+.PageTreeSelectedNode {
+	font-weight: bold;
+}
+
+.PageTreeRootNode > .PageTreeAction {
+	display: none;
+}
+
+.PageTreeRootNode > .PageTreeContent {
+	margin-bottom: $indent / 2;
+	font-size: $fontSizeRoot;
+}
+
+.PageTreeRootNode > .PageTreeSelectedNode {
+	font-weight: normal;
+}
+
+.PageTreeOpened .PageTreeAction:before {
+	font-family: FontAwesome;
+	vertical-align: middle;
+	content: "\f107";
+}
+
+.PageTreeClosed .PageTreeAction:before {
+	font-family: FontAwesome;
+	vertical-align: middle;
+	content: "\f105";
+}
+
+.PageTreeItem .PageTreeAction:before {
+	font-family: FontAwesome;
+	vertical-align: middle;
+	content: "\f111";
+	font-size: $fontSize / 3;
+}
+
+.PageTreeOpened .PageTree {
+	display: block;
+}
+
+.PageTreeClosed .PageTree {
+	display: none;
+}
+
+.PageTreeOpened .PageTreeAction, .PageTreeClosed .PageTreeAction {
+	cursor: pointer;
+}
+
+.PageTreeItem .PageTreeAction {
+	cursor: auto;
+}
