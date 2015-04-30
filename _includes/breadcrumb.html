@@ -1,0 +1,15 @@
+<div id="Breadcrumb"></div>
+
+<script>
+	$(document).ready(function() {
+		var breadcrumbContainer = document.getElementById('Breadcrumb');
+		
+		if (breadcrumbContainer !== null && breadcrumbContainer !== undefined) {
+			var breadcrumbElement = breadcrumbFactoryInstance.createBreadcrumbElement('{{ include.path }}');
+			
+			if (breadcrumbElement !== null && breadcrumbElement !== undefined) {
+				breadcrumbContainer.appendChild(breadcrumbElement);
+			}
+		}
+	});
+</script>
