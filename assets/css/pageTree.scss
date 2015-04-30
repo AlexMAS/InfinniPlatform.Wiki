@@ -55,8 +55,7 @@ $fontColor: rgba(1, 1, 1, 0.87);
 }
 
 .PageTreeRootNode > .PageTreeContent {
-	margin-bottom: $indent / 2;
-	font-size: $fontSizeRoot;
+	display: none;
 }
 
 .PageTreeRootNode > .PageTreeSelectedNode {
