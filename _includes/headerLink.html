@@ -1,0 +1,25 @@
+<script>
+	$(document).ready(function() {
+		var headers = $("h2, h3, h4, h5, h6");
+		
+		if (headers !== null && headers !== undefined) {
+			for (var i = 0; i < headers.length; ++i) {
+				var header = headers[i];
+				var headerId = header.id;
+
+				if (!isEmptyString(headerId)) {
+					var headerLink = document.createElement('a');
+					headerLink.className = 'header-link';
+					headerLink.title = 'Permalink to this headline';
+					headerLink.href = '#' + headerId;
+
+					var headerIcon = document.createElement('i');
+					headerIcon.className = 'fa fa-link';
+					headerLink.appendChild(headerIcon);
+
+					header.appendChild(headerLink);
+				}
+			}
+		}
+	});
+</script>
