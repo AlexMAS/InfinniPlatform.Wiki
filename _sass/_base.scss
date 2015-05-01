@@ -119,6 +119,14 @@ h6:hover .header-link {
 	opacity: 1;
 }
 
+*[id]:before { 
+	content: "";
+	display: block;
+	margin-top: -65px;
+	height: 65px;
+	visibility: hidden; 
+}
+
 /**
  * Links
  */
