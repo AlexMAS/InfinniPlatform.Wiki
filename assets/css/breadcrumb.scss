@@ -1,0 +1,39 @@
+/**
+ * Breadcrumb
+ */
+
+.PageBreadcrumb {
+	padding: 0;
+	margin-top: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: $spacing-unit / 2;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	background-color: transparent;
+}
+
+.PageBreadcrumb ol {
+	list-style: none;
+}
+
+.PageBreadcrumb > li {
+	display: inline-block;
+}
+
+.PageBreadcrumb > li + li:before {
+	font-family: FontAwesome;
+	vertical-align: middle;
+	content: "\f105";
+	color: $grey-color-dark;
+	padding: 0 5px;
+}
+
+.PageBreadcrumb a {
+	color: $brand-color;
+}
+
+.PageBreadcrumb > .PageBreadcrumbActive {
+	color: $grey-color-dark;
+}

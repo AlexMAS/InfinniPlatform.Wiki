@@ -32,3 +32,6 @@ $on-laptop: 800px;
 @import "base";
 @import "layout";
 @import "syntax-highlighting";
+
+{% include_relative pageTree.scss %}
+{% include_relative breadcrumb.scss %}
