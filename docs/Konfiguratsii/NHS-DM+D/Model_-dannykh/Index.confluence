@@ -1,9 +1,0 @@
----
-layout: default
-title: "Модель данных"
-position: 0
-categories: 
-tags: 
----
-
-<p>Классификатор DM+D представлен пятью основными справочниками:</p><ul><li class="std-para"><ac:link><ri:page ri:content-title="VirtualTherapeuticMoiety" /><ac:plain-text-link-body><![CDATA[Virtual Therapeutic Moiety (VTM)]]></ac:plain-text-link-body></ac:link></li><li class="std-para"><ac:link><ri:page ri:content-title="VirtualProduct" /><ac:plain-text-link-body><![CDATA[Virtual Medicinal Product (VMP)]]></ac:plain-text-link-body></ac:link></li><li class="std-para"><ac:link><ri:page ri:content-title="ActualProduct" /><ac:plain-text-link-body><![CDATA[Actual Medicinal Product (AMP)]]></ac:plain-text-link-body></ac:link></li><li class="std-para"><ac:link><ri:page ri:content-title="VirtualProductPack" /><ac:plain-text-link-body><![CDATA[Virtual Medicinal Product Pack (VMPP)]]></ac:plain-text-link-body></ac:link></li><li><ac:link><ri:page ri:content-title="ActualProductPack" /><ac:plain-text-link-body><![CDATA[Actual Medicinal Product Pack (AMPP)]]></ac:plain-text-link-body></ac:link></li></ul><p>&nbsp;</p><p>Также в рамках DM+D определен целый ряд вспомогательных справочников:</p><ul><li><ac:link><ri:page ri:content-title="Loockups" /></ac:link></li></ul><p>&nbsp;</p><p>На основе этих данных описывается назначение лекарственного средства:</p><ul><li><ac:link><ri:page ri:content-title="MedicationAdministration" /></ac:link></li></ul><p>&nbsp;</p><p>&nbsp;</p>

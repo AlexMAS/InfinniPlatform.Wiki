@@ -7,7 +7,7 @@ function BreadcrumbFactory(pageTreeBuilder) {
 		if (rootNode !== undefined) {
 			var selectedNode = pageTreeBuilder.getPageByPath();
 
-			if (selectedNode !== undefined) {
+			if (selectedNode !== undefined && selectedNode !== rootNode) {
 				result = document.createElement('ol');
 				result.className = 'PageBreadcrumb';
 

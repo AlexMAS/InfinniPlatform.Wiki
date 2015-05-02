@@ -1,8 +1,7 @@
 ---
 layout: default
-title: "InfinniPlatform Documentation"
+title: "Client SDK"
 position: 
 categories: 
 tags: 
 ---
-

@@ -1,9 +1,0 @@
----
-layout: default
-title: "Медицинская карта стационарного больного (Форма №003/у)"
-position: 0
-categories: 
-tags: 
----
-
-<p>Отчет строиться по 2 документам: <ac:link><ri:page ri:content-title="Документ &laquo;Госпитализация&raquo;" /><ac:plain-text-link-body><![CDATA["Госпитализация"]]></ac:plain-text-link-body></ac:link>,<ac:link><ri:page ri:content-title="Документ &quot;Выписка&quot;" /><ac:plain-text-link-body><![CDATA[ "Выписка"]]></ac:plain-text-link-body></ac:link></p><p>Формат А4.</p><p>Печать отчета возможна из документа&nbsp;<ac:link><ri:page ri:content-title="Документ &quot;Выписка&quot;" /><ac:plain-text-link-body><![CDATA["Выписка"]]></ac:plain-text-link-body></ac:link></p><p>Внешний вид отчета:</p><p><ac:image ac:width="500"><ri:attachment ri:filename="image2014-9-26-11833.png" /></ac:image></p><p><ac:image ac:width="500"><ri:attachment ri:filename="image2014-9-26-11914.png" /></ac:image></p><p>&nbsp;</p>

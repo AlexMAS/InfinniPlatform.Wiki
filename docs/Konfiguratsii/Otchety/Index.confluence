@@ -1,9 +1,0 @@
----
-layout: default
-title: "Отчеты"
-position: 0
-categories: 
-tags: 
----
-
-<p>В данном разделе описывается конфигурация подсистемы построения отчетов.</p><p>&nbsp;</p><p><ac:structured-macro ac:name="pagetree"><ac:parameter ac:name="root"><ac:link><ri:shortcut ri:key="self" ri:parameter="" /></ac:link></ac:parameter></ac:structured-macro></p><p>&nbsp;</p><h4>Связанные страницы</h4><p><ac:link><ri:page ri:content-title="ReportInfo" /><ac:plain-text-link-body><![CDATA[Отчет]]></ac:plain-text-link-body></ac:link></p><p>&nbsp;</p><p>&nbsp;</p>

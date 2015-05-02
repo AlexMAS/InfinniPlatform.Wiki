@@ -1,9 +1,0 @@
----
-layout: default
-title: "Контактные данные (ContactInformation)"
-position: 
-categories: 
-tags: 
----
-
-<p><span><strong>ContactInformation</strong></span></p><table><tbody><tr><td><p><strong>Наименование</strong></p></td><td><p><strong>Тип данных</strong></p></td><td><p><strong>Заголовок</strong></p></td><td><p><strong>Описание</strong></p></td><td><p><strong>Дополнительные условия</strong></p></td><td><p><strong>Комментарий</strong></p></td></tr><tr><td class="highlight-red" data-highlight-colour="red"><p>Name</p></td><td class="highlight-red" data-highlight-colour="red"><p>Object</p></td><td class="highlight-red" data-highlight-colour="red"><p>Тип контакта</p></td><td class="highlight-red" data-highlight-colour="red"><p>Тип контакта</p></td><td class="highlight-red" data-highlight-colour="red"><p>Справочник <ac:link><ri:page ri:content-title="Справочники ИЭМК 2.0" /><ac:plain-text-link-body><![CDATA[«Тип контакта»]]></ac:plain-text-link-body></ac:link></p></td><td class="highlight-red" data-highlight-colour="red"><p>---</p></td></tr><tr><td class="highlight-red" data-highlight-colour="red"><p>Value</p></td><td class="highlight-red" data-highlight-colour="red"><p>String&nbsp;</p></td><td class="highlight-red" data-highlight-colour="red"><p>Значение</p></td><td class="highlight-red" data-highlight-colour="red"><p>Номер телефона, факса или E-mail</p></td><td class="highlight-red" data-highlight-colour="red"><p>---</p></td><td class="highlight-red" data-highlight-colour="red"><p>---</p></td></tr></tbody></table><p><strong style="line-height: 1.4285715;">Валидация на обязательность полей</strong></p><table><tbody><tr><td><p align="center"><strong>Поле</strong></p></td><td><p align="center"><strong>Обязательность</strong></p></td></tr><tr><td><p><span>Name</span></p><p><span>Value</span></p></td><td><p>Обязательны (выделены красным в описании полей документа)</p></td></tr></tbody></table>
