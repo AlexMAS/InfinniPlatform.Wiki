@@ -1,0 +1,61 @@
+/**
+ * CSS code for using typeahead.js with Bootstrap 3
+ */
+
+span.twitter-typeahead {
+	width: 100%;
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+}
+
+input.typeahead {
+	padding-left: 2px !important;
+	padding-right: 2px !important;
+	border: 1px solid $grey-color !important;
+}
+
+input.typeahead.tt-hint {
+	color: $grey-color-dark !important;
+}
+
+div.tt-menu {
+	padding: 5px !important;
+	margin-top: 2px !important;
+	border: 1px solid $grey-color !important;
+	background-color: $background-color !important;
+}
+
+div.tt-suggestion.tt-selectable {
+	padding: 5px !important;
+	color: $text-color !important;
+	background-color: transparent !important;
+}
+
+div.tt-suggestion.tt-selectable.tt-cursor, div.tt-suggestion.tt-selectable:hover {
+	color: $background-color !important;
+	background-color: $brand-color !important;
+}
+
+div.tt-suggestion.tt-selectable > strong.tt-highlight {
+	color: $text-color !important;
+}
+
+div.tt-suggestion.tt-selectable.tt-cursor > strong.tt-highlight, div.tt-suggestion.tt-selectable:hover > strong.tt-highlight {
+	color: $background-color !important;
+}
+
+.input-group span.twitter-typeahead {
+	display: block !important;
+}
+
+.input-group span.twitter-typeahead .tt-dropdown-menu {
+	top: 32px !important;
+}
+
+.input-group.input-group-lg span.twitter-typeahead .tt-dropdown-menu {
+	top: 44px !important;
+}
+
+.input-group.input-group-sm span.twitter-typeahead .tt-dropdown-menu {
+	top: 28px !important;
+}

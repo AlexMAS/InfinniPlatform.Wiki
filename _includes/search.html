@@ -1,0 +1,40 @@
+<script>
+	$(document).ready(function() {
+		var pageTree = pageTreeBuilder.getPageTree();
+		
+		if (pageTree !== null && pageTree !== undefined) {
+			var matcher = function(source) {
+				return function findMatches(query, addMatches) {
+					var matches = [];
+					var substrRegex = new RegExp(query, 'i');
+
+					for (var key in source) {
+						var page = source[key].page;
+
+						if (!isEmptyString(page.url) && page.url != '#' && substrRegex.test(page.title)) {
+							matches.push(page);
+						}
+					}
+
+					addMatches(matches);
+				};
+			};
+
+			$('#search .typeahead').typeahead({
+				hint: true,
+				highlight: true,
+				minLength: 1,
+			},
+			{
+				name: 'pageTree',				
+				display: 'title',
+				source: matcher(pageTree)
+			})
+			.bind('typeahead:select', function(event, value) {
+				if (value !== null && value !== undefined) {
+					window.location = value.url;
+				}
+			});
+		}
+	});
+</script>
