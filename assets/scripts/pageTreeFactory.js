@@ -2,9 +2,14 @@ function PageTreeFactory(pageTreeBuilder) {
 	
 	this.createPageTreeElement = function(path) {
 		var result = undefined;
+
+		if (isEmptyString(path)) {
+			path = pageTreeBuilder.getRootPath();
+		}
+
 		var rootNode = pageTreeBuilder.getPageByPath(path);
 
-		if (rootNode !== undefined) {
+		if (rootNode !== undefined && rootNode.children.length > 0) {
 			var selectedNode = pageTreeBuilder.getPageByPath();
 			result = createPageNodeElement(rootNode, selectedNode, rootNode);
 			result.onclick = togglePageNode;

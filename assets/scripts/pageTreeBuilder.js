@@ -1,5 +1,23 @@
 function PageTreeBuilder() {
 
+	this.getRootPath = function(path) {
+		var selectedNode = this.getPageByPath(path);
+
+		if (selectedNode !== undefined) {
+			var parent = undefined;
+			var current = selectedNode;
+
+			while (current.parent !== undefined) {
+				parent = current;
+				current = current.parent;
+			}
+
+			return parent.page.url;
+		}
+
+		return undefined;
+	}
+
 	this.getPageByPath = function(path) {
 		var pageTree = this.getPageTree();
 

@@ -8,6 +8,7 @@
 			var pageTreeElement = pageTreeFactoryInstance.createPageTreeElement('{{ include.path }}');
 			
 			if (pageTreeElement !== null && pageTreeElement !== undefined) {
+				pageTreeContainer.className = 'navbar navbar-default';
 				pageTreeContainer.appendChild(pageTreeElement);
 			}
 		}
