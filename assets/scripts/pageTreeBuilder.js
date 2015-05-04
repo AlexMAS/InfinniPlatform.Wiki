@@ -1,6 +1,16 @@
 function PageTreeBuilder() {
 
 	this.getRootPath = function(path) {
+		var rootPage = this.getRootPage(path);
+
+		if (rootPage !== undefined) {
+			return rootPage.page.url;
+		}
+
+		return undefined;
+	}
+
+	this.getRootPage = function(path) {
 		var selectedNode = this.getPageByPath(path);
 
 		if (selectedNode !== undefined) {
@@ -12,7 +22,7 @@ function PageTreeBuilder() {
 				current = current.parent;
 			}
 
-			return parent.page.url;
+			return parent;
 		}
 
 		return undefined;
@@ -55,6 +65,11 @@ function PageTreeBuilder() {
 			buildPageNode(pageTree, pages, pages[key].path);
 		}
 
+		for (var key in pageTree) {
+			var pageNode = pageTree[key];
+			pageNode.children = pageNode.children.sort(comparePageNode);
+		}
+
 		builder.pageTree = pageTree;
 	}
 
@@ -82,6 +97,19 @@ function PageTreeBuilder() {
 		}
 
 		return pageNode;
+	}
+
+	function comparePageNode(pageNode1, pageNode2) {
+		var position1 = pageNode1.page.position || 0;
+		var position2 = pageNode2.page.position || 0;
+
+		if (position1 === position2) {
+			var title1 = pageNode1.page.title || '';
+			var title2 = pageNode2.page.title || '';
+			return title1.localeCompare(title2);
+		}
+
+		return (position1 > position2) ? 1 : -1;
 	}
 	
 	function findPageByPath(pages, path) {

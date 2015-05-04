@@ -51,10 +51,10 @@ function PageTreeFactory(pageTreeBuilder) {
 		if (pageNode.children.length > 0) {
 			pageHeaderElement.className += isOpenedPageNode(selectedNode, pageNode) ? ' PageTreeOpened' : ' PageTreeClosed';
 
-			var sortedChildren = pageNode.children.sort(comparePageNode);
+			var children = pageNode.children;
 
-			for (var i = 0; i < sortedChildren.length; ++i) {
-				var childNode = sortedChildren[i];
+			for (var i = 0; i < children.length; ++i) {
+				var childNode = children[i];
 				var childElement = createPageNodeElement(rootNode, selectedNode, childNode);
 				pageHeaderElement.appendChild(childElement);
 			}
@@ -64,23 +64,6 @@ function PageTreeFactory(pageTreeBuilder) {
 		}
 
 		return pageElement;
-	}
-
-	function comparePageNode(pageNode1, pageNode2) {
-		var position1 = pageNode1.page.position || 0;
-		var position2 = pageNode2.page.position || 0;
-
-		if (position1 == position2) {
-			var title1 = pageNode1.page.title || '';
-			var title2 = pageNode2.page.title || '';
-			return title1.localeCompare(title2);
-		}
-
-		if (position1 > position2) {
-			return 1;
-		}
-
-		return -1;
 	}
 
 	function isOpenedPageNode(selectedNode, pageNode) {

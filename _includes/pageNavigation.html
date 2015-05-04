@@ -1,0 +1,31 @@
+<nav class="PageNavigation">
+	<ul class="pager">
+		<li id="BackPageButton" class="previous disabled"><a href="#" class="not-active"><span aria-hidden="true">&larr;</span> Back</a></li>
+		<li id="NextPageButton" class="next disabled"><a href="#" class="not-active">Next <span aria-hidden="true">&rarr;</span></a></li>
+	</ul>
+</nav>
+
+<script>
+	$(document).ready(function() {
+		var backPage = pageNavigationInstance.getBackPage();
+		var nextPage = pageNavigationInstance.getNextPage();
+		enableNavigationButton('BackPageButton', backPage);
+		enableNavigationButton('NextPageButton', nextPage);
+	});
+
+	function enableNavigationButton(pageButton, pageNode) {
+		if (pageNode !== undefined) {
+			var pageButton = document.getElementById(pageButton);
+
+			if (pageButton !== null && pageButton !== undefined) {
+				var pageButtonLink = pageButton.children[0];
+
+				if (pageButtonLink !== null && pageButtonLink !== undefined) {
+					pageButton.className = pageButton.className.replace(' disabled', '');
+					pageButtonLink.href = pageNode.page.url;
+					pageButtonLink.className = '';
+				}
+			}
+		}
+	}
+</script>

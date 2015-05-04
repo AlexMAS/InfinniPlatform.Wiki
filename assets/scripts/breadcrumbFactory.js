@@ -2,6 +2,11 @@ function BreadcrumbFactory(pageTreeBuilder) {
 
 	this.createBreadcrumbElement = function(path) {
 		var result = undefined;
+
+		if (isEmptyString(path)) {
+			path = pageTreeBuilder.getRootPath();
+		}
+
 		var rootNode = pageTreeBuilder.getPageByPath(path);
 
 		if (rootNode !== undefined) {
