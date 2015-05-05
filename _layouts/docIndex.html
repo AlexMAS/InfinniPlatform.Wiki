@@ -1,0 +1,44 @@
+---
+layout: default
+title: "Index"
+---
+
+{% assign basePath = page.basePath %}
+{% assign outEndList = false %}
+{% assign sortedPages = site.pages | sort: "title" %}
+
+<ul class="IndexContents">
+{% for page in sortedPages %}
+	{% if page.path contains basePath %}
+		{% assign titleSize = page.title | size %}
+
+		{% if titleSize > 0 %}
+			{% capture titleSymbol %}{{ page.title | split: "" | first }}{% endcapture %}
+
+			{% if titleSymbol != titleSymbolNext %}
+				<li><a href="#{{titleSymbol}}">{{ titleSymbol }}</a></li>
+				{% capture titleSymbolNext %}{{ titleSymbol }}{% endcapture %}
+			{% endif %}
+		{% endif %}
+	{% endif %}
+{% endfor %}
+</ul>
+
+{% for page in sortedPages %}
+	{% if page.path contains basePath %}
+		{% assign titleSize = page.title | size %}
+
+		{% if titleSize > 0 %}
+			{% capture titleSymbol %}{{ page.title | split: "" | first }}{% endcapture %}
+
+			{% if titleSymbol != titleSymbolNext %}
+				{% if outEndList %}</ul>{% endif %}
+				{% assign outEndList = true %}
+				<h2 id="{{ titleSymbol }}">{{ titleSymbol }}</h2>
+				<ul class="IndexPages">
+				{% capture titleSymbolNext %}{{ titleSymbol }}{% endcapture %}
+			{% endif %}
+			<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+		{% endif %}
+	{% endif %}
+{% endfor %}

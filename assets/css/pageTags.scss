@@ -1,0 +1,46 @@
+/**
+ * PageTags
+ */
+
+.PageTags {
+	padding: 0;
+	margin-top: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: $spacing-unit;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	background-color: transparent;
+	color: $grey-color-dark;
+}
+
+.PageTags:before {
+	padding-right: 12px;
+	font-family: FontAwesome;
+	vertical-align: middle;
+	content: "\f02c";
+}
+
+.PageTags ul {
+	list-style: none;
+}
+
+.PageTags > li {
+	display: inline-block;
+}
+
+.PageTags a {
+	padding: 0.3em 0.5em;
+	margin-right: 0.5em;
+	line-height: 1;
+	white-space: nowrap;
+	display: inline-block;
+	color: $brand-color;
+	background-color: $grey-color;
+}
+
+.PageTags a:hover {
+	color: $brand-color-dark;
+	text-decoration: none;
+}

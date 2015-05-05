@@ -1,0 +1,38 @@
+/**
+ * Alphabetical Index
+ */
+
+.IndexContents {
+	padding: 0;
+	margin-top: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: $spacing-unit;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	background-color: transparent;
+}
+
+.IndexContents ul {
+	list-style: none;
+}
+
+.IndexContents > li {
+	display: inline-block;
+}
+
+.IndexContents > li + li:before {
+	vertical-align: middle;
+	content: "|";
+	color: $grey-color-dark;
+	padding: 0 5px;
+}
+
+.IndexContents a {
+	color: $brand-color;
+}
+
+.IndexPages > li {
+	font-size: 14px;
+}

@@ -13,6 +13,7 @@ $text-color: rgba(0, 0, 0, 0.87);
 
 $background-color: #fdfdfd;
 $brand-color: #2a7ae2;
+$brand-color-dark: darken($brand-color, 15%);
 $grey-color: #e7e7e7;
 $grey-color-light: #f8f8f8;
 $grey-color-dark: darken($grey-color, 25%);
@@ -37,3 +38,5 @@ $on-laptop: 800px;
 {% include_relative breadcrumb.scss %}
 {% include_relative pageNavigation.scss %}
 {% include_relative typeahead.js.scss %}
+{% include_relative pageTags.scss %}
+{% include_relative misc.scss %}

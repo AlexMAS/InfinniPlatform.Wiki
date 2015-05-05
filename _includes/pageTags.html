@@ -1,0 +1,29 @@
+{% capture build %}
+
+{% assign result = '' %}
+{% assign allTags = '' %}
+{% assign uniqTags = '' %}
+
+{% assign allTags = page.tags | replace: ',', ' ' | replace: ';', ' ' | strip | split: ' ' %}
+
+{% for tag in allTags %}
+	{% unless uniqTags contains tag %}
+		{% assign uniqTags = uniqTags | append: ' ' | append: tag %}
+	{% endunless %}
+{% endfor %}
+
+{% assign allTags = uniqTags | split: ' ' %}
+
+{% if allTags.size > 0 %}
+	{% assign result = result | append: '<ul class="PageTags">' %}
+	
+	{% for tag in allTags %}
+		{% assign result = result | append: '<li><a href="/tags/#' | append: tag | append: '">' | append: tag | append: '</a></li>' %}
+	{% endfor %}
+	
+	{% assign result = result | append: '</ul>' %}
+{% endif %}
+
+{% endcapture %}
+
+{{ result }}
