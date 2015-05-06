@@ -1,6 +1,6 @@
 function PageTreeFactory(pageTreeBuilder) {
 	
-	this.createPageTreeElement = function(path) {
+	this.createPageTreeElement = function(path, expanded) {
 		var result = undefined;
 
 		if (isEmptyString(path)) {
@@ -11,14 +11,14 @@ function PageTreeFactory(pageTreeBuilder) {
 
 		if (rootNode !== undefined && rootNode.children.length > 0) {
 			var selectedNode = pageTreeBuilder.getPageByPath();
-			result = createPageNodeElement(rootNode, selectedNode, rootNode);
+			result = createPageNodeElement(rootNode, selectedNode, rootNode, expanded);
 			result.onclick = togglePageNode;
 		}
 
 		return result;
 	}
 
-	function createPageNodeElement(rootNode, selectedNode, pageNode) {
+	function createPageNodeElement(rootNode, selectedNode, pageNode, expanded) {
 		var pageElement = document.createElement('ul');
 		pageElement.className = 'PageTree';
 
@@ -49,13 +49,13 @@ function PageTreeFactory(pageTreeBuilder) {
 		}
 
 		if (pageNode.children.length > 0) {
-			pageHeaderElement.className += isOpenedPageNode(selectedNode, pageNode) ? ' PageTreeOpened' : ' PageTreeClosed';
+			pageHeaderElement.className += (expanded || isOpenedPageNode(selectedNode, pageNode)) ? ' PageTreeOpened' : ' PageTreeClosed';
 
 			var children = pageNode.children;
 
 			for (var i = 0; i < children.length; ++i) {
 				var childNode = children[i];
-				var childElement = createPageNodeElement(rootNode, selectedNode, childNode);
+				var childElement = createPageNodeElement(rootNode, selectedNode, childNode, expanded);
 				pageHeaderElement.appendChild(childElement);
 			}
 		}

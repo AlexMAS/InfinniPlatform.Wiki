@@ -11,7 +11,7 @@
 
 			<div class="row">
 				<div class="col-md-4">
-					{% include pageTree.html %}
+					{% include pageTree.html id='MainPageTree' class='MainPageTree' expanded='false' %}
 				</div>
 				<div class="col-md-8">
 					{% include breadcrumb.html %}
@@ -19,14 +19,9 @@
 					<div class="PageContent">
 						{{ content }}
 					</div>
-					<div>
-						{% include pageTags.html %}
-					</div>
+					{% include pageTags.html %}
 					{% include pageNavigation.html %}
 				</div>
-			</div>
-
-			<div class="row">
 				<div class="col-md-4">
 				</div>
 				<div class="col-md-8">

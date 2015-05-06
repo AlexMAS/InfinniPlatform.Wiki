@@ -1,14 +1,14 @@
-<div id="PageTree"></div>
+<div id="{{ include.id }}"></div>
 
 <script>
 	$(document).ready(function() {
-		var pageTreeContainer = document.getElementById('PageTree');
-		
+		var pageTreeContainer = document.getElementById('{{ include.id }}');
+
 		if (pageTreeContainer !== null && pageTreeContainer !== undefined) {
-			var pageTreeElement = pageTreeFactoryInstance.createPageTreeElement('{{ include.path }}');
-			
+			var pageTreeElement = pageTreeFactoryInstance.createPageTreeElement('{{ include.path }}', {{ include.expanded }});
+
 			if (pageTreeElement !== null && pageTreeElement !== undefined) {
-				pageTreeContainer.className = 'navbar navbar-default';
+				pageTreeContainer.className = '{{ include.class }}';
 				pageTreeContainer.appendChild(pageTreeElement);
 			}
 		}

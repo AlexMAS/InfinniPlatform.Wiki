@@ -7,6 +7,12 @@ $fontSize: 14px;
 $fontSizeRoot: 18px;
 $fontColor: rgba(1, 1, 1, 0.87);
 
+.MainPageTree {
+	background-color: $grey-color-light;
+	border: 1px solid $grey-color;
+	border-radius: 3px;
+}
+
 .PageTree {
 	padding: 0;
 	margin: 0;
@@ -16,12 +22,13 @@ $fontColor: rgba(1, 1, 1, 0.87);
 	color: $fontColor;
 }
 
-.PageTree a {
+.MainPageTree > .PageTree a {
 	color: $fontColor;
 }
 
 .PageTree li {
 	list-style-type: none;
+	word-wrap: break-word;
 }
 
 .PageTreeNode {
