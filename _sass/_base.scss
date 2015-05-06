@@ -128,23 +128,6 @@ h6:hover .header-link {
 }
 
 /**
- * Links
- */
-a {
-	color: $brand-color;
-	text-decoration: none;
-
-	&:visited {
-		color: $brand-color-dark;
-	}
-
-	&:hover {
-		color: $text-color;
-		text-decoration: underline;
-	}
-}
-
-/**
  * Blockquotes
  */
 blockquote {

@@ -3,7 +3,7 @@ layout: default
 title: "TextStyle"
 position: 
 categories: 
-tags: 
+tags: spec style text
 ---
 
 Стиль текста.

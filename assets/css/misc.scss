@@ -25,12 +25,8 @@
 .IndexContents > li + li:before {
 	vertical-align: middle;
 	content: "|";
-	color: $grey-color-dark;
+	color: $grey-color;
 	padding: 0 5px;
-}
-
-.IndexContents a {
-	color: $brand-color;
 }
 
 .IndexPages > li {
