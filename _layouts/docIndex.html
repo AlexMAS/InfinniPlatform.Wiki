@@ -3,11 +3,15 @@ layout: default
 title: "Index"
 ---
 
+{% capture build %}
+
+{% assign result = '' %}
 {% assign basePath = page.basePath %}
+
 {% assign outEndList = false %}
 {% assign sortedPages = site.pages | sort: "title" %}
+{% assign result = result | append: '<ul class="IndexContents">' %}
 
-<ul class="IndexContents">
 {% for page in sortedPages %}
 	{% if page.path contains basePath %}
 		{% assign titleSize = page.title | size %}
@@ -16,13 +20,14 @@ title: "Index"
 			{% capture titleSymbol %}{{ page.title | split: "" | first }}{% endcapture %}
 
 			{% if titleSymbol != titleSymbolNext %}
-				<li><a href="#{{titleSymbol}}">{{ titleSymbol }}</a></li>
+				{% assign result = result | append: '<li><a href="#' | append: titleSymbol | append: '">' | append: titleSymbol | append: '</a></li>' %}
 				{% capture titleSymbolNext %}{{ titleSymbol }}{% endcapture %}
 			{% endif %}
 		{% endif %}
 	{% endif %}
 {% endfor %}
-</ul>
+
+{% assign result = result | append: '</ul>' %}
 
 {% for page in sortedPages %}
 	{% if page.path contains basePath %}
@@ -32,13 +37,21 @@ title: "Index"
 			{% capture titleSymbol %}{{ page.title | split: "" | first }}{% endcapture %}
 
 			{% if titleSymbol != titleSymbolNext %}
-				{% if outEndList %}</ul>{% endif %}
+				{% if outEndList %}
+					{% assign result = result | append: '</ul>' %}
+				{% endif %}
+
 				{% assign outEndList = true %}
-				<h2 id="{{ titleSymbol }}">{{ titleSymbol }}</h2>
-				<ul class="IndexPages">
+				{% assign result = result | append: '<h2 id="' | append: titleSymbol | append: '">' | append: titleSymbol | append: '</h2>' %}
+				{% assign result = result | append: '<ul class="IndexPages">' %}
 				{% capture titleSymbolNext %}{{ titleSymbol }}{% endcapture %}
 			{% endif %}
-			<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+
+			{% assign result = result | append: '<li><a href="' | append: page.url | append: '">' | append: page.title | append: '</a></li>' %}
 		{% endif %}
 	{% endif %}
 {% endfor %}
+
+{% endcapture %}
+
+{{result}}
