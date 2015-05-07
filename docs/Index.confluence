@@ -1,9 +1,0 @@
----
-layout: default
-title: "InfinniPlatform Home"
-position: 
-categories: 
-tags: 
----
-
-<ac:layout><ac:layout-section ac:type="two_left_sidebar"><ac:layout-cell><p><ac:structured-macro ac:name="pagetreesearch" /></p><p><ac:structured-macro ac:name="pagetree" /></p></ac:layout-cell><ac:layout-cell><p>&nbsp;</p></ac:layout-cell></ac:layout-section></ac:layout>

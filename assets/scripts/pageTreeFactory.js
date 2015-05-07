@@ -66,6 +66,53 @@ function PageTreeFactory(pageTreeBuilder) {
 		return pageElement;
 	}
 
+	function createNavigationPanel(rootNode) {
+		var rootNode = pageTreeBuilder.getPageByPath(pageTreeBuilder.getRootPath());
+		var pageContents = findPageByFileName(rootNode, 'DocContents');
+		var pageIndex = findPageByFileName(rootNode, 'DocIndex');
+		var pageTags = findPageByFileName(rootNode, 'DocTags');
+
+		if (pageContents !== undefined || pageIndex !== undefined || pageTags !== undefined) {
+			var panelElement = document.createElement('ul');
+			panelElement.className = 'PageTreeNavigationPanel';
+
+			if (pageContents !== undefined) {
+				var itemElement = createNavigationItem(pageContents);
+				panelElement.appendChild(itemElement);
+			}
+
+			if (pageIndex !== undefined) {
+				var itemElement = createNavigationItem(pageIndex);
+				panelElement.appendChild(itemElement);
+			}
+
+			if (pageTags !== undefined) {
+				var itemElement = createNavigationItem(pageTags);
+				panelElement.appendChild(itemElement);
+			}
+
+			return panelElement;
+		}
+
+		return undefined;
+	}
+
+	function createNavigationItem(pageNode) {
+		var pageNodeUrl = pageNode.page.url;
+		var itemElement = document.createElement('li');
+		var itemLinkElement = document.createElement('a');
+		itemLinkElement.href = isEmptyString(pageNodeUrl) ? '#' : pageNodeUrl;
+		itemLinkElement.innerText = pageNode.page.title;
+		itemElement.appendChild(itemLinkElement);
+		return itemElement;
+	}
+
+	function findPageByFileName(pageNode, fileName) {
+		return findArrayItem(pageNode.children, function(i) { 
+			return new RegExp('\/*' + fileName + '(\.[^/])*\/*$', 'i').test(i.page.path);
+		});
+	}
+
 	function isOpenedPageNode(selectedNode, pageNode) {
 		if (selectedNode !== null && selectedNode !== undefined) {
 			var parent = selectedNode;

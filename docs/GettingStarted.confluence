@@ -1,9 +1,0 @@
----
-layout: default
-title: "Getting Started"
-position: 0
-categories: 
-tags: 
----
-
-<p>Скринкасты для работы с InfinniPlatform доступны по ссылке&nbsp;<a href="http://www.screencast.com/users/eugene5010/folders/InfinniPlatform">http://www.screencast.com/users/eugene5010/folders/InfinniPlatform</a></p><table><tbody><tr><th>Наименование видео</th><th>Описание</th></tr><tr><td>startwork</td><td>Начало работы с конфигурацией</td></tr><tr><td>addconfig</td><td>Добавление новой конфигурации</td></tr><tr><td>exportconfig</td><td>Экспорт существующих конфигураций из папки проекта Mis</td></tr><tr><td colspan="1">createmodel</td><td colspan="1">Создание схемы документа</td></tr><tr><td colspan="1">inlineandresolve</td><td colspan="1">Концепция встроенных (Inline) и внешних (resolve) ссылок</td></tr></tbody></table>
