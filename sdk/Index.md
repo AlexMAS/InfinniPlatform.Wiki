@@ -1,7 +1,5 @@
 ---
 layout: default
-title: "Client SDK"
-position: 
-categories: 
+title: "InfinniPlatform Client SDK"
 tags: 
 ---
