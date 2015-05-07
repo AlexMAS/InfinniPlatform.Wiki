@@ -32,3 +32,13 @@
 .IndexPages > li {
 	font-size: 14px;
 }
+
+.PostList {
+	margin: 0;
+	list-style: none;
+}
+
+.PostList li {
+	margin: 0;
+	padding-bottom: $spacing-unit;
+}

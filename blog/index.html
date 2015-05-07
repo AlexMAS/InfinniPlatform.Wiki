@@ -2,13 +2,11 @@
 layout: page
 title: "Posts"
 ---
-<div class="Page">
-	<ul class="PostList">
-		{% for post in site.posts %}
-			<li>
-				<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-				<h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-			</li>
-		{% endfor %}
-	</ul>
-</div>
+<ul class="PostList">
+	{% for post in site.posts %}
+		<li>
+			<h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+			<p>{{ post.excerpt }}</p>
+		</li>
+	{% endfor %}
+</ul>
