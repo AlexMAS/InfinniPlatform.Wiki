@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "IsEqual"
 position: 1
 categories: 

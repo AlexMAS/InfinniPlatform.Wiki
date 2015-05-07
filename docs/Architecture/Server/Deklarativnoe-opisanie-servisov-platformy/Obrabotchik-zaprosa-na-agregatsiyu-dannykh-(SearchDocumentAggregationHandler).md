@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Обработчик запроса на агрегацию данных (SearchDocumentAggregationHandler)"
 position: 
 categories: 

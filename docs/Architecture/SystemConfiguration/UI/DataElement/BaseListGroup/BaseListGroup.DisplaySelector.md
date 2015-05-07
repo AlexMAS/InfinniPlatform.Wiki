@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListGroup.DisplaySelector"
 position: 2
 categories: 

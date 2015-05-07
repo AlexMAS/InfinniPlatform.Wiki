@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementBarcodeEan13.Rotation"
 position: 3
 categories: 

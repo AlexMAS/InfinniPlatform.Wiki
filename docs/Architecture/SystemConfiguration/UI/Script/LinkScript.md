@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "LinkScript"
 position: 2
 categories: 

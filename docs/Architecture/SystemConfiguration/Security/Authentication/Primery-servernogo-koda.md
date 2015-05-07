@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Примеры серверного кода"
 position: 4
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "GetExternalProviders"
 position: 6
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ToolBarSeparator"
 position: 3
 categories: 

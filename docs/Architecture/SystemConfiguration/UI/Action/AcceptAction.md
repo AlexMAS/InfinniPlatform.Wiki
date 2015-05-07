@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "AcceptAction"
 position: 1
 categories: 

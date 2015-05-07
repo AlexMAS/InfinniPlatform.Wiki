@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "VisualElement"
 position: 2
 categories: 

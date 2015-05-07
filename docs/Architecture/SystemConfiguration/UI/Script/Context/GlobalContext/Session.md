@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Session"
 position: 2
 categories: 

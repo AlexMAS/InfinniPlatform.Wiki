@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementListMarkerStyle"
 position: 4
 categories: 

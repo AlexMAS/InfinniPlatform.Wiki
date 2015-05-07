@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "IsMoreThan"
 position: 14
 categories: 

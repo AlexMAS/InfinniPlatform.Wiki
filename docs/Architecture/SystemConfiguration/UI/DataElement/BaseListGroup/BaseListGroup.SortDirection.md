@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListGroup.SortDirection"
 position: 6
 categories: 

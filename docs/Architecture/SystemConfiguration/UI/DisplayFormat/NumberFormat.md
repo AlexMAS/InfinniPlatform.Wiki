@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "NumberFormat"
 position: 3
 categories: 

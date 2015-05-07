@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Настройка ADFS"
 position: 1
 categories: 

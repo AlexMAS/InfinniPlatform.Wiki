@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListElement.DisplayProperty"
 position: 4
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Реализация RestQueryApi платформы (Low-level API)"
 position: 
 categories: 

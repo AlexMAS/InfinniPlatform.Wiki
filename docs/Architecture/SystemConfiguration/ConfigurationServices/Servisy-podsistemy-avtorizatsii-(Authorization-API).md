@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Сервисы подсистемы авторизации (Authorization API)"
 position: 6
 categories: 

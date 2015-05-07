@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Шаблон формы выбора элементов дерева"
 position: 5
 categories: 

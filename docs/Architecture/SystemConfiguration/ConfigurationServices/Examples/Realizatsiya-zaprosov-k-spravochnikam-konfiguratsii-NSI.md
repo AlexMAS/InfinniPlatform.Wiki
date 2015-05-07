@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Реализация запросов к справочникам конфигурации НСИ"
 position: 
 categories: 

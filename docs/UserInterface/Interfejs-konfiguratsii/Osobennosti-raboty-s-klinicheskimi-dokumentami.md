@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Особенности работы с клиническими документами"
 position: 5
 categories: 

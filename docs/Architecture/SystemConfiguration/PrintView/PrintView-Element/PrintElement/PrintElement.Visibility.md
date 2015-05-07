@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElement.Visibility"
 position: 6
 categories: 

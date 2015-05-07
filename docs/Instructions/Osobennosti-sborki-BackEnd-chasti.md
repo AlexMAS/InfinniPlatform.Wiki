@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Особенности сборки BackEnd-части"
 position: 
 categories: 

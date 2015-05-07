@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "OpenViewAction"
 position: 12
 categories: 

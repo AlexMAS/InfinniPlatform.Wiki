@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListElement.GetFocusedValue"
 position: 12
 categories: 

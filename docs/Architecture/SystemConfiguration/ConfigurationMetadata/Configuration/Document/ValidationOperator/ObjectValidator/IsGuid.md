@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "IsGuid"
 position: 3
 categories: 

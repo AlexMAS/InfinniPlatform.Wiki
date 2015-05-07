@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementBlock"
 position: 4
 categories: 

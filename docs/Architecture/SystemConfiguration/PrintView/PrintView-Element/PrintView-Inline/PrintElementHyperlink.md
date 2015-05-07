@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementHyperlink"
 position: 5
 categories: 

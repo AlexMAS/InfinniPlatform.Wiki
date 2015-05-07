@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Примеры"
 position: 19
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListElement.SetItems"
 position: 21
 categories: 

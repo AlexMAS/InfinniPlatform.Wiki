@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Редакторы .NET-сборок"
 position: 
 categories: 

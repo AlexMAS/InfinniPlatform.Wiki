@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListElement.MultiSelect"
 position: 0
 categories: 

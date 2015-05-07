@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Интерпретация метаданных"
 position: 1
 categories: 

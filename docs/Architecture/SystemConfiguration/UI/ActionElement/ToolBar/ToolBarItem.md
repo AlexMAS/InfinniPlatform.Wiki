@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ToolBarItem"
 position: 0
 categories: 

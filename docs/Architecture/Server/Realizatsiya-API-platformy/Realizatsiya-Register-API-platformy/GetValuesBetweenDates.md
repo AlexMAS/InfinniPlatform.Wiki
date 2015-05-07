@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Получение результата агрегации по регистру в период между двумя датами (GetValuesBetweenDates)"
 position: 
 categories: 

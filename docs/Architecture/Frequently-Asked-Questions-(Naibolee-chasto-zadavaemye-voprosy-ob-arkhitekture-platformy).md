@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Frequently Asked Questions"
 position: 4
 categories: 

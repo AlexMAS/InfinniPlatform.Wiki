@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "CancelAction"
 position: 2
 categories: 

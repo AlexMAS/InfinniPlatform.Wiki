@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "RegexEditMask"
 position: 4
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListGroup.Collapsed"
 position: 8
 categories: 

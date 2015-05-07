@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "DisplayFormat"
 position: 9
 categories: 

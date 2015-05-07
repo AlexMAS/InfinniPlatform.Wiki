@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Архитектура"
 position: 3
 categories: 

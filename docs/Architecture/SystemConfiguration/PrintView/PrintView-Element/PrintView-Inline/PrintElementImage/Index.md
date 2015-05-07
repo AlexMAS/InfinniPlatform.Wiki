@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementImage"
 position: 8
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Action Bar"
 position: 3
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Font.Stretch"
 position: 3
 categories: 

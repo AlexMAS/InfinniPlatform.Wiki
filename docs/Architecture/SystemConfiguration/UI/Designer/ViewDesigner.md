@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ViewDesigner"
 position: 1
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElement.Font"
 position: 2
 categories: 

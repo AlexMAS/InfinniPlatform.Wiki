@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "FilteredList"
 position: 2
 categories: 

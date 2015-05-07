@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ViewType"
 position: 1
 categories: 

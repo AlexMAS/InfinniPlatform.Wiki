@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Модель данных объектов безопасности"
 position: 2
 categories: 

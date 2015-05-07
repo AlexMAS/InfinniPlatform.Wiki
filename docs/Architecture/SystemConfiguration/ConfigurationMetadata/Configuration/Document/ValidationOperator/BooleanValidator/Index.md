@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BooleanValidator"
 position: 
 categories: 

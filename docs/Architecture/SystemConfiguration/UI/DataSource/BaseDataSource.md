@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseDataSource"
 position: 0
 categories: 

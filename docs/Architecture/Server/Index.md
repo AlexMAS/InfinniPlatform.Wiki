@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Архитектура серверной части"
 position: 1
 categories: 

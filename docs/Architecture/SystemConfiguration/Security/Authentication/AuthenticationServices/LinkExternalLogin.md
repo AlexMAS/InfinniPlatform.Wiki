@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "LinkExternalLogin"
 position: 9
 categories: 

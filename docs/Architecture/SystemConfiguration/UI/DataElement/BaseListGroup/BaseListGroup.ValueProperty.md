@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListGroup.ValueProperty"
 position: 1
 categories: 

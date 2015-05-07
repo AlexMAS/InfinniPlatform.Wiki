@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElement.Style"
 position: 1
 categories: 

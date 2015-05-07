@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "TreeView"
 position: 13
 categories: 

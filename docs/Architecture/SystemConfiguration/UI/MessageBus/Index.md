@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "MessageBus"
 position: 17
 categories: 

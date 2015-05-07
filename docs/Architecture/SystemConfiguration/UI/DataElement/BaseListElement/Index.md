@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListElement"
 position: 1
 categories: 

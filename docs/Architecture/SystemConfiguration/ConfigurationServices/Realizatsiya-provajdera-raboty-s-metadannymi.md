@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Реализация провайдера работы с метаданными"
 position: 1
 categories: 

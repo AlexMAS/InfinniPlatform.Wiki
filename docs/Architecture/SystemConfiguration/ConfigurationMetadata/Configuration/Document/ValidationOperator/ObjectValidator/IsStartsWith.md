@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "IsStartsWith"
 position: 10
 categories: 

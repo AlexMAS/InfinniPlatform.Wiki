@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ApplicationUser"
 position: 0
 categories: 

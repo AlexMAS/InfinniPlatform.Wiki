@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementList"
 position: 3
 categories: 

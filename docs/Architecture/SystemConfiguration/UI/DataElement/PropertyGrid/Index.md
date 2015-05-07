@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PropertyGrid"
 position: 14
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Конфигурация системы"
 position: 3
 categories: 

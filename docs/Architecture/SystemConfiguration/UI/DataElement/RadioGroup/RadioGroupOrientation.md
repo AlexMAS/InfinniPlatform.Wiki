@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "RadioGroupOrientation"
 position: 
 categories: 

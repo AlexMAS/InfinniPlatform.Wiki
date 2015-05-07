@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Script"
 position: 5
 categories: 

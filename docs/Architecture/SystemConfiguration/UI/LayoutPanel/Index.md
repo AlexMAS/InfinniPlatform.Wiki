@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "LayoutPanel"
 position: 13
 categories: 

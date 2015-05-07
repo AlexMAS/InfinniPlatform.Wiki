@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "IsMoreThanOrEqual"
 position: 16
 categories: 

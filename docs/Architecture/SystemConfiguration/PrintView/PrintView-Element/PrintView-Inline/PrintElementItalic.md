@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementItalic"
 position: 3
 categories: 

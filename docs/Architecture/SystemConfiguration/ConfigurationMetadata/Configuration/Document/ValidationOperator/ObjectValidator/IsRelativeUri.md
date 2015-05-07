@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "IsRelativeUri"
 position: 6
 categories: 

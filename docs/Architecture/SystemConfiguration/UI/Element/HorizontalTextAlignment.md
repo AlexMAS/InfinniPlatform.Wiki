@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "HorizontalTextAlignment"
 position: 3
 categories: 

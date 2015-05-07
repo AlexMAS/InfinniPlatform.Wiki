@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Обработка запросов REST и формирование роутинга для запросов"
 position: 
 categories: 

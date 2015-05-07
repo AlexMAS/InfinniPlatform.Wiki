@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Получение 'сырых' данных из регистра (GetRegisterEntries)"
 position: 
 categories: 

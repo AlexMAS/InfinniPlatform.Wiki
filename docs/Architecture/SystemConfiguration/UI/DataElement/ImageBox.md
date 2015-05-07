@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ImageBox"
 position: 15
 categories: 

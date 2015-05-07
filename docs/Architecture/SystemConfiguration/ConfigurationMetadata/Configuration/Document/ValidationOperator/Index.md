@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ValidationOperator"
 position: 1
 categories: 

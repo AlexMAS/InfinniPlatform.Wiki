@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ApplicationUserLogin"
 position: 3
 categories: 

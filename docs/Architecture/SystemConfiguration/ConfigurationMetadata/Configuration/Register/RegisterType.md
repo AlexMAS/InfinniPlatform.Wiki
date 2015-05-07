@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "RegisterType"
 position: 0
 categories: 

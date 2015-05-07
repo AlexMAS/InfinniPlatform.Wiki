@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Cassandra: общие концепции"
 position: 1
 categories: 

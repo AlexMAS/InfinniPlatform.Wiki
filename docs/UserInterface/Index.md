@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Дизайн"
 position: 12
 categories: 

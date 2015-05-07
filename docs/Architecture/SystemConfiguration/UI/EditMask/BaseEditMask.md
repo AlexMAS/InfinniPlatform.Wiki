@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseEditMask"
 position: 0
 categories: 

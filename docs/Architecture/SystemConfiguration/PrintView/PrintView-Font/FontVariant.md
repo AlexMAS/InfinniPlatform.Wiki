@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "FontVariant"
 position: 4
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ActionElement"
 position: 14
 categories: 

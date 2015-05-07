@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "DataNavigation"
 position: 19
 categories: 

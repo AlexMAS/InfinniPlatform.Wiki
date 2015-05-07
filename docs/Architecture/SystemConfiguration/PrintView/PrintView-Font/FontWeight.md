@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "FontWeight"
 position: 3
 categories: 

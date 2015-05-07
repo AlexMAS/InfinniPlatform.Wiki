@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "CheckedList"
 position: 1
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Шаблон формы редактирования"
 position: 2
 categories: 

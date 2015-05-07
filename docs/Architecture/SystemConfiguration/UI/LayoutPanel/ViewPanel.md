@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ViewPanel"
 position: 5
 categories: 

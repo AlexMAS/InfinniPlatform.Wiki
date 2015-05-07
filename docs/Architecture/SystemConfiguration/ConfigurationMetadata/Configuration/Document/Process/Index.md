@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Process"
 position: 3
 categories: 

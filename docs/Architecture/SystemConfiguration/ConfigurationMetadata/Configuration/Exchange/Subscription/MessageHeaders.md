@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "MessageHeaders"
 position: 0
 categories: 

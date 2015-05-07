@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Поля ввода"
 position: 7
 categories: 

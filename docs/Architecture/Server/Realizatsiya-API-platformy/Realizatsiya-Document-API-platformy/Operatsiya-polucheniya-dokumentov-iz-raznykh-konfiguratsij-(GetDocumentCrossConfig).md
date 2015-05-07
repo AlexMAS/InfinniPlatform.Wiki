@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Операция получения документов из разных конфигураций (GetDocumentCrossConfig)"
 position: 
 categories: 

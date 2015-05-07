@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "DocumentLink"
 position: 1
 categories: 

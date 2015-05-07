@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "DateTimeEditMask"
 position: 1
 categories: 

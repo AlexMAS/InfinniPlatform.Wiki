@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Панель фильтрации"
 position: 11
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "EditMask"
 position: 10
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Общие требования"
 position: 2
 categories: 

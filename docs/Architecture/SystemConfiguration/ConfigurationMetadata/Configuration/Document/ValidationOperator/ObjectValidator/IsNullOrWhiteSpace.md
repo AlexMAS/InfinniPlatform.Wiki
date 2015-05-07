@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "IsNullOrWhiteSpace"
 position: 8
 categories: 

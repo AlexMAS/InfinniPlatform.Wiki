@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Операция получения списка документов по фильтру (GetDocument)"
 position: 
 categories: 

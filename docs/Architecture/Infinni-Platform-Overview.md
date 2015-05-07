@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Infinni Platform Overview"
 position: 0
 categories: 

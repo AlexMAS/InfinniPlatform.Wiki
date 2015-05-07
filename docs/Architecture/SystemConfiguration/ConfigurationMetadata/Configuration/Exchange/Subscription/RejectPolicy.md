@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "RejectPolicy"
 position: 2
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ToolBarButton"
 position: 1
 categories: 

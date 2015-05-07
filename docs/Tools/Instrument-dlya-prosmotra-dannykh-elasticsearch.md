@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Инструмент для просмотра данных elasticsearch"
 position: 
 categories: 

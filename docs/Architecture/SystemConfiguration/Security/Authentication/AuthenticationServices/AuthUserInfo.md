@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "AuthUserInfo"
 position: 0
 categories: 

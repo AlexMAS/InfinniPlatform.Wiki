@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Список базовых механизмов"
 position: 8
 categories: 

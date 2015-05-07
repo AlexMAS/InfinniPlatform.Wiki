@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ChangeProfile"
 position: 4
 categories: 

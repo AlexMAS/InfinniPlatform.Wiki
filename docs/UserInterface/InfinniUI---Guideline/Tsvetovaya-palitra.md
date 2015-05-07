@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Цветовая палитра"
 position: 0
 categories: 

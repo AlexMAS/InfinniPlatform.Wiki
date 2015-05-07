@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementImage.Size"
 position: 0
 categories: 

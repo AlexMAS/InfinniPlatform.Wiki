@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "SignInInternal"
 position: 7
 categories: 

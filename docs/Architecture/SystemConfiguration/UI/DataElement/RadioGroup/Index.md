@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "RadioGroup"
 position: 11
 categories: 

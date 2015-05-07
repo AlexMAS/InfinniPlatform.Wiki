@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Шаблон формы журнала документов"
 position: 3
 categories: 

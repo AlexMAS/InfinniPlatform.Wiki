@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Установка infinniUI"
 position: 
 categories: 

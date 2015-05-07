@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "MetadataDataSource"
 position: 3
 categories: 

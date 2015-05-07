@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "SignOut"
 position: 11
 categories: 

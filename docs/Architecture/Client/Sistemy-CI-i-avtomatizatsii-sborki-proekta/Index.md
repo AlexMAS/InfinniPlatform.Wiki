@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Системы CI и автоматизации сборки проекта"
 position: 
 categories: 

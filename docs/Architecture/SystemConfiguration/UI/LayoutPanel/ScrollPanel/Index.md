@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ScrollPanel"
 position: 6
 categories: 

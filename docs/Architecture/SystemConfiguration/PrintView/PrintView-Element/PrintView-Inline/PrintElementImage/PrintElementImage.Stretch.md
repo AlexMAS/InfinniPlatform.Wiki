@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementImage.Stretch"
 position: 2
 categories: 

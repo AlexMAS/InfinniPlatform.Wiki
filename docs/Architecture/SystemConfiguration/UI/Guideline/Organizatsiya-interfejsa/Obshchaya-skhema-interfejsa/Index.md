@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Общая схема интерфейса"
 position: 0
 categories: 

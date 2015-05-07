@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Command"
 position: 0
 categories: 

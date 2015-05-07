@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "InlineView"
 position: 5
 categories: 

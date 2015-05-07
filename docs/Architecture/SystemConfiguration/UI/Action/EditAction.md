@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "EditAction"
 position: 5
 categories: 

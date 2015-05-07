@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "DeleteAction"
 position: 7
 categories: 

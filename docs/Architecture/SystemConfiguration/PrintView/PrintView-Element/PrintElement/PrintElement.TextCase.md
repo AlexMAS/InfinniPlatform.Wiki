@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElement.TextCase"
 position: 5
 categories: 

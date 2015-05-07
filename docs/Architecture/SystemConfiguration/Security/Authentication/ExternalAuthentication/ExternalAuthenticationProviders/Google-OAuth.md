@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Google OAuth"
 position: 0
 categories: 

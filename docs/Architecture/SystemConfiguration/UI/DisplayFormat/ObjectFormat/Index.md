@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ObjectFormat"
 position: 4
 categories: 

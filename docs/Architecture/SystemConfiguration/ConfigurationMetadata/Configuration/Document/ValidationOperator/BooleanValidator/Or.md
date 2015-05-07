@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Or"
 position: 
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Домашняя страница системы"
 position: 1
 categories: 

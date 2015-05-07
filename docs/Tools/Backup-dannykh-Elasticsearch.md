@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Backup данных Elasticsearch"
 position: 
 categories: 

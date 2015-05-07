@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "DataBinding"
 position: 8
 categories: 

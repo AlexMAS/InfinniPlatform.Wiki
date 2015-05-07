@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementSection"
 position: 1
 categories: 

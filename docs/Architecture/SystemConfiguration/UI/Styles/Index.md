@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Styles"
 position: 1
 categories: 

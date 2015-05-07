@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Панель действий (Action Bar)"
 position: 1
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Визуальное представление"
 position: 0
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Панель состояния (Status Bar)"
 position: 0
 categories: 

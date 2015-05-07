@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Сервисы репортинговой системы (Report API)"
 position: 5
 categories: 

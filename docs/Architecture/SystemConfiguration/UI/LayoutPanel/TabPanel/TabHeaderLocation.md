@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "TabHeaderLocation"
 position: 1
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "IsEndsWith"
 position: 11
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListElement.DisplaySelector"
 position: 3
 categories: 

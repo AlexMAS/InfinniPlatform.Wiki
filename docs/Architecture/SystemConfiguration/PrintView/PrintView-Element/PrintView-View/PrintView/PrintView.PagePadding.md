@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintView.PagePadding"
 position: 2
 categories: 

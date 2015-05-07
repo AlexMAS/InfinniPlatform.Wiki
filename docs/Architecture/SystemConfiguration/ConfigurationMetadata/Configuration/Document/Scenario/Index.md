@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Scenario"
 position: 2
 categories: 

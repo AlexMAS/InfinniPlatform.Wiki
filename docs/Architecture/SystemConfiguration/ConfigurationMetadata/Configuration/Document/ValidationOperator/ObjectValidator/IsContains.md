@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "IsContains"
 position: 9
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListGroup.DisplayProperty"
 position: 3
 categories: 

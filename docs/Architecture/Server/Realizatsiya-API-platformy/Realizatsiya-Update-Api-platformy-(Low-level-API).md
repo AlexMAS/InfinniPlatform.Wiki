@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Реализация Update Api платформы (Low-level API)"
 position: 
 categories: 

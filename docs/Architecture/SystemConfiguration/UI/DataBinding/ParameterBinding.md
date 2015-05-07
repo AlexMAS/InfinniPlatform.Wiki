@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ParameterBinding"
 position: 3
 categories: 

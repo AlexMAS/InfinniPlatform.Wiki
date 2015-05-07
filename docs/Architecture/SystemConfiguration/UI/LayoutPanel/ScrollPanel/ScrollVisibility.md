@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ScrollVisibility"
 position: 
 categories: 

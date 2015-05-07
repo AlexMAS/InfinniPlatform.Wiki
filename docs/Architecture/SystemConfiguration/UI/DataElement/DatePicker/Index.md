@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "DatePicker"
 position: 6
 categories: 

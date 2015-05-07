@@ -1,0 +1,58 @@
+{% capture build %}
+
+{% assign result = '' %}
+{% assign allTags = '' %}
+{% assign uniqTags = '' %}
+{% assign basePath = include.basePath %}
+
+{% for page in site.pages %}
+	{% if page.path contains basePath %}
+		{% assign pageTags = page.tags | strip %}
+		{% assign allTags = allTags | append: ' ' | append: pageTags %}
+	{% endif %}
+{% endfor %}
+
+{% assign allTags = allTags | replace: ',', ' ' | replace: ';', ' ' | strip | split: ' ' | sort %}
+
+{% for tag in allTags %}
+	{% unless uniqTags contains tag %}
+		{% assign uniqTags = uniqTags | append: ' ' | append: tag %}
+	{% endunless %}
+{% endfor %}
+
+{% assign allTags = uniqTags | split: ' ' %}
+
+{% if allTags.size > 0 %}
+	{% assign result = result | append: '<ul class="IndexContents">' %}
+
+	{% for tag in allTags %}
+		{% assign result = result | append: '<li><a href="#' | append: tag | append: '">' | append: tag | append: '</a></li>' %}
+	{% endfor %}
+
+	{% assign result = result | append: '</ul>' %}
+
+	{% for tag in allTags %}
+		{% assign result = result | append: '<h2 id="' | append: tag | append: '">' | append: tag | append: '</h2>' %}
+		{% assign result = result | append: '<ul class="IndexPages">' %}
+
+		{% for page in site.pages %}
+			{% if page.path contains basePath %}
+				{% assign pageTags = page.tags | replace: ',', ' ' | replace: ';', ' ' | strip %}
+
+				{% if pageTags.size > 0 %}
+					{% assign pageTags = pageTags | split: ' ' %}
+
+					{% if pageTags contains tag %}
+						{% assign result = result | append: '<li><a href="' | append: page.url | append: '">' | append: page.title | append: '</a></li>' %}
+					{% endif %}
+				{% endif %}
+			{% endif %}
+		{% endfor %}
+
+		{% assign result = result | append: '</ul>' %}
+	{% endfor %}
+{% endif %}
+
+{% endcapture %}
+
+{{result}}

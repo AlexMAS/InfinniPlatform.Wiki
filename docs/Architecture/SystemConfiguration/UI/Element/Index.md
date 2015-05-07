@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Element"
 position: 3
 categories: 

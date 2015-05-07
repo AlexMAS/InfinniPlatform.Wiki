@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementLine"
 position: 5
 categories: 

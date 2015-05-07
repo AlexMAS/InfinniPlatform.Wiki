@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListElement.ItemTemplate"
 position: 6
 categories: 

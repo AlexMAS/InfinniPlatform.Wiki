@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Обработка валидации при сохранении документов"
 position: 4
 categories: 

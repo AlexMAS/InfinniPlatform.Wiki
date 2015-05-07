@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Реализация Document API платформы"
 position: 
 categories: 

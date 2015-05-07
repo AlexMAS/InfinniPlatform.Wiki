@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Шаблон формы выбора элементов списка"
 position: 4
 categories: 

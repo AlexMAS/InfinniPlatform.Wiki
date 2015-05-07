@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "DataElement"
 position: 15
 categories: 

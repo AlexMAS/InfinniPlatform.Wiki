@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "AddItemAction"
 position: 4
 categories: 

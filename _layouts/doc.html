@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<div class="Page row">
+	<div class="col-md-4">
+		{% include pageTree.html id='MainPageTree' class='MainPageTree' expanded='false' %}
+	</div>
+	<div class="col-md-8">
+		<header class="PageHeader">
+			{% include breadcrumb.html %}
+			<h1>{{ page.title }}</h1>
+		</header>
+		<article class="PageContent">
+			{{ content }}
+		</article>
+		{% include pageTags.html %}
+		{% include pageNavigation.html %}
+	</div>
+</div>

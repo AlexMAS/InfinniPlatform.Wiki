@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "FilterPanel"
 position: 18
 categories: 

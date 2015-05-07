@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Создание nuget-пакета InfinniPlatform"
 position: 
 categories: 

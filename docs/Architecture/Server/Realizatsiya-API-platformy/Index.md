@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Реализация API платформы"
 position: 
 categories: 

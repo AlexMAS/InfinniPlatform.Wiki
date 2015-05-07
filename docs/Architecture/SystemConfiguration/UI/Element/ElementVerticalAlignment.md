@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ElementVerticalAlignment"
 position: 2
 categories: 

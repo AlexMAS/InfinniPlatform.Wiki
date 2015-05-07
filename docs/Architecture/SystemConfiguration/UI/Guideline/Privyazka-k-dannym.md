@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Привязка к данным"
 position: 4
 categories: 

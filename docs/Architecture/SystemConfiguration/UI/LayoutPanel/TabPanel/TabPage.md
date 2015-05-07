@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "TabPage"
 position: 0
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementList.ItemTemplate"
 position: 3
 categories: 

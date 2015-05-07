@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ChangeActiveRole"
 position: 5
 categories: 

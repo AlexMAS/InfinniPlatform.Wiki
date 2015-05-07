@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementTextAlignment"
 position: 1
 categories: 

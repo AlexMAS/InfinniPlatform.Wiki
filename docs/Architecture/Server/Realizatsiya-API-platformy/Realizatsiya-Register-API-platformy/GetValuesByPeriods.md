@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Получение результата агрегации по регистру с разбиением по периодам (GetValuesByPeriods)"
 position: 
 categories: 

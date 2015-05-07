@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Схема аутентификации"
 position: 3
 categories: 

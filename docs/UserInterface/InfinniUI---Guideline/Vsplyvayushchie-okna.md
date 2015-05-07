@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Всплывающие окна"
 position: 9
 categories: 

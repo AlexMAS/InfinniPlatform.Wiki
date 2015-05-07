@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "IsNullOrEmpty"
 position: 7
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "DataSource"
 position: 7
 categories: 

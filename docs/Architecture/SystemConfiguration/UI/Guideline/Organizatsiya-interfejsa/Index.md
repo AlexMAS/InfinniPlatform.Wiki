@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Организация интерфейса"
 position: 7
 categories: 

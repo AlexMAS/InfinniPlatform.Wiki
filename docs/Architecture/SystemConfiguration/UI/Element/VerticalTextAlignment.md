@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "VerticalTextAlignment"
 position: 4
 categories: 

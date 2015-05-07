@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Clipboard"
 position: 1
 categories: 

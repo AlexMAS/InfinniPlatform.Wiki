@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Инструкции"
 position: 8
 categories: 

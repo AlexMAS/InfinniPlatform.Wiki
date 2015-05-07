@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Кнопки"
 position: 6
 categories: 

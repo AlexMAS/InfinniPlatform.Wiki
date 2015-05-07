@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "FontStretch"
 position: 2
 categories: 

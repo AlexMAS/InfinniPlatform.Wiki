@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementBarcodeEan13.ShowText"
 position: 0
 categories: 

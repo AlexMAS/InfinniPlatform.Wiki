@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Панель глобальной навигации (Global Navigation Bar)"
 position: 3
 categories: 

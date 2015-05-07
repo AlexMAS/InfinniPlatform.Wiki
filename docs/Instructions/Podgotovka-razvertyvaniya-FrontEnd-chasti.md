@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Подготовка развертывания FrontEnd-части"
 position: 
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Home Page"
 position: 5
 categories: 

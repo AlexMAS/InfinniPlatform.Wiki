@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "DialogResult"
 position: 
 categories: 

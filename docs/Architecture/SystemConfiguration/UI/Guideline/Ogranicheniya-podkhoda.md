@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Ограничения подхода"
 position: 6
 categories: 

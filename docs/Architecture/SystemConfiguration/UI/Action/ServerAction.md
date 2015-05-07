@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ServerAction"
 position: 17
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Font.Variant"
 position: 5
 categories: 

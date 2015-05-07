@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Получение результата агрегации по регистру на определенную дату (GetValuesByDate)"
 position: 
 categories: 

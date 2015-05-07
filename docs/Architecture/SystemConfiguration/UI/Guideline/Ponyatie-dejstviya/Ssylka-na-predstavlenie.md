@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Ссылка на представление"
 position: 0
 categories: 

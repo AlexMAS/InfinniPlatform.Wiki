@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseFormat"
 position: 0
 categories: 

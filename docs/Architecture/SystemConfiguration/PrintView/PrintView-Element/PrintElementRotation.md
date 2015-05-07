@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementRotation"
 position: 6
 categories: 

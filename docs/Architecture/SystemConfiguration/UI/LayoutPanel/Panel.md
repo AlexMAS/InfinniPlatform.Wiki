@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Panel"
 position: 0
 categories: 

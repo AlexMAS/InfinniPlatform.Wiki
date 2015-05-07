@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElement.Foreground"
 position: 3
 categories: 

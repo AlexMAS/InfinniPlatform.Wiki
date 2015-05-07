@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Font.Weight"
 position: 4
 categories: 

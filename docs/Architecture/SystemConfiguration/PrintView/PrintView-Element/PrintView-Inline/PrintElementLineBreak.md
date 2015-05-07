@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementLineBreak"
 position: 6
 categories: 

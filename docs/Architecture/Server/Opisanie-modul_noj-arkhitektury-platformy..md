@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Описание модульной архитектуры платформы."
 position: 
 categories: 

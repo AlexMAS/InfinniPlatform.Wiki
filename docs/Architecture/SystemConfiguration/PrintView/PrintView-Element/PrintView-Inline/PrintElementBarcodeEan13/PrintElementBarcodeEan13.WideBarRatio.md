@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementBarcodeEan13.WideBarRatio"
 position: 2
 categories: 

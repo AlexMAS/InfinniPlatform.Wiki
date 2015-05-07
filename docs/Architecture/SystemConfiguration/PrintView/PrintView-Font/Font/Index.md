@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Font"
 position: 0
 categories: 

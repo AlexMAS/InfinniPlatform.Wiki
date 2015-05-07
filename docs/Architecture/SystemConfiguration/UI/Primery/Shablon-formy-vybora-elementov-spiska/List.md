@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "List"
 position: 0
 categories: 

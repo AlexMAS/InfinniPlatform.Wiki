@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "AcknowledgePolicy"
 position: 1
 categories: 

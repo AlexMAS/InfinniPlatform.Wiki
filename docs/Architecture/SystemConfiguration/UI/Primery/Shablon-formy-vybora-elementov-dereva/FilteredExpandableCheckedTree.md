@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "FilteredExpandableCheckedTree"
 position: 7
 categories: 

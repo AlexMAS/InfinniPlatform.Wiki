@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Получение результата агрегации по документу-регистратору (GetValuesBуRegistrar)"
 position: 
 categories: 

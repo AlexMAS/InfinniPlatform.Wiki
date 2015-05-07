@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BooleanFormat"
 position: 1
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Создание документа"
 position: 
 categories: 

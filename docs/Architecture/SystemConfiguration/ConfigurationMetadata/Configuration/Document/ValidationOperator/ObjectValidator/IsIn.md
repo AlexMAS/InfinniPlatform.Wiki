@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "IsIn"
 position: 17
 categories: 

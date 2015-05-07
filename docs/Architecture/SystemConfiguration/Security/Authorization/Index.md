@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Механизм авторизации (authorization)"
 position: 1
 categories: 

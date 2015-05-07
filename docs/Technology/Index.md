@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Технологии"
 position: 6
 categories: 

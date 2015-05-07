@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Label"
 position: 3
 categories: 

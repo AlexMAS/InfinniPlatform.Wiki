@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Операция удаления документа (DeleteDocument)"
 position: 
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementBarcodeQr.Rotation"
 position: 2
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "AddAction"
 position: 3
 categories: 

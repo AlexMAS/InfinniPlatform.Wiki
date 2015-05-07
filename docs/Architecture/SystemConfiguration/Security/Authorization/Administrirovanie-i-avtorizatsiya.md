@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Администрирование и авторизация"
 position: 
 categories: 

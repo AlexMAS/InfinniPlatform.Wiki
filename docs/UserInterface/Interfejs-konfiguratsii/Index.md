@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Интерфейс конфигурации"
 position: 3
 categories: 

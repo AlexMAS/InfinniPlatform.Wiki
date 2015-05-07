@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ToolBar"
 position: 2
 categories: 

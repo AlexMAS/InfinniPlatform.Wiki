@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "CheckedTree"
 position: 1
 categories: 

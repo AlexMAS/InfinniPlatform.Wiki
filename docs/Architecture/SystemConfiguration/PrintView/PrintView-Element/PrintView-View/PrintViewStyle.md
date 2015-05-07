@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintViewStyle"
 position: 
 categories: 

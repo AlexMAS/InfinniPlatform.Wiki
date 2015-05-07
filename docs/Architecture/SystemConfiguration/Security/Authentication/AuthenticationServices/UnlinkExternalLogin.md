@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "UnlinkExternalLogin"
 position: 10
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "UploadFileBox"
 position: 16
 categories: 

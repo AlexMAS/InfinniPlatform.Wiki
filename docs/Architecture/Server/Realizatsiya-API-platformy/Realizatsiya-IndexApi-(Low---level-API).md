@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Реализация IndexApi (Low - level API)"
 position: 
 categories: 

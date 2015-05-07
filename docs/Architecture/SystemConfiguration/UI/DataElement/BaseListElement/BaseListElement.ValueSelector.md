@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListElement.ValueSelector"
 position: 1
 categories: 

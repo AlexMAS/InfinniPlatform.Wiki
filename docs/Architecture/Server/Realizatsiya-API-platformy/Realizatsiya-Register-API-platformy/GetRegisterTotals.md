@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Получение значений из таблицы итогов на дату, ближайшую к заданной (GetRegisterTotals)"
 position: 
 categories: 

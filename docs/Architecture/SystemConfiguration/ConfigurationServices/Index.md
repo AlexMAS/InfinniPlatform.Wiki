@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Сервисы подсистемы конфигурирования"
 position: 4
 categories: 

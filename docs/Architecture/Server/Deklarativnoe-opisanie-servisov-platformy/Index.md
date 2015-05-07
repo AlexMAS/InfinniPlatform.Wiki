@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Декларативное описание сервисов платформы"
 position: 
 categories: 

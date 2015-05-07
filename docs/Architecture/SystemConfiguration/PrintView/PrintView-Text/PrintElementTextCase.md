@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementTextCase"
 position: 0
 categories: 

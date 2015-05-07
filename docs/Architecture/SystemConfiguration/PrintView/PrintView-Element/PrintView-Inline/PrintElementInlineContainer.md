@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementInlineContainer"
 position: 0
 categories: 

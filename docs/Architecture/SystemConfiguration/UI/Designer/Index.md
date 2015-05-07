@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Designer"
 position: 18
 categories: 

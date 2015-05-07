@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Генерация сертификатов"
 position: 3
 categories: 

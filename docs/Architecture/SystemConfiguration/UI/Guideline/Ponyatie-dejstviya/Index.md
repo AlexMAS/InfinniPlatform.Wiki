@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Понятие действия"
 position: 5
 categories: 

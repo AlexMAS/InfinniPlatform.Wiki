@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ToolBarPopupButton"
 position: 2
 categories: 

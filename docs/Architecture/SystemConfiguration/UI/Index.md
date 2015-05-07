@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Интерфейс пользователя"
 position: 2
 categories: 

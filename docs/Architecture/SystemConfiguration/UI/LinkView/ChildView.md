@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ChildView"
 position: 6
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Создание экранных форм"
 position: 
 categories: 

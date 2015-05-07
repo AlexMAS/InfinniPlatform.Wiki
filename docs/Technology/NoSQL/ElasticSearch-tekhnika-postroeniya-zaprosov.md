@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ElasticSearch: техника построения запросов"
 position: 2
 categories: 

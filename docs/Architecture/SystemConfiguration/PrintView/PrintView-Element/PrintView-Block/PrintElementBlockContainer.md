@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementBlockContainer"
 position: 0
 categories: 

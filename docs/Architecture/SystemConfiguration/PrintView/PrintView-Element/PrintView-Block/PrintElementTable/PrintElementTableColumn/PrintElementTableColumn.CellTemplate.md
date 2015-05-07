@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementTableColumn.CellTemplate"
 position: 2
 categories: 

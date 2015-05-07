@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ExistsView"
 position: 3
 categories: 

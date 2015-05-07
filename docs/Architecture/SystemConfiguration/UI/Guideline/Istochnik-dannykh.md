@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Источник данных"
 position: 3
 categories: 

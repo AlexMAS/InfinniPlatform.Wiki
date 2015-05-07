@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementTable"
 position: 4
 categories: 

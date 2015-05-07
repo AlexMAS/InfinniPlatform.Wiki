@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "NumericBox"
 position: 5
 categories: 

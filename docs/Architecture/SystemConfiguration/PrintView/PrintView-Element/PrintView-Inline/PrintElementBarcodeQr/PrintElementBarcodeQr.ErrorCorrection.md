@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementBarcodeQr.ErrorCorrection"
 position: 1
 categories: 

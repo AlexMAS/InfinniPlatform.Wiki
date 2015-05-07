@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Status Bar & Global Navigation Bar"
 position: 2
 categories: 

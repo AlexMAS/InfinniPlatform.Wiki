@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "All"
 position: 0
 categories: 

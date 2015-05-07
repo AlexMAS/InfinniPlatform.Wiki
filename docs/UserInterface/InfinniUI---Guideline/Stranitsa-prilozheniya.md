@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Страница приложения"
 position: 12
 categories: 

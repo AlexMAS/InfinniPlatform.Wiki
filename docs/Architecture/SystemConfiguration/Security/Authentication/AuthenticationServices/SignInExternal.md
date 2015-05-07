@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "SignInExternal"
 position: 8
 categories: 

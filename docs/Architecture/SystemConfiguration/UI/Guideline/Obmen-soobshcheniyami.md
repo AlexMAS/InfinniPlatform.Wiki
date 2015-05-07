@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Обмен сообщениями"
 position: 2
 categories: 

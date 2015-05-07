@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Arguments"
 position: 1
 categories: 

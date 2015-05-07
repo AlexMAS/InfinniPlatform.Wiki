@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "IsAbsoluteUri"
 position: 5
 categories: 

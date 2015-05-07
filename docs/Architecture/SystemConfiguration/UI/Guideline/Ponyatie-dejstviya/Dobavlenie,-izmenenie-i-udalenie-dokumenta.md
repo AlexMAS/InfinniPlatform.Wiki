@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Добавление, изменение и удаление документа"
 position: 2
 categories: 

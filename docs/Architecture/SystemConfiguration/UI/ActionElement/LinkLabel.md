@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "LinkLabel"
 position: 5
 categories: 

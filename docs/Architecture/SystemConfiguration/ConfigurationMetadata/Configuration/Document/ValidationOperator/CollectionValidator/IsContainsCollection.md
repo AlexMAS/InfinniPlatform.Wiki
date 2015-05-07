@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "IsContainsCollection"
 position: 3
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintView: Text"
 position: 3
 categories: 

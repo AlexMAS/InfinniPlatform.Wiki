@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListElement.GetFocusedItem"
 position: 14
 categories: 

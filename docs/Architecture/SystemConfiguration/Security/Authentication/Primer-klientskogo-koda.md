@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Пример клиентского кода"
 position: 5
 categories: 

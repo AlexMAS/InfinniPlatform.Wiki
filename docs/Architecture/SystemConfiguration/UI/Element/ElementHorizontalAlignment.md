@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ElementHorizontalAlignment"
 position: 1
 categories: 

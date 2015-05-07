@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Message Queue: RabbitMq"
 position: 
 categories: 

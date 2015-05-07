@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "DotNotation"
 position: 4
 categories: 

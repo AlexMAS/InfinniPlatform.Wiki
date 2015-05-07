@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintView.Styles"
 position: 3
 categories: 

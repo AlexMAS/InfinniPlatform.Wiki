@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Электронная медицинская карта (ЭМК)"
 position: 4
 categories: 

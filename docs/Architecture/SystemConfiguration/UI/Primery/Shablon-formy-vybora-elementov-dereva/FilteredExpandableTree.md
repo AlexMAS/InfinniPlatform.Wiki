@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "FilteredExpandableTree"
 position: 6
 categories: 

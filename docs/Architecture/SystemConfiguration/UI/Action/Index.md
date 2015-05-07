@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Action"
 position: 12
 categories: 

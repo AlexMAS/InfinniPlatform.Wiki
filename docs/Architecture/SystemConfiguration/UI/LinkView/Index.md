@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "LinkView"
 position: 11
 categories: 

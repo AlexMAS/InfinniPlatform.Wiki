@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Button"
 position: 3
 categories: 

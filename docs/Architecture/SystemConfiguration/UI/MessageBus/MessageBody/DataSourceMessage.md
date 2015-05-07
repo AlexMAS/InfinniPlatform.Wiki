@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "DataSourceMessage"
 position: 2
 categories: 

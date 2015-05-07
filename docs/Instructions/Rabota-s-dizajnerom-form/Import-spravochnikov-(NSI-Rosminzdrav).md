@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Импорт справочников (НСИ Росминздрав)"
 position: 
 categories: 

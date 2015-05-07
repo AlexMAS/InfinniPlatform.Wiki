@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "AuthErrorInfo"
 position: 1
 categories: 

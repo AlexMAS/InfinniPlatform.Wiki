@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseMessage"
 position: 0
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "StateAction"
 position: 10
 categories: 

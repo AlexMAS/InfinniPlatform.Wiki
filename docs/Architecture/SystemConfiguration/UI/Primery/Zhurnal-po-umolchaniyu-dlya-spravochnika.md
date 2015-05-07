@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Журнал по умолчанию для справочника"
 position: 1
 categories: 

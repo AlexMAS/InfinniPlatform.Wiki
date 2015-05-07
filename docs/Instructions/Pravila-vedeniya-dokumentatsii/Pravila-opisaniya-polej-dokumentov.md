@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Правила описания полей документов"
 position: 
 categories: 

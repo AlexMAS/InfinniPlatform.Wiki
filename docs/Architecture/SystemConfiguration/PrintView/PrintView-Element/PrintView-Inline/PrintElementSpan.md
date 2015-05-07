@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementSpan"
 position: 1
 categories: 

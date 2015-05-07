@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElement.Source"
 position: 7
 categories: 

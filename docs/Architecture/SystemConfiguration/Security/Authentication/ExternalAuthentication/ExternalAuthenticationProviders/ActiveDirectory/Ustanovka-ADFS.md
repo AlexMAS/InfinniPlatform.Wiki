@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Установка ADFS"
 position: 0
 categories: 

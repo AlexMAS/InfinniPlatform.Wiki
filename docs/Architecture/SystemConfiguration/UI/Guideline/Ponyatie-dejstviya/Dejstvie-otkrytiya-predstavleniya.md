@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Действие открытия представления"
 position: 1
 categories: 

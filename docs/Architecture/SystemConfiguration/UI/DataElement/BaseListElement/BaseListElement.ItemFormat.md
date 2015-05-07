@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListElement.ItemFormat"
 position: 5
 categories: 

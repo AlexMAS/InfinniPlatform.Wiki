@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "ApplicationClaimType"
 position: 4
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "TabPanel"
 position: 1
 categories: 

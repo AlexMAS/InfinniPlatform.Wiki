@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementTableColumn.Header"
 position: 1
 categories: 

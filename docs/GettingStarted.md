@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Getting Started"
 position: 0
 categories: 

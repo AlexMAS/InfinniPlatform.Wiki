@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Внешняя аутентификация"
 position: 1
 categories: 

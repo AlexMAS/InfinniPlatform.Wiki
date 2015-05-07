@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Реализация TestServerApi платформы"
 position: 
 categories: 

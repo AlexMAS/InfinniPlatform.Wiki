@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Exchange"
 position: 2
 categories: 

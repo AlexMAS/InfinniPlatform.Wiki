@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Точки расширения бизнес-логики"
 position: 
 categories: 

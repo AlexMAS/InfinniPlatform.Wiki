@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Context"
 position: 0
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseDataBinding"
 position: 0
 categories: 

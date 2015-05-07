@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintView: Inline"
 position: 1
 categories: 

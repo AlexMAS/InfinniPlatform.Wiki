@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "IsUri"
 position: 4
 categories: 

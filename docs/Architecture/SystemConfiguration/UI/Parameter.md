@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Parameter"
 position: 6
 categories: 

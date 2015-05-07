@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "Системные требования к развертыванию на Production"
 position: 
 categories: 

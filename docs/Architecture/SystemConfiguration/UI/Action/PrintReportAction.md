@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintReportAction"
 position: 14
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "PrintElementBarcodeQrErrorCorrection"
 position: 3
 categories: 

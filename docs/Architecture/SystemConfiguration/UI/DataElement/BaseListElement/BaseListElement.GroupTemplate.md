@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc
 title: "BaseListElement.GroupTemplate"
 position: 7
 categories: 
