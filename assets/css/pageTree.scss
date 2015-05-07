@@ -7,11 +7,42 @@ $fontSize: 14px;
 $fontSizeRoot: 18px;
 $fontColor: rgba(1, 1, 1, 0.87);
 
+
 .MainPageTree {
 	background-color: $grey-color-light;
 	border: 1px solid $grey-color;
 	border-radius: 3px;
 }
+
+
+.PageTreeNavigationPanel {
+	display: none;
+}
+
+.MainPageTree .PageTreeNavigationPanel {
+	display: block;
+	padding: 0;
+	margin: $indent;
+	font-style: normal;
+	font-weight: normal;
+	font-size: $fontSize;
+}
+
+.PageTreeNavigationPanel ul {
+	list-style: none;
+}
+
+.PageTreeNavigationPanel > li {
+	display: inline-block;
+}
+
+.PageTreeNavigationPanel > li + li:before {
+	vertical-align: middle;
+	content: "|";
+	color: $grey-color;
+	padding: 0 5px;
+}
+
 
 .PageTree {
 	padding: 0;
@@ -19,10 +50,9 @@ $fontColor: rgba(1, 1, 1, 0.87);
 	font-style: normal;
 	font-weight: normal;
 	font-size: $fontSize;
-	color: $fontColor;
 }
 
-.MainPageTree > .PageTree a {
+.MainPageTree .PageTree a {
 	color: $fontColor;
 }
 

@@ -1,5 +1,5 @@
 function PageTreeFactory(pageTreeBuilder) {
-	
+
 	this.createPageTreeElement = function(path, expanded) {
 		var result = undefined;
 
@@ -11,83 +11,104 @@ function PageTreeFactory(pageTreeBuilder) {
 
 		if (rootNode !== undefined && rootNode.children.length > 0) {
 			var selectedNode = pageTreeBuilder.getPageByPath();
-			result = createPageNodeElement(rootNode, selectedNode, rootNode, expanded);
-			result.onclick = togglePageNode;
+
+			result = document.createElement('div');
+
+			var processed = {};
+			var navPanel = createNavigationPanel(processed, rootNode, selectedNode);
+			var pageTree = createPageNodeElement(processed, rootNode, selectedNode, rootNode, expanded);
+
+			if (navPanel !== undefined) {
+				result.appendChild(navPanel);
+			}
+
+			if (pageTree !== undefined) {
+				pageTree.onclick = togglePageNode;
+				result.appendChild(pageTree);
+			}
 		}
 
 		return result;
 	}
 
-	function createPageNodeElement(rootNode, selectedNode, pageNode, expanded) {
-		var pageElement = document.createElement('ul');
-		pageElement.className = 'PageTree';
+	function createPageNodeElement(processed, rootNode, selectedNode, pageNode, expanded) {
+		var pagePath = pageNode.page.path;
+		var pageElement = processed[pagePath]
 
-		var pageHeaderElement = document.createElement('li');
-		pageHeaderElement.className = 'PageTreeNode';
-		pageElement.appendChild(pageHeaderElement);
+		if (pageElement === undefined) {
+			pageElement = document.createElement('ul');
+			pageElement.className = 'PageTree';
+			processed[pagePath] = pageElement;
 
-		var pageHeaderActionElement = document.createElement('div');
-		pageHeaderActionElement.className = 'PageTreeAction';
-		pageHeaderElement.appendChild(pageHeaderActionElement);
+			var pageHeaderElement = document.createElement('li');
+			pageHeaderElement.className = 'PageTreeNode';
+			pageElement.appendChild(pageHeaderElement);
 
-		var pageHeaderContentElement = document.createElement('div');
-		pageHeaderContentElement.className = 'PageTreeContent';
-		pageHeaderElement.appendChild(pageHeaderContentElement);
+			var pageHeaderActionElement = document.createElement('div');
+			pageHeaderActionElement.className = 'PageTreeAction';
+			pageHeaderElement.appendChild(pageHeaderActionElement);
 
-		var pageNodeUrl = pageNode.page.url;
-		var pageHeaderContentLinkElement = document.createElement('a');
-		pageHeaderContentLinkElement.href = isEmptyString(pageNodeUrl) ? '#' : pageNodeUrl;
-		pageHeaderContentLinkElement.innerText = pageNode.page.title;
-		pageHeaderContentElement.appendChild(pageHeaderContentLinkElement);
+			var pageHeaderContentElement = document.createElement('div');
+			pageHeaderContentElement.className = 'PageTreeContent';
+			pageHeaderElement.appendChild(pageHeaderContentElement);
 
-		if (pageNode === rootNode) {
-			pageHeaderElement.className += ' PageTreeRootNode';
-		}
+			var pageNodeUrl = pageNode.page.url;
+			var pageHeaderContentLinkElement = document.createElement('a');
+			pageHeaderContentLinkElement.href = isEmptyString(pageNodeUrl) ? '#' : pageNodeUrl;
+			pageHeaderContentLinkElement.innerText = pageNode.page.title;
+			pageHeaderContentElement.appendChild(pageHeaderContentLinkElement);
 
-		if (pageNode === selectedNode) {
-			pageHeaderContentElement.className += ' PageTreeSelectedNode';
-		}
-
-		if (pageNode.children.length > 0) {
-			pageHeaderElement.className += (expanded || isOpenedPageNode(selectedNode, pageNode)) ? ' PageTreeOpened' : ' PageTreeClosed';
-
-			var children = pageNode.children;
-
-			for (var i = 0; i < children.length; ++i) {
-				var childNode = children[i];
-				var childElement = createPageNodeElement(rootNode, selectedNode, childNode, expanded);
-				pageHeaderElement.appendChild(childElement);
+			if (pageNode === rootNode) {
+				pageHeaderElement.className += ' PageTreeRootNode';
 			}
-		}
-		else {
-			pageHeaderElement.className += ' PageTreeItem';
+
+			if (pageNode === selectedNode) {
+				pageHeaderContentElement.className += ' PageTreeSelectedNode';
+			}
+
+			if (pageNode.children.length > 0) {
+				pageHeaderElement.className += (expanded || isOpenedPageNode(selectedNode, pageNode)) ? ' PageTreeOpened' : ' PageTreeClosed';
+
+				var children = pageNode.children;
+
+				for (var i = 0; i < children.length; ++i) {
+					var childNode = children[i];
+					var childElement = createPageNodeElement(processed, rootNode, selectedNode, childNode, expanded);
+
+					if (childElement !== null && childElement !== undefined) {
+						pageHeaderElement.appendChild(childElement);
+					}
+				}
+			}
+			else {
+				pageHeaderElement.className += ' PageTreeItem';
+			}
 		}
 
 		return pageElement;
 	}
 
-	function createNavigationPanel(rootNode) {
-		var rootNode = pageTreeBuilder.getPageByPath(pageTreeBuilder.getRootPath());
-		var pageContents = findPageByFileName(rootNode, 'DocContents');
-		var pageIndex = findPageByFileName(rootNode, 'DocIndex');
-		var pageTags = findPageByFileName(rootNode, 'DocTags');
+	function createNavigationPanel(processed, pageNode, selectedNode) {
+		var pageContents = findPageByFileName(pageNode, 'DocContents');
+		var pageIndex = findPageByFileName(pageNode, 'DocIndex');
+		var pageTags = findPageByFileName(pageNode, 'DocTags');
 
 		if (pageContents !== undefined || pageIndex !== undefined || pageTags !== undefined) {
 			var panelElement = document.createElement('ul');
 			panelElement.className = 'PageTreeNavigationPanel';
 
 			if (pageContents !== undefined) {
-				var itemElement = createNavigationItem(pageContents);
+				var itemElement = createNavigationItem(processed, pageContents, selectedNode);
 				panelElement.appendChild(itemElement);
 			}
 
 			if (pageIndex !== undefined) {
-				var itemElement = createNavigationItem(pageIndex);
+				var itemElement = createNavigationItem(processed, pageIndex, selectedNode);
 				panelElement.appendChild(itemElement);
 			}
 
 			if (pageTags !== undefined) {
-				var itemElement = createNavigationItem(pageTags);
+				var itemElement = createNavigationItem(processed, pageTags, selectedNode);
 				panelElement.appendChild(itemElement);
 			}
 
@@ -97,19 +118,28 @@ function PageTreeFactory(pageTreeBuilder) {
 		return undefined;
 	}
 
-	function createNavigationItem(pageNode) {
-		var pageNodeUrl = pageNode.page.url;
+	function createNavigationItem(processed, pageNode, selectedNode) {
+		var pageUrl = pageNode.page.url;
+		var pagePath = pageNode.page.path;
+
 		var itemElement = document.createElement('li');
+		processed[pagePath] = null;
+
 		var itemLinkElement = document.createElement('a');
-		itemLinkElement.href = isEmptyString(pageNodeUrl) ? '#' : pageNodeUrl;
+		itemLinkElement.href = isEmptyString(pageUrl) ? '#' : pageUrl;
 		itemLinkElement.innerText = pageNode.page.title;
 		itemElement.appendChild(itemLinkElement);
+
+		if (pageNode === selectedNode) {
+			itemElement.className = 'PageTreeSelectedNode';
+		}
+
 		return itemElement;
 	}
 
 	function findPageByFileName(pageNode, fileName) {
 		return findArrayItem(pageNode.children, function(i) { 
-			return new RegExp('\/*' + fileName + '(\.[^/])*\/*$', 'i').test(i.page.path);
+			return new RegExp('/*' + fileName + '(\.[^\/]*){0,1}/*$', 'i').test(i.page.path);
 		});
 	}
 
