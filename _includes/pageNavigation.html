@@ -1,7 +1,11 @@
 <nav class="PageNavigation">
 	<ul class="pager">
-		<li id="BackPageButton" class="previous disabled"><a href="#" class="not-active"><span aria-hidden="true">&larr;</span> Back</a></li>
-		<li id="NextPageButton" class="next disabled"><a href="#" class="not-active">Next <span aria-hidden="true">&rarr;</span></a></li>
+		<li id="BackPageButton" class="previous disabled">
+			<a href="#" class="not-active"><span aria-hidden="true">&larr;</span> Back</a>
+		</li>
+		<li id="NextPageButton" class="next disabled">
+			<a href="#" class="not-active">Next <span aria-hidden="true">&rarr;</span></a>
+		</li>
 	</ul>
 </nav>
 
@@ -14,7 +18,7 @@
 	});
 
 	function enableNavigationButton(pageButton, pageNode) {
-		if (pageNode !== undefined) {
+		if (pageNode !== undefined && !isEmptyString(pageNode.page.url)) {
 			var pageButton = document.getElementById(pageButton);
 
 			if (pageButton !== null && pageButton !== undefined) {

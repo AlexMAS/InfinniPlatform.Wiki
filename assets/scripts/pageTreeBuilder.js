@@ -135,4 +135,13 @@ PageTreeBuilder.prototype.pages = {
 			position: {% if page.position %}{{page.position}}{% else %}0{% endif %}
 		},
 {% endfor %}
+{% for page in site.posts %}
+	'{{ page.path | downcase | encoding: "utf-8" }}':
+		{
+			url: '{{ page.url }}',
+			path: '{{ page.path | encoding: "utf-8" }}',
+			title: '{{ page.title | replace: "'", "\\'" }}',
+			position: {% if page.position %}{{page.position}}{% else %}0{% endif %}
+		},
+{% endfor %}
 };

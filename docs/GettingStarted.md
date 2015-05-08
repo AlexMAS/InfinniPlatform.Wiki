@@ -3,7 +3,7 @@ layout: doc
 title: "Getting Started"
 position: 0
 categories: 
-tags: [ 'tag1   ', tag2 ]
+tags: [ 'tag1', tag2 ]
 ---
 
 Скринкасты для работы с InfinniPlatform доступны по ссылке [http://www.screencast.com/users/eugene5010/folders/InfinniPlatform](http://www.screencast.com/users/eugene5010/folders/InfinniPlatform).

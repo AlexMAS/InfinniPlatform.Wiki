@@ -1,0 +1,10 @@
+<nav class="PageNavigation">
+	<ul class="pager">
+		<li id="BackPageButton" class="previous {% unless page.previous %}disabled{% endunless %}">
+			<a href="{% if page.previous %}{{ page.previous.url }}{% else %}#{% endif %}" class="not-active"><span aria-hidden="true">&larr;</span> Back</a>
+		</li>
+		<li id="NextPageButton" class="next {% unless page.next %}disabled{% endunless %}">
+			<a href="{% if page.next %}{{ page.next.url }}{% else %}#{% endif %}" class="not-active">Next <span aria-hidden="true">&rarr;</span></a>
+		</li>
+	</ul>
+</nav>
