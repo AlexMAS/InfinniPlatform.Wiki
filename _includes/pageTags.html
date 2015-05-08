@@ -1,23 +1,22 @@
 {% capture build %}
 
 {% assign result = '' %}
-{% assign allTags = '' %}
-{% assign uniqTags = '' %}
+{% assign pageTags = '' %}
 
-{% assign allTags = page.tags | replace: ',', ' ' | replace: ';', ' ' | strip | split: ' ' %}
+{% for tag in page.tags %}
+	{% assign pageTag = tag | strip | append: '|' %}
 
-{% for tag in allTags %}
-	{% unless uniqTags contains tag %}
-		{% assign uniqTags = uniqTags | append: ' ' | append: tag %}
+	{% unless pageTags contains pageTag %}
+		{% assign pageTags = pageTags | append: pageTag %}
 	{% endunless %}
 {% endfor %}
 
-{% assign allTags = uniqTags | split: ' ' %}
+{% assign pageTags = pageTags | split: '|' | sort %}
 
-{% if allTags.size > 0 %}
+{% if pageTags.size > 0 %}
 	{% assign result = result | append: '<ul class="PageTags">' %}
 	
-	{% for tag in allTags %}
+	{% for tag in pageTags %}
 		{% assign result = result | append: '<li><a href="/tags/#' | append: tag | append: '">' | append: tag | append: '</a></li>' %}
 	{% endfor %}
 	

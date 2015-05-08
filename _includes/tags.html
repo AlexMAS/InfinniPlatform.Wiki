@@ -6,21 +6,30 @@
 {% assign basePath = include.basePath %}
 
 {% for page in site.pages %}
-	{% if page.path contains basePath %}
-		{% assign pageTags = page.tags | strip %}
-		{% assign allTags = allTags | append: ' ' | append: pageTags %}
+	{% if page.path contains basePath and page.tags.size > 0 %}
+		{% assign pageTags = page.tags | join: '|' %}
+		{% assign allTags = allTags | append: pageTags | append: '|' %}
 	{% endif %}
 {% endfor %}
 
-{% assign allTags = allTags | replace: ',', ' ' | replace: ';', ' ' | strip | split: ' ' | sort %}
+{% for page in site.posts %}
+	{% if page.path contains basePath and page.tags.size > 0 %}
+		{% assign pageTags = page.tags | join: '|' %}
+		{% assign allTags = allTags | append: pageTags | append: '|' %}
+	{% endif %}
+{% endfor %}
+
+{% assign allTags = allTags | split: '|' | sort %}
 
 {% for tag in allTags %}
-	{% unless uniqTags contains tag %}
-		{% assign uniqTags = uniqTags | append: ' ' | append: tag %}
+	{% assign pageTag = tag | strip | append: '|' %}
+
+	{% unless uniqTags contains pageTag %}
+		{% assign uniqTags = uniqTags | append: pageTag %}
 	{% endunless %}
 {% endfor %}
 
-{% assign allTags = uniqTags | split: ' ' %}
+{% assign allTags = uniqTags | split: '|' %}
 
 {% if allTags.size > 0 %}
 	{% assign result = result | append: '<ul class="IndexContents">' %}
@@ -36,15 +45,35 @@
 		{% assign result = result | append: '<ul class="IndexPages">' %}
 
 		{% for page in site.pages %}
-			{% if page.path contains basePath %}
-				{% assign pageTags = page.tags | replace: ',', ' ' | replace: ';', ' ' | strip %}
+			{% if page.path contains basePath and page.tags.size > 0 %}
+				{% assign pageTags = '' %}
 
-				{% if pageTags.size > 0 %}
-					{% assign pageTags = pageTags | split: ' ' %}
+				{% for t in page.tags %}
+					{% assign pt = t | strip | append: '|' %}
+					{% assign pageTags = pageTags | append: pt %}
+				{% endfor %}
 
-					{% if pageTags contains tag %}
-						{% assign result = result | append: '<li><a href="' | append: page.url | append: '">' | append: page.title | append: '</a></li>' %}
-					{% endif %}
+				{% assign pageTags = pageTags | split: '|' %}
+
+				{% if pageTags contains tag %}
+					{% assign result = result | append: '<li><a href="' | append: page.url | append: '">' | append: page.title | append: '</a></li>' %}
+				{% endif %}
+			{% endif %}
+		{% endfor %}
+
+		{% for page in site.posts %}
+			{% if page.path contains basePath and page.tags.size > 0 %}
+				{% assign pageTags = '' %}
+
+				{% for t in page.tags %}
+					{% assign pt = t | strip | append: '|' %}
+					{% assign pageTags = pageTags | append: pt %}
+				{% endfor %}
+
+				{% assign pageTags = pageTags | split: '|' %}
+
+				{% if pageTags contains tag %}
+					{% assign result = result | append: '<li><a href="' | append: page.url | append: '">' | append: page.title | append: '</a></li>' %}
 				{% endif %}
 			{% endif %}
 		{% endfor %}
@@ -55,4 +84,4 @@
 
 {% endcapture %}
 
-{{result}}
+{{ result }}

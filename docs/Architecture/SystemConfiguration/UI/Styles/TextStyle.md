@@ -3,7 +3,7 @@ layout: doc
 title: "TextStyle"
 position: 
 categories: 
-tags: spec style text
+tags: [ spec, style, text ]
 ---
 
 Стиль текста.
