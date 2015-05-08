@@ -3,10 +3,50 @@ layout: page
 title: "Posts"
 ---
 <ul class="PostList">
-	{% for post in site.posts %}
+	{% for post in paginator.posts %}
 		<li>
 			<h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
 			<p>{{ post.excerpt }}</p>
 		</li>
 	{% endfor %}
 </ul>
+
+{% if paginator.total_pages > 1 %}
+<nav>
+	<ul class="pagination">
+		{% if paginator.previous_page %}
+			<li>
+				<a href="{{ paginator.previous_page_path }}" aria-label="Previous">
+					<span aria-hidden="true">&larr;</span>
+				</a>
+			</li>
+		{% endif %}
+
+		{% assign firstPage = paginator.page | minus: 4 %}
+
+		{% if firstPage < 1 %}
+			{% assign firstPage = 1 %}
+		{% endif %}
+
+		{% assign lastPage = firstPage | plus: 8 %}
+
+		{% if lastPage > paginator.total_pages %}
+			{% assign lastPage = paginator.total_pages %}
+		{% endif %}
+
+		{% for pageNum in (firstPage..lastPage) %}
+			<li {% if paginator.page == pageNum %}class="active"{% endif%}>
+				<a href="{% if pageNum == 1 %}/blog/{% else %}{{ site.paginate_path | replace: ':num', pageNum }}{% endif %}">{{ pageNum }}</a>
+			</li>
+		{% endfor %}
+
+		{% if paginator.next_page %}
+			<li>
+				<a href="{{ paginator.next_page_path }}" aria-label="Next">
+					<span aria-hidden="true">&rarr;</span>
+				</a>
+			</li>
+		{% endif %}
+	</ul>
+</nav>
+{% endif %}

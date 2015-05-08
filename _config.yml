@@ -34,3 +34,7 @@ permalink: pretty
 # RedCarpet
 redcarpet:
  extensions: ["no_intra_emphasis","tables","autolink","fenced_code_blocks","space_after_headers","with_toc_data"]
+
+ # Pagination
+paginate: 10
+paginate_path: "/blog/page:num/"
