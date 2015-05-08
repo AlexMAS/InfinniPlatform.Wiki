@@ -12,13 +12,13 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-	padding-top: 80px;
 	line-height: $base-line-height;
 	font-family: $base-font-family;
 	font-size: $base-font-size;
 	font-weight: 300;
 	color: $text-color;
 	background-color: $background-color;
+
 	-webkit-text-size-adjust: 100%;
 }
 

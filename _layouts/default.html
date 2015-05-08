@@ -8,17 +8,10 @@
 		{% include header.html %}
 
 		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					{{ content }}
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					{% include footer.html %}
-				</div>
-			</div>
+			{{ content }}
 		</div>
+
+		{% include footer.html %}
 
 		{% include scripts.html %}
 		{% include search.html %}
