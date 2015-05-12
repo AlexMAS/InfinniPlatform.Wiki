@@ -9,6 +9,9 @@ url:       "http://localhost:4000"
 baseUrl:   ""
 sourceUrl: "https://github.com/InfinniPlatform/InfinniPlatform.github.io/edit/master/"
 
+# Analytics
+googleAnalytics: "UA-62864649-1"
+
 # Handling Reading
 safe:         false
 keep_files:   [".git",".hg"]
