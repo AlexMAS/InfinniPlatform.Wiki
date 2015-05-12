@@ -10,6 +10,7 @@ baseUrl:   ""
 sourceUrl: "https://github.com/InfinniPlatform/InfinniPlatform.github.io/edit/master/"
 
 # Analytics
+yandexMetrika:   "30185399"
 googleAnalytics: "UA-62864649-1"
 
 # Handling Reading
