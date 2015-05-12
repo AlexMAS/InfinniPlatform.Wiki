@@ -2,6 +2,7 @@
 layout: default
 ---
 <header class="PageHeader">
+	{% include editPage.html %}
 	<h1>{{ page.title }}</h1>
 	<p>{{ page.date | date: "%b %-d, %Y" }}</p>
 </header>

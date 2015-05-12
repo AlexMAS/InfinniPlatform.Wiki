@@ -43,3 +43,12 @@ body > .container {
 	font-size: $small-font-size;
 	color: $grey-color-dark;
 }
+
+.Footer a {
+	color: $grey-color-dark;
+	text-decoration: none;
+}
+
+.Footer a:hover {
+	color: $brand-color-dark;
+}
