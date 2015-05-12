@@ -38,11 +38,42 @@
 	list-style: none;
 }
 
-.PostList li {
+.PostList > li {
 	margin-left: 0;
 	margin-right: 0;
 	margin-top: 0;
-	margin-bottom: $spacing-unit;
+	margin-bottom: $spacing-unit * 2;
+}
+
+.PostMetadata {
+	margin: 0;
+	list-style: none;
+	font-size: 14px;
+	color: $grey-color-dark;
+}
+
+.PostMetadata > li {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.PostMetadata > li > i {
+	margin-right: 5px;
+}
+
+.PostMetadata > li > a {
+	color: $grey-color-dark;
+
+	&:hover {
+		color: $brand-color-dark;
+		text-decoration: none;
+	}
+}
+
+.PostExcerpt {
+}
+
+.PostTags {
 }
 
 .EditPageButton {

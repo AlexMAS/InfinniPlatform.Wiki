@@ -3,7 +3,13 @@
 {% assign result = '' %}
 {% assign pageTags = '' %}
 
-{% for tag in page.tags %}
+{% assign tags = include.tags %}
+
+{% if tags == nil %}
+	{% assign tags = page.tags %}
+{% endif %}
+
+{% for tag in tags %}
 	{% assign pageTag = tag | strip | append: '|' %}
 
 	{% unless pageTags contains pageTag %}

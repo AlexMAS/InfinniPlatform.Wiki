@@ -6,7 +6,16 @@ title: "Posts"
 	{% for post in paginator.posts %}
 		<li>
 			<h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-			<p>{{ post.excerpt }}</p>
+			<ul class="PostMetadata">
+				<li><i class="fa fa-calendar-o"></i>{{ post.date | date: "%b %-d, %Y" }}</li>
+				<li><i class="fa fa-comment-o"></i><a href="{{ post.url }}#disqus_thread">0 Comments</a></li>
+			</ul>
+			<p class="PostExcerpt">
+				{{ post.excerpt }}
+			</p>
+			<div class="PostTags">
+				{% include pageTags.html tags=post.tags %}
+			</div>
 		</li>
 	{% endfor %}
 </ul>
@@ -50,3 +59,5 @@ title: "Posts"
 	</ul>
 </nav>
 {% endif %}
+
+{% include disqusCount.html %}
