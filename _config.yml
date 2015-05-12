@@ -5,8 +5,9 @@ phone:       "+7 (351) 236-20-60"
 address:     "454000, Челябинск, ул.Северная, 52/2"
 copyright:   "Infinnity Solutions Ltd"
 
-url:     "http://localhost:4000"
-baseurl: ""
+url:       "http://localhost:4000"
+baseUrl:   ""
+sourceUrl: "https://github.com/AlexMAS/AlexMAS.github.io/blob/master/"
 
 # Handling Reading
 safe:         false

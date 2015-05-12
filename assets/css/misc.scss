@@ -44,3 +44,17 @@
 	margin-top: 0;
 	margin-bottom: $spacing-unit;
 }
+
+.EditPageButton {
+	float: right;
+	font-size: 14px;
+}
+
+.EditPageButton a {
+	color: $grey-color;
+	text-decoration: none;
+}
+
+.EditPageButton a:hover {
+	color: $brand-color-dark;
+}
