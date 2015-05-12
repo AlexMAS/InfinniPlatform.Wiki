@@ -9,7 +9,8 @@ url:       "http://localhost:4000"
 baseUrl:   ""
 sourceUrl: "https://github.com/InfinniPlatform/InfinniPlatform.github.io/edit/master/"
 
-# Analytics
+# Services
+disqus:          "docs-infinnity-ru"
 yandexMetrika:   "30185399"
 googleAnalytics: "UA-62864649-1"
 
