@@ -1,9 +1,0 @@
----
-layout: default
-title: "Особенности сборки BackEnd-части"
-position: 
-categories: 
-tags: 
----
-
-<h3>Ошибки компиляции</h3><p><u>Ошибка 1</u></p><blockquote><p><em>Cannot import the following key file: MultiCareSDK.pfx. The key file may be password protected. To correct this, try to import the certificate again or manually install the certificate to the Strong Name CSP with the following key container name: VS_KEY_4A69B2C7E3FAF525 MultiCare.SDK</em></p></blockquote><p>Проект подписан сертификатом, а на машине, на которой осуществляется сборка, нет соответствующего сертификата. Для установки сертификата нужно в режиме локального администратора запустить Command Promt:</p><blockquote><p><em>Пуск / Все программы<em>&nbsp;/&nbsp;</em>Microsoft Visual Studio 2012 /&nbsp;Visual Studio Tools /&nbsp;Command Promt</em></p></blockquote><p>После этого выполнить команду (значения атрибутов команды подставить из сообщения об ошибке):</p><blockquote><p><em>cd &lt;Directory&nbsp;<em>InfinniPlatform.API</em>&gt;</em></p><p><em>sn -i InfinniPlatform.API.pfx VS_KEY_4A69B2C7E3FAF525</em></p></blockquote><p>Если всё верно, то появиться сообщение с просьбой ввести пароль. Пароль: Infinnity.</p><p>Затем в свойствах проекта InfinniPlatform.API, вкладка Signing, снова выберите&nbsp;<em>InfinniPlatform.API.pfx.&nbsp;</em>Пароль тот же:&nbsp;Infinnity.</p>

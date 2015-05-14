@@ -1,9 +1,0 @@
----
-layout: default
-title: "MessageBody"
-position: 1
-categories: 
-tags: 
----
-
-<p>В данном разделе описывается структура тела сообщения для стандартных типов сообщений (см.&nbsp;<ac:link><ri:page ri:content-title="MessageBus" /></ac:link>).</p><p>&nbsp;</p><p><ac:structured-macro ac:name="pagetree"><ac:parameter ac:name="root"><ac:link><ri:shortcut ri:key="self" ri:parameter="" /></ac:link></ac:parameter></ac:structured-macro></p><p>&nbsp;</p><p>&nbsp;</p>

@@ -1,9 +1,0 @@
----
-layout: default
-title: "Report"
-position: 4
-categories: 
-tags: 
----
-
-<p>Шаблон отчета.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="warning"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>Данный раздел находится в разработке.</p></ac:rich-text-body></ac:structured-macro><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><div class="message-content"><p>Полное описание отчета (шаблон отчета) представляет собой метаданные, на основании которых производится генерация файла отчета. Шаблон отчета хранит информацию о параметрах отчета, источниках данных, способе генерации визуальной части отчета и т.п. Строготипизированное модель шаблона отчета описывается классом <em>InfinniPlatform.FastReport.Templates.Reports.ReportTemplate</em>, см. проект <em>InfinniPlatform.FastReport</em>.</p></div></ac:rich-text-body></ac:structured-macro><p>&nbsp;</p><p>&nbsp;</p>

@@ -1,9 +1,0 @@
----
-layout: default
-title: "GlobalContext"
-position: 
-categories: 
-tags: 
----
-
-<p>Глобальный контекст приложения.</p><p>Контекст предоставляет доступ (API) к совместно используемым методам и свойствам приложения.</p><p>&nbsp; &nbsp;</p><ac:structured-macro ac:name="note"><ac:parameter ac:name="title">Важно</ac:parameter><ac:rich-text-body><p>Время жизни глобального контекста определяется временем жизни приложения. Помимо указанного API не исключено, что с течением времени контекст может динамически расширяться дополнительными свойствами и методами. Чтобы не нарушить работоспособность приложения крайне не рекомендуется изменять глобальный контекст.</p></ac:rich-text-body></ac:structured-macro><p>&nbsp; &nbsp;</p><table><tbody><tr><th>Name</th><th>Description</th></tr><tr><td colspan="1">Culture: <ac:link><ri:page ri:content-title="Culture" /></ac:link></td><td colspan="1">Текущая культура.</td></tr><tr><td colspan="1">Clipboard: <ac:link><ri:page ri:content-title="Clipboard" /></ac:link></td><td colspan="1">Возвращает буфер обмена.</td></tr><tr><td colspan="1">Session: <ac:link><ri:page ri:content-title="Session" /></ac:link></td><td colspan="1">Провайдер для работы сессией пользователя.</td></tr><tr><td colspan="1">&nbsp;</td><td colspan="1">&nbsp;</td></tr><tr><td colspan="1">GetCulture(string name): <ac:link><ri:page ri:content-title="Culture" /></ac:link></td><td colspan="1">Возвращает культуру по имени.</td></tr><tr><td colspan="1">CreateElement(object metadata): object</td><td colspan="1">Создает объект по метаданным.</td></tr></tbody></table><p>&nbsp;</p><p>&nbsp;</p>

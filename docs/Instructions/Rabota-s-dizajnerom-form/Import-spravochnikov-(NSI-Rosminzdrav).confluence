@@ -1,9 +1,0 @@
----
-layout: default
-title: "Импорт справочников (НСИ Росминздрав)"
-position: 
-categories: 
-tags: 
----
-
-<ol><li>Зайти в любую конфигурацию, вкладка &laquo;Migrations and Verifications&raquo;</li><li>В поле &laquo;Migration name&raquo; выбрать значение &laquo;ImportFederalClassifierMigration&raquo;</li><li>Подождать пока загрузиться</li><li>В поле &laquo;Classifier&raquo; выбрать нужный справочник</li><li>Нажать &laquo;Up&raquo;</li><li>В поле &laquo;Migration log&raquo; можно отследить статус загрузки</li></ol>

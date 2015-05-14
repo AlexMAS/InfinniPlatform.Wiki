@@ -1,9 +1,0 @@
----
-layout: default
-title: "Инструмент для просмотра данных elasticsearch"
-position: 
-categories: 
-tags: 
----
-
-<p>Для удобного просмотра&nbsp;данных elasticsearch удобно использовать <a href="https://github.com/mobz/elasticsearch-head">утилиту</a>.</p><p>В виду необходимости к данной утилите была добавлена возможность удалять запись. Скачать измененную версию можно&nbsp;<ac:link><ri:attachment ri:filename="elasticsearch-head3.0.rar" /><ac:plain-text-link-body><![CDATA[тут]]></ac:plain-text-link-body></ac:link>.</p>

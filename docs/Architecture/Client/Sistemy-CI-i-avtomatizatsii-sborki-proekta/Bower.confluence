@@ -1,9 +1,0 @@
----
-layout: default
-title: "Bower"
-position: 
-categories: 
-tags: 
----
-
-<p><a href="http://bower.io/">Bower</a> - это менеджер управления клиентскими библиотеками.</p><p>Устанавливается следующей командой:</p><ac:structured-macro ac:name="code"><ac:plain-text-body><![CDATA[npm install --save-dev bower]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>Для работы bower необходимо, чтобы в системе был установлен и доступен в консоли GIT, т.к. bower загружает все библиотеки с Github.</p><p>Загрузить git и получить инструкцию по установке можно здесь:&nbsp;<a href="http://git-scm.com/">http://git-scm.com/</a>.</p><p>&nbsp;</p><p>После установки bower, в корень проекта нужно добавить два файла: bower.json и&nbsp;.bowerrc.</p><ul><li>.bowerrc описывает путь до директории в проекте, куда bower будет загружать клиентские библиотеки.</li><li>bower.json содержит список всех сторонних клиентских библиотек и их версии.</li></ul><p>&nbsp;</p><p>Новую библиотеку можно добавить в список либо вручную, обязательно указав версию, либо командой:</p><ac:structured-macro ac:name="code"><ac:plain-text-body><![CDATA[bower install --save-dev qunit]]></ac:plain-text-body></ac:structured-macro><p>&nbsp;</p><p>Для загрузки всех перечисленных в bower.json библиотек используется команда:</p><ac:structured-macro ac:name="code"><ac:plain-text-body><![CDATA[bower install]]></ac:plain-text-body></ac:structured-macro>

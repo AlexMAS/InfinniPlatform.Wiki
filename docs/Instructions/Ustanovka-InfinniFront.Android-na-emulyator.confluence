@@ -1,9 +1,0 @@
----
-layout: default
-title: "Установка InfinniFront.Android на эмулятор"
-position: 
-categories: 
-tags: 
----
-
-<ol><li>Установить Java7 (jre или jdk) &nbsp;<a href="http://www.java.com/ru/" style="text-decoration: underline;">http://www.java.com/ru/</a></li><li>Загрузить android sdk&nbsp;<a href="https://developer.android.com/sdk/index.html">https://developer.android.com/sdk/index.html</a></li><li>Распаковать архив и запустить &nbsp;SDK Manager.exe, в разделе Android 4.4 выбрать SDK platform и ARM EABI v7a system image, нажать кнопку &quot;install 2 packages&quot;</li><li>В SDK Manager-e в верхней панели выбрать Tools-&gt;Manage AVD's. нажать new, ввести имя устройства, в разделе Device желательно выбрать 10.1 WXGA (Tablet) (1280 x 800: mdpi), Target -&gt; Android 4.4 нажать Ok.</li><li>В списке устройств выбрать созданный эмулятор и нажать Start.</li><li>В командной строке ввести &nbsp;*путь до android sdk*\sdk\platform-tools\adb install *путь до apk файла*</li><li>Запустить приложение из эмулятора.<br /><p>&nbsp;</p></li></ol>

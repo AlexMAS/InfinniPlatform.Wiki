@@ -1,9 +1,0 @@
----
-layout: default
-title: "Создание конфигурации"
-position: 
-categories: 
-tags: 
----
-
-<p>Home -&gt; Configurations -&gt; Add -&gt;</p><table><tbody><tr><td class="highlight-grey" data-highlight-colour="grey"><p>Название поля</p></td><td class="highlight-grey" data-highlight-colour="grey"><p>Чем заполнять?</p></td><td class="highlight-grey" data-highlight-colour="grey"><p>Ограничения</p></td></tr><tr><td><p>Name</p></td><td><p>Название конфигурации</p></td><td><p>Язык: английский</p><p>Запрещенные символы: пробелы, знаки</p><p>Начинаться должно с буквы</p></td></tr><tr><td><p>Caption</p></td><td><p>Заголовок, отображается в перечне конфигураций</p></td><td><p>&nbsp;</p></td></tr><tr><td><p>Description</p></td><td><p>Разъяснения</p></td><td><p>&nbsp;</p></td></tr><tr><td><p>Version</p></td><td><p>Индекс для ElasticSearch</p></td><td><p>Необходимо заполнить, чем не принципиально, т.к. будет автоматически заменено значением &laquo;version_systemconfig&raquo;</p></td></tr></tbody></table><p>&nbsp;</p><p>-&gt; Save &ndash;&gt; конфигурация создана.</p>
