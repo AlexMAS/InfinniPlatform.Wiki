@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Сохранение документов, несоответствующих схеме"
+title: "Save problems decisions"
 position: 
 categories: 
 tags:
@@ -12,7 +12,7 @@ tags:
 
 ## Вариант 1
 Документ содержит поле, объявление которого отсутствует в приложении.
-В этом случае, при сохранении документа такое поле будет отброшено, а документ будет успешно сохранен
+В этом случае, при сохранении документа такое поле будет отброшено, а документ будет успешно сохранен.
 
 ## Пример
 
@@ -45,16 +45,16 @@ string gameId = api.SetDocument("gameshop", "catalogue", Guid.NewGuid().ToString
 которое имеет тип, совпадающий с типом, указанным в метаданных схемы документа.
 Список возможных автоматических конвертирований значения:
 * любой тип -> строка
-* строка -> целое число
-где ->  - направление конвертирования
+
+где ->  - направление конвертирования.
 
 ## Пример
 
 ```csharp
 var game = new
 {
-	Name = "Divinity:Original Sin",
-	Price = "1800",
+	Name = 11111,
+	Price = 1800,
 };
 
 string gameId = api.SetDocument("gameshop", "catalogue", Guid.NewGuid().ToString(), game);
@@ -65,7 +65,32 @@ string gameId = api.SetDocument("gameshop", "catalogue", Guid.NewGuid().ToString
 ```js
 {
 	Id = "9949447D-D7F5-4C49-ADAF-56FCC614BF51"
-	Name = "Divinity:Original Sin",
+	Name = "11111",
 	Price = 1800,
 }
+```
+
+## Вариант 3
+Документ содержит поле, объявление которого присутствует в приложении, однако тип значения, указанного
+для этого поля, отличается от типа поля, указанного в метаданных схемы документа в приложении.
+При этом указанное значение поля документа НЕ может быть сконвертировано в тип значения, указанный в
+метаданных схемы документа в приложении.
+В этом случае при сохранении документа будет сгенерировано исключение ApplicationException.
+
+## Пример
+
+```csharp
+var game = new
+{
+	Name = "Divinity:Original Sin",
+	Price = "1800",
+};
+string gameId = api.SetDocument("gameshop", "catalogue", Guid.NewGuid().ToString(), game);
+```
+
+Сообщение сгенерированного исключения:
+
+```csharp
+Fail to set document with exception: There an business logic error on request execution.
+Additional info: ﻿{"Error":"Fail to commit transaction: \r\nExpected value for field 'Price' should have Float type, but value has System.String type ('someStringValueThatNotConvertToFloat')"}
 ```
