@@ -8,11 +8,11 @@ tags:
 
 ## Отсоединение документа от сессии
 
-## Описание
+## Description
 Отсоединяет указанный документ от клиентской сессии с указанным идентификатором.
 Если сессия с указанным идентификатором не найдена, вызов игнорируется.
 
-## Синтаксис
+## Syntax
 ```csharp
 public dynamic Detach(string sessionId, string instanceId);
 ```
@@ -25,7 +25,7 @@ public dynamic Detach(string sessionId, string instanceId);
 
 Идентификатор документа, которого следует отсоединить от сессии.
 
-## Пример
+## Example
 ```csharp
 
 string session = "912497D8-651A-4C13-9F39-6EE6A3F42C31";

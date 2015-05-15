@@ -8,13 +8,13 @@ tags:
 
 Получение существующего документа из хранилища по идентификатору
 
-## Краткое описание
+## Description
 Предоставляет метод для чтения документов из хранилища с возможностью фильтрации и постраничного 
 получения данных.
 При получении документов следует учитывать [особенности работы со ссылками на другие документы](../../Advanced Topics/resolve) и
 [существующие ограничения, касающиеся рекурсивных ссылок на документы](../../Advanced Topics/recursiveLink).
 
-## Синтаксис
+## Syntax
 ```csharp
 public dynamic GetDocumentById(string applicationId, string documentType, string instanceId)
 ```
@@ -31,7 +31,7 @@ public dynamic GetDocumentById(string applicationId, string documentType, string
 
 Идентификатор документа
 
-## Примеры
+## Example
 
 Пример запроса документов:
 

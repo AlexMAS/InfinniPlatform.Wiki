@@ -6,11 +6,11 @@ categories:
 tags:
 ---
 
-## Описание
+## Description
 Предоставляет возможность частичного обновления экземпляра документа.
 При этом происходит только изменение полей, указанных в переданном объекте изменений.
 
-## Синтаксис
+## Syntax
 ```csharp
 public void UpdateDocument(string applicationId, string documentType, string instanceId, 
 	object changesObject);
@@ -32,7 +32,7 @@ public void UpdateDocument(string applicationId, string documentType, string ins
 
 Экземпляр объекта, содержащего изменения данных.
 
-## Пример
+## Example
 
 Сохраненный документ в базе:
 

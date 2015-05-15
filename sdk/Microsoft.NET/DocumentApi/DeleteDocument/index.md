@@ -6,10 +6,10 @@ categories:
 tags:
 ---
 
-## Описание
+## Description
 Определяет метод удаления документов из постоянного хранилища.
 
-## Синтаксис
+## Syntax
 ```csharp
 public dynamic DeleteDocument(string applicationId, string documentType, string instanceId)
 ```
@@ -26,7 +26,7 @@ public dynamic DeleteDocument(string applicationId, string documentType, string 
 
 Идентификатор удаляемого документа.
 
-## Пример
+## Example
 
 ```csharp
 api.DeleteDocument("gameshop", "catalogue", "04DB2A71-22DE-4B29-A9E2-A05F8681A42A")
