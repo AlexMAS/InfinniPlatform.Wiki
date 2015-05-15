@@ -8,10 +8,10 @@ tags:
 
 ## Фиксация сессии
 
-## Описание
+## Description
 Сохраняет присоединенные к сессии документы на сервере, после чего сессия удаляется.
 
-## Синтаксис
+## Syntax
 ```csharp
 public dynamic SaveSession(string sessionId);
 ```
@@ -20,7 +20,7 @@ public dynamic SaveSession(string sessionId);
 
 Идентификатор фиксируемой сессии.
 
-## Пример
+## Example
 ```csharp
 string session = "912497D8-651A-4C13-9F39-6EE6A3F42C31";
 

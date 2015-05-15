@@ -6,7 +6,7 @@ categories:
 tags:
 ---
 
-## Описание
+## Description
 Определяет метод сохранения документов в постоянное хранилище. Сохранение документов осуществляется,
 учитывая схему документа, описанную в приложении при его создании или изменении. Для каждой версии
 метаданных документов приложения существует собственная версия схемы данных. Каждый сохраняемый документ
@@ -14,7 +14,7 @@ tags:
 При сохранении документа соблюдаются [следующие правила проверки типов данных изменяемых полей]
 (../../Advanced Topics/dataTypeChecking)
 
-## Синтаксис
+## Syntax
 
 ```csharp
 public string SetDocument(string applicationId, string documentType, string documentId, object document);
@@ -40,7 +40,7 @@ public string SetDocument(string applicationId, string documentType, string docu
 Идентификатор сохраненного документа.
 
 
-## Примеры
+## Example
 
 Сохранение документа:
 
