@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Save problems decisions"
+title: "Data type checking"
 position: 
 categories: 
 tags:
