@@ -35,8 +35,5 @@ public dynamic DownloadFile(string application, string documentType,
 ## Example
 
 ```csharp
-using (var fileStream = new FileStream(@"TestData\avatar.gif", FileMode.Open))
-{
-	fileApi.DownloadFile("Gameshop", "UserProfile", profileId, "Avatar");
-}
+var result = _fileApi.DownloadFile("Gameshop", "UserProfile", instanceId, "Avatar");
 ```
