@@ -4,7 +4,7 @@ title: "ViewContext.global"
 position: 0
 ---
 
-Возвращает глобальный контекст приложения [GlobalContext](../../GlobalContext/).
+Возвращает [глобальный контекст приложения](../../GlobalContext/).
 
 ## Syntax
 

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Script"
-position: 5
+position: 7
 ---
 
 Прикладной скрипт - функция, выполняемая на стороне клиента.
