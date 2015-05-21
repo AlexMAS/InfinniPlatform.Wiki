@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Session.onSignOut"
-position: 9
+position: 8
 ---
 
 Устанавливает обработчик события выхода пользователя из системы.
@@ -16,7 +16,7 @@ Session.onSignOut(callback)
 
 `callback`
 
-[Обработчик события выхода пользователя из системы](../ResultCallback).
+[Обработчик события выхода пользователя из системы](../../Script/).
 
 ## Examples
 

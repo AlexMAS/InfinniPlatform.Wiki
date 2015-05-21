@@ -1,10 +1,14 @@
 ---
 layout: doc
 title: "Session.signInInternal()"
-position: 5
+position: 3
 ---
 
 Осуществляет вход пользователя в систему через внутренний провайдер.
+
+## Description
+
+Успешный вход в систему приводит к возникновению события [`onSignInInternal`](../Session.onSignInInternal).
 
 ## Syntax
 
@@ -28,11 +32,11 @@ Session.signInInternal(userName, password, remember, resultCallback, errorCallba
 
 `resultCallback`
 
-[Обработчик результата выполнения операции](../ResultCallback).
+[Обработчик результата выполнения операции](../../Script/).
 
 `errorcallback`
 
-[Обработчик ошибки выполнения операции](../ErrorCallback).
+[Обработчик ошибки выполнения операции](../../Script/).
 
 ## Examples
 

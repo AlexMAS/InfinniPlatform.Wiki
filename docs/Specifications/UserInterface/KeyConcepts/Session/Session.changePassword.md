@@ -1,10 +1,14 @@
 ---
 layout: doc
 title: "Session.changePassword()"
-position: 3
+position: 1
 ---
 
 Изменяет пароль текущего пользователя.
+
+## Description
+
+Успешное изменение пароля приводит к возникновению события [`onPasswordChanged`](../Session.onPasswordChanged).
 
 ## Syntax
 
@@ -24,11 +28,11 @@ Session.changePassword(oldPassword, newPassword, resultCallback, errorCallback)
 
 `resultCallback`
 
-[Обработчик результата выполнения операции](../ResultCallback).
+[Обработчик результата выполнения операции](../../Script/).
 
 `errorcallback`
 
-[Обработчик ошибки выполнения операции](../ErrorCallback).
+[Обработчик ошибки выполнения операции](../../Script/).
 
 ## Examples
 

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Session.getCurrentUser()"
-position: 2
+position: 0
 ---
 
 Возвращает информацию о текущем пользователе.
@@ -16,8 +16,8 @@ Session.getCurrentUser(resultCallback, errorCallback)
 
 `resultCallback`
 
-[Обработчик результата выполнения операции](../ResultCallback).
+[Обработчик результата выполнения операции](../../Script/).
 
 `errorcallback`
 
-[Обработчик ошибки выполнения операции](../ErrorCallback).
+[Обработчик ошибки выполнения операции](../../Script/).

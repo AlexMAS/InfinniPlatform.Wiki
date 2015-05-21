@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ViewContext"
-position: 0
+position: 2
 ---
 
 Контекст представления - программный объект, который хранит состояние представления и предоставляет
@@ -14,7 +14,7 @@ position: 0
 
 ### [`global`](ViewContext.global/)
 
-Возвращает глобальный контекст приложения [GlobalContext](../GlobalContext/).
+Возвращает [глобальный контекст приложения](../GlobalContext/).
 
 ### [`scripts`](ViewContext.scripts/)
 

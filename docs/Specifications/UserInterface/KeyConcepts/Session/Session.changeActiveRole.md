@@ -1,10 +1,14 @@
 ---
 layout: doc
 title: "Session.changeActiveRole()"
-position: 4
+position: 2
 ---
 
 Изменяет активную роль текущего пользователя.
+
+## Description
+
+Успешное изменение активной роли приводит к возникновению события [`onActiveRoleChanged`](../Session.onActiveRoleChanged).
 
 ## Syntax
 
@@ -20,11 +24,11 @@ Session.changeActiveRole(activeRole, resultCallback, errorCallback)
 
 `resultCallback`
 
-[Обработчик результата выполнения операции](../ResultCallback).
+[Обработчик результата выполнения операции](../../Script/).
 
 `errorcallback`
 
-[Обработчик ошибки выполнения операции](../ErrorCallback).
+[Обработчик ошибки выполнения операции](../../Script/).
 
 ## Examples
 

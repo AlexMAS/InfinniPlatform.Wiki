@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Factory"
-position: 4
+position: 6
 ---
 
 Фабрика элементов - программный объект, который предоставляет интерфейс для создания элементов любых
@@ -102,14 +102,14 @@ position: 4
 
 ## Methods
 
-[`register`](Factory.register/)
+[`register()`](Factory.register/)
 
 Регистрирует построитель элементов.
 
-[`build`](Factory.build/)
+[`build()`](Factory.build/)
 
 Осуществляет создание элемента по его метаданным.
 
-[`buildMany`](Factory.buildMany/)
+[`buildMany()`](Factory.buildMany/)
 
 Осуществляет создание набора элементов по набору их метаданных.

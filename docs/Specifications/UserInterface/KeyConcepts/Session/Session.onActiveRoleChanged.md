@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Session.onActiveRoleChanged"
-position: 7
+position: 6
 ---
 
 Устанавливает обработчик события изменения активной роли текущего пользователя.
@@ -16,12 +16,12 @@ Session.onActiveRoleChanged(callback)
 
 `callback`
 
-[Обработчик события изменения активной роли текущего пользователя](../ResultCallback).
+[Обработчик события изменения активной роли текущего пользователя](../../Script/).
 
 ## Examples
 
 ```js
 Session.onActiveRoleChanged(
-  function(context, argument) { alert('ActiveRoleChanged!'); }
+  function(context, argument) { alert('Active role changed!'); }
 );
 ```
