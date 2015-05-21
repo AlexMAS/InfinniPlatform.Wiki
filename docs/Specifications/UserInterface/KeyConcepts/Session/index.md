@@ -10,23 +10,23 @@ position: 3
 
 ## Methods
 
-### [`getCurrentUser`](Session.getCurrentUser/)
+### [`getCurrentUser()`](Session.getCurrentUser/)
 
 Возвращает информацию о текущем пользователе.
 
-### [`changePassword`](Session.changePassword/)
+### [`changePassword()`](Session.changePassword/)
 
 Изменяет пароль текущего пользователя.
 
-### [`changeActiveRole`](Session.changeActiveRole/)
+### [`changeActiveRole()`](Session.changeActiveRole/)
 
 Изменяет активную роль текущего пользователя.
 
-### [`signInInternal`](Session.signInInternal/)
+### [`signInInternal()`](Session.signInInternal/)
 
 Осуществляет вход пользователя в систему через внутренний провайдер.
 
-### [`signOut`](Session.signOut/)
+### [`signOut()`](Session.signOut/)
 
 Осуществляет выход пользователя из системы.
 

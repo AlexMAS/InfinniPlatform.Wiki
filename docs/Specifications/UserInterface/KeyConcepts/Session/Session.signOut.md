@@ -1,10 +1,14 @@
 ---
 layout: doc
 title: "Session.signOut()"
-position: 6
+position: 4
 ---
 
 Осуществляет выход пользователя из системы.
+
+## Description
+
+Успешный выход из системы приводит к возникновению события [`onSignOut`](../Session.onSignOut).
 
 ## Syntax
 
@@ -16,11 +20,11 @@ Session.signOut(resultCallback, errorCallback)
 
 `resultCallback`
 
-[Обработчик результата выполнения операции](../ResultCallback).
+[Обработчик результата выполнения операции](../../Script/).
 
 `errorcallback`
 
-[Обработчик ошибки выполнения операции](../ErrorCallback).
+[Обработчик ошибки выполнения операции](../../Script/).
 
 ## Examples
 
