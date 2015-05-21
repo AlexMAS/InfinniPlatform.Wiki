@@ -8,11 +8,11 @@ tags:
 
 Работа с объектом InfinniDocumentApi
 
-## Краткое описание
+## Description
 Определяет операции для создания, сохранения, получения, удаления документов и создания и сохранения 
 сессий работы с документами. 
 
-## Конструктор
+## Constructor
 ```csharp
 public InfinniDocumentApi(string server, string port, string version);
 ```
@@ -29,7 +29,7 @@ public InfinniDocumentApi(string server, string port, string version);
 
 Версия сервисов для подключения.
 
-## Примеры
+## Example
 ```csharp
 string InfinniSessionPort = "9900";
 string InfinniSessionServer = "localhost";
@@ -39,7 +39,7 @@ var api = new InfinniDocumentApi(InfinniSessionServer, InfinniSessionPort, Infin
 
 ```
 
-### Методы
+### Methods
 
 Наименование | Описание |
 -------------|----------|
