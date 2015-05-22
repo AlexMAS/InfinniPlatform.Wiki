@@ -2,20 +2,22 @@
 layout: doc
 title: "Attach"
 position: 7
-categories: 
 tags:
 ---
 
-## Присоединение документов к сессии
+Присоединяет документ к списку документов существующей сессии. 
 
-## Description
-Присоединяет документ к списку документов существующей сессии. В случае отсутствия сессии с указанным
-идентификатором, создается новая сессия.
+# Description
 
-## Syntax
+В случае отсутствия сессии с указанным идентификатором создается новая сессия.
+
+# Syntax
+
 ```csharp
-public dynamic Attach(string session, string applicationId, string documentId, dynamic document)
+dynamic Attach(string session, string applicationId, string documentId, dynamic document)
 ```
+
+## Parameters
 
 `session`
 
@@ -33,9 +35,9 @@ public dynamic Attach(string session, string applicationId, string documentId, d
 
 Документ, присоединяемый к сессии.
 
-## Example
-```csharp
+# Examples
 
+```csharp
 string session = api.CreateSession();
 
 var documentObject = new
