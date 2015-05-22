@@ -58,5 +58,6 @@ tags:
 		DisplayName : "GTA V Ultimate Edition"
 	}
 }
+```
 
 Поведение `Inline` применяется по умолчанию.
