@@ -6,15 +6,15 @@ categories:
 tags:
 ---
 
-## Description
+# Контекст
 В случае сохранения документов, в которых имеются поля, несоответствующие объявленным метаданным
-схемы документа в приложении, возможно три варианта поведения системы.
+схемы документа в приложении, возможны три варианта поведения системы.
 
-## Case 1
+# Вариант 1
 Документ содержит поле, объявление которого отсутствует в приложении.
 В этом случае, при сохранении документа такое поле будет отброшено, а документ будет успешно сохранен.
 
-## Example
+## Пример
 
 ```csharp
 var game = new
@@ -27,7 +27,7 @@ var game = new
 string gameId = api.SetDocument("gameshop", "catalogue", Guid.NewGuid().ToString(), game);
 ```
 
-## Saved document
+## Сохраненный документ
 
 ```js
 {
@@ -36,19 +36,19 @@ string gameId = api.SetDocument("gameshop", "catalogue", Guid.NewGuid().ToString
 	Price = 1800,
 }
 ```
-## Case 2
+# Вариант 2
 Документ содержит поле, объявление которого присутствует в приложении, однако тип значения, указанного
 для этого поля, отличается от типа поля, указанного в метаданных схемы документа в приложении.
 При этом указанное значение поля документа может быть сконвертировано в тип значения, указанный в
 метаданных схемы документа в приложении.
 В этом случае, при сохранении документа произойдет конвертирование значения поля в то значение, 
 которое имеет тип, совпадающий с типом, указанным в метаданных схемы документа.
-Список возможных автоматических конвертирований значения:
+Список возможных автоматических преобразований значения:
 * любой тип -> строка
 
-где ->  - направление конвертирования.
+где '->' - направление преобразования.
 
-## Example
+## Пример
 ```csharp
 var game = new
 {
@@ -59,7 +59,7 @@ var game = new
 string gameId = api.SetDocument("gameshop", "catalogue", Guid.NewGuid().ToString(), game);
 ```
 
-## Saved document
+## Сохраненный документ
 
 ```js
 {
@@ -69,14 +69,14 @@ string gameId = api.SetDocument("gameshop", "catalogue", Guid.NewGuid().ToString
 }
 ```
 
-## Case 3
+# Вариант 3
 Документ содержит поле, объявление которого присутствует в приложении, однако тип значения, указанного
 для этого поля, отличается от типа поля, указанного в метаданных схемы документа в приложении.
-При этом указанное значение поля документа НЕ может быть сконвертировано в тип значения, указанный в
+При этом указанное значение поля документа *не* может быть сконвертировано в тип значения, указанный в
 метаданных схемы документа в приложении.
 В этом случае при сохранении документа будет сгенерировано исключение ApplicationException.
 
-## Example
+## Пример
 
 ```csharp
 var game = new
@@ -91,5 +91,5 @@ string gameId = api.SetDocument("gameshop", "catalogue", Guid.NewGuid().ToString
 
 ```csharp
 Fail to set document with exception: There an business logic error on request execution.
-Additional info: ﻿{"Error":"Fail to commit transaction: \r\nExpected value for field 'Price' should have Float type, but value has System.String type ('someStringValueThatNotConvertToFloat')"}
+Additional info: ﻿{"Error":"Fail to commit transaction: \r\nExpected value for field 'Price' should have Float type, but value has System.String type ('someStringValueThatIsNotConvertibleToFloat')"}
 ```
