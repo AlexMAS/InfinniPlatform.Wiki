@@ -21,7 +21,7 @@ tags: [session, сессия]
 
 # Syntax
 ```csharp
-string CreateSession();
+string CreateSession()
 ```
 
 ## Returns
