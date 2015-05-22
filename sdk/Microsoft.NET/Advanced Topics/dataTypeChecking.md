@@ -87,7 +87,7 @@ var game = new
 string gameId = api.SetDocument("gameshop", "catalogue", Guid.NewGuid().ToString(), game);
 ```
 
-Сообщение сгенерированного исключения:
+## Исключение
 
 ```csharp
 Fail to set document with exception: There an business logic error on request execution.
