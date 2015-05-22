@@ -10,7 +10,7 @@ tags:
 # Syntax
 
 ```csharp
-void AttachFile(string session, string instanceId, string fieldName, string fileName, Stream fileStream);
+void AttachFile(string session, string instanceId, string fieldName, string fileName, Stream fileStream)
 ```
 
 ## Parameters
