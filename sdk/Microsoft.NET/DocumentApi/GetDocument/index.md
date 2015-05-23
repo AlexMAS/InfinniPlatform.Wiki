@@ -53,7 +53,7 @@ IEnumerable<dynamic> GetDocument(
 Пример запроса документов:
 
 ```csharp
- api.GetDocument("gameshop", "catalogue",
+api.GetDocument("gameshop", "catalogue",
 	f => f.AddCriteria(cr => cr.Property("Name").IsContains("gta")), 0, 2,
 	s => s.AddSorting("Price", "descending"));
 ```
