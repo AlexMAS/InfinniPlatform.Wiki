@@ -2,19 +2,22 @@
 layout: doc
 title: "UpdateDocument"
 position: 4 
-categories: 
 tags:
 ---
 
-## Description
-Предоставляет возможность частичного обновления экземпляра документа.
-При этом происходит только изменение полей, указанных в переданном объекте изменений.
+Обновляет часть документа.
 
-## Syntax
+# Description
+
+Предоставляет возможность частичного обновления экземпляра документа. При этом происходит только изменение полей, указанных в переданном объекте изменений.
+
+# Syntax
+
 ```csharp
-public void UpdateDocument(string applicationId, string documentType, string instanceId, 
-	object changesObject);
+void UpdateDocument(string applicationId, string documentType, string instanceId, object changesObject)
 ```
+
+## Parameters
 
 `applicationId` 
 
@@ -32,34 +35,32 @@ public void UpdateDocument(string applicationId, string documentType, string ins
 
 Экземпляр объекта, содержащего изменения данных.
 
-## Example
+## Examples
 
 Сохраненный документ в базе:
 
 ```js
-var documentObject = new
 {
 	Name = "gta V",
 	Price = 2000,
-	Availability = new
-	{
+	Availability {
 		Available = false,
-		SaleStartDate = new DateTime(2014, 04, 14)
+		SaleStartDate = "2014-04-14"
 	}
 };
 ```
 
-Код изменения данных документа.
+Код изменения данных документа:
 
 ```csharp
 var changesObject = new
-{
-	Name = "gta V ultimate edition",
-	Availability = new
 	{
-		Available = true,
-	}
-};
+		Name = "gta V ultimate edition",
+		Availability = new
+		{
+			Available = true,
+		}
+	};
 
 api.UpdateDocument("gameshop", "catalogue", result, changesObject);
 ```
@@ -70,9 +71,9 @@ api.UpdateDocument("gameshop", "catalogue", result, changesObject);
 {
 	Name = "gta V ultimate edition",
 	Price = 2000,
-	Availability = new
-	{
+	Availability {
 		Available = true,
+		SaleStartDate = "2014-04-14"
 	}
 }
 ```
