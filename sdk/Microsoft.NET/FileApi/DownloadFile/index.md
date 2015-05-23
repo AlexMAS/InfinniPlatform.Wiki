@@ -2,37 +2,44 @@
 layout: doc
 title: "DownloadFile"
 position: 1 
-categories: 
 tags:
 ---
 
-## Description
-Предоставляет возможность выгрузки бинарных данных с сервера с указанием связанного с ними
-поля ссылки документа.
+Выгружает бинарный файл с сервера.
 
-## Syntax
+# Description
+
+Предоставляет возможность выгрузки бинарных данных с сервера с указанием связанного с ними поля ссылки документа.
+
+# Syntax
+
 ```csharp
-public dynamic DownloadFile(string application, string documentType, 
-	string instanceId, string fieldName)
+dynamic DownloadFile(string application, string documentType, string instanceId, string fieldName)
 ```
+
+## Parameters
 
 `application`
 
-Идентификатор приложения, к которому принадлежат документы указанного типа
+Идентификатор приложения, к которому принадлежат документы указанного типа.
 
 `documentType`
 
-Идентификатор типа документа
+Идентификатор типа документа.
 
 `instanceId`
 
-Идентификатор экземпляра документа, в поле которого установлена ссылка на сохраненный файл
+Идентификатор экземпляра документа, в поле которого установлена ссылка на сохраненный файл.
 
 `fieldName`
 
-Наименование поля ссылки в документе
+Наименование поля ссылки в документе.
 
-## Example
+## Returns
+
+<Описание возвращаемого значения>.
+
+# Examples
 
 ```csharp
 var result = _fileApi.DownloadFile("Gameshop", "UserProfile", instanceId, "Avatar");
