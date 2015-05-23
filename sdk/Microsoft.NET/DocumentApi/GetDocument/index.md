@@ -2,24 +2,24 @@
 layout: doc
 title: "GetDocument"
 position: 0
-categories: 
 tags:
 ---
 
-Чтение существующих документов из хранилища.
+Возвращает существующие документы из хранилища.
 
-## Description
-Предоставляет метод для чтения документов из хранилища с возможностью фильтрации и постраничного 
-получения данных.
-При получении документов следует учитывать [особенности работы со ссылками на другие документы](../../Advanced Topics/resolve) и
-[существующие ограничения, касающиеся рекурсивных ссылок на документы](../../Advanced Topics/recursiveLink).
+# Description
+Производит чтение документов из хранилища с возможностью фильтрации и постраничного получения данных.
+При получении документов следует учитывать [особенности работы со ссылками на другие документы](../../Advanced Topics/resolve) и [существующие ограничения, касающиеся рекурсивных ссылок на документы](../../Advanced Topics/recursiveLink).
 
-## Syntax
+# Syntax
 ```csharp
-public IEnumerable<dynamic> GetDocument( 
+IEnumerable<dynamic> GetDocument( 
 	string applicationId, string documentType, Action<FilterBuilder> filter, int pageNumber, 
 	int pageSize, Action<SortingBuilder> sorting = null)
 ```
+
+## Parameters
+
 `applicationId`
 
 Идентификатор приложения.
@@ -44,7 +44,11 @@ public IEnumerable<dynamic> GetDocument(
 
 Делегат для формирования правила сортировки документов.
 
-## Example
+## Returns
+
+Документы с указанной страницы, удовлетворяющие условиям фильтра.
+
+# Examples
 
 Пример запроса документов:
 
