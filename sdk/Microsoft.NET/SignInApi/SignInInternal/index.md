@@ -2,31 +2,43 @@
 layout: doc
 title: "SignInInternal"
 position: 0 
-categories: 
 tags:
 ---
 
-## Description
-Предоставляет возможность регистрации пользователя в системе
+Регистрирует пользователя в системе.
 
-## Syntax
+# Syntax
+
 ```csharp
-public dynamic SignInInternal(string userName, string password, bool remember);
+dynamic SignInInternal(string userName, string password, bool remember)
 ```
+
+## Parameters
 
 `userName` 
 
-Логин пользователя
+Логин пользователя.
 
 `password`
 
-Пароль пользователя
+Пароль пользователя.
 
 `remember`
 
-Запомнить пользователя
+Запомнить пользователя.
 
-## Example
+## Returns
+
+<Описание возвращаемого значения>.
+ 
+# Exceptions
+ 
+[`ArgumentException1`](../url)
+ 
+<Описание исключения>.
+
+# Examples
+
 ```csharp
 dynamic signResult = signInApi.SignInInternal("Admin", "Admin", true);
 ```
