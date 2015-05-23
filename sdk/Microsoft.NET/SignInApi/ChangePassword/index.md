@@ -2,31 +2,43 @@
 layout: doc
 title: "ChangePassword"
 position: 2 
-categories: 
 tags:
 ---
 
-## Description
-Предоставляет возможность смены пароля пользователя
+Изменяет пароль пользователя.
 
-## Syntax
+# Syntax
+
 ```csharp
-public dynamic ChangePassword(string userName, string oldPassword, string newPassword);
+dynamic ChangePassword(string userName, string oldPassword, string newPassword)
 ```
+
+## Parameters
 
 `userName`
 
-Логин пользователя
+Логин пользователя.
 
 `oldPassword`
 
-Старый пароль пользователя
+Старый пароль пользователя.
 
 `newPassword`
 
-Новый пароль пользователя
+Новый пароль пользователя.
 
-## Example
+## Returns
+
+<Описание возвращаемого значения>.
+
+# Exceptions
+ 
+[`ArgumentException1`](../url)
+ 
+<Описание исключения>.
+
+# Examples
+
 ```csharp
 dynamic changePasswordResult = _signInApi.ChangePassword("SomeUser", "SomeOldPassword", "SomeNewPassword");
 ```
