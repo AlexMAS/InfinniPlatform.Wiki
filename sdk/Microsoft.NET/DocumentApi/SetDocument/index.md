@@ -2,23 +2,22 @@
 layout: doc
 title: "SetDocument"
 position: 2
-categories: 
 tags:
 ---
 
-## Description
-Определяет метод сохранения документов в постоянное хранилище. Сохранение документов осуществляется,
-учитывая схему документа, описанную в приложении при его создании или изменении. Для каждой версии
-метаданных документов приложения существует собственная версия схемы данных. Каждый сохраняемый документ
-должен соответствовать одной из ранее созданных версий метаданных этого документа. 
-При сохранении документа соблюдаются [следующие правила проверки типов данных изменяемых полей]
-(../../Advanced Topics/dataTypeChecking)
+Сохраняет документ в постоянном хранилище.
 
-## Syntax
+## Description
+Сохранение документов осуществляется с учетом схемы документа, описанной в приложении при его создании или изменении. Для каждой версии метаданных документов приложения существует собственная версия схемы данных. Каждый сохраняемый документ
+должен соответствовать одной из ранее созданных версий метаданных этого документа. При сохранении документа соблюдаются [следующие правила проверки типов данных изменяемых полей](../../Advanced Topics/dataTypeChecking).
+
+# Syntax
 
 ```csharp
-public string SetDocument(string applicationId, string documentType, string documentId, object document);
+string SetDocument(string applicationId, string documentType, string documentId, object document)
 ```
+
+## Parameters
 
 `applicationId`
 
@@ -36,22 +35,20 @@ public string SetDocument(string applicationId, string documentType, string docu
 
 Экземпляр сохраняемого документа.
 
-`returns`
+## Returns
+
 Идентификатор сохраненного документа.
 
-
-## Example
+# Examples
 
 Сохранение документа:
 
 ```csharp
-
-	var documentObject = new
+var documentObject = new
 	{
 		Name = "gta vice city",
 		Price = 100.50
 	};
 	
-	var result = api.SetDocument("gameshop", "catalogue", Guid.NewGuid().ToString(), documentObject);
-	
+var result = api.SetDocument("gameshop", "catalogue", Guid.NewGuid().ToString(), documentObject);
 ```
