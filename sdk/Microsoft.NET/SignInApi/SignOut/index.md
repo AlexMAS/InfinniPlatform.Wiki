@@ -2,19 +2,29 @@
 layout: doc
 title: "SignOut"
 position: 1 
-categories: 
 tags:
 ---
 
-## Description
-Предоставляет возможность смены текущего пользователя
+Завершает работу текущего пользователя с системой.
 
-## Syntax
+# Syntax
+
 ```csharp
-public dynamic SignOut();
+dynamic SignOut()
 ```
 
-## Example
+## Returns
+
+<Описание возвращаемого значения>.
+ 
+# Exceptions
+ 
+[`ArgumentException1`](../url)
+ 
+<Описание исключения>.
+
+# Examples
+
 ```csharp
-dynamic signResult = signInApi.SignOut();
+dynamic result = signInApi.SignOut();
 ```
