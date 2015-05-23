@@ -2,45 +2,53 @@
 layout: doc
 title: "UploadFile"
 position: 0 
-categories: 
 tags:
 ---
 
-## Description
-Предоставляет возможность загрузки бинарных данных на сервер с указанием связанного с ними
-поля ссылки документа.
+Загружает бинарный файл на сервер.
 
-## Syntax
+# Description
+
+Предоставляет возможность загрузки бинарных данных на сервер с указанием связанного с ними поля ссылки документа.
+
+# Syntax
+
 ```csharp
-public dynamic UploadFile(string application, string documentType, string instanceId, 
+dynamic UploadFile(string application, string documentType, string instanceId, 
 	string fieldName, string fileName, Stream fileStream)
 ```
 
+## Parameters
+
 `application`
 
-Идентификатор приложения, к которому принадлежат документы указанного типа
+Идентификатор приложения, к которому принадлежат документы указанного типа.
 
 `documentType`
 
-Идентификатор типа документа
+Идентификатор типа документа.
 
 `instanceId`
 
-Идентификатор экземпляра документа, в поле которого устанавливается ссылка на сохраненный файл
+Идентификатор экземпляра документа, в поле которого устанавливается ссылка на сохраненный файл.
 
 `fieldName`
 
-Наименование поля ссылки в документе
+Наименование поля ссылки в документе.
 
 `fileName`
 
-Наименование сохраняемого файла
+Наименование сохраняемого файла.
 
 `fileStream`
 
-Поток данных для сохранения
+Поток данных для сохранения.
 
-## Example
+## Returns
+
+<Описание возвращаемого значения>.
+
+# Examples
 
 ```csharp
 using (var fileStream = new FileStream(@"TestData\avatar.gif", FileMode.Open))
