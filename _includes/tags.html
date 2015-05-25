@@ -41,7 +41,7 @@
 	{% assign result = result | append: '</ul>' %}
 
 	{% for tag in allTags %}
-		{% assign result = result | append: '<h2 id="' | append: tag | append: '">' | append: tag | append: '</h2>' %}
+		{% assign result = result | append: '<h1 id="' | append: tag | append: '">' | append: tag | append: '</h1>' %}
 		{% assign result = result | append: '<ul class="IndexPages">' %}
 
 		{% for page in site.pages %}

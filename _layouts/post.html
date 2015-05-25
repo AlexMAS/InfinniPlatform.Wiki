@@ -9,6 +9,10 @@ layout: default
 <article class="PageContent">
 	{{ content }}
 </article>
-{% include pageTags.html %}
-{% include postNavigation.html %}
-{% include disqusComments.html %}
+<footer>
+	{% include pageTags.html %}
+	{% include postNavigation.html %}
+</footer>
+<section>
+	{% include disqusComments.html %}
+</section>

@@ -38,7 +38,7 @@ permalink: pretty
 
 # RedCarpet
 redcarpet:
- extensions: ["no_intra_emphasis","tables","autolink","fenced_code_blocks","space_after_headers","with_toc_data"]
+ extensions: ["no_intra_emphasis","tables","autolink","fenced_code_blocks","space_after_headers","with_toc_data","strikethrough","underline"]
 
 # Pagination
 paginate: 10

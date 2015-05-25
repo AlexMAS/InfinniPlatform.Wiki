@@ -3,7 +3,9 @@ layout: default
 ---
 <div class="row">
 	<div class="col-md-4">
-		{% include pageTree.html id='MainPageTree' class='MainPageTree' expanded='false' %}
+		<nav>
+			{% include pageTree.html id='MainPageTree' class='MainPageTree' expanded='false' %}
+		</nav>
 	</div>
 	<div class="col-md-8">
 		<header class="PageHeader">
@@ -14,7 +16,9 @@ layout: default
 		<article class="PageContent">
 			{{ content }}
 		</article>
-		{% include pageTags.html %}
-		{% include pageNavigation.html %}
+		<footer>
+			{% include pageTags.html %}
+			{% include pageNavigation.html %}
+		</footer>
 	</div>
 </div>

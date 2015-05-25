@@ -42,7 +42,7 @@ title: "Index"
 				{% endif %}
 
 				{% assign outEndList = true %}
-				{% assign result = result | append: '<h2 id="' | append: titleSymbol | append: '">' | append: titleSymbol | append: '</h2>' %}
+				{% assign result = result | append: '<h1 id="' | append: titleSymbol | append: '">' | append: titleSymbol | append: '</h1>' %}
 				{% assign result = result | append: '<ul class="IndexPages">' %}
 				{% capture titleSymbolNext %}{{ titleSymbol }}{% endcapture %}
 			{% endif %}

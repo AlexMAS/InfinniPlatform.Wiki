@@ -70,29 +70,35 @@ li {
 /**
  * Headings
  */
-h1 {
+
+header > h1 {
 	font-size: 34px;
 	font-weight: normal;
 }
 
-h2 {
+h1 {
 	font-size: 24px;
 	font-weight: normal;
 }
 
-h3 {
+h2 {
 	font-size: 20px;
 	font-weight: 500;
 }
 
-h4 {
+h3 {
 	font-size: 15px;
 	font-weight: normal;
 }
 
-h5 {
+h4 {
 	font-size: 13px;
 	font-weight: 500;
+}
+
+h5 {
+	font-size: 13px;
+	font-weight: normal;
 }
 
 h6 {
