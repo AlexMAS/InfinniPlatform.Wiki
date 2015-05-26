@@ -6,24 +6,24 @@ position: 13
 
 Устанавливает [горизонтальное выравнивание в родительском элементе](../ElementHorizontalAlignment/).
 
-## Syntax
+# Syntax
 
 ```js
 Element.setHorizontalAlignment(value)
 ```
 
-### Parameters
+## Parameters
 
 `value`
 
 [Горизонтальное выравнивание в родительском элементе](../ElementHorizontalAlignment/).
 
-## Examples
+# Examples
 
 ```js
 Element.setHorizontalAlignment(ElementHorizontalAlignment.left);
 ```
 
-## See Also
+# See Also
 
 * [ElementHorizontalAlignment](../ElementHorizontalAlignment/)

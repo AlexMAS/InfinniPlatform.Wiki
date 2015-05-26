@@ -6,7 +6,7 @@ position: 2
 
 Вертикальное выравнивание в родительском элементе.
 
-## Syntax
+# Syntax
 
 ```js
 ElementVerticalAlignment = {
@@ -17,7 +17,7 @@ ElementVerticalAlignment = {
 }
 ```
 
-### Members
+## Members
 
 `top`
 
@@ -35,7 +35,7 @@ ElementVerticalAlignment = {
 
 Элемент занимает всю область родительского элемента по вертикали.
 
-## Schema
+# Schema
 
 ```js
 {

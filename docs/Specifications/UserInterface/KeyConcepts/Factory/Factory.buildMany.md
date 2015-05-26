@@ -6,13 +6,13 @@ position: 3
 
 Осуществляет создание набора элементов по набору их метаданных.
 
-## Syntax
+# Syntax
 
 ```js
 Factory.buildMany(view, metadataList)
 ```
 
-### Parameters
+## Parameters
 
 `view`
 
@@ -22,7 +22,7 @@ Factory.buildMany(view, metadataList)
 
 Список метаданных элементов.
 
-## Examples
+# Examples
 
 ```js
 Factory.buildMany(view, [ { Label: { Text: 'Name' } }, { TextBox: { Value: 'John' } } ]);

@@ -6,13 +6,13 @@ position: 1
 
 Регистрирует построитель элементов.
 
-## Syntax
+# Syntax
 
 ```js
 Factory.register(type, builder)
 ```
 
-### Parameters
+## Parameters
 
 `type`
 
@@ -22,7 +22,7 @@ Factory.register(type, builder)
 
 [Построитель элемента](../Builder/). <br/>
 
-## Examples
+# Examples
 
 ```js
 Factory.register('Button', new ButtonBuilder());

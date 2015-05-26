@@ -6,19 +6,19 @@ position: 103
 
 Устанавливает обработчик события о том, что элемент потерял фокус ввода.
 
-## Syntax
+# Syntax
 
 ```js
 Element.onLostFocus(callback)
 ```
 
-### Parameters
+## Parameters
 
 `callback`
 
 [Обработчик события о том, что элемент потерял фокус ввода](../../Script/).
 
-## Examples
+# Examples
 
 ```js
 Element.onLostFocus(

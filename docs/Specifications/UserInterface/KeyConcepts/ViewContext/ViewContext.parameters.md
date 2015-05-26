@@ -6,7 +6,7 @@ position: 2
 
 Возвращает ассоциативный список параметров представления.
 
-## Syntax
+# Syntax
 
 ```js
 ViewContext.parameters

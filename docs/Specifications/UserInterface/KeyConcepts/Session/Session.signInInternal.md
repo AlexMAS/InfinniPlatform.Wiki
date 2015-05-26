@@ -6,17 +6,17 @@ position: 3
 
 Осуществляет вход пользователя в систему через внутренний провайдер.
 
-## Description
+# Description
 
 Успешный вход в систему приводит к возникновению события [`onSignInInternal`](../Session.onSignInInternal).
 
-## Syntax
+# Syntax
 
 ```js
 Session.signInInternal(userName, password, remember, resultCallback, errorCallback)
 ```
 
-### Parameters
+## Parameters
 
 `userName`
 
@@ -38,7 +38,7 @@ Session.signInInternal(userName, password, remember, resultCallback, errorCallba
 
 [Обработчик ошибки выполнения операции](../../Script/).
 
-## Examples
+# Examples
 
 ```js
 Session.signInInternal(

@@ -6,7 +6,7 @@ position: 1
 
 Подписывает на сообщения заданного типа.
 
-## Description
+# Description
 
 Для подписки на сообщение необходимо передать два параметра: тип сообщения и указатель на функцию
 обработчика сообщения. При появлении сообщения с заданным типом шина сообщений вызовет данный обработчик
@@ -17,13 +17,13 @@ position: 1
 В общем случае порядок регистрации обработчиков сообщений никак не связан с порядком их вызова.
 Последнее значит, что между обработчиками сообщений не должно быть функциональной зависимости.
 
-## Syntax
+# Syntax
 
 ```js
 MessageBus.subscribe(type, callback)
 ```
 
-### Parameters
+## Parameters
 
 `type`
 
@@ -33,7 +33,7 @@ MessageBus.subscribe(type, callback)
 
 [Обработчик сообщения](../../Script).
 
-## Examples
+# Examples
 
 ```js
 MessageBus.subscribe('myEvent', function(context, argument) { alert(argument.value); });

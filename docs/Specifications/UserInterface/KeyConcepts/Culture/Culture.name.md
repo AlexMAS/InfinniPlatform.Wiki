@@ -6,7 +6,7 @@ position: 2
 
 Возвращает [наименование культуры](http://tools.ietf.org/html/rfc5646).
 
-## Syntax
+# Syntax
 
 ```js
 Culture.name

@@ -6,19 +6,19 @@ position: 7
 
 Устанавливает обработчик события входа пользователя в систему через внутренний провайдер.
 
-## Syntax
+# Syntax
 
 ```js
 Session.onSignInInternal(callback)
 ```
 
-### Parameters
+## Parameters
 
 `callback`
 
 [Обработчик события входа пользователя в систему через внутренний провайдер](../../Script/).
 
-## Examples
+# Examples
 
 ```js
 Session.onSignInInternal(

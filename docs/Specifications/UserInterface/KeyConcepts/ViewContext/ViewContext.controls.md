@@ -6,7 +6,7 @@ position: 4
 
 Возвращает ассоциативный список элементов представления.
 
-## Syntax
+# Syntax
 
 ```js
 ViewContext.controls

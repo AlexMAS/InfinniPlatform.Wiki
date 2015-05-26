@@ -6,17 +6,17 @@ position: 1
 
 Изменяет пароль текущего пользователя.
 
-## Description
+# Description
 
 Успешное изменение пароля приводит к возникновению события [`onPasswordChanged`](../Session.onPasswordChanged).
 
-## Syntax
+# Syntax
 
 ```js
 Session.changePassword(oldPassword, newPassword, resultCallback, errorCallback)
 ```
 
-### Parameters
+## Parameters
 
 `oldPassword`
 
@@ -34,7 +34,7 @@ Session.changePassword(oldPassword, newPassword, resultCallback, errorCallback)
 
 [Обработчик ошибки выполнения операции](../../Script/).
 
-## Examples
+# Examples
 
 ```js
 Session.changePassword(

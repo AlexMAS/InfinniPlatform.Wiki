@@ -6,13 +6,13 @@ position: 0
 
 Возвращает информацию о текущем пользователе.
 
-## Syntax
+# Syntax
 
 ```js
 Session.getCurrentUser(resultCallback, errorCallback)
 ```
 
-### Parameters
+## Parameters
 
 `resultCallback`
 

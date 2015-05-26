@@ -6,13 +6,13 @@ position: 2
 
 Возвращает значение параметра.
 
-## Syntax
+# Syntax
 
 ```js
 Parameter.getValue()
 ```
 
-## Examples
+# Examples
 
 ```js
 var value = Parameter.getValue();

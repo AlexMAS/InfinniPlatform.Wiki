@@ -6,19 +6,19 @@ position: 102
 
 Устанавливает обработчик события о том, что элемент получил фокус ввода.
 
-## Syntax
+# Syntax
 
 ```js
 Element.onGotFocus(callback)
 ```
 
-### Parameters
+## Parameters
 
 `callback`
 
 [Обработчик события о том, что элемент получил фокус ввода](../../Script/).
 
-## Examples
+# Examples
 
 ```js
 Element.onGotFocus(

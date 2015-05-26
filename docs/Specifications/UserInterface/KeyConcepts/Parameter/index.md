@@ -6,22 +6,22 @@ position: 8
 
 Параметр представления - программный объект, используемый для обмена данными между представлениями.
 
-## Methods
+# Methods
 
-### [`getName()`](Parameter.getName/)
+## [`getName()`](Parameter.getName/)
 
 Возвращает наименование параметра.
 
-### [`getValue()`](Parameter.getValue/)
+## [`getValue()`](Parameter.getValue/)
 
 Возвращает значение параметра.
 
-### [`setValue()`](Parameter.setValue/)
+## [`setValue()`](Parameter.setValue/)
 
 Устанавливает значение параметра.
 
-## Events
+# Events
 
-### [`onValueChanged`](Parameter.onValueChanged/)
+## [`onValueChanged`](Parameter.onValueChanged/)
 
 Устанавливает обработчик события изменения значения параметра.

@@ -6,19 +6,19 @@ position: 11
 
 Устанавливает значение, определяющее, отображается ли элемент в интерфейсе.
 
-## Syntax
+# Syntax
 
 ```js
 Element.setVisible(value)
 ```
 
-### Parameters
+## Parameters
 
 `value`
 
 Значение, определяющее, отображается ли элемент в интерфейсе.
 
-## Examples
+# Examples
 
 ```js
 Element.setVisible(true);

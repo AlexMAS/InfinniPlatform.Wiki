@@ -6,13 +6,13 @@ position: 1
 
 Возвращает наименование параметра.
 
-## Syntax
+# Syntax
 
 ```js
 Parameter.getName()
 ```
 
-## Examples
+# Examples
 
 ```js
 var name = Parameter.getName();

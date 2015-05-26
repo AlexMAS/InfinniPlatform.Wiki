@@ -6,13 +6,13 @@ position: 2
 
 Осуществляет создание элемента по его метаданным.
 
-## Syntax
+# Syntax
 
 ```js
 Factory.build(view, metadata)
 ```
 
-### Parameters
+## Parameters
 
 `view`
 
@@ -22,7 +22,7 @@ Factory.build(view, metadata)
 
 Метаданные элемента.
 
-## Examples
+# Examples
 
 ```js
 Factory.build(view, { Button: { Text: 'Push me!' } });

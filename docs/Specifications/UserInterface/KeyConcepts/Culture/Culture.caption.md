@@ -6,7 +6,7 @@ position: 3
 
 Возвращает отображаемое наименование культуры.
 
-## Syntax
+# Syntax
 
 ```js
 Culture.caption

@@ -6,7 +6,7 @@ position: 5
 
 Возвращает [сведения о формате представления числовых значений](../NumberFormatInfo/).
 
-## Syntax
+# Syntax
 
 ```js
 Culture.numberFormatInfo

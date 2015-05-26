@@ -6,13 +6,13 @@ position: 6
 
 Возвращает текст заголовка элемента.
 
-## Syntax
+# Syntax
 
 ```js
 Element.getText()
 ```
 
-## Examples
+# Examples
 
 ```js
 var elementText = Element.getText();

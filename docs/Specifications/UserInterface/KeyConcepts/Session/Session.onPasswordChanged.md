@@ -6,19 +6,19 @@ position: 5
 
 Устанавливает обработчик события изменения пароля текущего пользователя.
 
-## Syntax
+# Syntax
 
 ```js
 Session.onPasswordChanged(callback)
 ```
 
-### Parameters
+## Parameters
 
 `callback`
 
 [Обработчик события изменения пароля текущего пользователя](../../Script/).
 
-## Examples
+# Examples
 
 ```js
 Session.onPasswordChanged(

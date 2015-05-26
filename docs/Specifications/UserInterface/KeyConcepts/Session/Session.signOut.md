@@ -6,17 +6,17 @@ position: 4
 
 Осуществляет выход пользователя из системы.
 
-## Description
+# Description
 
 Успешный выход из системы приводит к возникновению события [`onSignOut`](../Session.onSignOut).
 
-## Syntax
+# Syntax
 
 ```js
 Session.signOut(resultCallback, errorCallback)
 ```
 
-### Parameters
+## Parameters
 
 `resultCallback`
 
@@ -26,7 +26,7 @@ Session.signOut(resultCallback, errorCallback)
 
 [Обработчик ошибки выполнения операции](../../Script/).
 
-## Examples
+# Examples
 
 ```js
 Session.signOut(

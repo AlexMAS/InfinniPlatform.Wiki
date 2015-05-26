@@ -6,17 +6,17 @@ position: 2
 
 Изменяет активную роль текущего пользователя.
 
-## Description
+# Description
 
 Успешное изменение активной роли приводит к возникновению события [`onActiveRoleChanged`](../Session.onActiveRoleChanged).
 
-## Syntax
+# Syntax
 
 ```js
 Session.changeActiveRole(activeRole, resultCallback, errorCallback)
 ```
 
-### Parameters
+## Parameters
 
 `activeRole`
 
@@ -30,7 +30,7 @@ Session.changeActiveRole(activeRole, resultCallback, errorCallback)
 
 [Обработчик ошибки выполнения операции](../../Script/).
 
-## Examples
+# Examples
 
 ```js
 Session.changeActiveRole(

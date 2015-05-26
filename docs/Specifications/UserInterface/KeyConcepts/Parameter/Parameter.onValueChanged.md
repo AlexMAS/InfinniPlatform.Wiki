@@ -6,19 +6,19 @@ position: 4
 
 Устанавливает обработчик события изменения значения параметра.
 
-## Syntax
+# Syntax
 
 ```js
 Parameter.onValueChanged(callback)
 ```
 
-### Parameters
+## Parameters
 
 `callback`
 
 [Обработчик события изменения значения параметра](../../Script/).
 
-## Examples
+# Examples
 
 ```js
 Session.onValueChanged(

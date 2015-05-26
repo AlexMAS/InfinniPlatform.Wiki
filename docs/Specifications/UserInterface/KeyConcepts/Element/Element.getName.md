@@ -6,13 +6,13 @@ position: 4
 
 Возвращает наименование элемента.
 
-## Syntax
+# Syntax
 
 ```js
 Element.getName()
 ```
 
-## Examples
+# Examples
 
 ```js
 var elementName = Element.getName();

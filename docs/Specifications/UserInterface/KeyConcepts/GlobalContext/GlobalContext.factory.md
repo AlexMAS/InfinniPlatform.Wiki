@@ -6,7 +6,7 @@ position: 2
 
 Возвращает [фабрику создания элементов по метаданным](../../Factory/).
 
-## Syntax
+# Syntax
 
 ```js
 GlobalContext.factory

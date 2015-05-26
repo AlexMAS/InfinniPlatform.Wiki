@@ -6,7 +6,7 @@ position: 1
 
 Возвращает [провайдер для работы сессией пользователя](../../Session/).
 
-## Syntax
+# Syntax
 
 ```js
 GlobalContext.session

@@ -6,7 +6,7 @@ position: 1
 
 День недели.
 
-## Syntax
+# Syntax
 
 ```js
 DayOfWeek = {
@@ -20,7 +20,7 @@ DayOfWeek = {
 }
 ```
 
-### Members
+## Members
 
 `sunday`
 
@@ -50,7 +50,7 @@ DayOfWeek = {
 
 Суббота.
 
-## Schema
+# Schema
 
 ```js
 {

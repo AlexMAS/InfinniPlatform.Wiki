@@ -6,23 +6,23 @@ position: 3
 
 Устанавливает значение параметра.
 
-## Description
+# Description
 
 Изменение значения параметра приводит к возникновению события [`onValueChanged`](../Parameter.onValueChanged).
 
-## Syntax
+# Syntax
 
 ```js
 Parameter.setValue(value)
 ```
 
-### Parameters
+## Parameters
 
 `value`
 
 Произвольное значение.
 
-## Examples
+# Examples
 
 ```js
 Parameter.setValue(123);

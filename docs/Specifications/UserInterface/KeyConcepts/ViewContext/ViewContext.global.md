@@ -6,7 +6,7 @@ position: 0
 
 Возвращает [глобальный контекст приложения](../../GlobalContext/).
 
-## Syntax
+# Syntax
 
 ```js
 ViewContext.global

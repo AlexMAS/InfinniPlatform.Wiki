@@ -6,19 +6,19 @@ position: 9
 
 Устанавливает значение, определяющее, возможен ли доступ к элементу.
 
-## Syntax
+# Syntax
 
 ```js
 Element.setEnabled(value)
 ```
 
-### Parameters
+## Parameters
 
 `value`
 
 Значение, определяющее, возможен ли доступ к элементу.
 
-## Examples
+# Examples
 
 ```js
 Element.setEnabled(true);

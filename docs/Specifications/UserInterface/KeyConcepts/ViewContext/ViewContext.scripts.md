@@ -6,7 +6,7 @@ position: 1
 
 Возвращает ассоциативный список скриптов представления.
 
-## Syntax
+# Syntax
 
 ```js
 ViewContext.scripts

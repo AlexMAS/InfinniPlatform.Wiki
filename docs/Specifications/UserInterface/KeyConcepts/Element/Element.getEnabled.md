@@ -6,13 +6,13 @@ position: 8
 
 Возвращает значение, определяющее, возможен ли доступ к элементу.
 
-## Syntax
+# Syntax
 
 ```js
 Element.getEnabled()
 ```
 
-## Examples
+# Examples
 
 ```js
 var elementEnabled = Element.getEnabled();

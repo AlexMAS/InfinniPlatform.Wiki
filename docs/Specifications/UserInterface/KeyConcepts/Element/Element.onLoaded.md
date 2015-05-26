@@ -6,19 +6,19 @@ position: 101
 
 Устанавливает обработчик события о том, что элемент загружен.
 
-## Syntax
+# Syntax
 
 ```js
 Element.onLoaded(callback)
 ```
 
-### Parameters
+## Parameters
 
 `callback`
 
 [Обработчик события о том, что элемент загружен](../../Script/).
 
-## Examples
+# Examples
 
 ```js
 Element.onLoaded(

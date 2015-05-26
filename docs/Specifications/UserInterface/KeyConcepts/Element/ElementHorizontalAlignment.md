@@ -6,7 +6,7 @@ position: 1
 
 Горизонтальное выравнивание в родительском элементе.
 
-## Syntax
+# Syntax
 
 ```js
 ElementHorizontalAlignment = {
@@ -17,7 +17,7 @@ ElementHorizontalAlignment = {
 }
 ```
 
-### Members
+## Members
 
 `left`
 
@@ -35,7 +35,7 @@ ElementHorizontalAlignment = {
 
 Элемент занимает всю область родительского элемента по горизонтали.
 
-## Schema
+# Schema
 
 ```js
 {

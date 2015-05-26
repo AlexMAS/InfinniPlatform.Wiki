@@ -6,19 +6,19 @@ position: 8
 
 Устанавливает обработчик события выхода пользователя из системы.
 
-## Syntax
+# Syntax
 
 ```js
 Session.onSignOut(callback)
 ```
 
-### Parameters
+## Parameters
 
 `callback`
 
 [Обработчик события выхода пользователя из системы](../../Script/).
 
-## Examples
+# Examples
 
 ```js
 Session.onSignOut(

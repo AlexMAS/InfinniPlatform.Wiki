@@ -6,7 +6,7 @@ position: 3
 
 Возвращает ассоциативный список источников данных представления.
 
-## Syntax
+# Syntax
 
 ```js
 ViewContext.dataSources

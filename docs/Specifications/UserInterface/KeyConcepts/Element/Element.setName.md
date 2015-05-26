@@ -6,19 +6,19 @@ position: 5
 
 Устанавливает наименование элемента.
 
-## Syntax
+# Syntax
 
 ```js
 Element.setName(value)
 ```
 
-### Parameters
+## Parameters
 
 `value`
 
 Наименование элемента.
 
-## Examples
+# Examples
 
 ```js
 Element.setName('Button1');

@@ -6,24 +6,24 @@ position: 15
 
 Возвращает [вертикальное выравнивание в родительском элементе](../ElementVerticalAlignment/).
 
-## Syntax
+# Syntax
 
 ```js
 Element.setVerticalAlignment(value)
 ```
 
-### Parameters
+## Parameters
 
 `value`
 
 [Вертикальное выравнивание в родительском элементе](../ElementVerticalAlignment/).
 
-## Examples
+# Examples
 
 ```js
 Element.setVerticalAlignment(ElementVerticalAlignment.top);
 ```
 
-## See Also
+# See Also
 
 * [ElementVerticalAlignment](../ElementVerticalAlignment/)

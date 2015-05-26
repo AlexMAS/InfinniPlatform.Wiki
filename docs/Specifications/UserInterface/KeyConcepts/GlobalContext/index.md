@@ -9,16 +9,16 @@ position: 3
 неизменяемым (immutable) объектом. Время жизни глобального контекста определяется временем жизни
 приложения.   
 
-## Properties
+# Properties
 
-### [`culture`](GlobalContext.culture/)
+## [`culture`](GlobalContext.culture/)
 
 Возвращает [культуру (языковые и региональные настройки)](../Culture/).
 
-### [`session`](GlobalContext.session/)
+## [`session`](GlobalContext.session/)
 
 Возвращает [провайдер для работы сессией пользователя](../Session/).
 
-### [`factory`](GlobalContext.factory/)
+## [`factory`](GlobalContext.factory/)
 
 Возвращает [фабрику создания элементов по метаданным](../Factory/).

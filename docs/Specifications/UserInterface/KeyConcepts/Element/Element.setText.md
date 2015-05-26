@@ -6,19 +6,19 @@ position: 7
 
 Устанавливает текст заголовка элемента.
 
-## Syntax
+# Syntax
 
 ```js
 Element.setText(value)
 ```
 
-### Parameters
+## Parameters
 
 `value`
 
 Текст заголовка элемента.
 
-## Examples
+# Examples
 
 ```js
 Element.setText('Push me');

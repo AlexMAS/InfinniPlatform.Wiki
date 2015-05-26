@@ -6,7 +6,7 @@ position: 4
 
 Возвращает [сведения о формате представления даты и времени](../DateTimeFormatInfo/).
 
-## Syntax
+# Syntax
 
 ```js
 Culture.dateTimeFormatInfo

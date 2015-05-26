@@ -10,24 +10,24 @@ position: 2
 каждого экземпляра представления и время его жизни определяется временем жизни соответствующего
 экземпляра представления.
 
-## Properties
+# Properties
 
-### [`global`](ViewContext.global/)
+## [`global`](ViewContext.global/)
 
 Возвращает [глобальный контекст приложения](../GlobalContext/).
 
-### [`scripts`](ViewContext.scripts/)
+## [`scripts`](ViewContext.scripts/)
 
 Возвращает ассоциативный список скриптов представления.
 
-### [`parameters`](ViewContext.parameters/)
+## [`parameters`](ViewContext.parameters/)
 
 Возвращает ассоциативный список параметров представления.
 
-### [`dataSources`](ViewContext.dataSources/)
+## [`dataSources`](ViewContext.dataSources/)
 
 Возвращает ассоциативный список источников данных представления.
 
-### [`controls`](ViewContext.controls/)
+## [`controls`](ViewContext.controls/)
 
 Возвращает ассоциативный список элементов представления.

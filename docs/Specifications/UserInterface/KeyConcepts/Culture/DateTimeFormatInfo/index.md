@@ -7,9 +7,9 @@ position: 0
 Сведения о формате представления даты и времени. Описание настроек форматирования для даты и времени
 приведено в разделе [DateTimeFormating](DateTimeFormating/).
 
-## Properties
+# Properties
 
-### `monthNames`
+## `monthNames`
 
 Возвращает список наименований месяцев.
 
@@ -22,7 +22,7 @@ position: 0
   "August","September","October","November","December" ]
 ```
 
-### `abbreviatedMonthNames`
+## `abbreviatedMonthNames`
 
 Возвращает список сокращенных наименований месяцев.
 
@@ -35,7 +35,7 @@ position: 0
   "Aug","Sep","Oct","Nov","Dec" ]
 ```
 
-### `dayNames`
+## `dayNames`
 
 Возвращает список наименований дней недели.
 
@@ -46,7 +46,7 @@ position: 0
 [ "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday" ]
 ```
 
-### `abbreviatedDayNames`
+## `abbreviatedDayNames`
 
 Возвращает список сокращенных наименований дней недели.
 
@@ -57,7 +57,7 @@ position: 0
 [ "Sun","Mon","Tue","Wed","Thu","Fri","Sat" ]
 ```
 
-### `dateSeparator`
+## `dateSeparator`
 
 Возвращает разделитель компонентов даты (год, месяц, день).
 
@@ -68,7 +68,7 @@ position: 0
 "/"
 ```
 
-### `timeSeparator`
+## `timeSeparator`
 
 Возвращает разделитель компонентов времени (час, минута, секунда).
 
@@ -79,7 +79,7 @@ position: 0
 ":"
 ```
 
-### `amDesignator`
+## `amDesignator`
 
 Возвращает указатель часов до полудня (АМ - "ante meridiem").
 
@@ -90,7 +90,7 @@ position: 0
 "AM"
 ```
 
-### `pmDesignator`
+## `pmDesignator`
 
 Возвращает указатель часов после полудня (PМ - "post meridiem").
 
@@ -101,7 +101,7 @@ position: 0
 "PM"
 ```
 
-### `fullDateTimePattern`
+## `fullDateTimePattern`
 
 Возвращает настройки формата полного представления даты/времени.
 
@@ -112,7 +112,7 @@ position: 0
 "dddd, MMMM dd, yyyy h:mm:ss tt"
 ```
 
-### `shortDatePattern`
+## `shortDatePattern`
 
 Возвращает настройки формата краткого представления даты.
 
@@ -123,7 +123,7 @@ position: 0
 "M/d/yyyy"
 ```
 
-### `longDatePattern`
+## `longDatePattern`
 
 Возвращает настройки формата полного представления даты.
 
@@ -134,7 +134,7 @@ position: 0
 "dddd, MMMM dd, yyyy"
 ```
 
-### `shortTimePattern`
+## `shortTimePattern`
 
 Возвращает настройки формата краткого представления времени.
 
@@ -145,7 +145,7 @@ position: 0
 "h:mm tt"
 ```
 
-### `longTimePattern`
+## `longTimePattern`
 
 Возвращает настройки формата полного представления времени.
 
@@ -156,7 +156,7 @@ position: 0
 "h:mm:ss tt"
 ```
 
-### `yearMonthPattern`
+## `yearMonthPattern`
 
 Возвращает настройки формата представления год/месяц.
 
@@ -167,7 +167,7 @@ position: 0
 "MMMM, yyyy"
 ```
 
-### `monthDayPattern`
+## `monthDayPattern`
 
 Возвращает настройки формата представления месяц/день.
 
@@ -178,7 +178,7 @@ position: 0
 "MMMM dd"
 ```
 
-### `sortableDateTimePattern`
+## `sortableDateTimePattern`
 
 Возвращает настройки представления в формате ISO 8601.
 
@@ -189,7 +189,7 @@ position: 0
 "yyyy'-'MM'-'dd'T'HH':'mm':'ss"
 ```
 
-### `universalSortableDateTimePattern`
+## `universalSortableDateTimePattern`
 
 Возвращает настройки представления в универсальном формате.
 
@@ -200,7 +200,7 @@ position: 0
 "yyyy'-'MM'-'dd HH':'mm':'ss'Z'"
 ```
 
-### `firstDayOfWeek`
+## `firstDayOfWeek`
 
 Возвращает первый [день недели](DayOfWeek/).
 

@@ -7,9 +7,9 @@ position: 1
 Сведения о формате представления числовых значений. Описание настроек форматирования для числовых
 значений приведено в разделе [NumberFormatting](NumberFormatting/).
 
-## Properties
+# Properties
 
-### `numberDecimalDigits`
+## `numberDecimalDigits`
 
 Количество цифр в дробной части для числовых значений.
 
@@ -20,7 +20,7 @@ position: 1
 2
 ```
 
-### `numberDecimalSeparator`
+## `numberDecimalSeparator`
 
 Разделитель между целой и дробной частью для числовых значений.
 
@@ -31,7 +31,7 @@ position: 1
 "."
 ```
 
-### `numberGroupSize`
+## `numberGroupSize`
 
 Количество цифр в группе для числовых значений.
 
@@ -42,7 +42,7 @@ position: 1
 3
 ```
 
-### `numberGroupSeparator`
+## `numberGroupSeparator`
 
 Разделитель между группами для числовых значений.
 
@@ -53,7 +53,7 @@ position: 1
 ","
 ```
 
-### `numberNegativePattern`
+## `numberNegativePattern`
 
 Настройки формата представления отрицательных числовых значений.
 
@@ -64,7 +64,7 @@ position: 1
 "-n"
 ```
 
-### `numberPositivePattern`
+## `numberPositivePattern`
 
 Настройки формата представления положительных числовых значений.
 
@@ -75,7 +75,7 @@ position: 1
 "n"
 ```
 
-### `percentDecimalDigits`
+## `percentDecimalDigits`
 
 Количество цифр в дробной части для значений процентов.
 
@@ -86,7 +86,7 @@ position: 1
 2
 ```
 
-### `percentDecimalSeparator`
+## `percentDecimalSeparator`
 
 Разделитель между целой и дробной частью для значений процентов.
 
@@ -97,7 +97,7 @@ position: 1
 "."
 ```
 
-### `percentGroupSize`
+## `percentGroupSize`
 
 Количество цифр в группе для значений процентов.
 
@@ -108,7 +108,7 @@ position: 1
 3
 ```
 
-### `percentGroupSeparator`
+## `percentGroupSeparator`
 
 Разделитель между группами для значений процентов.
 
@@ -119,7 +119,7 @@ position: 1
 ","
 ```
 
-### `percentSymbol`
+## `percentSymbol`
 
 Обозначение знака процента.
 
@@ -130,7 +130,7 @@ position: 1
 "%"
 ```
 
-### `percentNegativePattern`
+## `percentNegativePattern`
 
 Настройки формата представления отрицательных значений процентов.
 
@@ -141,7 +141,7 @@ position: 1
 "-p %"
 ```
 
-### `percentPositivePattern`
+## `percentPositivePattern`
 
 Настройки формата представления положительных значений процентов.
 
@@ -152,7 +152,7 @@ position: 1
 "p %"
 ```
 
-### `currencyDecimalDigits`
+## `currencyDecimalDigits`
 
 Количество цифр в дробной части для значений денежных единиц.
 
@@ -163,7 +163,7 @@ position: 1
 2
 ```
 
-### `currencyDecimalSeparator`
+## `currencyDecimalSeparator`
 
 Разделитель между целой и дробной частью для значений денежных единиц.
 
@@ -174,7 +174,7 @@ position: 1
 "."
 ```
 
-### `currencyGroupSize`
+## `currencyGroupSize`
 
 Количество цифр в группе для значений денежных единиц.
 
@@ -185,7 +185,7 @@ position: 1
 3
 ```
 
-### `currencyGroupSeparator`
+## `currencyGroupSeparator`
 
 Разделитель между группами для значений денежных единиц.
 
@@ -196,7 +196,7 @@ position: 1
 ","
 ```
 
-### `currencySymbol`
+## `currencySymbol`
 
 Обозначение денежной единицы.
 
@@ -207,7 +207,7 @@ position: 1
 "$"
 ```
 
-### `currencyNegativePattern`
+## `currencyNegativePattern`
 
 Настройки формата представления отрицательных значений денежных единиц.
 
@@ -218,7 +218,7 @@ position: 1
 "($c)"
 ```
 
-### `currencyPositivePattern`
+## `currencyPositivePattern`
 
 Настройки формата представления положительных значений денежных единиц.
 
@@ -229,7 +229,7 @@ position: 1
 "$c"
 ```
 
-### `negativeSign`
+## `negativeSign`
 
 Обозначения знака отрицательного числа.
 
@@ -240,7 +240,7 @@ position: 1
 "-"
 ```
 
-### `positiveSign`
+## `positiveSign`
 
 Обозначения знака положительного числа.
 
@@ -251,7 +251,7 @@ position: 1
 "+"
 ```
 
-### `negativeInfinitySymbol`
+## `negativeInfinitySymbol`
 
 Обозначения минус бесконечности.
 
@@ -262,7 +262,7 @@ position: 1
 "-Infinity"
 ```
 
-### `positiveInfinitySymbol`
+## `positiveInfinitySymbol`
 
 Обозначения плюс бесконечности.
 
@@ -273,7 +273,7 @@ position: 1
 "Infinity"
 ```
 
-### `naNSymbol`
+## `naNSymbol`
 
 Обозначение IEEE NaN ("not a number").
 

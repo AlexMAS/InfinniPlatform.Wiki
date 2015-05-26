@@ -6,13 +6,13 @@ position: 3
 
 Возвращает родительское [представление](../../View/).
 
-## Syntax
+# Syntax
 
 ```js
 Element.getView()
 ```
 
-## Examples
+# Examples
 
 ```js
 var parentView = Element.getView();

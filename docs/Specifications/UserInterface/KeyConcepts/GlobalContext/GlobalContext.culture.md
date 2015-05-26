@@ -6,7 +6,7 @@ position: 0
 
 Возвращает [культуру (языковые и региональные настройки)](../../Culture/).
 
-## Syntax
+# Syntax
 
 ```js
 GlobalContext.culture

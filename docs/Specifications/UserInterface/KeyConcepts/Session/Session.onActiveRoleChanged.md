@@ -6,19 +6,19 @@ position: 6
 
 Устанавливает обработчик события изменения активной роли текущего пользователя.
 
-## Syntax
+# Syntax
 
 ```js
 Session.onActiveRoleChanged(callback)
 ```
 
-### Parameters
+## Parameters
 
 `callback`
 
 [Обработчик события изменения активной роли текущего пользователя](../../Script/).
 
-## Examples
+# Examples
 
 ```js
 Session.onActiveRoleChanged(

@@ -6,17 +6,17 @@ position: 16
 
 Возвращает список дочерних элементов.
 
-## Description
+# Description
 
 Метод возвращает список элементов, которые являются непосредственными потомками данного элемента.
 
-## Syntax
+# Syntax
 
 ```js
 Element.getChildElements()
 ```
 
-## Examples
+# Examples
 
 ```js
 var childElements = Element.getChildElements();

@@ -6,13 +6,13 @@ position: 10
 
 Возвращает значение, определяющее, отображается ли элемент в интерфейсе.
 
-## Syntax
+# Syntax
 
 ```js
 Element.getVisible()
 ```
 
-## Examples
+# Examples
 
 ```js
 var elementVisible = Element.getVisible();
