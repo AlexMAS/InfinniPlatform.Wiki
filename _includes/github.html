@@ -1,0 +1,35 @@
+{% capture build %}
+
+{% if include.owner %}
+	{% assign owner = include.owner %}
+{% else %}
+	{% assign owner = 'InfinniPlatform' %}
+{% endif %}
+
+{% if include.repo %}
+	{% assign repo = include.repo %}
+{% else %}
+	{% assign repo = 'InfinniPlatform' %}
+{% endif %}
+
+{% if include.branch %}
+	{% assign branch = include.branch %}
+{% else %}
+	{% assign branch = 'master' %}
+{% endif %}
+
+{% capture codeUrl %}https://api.github.com/repos/{{ owner }}/{{ repo }}/contents/{{ include.path }}?ref={{ branch }}{% endcapture %}
+
+{% endcapture %}
+
+<div class="CodeBlock" data-url="{{ codeUrl }}">
+	<div class="highlight">
+		<pre><code class="language-{{ include.lang }}" data-lang="{{ include.lang }}"></code></pre>
+	</div>
+</div>
+
+<script>
+	var script = document.createElement('script');
+	script.src = '{{ codeUrl }}' + '&callback=githubCodeHighlight';
+	document.getElementsByTagName('head')[0].appendChild(script);
+</script>

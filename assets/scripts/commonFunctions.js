@@ -15,3 +15,11 @@ function findArrayItem(array, predicate) {
 
 	return undefined;
 }
+
+function utf8ToBase64(value) {
+	return window.btoa(unescape(encodeURIComponent(value)));
+}
+
+function base64ToUtf8(value) {
+	return decodeURIComponent(escape(window.atob(value)));
+}
