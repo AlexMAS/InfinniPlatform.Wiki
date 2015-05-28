@@ -89,3 +89,25 @@
 .EditPageButton a:hover {
 	color: $brand-color-dark;
 }
+
+/**
+ * Code Block
+ */
+
+.CodeBlockFooter {
+	font-size: 12px;
+	padding: 8px 18px;
+	margin-top: -$spacing-unit/2 - 1;
+	border: 1px solid $grey-color;
+}
+
+.CodeBlockFooter > .CodeBlockHtmlLink {
+}
+
+.CodeBlockFooter > .CodeBlockRawLink {
+	float: right;
+}
+
+.CodeBlockHtmlLink i {
+	padding-right: 5px;
+}

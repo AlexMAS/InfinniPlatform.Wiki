@@ -1,15 +1,21 @@
 {% capture build %}
 
+{% if include.title %}
+	{% assign title = include.title %}
+{% else %}
+	{% assign title = include.path | split: '/' | last %}
+{% endif %}
+
 {% if include.owner %}
 	{% assign owner = include.owner %}
 {% else %}
-	{% assign owner = 'InfinniPlatform' %}
+	{% assign owner = site.github.owner %}
 {% endif %}
 
 {% if include.repo %}
 	{% assign repo = include.repo %}
 {% else %}
-	{% assign repo = 'InfinniPlatform' %}
+	{% assign repo = site.github.repo %}
 {% endif %}
 
 {% if include.branch %}
@@ -19,12 +25,22 @@
 {% endif %}
 
 {% capture codeUrl %}https://api.github.com/repos/{{ owner }}/{{ repo }}/contents/{{ include.path }}?ref={{ branch }}{% endcapture %}
+{% capture codeRawUrl %}https://raw.githubusercontent.com/{{ owner }}/{{ repo }}/{{ branch }}/{{ include.path }}{% endcapture %}
+{% capture codeHtmlUrl %}https://github.com/{{ owner }}/{{ repo }}/blob/{{ branch }}/{{ include.path }}{% endcapture %}
 
 {% endcapture %}
 
 <div class="CodeBlock" data-url="{{ codeUrl }}">
 	<div class="highlight">
 		<pre><code class="language-{{ include.lang }}" data-lang="{{ include.lang }}"></code></pre>
+	</div>
+	<div class="CodeBlockFooter">
+		<div class="CodeBlockRawLink">
+			<a href="{{ codeRawUrl }}">Raw</a>
+		</div>
+		<div class="CodeBlockHtmlLink">
+			<a href="{{ codeHtmlUrl }}"><i class="fa fa-github-alt"></i>{{ title }}</a>
+		</div>
 	</div>
 </div>
 

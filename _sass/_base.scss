@@ -157,8 +157,8 @@ blockquote {
 pre,
 code {
 	font-size: 12px;
+	border-radius: 0;
 	border: 1px solid $grey-color;
-	border-radius: 3px;
 	background-color: $grey-color-light;
 }
 
