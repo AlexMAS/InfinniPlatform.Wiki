@@ -39,12 +39,12 @@ function BreadcrumbFactory(pageTreeBuilder) {
 			var pageNodeUrl = pageNode.page.url;
 			var itemLinkElement = document.createElement('a');
 			itemLinkElement.href = isEmptyString(pageNodeUrl) ? '#' : pageNodeUrl;
-			itemLinkElement.innerText = pageNode.page.title;
+			setInnerText(itemLinkElement, pageNode.page.title);
 			itemElement.appendChild(itemLinkElement);
 		}
 		else {
 			itemElement.className = 'PageBreadcrumbActive';
-			itemElement.innerText = pageNode.page.title;
+			setInnerText(itemElement, pageNode.page.title);
 		}
 
 		return itemElement;

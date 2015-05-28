@@ -55,7 +55,7 @@ function PageTreeFactory(pageTreeBuilder) {
 			var pageNodeUrl = pageNode.page.url;
 			var pageHeaderContentLinkElement = document.createElement('a');
 			pageHeaderContentLinkElement.href = isEmptyString(pageNodeUrl) ? '#' : pageNodeUrl;
-			pageHeaderContentLinkElement.innerText = pageNode.page.title;
+			setInnerText(pageHeaderContentLinkElement, pageNode.page.title);
 			pageHeaderContentElement.appendChild(pageHeaderContentLinkElement);
 
 			if (pageNode === rootNode) {
@@ -127,7 +127,7 @@ function PageTreeFactory(pageTreeBuilder) {
 
 		var itemLinkElement = document.createElement('a');
 		itemLinkElement.href = isEmptyString(pageUrl) ? '#' : pageUrl;
-		itemLinkElement.innerText = pageNode.page.title;
+		setInnerText(itemLinkElement, pageNode.page.title);
 		itemElement.appendChild(itemLinkElement);
 
 		if (pageNode === selectedNode) {

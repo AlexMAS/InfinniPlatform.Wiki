@@ -18,7 +18,7 @@ function githubCodeHighlight(response) {
 
 			if (!isEmptyString(codeBlock)) {
 				var codeTag = codeBlock.children[0].children[0].children[0];
-				codeTag.innerText = base64ToUtf8(codeContent);
+				setInnerText(codeTag, base64ToUtf8(codeContent));
 				hljs.highlightBlock(codeTag);
 			}
 		}
