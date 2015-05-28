@@ -45,7 +45,9 @@
 </div>
 
 <script>
-	var script = document.createElement('script');
-	script.src = '{{ codeUrl }}' + '&callback=githubCodeHighlight';
-	document.getElementsByTagName('head')[0].appendChild(script);
+	$(document).ready(function() {
+		var script = document.createElement('script');
+		script.src = '{{ codeUrl }}' + '&callback=githubCodeHighlight';
+		document.getElementsByTagName('head')[0].appendChild(script);
+	});
 </script>
