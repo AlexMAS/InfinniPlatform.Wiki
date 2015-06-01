@@ -73,15 +73,6 @@ $fontColor: rgba(1, 1, 1, 0.87);
 	float: left;
 }
 
-.PageTreeAction:after {
-	content: "";
-	position: absolute;
-	top: -10px;
-	bottom: -10px;
-	left: -10px;
-	right: -10px; 
-}
-
 .PageTreeContent {
 	margin-left: $indent;
 	min-height: $indent;
