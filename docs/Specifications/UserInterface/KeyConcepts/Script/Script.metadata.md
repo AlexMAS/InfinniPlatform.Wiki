@@ -18,7 +18,7 @@ position: 0
 
 # Examples
 
-```js
+```json
 {
   "Name": "OnButtonClick",
   "Body": "alert('Button clicked!');"
