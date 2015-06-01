@@ -44,7 +44,8 @@ function PageTreeFactory(pageTreeBuilder) {
 			pageHeaderElement.className = 'PageTreeNode';
 			pageElement.appendChild(pageHeaderElement);
 
-			var pageHeaderActionElement = document.createElement('div');
+			var pageHeaderActionElement = document.createElement('a');
+			pageHeaderActionElement.href = 'javascript:;';
 			pageHeaderActionElement.className = 'PageTreeAction';
 			pageHeaderElement.appendChild(pageHeaderActionElement);
 
