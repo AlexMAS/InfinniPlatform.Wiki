@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Parameter.getValue"
+title: "Parameter.getValue()"
 position: 2
 ---
 

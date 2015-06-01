@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Parameter.setValue"
+title: "Parameter.setValue()"
 position: 3
 ---
 

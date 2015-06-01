@@ -18,7 +18,7 @@ position: 0
 
 # Examples
 
-```js
+```json
 {
   "Name": "Param1",
   "Value": "Value1"
