@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Parameter.onValueChanged"
-position: 4
+position: 100
 ---
 
 Устанавливает обработчик события изменения значения параметра.

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ElementHorizontalAlignment"
-position: 1
+position: 1000
 ---
 
 Горизонтальное выравнивание в родительском элементе.
@@ -37,15 +37,4 @@ ElementHorizontalAlignment = {
 
 # Schema
 
-```js
-{
-  "id": "ElementHorizontalAlignment",
-  "description": "Горизонтальное выравнивание в родительском элементе",
-  "enum": [
-    "Left",
-    "Center",
-    "Right",
-    "Stretch"
-  ]
-}
-```
+{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Element/ElementHorizontalAlignment.resjson" lang="json" %}

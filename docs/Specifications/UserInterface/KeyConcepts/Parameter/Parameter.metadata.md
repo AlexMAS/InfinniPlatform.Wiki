@@ -14,28 +14,7 @@ position: 0
 
 # Schema
 
-```js
-{
-  "id": "Parameter",
-  "description": "Параметр представления",
-  "type": "object",
-  "properties": {
-    "Name": {
-      "description": "Наименование параметра",
-      "type": "string"
-    },
-    "Value": {
-      "description": "Значение параметра",
-      "type": "any"
-    },
-    "OnValueChanged": {
-      "description": "Обработчик события изменения значения",
-      "$ref": "http://demo.infinnity.ru:8081/display/MC/LinkScript"
-    }
-  },
-  "additionalProperties": false
-}
-```
+{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/View/Parameter.resjson" lang="json" %}
 
 # Examples
 

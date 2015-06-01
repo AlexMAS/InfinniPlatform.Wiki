@@ -14,25 +14,7 @@ position: 0
 
 # Schema
 
-```js
-{
-  "id": "Script",
-  "description": "Прикладной скрипт, выполняемый на стороне клиента",
-  "type": "object",
-  "properties": {
-    "Name": {
-      "description": "Наименование функции",
-      "type": "string",
-      "required": true
-    },
-    "Body": {
-      "description": "Тело функции",
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
-```
+{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Script/Script.resjson" lang="json" %}
 
 # Examples
 

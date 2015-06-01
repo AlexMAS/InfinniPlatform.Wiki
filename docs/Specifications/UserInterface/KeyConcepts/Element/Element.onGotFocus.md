@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.onGotFocus"
-position: 102
+position: 101
 ---
 
 Устанавливает обработчик события о том, что элемент получил фокус ввода.

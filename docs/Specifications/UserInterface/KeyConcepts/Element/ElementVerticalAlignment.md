@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ElementVerticalAlignment"
-position: 2
+position: 1001
 ---
 
 Вертикальное выравнивание в родительском элементе.
@@ -37,15 +37,4 @@ ElementVerticalAlignment = {
 
 # Schema
 
-```js
-{
-  "id": "ElementVerticalAlignment",
-  "description": "Вертикальное выравнивание в родительском элементе",
-  "enum": [
-    "Top",
-    "Center",
-    "Bottom",
-    "Stretch"
-  ]
-}
-```
+{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Element/ElementVerticalAlignment.resjson" lang="json" %}

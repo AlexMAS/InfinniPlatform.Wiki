@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.onLostFocus"
-position: 103
+position: 102
 ---
 
 Устанавливает обработчик события о том, что элемент потерял фокус ввода.

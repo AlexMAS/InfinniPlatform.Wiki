@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Session.onActiveRoleChanged"
-position: 6
+position: 101
 ---
 
 Устанавливает обработчик события изменения активной роли текущего пользователя.

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.getView()"
-position: 3
+position: 1
 ---
 
 Возвращает родительское [представление](../../View/).

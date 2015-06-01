@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Factory.buildMany()"
-position: 3
+position: 2
 ---
 
 Осуществляет создание набора элементов по набору их метаданных.

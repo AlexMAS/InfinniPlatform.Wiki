@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Culture.dateTimeFormatInfo"
-position: 4
+position: 2
 ---
 
 Возвращает [сведения о формате представления даты и времени](../DateTimeFormatInfo/).

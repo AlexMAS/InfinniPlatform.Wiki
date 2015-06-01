@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Session.onSignOut"
-position: 8
+position: 103
 ---
 
 Устанавливает обработчик события выхода пользователя из системы.

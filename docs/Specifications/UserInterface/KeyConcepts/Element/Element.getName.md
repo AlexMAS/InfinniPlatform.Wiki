@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.getName()"
-position: 4
+position: 2
 ---
 
 Возвращает наименование элемента.

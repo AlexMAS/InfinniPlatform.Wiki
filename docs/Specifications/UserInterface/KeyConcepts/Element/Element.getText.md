@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.getText()"
-position: 6
+position: 4
 ---
 
 Возвращает текст заголовка элемента.

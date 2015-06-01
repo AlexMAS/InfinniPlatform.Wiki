@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Factory.register()"
-position: 1
+position: 0
 ---
 
 Регистрирует построитель элементов.

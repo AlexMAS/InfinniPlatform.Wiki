@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Factory.build()"
-position: 2
+position: 1
 ---
 
 Осуществляет создание элемента по его метаданным.

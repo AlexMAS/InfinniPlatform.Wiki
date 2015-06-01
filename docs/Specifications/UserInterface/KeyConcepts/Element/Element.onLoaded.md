@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.onLoaded"
-position: 101
+position: 100
 ---
 
 Устанавливает обработчик события о том, что элемент загружен.

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Culture.caption"
-position: 3
+position: 1
 ---
 
 Возвращает отображаемое наименование культуры.

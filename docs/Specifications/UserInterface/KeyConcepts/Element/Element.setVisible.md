@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.setVisible()"
-position: 11
+position: 9
 ---
 
 Устанавливает значение, определяющее, отображается ли элемент в интерфейсе.

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Session.onPasswordChanged"
-position: 5
+position: 100
 ---
 
 Устанавливает обработчик события изменения пароля текущего пользователя.

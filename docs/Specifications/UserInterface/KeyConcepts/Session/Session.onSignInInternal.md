@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Session.onSignInInternal"
-position: 7
+position: 102
 ---
 
 Устанавливает обработчик события входа пользователя в систему через внутренний провайдер.

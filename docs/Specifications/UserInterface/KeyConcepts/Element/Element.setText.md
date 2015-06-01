@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.setText()"
-position: 7
+position: 5
 ---
 
 Устанавливает текст заголовка элемента.

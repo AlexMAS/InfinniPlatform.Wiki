@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.setEnabled()"
-position: 9
+position: 7
 ---
 
 Устанавливает значение, определяющее, возможен ли доступ к элементу.
