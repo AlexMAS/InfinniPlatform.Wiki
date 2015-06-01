@@ -94,6 +94,11 @@
  * Code Block
  */
 
+.CodeBlock {
+	margin-top: $spacing-unit / 2;
+	margin-bottom: $spacing-unit / 2;
+}
+
 .CodeBlockFooter {
 	font-size: 12px;
 	padding: 8px 18px;
