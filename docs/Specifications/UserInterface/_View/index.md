@@ -49,10 +49,10 @@ tags:
 |Name|Description|
 |----|-----------|
 |OnTextChanged([[Context]] context, object arguments)|Возвращает или устанавливает обработчик события о том, что текст изменен.|
-|OnOpening([[Context]] context, object arguments)|Возвращает или устанавливает обработчик события о том, что представление открывается.|
-|OnOpened([[Context]] context, object arguments)|Возвращает или устанавливает обработчик события о том, что представление открыто.|
-|OnClosing([[Context]] context, object arguments)|Возвращает или устанавливает обработчик события о том, что представление закрывается.|
-|OnClosed([[Context]] context, object arguments)|Возвращает или устанавливает обработчик события о том, что представление закрыто.|
+|OnOpening([[Context]] context, object arguments)|Возвращает или |
+|OnOpened([[Context]] context, object arguments)|Возвращает или |
+|OnClosing([[Context]] context, object arguments)|Возвращает или |
+|OnClosed([[Context]] context, object arguments)|Возвращает или |
 
   
 

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ViewContext.global"
-position: 0
+position: 1
 ---
 
 Возвращает [глобальный контекст приложения](../../GlobalContext/).
