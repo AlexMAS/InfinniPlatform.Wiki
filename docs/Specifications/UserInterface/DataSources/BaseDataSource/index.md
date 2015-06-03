@@ -8,6 +8,10 @@ position: 0
 
 # Methods
 
+## [`getView()`](BaseDataSource.getView/)
+
+Возвращает родительское [представление](../../KeyConcepts/View/).
+
 ## [`getName()`](BaseDataSource.getName/)
 
 Возвращает наименование источника данных.
@@ -34,35 +38,35 @@ position: 0
 
 ## [`getPageNumber()`](BaseDataSource.getPageNumber/)
 
-Возвращает номер страницы по умолчанию.
+Возвращает номер страницы.
 
 ## [`setPageNumber()`](BaseDataSource.setPageNumber/)
 
-Устанавливает номер страницы по умолчанию.
+Устанавливает номер страницы.
 
 ## [`getPageSize()`](BaseDataSource.getPageSize/)
 
-Возвращает размер страницы по умолчанию.
+Возвращает размер страницы.
 
 ## [`setPageSize()`](BaseDataSource.setPageSize/)
 
-Устанавливает размер страницы по умолчанию.
+Устанавливает размер страницы.
 
 ## [`getErrorValidator()`](BaseDataSource.getErrorValidator/)
 
-Возвращает функцию проверки элемента на ошибки.
+Возвращает [функцию](../../KeyConcepts/Script/) проверки элемента на ошибки.
 
 ## [`setErrorValidator()`](BaseDataSource.setErrorValidator/)
 
-Устанавливает функцию проверки элемента на ошибки.
+Устанавливает [функцию](../../KeyConcepts/Script/) проверки элемента на ошибки.
 
 ## [`getWarningValidator()`](BaseDataSource.getWarningValidator/)
 
-Возвращает функцию проверки элемента на предупреждения.
+Возвращает [функцию](../../KeyConcepts/Script/) проверки элемента на предупреждения.
 
 ## [`setWarningValidator()`](BaseDataSource.setWarningValidator/)
 
-Устанавливает функцию проверки элемента на предупреждения.
+Устанавливает [функцию](../../KeyConcepts/Script/) проверки элемента на предупреждения.
 
 ## [`getFilter()`](BaseDataSource.getFilter/)
 
@@ -74,7 +78,7 @@ position: 0
 
 ## [`isModified()`](BaseDataSource.isModified/)
 
-Возвращает, есть ли несохраненные элементы.
+Проверяет, есть ли несохраненные элементы.
 
 ## [`suspendUpdate()`](BaseDataSource.suspendUpdate/)
 
@@ -134,6 +138,10 @@ position: 0
 
 Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что размер страницы изменился.
 
+## [`onFilterChanged`](BaseDataSource.onFilterChanged/)
+
+Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что фильтр элементов изменился.
+
 ## [`onSelectedItemChanged`](BaseDataSource.onSelectedItemChanged/)
 
 Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что выделенный элемент изменился.
@@ -141,10 +149,6 @@ position: 0
 ## [`onSelectedItemModified`](BaseDataSource.onSelectedItemModified/)
 
 Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что данные выделенного элемента изменились.
-
-## [`onFilterChanged`](BaseDataSource.onFilterChanged/)
-
-Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что фильтр элементов изменился.
 
 ## [`onItemSaved`](BaseDataSource.onItemSaved/)
 

@@ -54,9 +54,11 @@ function PageTreeFactory(pageTreeBuilder) {
 			pageHeaderElement.appendChild(pageHeaderContentElement);
 
 			var pageNodeUrl = pageNode.page.url;
+			var pageNodeTitle = pageNode.page.title;
 			var pageHeaderContentLinkElement = document.createElement('a');
+			pageHeaderContentLinkElement.title = pageNodeTitle;
 			pageHeaderContentLinkElement.href = isEmptyString(pageNodeUrl) ? '#' : pageNodeUrl;
-			setInnerText(pageHeaderContentLinkElement, pageNode.page.title);
+			setInnerText(pageHeaderContentLinkElement, pageNodeTitle);
 			pageHeaderContentElement.appendChild(pageHeaderContentLinkElement);
 
 			if (pageNode === rootNode) {

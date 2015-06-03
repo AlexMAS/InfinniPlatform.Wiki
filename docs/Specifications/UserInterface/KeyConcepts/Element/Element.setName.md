@@ -21,5 +21,5 @@ Element.setName(value)
 # Examples
 
 ```js
-Element.setName('Button1');
+Element.setName('button1');
 ```

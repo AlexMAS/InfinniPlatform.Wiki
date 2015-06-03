@@ -59,7 +59,6 @@ $fontColor: rgba(1, 1, 1, 0.87);
 
 .PageTree li {
 	list-style-type: none;
-	word-wrap: break-word;
 }
 
 .PageTreeNode {
@@ -77,6 +76,10 @@ $fontColor: rgba(1, 1, 1, 0.87);
 .PageTreeContent {
 	margin-left: $indent;
 	min-height: $indent;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	padding-right: 5px;
 }
 
 .PageTreeRootNode {
@@ -86,6 +89,7 @@ $fontColor: rgba(1, 1, 1, 0.87);
 }
 
 .PageTreeSelectedNode {
+	font-size: $fontSize - 1;
 	font-weight: bold;
 }
 
