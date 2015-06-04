@@ -26,7 +26,5 @@ BaseDataSource.getSelectedItem()
 # Examples
 
 ```js
-var items = BaseDataSource.getItems();
-BaseDataSource.setSelectedItem(items[0]);
-var selectedItem = BaseDataSource.getSelectedItem(); // selectedItem === items[0]
+var selectedItem = BaseDataSource.getSelectedItem();
 ```

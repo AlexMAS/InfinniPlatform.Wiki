@@ -17,7 +17,7 @@ position: 23
 # Syntax
 
 ```js
-BaseDataSource.setSelectedItem(item)
+BaseDataSource.setSelectedItem(item[, success[, error]])
 ```
 
 ## Parameters
@@ -26,10 +26,21 @@ BaseDataSource.setSelectedItem(item)
 
 Элемент источника данных.
 
+`success`
+
+Необязательный. [Обработчик события](../../../KeyConcepts/Script/) о том, что выделенный элемент
+изменился. В параметре `argument` передается информация о произошедшем событии. Свойство `argument.oldValue`
+содержит предыдущий выделенный элемент, `argument.newValue` - новый выделенный элемент.
+
+`error`
+
+Необязательный. [Обработчик события](../../../KeyConcepts/Script/) о том, что при изменении выделенного
+элемента произошла ошибка. В параметре `argument` передается информация о произошедшем событии.
+Свойство `argument.error` содержит информацию об ошибке.
+
 # Examples
 
 ```js
 var items = BaseDataSource.getItems();
 BaseDataSource.setSelectedItem(items[0]);
-var selectedItem = BaseDataSource.getSelectedItem(); // selectedItem === items[0]
 ```

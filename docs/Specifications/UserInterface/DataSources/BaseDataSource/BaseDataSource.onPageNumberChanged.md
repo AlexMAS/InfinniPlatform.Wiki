@@ -18,7 +18,7 @@ BaseDataSource.onPageNumberChanged(callback)
 
 [Обработчик события](../../../KeyConcepts/Script/) о том, что номер страницы изменился. В параметре
 `argument` передается информация о произошедшем событии. Свойство `argument.oldValue` содержит предыдущий
-номер страницы, свойство `argument.newValue` - новый номер страницы.
+номер страницы, `argument.newValue` - новый номер страницы.
 
 # Examples
 

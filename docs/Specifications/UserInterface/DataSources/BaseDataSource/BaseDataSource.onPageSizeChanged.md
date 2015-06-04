@@ -18,7 +18,7 @@ BaseDataSource.onPageSizeChanged(callback)
 
 [Обработчик события](../../../KeyConcepts/Script/) о том, что размер страницы изменился. В параметре
 `argument` передается информация о произошедшем событии. Свойство `argument.oldValue` содержит предыдущий
-размер страницы, свойство `argument.newValue` - новый размер страницы.
+размер страницы, `argument.newValue` - новый размер страницы.
 
 # Examples
 

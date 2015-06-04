@@ -14,7 +14,7 @@ position: 18
 # Syntax
 
 ```js
-BaseDataSource.setFilter(value)
+BaseDataSource.setFilter(value[, success[, error]])
 ```
 
 ## Parameters
@@ -22,6 +22,18 @@ BaseDataSource.setFilter(value)
 `value`
 
 Массив [критериев фильтрации](../Criteria/).
+
+`success`
+
+Необязательный. [Обработчик события](../../../KeyConcepts/Script/) о том, что фильтр элементов изменился.
+В параметре `argument` передается информация о произошедшем событии. Свойство `argument.oldValue`
+содержит предыдущий фильтр, `argument.newValue` - новый фильтр.
+
+`error`
+
+Необязательный. [Обработчик события](../../../KeyConcepts/Script/) о том, что при изменении фильтра
+элементов произошла ошибка. В параметре `argument` передается информация о произошедшем событии.
+Свойство `argument.error` содержит информацию об ошибке.
 
 # Examples
 

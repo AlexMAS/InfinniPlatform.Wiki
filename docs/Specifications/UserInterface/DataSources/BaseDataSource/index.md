@@ -98,15 +98,15 @@ position: 0
 
 ## [`getDataBindings()`](BaseDataSource.getDataBindings/)
 
-Возвращает список привязок источника данных.
+Возвращает список [привязок](../../DataBindings/BaseDataBinding/) источника данных.
 
 ## [`addDataBinding()`](BaseDataSource.addDataBinding/)
 
-Добавляет привязку в список привязок источника данных.
+Добавляет [привязку](../../DataBindings/BaseDataBinding/) в список привязок источника данных.
 
 ## [`removeDataBinding()`](BaseDataSource.removeDataBinding/)
 
-Удаляет привязку из списка привязок источника данных.
+Удаляет [привязку](../../DataBindings/BaseDataBinding/) из списка привязок источника данных.
 
 ## [`createItem()`](BaseDataSource.createItem/)
 
@@ -116,17 +116,17 @@ position: 0
 
 Сохраняет элемент в источнике данных.
 
-## [`getItems()`](BaseDataSource.getItems/)
+## [`deleteItem()`](BaseDataSource.deleteItem/)
 
-Возвращает список элементов источника данных.
+Удаляет элемент из источника данных.
 
 ## [`updateItems()`](BaseDataSource.updateItems/)
 
 Обновляет список элементов источника данных.
 
-## [`deleteItem()`](BaseDataSource.deleteItem/)
+## [`getItems()`](BaseDataSource.getItems/)
 
-Удаляет элемент из источника данных.
+Возвращает список элементов источника данных.
 
 # Events
 
@@ -149,6 +149,10 @@ position: 0
 ## [`onSelectedItemModified`](BaseDataSource.onSelectedItemModified/)
 
 Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что данные выделенного элемента изменились.
+
+## [`onItemCreated`](BaseDataSource.onItemCreated/)
+
+Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что элемент создан.
 
 ## [`onItemSaved`](BaseDataSource.onItemSaved/)
 

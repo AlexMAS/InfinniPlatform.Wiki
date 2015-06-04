@@ -15,8 +15,5 @@ BaseDataSource.resumeUpdate()
 # Examples
 
 ```js
-BaseDataSource.suspendUpdate();
-BaseDataSource.setPageNumber(5);
-BaseDataSource.setPageSize(20);
 BaseDataSource.resumeUpdate();
 ```
