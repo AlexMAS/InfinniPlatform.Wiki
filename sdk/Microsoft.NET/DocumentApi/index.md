@@ -44,6 +44,7 @@ var api = new InfinniDocumentApi(InfinniSessionServer, InfinniSessionPort, Infin
 Наименование | Описание |
 -------------|----------|
 [GetDocument](GetDocument)  | Получить список документов |
+[GetDocumentById](GetDocumentById) | Получить документ по идентификатору |
 [SetDocument](SetDocument)  | Сохранить документ |
 [DeleteDocument](DeleteDocument) | Удалить документ |
 [UpdateDocument](UpdateDocument) | Обновить документ |
@@ -52,3 +53,5 @@ var api = new InfinniDocumentApi(InfinniSessionServer, InfinniSessionPort, Infin
 [Attach](Attach) | Присоединить документ к сессии |
 [Detach](Detach) | Отсоединить документ от сессии |
 [SaveSession](SaveSession) | Сохранить сессию |
+[AttachFile] (AttachFile) | Присоединить файл к сессии |
+[DetachFile] (DetachFile) | Отсоединить файл от сессии |
