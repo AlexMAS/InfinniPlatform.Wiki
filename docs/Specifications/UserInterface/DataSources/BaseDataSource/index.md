@@ -132,6 +132,14 @@ position: 0
 
 Возвращает список элементов источника данных.
 
+## [`validateOnErrors()`](BaseDataSource.validateOnErrors/)
+
+Осуществляет проверку на ошибки.
+
+## [`validateOnWarnings()`](BaseDataSource.validateOnWarnings/)
+
+Осуществляет проверку на предупреждения.
+
 # Events
 
 ## [`onPageNumberChanged`](BaseDataSource.onPageNumberChanged/)
@@ -173,3 +181,11 @@ position: 0
 ## [`onItemsAdded`](BaseDataSource.onItemsAdded/)
 
 Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что в список элементов добавлены новые.
+
+## [`onErrorValidator`](BaseDataSource.onErrorValidator/)
+
+Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что проверка на ошибки завершена.
+
+## [`onWarningValidator`](BaseDataSource.onWarningValidator/)
+
+Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что проверка на предупреждения завершена.

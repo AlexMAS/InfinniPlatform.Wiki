@@ -54,4 +54,5 @@ BaseDataSource.setWarningValidator(
 * [`getWarningValidator()`](../BaseDataSource.getWarningValidator/)
 * [`getErrorValidator()`](../BaseDataSource.getErrorValidator/)
 * [`setErrorValidator()`](../BaseDataSource.setErrorValidator/)
+* [`validateOnWarnings()`](../BaseDataSource.validateOnWarnings/)
 * [`ValidationResult`](../ValidationResult/)

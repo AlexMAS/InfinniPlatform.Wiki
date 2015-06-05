@@ -29,3 +29,10 @@ position: 1000
 # Schema
 
 {% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/DataSource/Criteria.resjson" lang="json" %}
+
+# See Also
+
+* [`CriteriaType`](../CriteriaType/)
+* [`getFilter()`](../BaseDataSource.getFilter/)
+* [`setFilter()`](../BaseDataSource.setFilter/)
+* [`onFilterChanged`](../BaseDataSource.onFilterChanged/)

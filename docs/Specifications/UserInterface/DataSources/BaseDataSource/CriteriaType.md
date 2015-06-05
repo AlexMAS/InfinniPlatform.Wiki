@@ -98,3 +98,7 @@ CriteriaType = {
 # Schema
 
 {% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/DataSource/CriteriaType.resjson" lang="json" %}
+
+# See Also
+
+* [`Criteria`](../Criteria/)

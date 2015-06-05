@@ -33,4 +33,5 @@ var warningValidator = BaseDataSource.getWarningValidator();
 * [`setWarningValidator()`](../BaseDataSource.setWarningValidator/)
 * [`getErrorValidator()`](../BaseDataSource.getErrorValidator/)
 * [`setErrorValidator()`](../BaseDataSource.setErrorValidator/)
+* [`validateOnWarnings()`](../BaseDataSource.validateOnWarnings/)
 * [`ValidationResult`](../ValidationResult/)
