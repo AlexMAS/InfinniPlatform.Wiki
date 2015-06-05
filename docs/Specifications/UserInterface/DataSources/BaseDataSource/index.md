@@ -124,6 +124,10 @@ position: 0
 
 Обновляет список элементов источника данных.
 
+## [`addNextItems()`](BaseDataSource.addNextItems/)
+
+Добавляет в список элементов источника данных элементы со следующей страницы.
+
 ## [`getItems()`](BaseDataSource.getItems/)
 
 Возвращает список элементов источника данных.
@@ -165,3 +169,7 @@ position: 0
 ## [`onItemsUpdated`](BaseDataSource.onItemsUpdated/)
 
 Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что список элементов обновлен.
+
+## [`onItemsAdded`](BaseDataSource.onItemsAdded/)
+
+Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что в список элементов добавлены новые.
