@@ -27,7 +27,7 @@ BaseDataSource.onFilterChanged(callback)
 # Examples
 
 ```js
-Element.onFilterChanged(
+BaseDataSource.onFilterChanged(
   function(context, argument) { alert('Filter is changed!'); }
 );
 ```

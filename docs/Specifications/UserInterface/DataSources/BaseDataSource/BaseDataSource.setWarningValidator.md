@@ -40,7 +40,7 @@ BaseDataSource.setWarningValidator(
         items: [
           {
             property: 'Birthday',
-            message: 'Дата рождения больше текущей даты'
+            message: 'Birthday is greater than current date'
           }
         ]
       };

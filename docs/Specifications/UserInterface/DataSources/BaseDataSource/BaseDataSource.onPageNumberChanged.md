@@ -23,7 +23,7 @@ BaseDataSource.onPageNumberChanged(callback)
 # Examples
 
 ```js
-Element.onPageNumberChanged(
+BaseDataSource.onPageNumberChanged(
   function(context, argument) { alert('New page number: ' + argument.newValue); }
 );
 ```

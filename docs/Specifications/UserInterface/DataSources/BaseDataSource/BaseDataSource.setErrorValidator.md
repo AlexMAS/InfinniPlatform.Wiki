@@ -40,7 +40,7 @@ BaseDataSource.setErrorValidator(
         items: [
           {
             property: 'FirstName',
-            message: 'Имя должно содержать только латинские символы'
+            message: 'First name should contains Latin symbols only'
           }
         ]
       };

@@ -23,7 +23,7 @@ BaseDataSource.onSelectedItemChanged(callback)
 # Examples
 
 ```js
-Element.onSelectedItemChanged(
+BaseDataSource.onSelectedItemChanged(
   function(context, argument) { alert('Selected item is changed!'); }
 );
 ```

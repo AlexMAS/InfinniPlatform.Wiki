@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.onItemCreated"
-position: 104
+position: 105
 ---
 
 Устанавливает [обработчик события](../../../KeyConcepts/Script/) о том, что элемент создан.
@@ -33,7 +33,7 @@ BaseDataSource.onItemCreated(callback)
 # Examples
 
 ```js
-Element.onItemCreated(
+BaseDataSource.onItemCreated(
   function(context, argument) { alert('New item is created!'); }
 );
 ```

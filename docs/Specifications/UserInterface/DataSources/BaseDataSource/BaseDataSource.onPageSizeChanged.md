@@ -23,7 +23,7 @@ BaseDataSource.onPageSizeChanged(callback)
 # Examples
 
 ```js
-Element.onPageSizeChanged(
+BaseDataSource.onPageSizeChanged(
   function(context, argument) { alert('New page size: ' + argument.newValue); }
 );
 ```
