@@ -27,3 +27,7 @@ BaseDataSource.onPageSizeChanged(
   function(context, argument) { alert('New page size: ' + argument.newValue); }
 );
 ```
+
+# See Also
+
+* [`setPageSize()`](../BaseDataSource.setPageSize/)

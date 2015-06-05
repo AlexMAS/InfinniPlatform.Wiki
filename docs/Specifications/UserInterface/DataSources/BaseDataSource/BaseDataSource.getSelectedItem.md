@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getSelectedItem()"
-position: 22
+position: 23
 ---
 
 Возвращает выделенный элемент.
@@ -28,3 +28,8 @@ BaseDataSource.getSelectedItem()
 ```js
 var selectedItem = BaseDataSource.getSelectedItem();
 ```
+
+# See Also
+
+* [`setSelectedItem()`](../BaseDataSource.setSelectedItem/)
+* [`onSelectedItemChanged`](../BaseDataSource.onSelectedItemChanged/)

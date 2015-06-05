@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.setSelectedItem()"
-position: 23
+position: 24
 ---
 
 Устанавливает выделенный элемент.
@@ -44,3 +44,8 @@ BaseDataSource.setSelectedItem(item[, success[, error]])
 var items = BaseDataSource.getItems();
 BaseDataSource.setSelectedItem(items[0]);
 ```
+
+# See Also
+
+* [`getSelectedItem()`](../BaseDataSource.getSelectedItem/)
+* [`onSelectedItemChanged`](../BaseDataSource.onSelectedItemChanged/)

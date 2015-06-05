@@ -21,3 +21,10 @@ BaseDataSource.getPageNumber()
 ```js
 var pageNumber = BaseDataSource.getPageNumber();
 ```
+
+# See Also
+
+* [`setPageNumber()`](../BaseDataSource.setPageNumber/)
+* [`onPageNumberChanged`](../BaseDataSource.onPageNumberChanged/)
+* [`updateItems()`](../BaseDataSource.updateItems/)
+* [`addNextItems()`](../BaseDataSource.addNextItems/)

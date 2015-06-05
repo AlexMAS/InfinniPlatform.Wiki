@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.setErrorValidator()"
-position: 13
+position: 15
 ---
 
 Устанавливает [функцию](../../../KeyConcepts/Script/) проверки элемента на ошибки.
@@ -48,3 +48,10 @@ BaseDataSource.setErrorValidator(
   }
 );
 ```
+
+# See Also
+
+* [`getErrorValidator()`](../BaseDataSource.getErrorValidator/)
+* [`getWarningValidator()`](../BaseDataSource.getWarningValidator/)
+* [`setWarningValidator()`](../BaseDataSource.setWarningValidator/)
+* [`ValidationResult`](../ValidationResult/)

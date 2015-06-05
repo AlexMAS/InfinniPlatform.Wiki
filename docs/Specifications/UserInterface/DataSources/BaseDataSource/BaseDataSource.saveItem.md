@@ -42,3 +42,9 @@ BaseDataSource.saveItem(item, [success[, error]])
 var items = BaseDataSource.getItems();
 BaseDataSource.saveItem(items[0]);
 ```
+
+# See Also
+
+* [`onItemSaved`](../BaseDataSource.onItemSaved/)
+* [`createItem()`](../BaseDataSource.createItem/)
+* [`deleteItem()`](../BaseDataSource.deleteItem/)

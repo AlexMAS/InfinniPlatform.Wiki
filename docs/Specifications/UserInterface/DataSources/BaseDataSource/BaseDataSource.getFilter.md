@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getFilter()"
-position: 16
+position: 12
 ---
 
 Возвращает фильтр элементов.
@@ -25,3 +25,11 @@ BaseDataSource.getFilter()
 ```js
 var filter = BaseDataSource.getFilter();
 ```
+
+# See Also
+
+* [`setFilter()`](../BaseDataSource.setFilter/)
+* [`onFilterChanged`](../BaseDataSource.onFilterChanged/)
+* [`updateItems()`](../BaseDataSource.updateItems/)
+* [`addNextItems()`](../BaseDataSource.addNextItems/)
+* [`Criteria`](../Criteria/)

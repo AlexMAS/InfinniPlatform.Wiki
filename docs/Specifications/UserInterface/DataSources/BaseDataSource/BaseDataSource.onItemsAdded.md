@@ -38,3 +38,7 @@ BaseDataSource.onItemsAdded(
   function(context, argument) { alert('New items are added!'); }
 );
 ```
+
+# See Also
+
+* [`addNextItems()`](../BaseDataSource.addNextItems/)

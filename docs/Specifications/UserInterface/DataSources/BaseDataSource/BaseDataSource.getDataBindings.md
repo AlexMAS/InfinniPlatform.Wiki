@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getDataBindings()"
-position: 24
+position: 18
 ---
 
 Возвращает список [привязок](../../../DataBindings/BaseDataBinding/) источника данных.
@@ -21,3 +21,9 @@ BaseDataSource.getDataBindings()
 ```js
 var dataBindings = BaseDataSource.getDataBindings();
 ```
+
+# See Also
+
+* [`addDataBinding()`](../BaseDataSource.addDataBinding/)
+* [`removeDataBinding()`](../BaseDataSource.removeDataBinding/)
+* [`BaseDataBinding`](../../../DataBindings/BaseDataBinding/)

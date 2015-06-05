@@ -27,3 +27,8 @@ BaseDataSource.getItems()
 ```js
 var items = BaseDataSource.getItems();
 ```
+
+# See Also
+
+* [`addNextItems()`](../BaseDataSource.addNextItems/)
+* [`updateItems()`](../BaseDataSource.updateItems/)

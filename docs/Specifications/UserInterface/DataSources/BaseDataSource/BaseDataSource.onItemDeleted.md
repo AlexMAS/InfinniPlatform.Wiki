@@ -33,3 +33,7 @@ BaseDataSource.onItemDeleted(
   function(context, argument) { alert('Item is deleted!'); }
 );
 ```
+
+# See Also
+
+* [`deleteItem()`](../BaseDataSource.deleteItem/)

@@ -23,3 +23,7 @@ BaseDataSource.setName(value)
 ```js
 BaseDataSource.setName('dataSource1');
 ```
+
+# See Also
+
+* [`getName()`](../BaseDataSource.getName/)

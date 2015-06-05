@@ -27,3 +27,7 @@ BaseDataSource.onSelectedItemChanged(
   function(context, argument) { alert('Selected item is changed!'); }
 );
 ```
+
+# See Also
+
+* [`setSelectedItem()`](../BaseDataSource.setSelectedItem/)

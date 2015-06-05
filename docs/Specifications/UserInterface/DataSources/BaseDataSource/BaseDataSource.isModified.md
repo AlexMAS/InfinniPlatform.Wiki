@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.isModified()"
-position: 19
+position: 25
 ---
 
 Проверяет, есть ли несохраненные элементы.
@@ -28,3 +28,10 @@ BaseDataSource.isModified([item])
 ```js
 var isModified = BaseDataSource.isModified();
 ```
+
+# See Also
+
+* [`saveItem()`](../BaseDataSource.saveItem/)
+* [`updateItems()`](../BaseDataSource.updateItems/)
+* [`addNextItems()`](../BaseDataSource.addNextItems/)
+* [`onSelectedItemModified`](../BaseDataSource.onSelectedItemModified/)

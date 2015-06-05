@@ -33,3 +33,8 @@ BaseDataSource.onItemSaved(
   function(context, argument) { alert('Item is saved!'); }
 );
 ```
+
+# See Also
+
+* [`saveItem()`](../BaseDataSource.saveItem/)
+* [`isModified()`](../BaseDataSource.isModified/)

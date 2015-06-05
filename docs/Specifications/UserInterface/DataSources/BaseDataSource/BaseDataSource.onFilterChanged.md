@@ -31,3 +31,7 @@ BaseDataSource.onFilterChanged(
   function(context, argument) { alert('Filter is changed!'); }
 );
 ```
+
+# See Also
+
+* [`setFilter()`](../BaseDataSource.setFilter/)

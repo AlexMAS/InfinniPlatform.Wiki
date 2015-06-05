@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.removeDataBinding()"
-position: 26
+position: 20
 ---
 
 Удаляет [привязку](../../../DataBindings/BaseDataBinding/) из списка привязок источника данных.
@@ -24,3 +24,9 @@ BaseDataSource.removeDataBinding(dataBinding)
 var dataBindings = BaseDataSource.getDataBindings();
 BaseDataSource.removeDataBinding(dataBindings[0]);
 ```
+
+# See Also
+
+* [`getDataBindings()`](../BaseDataSource.getDataBindings/)
+* [`addDataBinding()`](../BaseDataSource.addDataBinding/)
+* [`BaseDataBinding`](../../../DataBindings/BaseDataBinding/)

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.addDataBinding()"
-position: 25
+position: 19
 ---
 
 Добавляет [привязку](../../../DataBindings/BaseDataBinding/) в список привязок источника данных.
@@ -24,3 +24,9 @@ BaseDataSource.addDataBinding(dataBinding)
 var dataBinding = new PropertyBinding(view, 'dataSource1', 'property1');
 BaseDataSource.addDataBinding(dataBinding);
 ```
+
+# See Also
+
+* [`getDataBindings()`](../BaseDataSource.getDataBindings/)
+* [`removeDataBinding()`](../BaseDataSource.removeDataBinding/)
+* [`BaseDataBinding`](../../../DataBindings/BaseDataBinding/)

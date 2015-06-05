@@ -28,3 +28,7 @@ BaseDataSource.onSelectedItemModified(
   function(context, argument) { alert('Selected item is modified!'); }
 );
 ```
+
+# See Also
+
+* [`isModified()`](../BaseDataSource.isModified/)

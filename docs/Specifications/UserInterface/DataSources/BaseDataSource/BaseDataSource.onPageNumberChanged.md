@@ -27,3 +27,8 @@ BaseDataSource.onPageNumberChanged(
   function(context, argument) { alert('New page number: ' + argument.newValue); }
 );
 ```
+
+# See Also
+
+* [`setPageNumber()`](../BaseDataSource.setPageNumber/)
+* [`addNextItems()`](../BaseDataSource.addNextItems/)

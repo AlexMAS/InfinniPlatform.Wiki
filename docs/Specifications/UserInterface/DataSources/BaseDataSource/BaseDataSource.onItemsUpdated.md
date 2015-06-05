@@ -36,3 +36,7 @@ BaseDataSource.onItemsUpdated(
   function(context, argument) { alert('Items are updated!'); }
 );
 ```
+
+# See Also
+
+* [`updateItems()`](../BaseDataSource.updateItems/)

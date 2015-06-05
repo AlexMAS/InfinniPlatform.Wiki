@@ -42,3 +42,12 @@ BaseDataSource.addNextItems([success[, error]])
 ```js
 BaseDataSource.addNextItems();
 ```
+
+# See Also
+
+* [`onItemsAdded`](../BaseDataSource.onItemsAdded/)
+* [`getPageNumber()`](../BaseDataSource.getPageNumber/)
+* [`getPageSize()`](../BaseDataSource.getPageSize/)
+* [`getFilter()`](../BaseDataSource.getFilter/)
+* [`isModified()`](../BaseDataSource.isModified/)
+* [`updateItems()`](../BaseDataSource.updateItems/)

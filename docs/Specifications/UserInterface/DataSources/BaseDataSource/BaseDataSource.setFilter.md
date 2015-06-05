@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.setFilter()"
-position: 18
+position: 13
 ---
 
 Устанавливает фильтр элементов.
@@ -10,6 +10,8 @@ position: 18
 
 Фильтр элементов представляется массивом [критериев фильтрации](../Criteria/). Изменение фильтра
 элементов приводит к возникновению события [`onFilterChanged`](../BaseDataSource.onFilterChanged/).
+Если в источнике данных [разрешено обновление списка элементов](../BaseDataSource.resumeUpdate/),
+изменение фильтра приводит к автоматическому [обновлению списка элементов источника данных](../BaseDataSource.updateItems/).
 
 # Syntax
 
@@ -42,7 +44,17 @@ BaseDataSource.setFilter([
   {
     criteriaType: CriteriaType.isContains,
     property: 'FirstName',
-    value: 'Ив'
+    value: 'Jo'
   }
 ]);
 ```
+
+# See Also
+
+* [`getFilter()`](../BaseDataSource.getFilter/)
+* [`onFilterChanged`](../BaseDataSource.onFilterChanged/)
+* [`suspendUpdate()`](../BaseDataSource.suspendUpdate/)
+* [`resumeUpdate()`](../BaseDataSource.resumeUpdate/)
+* [`updateItems()`](../BaseDataSource.updateItems/)
+* [`addNextItems()`](../BaseDataSource.addNextItems/)
+* [`Criteria`](../Criteria/)

@@ -21,3 +21,8 @@ BaseDataSource.getFillCreatedItem()
 ```js
 var fillCreatedItem = BaseDataSource.getFillCreatedItem();
 ```
+
+# See Also
+
+* [`setFillCreatedItem()`](../BaseDataSource.setFillCreatedItem/)
+* [`createItem()`](../BaseDataSource.createItem/)

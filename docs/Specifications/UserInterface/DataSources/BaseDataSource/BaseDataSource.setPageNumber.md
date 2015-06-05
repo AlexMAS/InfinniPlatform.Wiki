@@ -9,6 +9,8 @@ position: 9
 # Description
 
 Изменение номера страницы приводит к возникновению события [`onPageNumberChanged`](../BaseDataSource.onPageNumberChanged/).
+Если в источнике данных [разрешено обновление списка элементов](../BaseDataSource.resumeUpdate/),
+изменение номера страницы приводит к автоматическому [обновлению списка элементов источника данных](../BaseDataSource.updateItems/).
 
 # Syntax
 
@@ -39,3 +41,12 @@ BaseDataSource.setPageNumber(value[, success[, error]])
 ```js
 BaseDataSource.setPageNumber(5);
 ```
+
+# See Also
+
+* [`getPageNumber()`](../BaseDataSource.getPageNumber/)
+* [`onPageNumberChanged`](../BaseDataSource.onPageNumberChanged/)
+* [`suspendUpdate()`](../BaseDataSource.suspendUpdate/)
+* [`resumeUpdate()`](../BaseDataSource.resumeUpdate/)
+* [`updateItems()`](../BaseDataSource.updateItems/)
+* [`addNextItems()`](../BaseDataSource.addNextItems/)

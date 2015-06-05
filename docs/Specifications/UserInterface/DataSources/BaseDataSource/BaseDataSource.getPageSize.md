@@ -21,3 +21,10 @@ BaseDataSource.getPageSize()
 ```js
 var pageSize = BaseDataSource.getPageSize();
 ```
+
+# See Also
+
+* [`setPageSize()`](../BaseDataSource.setPageSize/)
+* [`onPageSizeChanged`](../BaseDataSource.onPageSizeChanged/)
+* [`updateItems()`](../BaseDataSource.updateItems/)
+* [`addNextItems()`](../BaseDataSource.addNextItems/)

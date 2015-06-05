@@ -9,6 +9,8 @@ position: 11
 # Description
 
 Изменение размера страницы приводит к возникновению события [`onPageSizeChanged`](../BaseDataSource.onPageSizeChanged/).
+Если в источнике данных [разрешено обновление списка элементов](../BaseDataSource.resumeUpdate/),
+изменение размера страницы приводит к автоматическому [обновлению списка элементов источника данных](../BaseDataSource.updateItems/).
 
 # Syntax
 
@@ -39,3 +41,12 @@ BaseDataSource.setPageSize(value[, success[, error]])
 ```js
 BaseDataSource.setPageSize(50);
 ```
+
+# See Also
+
+* [`getPageSize()`](../BaseDataSource.getPageSize/)
+* [`onPageSizeChanged`](../BaseDataSource.onPageSizeChanged/)
+* [`suspendUpdate()`](../BaseDataSource.suspendUpdate/)
+* [`resumeUpdate()`](../BaseDataSource.resumeUpdate/)
+* [`updateItems()`](../BaseDataSource.updateItems/)
+* [`addNextItems()`](../BaseDataSource.addNextItems/)

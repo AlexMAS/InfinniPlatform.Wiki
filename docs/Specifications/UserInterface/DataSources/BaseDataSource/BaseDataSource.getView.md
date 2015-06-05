@@ -21,3 +21,7 @@ BaseDataSource.getView()
 ```js
 var parentView = BaseDataSource.getView();
 ```
+
+# See Also
+
+* [`View`](../../../KeyConcepts/View/)

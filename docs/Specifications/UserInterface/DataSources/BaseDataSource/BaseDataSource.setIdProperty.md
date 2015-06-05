@@ -23,3 +23,7 @@ BaseDataSource.setIdProperty(value)
 ```js
 BaseDataSource.setIdProperty('Id');
 ```
+
+# See Also
+
+* [`getIdProperty()`](../BaseDataSource.getIdProperty/)

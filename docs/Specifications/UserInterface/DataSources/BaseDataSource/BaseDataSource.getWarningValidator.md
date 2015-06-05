@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getWarningValidator()"
-position: 14
+position: 16
 ---
 
 Возвращает [функцию](../../../KeyConcepts/Script/) проверки элемента на предупреждения.
@@ -27,3 +27,10 @@ BaseDataSource.getWarningValidator()
 ```js
 var warningValidator = BaseDataSource.getWarningValidator();
 ```
+
+# See Also
+
+* [`setWarningValidator()`](../BaseDataSource.setWarningValidator/)
+* [`getErrorValidator()`](../BaseDataSource.getErrorValidator/)
+* [`setErrorValidator()`](../BaseDataSource.setErrorValidator/)
+* [`ValidationResult`](../ValidationResult/)

@@ -43,3 +43,11 @@ BaseDataSource.createItem(
   function(context, argument) { alert('New item is created!'); }
 );
 ```
+
+# See Also
+
+* [`onItemCreated`](../BaseDataSource.onItemCreated/)
+* [`saveItem()`](../BaseDataSource.saveItem/)
+* [`deleteItem()`](../BaseDataSource.deleteItem/)
+* [`getFillCreatedItem()`](../BaseDataSource.getFillCreatedItem/)
+* [`setFillCreatedItem()`](../BaseDataSource.setFillCreatedItem/)
