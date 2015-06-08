@@ -14,7 +14,7 @@ position: 0
 
 ```json
 {
-  "Name": "dataSource1",
+  "Name": "objectDataSource1",
   "Items": [
     { "Id": 1, "Display": "LTE" },
     { "Id": 2, "Display": "3G" },

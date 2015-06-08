@@ -9,3 +9,13 @@ position: 0
 # Schema
 
 {% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/DataSource/DocumentDataSource/DocumentDataSource.resjson" lang="json" %}
+
+# Examples
+
+```json
+{
+  "Name": "documentDataSource1",
+  "ConfigId": "MyConfig",
+  "DocumentId": "MyDocument"
+}
+```
