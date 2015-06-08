@@ -12,8 +12,16 @@ position: 4
 Element.getText()
 ```
 
+## Returns
+
+Текст заголовка элемента.
+
 # Examples
 
 ```js
 var elementText = Element.getText();
 ```
+
+# See Also
+
+* [`setText()`](../Element.setText/)

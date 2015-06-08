@@ -12,8 +12,16 @@ position: 2
 Element.getName()
 ```
 
+## Returns
+
+Наименование элемента.
+
 # Examples
 
 ```js
 var elementName = Element.getName();
 ```
+
+# See Also
+
+* [`setName()`](../Element.setName/)

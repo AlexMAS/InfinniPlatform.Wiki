@@ -16,10 +16,14 @@ Element.setVisible(value)
 
 `value`
 
-Значение, определяющее, отображается ли элемент в интерфейсе.
+Логическое значение, определяющее, отображается ли элемент в интерфейсе.
 
 # Examples
 
 ```js
 Element.setVisible(true);
 ```
+
+# See Also
+
+* [`getVisible()`](../Element.getVisible/)

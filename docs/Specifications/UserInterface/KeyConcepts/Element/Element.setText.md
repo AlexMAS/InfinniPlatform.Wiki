@@ -23,3 +23,7 @@ Element.setText(value)
 ```js
 Element.setText('Push me');
 ```
+
+# See Also
+
+* [`getText()`](../Element.getText/)

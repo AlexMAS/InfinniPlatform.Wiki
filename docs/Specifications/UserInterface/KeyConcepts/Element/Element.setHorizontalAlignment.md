@@ -26,4 +26,5 @@ Element.setHorizontalAlignment(ElementHorizontalAlignment.left);
 
 # See Also
 
-* [ElementHorizontalAlignment](../ElementHorizontalAlignment/)
+* [`getHorizontalAlignment()`](../Element.getHorizontalAlignment/)
+* [`ElementHorizontalAlignment`](../ElementHorizontalAlignment/)

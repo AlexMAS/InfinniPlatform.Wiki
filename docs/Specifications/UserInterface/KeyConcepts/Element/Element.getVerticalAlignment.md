@@ -12,6 +12,10 @@ position: 12
 Element.getVerticalAlignment()
 ```
 
+## Returns
+
+[Вертикальное выравнивание в родительском элементе](../ElementVerticalAlignment/).
+
 # Examples
 
 ```js
@@ -20,4 +24,5 @@ var verticalAlignment = Element.getVerticalAlignment();
 
 # See Also
 
-* [ElementVerticalAlignment](../ElementVerticalAlignment/)
+* [`setVerticalAlignment()`](../Element.setVerticalAlignment/)
+* [`ElementVerticalAlignment`](../ElementVerticalAlignment/)

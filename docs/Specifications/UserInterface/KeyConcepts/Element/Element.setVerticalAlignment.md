@@ -26,4 +26,5 @@ Element.setVerticalAlignment(ElementVerticalAlignment.top);
 
 # See Also
 
-* [ElementVerticalAlignment](../ElementVerticalAlignment/)
+* [`getVerticalAlignment()`](../Element.getVerticalAlignment/)
+* [`ElementVerticalAlignment`](../ElementVerticalAlignment/)

@@ -16,10 +16,14 @@ Element.setEnabled(value)
 
 `value`
 
-Значение, определяющее, возможен ли доступ к элементу.
+Логическое значение, определяющее, возможен ли доступ к элементу.
 
 # Examples
 
 ```js
 Element.setEnabled(true);
 ```
+
+# See Also
+
+* [`getEnabled()`](../Element.getEnabled/)

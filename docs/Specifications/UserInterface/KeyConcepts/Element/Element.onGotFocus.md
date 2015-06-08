@@ -4,7 +4,7 @@ title: "Element.onGotFocus"
 position: 101
 ---
 
-Устанавливает обработчик события о том, что элемент получил фокус ввода.
+Устанавливает [обработчик события](../../Script/) о том, что элемент получил фокус ввода.
 
 # Syntax
 
@@ -16,7 +16,7 @@ Element.onGotFocus(callback)
 
 `callback`
 
-[Обработчик события о том, что элемент получил фокус ввода](../../Script/).
+[Обработчик события](../../Script/) о том, что элемент получил фокус ввода.
 
 # Examples
 
@@ -25,3 +25,7 @@ Element.onGotFocus(
   function(context, argument) { alert('Element got focus!'); }
 );
 ```
+
+# See Also
+
+* [`onLostFocus`](../Element.onLostFocus/)

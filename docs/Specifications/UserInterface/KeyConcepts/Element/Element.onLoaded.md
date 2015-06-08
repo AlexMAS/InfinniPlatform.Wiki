@@ -4,7 +4,7 @@ title: "Element.onLoaded"
 position: 100
 ---
 
-Устанавливает обработчик события о том, что элемент загружен.
+Устанавливает [обработчик события](../../Script/) о том, что элемент загружен.
 
 # Syntax
 
@@ -16,12 +16,12 @@ Element.onLoaded(callback)
 
 `callback`
 
-[Обработчик события о том, что элемент загружен](../../Script/).
+[Обработчик события](../../Script/) о том, что элемент загружен.
 
 # Examples
 
 ```js
 Element.onLoaded(
-  function(context, argument) { alert('Element loaded!'); }
+  function(context, argument) { alert('Element is loaded!'); }
 );
 ```

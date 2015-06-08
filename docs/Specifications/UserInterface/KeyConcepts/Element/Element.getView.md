@@ -12,8 +12,16 @@ position: 1
 Element.getView()
 ```
 
+## Returns
+
+Родительское [представление](../../View/) элемента.
+
 # Examples
 
 ```js
 var parentView = Element.getView();
 ```
+
+# See Also
+
+* [`View`](../../View/)

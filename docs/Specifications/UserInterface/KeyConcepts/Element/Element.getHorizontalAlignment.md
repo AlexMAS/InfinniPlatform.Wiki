@@ -12,6 +12,10 @@ position: 10
 Element.getHorizontalAlignment()
 ```
 
+## Returns
+
+[Горизонтальное выравнивание в родительском элементе](../ElementHorizontalAlignment/).
+
 # Examples
 
 ```js
@@ -20,4 +24,5 @@ var horizontalAlignment = Element.getHorizontalAlignment();
 
 # See Also
 
-* [ElementHorizontalAlignment](../ElementHorizontalAlignment/)
+* [`setHorizontalAlignment()`](../Element.setHorizontalAlignment/)
+* [`ElementHorizontalAlignment`](../ElementHorizontalAlignment/)

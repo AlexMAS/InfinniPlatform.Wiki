@@ -23,3 +23,7 @@ Element.setName(value)
 ```js
 Element.setName('button1');
 ```
+
+# See Also
+
+* [`getName()`](../Element.getName/)
