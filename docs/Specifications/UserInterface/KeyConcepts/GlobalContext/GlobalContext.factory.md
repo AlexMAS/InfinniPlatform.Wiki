@@ -11,3 +11,13 @@ position: 2
 ```js
 GlobalContext.factory
 ```
+
+# Examples
+
+```js
+var factory = GlobalContext.factory;
+```
+
+# See Also
+
+* [`Factory`](../../Factory/)

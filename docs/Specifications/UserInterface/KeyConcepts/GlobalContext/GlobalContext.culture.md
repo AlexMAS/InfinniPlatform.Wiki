@@ -11,3 +11,13 @@ position: 0
 ```js
 GlobalContext.culture
 ```
+
+# Examples
+
+```js
+var culture = GlobalContext.culture;
+```
+
+# See Also
+
+* [`Culture`](../../Culture/)

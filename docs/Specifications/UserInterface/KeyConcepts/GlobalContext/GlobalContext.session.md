@@ -11,3 +11,13 @@ position: 1
 ```js
 GlobalContext.session
 ```
+
+# Examples
+
+```js
+var session = GlobalContext.session;
+```
+
+# See Also
+
+* [`Session`](../../Session/)
