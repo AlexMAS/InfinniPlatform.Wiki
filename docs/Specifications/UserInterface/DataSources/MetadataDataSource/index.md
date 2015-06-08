@@ -39,6 +39,22 @@ InfinniPlatform
 ...
 ```
 
+# Extends
+
+[`BaseDataSource`](../BaseDataSource/)
+
+# Syntax
+
+```js
+new MetadataDataSource(view)
+```
+
+## Parameters
+
+`view`
+
+Родительское [представление](../../KeyConcepts/View/) источника данных.
+
 # Methods
 
 ## [`getConfigId()`](MetadataDataSource.getConfigId/)

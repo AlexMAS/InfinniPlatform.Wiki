@@ -18,6 +18,18 @@ position: 1
 
 [`BaseDataSource`](../BaseDataSource/)
 
+# Syntax
+
+```js
+new ObjectDataSource(view)
+```
+
+## Parameters
+
+`view`
+
+Родительское [представление](../../KeyConcepts/View/) источника данных.
+
 # Methods
 
 ## [`setItems()`](ObjectDataSource.setItems/)

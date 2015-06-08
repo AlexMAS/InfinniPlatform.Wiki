@@ -20,6 +20,18 @@ position: 2
 
 [`BaseDataSource`](../BaseDataSource/)
 
+# Syntax
+
+```js
+new DocumentDataSource(view)
+```
+
+## Parameters
+
+`view`
+
+Родительское [представление](../../KeyConcepts/View/) источника данных.
+
 # Methods
 
 ## [`getConfigId()`](DocumentDataSource.getConfigId/)

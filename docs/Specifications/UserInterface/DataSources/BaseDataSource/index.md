@@ -6,6 +6,18 @@ position: 0
 
 Базовый тип источников данных представления.
 
+# Syntax
+
+```js
+new BaseDataSource(view)
+```
+
+## Parameters
+
+`view`
+
+Родительское [представление](../../KeyConcepts/View/) источника данных.
+
 # Methods
 
 ## [`getView()`](BaseDataSource.getView/)
