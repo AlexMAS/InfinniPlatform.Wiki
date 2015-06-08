@@ -30,6 +30,11 @@ View.onClosing(callback)
 
 ```js
 Session.onClosing(
-  function(context, argument) { alert('Closing view!'); }
+  function(context, argument) { alert('View is closing!'); }
 );
 ```
+
+# See Also
+
+* [`close()`](../View.close/)
+* [`onClosed`](../View.onClosed/)

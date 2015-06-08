@@ -17,11 +17,27 @@ position: 9
 # Syntax
 
 ```js
-View.open()
+View.open([success[, error]])
 ```
+
+## Parameters
+
+`success`
+
+Необязательный. [Обработчик события](../../Script/) о том, что представление открыто.
+
+`error`
+
+Необязательный. [Обработчик события](../../Script/) о том, что при открытии произошла ошибка.
 
 # Examples
 
 ```js
 View.open();
 ```
+
+# See Also
+
+* [`onOpening`](../View.onOpening/)
+* [`onOpened`](../View.onOpened/)
+* [`close()`](../View.close/)

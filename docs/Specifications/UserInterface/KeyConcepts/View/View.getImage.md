@@ -12,8 +12,16 @@ position: 3
 View.getImage()
 ```
 
+## Returns
+
+Изображение заголовка представления.
+
 # Examples
 
 ```js
 var image = View.getImage();
 ```
+
+# See Also
+
+* [`setImage()`](../View.setImage/)

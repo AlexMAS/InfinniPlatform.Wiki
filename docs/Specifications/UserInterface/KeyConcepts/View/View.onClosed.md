@@ -33,3 +33,8 @@ Session.onClosed(
   function(context, argument) { alert('View is closed!'); }
 );
 ```
+
+# See Also
+
+* [`close()`](../View.close/)
+* [`onClosing`](../View.onClosing/)

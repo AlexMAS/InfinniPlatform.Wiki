@@ -12,8 +12,16 @@ position: 2
 View.getMessageBus()
 ```
 
+## Returns
+
+[Шина сообщений представления](../../MessageBus/).
+
 # Examples
 
 ```js
 var messageBus = View.getMessageBus();
 ```
+
+# See Also
+
+* [`MessageBus`](../../MessageBus/)

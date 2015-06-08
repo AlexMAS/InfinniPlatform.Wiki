@@ -30,6 +30,11 @@ View.onOpening(callback)
 
 ```js
 Session.onOpening(
-  function(context, argument) { alert('Opening view!'); }
+  function(context, argument) { alert('View is opening!'); }
 );
 ```
+
+# See Also
+
+* [`open()`](../View.open/)
+* [`onOpened`](../View.onOpened/)

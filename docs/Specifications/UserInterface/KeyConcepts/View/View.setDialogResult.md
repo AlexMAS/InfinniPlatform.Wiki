@@ -23,3 +23,8 @@ View.setDialogResult(value)
 ```js
 View.setDialogResult(DialogResult.accepted);
 ```
+
+# See Also
+
+* [`getDialogResult()`](../View.getDialogResult/)
+* [`DialogResult`](../DialogResult/)

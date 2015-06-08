@@ -17,11 +17,27 @@ position: 10
 # Syntax
 
 ```js
-View.close()
+View.close([success[, error]])
 ```
+
+## Parameters
+
+`success`
+
+Необязательный. [Обработчик события](../../Script/) о том, что представление закрыто.
+
+`error`
+
+Необязательный. [Обработчик события](../../Script/) о том, что при закрытии произошла ошибка.
 
 # Examples
 
 ```js
 View.close();
 ```
+
+# See Also
+
+* [`onClosing`](../View.onOpening/)
+* [`onClosed`](../View.onOpened/)
+* [`open()`](../View.open/)

@@ -23,3 +23,7 @@ View.setImage(value)
 ```js
 View.setImage('icon1');
 ```
+
+# See Also
+
+* [`getImage()`](../View.getImage/)

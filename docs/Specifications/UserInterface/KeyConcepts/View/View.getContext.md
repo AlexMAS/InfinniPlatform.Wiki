@@ -12,8 +12,16 @@ position: 1
 View.getContext()
 ```
 
+## Returns
+
+[Контекст представления](../../ViewContext/).
+
 # Examples
 
 ```js
 var viewContext = View.getContext();
 ```
+
+# See Also
+
+* [`ViewContext`](../../ViewContext/)

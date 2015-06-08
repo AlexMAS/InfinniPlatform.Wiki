@@ -12,8 +12,17 @@ position: 7
 View.getDialogResult()
 ```
 
+## Returns
+
+[Результат работы представления](../DialogResult/).
+
 # Examples
 
 ```js
 var dialogResult = View.getDialogResult();
 ```
+
+# See Also
+
+* [`setDialogResult()`](../View.setDialogResult/)
+* [`DialogResult`](../DialogResult/)

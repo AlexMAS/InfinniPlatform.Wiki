@@ -12,8 +12,16 @@ position: 5
 View.getLayoutPanel()
 ```
 
+## Returns
+
+[Контейнер элементов представления](../../../LayoutPanels/).
+
 # Examples
 
 ```js
 var layoutPanel = View.getLayoutPanel();
 ```
+
+# See Also
+
+* [`setLayoutPanel()`](../View.setLayoutPanel/)

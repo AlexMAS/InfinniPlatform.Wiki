@@ -33,3 +33,8 @@ Session.onOpened(
   function(context, argument) { alert('View is opened!'); }
 );
 ```
+
+# See Also
+
+* [`open()`](../View.open/)
+* [`onOpening`](../View.onOpening/)

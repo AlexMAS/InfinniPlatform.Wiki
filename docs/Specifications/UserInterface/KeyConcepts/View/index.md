@@ -17,6 +17,18 @@ position: 1
 
 ## [`Element`](../Element/)
 
+# Syntax
+
+```js
+new View(view)
+```
+
+## Parameters
+
+`view`
+
+Родительское [представление]().
+
 # Methods
 
 ## [`getContext()`](View.getContext/)

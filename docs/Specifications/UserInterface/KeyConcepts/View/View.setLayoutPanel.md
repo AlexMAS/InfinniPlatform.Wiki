@@ -23,3 +23,7 @@ View.setLayoutPanel(value)
 ```js
 View.setLayoutPanel(new GridPanel());
 ```
+
+# See Also
+
+* [`getLayoutPanel()`](../View.getLayoutPanel/)
