@@ -33,3 +33,8 @@ DialogResult = {
 # Schema
 
 {% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/View/DialogResult.resjson" lang="json" %}
+
+# See Also
+
+* [`getDialogResult()`](../View.getDialogResult/)
+* [`setDialogResult()`](../View.setDialogResult/)

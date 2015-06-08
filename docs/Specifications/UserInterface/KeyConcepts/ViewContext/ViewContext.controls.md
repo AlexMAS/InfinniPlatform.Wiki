@@ -18,3 +18,7 @@ ViewContext.controls
 var button1 = ViewContext.controls.button1;
 var button2 = ViewContext.controls['button2'];
 ```
+
+# See Also
+
+* [`Element`](../../Element/)

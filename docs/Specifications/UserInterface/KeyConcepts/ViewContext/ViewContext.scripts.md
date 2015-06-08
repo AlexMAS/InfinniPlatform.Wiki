@@ -18,3 +18,7 @@ ViewContext.scripts
 var function1 = ViewContext.scripts.function1;
 var function2 = ViewContext.scripts['function2'];
 ```
+
+# See Also
+
+* [`Script`](../../Script/)

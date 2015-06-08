@@ -30,7 +30,7 @@ position: 2
 
 ## [`dataSources`](ViewContext.dataSources/)
 
-Возвращает ассоциативный список [источников данных представления](../../DataSources/).
+Возвращает ассоциативный список [источников данных представления](../../DataSources/BaseDataSource/).
 
 ## [`controls`](ViewContext.controls/)
 

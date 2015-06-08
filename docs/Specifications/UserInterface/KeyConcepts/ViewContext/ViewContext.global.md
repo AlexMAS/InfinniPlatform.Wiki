@@ -11,3 +11,13 @@ position: 1
 ```js
 ViewContext.global
 ```
+
+# Examples
+
+```js
+var globalContext = ViewContext.global;
+```
+
+# See Also
+
+* [`GlobalContext`](../../GlobalContext/)
