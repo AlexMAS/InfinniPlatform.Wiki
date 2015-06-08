@@ -11,3 +11,13 @@ position: 2
 ```js
 Culture.dateTimeFormatInfo
 ```
+
+# Examples
+
+```js
+var dateTimeFormatInfo = Culture.dateTimeFormatInfo;
+```
+
+# See Also
+
+* [`DateTimeFormatInfo`](../DateTimeFormatInfo/)

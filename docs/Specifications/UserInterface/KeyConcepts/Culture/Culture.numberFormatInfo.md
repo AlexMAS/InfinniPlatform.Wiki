@@ -11,3 +11,13 @@ position: 3
 ```js
 Culture.numberFormatInfo
 ```
+
+# Examples
+
+```js
+var numberFormatInfo = Culture.numberFormatInfo;
+```
+
+# See Also
+
+* [`NumberFormatInfo`](../NumberFormatInfo/)

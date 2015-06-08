@@ -11,3 +11,13 @@ position: 0
 ```js
 Culture.name
 ```
+
+# Examples
+
+```js
+var name = Culture.name; // Ex: 'en-US'
+```
+
+# See Also
+
+* [Tags for Identifying Languages](http://tools.ietf.org/html/rfc5646)
