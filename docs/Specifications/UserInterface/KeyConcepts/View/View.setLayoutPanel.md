@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "View.setLayoutPanel()"
-position: 6
+position: 15
 ---
 
 Устанавливает [контейнер элементов представления](../../../LayoutPanels/).

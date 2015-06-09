@@ -4,7 +4,7 @@ title: "View.getMessageBus()"
 position: 2
 ---
 
-Возвращает [шину сообщений представления](../../MessageBus/).
+Возвращает [шину сообщений](../../MessageBus/) представления.
 
 # Syntax
 
@@ -14,7 +14,7 @@ View.getMessageBus()
 
 ## Returns
 
-[Шина сообщений представления](../../MessageBus/).
+[Шина сообщений](../../MessageBus/) представления.
 
 # Examples
 

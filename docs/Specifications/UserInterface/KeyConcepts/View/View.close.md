@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "View.close()"
-position: 10
+position: 19
 ---
 
 Закрывает представление.

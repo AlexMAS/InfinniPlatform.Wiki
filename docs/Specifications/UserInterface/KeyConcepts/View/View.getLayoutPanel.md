@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "View.getLayoutPanel()"
-position: 5
+position: 14
 ---
 
 Возвращает [контейнер элементов представления](../../../LayoutPanels/).

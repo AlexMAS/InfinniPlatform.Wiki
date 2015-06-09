@@ -37,7 +37,43 @@ new View(view)
 
 ## [`getMessageBus()`](View.getMessageBus/)
 
-Возвращает [шину сообщений представления](../MessageBus/).
+Возвращает [шину сообщений](../MessageBus/) представления.
+
+## [`getScripts()`](View.getScripts/)
+
+Возвращает ассоциативный список [скриптов представления](../Script/).
+
+## [`addScript()`](View.addScript/)
+
+Добавляет [скрипт](../Script/) в представление.
+
+## [`removeScript()`](View.removeScript/)
+
+Удаляет [скрипт](../Script/) из представления.
+
+## [`getParameters()`](View.getParameters/)
+
+Возвращает ассоциативный список [параметров представления](../Parameter/).
+
+## [`addParameter()`](View.addParameter/)
+
+Добавляет [параметр](../Parameter/) в представление.
+
+## [`removeParameter()`](View.removeParameter/)
+
+Удаляет [параметр](../Parameter/) из представления.
+
+## [`getDataSources()`](View.getDataSources/)
+
+Возвращает ассоциативный список [источников данных представления](../../DataSources/BaseDataSource/).
+
+## [`addDataSource()`](View.addDataSource/)
+
+Добавляет [источник данных](../../DataSources/BaseDataSource/) в представление.
+
+## [`removeDataSource()`](View.removeDataSource/)
+
+Удаляет [источник данных](../../DataSources/BaseDataSource/) из представления.
 
 ## [`getImage()`](View.getImage/)
 
