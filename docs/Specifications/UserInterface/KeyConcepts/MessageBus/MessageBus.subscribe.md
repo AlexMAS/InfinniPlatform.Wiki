@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "MessageBus.subscribe()"
-position: 1
+position: 3
 ---
 
 Подписывает на сообщения заданного типа.
@@ -38,3 +38,7 @@ MessageBus.subscribe(type, callback)
 ```js
 MessageBus.subscribe('myEvent', function(context, argument) { alert(argument.value); });
 ```
+
+# See Also
+
+* [`send()`](../MessageBus.send/)

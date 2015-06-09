@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Parameter.getView()"
+title: "MessageBus.getView()"
 position: 1
 ---
 
@@ -9,17 +9,17 @@ position: 1
 # Syntax
 
 ```js
-Parameter.getView()
+MessageBus.getView()
 ```
 
 ## Returns
 
-Родительское [представление](../../View/) параметра.
+Родительское [представление](../../View/) шины сообщений.
 
 # Examples
 
 ```js
-var parentView = Parameter.getView();
+var parentView = MessageBus.getView();
 ```
 
 # See Also

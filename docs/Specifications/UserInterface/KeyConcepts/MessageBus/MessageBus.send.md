@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "MessageBus.send()"
-position: 0
+position: 2
 ---
 
 Отправляет сообщение заданного типа.
@@ -34,3 +34,7 @@ MessageBus.send(type, message)
 ```js
 MessageBus.send('myEvent', { value: 123 });
 ```
+
+# See Also
+
+* [`subscribe()`](../MessageBus.subscribe/)
