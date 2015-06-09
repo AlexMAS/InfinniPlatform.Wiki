@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Parameter.getName()"
-position: 1
+position: 2
 ---
 
 Возвращает наименование параметра.
@@ -12,8 +12,16 @@ position: 1
 Parameter.getName()
 ```
 
+## Returns
+
+Наименование параметра.
+
 # Examples
 
 ```js
 var name = Parameter.getName();
 ```
+
+# See Also
+
+* [`setName()`](../Parameter.setName/)
