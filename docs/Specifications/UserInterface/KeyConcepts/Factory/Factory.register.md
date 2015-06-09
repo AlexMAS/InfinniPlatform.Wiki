@@ -4,7 +4,7 @@ title: "Factory.register()"
 position: 0
 ---
 
-Регистрирует построитель элементов.
+Регистрирует [построитель элементов](../Builder/).
 
 # Syntax
 
@@ -20,10 +20,16 @@ Factory.register(type, builder)
 
 `builder`
 
-[Построитель элемента](../Builder/). <br/>
+[Построитель элементов](../Builder/).
 
 # Examples
 
 ```js
 Factory.register('Button', new ButtonBuilder());
 ```
+
+# See Also
+
+* [`build()`](../Factory.build/)
+* [`buildMany()`](../Factory.buildMany/)
+* [`Builder`](../Builder/)

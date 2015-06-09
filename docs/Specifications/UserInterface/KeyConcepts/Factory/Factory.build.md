@@ -16,14 +16,25 @@ Factory.build(view, metadata)
 
 `view`
 
-[Визуальное представление](../../../View).
+[Визуальное представление](../../View).
 
 `metadata`
 
 Метаданные элемента.
 
+## Returns
+
+Экземпляр элемента.
+
 # Examples
 
 ```js
-Factory.build(view, { Button: { Text: 'Push me!' } });
+var button = Factory.build(view, { Button: { Text: 'Push me!' } });
 ```
+
+# See Also
+
+* [`register()`](../Factory.register/)
+* [`buildMany()`](../Factory.buildMany/)
+* [`Builder`](../Builder/)
+* [`View`](../../View/)

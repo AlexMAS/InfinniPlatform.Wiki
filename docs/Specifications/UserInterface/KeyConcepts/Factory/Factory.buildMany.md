@@ -16,14 +16,28 @@ Factory.buildMany(view, metadataList)
 
 `view`
 
-[Визуальное представление](../../../View).
+[Визуальное представление](../../View).
 
 `metadataList`
 
-Список метаданных элементов.
+Массив метаданных элементов.
+
+## Returns
+
+Массив экземпляров элементов.
 
 # Examples
 
 ```js
-Factory.buildMany(view, [ { Label: { Text: 'Name' } }, { TextBox: { Value: 'John' } } ]);
+var elements = Factory.buildMany(view, [
+  { Label: { Text: 'Name' } },
+  { TextBox: { Value: 'John' } }
+]);
 ```
+
+# See Also
+
+* [`register()`](../Factory.register/)
+* [`build()`](../Factory.build/)
+* [`Builder`](../Builder/)
+* [`View`](../../View/)
