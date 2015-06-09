@@ -1,23 +1,41 @@
 ---
 layout: doc
 title: "Session.getCurrentUser()"
-position: 0
+position: 2
 ---
 
-Возвращает информацию о текущем пользователе.
+Возвращает информацию о пользователе.
+
+# Description
+
+Вызов метода [`getCurrentUser()`](../Session.getCurrentUser/) возвращает информацию о текущем
+пользователе. Метод может быть вызван только после [входа пользователя в систему](../Session.signInInternal/).
 
 # Syntax
 
 ```js
-Session.getCurrentUser(resultCallback, errorCallback)
+Session.getCurrentUser(success[, error])
 ```
 
 ## Parameters
 
-`resultCallback`
+`success`
 
-[Обработчик результата выполнения операции](../../Script/).
+[Обработчик события](../../Script/) о том, что информация о пользователе получена. В параметре
+`argument` передается информация о произошедшем событии. Свойство `argument.value` содержит
+информацию о пользователе.
 
-`errorcallback`
+`error`
 
-[Обработчик ошибки выполнения операции](../../Script/).
+Необязательный. [Обработчик события](../../Script/) о том, что при получении информации о
+пользователе произошла ошибка. В параметре `argument` передается информация о произошедшем событии.
+Свойство `argument.error` содержит информацию об ошибке.
+
+# Examples
+
+```js
+Session.getCurrentUser(
+  function(context, argument) { alert('User info is available!'); },
+  function(context, argument) { alert('Error: ' + argument.error); }
+);
+```

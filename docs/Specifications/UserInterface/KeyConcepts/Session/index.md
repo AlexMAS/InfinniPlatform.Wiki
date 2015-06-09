@@ -8,38 +8,52 @@ position: 5
 пользователя, предоставляет методы для получения и изменения информации текущего пользователя,
 а также возможность входа в систему и выхода из нее.
 
+# Syntax
+
+```js
+new Session()
+```
+
 # Methods
 
-## [`getCurrentUser()`](Session.getCurrentUser/)
+## [`signIn()`](Session.signIn/)
 
-Возвращает информацию о текущем пользователе.
-
-## [`changePassword()`](Session.changePassword/)
-
-Изменяет пароль текущего пользователя.
-
-## [`changeActiveRole()`](Session.changeActiveRole/)
-
-Изменяет активную роль текущего пользователя.
-
-## [`signInInternal()`](Session.signInInternal/)
-
-Осуществляет вход пользователя в систему через внутренний провайдер.
+Осуществляет вход пользователя в систему.
 
 ## [`signOut()`](Session.signOut/)
 
 Осуществляет выход пользователя из системы.
 
+## [`getCurrentUser()`](Session.getCurrentUser/)
+
+Возвращает информацию о пользователе.
+
+## [`changePassword()`](Session.changePassword/)
+
+Изменяет пароль пользователя.
+
+## [`changeActiveRole()`](Session.changeActiveRole/)
+
+Изменяет активную роль пользователя.
+
 # Events
 
-## [`onActiveRoleChanged`](Session.onActiveRoleChanged/)
+## [`onSignIn`](Session.onSignIn/)
 
-Устанавливает обработчик события изменения активной роли текущего пользователя.
-
-## [`onSignInInternal`](Session.onSignInInternal/)
-
-Устанавливает обработчик события входа пользователя в систему через внутренний провайдер.
+Устанавливает [обработчик события](../Script/) о том, что осуществлен вход пользователя в систему.
 
 ## [`onSignOut`](Session.onSignOut/)
 
-Устанавливает обработчик события выхода пользователя из системы.
+Устанавливает [обработчик события](../Script/) о том, что осуществлен выход пользователя из системы.
+
+## [`onPasswordChanged`](Session.onPasswordChanged/)
+
+Устанавливает [обработчик события](../Script/) о том, что пароль пользователя изменен.
+
+## [`onActiveRoleChanged`](Session.onActiveRoleChanged/)
+
+Устанавливает [обработчик события](../Script/) о том, что активная роль пользователя изменена.
+
+## [`onError`](Session.onError/)
+
+Устанавливает [обработчик события](../Script/) о том, произошла ошибка.
