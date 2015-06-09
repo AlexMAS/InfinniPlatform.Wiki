@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ViewContext.parameters"
-position: 3
+position: 4
 ---
 
 Возвращает ассоциативный список [параметров представления](../../Parameter/).
@@ -15,8 +15,8 @@ ViewContext.parameters
 # Examples
 
 ```js
-var parameter1 = ViewContext.parameters.parameter1;
-var parameter2 = ViewContext.parameters['parameter2'];
+var parameter1 = ViewContext.parameters.myParameter;
+var parameter2 = ViewContext.parameters['myParameter']; // parameter2 === parameter1
 ```
 
 # See Also

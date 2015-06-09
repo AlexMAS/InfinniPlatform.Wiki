@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ViewContext.dataSources"
-position: 4
+position: 5
 ---
 
 Возвращает ассоциативный список [источников данных представления](../../../DataSources/BaseDataSource/).
@@ -15,8 +15,8 @@ ViewContext.dataSources
 # Examples
 
 ```js
-var dataSource1 = ViewContext.dataSources.dataSource1;
-var dataSource2 = ViewContext.dataSources['dataSource2'];
+var dataSource1 = ViewContext.dataSources.myDataSource;
+var dataSource2 = ViewContext.dataSources['myDataSource']; // dataSource2 === dataSource1
 ```
 
 # See Also

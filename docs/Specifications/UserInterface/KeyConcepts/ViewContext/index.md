@@ -20,6 +20,10 @@ position: 2
 
 Возвращает [глобальный контекст приложения](../GlobalContext/).
 
+## [`messageBus`](ViewContext.messageBus/)
+
+Возвращает [шину сообщений представления](../MessageBus/).
+
 ## [`scripts`](ViewContext.scripts/)
 
 Возвращает ассоциативный список [скриптов представления](../Script/).
