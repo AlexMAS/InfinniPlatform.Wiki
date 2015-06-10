@@ -22,3 +22,7 @@ position: 3
 ## [`factory`](GlobalContext.factory/)
 
 Возвращает [фабрику создания элементов по метаданным](../Factory/).
+
+## [`logger`](GlobalContext.logger/)
+
+Возвращает [сервис регистрации сообщений](../Logger/).
