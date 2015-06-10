@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "MetadataDataSource.getConfigId()"
-position: 1
+position: 3
 ---
 
 Возвращает идентификатор конфигурации.

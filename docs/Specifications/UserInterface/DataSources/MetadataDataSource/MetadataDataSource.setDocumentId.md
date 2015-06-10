@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "MetadataDataSource.setDocumentId()"
-position: 4
+position: 6
 ---
 
 Устанавливает идентификатор документа.

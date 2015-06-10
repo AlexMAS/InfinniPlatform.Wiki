@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "MetadataDataSource.setMetadataType()"
-position: 6
+position: 2
 ---
 
 Устанавливает [тип метаданных](../MetadataType/).

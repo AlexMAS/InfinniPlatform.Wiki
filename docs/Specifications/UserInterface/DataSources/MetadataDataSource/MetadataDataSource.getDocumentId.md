@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "MetadataDataSource.getDocumentId()"
-position: 3
+position: 5
 ---
 
 Возвращает идентификатор документа.

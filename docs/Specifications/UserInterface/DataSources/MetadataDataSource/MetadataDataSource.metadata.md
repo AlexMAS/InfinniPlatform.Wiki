@@ -26,8 +26,8 @@ position: 0
 ```json
 {
   "Name": "metadataDataSource1",
-  "ConfigId": "MyConfig",
-  "MetadataType": "Document"
+  "MetadataType": "Document",
+  "ConfigId": "MyConfig"
 }
 ```
 
@@ -36,8 +36,8 @@ position: 0
 ```json
 {
   "Name": "metadataDataSource1",
+  "MetadataType": "View",
   "ConfigId": "MyConfig",
-  "DocumentId": "MyDocument",
-  "MetadataType": "View"
+  "DocumentId": "MyDocument"
 }
 ```

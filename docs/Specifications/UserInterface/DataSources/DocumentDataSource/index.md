@@ -23,7 +23,7 @@ position: 2
 # Syntax
 
 ```js
-new DocumentDataSource(view)
+new DocumentDataSource(view[, configId[, documentId]])
 ```
 
 ## Parameters
@@ -31,6 +31,14 @@ new DocumentDataSource(view)
 `view`
 
 Родительское [представление](../../KeyConcepts/View/) источника данных.
+
+`configId`
+
+Необязательный. Идентификатор конфигурации.
+
+`documentId`
+
+Необязательный. Идентификатор документа.
 
 # Methods
 

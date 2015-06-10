@@ -21,7 +21,7 @@ position: 1
 # Syntax
 
 ```js
-new ObjectDataSource(view)
+new ObjectDataSource(view[, items])
 ```
 
 ## Parameters
@@ -29,6 +29,10 @@ new ObjectDataSource(view)
 `view`
 
 Родительское [представление](../../KeyConcepts/View/) источника данных.
+
+`items`
+
+Необязательный. Массив элементов источника данных.
 
 # Methods
 

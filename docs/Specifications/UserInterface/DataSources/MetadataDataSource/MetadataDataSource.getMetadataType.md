@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "MetadataDataSource.getMetadataType()"
-position: 5
+position: 1
 ---
 
 Возвращает [тип метаданных](../MetadataType/).

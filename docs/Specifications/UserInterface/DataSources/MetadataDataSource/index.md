@@ -46,7 +46,7 @@ InfinniPlatform
 # Syntax
 
 ```js
-new MetadataDataSource(view)
+new MetadataDataSource(view[, metadataType[, configId[, documentId]]])
 ```
 
 ## Parameters
@@ -55,7 +55,27 @@ new MetadataDataSource(view)
 
 Родительское [представление](../../KeyConcepts/View/) источника данных.
 
+`metadataType`
+
+Необязательный. [Тип метаданных](MetadataType/).
+
+`configId`
+
+Необязательный. Идентификатор конфигурации.
+
+`documentId`
+
+Необязательный. Идентификатор документа.
+
 # Methods
+
+## [`getMetadataType()`](MetadataDataSource.getMetadataType/)
+
+Возвращает [тип метаданных](MetadataType/).
+
+## [`setMetadataType()`](MetadataDataSource.setMetadataType/)
+
+Устанавливает [тип метаданных](MetadataType/).
 
 ## [`getConfigId()`](MetadataDataSource.getConfigId/)
 
@@ -72,11 +92,3 @@ new MetadataDataSource(view)
 ## [`setDocumentId()`](MetadataDataSource.setDocumentId/)
 
 Устанавливает идентификатор документа.
-
-## [`getMetadataType()`](MetadataDataSource.getMetadataType/)
-
-Возвращает [тип метаданных](MetadataType/).
-
-## [`setMetadataType()`](MetadataDataSource.setMetadataType/)
-
-Устанавливает [тип метаданных](MetadataType/).
