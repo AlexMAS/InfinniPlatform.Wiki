@@ -21,7 +21,7 @@ BaseDataSource.addDataBinding(dataBinding)
 # Examples
 
 ```js
-var dataBinding = new PropertyBinding(view, 'dataSource1', 'property1');
+var dataBinding = new PropertyBinding(BaseDataSource, 'Property1');
 BaseDataSource.addDataBinding(dataBinding);
 ```
 
