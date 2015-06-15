@@ -89,3 +89,9 @@ new DocumentDataSource(view[, configId[, documentId]])
 ## [`setDeleteAction()`](DocumentDataSource.setDeleteAction/)
 
 Устанавливает наименование действия на удаление документа.
+
+# Examples
+
+```js
+var dataSource = new DocumentDataSource(view, 'MyConfig', 'MyDocument');
+```

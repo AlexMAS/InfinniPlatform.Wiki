@@ -17,6 +17,7 @@ position: 100
 
 ```js
 MetadataType = {
+  solution: 'Solution',
   configuration: 'Configuration',
   menu: 'Menu',
   document: 'Document',
@@ -36,6 +37,10 @@ MetadataType = {
 ```
 
 ## Members
+
+`solution`
+
+Решение.
 
 `configuration`
 

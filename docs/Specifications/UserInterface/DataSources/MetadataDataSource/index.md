@@ -21,22 +21,22 @@ position: 3
 
 ```bash
 InfinniPlatform
-├── Configuration
-|   ├── Menu
-|   ├── Document
-|   |   ├── View
-|   |   ├── PrintView
-|   |   ├── Service
-|   |   ├── Process
-|   |   ├── Scenario
-|   |   ├── Generator
-|   |   ├── Report
-|   |   ├── ValidationError
-|   |   ├── ValidationWarning
-|   |   └── DocumentStatus
-|   ├── Register
-|   └── Assembly
-...
+└── Solution
+    └── Configuration
+        ├── Menu
+        ├── Document
+        |   ├── View
+        |   ├── PrintView
+        |   ├── Service
+        |   ├── Process
+        |   ├── Scenario
+        |   ├── Generator
+        |   ├── Report
+        |   ├── ValidationError
+        |   ├── ValidationWarning
+        |   └── DocumentStatus
+        ├── Register
+        └── Assembly
 ```
 
 # Extends
@@ -92,3 +92,9 @@ new MetadataDataSource(view[, metadataType[, configId[, documentId]]])
 ## [`setDocumentId()`](MetadataDataSource.setDocumentId/)
 
 Устанавливает идентификатор документа.
+
+# Examples
+
+```js
+var dataSource = new MetadataDataSource(view, MetadataType.view, 'MyConfig', 'MyDocument');
+```
