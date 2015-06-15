@@ -31,5 +31,5 @@ position: 2
 
 * [BaseDataBinding](BaseDataBinding/) - базовый тип для привязок данных.
 * [ObjectBinding](ObjectBinding/) - привязка элемента и произвольного объекта.
-* [PropertyBinding](PropertyBinding/) - привязка элемента и источника данных.
-* [ParameterBinding](ParameterBinding/) - привязка элемента и параметра представления.
+* [ParameterBinding](ParameterBinding/) - привязка элемента и [параметра представления](../KeyConcepts/Parameter/).
+* [PropertyBinding](PropertyBinding/) - привязка элемента и [источника данных представления](../DataSources/BaseDataSource/).

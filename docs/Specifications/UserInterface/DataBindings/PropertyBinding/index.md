@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "PropertyBinding"
-position: 2
+position: 3
 ---
 
 Привязка элемента и источника данных.
