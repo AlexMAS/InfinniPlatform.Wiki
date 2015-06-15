@@ -11,6 +11,7 @@ position: 5
 ```js
 BaseDataBinding.getConverter()
 ```
+
 ## Returns
 
 [Преобразователь данных между элементом и источником](../BindingConverter/).

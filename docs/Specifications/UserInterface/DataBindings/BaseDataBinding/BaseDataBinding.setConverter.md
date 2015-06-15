@@ -11,6 +11,7 @@ position: 6
 ```js
 BaseDataBinding.setConverter(value)
 ```
+
 ## Parameters
 
 `value`

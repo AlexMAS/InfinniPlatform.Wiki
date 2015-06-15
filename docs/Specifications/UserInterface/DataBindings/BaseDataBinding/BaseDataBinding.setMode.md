@@ -11,6 +11,7 @@ position: 2
 ```js
 BaseDataBinding.setMode(value)
 ```
+
 ## Parameters
 
 `value`

@@ -11,6 +11,7 @@ position: 4
 ```js
 BaseDataBinding.setProperty(value)
 ```
+
 ## Parameters
 
 `value`

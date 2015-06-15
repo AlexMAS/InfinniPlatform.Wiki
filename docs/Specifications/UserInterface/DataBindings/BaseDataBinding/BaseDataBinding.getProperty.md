@@ -11,6 +11,7 @@ position: 3
 ```js
 BaseDataBinding.getProperty()
 ```
+
 ## Returns
 
 Путь к свойству объекта источника данных.

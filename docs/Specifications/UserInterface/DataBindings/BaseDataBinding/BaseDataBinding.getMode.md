@@ -11,6 +11,7 @@ position: 1
 ```js
 BaseDataBinding.getMode()
 ```
+
 ## Returns
 
 [Направление обмена данными в привязке](../BindingMode/).
