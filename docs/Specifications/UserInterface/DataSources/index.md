@@ -22,7 +22,7 @@ position: 1
 На данный момент выделено несколько типов источников данных, покрывающих подавляющее количество задач
 работы с данными на уровне визуального представления:
 
-* [BaseDataSource](BaseDataSource/) - базовый тип источников данных представления.
-* [ObjectDataSource](ObjectDataSource/) - источник данных представления для произвольного массива данных.
-* [DocumentDataSource](DocumentDataSource/) - источник данных представления для документов InfinniPlatform.
-* [MetadataDataSource](MetadataDataSource/) - источник данных представления для метаданных InfinniPlatform.
+* [`BaseDataSource`](BaseDataSource/) - базовый тип источников данных представления.
+* [`ObjectDataSource`](ObjectDataSource/) - источник данных представления для произвольного массива данных.
+* [`DocumentDataSource`](DocumentDataSource/) - источник данных представления для документов InfinniPlatform.
+* [`MetadataDataSource`](MetadataDataSource/) - источник данных представления для метаданных InfinniPlatform.

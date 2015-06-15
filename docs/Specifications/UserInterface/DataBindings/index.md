@@ -29,7 +29,7 @@ position: 2
 На данный момент выделено несколько типов привязок данных, покрывающих подавляющее количество задач
 работы с данными на уровне визуального представления:
 
-* [BaseDataBinding](BaseDataBinding/) - базовый тип для привязок данных.
-* [ObjectBinding](ObjectBinding/) - привязка элемента и произвольного объекта.
-* [ParameterBinding](ParameterBinding/) - привязка элемента и [параметра представления](../KeyConcepts/Parameter/).
-* [PropertyBinding](PropertyBinding/) - привязка элемента и [источника данных представления](../DataSources/BaseDataSource/).
+* [`BaseDataBinding`](BaseDataBinding/) - базовый тип для привязок данных.
+* [`ObjectBinding`](ObjectBinding/) - привязка элемента и произвольного объекта.
+* [`ParameterBinding`](ParameterBinding/) - привязка элемента и [параметра представления](../KeyConcepts/Parameter/).
+* [`PropertyBinding`](PropertyBinding/) - привязка элемента и [источника данных представления](../DataSources/BaseDataSource/).
