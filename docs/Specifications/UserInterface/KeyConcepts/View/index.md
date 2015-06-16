@@ -75,11 +75,11 @@ new View(view)
 
 Удаляет [источник данных](../../DataSources/BaseDataSource/) из представления.
 
-## [`getImage()`](View.getImage/)
+## [`getIcon()`](View.getIcon/)
 
 Возвращает изображение заголовка представления.
 
-## [`setImage()`](View.setImage/)
+## [`setIcon()`](View.setIcon/)
 
 Устанавливает изображение заголовка представления.
 

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "View.setImage()"
+title: "View.setIcon()"
 position: 13
 ---
 
@@ -9,7 +9,7 @@ position: 13
 # Syntax
 
 ```js
-View.setImage(value)
+View.setIcon(value)
 ```
 
 ## Parameters
@@ -21,9 +21,9 @@ View.setImage(value)
 # Examples
 
 ```js
-View.setImage('icon1');
+View.setIcon('icon1');
 ```
 
 # See Also
 
-* [`getImage()`](../View.getImage/)
+* [`getIcon()`](../View.getIcon/)

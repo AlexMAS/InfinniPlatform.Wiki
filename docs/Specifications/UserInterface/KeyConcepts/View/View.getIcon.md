@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "View.getImage()"
+title: "View.getIcon()"
 position: 12
 ---
 
@@ -9,7 +9,7 @@ position: 12
 # Syntax
 
 ```js
-View.getImage()
+View.getIcon()
 ```
 
 ## Returns
@@ -19,9 +19,9 @@ View.getImage()
 # Examples
 
 ```js
-var image = View.getImage();
+var image = View.getIcon();
 ```
 
 # See Also
 
-* [`setImage()`](../View.setImage/)
+* [`setIcon()`](../View.setIcon/)
