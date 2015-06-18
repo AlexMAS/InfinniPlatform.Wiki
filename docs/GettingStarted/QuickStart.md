@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Quick Start"
+title: "QuickStart"
 position: 1
 tags: [ GettingStarted ]
 ---

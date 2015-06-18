@@ -1,5 +1,5 @@
 ---
 layout: doc
-title: "Product Design"
+title: "ProductDesign"
 position: 2
 ---

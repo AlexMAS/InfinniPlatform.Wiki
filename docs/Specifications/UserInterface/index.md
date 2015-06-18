@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "User Interface"
+title: "UserInterface"
 position: 0
 ---
 

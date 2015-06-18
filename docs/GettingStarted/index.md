@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Getting Started"
+title: "GettingStarted"
 position: 0
 tags: [ GettingStarted ]
 ---

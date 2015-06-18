@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Data Sources"
+title: "DataSources"
 position: 1
 ---
 

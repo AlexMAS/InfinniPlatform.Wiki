@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Key Concepts"
+title: "KeyConcepts"
 position: 0
 ---
 

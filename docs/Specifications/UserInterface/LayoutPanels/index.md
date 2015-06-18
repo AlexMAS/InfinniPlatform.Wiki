@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Layout Panels"
+title: "LayoutPanels"
 position: 3
 ---
 
