@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.validateOnWarnings()"
-position: 34
+position: 35
 ---
 
 Осуществляет проверку на предупреждения.

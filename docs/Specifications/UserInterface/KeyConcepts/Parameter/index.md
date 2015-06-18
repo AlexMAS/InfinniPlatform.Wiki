@@ -49,8 +49,16 @@ new Parameter(view[, name[, value]])
 
 Устанавливает значение параметра.
 
+## [`getProperty()`](Parameter.getProperty/)
+
+Возвращает значение указанного свойства параметра.
+
+## [`setProperty()`](Parameter.setProperty/)
+
+Устанавливает значение указанного свойства параметра.
+
 # Events
 
-## [`onValueChanged`](Parameter.onValueChanged/)
+## [`onPropertyChanged`](Parameter.onPropertyChanged/)
 
-Устанавливает [обработчик события](../Script/) о том, что значение параметра изменилось.
+Устанавливает [обработчик события](../Script/) о том, что одно из свойств параметра изменилось.

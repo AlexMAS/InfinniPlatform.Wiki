@@ -39,3 +39,11 @@ function(context, argument)
 `argument`
 
 Аргумент скрипта.
+
+# Examples
+
+```js
+var myScript = function(context, argument) {
+  alert('Hello!');
+};
+```

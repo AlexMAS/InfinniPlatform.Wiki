@@ -29,72 +29,84 @@ new Element(view)
 
 # Methods
 
-[`getView()`](Element.getView/)
+## [`getView()`](Element.getView/)
 
 Возвращает родительское [представление](../View/).
 
-[`getName()`](Element.getName/)
+## [`getName()`](Element.getName/)
 
 Возвращает наименование элемента.
 
-[`setName()`](Element.setName/)
+## [`setName()`](Element.setName/)
 
 Устанавливает наименование элемента.
 
-[`getText()`](Element.getText/)
+## [`getText()`](Element.getText/)
 
 Возвращает текст заголовка элемента.
 
-[`setText()`](Element.setText/)
+## [`setText()`](Element.setText/)
 
 Устанавливает текст заголовка элемента.
 
-[`getEnabled()`](Element.getEnabled/)
+## [`getEnabled()`](Element.getEnabled/)
 
 Возвращает значение, определяющее, возможен ли доступ к элементу.
 
-[`setEnabled()`](Element.setEnabled/)
+## [`setEnabled()`](Element.setEnabled/)
 
 Устанавливает значение, определяющее, возможен ли доступ к элементу.
 
-[`getVisible()`](Element.getVisible/)
+## [`getVisible()`](Element.getVisible/)
 
 Возвращает значение, определяющее, отображается ли элемент в интерфейсе.
 
-[`setVisible()`](Element.setVisible/)
+## [`setVisible()`](Element.setVisible/)
 
 Устанавливает значение, определяющее, отображается ли элемент в интерфейсе.
 
-[`getHorizontalAlignment()`](Element.getHorizontalAlignment/)
+## [`getHorizontalAlignment()`](Element.getHorizontalAlignment/)
 
 Возвращает [горизонтальное выравнивание в родительском элементе](ElementHorizontalAlignment/).
 
-[`setHorizontalAlignment()`](Element.setHorizontalAlignment/)
+## [`setHorizontalAlignment()`](Element.setHorizontalAlignment/)
 
 Устанавливает [горизонтальное выравнивание в родительском элементе](ElementHorizontalAlignment/).
 
-[`getVerticalAlignment()`](Element.getVerticalAlignment/)
+## [`getVerticalAlignment()`](Element.getVerticalAlignment/)
 
 Возвращает [вертикальное выравнивание в родительском элементе](ElementVerticalAlignment/).
 
-[`setVerticalAlignment()`](Element.setVerticalAlignment/)
+## [`setVerticalAlignment()`](Element.setVerticalAlignment/)
 
 Устанавливает [вертикальное выравнивание в родительском элементе](ElementVerticalAlignment/).
 
-[`getChildElements()`](Element.getChildElements/)
+## [`getChildElements()`](Element.getChildElements/)
 
 Возвращает список дочерних [элементов]().
 
+## [`getProperty()`](Element.getProperty/)
+
+Возвращает значение указанного свойства элемента.
+
+## [`setProperty()`](Element.setProperty/)
+
+Устанавливает значение указанного свойства элемента.
+
 # Events
 
-[`onLoaded`](Element.onLoaded/)
+## [`onLoaded`](Element.onLoaded/)
 
-Устанавливает [обработчик события](../Script/) о том, что элемент загружен.
+Устанавливает [обработчик события](../Script/) о том, что элемент был загружен.
 
-[`onGotFocus`](Element.onGotFocus/)
+## [`onGotFocus`](Element.onGotFocus/)
 
 Устанавливает [обработчик события](../Script/) о том, что элемент получил фокус ввода.
 
-[`onLostFocus`](Element.onLostFocus/)
+## [`onLostFocus`](Element.onLostFocus/)
 
 Устанавливает [обработчик события](../Script/) о том, что элемент потерял фокус ввода.
+
+## [`onPropertyChanged`](Element.onPropertyChanged/)
+
+Устанавливает [обработчик события](../Script/) о том, что одно из свойств элемента изменилось.

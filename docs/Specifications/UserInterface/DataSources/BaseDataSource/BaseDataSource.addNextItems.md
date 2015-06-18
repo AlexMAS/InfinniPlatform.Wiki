@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.addNextItems()"
-position: 31
+position: 32
 ---
 
 Добавляет в список элементов источника данных элементы со следующей страницы.

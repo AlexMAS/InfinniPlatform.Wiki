@@ -64,6 +64,14 @@ new BaseDataSource(view)
 
 Устанавливает размер страницы.
 
+## [`getFilter()`](BaseDataSource.getFilter/)
+
+Возвращает фильтр элементов.
+
+## [`setFilter()`](BaseDataSource.setFilter/)
+
+Устанавливает фильтр элементов.
+
 ## [`getErrorValidator()`](BaseDataSource.getErrorValidator/)
 
 Возвращает [функцию](../../KeyConcepts/Script/) проверки элемента на ошибки.
@@ -79,18 +87,6 @@ new BaseDataSource(view)
 ## [`setWarningValidator()`](BaseDataSource.setWarningValidator/)
 
 Устанавливает [функцию](../../KeyConcepts/Script/) проверки элемента на предупреждения.
-
-## [`getFilter()`](BaseDataSource.getFilter/)
-
-Возвращает фильтр элементов.
-
-## [`setFilter()`](BaseDataSource.setFilter/)
-
-Устанавливает фильтр элементов.
-
-## [`isModified()`](BaseDataSource.isModified/)
-
-Проверяет, есть ли несохраненные элементы.
 
 ## [`suspendUpdate()`](BaseDataSource.suspendUpdate/)
 
@@ -108,17 +104,17 @@ new BaseDataSource(view)
 
 Устанавливает выделенный элемент.
 
-## [`getDataBindings()`](BaseDataSource.getDataBindings/)
+## [`getProperty()`](BaseDataSource.getProperty/)
 
-Возвращает список [привязок](../../DataBindings/BaseDataBinding/) источника данных.
+Возвращает значение указанного свойства источника.
 
-## [`addDataBinding()`](BaseDataSource.addDataBinding/)
+## [`setProperty()`](BaseDataSource.setProperty/)
 
-Добавляет [привязку](../../DataBindings/BaseDataBinding/) в список привязок источника данных.
+Устанавливает значение указанного свойства источника.
 
-## [`removeDataBinding()`](BaseDataSource.removeDataBinding/)
+## [`isModified()`](BaseDataSource.isModified/)
 
-Удаляет [привязку](../../DataBindings/BaseDataBinding/) из списка привязок источника данных.
+Проверяет, есть ли несохраненные элементы.
 
 ## [`createItem()`](BaseDataSource.createItem/)
 
@@ -170,9 +166,9 @@ new BaseDataSource(view)
 
 Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что выделенный элемент изменился.
 
-## [`onSelectedItemModified`](BaseDataSource.onSelectedItemModified/)
+## [`onPropertyChanged`](BaseDataSource.onPropertyChanged/)
 
-Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что данные выделенного элемента изменились.
+Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что одно из свойств источника изменилось.
 
 ## [`onItemCreated`](BaseDataSource.onItemCreated/)
 
@@ -201,3 +197,7 @@ new BaseDataSource(view)
 ## [`onWarningValidator`](BaseDataSource.onWarningValidator/)
 
 Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что проверка на предупреждения завершена.
+
+## [`onError`](BaseDataSource.onError/)
+
+Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, произошла ошибка.
