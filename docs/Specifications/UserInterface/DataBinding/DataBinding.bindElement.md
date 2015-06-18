@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DataBinding.bindElement()"
-position: 6
+position: 8
 ---
 
 Устанавливает привязку к элементу.
@@ -43,6 +43,8 @@ DataBinding.bindElement(context.controls.textBox1, 'Value');
 
 # See Also
 
+* [`getElement()`](../DataBinding.getElement/)
+* [`getElementProperty()`](../DataBinding.getElementProperty/)
 * [`bindSource()`](../DataBinding.bindElement/)
 * [`BindingMode`](../BindingMode)
 * [`BindingConverter`](../BindingConverter)

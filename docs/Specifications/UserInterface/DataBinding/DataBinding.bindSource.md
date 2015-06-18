@@ -43,6 +43,8 @@ DataBinding.bindElement(context.controls.textBox1, 'Value');
 
 # See Also
 
+* [`getSource()`](../DataBinding.getSource/)
+* [`getSourceProperty()`](../DataBinding.getSourceProperty/)
 * [`bindElement()`](../DataBinding.bindElement/)
 * [`BindingMode`](../BindingMode)
 * [`BindingConverter`](../BindingConverter)

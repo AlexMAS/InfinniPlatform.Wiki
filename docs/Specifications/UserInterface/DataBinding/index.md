@@ -60,9 +60,25 @@ new DataBinding()
 
 Устанавливает привязку к источнику.
 
+## [`getSource()`](DataBinding.getSource/)
+
+Возвращает источник данных привязки.
+
+## [`getSourceProperty()`](DataBinding.getSourceProperty/)
+
+Возвращает путь к свойству источника данных привязки.
+
 ## [`bindElement()`](DataBinding.bindElement/)
 
 Устанавливает привязку к элементу.
+
+## [`getElement()`](DataBinding.getElement/)
+
+Возвращает элемент привязки.
+
+## [`getElementProperty()`](DataBinding.getElementProperty/)
+
+Возвращает путь к свойству элемента привязки.
 
 # Examples
 
