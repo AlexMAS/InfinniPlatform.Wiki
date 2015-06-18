@@ -19,7 +19,7 @@ View.getIcon()
 # Examples
 
 ```js
-var image = View.getIcon();
+var icon = View.getIcon();
 ```
 
 # See Also

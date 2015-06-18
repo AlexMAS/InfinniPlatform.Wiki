@@ -6,6 +6,10 @@ position: 0
 
 Контейнер в виде прямоугольной области.
 
+# Extends
+
+[`Element`](../../KeyConcepts/Element/)
+
 # Syntax
 
 ```js
