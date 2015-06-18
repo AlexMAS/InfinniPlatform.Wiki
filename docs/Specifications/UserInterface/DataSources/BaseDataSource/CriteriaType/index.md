@@ -95,10 +95,6 @@ CriteriaType = {
 
 Не входит в множество.
 
-# Schema
-
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/DataSource/CriteriaType.resjson" lang="json" %}
-
 # See Also
 
 * [`Criteria`](../Criteria/)

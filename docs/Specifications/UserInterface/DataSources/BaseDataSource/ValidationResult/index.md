@@ -27,41 +27,17 @@ position: 1002
 
 Список результатов проверки свойств объекта.
 
-# Schema
+# Examples
 
-```json
+```js
 {
-  "id": "ValidationResult",
-  "description": "Результат проверки объекта",
-  "type": "object",
-  "properties": {
-    "IsValid": {
-      "description": "Признак успешности проверки",
-      "type": "boolean",
-      "required": true
-    },
-    "Items": {
-      "description": "Список результатов проверки свойств объекта",
-      "type": "array",
-      "required": false,
-      "items": {
-        "type": "object",
-        "properties": {
-          "Property": {
-            "description": "Путь к свойству с ошибкой",
-            "type": "string",
-            "required": false
-          },
-          "Message": {
-            "description": "Сообщение об ошибке",
-            "type": "string",
-            "required": true
-          }
-        }
-      }
+  isValid: false,
+  items: [
+    {
+      property: 'FirstName',
+      message: 'First name should contains Latin symbols only'
     }
-  },
-  "additionalProperties": false
+  ]
 }
 ```
 

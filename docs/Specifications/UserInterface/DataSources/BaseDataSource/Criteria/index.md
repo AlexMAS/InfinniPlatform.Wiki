@@ -25,10 +25,15 @@ position: 1000
 
 Значение фильтра.
 
+# Examples
 
-# Schema
-
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/DataSource/Criteria.resjson" lang="json" %}
+```js
+{
+  criteriaType: CriteriaType.isContains,
+  property: 'FirstName',
+  value: 'Jo'
+}
+```
 
 # See Also
 

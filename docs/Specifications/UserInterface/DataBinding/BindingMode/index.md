@@ -33,10 +33,6 @@ BindingMode = {
 Только обновление элемента (to element) - если в источнике произошли изменения, элемент обновляется,
 но, если изменения произошли в элементе, источник не обновляется.
 
-# Schema
-
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/DataBinding/BindingMode.resjson" lang="json" %}
-
 # See Also
 
 * [`getMode()`](../DataBinding.getMode/)

@@ -101,11 +101,3 @@ MetadataType = {
 `documentStatus`
 
 Статус документа.
-
-# Schema
-
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/DataSource/MetadataDataSource/MetadataType.resjson" lang="json" %}
-
-# See Also
-
-* [`MetadataDataSource.metadata`](../MetadataDataSource.metadata/)

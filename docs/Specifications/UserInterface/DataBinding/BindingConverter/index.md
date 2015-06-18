@@ -33,10 +33,6 @@ position: 1001
 `argument.value` содержит данные источника для конвертации. Возвращаемое значение функции
 интерпретируется, как результат конвертации.
 
-# Schema
-
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/DataBinding/BindingConverter.resjson" lang="json" %}
-
 # Examples
 
 ```js

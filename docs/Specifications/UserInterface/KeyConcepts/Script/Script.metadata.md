@@ -20,7 +20,7 @@ position: 0
 
 ```json
 {
-  "Name": "OnButtonClick",
+  "Name": "onButtonClick",
   "Body": "alert('Button is clicked!');"
 }
 ```

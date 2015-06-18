@@ -34,7 +34,3 @@ ElementVerticalAlignment = {
 `stretch`
 
 Элемент занимает всю область родительского элемента по вертикали.
-
-# Schema
-
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Element/ElementVerticalAlignment.resjson" lang="json" %}

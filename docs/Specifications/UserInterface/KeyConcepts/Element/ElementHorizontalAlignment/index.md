@@ -34,7 +34,3 @@ ElementHorizontalAlignment = {
 `stretch`
 
 Элемент занимает всю область родительского элемента по горизонтали.
-
-# Schema
-
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Element/ElementHorizontalAlignment.resjson" lang="json" %}
