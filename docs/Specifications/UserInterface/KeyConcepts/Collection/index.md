@@ -28,7 +28,7 @@ new Collection([items[, comparer[, idProperty]]])
 
 `comparer`
 
-Функция сравнения элементов коллекции.
+[Функция сравнения элементов коллекции](Comparator/).
 
 `idProperty`
 
@@ -40,23 +40,39 @@ new Collection([items[, comparer[, idProperty]]])
 
 Возвращает количество элементов в коллекции.
 
+## [`comparator`](Collection.comparator/)
+
+Возвращает [функцию сравнения элементов коллекции](Comparator/).
+
+## [`idProperty`](Collection.idProperty/)
+
+Возвращает свойство с идентификатором элемента коллекции.
+
 # Methods
 
 ## [`size()`](Collection.size/)
 
 Возвращает количество элементов в коллекции.
 
+## [`push()`](Collection.push/)
+
+Добавляет элемент в коллекцию.
+
 ## [`add()`](Collection.add/)
 
 Добавляет элемент в коллекцию.
 
-## [`push()`](Collection.push/)
+## [`addAll()`](Collection.addAll/)
 
-Добавляет элемент в коллекцию.
+Добавляет элементы в коллекцию.
 
-## [`push()`](Collection.push/)
+## [`insert()`](Collection.insert/)
 
-Добавляет элемент в коллекцию.
+Вставляет элемент в указанную позицию.
+
+## [`insertAll()`](Collection.insertAll/)
+
+Вставляет элементы, начиная с указанной позиции.
 
 ## [`reset()`](Collection.reset/)
 
@@ -160,10 +176,6 @@ new Collection([items[, comparer[, idProperty]]])
 
 Устанавливает [обработчик события](../Script/) о том, что произошло добавление элементов.
 
-## [`onMove()`](Collection.onMove/)
-
-Устанавливает [обработчик события](../Script/) о том, что произошло перемещение элементов.
-
 ## [`onRemove()`](Collection.onRemove/)
 
 Устанавливает [обработчик события](../Script/) о том, что произошло удаление элементов.
@@ -171,6 +183,10 @@ new Collection([items[, comparer[, idProperty]]])
 ## [`onReplace()`](Collection.onReplace/)
 
 Устанавливает [обработчик события](../Script/) о том, что произошла замена элементов.
+
+## [`onMove()`](Collection.onMove/)
+
+Устанавливает [обработчик события](../Script/) о том, что произошло перемещение элементов.
 
 ## [`onReset()`](Collection.onReset/)
 
