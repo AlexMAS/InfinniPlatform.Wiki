@@ -172,26 +172,26 @@ new Collection([items[, comparer[, idProperty]]])
 
 # Events
 
-## [`onAdd()`](Collection.onAdd/)
+## [`onAdd`](Collection.onAdd/)
 
 Устанавливает [обработчик события](../Script/) о том, что произошло добавление элементов.
 
-## [`onRemove()`](Collection.onRemove/)
-
-Устанавливает [обработчик события](../Script/) о том, что произошло удаление элементов.
-
-## [`onReplace()`](Collection.onReplace/)
+## [`onReplace`](Collection.onReplace/)
 
 Устанавливает [обработчик события](../Script/) о том, что произошла замена элементов.
 
-## [`onMove()`](Collection.onMove/)
+## [`onRemove`](Collection.onRemove/)
+
+Устанавливает [обработчик события](../Script/) о том, что произошло удаление элементов.
+
+## [`onMove`](Collection.onMove/)
 
 Устанавливает [обработчик события](../Script/) о том, что произошло перемещение элементов.
 
-## [`onReset()`](Collection.onReset/)
+## [`onReset`](Collection.onReset/)
 
 Устанавливает [обработчик события](../Script/) о том, что произошли существенные изменения.
 
-## [`onChange()`](Collection.onChange/)
+## [`onChange`](Collection.onChange/)
 
 Устанавливает [обработчик события](../Script/) о том, что произошли какие-то изменения.

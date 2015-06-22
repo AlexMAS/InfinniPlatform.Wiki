@@ -46,3 +46,4 @@ collection.push('C'); // [ 'A', 'B', 'C' ]
 * [`insert()`](../Collection.insert/)
 * [`insertAll()`](../Collection.insertAll/)
 * [`onAdd`](../Collection.onAdd/)
+* [`onChange`](../Collection.onChange/)

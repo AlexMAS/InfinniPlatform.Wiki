@@ -70,3 +70,4 @@ collection.forEach(function(item) {
 
 * [`reset`](../Collection.reset/)
 * [`onReset`](../Collection.onReset/)
+* [`onChange`](../Collection.onChange/)

@@ -27,8 +27,8 @@ Collection.onAdd(callback)
 [Обработчик события](../../Script/) о том, что произошло добавление одного или нескольких
 элементов в коллекцию. В параметре `argument` передается информация о произошедшем событии.
 Свойство `argument.action` содержит тип действия и в данном случае равно `'add'` (добавление);
-`argument.newItems` - массив добавленных элементов; `newStartingIndex` - индекс, по которому
-были добавлены элементы (или `-1`, если элементы были добавлены в конец коллекции).
+`argument.newItems` - массив добавленных элементов; `argument.newStartingIndex` - индекс, по
+которому были добавлены элементы (или `-1`, если элементы были добавлены в конец коллекции).
 
 # Examples
 
@@ -39,7 +39,7 @@ collection.onAdd(function(context, argument) {
   alert('New items are added!');
 });
 
-collection.add(123);
+collection.add('A');
 ```
 
 # See Also
@@ -49,3 +49,4 @@ collection.add(123);
 * [`addAll()`](../Collection.addAll/)
 * [`insert()`](../Collection.insert/)
 * [`insertAll()`](../Collection.insertAll/)
+* [`onChange`](../Collection.onChange/)

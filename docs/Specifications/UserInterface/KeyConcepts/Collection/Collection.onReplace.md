@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Collection.onReplace"
-position: 100
+position: 101
 ---
 
 Устанавливает [обработчик события](../../Script/) о том, что произошла замена элементов.
@@ -44,3 +44,4 @@ collection.replace('A', 'B');
 # See Also
 
 * [`replace()`](../Collection.replace/)
+* [`onChange`](../Collection.onChange/)

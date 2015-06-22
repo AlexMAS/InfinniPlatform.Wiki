@@ -45,3 +45,4 @@ collection.reset([ 'A', 'B', 'C' ]);
 * [`reset()`](../Collection.reset/)
 * [`set()`](../Collection.set/)
 * [`sort()`](../Collection.sort/)
+* [`onChange`](../Collection.onChange/)

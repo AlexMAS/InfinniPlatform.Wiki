@@ -48,3 +48,4 @@ collection.insertAll(0, [ 'C', 'D' ]); // [ 'C', 'D', 'A', 'B' ]
 * [`addAll()`](../Collection.addAll/)
 * [`insert()`](../Collection.insert/)
 * [`onAdd`](../Collection.onAdd/)
+* [`onChange`](../Collection.onChange/)

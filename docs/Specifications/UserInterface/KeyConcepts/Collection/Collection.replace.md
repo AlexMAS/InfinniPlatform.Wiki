@@ -44,3 +44,4 @@ collection.replace('C', 'D'); // [ 'A', 'B', 'D' ]
 # See Also
 
 * [`onReplace`](../Collection.onReplace/)
+* [`onChange`](../Collection.onChange/)
