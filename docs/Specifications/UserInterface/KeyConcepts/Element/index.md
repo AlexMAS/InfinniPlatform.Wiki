@@ -27,6 +27,12 @@ new Element(view)
 
 Родительское [представление](../View/) визуального элемента.
 
+# Properties
+
+## [`name`](Element.name/)
+
+Возвращает наименование элемента.
+
 # Methods
 
 ## [`getView()`](Element.getView/)

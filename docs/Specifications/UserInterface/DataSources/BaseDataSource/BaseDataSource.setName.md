@@ -27,3 +27,4 @@ BaseDataSource.setName('dataSource1');
 # See Also
 
 * [`getName()`](../BaseDataSource.getName/)
+* [`name`](../BaseDataSource.name/)

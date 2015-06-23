@@ -19,9 +19,10 @@ Parameter.getName()
 # Examples
 
 ```js
-var name = Parameter.getName();
+var parameterName = Parameter.getName();
 ```
 
 # See Also
 
 * [`setName()`](../Parameter.setName/)
+* [`name`](../Parameter.name/)

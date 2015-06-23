@@ -27,6 +27,12 @@ new Parameter(view[, name[, value]])
 
 Необязательный. Значение параметра.
 
+# Properties
+
+## [`name`](Parameter.name/)
+
+Возвращает наименование параметра.
+
 # Methods
 
 ## [`getView()`](Parameter.getView/)

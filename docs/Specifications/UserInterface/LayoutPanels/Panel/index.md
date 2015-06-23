@@ -58,19 +58,7 @@ new Panel(view)
 
 ## [`getItems()`](Panel.getItems/)
 
-Возвращает список дочерних элементов панели.
-
-## [`setItems()`](Panel.setItems/)
-
-Устанавливает список дочерних элементов панели.
-
-## [`addItem()`](Panel.addItem/)
-
-Добавляет дочерний элемент панели.
-
-## [`removeItem()`](Panel.removeItem/)
-
-Удаляет дочерний элемент панели.
+Возвращает [коллекцию](../../../KeyConcepts/Collection/) дочерних элементов панели.
 
 # Events
 

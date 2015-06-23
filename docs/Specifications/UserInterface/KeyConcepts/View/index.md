@@ -37,39 +37,15 @@ new View(view)
 
 ## [`getScripts()`](View.getScripts/)
 
-Возвращает ассоциативный список [скриптов представления](../Script/).
-
-## [`addScript()`](View.addScript/)
-
-Добавляет [скрипт](../Script/) в представление.
-
-## [`removeScript()`](View.removeScript/)
-
-Удаляет [скрипт](../Script/) из представления.
+Возвращает [коллекцию](../Collection/) [скриптов представления](../Script/).
 
 ## [`getParameters()`](View.getParameters/)
 
-Возвращает ассоциативный список [параметров представления](../Parameter/).
-
-## [`addParameter()`](View.addParameter/)
-
-Добавляет [параметр](../Parameter/) в представление.
-
-## [`removeParameter()`](View.removeParameter/)
-
-Удаляет [параметр](../Parameter/) из представления.
+Возвращает [коллекцию](../Collection/) [параметров представления](../Parameter/).
 
 ## [`getDataSources()`](View.getDataSources/)
 
-Возвращает ассоциативный список [источников данных представления](../../DataSources/BaseDataSource/).
-
-## [`addDataSource()`](View.addDataSource/)
-
-Добавляет [источник данных](../../DataSources/BaseDataSource/) в представление.
-
-## [`removeDataSource()`](View.removeDataSource/)
-
-Удаляет [источник данных](../../DataSources/BaseDataSource/) из представления.
+Возвращает [коллекцию](../Collection/) [источников данных представления](../../DataSources/BaseDataSource/).
 
 ## [`getIcon()`](View.getIcon/)
 

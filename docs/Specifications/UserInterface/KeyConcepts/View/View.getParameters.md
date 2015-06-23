@@ -4,7 +4,7 @@ title: "View.getParameters()"
 position: 6
 ---
 
-Возвращает ассоциативный список [параметров представления](../../Parameter/).
+Возвращает [коллекцию](../../Collection/) [параметров представления](../../Parameter/).
 
 # Syntax
 
@@ -14,18 +14,21 @@ View.getParameters()
 
 ## Returns
 
-Ассоциативный список [параметров представления](../../Parameter/).
+[Коллекция](../../Collection/) [параметров представления](../../Parameter/).
 
 # Examples
 
 ```js
+var myParameter = new Parameter(View, 'myParameter', 123);
+
 var parameters = View.getParameters();
-var parameter1 = parameters.myParameter;
-var parameter2 = parameters['myParameter']; // parameter2 === parameter1
+parameters.add(myParameter);
+var myParameter2 = parameters.id('myParameter'); // myParameter2 === myParameter
+
+myParameter2.getValue(); // 123
 ```
 
 # See Also
 
-* [`addParameter()`](../View.addParameter/)
-* [`removeParameter()`](../View.removeParameter/)
+* [`Collection`](../../Collection/)
 * [`Parameter`](../../Parameter/)

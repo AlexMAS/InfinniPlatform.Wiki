@@ -38,7 +38,7 @@ Panel.setItemTemplate(function(context, argument) {
   return element;
 });
 
-Panel.setItems([
+Panel.getItems().reset([
   'One',
   'Two',
   'Three'
@@ -49,6 +49,3 @@ Panel.setItems([
 
 * [`getItemTemplate()`](../Panel.getItemTemplate/)
 * [`getItems()`](../Panel.getItems/)
-* [`setItems()`](../Panel.setItems/)
-* [`addItem()`](../Panel.addItem/)
-* [`removeItem()`](../Panel.removeItem/)

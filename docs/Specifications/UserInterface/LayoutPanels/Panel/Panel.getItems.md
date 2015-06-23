@@ -4,7 +4,7 @@ title: "Panel.getItems()"
 position: 9
 ---
 
-Возвращает список дочерних элементов панели.
+Возвращает [коллекцию](../../../KeyConcepts/Collection/) дочерних элементов панели.
 
 # Syntax
 
@@ -24,6 +24,5 @@ var items = Panel.getItems();
 
 # See Also
 
-* [`setItems()`](../Panel.setItems/)
-* [`addItem()`](../Panel.addItem/)
-* [`removeItem()`](../Panel.removeItem/)
+* [`getItemTemplate()`](../Panel.getItemTemplate/)
+* [`setItemTemplate()`](../Panel.setItemTemplate/)
