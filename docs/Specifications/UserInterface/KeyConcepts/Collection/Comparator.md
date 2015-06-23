@@ -74,7 +74,7 @@ var comparator = function(a, b) {
   return 0;
 };
 
-var collection = new Collection(items, comparator);
+var collection = new Collection(items, 'key', comparator);
 
 collection.forEach(function(item) {
   console.log(item.value);

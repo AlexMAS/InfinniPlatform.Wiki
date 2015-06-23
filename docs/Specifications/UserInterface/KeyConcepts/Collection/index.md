@@ -17,22 +17,22 @@ position: 11
 # Syntax
 
 ```js
-new Collection([items[, comparer[, idProperty]]])
+new Collection([items[, idProperty[, comparator]]])
 ```
 
 ## Parameters
 
 `items`
 
-Массив для инициализации коллекции.
-
-`comparer`
-
-[Функция сравнения элементов коллекции](Comparator/).
+Необязательный. Массив для инициализации коллекции.
 
 `idProperty`
 
-Свойство с идентификатором элемента коллекции.
+Необязательный. Свойство с идентификатором элемента коллекции.
+
+`comparator`
+
+Необязательный. [Функция сравнения элементов коллекции](Comparator/).
 
 # Properties
 
@@ -40,13 +40,13 @@ new Collection([items[, comparer[, idProperty]]])
 
 Возвращает количество элементов в коллекции.
 
-## [`comparator`](Collection.comparator/)
-
-Возвращает [функцию сравнения элементов коллекции](Comparator/).
-
 ## [`idProperty`](Collection.idProperty/)
 
 Возвращает свойство с идентификатором элемента коллекции.
+
+## [`comparator`](Collection.comparator/)
+
+Возвращает [функцию сравнения элементов коллекции](Comparator/).
 
 # Methods
 
@@ -56,23 +56,23 @@ new Collection([items[, comparer[, idProperty]]])
 
 ## [`push()`](Collection.push/)
 
-Добавляет элемент в коллекцию.
+Добавляет элемент в конец коллекции.
 
 ## [`add()`](Collection.add/)
 
-Добавляет элемент в коллекцию.
+Добавляет элемент в конец коллекции.
 
 ## [`addAll()`](Collection.addAll/)
 
-Добавляет элементы в коллекцию.
+Добавляет элементы в конец коллекции.
 
 ## [`insert()`](Collection.insert/)
 
-Вставляет элемент в указанную позицию.
+Вставляет элемент в указанную позицию коллекции.
 
 ## [`insertAll()`](Collection.insertAll/)
 
-Вставляет элементы, начиная с указанной позиции.
+Вставляет элементы, начиная с указанной позиции коллекции.
 
 ## [`reset()`](Collection.reset/)
 
@@ -104,7 +104,15 @@ new Collection([items[, comparer[, idProperty]]])
 
 ## [`removeAll()`](Collection.removeAll/)
 
-Удаляет элементы из коллекции, удовлетворяющие указанному условию.
+Удаляет указанные элементы из коллекции.
+
+## [`removeRange()`](Collection.removeRange/)
+
+Удаляет диапазон элементов из коллекции.
+
+## [`removeEvery()`](Collection.removeEvery/)
+
+Удаляет все элементы из коллекции, удовлетворяющие указанному условию.
 
 ## [`clear()`](Collection.clear/)
 

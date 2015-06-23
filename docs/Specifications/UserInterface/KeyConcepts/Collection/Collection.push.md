@@ -4,7 +4,7 @@ title: "Collection.push()"
 position: 11
 ---
 
-Добавляет элемент в коллекцию.
+Добавляет элемент в конец коллекции.
 
 # Description
 

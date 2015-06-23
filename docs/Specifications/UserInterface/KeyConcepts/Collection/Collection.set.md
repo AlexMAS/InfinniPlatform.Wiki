@@ -41,7 +41,7 @@ var collection = new Collection([
   { key: 1, value: 'Apple' },
   { key: 2, value: 'Banana' },
   { key: 3, value: 'Pineapple' },
-], null, 'key');
+], 'key');
 
 collection.forEach(function(item) {
   console.log(item.value);

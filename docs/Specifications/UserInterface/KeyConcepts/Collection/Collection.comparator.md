@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Collection.comparator"
-position: 1
+position: 2
 ---
 
 Возвращает [функцию сравнения элементов коллекции](../Comparator/).
@@ -31,7 +31,7 @@ var comparator = function(a, b) {
   return 0;
 };
 
-var collection = new Collection(items, comparator);
+var collection = new Collection(items, 'key', comparator);
 
 collection.forEach(function(item) {
   console.log(item.value);

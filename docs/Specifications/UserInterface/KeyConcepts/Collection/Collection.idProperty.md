@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Collection.idProperty"
-position: 2
+position: 1
 ---
 
 Возвращает свойство с идентификатором элемента коллекции.
@@ -23,7 +23,7 @@ var collection = new Collection([
   { key: 1, value: 'A' },
   { key: 2, value: 'B' },
   { key: 3, value: 'C' }
-], null, 'key');
+], 'key');
 
 var value1 = collection.id(1); // 'A'
 var value2 = collection.id(2); // 'B'

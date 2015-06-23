@@ -4,7 +4,7 @@ title: "Collection.addAll()"
 position: 13
 ---
 
-Добавляет элементы в коллекцию.
+Добавляет элементы в конец коллекции.
 
 # Description
 

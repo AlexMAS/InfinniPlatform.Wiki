@@ -11,7 +11,7 @@ position: 102
 Успешное выполнение методов [`pop()`](../Collection.pop/), [`remove()`](../Collection.remove/),
 [`removeId()`](../Collection.removeId/), [`removeAt()`](../Collection.removeAt/),
 [`removeAll()`](../Collection.removeAll/), [`removeRange()`](../Collection.removeRange/),
-[`removePredicate()`](../Collection.removePredicate/) и [`clear()`](../Collection.clear/)
+[`removeEvery()`](../Collection.removeEvery/) и [`clear()`](../Collection.clear/)
 приводит к возникновению события [`onRemove`](../Collection.onRemove/). Вместе с этим событием
 также генерируется событие [`onChange`](../Collection.onChange/), которое информирует о наличии
 любых изменений. Аргументы обеих событий в данном случае будут идентичны.
@@ -52,6 +52,6 @@ collection.remove('A');
 * [`removeAt()`](../Collection.removeAt/)
 * [`removeAll()`](../Collection.removeAll/)
 * [`removeRange()`](../Collection.removeRange/)
-* [`removePredicate()`](../Collection.removePredicate/)
+* [`removeEvery()`](../Collection.removeEvery/)
 * [`clear()`](../Collection.clear/)
 * [`onChange`](../Collection.onChange/)
