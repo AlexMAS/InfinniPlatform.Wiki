@@ -68,6 +68,7 @@ collection.forEach(function(item) {
 
 # See Also
 
-* [`reset`](../Collection.reset/)
+* [`reset()`](../Collection.reset/)
+* [`idProperty`](../Collection.idProperty/)
 * [`onReset`](../Collection.onReset/)
 * [`onChange`](../Collection.onChange/)

@@ -52,5 +52,6 @@ collection.removeId(3);
 * [`removeRange()`](../Collection.removeRange/)
 * [`removeEvery()`](../Collection.removeEvery/)
 * [`clear()`](../Collection.clear/)
+* [`idProperty`](../Collection.idProperty/)
 * [`onRemove`](../Collection.onRemove/)
 * [`onChange`](../Collection.onChange/)

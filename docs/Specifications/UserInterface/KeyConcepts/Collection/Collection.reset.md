@@ -39,6 +39,6 @@ collection.reset([ 'C', 'D' ]); // [ 'C', 'D' ]
 
 # See Also
 
-* [`set`](../Collection.set/)
+* [`set()`](../Collection.set/)
 * [`onReset`](../Collection.onReset/)
 * [`onChange`](../Collection.onChange/)
