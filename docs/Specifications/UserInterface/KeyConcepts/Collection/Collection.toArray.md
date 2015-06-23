@@ -53,3 +53,4 @@ array.forEach(function(item) {
 * [`forEach()`](../Collection.forEach/)
 * [`filter()`](../Collection.filter/)
 * [`take()`](../Collection.take/)
+* [`clone()`](../Collection.clone/)

@@ -176,7 +176,11 @@ new Collection([items[, idProperty[, comparator]]])
 
 ## [`sort()`](Collection.sort/)
 
-Сортирует список элементов.
+Сортирует список элементов коллекции.
+
+## [`clone()`](Collection.clone/)
+
+Создает копию коллекции элементов.
 
 # Events
 
