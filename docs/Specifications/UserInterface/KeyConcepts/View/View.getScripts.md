@@ -4,7 +4,7 @@ title: "View.getScripts()"
 position: 3
 ---
 
-Возвращает ассоциативный список [скриптов представления](../../Script/).
+Возвращает [коллекцию](../../Collection/) [скриптов представления](../../Script/).
 
 # Syntax
 
@@ -14,18 +14,23 @@ View.getScripts()
 
 ## Returns
 
-Ассоциативный список [скриптов представления](../../Script/).
+[Коллекция](../../Collection/) скриптов представления. Каждый элемент коллекции представлен объектом
+с двумя свойствами: `name` и `func`. Свойство `name` содержит наименование скрипта, `func` - указатель
+на [функцию скрипта](../../Script/). Оба свойства доступны только для чтения.
 
 # Examples
 
 ```js
+var myScript = function() { alert('Hello!'); };
+
 var scripts = View.getScripts();
-var function1 = scripts.myAddFunction;
-var function2 = scripts['myAddFunction']; // function2 === function1
+scripts.add({ name: 'myScript', func: myScript });
+var myScript2 = scripts.getById('myScript'); // myScript2 === myScript
+
+myScript2(); // alert('Hello!');
 ```
 
 # See Also
 
-* [`addScript()`](../View.addScript/)
-* [`removeScript()`](../View.removeScript/)
+* [`Collection`](../../Collection/)
 * [`Script`](../../Script/)

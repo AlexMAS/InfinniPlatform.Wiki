@@ -18,6 +18,12 @@ new BaseDataSource(view)
 
 Родительское [представление](../../KeyConcepts/View/) источника данных.
 
+# Properties
+
+## [`name`](BaseDataSource.name/)
+
+Возвращает наименование источника данных.
+
 # Methods
 
 ## [`getView()`](BaseDataSource.getView/)

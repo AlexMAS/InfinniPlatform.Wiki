@@ -4,7 +4,7 @@ title: "View.getDataSources()"
 position: 9
 ---
 
-Возвращает ассоциативный список [источников данных представления](../../../DataSources/BaseDataSource/).
+Возвращает [коллекцию](../../Collection/) [источников данных представления](../../../DataSources/BaseDataSource/).
 
 # Syntax
 
@@ -14,18 +14,20 @@ View.getDataSources()
 
 ## Returns
 
-Ассоциативный список [источников данных представления](../../../DataSources/BaseDataSource/).
+[Коллекция](../../Collection/) [источников данных представления](../../../DataSources/BaseDataSource/).
 
 # Examples
 
 ```js
+var myDataSource = new ObjectDataSource(View);
+myDataSource.setName('myDataSource');
+
 var dataSources = View.getDataSources();
-var dataSource1 = dataSources.myDataSource;
-var dataSource2 = dataSources['myDataSource']; // dataSource2 === dataSource1
+parameters.add(myDataSource);
+var myDataSource2 = dataSources.getById('myDataSource'); // myDataSource2 === myDataSource
 ```
 
 # See Also
 
-* [`addDataSource()`](../View.addDataSource/)
-* [`removeDataSource()`](../View.removeDataSource/)
+* [`Collection`](../../Collection/)
 * [`BaseDataSource`](../../../DataSources/BaseDataSource/)

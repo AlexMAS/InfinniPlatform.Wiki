@@ -27,6 +27,12 @@ new Element(view)
 
 Родительское [представление](../View/) визуального элемента.
 
+# Properties
+
+## [`name`](Element.name/)
+
+Возвращает наименование элемента.
+
 # Methods
 
 ## [`getView()`](Element.getView/)
@@ -106,6 +112,34 @@ new Element(view)
 ## [`onLostFocus`](Element.onLostFocus/)
 
 Устанавливает [обработчик события](../Script/) о том, что элемент потерял фокус ввода.
+
+## [`onMouseDoubleClick`](Element.onMouseDoubleClick/)
+
+Устанавливает [обработчик события](../Script/) о том, что по элементу сделали двойной клик мыши.
+
+## [`onMouseDown`](Element.onMouseDown/)
+
+Устанавливает [обработчик события](../Script/) о том, что на элементе нажали кнопку мыши.
+
+## [`onMouseUp`](Element.onMouseUp/)
+
+Устанавливает [обработчик события](../Script/) о том, что на элементе отпустили кнопку мыши.
+
+## [`onMouseWheel`](Element.onMouseWheel/)
+
+Устанавливает [обработчик события](../Script/) о том, что на элементе прокрутили колесо мыши.
+
+## [`onMouseEnter`](Element.onMouseEnter/)
+
+Устанавливает [обработчик события](../Script/) о том, что указатель мыши вошел в границы элемента.
+
+## [`onMouseLeave`](Element.onMouseLeave/)
+
+Устанавливает [обработчик события](../Script/) о том, что указатель мыши покинул границы элемента.
+
+## [`onMouseMove`](Element.onMouseMove/)
+
+Устанавливает [обработчик события](../Script/) о том, что указатель мыши двигался внутри элемента.
 
 ## [`onPropertyChanged`](Element.onPropertyChanged/)
 

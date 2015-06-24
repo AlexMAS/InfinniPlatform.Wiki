@@ -27,3 +27,4 @@ Element.setName('button1');
 # See Also
 
 * [`getName()`](../Element.getName/)
+* [`name`](../Element.name/)

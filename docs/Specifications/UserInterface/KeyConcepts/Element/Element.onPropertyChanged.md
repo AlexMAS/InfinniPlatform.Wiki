@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.onPropertyChanged"
-position: 103
+position: 110
 ---
 
 Устанавливает [обработчик события](../../Script/) о том, что одно из свойств элемента изменилось.

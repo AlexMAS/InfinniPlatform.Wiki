@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Collection.id()"
+title: "Collection.getById()"
 position: 27
 ---
 
@@ -9,7 +9,7 @@ position: 27
 # Syntax
 
 ```js
-Collection.id(id)
+Collection.getById(id)
 ```
 
 ## Parameters
@@ -31,14 +31,14 @@ var collection = new Collection([
   { key: 3, value: 'C' }
 ], 'key');
 
-var item1 = collection.id(1); // { key: 1, value: 'A' }
-var item2 = collection.id(2); // { key: 2, value: 'B' }
-var item3 = collection.id(3); // { key: 3, value: 'C' }
+var item1 = collection.getById(1); // { key: 1, value: 'A' }
+var item2 = collection.getById(2); // { key: 2, value: 'B' }
+var item3 = collection.getById(3); // { key: 3, value: 'C' }
 ```
 
 # See Also
 
-* [`at()`](../Collection.at/)
+* [`getByIndex()`](../Collection.getByIndex/)
 * [`find()`](../Collection.find/)
 * [`indexOf()`](../Collection.indexOf/)
 * [`lastIndexOf()`](../Collection.lastIndexOf/)

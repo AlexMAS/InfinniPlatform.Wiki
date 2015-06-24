@@ -19,10 +19,10 @@ BaseDataSource.getName()
 # Examples
 
 ```js
-var name = BaseDataSource.getName();
+var dataSourceName = BaseDataSource.getName();
 ```
 
 # See Also
 
 * [`setName()`](../BaseDataSource.setName/)
-
+* [`name`](../BaseDataSource.name/)

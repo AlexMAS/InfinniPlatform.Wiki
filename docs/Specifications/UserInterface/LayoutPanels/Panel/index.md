@@ -6,6 +6,14 @@ position: 0
 
 Контейнер в виде прямоугольной области.
 
+# Description
+
+Панель - контейнер визуальных элементов в виде прямоугольной области. Дочерние элементы панели
+располагаются внутри контейнера и визуально не могут выходить за его пределы. Способ расположения
+элементов внутри контейнера зависит от их настроек выравнивания -
+[`Element.getHorizontalAlignment()`](../../KeyConcepts/Element/Element.getHorizontalAlignment/)
+и [`Element.getVerticalAlignment()`](../../KeyConcepts/Element/Element.getVerticalAlignment/).
+
 # Extends
 
 [`Element`](../../KeyConcepts/Element/)
@@ -58,19 +66,7 @@ new Panel(view)
 
 ## [`getItems()`](Panel.getItems/)
 
-Возвращает список дочерних элементов панели.
-
-## [`setItems()`](Panel.setItems/)
-
-Устанавливает список дочерних элементов панели.
-
-## [`addItem()`](Panel.addItem/)
-
-Добавляет дочерний элемент панели.
-
-## [`removeItem()`](Panel.removeItem/)
-
-Удаляет дочерний элемент панели.
+Возвращает [коллекцию](../../../KeyConcepts/Collection/) дочерних элементов панели.
 
 # Events
 

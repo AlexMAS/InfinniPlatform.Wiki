@@ -25,3 +25,4 @@ var elementName = Element.getName();
 # See Also
 
 * [`setName()`](../Element.setName/)
+* [`name`](../Element.name/)

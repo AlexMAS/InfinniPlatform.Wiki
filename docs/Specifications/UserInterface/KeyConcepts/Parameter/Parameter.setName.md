@@ -27,3 +27,4 @@ Parameter.setName('parameter1');
 # See Also
 
 * [`getName()`](../Parameter.getName/)
+* [`name`](../Parameter.name/)
