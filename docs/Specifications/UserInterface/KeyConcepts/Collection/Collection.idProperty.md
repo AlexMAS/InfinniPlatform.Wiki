@@ -48,11 +48,11 @@ var collection = new Collection([
   { key: 3, value: 'C' }
 ], 'key');
 
-var value1 = collection.id(1); // 'A'
-var value2 = collection.id(2); // 'B'
-var value3 = collection.id(3); // 'C'
+var value1 = collection.getById(1); // 'A'
+var value2 = collection.getById(2); // 'B'
+var value3 = collection.getById(3); // 'C'
 ```
 
 # See Also
 
-* [`id()`](../Collection.id/)
+* [`getById()`](../Collection.getById/)

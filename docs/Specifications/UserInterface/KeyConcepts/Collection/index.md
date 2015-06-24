@@ -118,11 +118,11 @@ new Collection([items[, idProperty[, comparator]]])
 
 Удаляет все элементы из коллекции.
 
-## [`id()`](Collection.id/)
+## [`getById()`](Collection.getById/)
 
 Возвращает элемент коллекции с заданным идентификатором.
 
-## [`at()`](Collection.at/)
+## [`getByIndex()`](Collection.getByIndex/)
 
 Возвращает элемент коллекции с заданным индексом.
 

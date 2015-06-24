@@ -24,7 +24,7 @@ myDataSource.setName('myDataSource');
 
 var dataSources = View.getDataSources();
 parameters.add(myDataSource);
-var myDataSource2 = dataSources.id('myDataSource'); // myDataSource2 === myDataSource
+var myDataSource2 = dataSources.getById('myDataSource'); // myDataSource2 === myDataSource
 ```
 
 # See Also

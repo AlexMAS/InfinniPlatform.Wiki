@@ -37,8 +37,8 @@ var index3 = collection.lastIndexOf('D');    // index3 === -1
 
 # See Also
 
-* [`id()`](../Collection.id/)
-* [`at()`](../Collection.at/)
+* [`getById()`](../Collection.getById/)
+* [`getByIndex()`](../Collection.getByIndex/)
 * [`find()`](../Collection.find/)
 * [`indexOf()`](../Collection.indexOf/)
 * [`findIndex()`](../Collection.findIndex/)

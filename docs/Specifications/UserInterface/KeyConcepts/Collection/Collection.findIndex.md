@@ -41,8 +41,8 @@ var result = collection.findIndex(function(item, index, collection) {
 
 # See Also
 
-* [`id()`](../Collection.id/)
-* [`at()`](../Collection.at/)
+* [`getById()`](../Collection.getById/)
+* [`getByIndex()`](../Collection.getByIndex/)
 * [`find()`](../Collection.find/)
 * [`indexOf()`](../Collection.indexOf/)
 * [`lastIndexOf()`](../Collection.lastIndexOf/)

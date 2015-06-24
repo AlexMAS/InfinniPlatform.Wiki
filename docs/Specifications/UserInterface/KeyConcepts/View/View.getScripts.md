@@ -25,7 +25,7 @@ var myScript = function() { alert('Hello!'); };
 
 var scripts = View.getScripts();
 scripts.add({ name: 'myScript', func: myScript });
-var myScript2 = scripts.id('myScript'); // myScript2 === myScript
+var myScript2 = scripts.getById('myScript'); // myScript2 === myScript
 
 myScript2(); // alert('Hello!');
 ```

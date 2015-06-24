@@ -23,7 +23,7 @@ var myParameter = new Parameter(View, 'myParameter', 123);
 
 var parameters = View.getParameters();
 parameters.add(myParameter);
-var myParameter2 = parameters.id('myParameter'); // myParameter2 === myParameter
+var myParameter2 = parameters.getById('myParameter'); // myParameter2 === myParameter
 
 myParameter2.getValue(); // 123
 ```

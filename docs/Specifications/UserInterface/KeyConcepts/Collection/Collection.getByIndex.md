@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Collection.at()"
+title: "Collection.getByIndex()"
 position: 28
 ---
 
@@ -9,7 +9,7 @@ position: 28
 # Syntax
 
 ```js
-Collection.at(index)
+Collection.getByIndex(index)
 ```
 
 ## Parameters
@@ -26,14 +26,14 @@ Collection.at(index)
 
 ```js
 var collection = new Collection([ 'A', 'B', 'C' ]);
-var item0 = collection.at(0); // 'A'
-var item1 = collection.at(1); // 'B'
-var item2 = collection.at(2); // 'C'
+var item0 = collection.getByIndex(0); // 'A'
+var item1 = collection.getByIndex(1); // 'B'
+var item2 = collection.getByIndex(2); // 'C'
 ```
 
 # See Also
 
-* [`id()`](../Collection.id/)
+* [`getById()`](../Collection.getById/)
 * [`find()`](../Collection.find/)
 * [`indexOf()`](../Collection.indexOf/)
 * [`lastIndexOf()`](../Collection.lastIndexOf/)
