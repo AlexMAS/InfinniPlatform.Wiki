@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Panel.getItemTemplate()"
-position: 7
+position: 15
 ---
 
 Возвращает [функцию](../../../KeyConcepts/Script/) шаблонизации дочерних элементов панели.
@@ -9,10 +9,9 @@ position: 7
 # Description
 
 Если [функция](../../../KeyConcepts/Script/) шаблонизации дочерних элементов определена, то она
-используется при установке списка дочерних элементов панели - [`setItems()`](../Panel.setItems/), -
-и при добавлении новых дочерних элементов - [`addItem()`](../Panel.addItem/). Если шаблон не
-определен, методы [`setItems()`](../Panel.setItems/) и [`addItem()`](../Panel.addItem/) будут
-ожидать ссылки на готовые [визуальные элементы](../../../KeyConcepts/Element/).
+используется при изменении [коллекции](../../../KeyConcepts/Collection/) дочерних элементов панели -
+[`getItems()`](../Panel.getItems/). Если шаблон не определен, коллекция дочерних элементов панели
+должна содержать ссылки на готовые [визуальные элементы](../../../KeyConcepts/Element/).
 
 # Syntax
 
@@ -37,6 +36,4 @@ var itemTemplate = Panel.getItemTemplate();
 
 * [`setItemTemplate()`](../Panel.setItemTemplate/)
 * [`getItems()`](../Panel.getItems/)
-* [`setItems()`](../Panel.setItems/)
-* [`addItem()`](../Panel.addItem/)
-* [`removeItem()`](../Panel.removeItem/)
+* [`Collection`](../../../KeyConcepts/Collection/)
