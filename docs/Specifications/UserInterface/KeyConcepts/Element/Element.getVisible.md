@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.getVisible()"
-position: 8
+position: 12
 ---
 
 Возвращает значение, определяющее, отображается ли элемент в интерфейсе.

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.getProperty()"
-position: 15
+position: 19
 ---
 
 Возвращает значение указанного свойства элемента.

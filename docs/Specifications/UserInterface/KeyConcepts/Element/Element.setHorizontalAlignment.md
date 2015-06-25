@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.setHorizontalAlignment()"
-position: 11
+position: 15
 ---
 
 Устанавливает [горизонтальное выравнивание в родительском элементе](../ElementHorizontalAlignment/).

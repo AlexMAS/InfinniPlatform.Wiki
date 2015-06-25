@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.getEnabled()"
-position: 6
+position: 10
 ---
 
 Возвращает значение, определяющее, возможен ли доступ к элементу.
