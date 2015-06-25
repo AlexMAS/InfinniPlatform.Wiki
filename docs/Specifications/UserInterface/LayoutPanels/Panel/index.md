@@ -56,6 +56,38 @@ new Panel(view)
 
 Устанавливает значение, определяющее, свернута ли панель.
 
+## [`getBackground()`](Panel.getBackground/)
+
+Возвращает [цвет](../../KeyConcepts/Style/ColorStyle/) фона панели.
+
+## [`setBackground()`](Panel.setBackground/)
+
+Устанавливает [цвет](../../KeyConcepts/Style/ColorStyle/) фона панели.
+
+## [`getTexture()`](Panel.getTexture/)
+
+Возвращает текстуру панели.
+
+## [`setTexture()`](Panel.setTexture/)
+
+Устанавливает текстуру панели.
+
+## [`getHeaderTemplate()`](Panel.getHeaderTemplate/)
+
+Возвращает [функцию](../../KeyConcepts/Script/) шаблонизации заголовка панели.
+
+## [`setHeaderTemplate()`](Panel.setHeaderTemplate/)
+
+Устанавливает [функцию](../../KeyConcepts/Script/) шаблонизации заголовка панели.
+
+## [`getHeader()`](Panel.getHeader/)
+
+Возвращает заголовок панели.
+
+## [`setHeader()`](Panel.setHeader/)
+
+Устанавливает заголовок панели.
+
 ## [`getItemTemplate()`](Panel.getItemTemplate/)
 
 Возвращает [функцию](../../KeyConcepts/Script/) шаблонизации дочерних элементов панели.
@@ -66,7 +98,7 @@ new Panel(view)
 
 ## [`getItems()`](Panel.getItems/)
 
-Возвращает [коллекцию](../../../KeyConcepts/Collection/) дочерних элементов панели.
+Возвращает [коллекцию](../../KeyConcepts/Collection/) дочерних элементов панели.
 
 # Events
 

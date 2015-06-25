@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Panel.getItems()"
-position: 9
+position: 17
 ---
 
 Возвращает [коллекцию](../../../KeyConcepts/Collection/) дочерних элементов панели.
@@ -26,3 +26,4 @@ var items = Panel.getItems();
 
 * [`getItemTemplate()`](../Panel.getItemTemplate/)
 * [`setItemTemplate()`](../Panel.setItemTemplate/)
+* [`Collection`](../../../KeyConcepts/Collection/)

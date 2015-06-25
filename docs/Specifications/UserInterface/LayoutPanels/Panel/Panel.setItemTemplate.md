@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Panel.setItemTemplate()"
-position: 8
+position: 16
 ---
 
 Устанавливает [функцию](../../../KeyConcepts/Script/) шаблонизации дочерних элементов панели.
@@ -9,10 +9,9 @@ position: 8
 # Description
 
 Если [функция](../../../KeyConcepts/Script/) шаблонизации дочерних элементов определена, то она
-используется при установке списка дочерних элементов панели - [`setItems()`](../Panel.setItems/), -
-и при добавлении новых дочерних элементов - [`addItem()`](../Panel.addItem/). Если шаблон не
-определен, методы [`setItems()`](../Panel.setItems/) и [`addItem()`](../Panel.addItem/) будут
-ожидать ссылки на готовые [визуальные элементы](../../../KeyConcepts/Element/).
+используется при изменении [коллекции](../../../KeyConcepts/Collection/) дочерних элементов панели -
+[`getItems()`](../Panel.getItems/). Если шаблон не определен, коллекция дочерних элементов панели
+должна содержать ссылки на готовые [визуальные элементы](../../../KeyConcepts/Element/).
 
 # Syntax
 
@@ -49,3 +48,4 @@ Panel.getItems().reset([
 
 * [`getItemTemplate()`](../Panel.getItemTemplate/)
 * [`getItems()`](../Panel.getItems/)
+* [`Collection`](../../../KeyConcepts/Collection/)
