@@ -21,7 +21,8 @@ View.setLayoutPanel(value)
 # Examples
 
 ```js
-View.setLayoutPanel(new GridPanel());
+var layoutPanel = new GridPanel(View);
+View.setLayoutPanel(layoutPanel);
 ```
 
 # See Also

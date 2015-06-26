@@ -34,11 +34,11 @@ new TabPage(view)
 
 ## [`getIcon()`](TabPage.getIcon/)
 
-Возвращает изображение заголовка представления.
+Возвращает изображение заголовка страницы.
 
 ## [`setIcon()`](TabPage.setIcon/)
 
-Устанавливает изображение заголовка представления.
+Устанавливает изображение заголовка страницы.
 
 ## [`getCanClose()`](TabPage.getCanClose/)
 
@@ -48,11 +48,11 @@ new TabPage(view)
 
 Устанавливает значение, определяющее, разрешено ли закрытие страницы.
 
-## [`getGetLayoutPanel()`](TabPage.getGetLayoutPanel/)
+## [`getLayoutPanel()`](TabPage.getLayoutPanel/)
 
 Возвращает [контейнер элементов](../../) страницы.
 
-## [`setGetLayoutPanel()`](TabPage.setGetLayoutPanel/)
+## [`setLayoutPanel()`](TabPage.setLayoutPanel/)
 
 Устанавливает [контейнер элементов](../../) страницы.
 
