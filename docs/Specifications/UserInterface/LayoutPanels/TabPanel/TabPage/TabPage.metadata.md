@@ -14,16 +14,22 @@ position: 0
 
 ```json
 {
-  "LayoutPanel": {
-    "StackPanel": {
-      "Items": [
-        {
-          "Label": {
-            "Value": "Page content"
-          }
-        }
-      ]
+  "Items": [
+    {
+      "Label": {
+        "Value": "One"
+      }
+    },
+    {
+      "Label": {
+        "Value": "Two"
+      }
+    },
+    {
+      "Label": {
+        "Value": "Three"
+      }
     }
-  }
+  ]
 }
 ```
