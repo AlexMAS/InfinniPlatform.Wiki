@@ -31,7 +31,55 @@ new TabPanel(view)
 
 # Methods
 
+## [`getHeaderLocation()`](TabPanel.getHeaderLocation/)
+
+Возвращает [расположение закладок](TabHeaderLocation/).
+
+## [`setHeaderLocation()`](TabPanel.setHeaderLocation/)
+
+Устанавливает [расположение закладок](TabHeaderLocation/).
+
+## [`getHeaderOrientation()`](TabPanel.getHeaderOrientation/)
+
+Возвращает [ориентацию закладок](TabHeaderOrientation/).
+
+## [`setHeaderOrientation()`](TabPanel.setHeaderOrientation/)
+
+Устанавливает [ориентацию закладок](TabHeaderOrientation/).
+
+## [`getHeaderTemplate()`](TabPanel.getHeaderTemplate/)
+
+Возвращает [функцию](../../KeyConcepts/Script/) шаблонизации закладок дочерних элементов панели.
+
+## [`setHeaderTemplate()`](TabPanel.setHeaderTemplate/)
+
+Устанавливает [функцию](../../KeyConcepts/Script/) шаблонизации закладок дочерних элементов панели.
+
+## [`getItemTemplate()`](TabPanel.getItemTemplate/)
+
+Возвращает [функцию](../../KeyConcepts/Script/) шаблонизации дочерних элементов панели.
+
+## [`setItemTemplate()`](TabPanel.setItemTemplate/)
+
+Устанавливает [функцию](../../KeyConcepts/Script/) шаблонизации дочерних элементов панели.
+
+## [`getItems()`](TabPanel.getItems/)
+
+Возвращает [коллекцию](../../KeyConcepts/Collection/) дочерних элементов панели.
+
+## [`getSelectedItem()`](TabPanel.getSelectedItem/)
+
+Возвращает выделенный дочерний элемент панели.
+
+## [`setSelectedItem()`](TabPanel.setSelectedItem/)
+
+Устанавливает выделенный дочерний элемент панели.
+
 # Events
+
+## [`onSelectedItemChanged`](TabPanel.onSelectedItemChanged/)
+
+Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что выделенный элемент изменился.
 
 # Examples
 
