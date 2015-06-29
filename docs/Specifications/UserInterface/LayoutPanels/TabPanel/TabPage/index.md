@@ -60,22 +60,6 @@ new TabPage(view)
 
 Закрывает страницу.
 
-## [`getBackground()`](TabPage.getBackground/)
-
-Возвращает [цвет](../../../KeyConcepts/Style/ColorStyle/) фона страницы.
-
-## [`setBackground()`](TabPage.setBackground/)
-
-Устанавливает [цвет](../../../KeyConcepts/Style/ColorStyle/) фона страницы.
-
-## [`getTexture()`](TabPage.getTexture/)
-
-Возвращает текстуру страницы.
-
-## [`setTexture()`](TabPage.setTexture/)
-
-Устанавливает текстуру страницы.
-
 ## [`getItemTemplate()`](TabPage.getItemTemplate/)
 
 Возвращает [функцию](../../../KeyConcepts/Script/) шаблонизации дочерних элементов страницы.

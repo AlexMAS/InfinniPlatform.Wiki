@@ -32,14 +32,6 @@ new Panel(view)
 
 # Methods
 
-## [`getIcon()`](Panel.getIcon/)
-
-Возвращает изображение заголовка панели.
-
-## [`setIcon()`](Panel.setIcon/)
-
-Устанавливает изображение заголовка панели.
-
 ## [`getCollapsible()`](Panel.getCollapsible/)
 
 Возвращает значение, определяющее, разрешено ли сворачивание панели.
@@ -55,22 +47,6 @@ new Panel(view)
 ## [`setCollapsed()`](Panel.setCollapsed/)
 
 Устанавливает значение, определяющее, свернута ли панель.
-
-## [`getBackground()`](Panel.getBackground/)
-
-Возвращает [цвет](../../KeyConcepts/Style/ColorStyle/) фона панели.
-
-## [`setBackground()`](Panel.setBackground/)
-
-Устанавливает [цвет](../../KeyConcepts/Style/ColorStyle/) фона панели.
-
-## [`getTexture()`](Panel.getTexture/)
-
-Возвращает текстуру панели.
-
-## [`setTexture()`](Panel.setTexture/)
-
-Устанавливает текстуру панели.
 
 ## [`getHeaderTemplate()`](Panel.getHeaderTemplate/)
 

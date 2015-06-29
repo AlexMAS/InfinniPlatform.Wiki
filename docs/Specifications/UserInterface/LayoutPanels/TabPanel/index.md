@@ -12,3 +12,29 @@ position: 1
 которые позволяют переключаться между связанными с ними [страницами](TabPage/). При переключении
 на какую-либо страницу, она занимает все пространство контейнера, перекрывая при этом все остальные
 страницы панели закладок.
+
+# Extends
+
+[`Element`](../../KeyConcepts/Element/)
+
+# Syntax
+
+```js
+new TabPanel(view)
+```
+
+## Parameters
+
+`view`
+
+Родительское [представление](../../KeyConcepts/View/) элемента.
+
+# Methods
+
+# Events
+
+# Examples
+
+```js
+var tabPanel = new TabPanel(view);
+```

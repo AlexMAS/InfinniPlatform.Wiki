@@ -55,6 +55,22 @@ new Element(view)
 
 Устанавливает текст заголовка элемента.
 
+## [`getFocusable()`](Element.getFocusable/)
+
+Возвращает значение, определяющее, возможно ли установить фокус ввода на элемент.
+
+## [`setFocusable()`](Element.setFocusable/)
+
+Устанавливает значение, определяющее, возможно ли установить фокус ввода на элемент.
+
+## [`getFocused()`](Element.getFocused/)
+
+Возвращает значение, определяющее, установлен ли фокус ввода на элемент.
+
+## [`setFocused()`](Element.setFocused/)
+
+Устанавливает значение, определяющее, установлен ли фокус ввода на элемент.
+
 ## [`getEnabled()`](Element.getEnabled/)
 
 Возвращает значение, определяющее, возможен ли доступ к элементу.
@@ -87,6 +103,38 @@ new Element(view)
 
 Устанавливает [вертикальное выравнивание в родительском элементе](ElementVerticalAlignment/).
 
+## [`getTextStyle()`](Element.getTextStyle/)
+
+Возвращает [стиль текста](../Style/TextStyle/) элемента.
+
+## [`setTextStyle()`](Element.setTextStyle/)
+
+Устанавливает [стиль текста](../Style/TextStyle/) элемента.
+
+## [`getForeground()`](Element.getForeground/)
+
+Возвращает [цвет](../Style/ColorStyle/) текста элемента.
+
+## [`setForeground()`](Element.setForeground/)
+
+Устанавливает [цвет](../Style/ColorStyle/) текста элемента.
+
+## [`getBackground()`](Element.getBackground/)
+
+Возвращает [цвет](../Style/ColorStyle/) фона элемента.
+
+## [`setBackground()`](Element.setBackground/)
+
+Устанавливает [цвет](../Style/ColorStyle/) фона элемента.
+
+## [`getTexture()`](Element.getTexture/)
+
+Возвращает текстуру элемента.
+
+## [`setTexture()`](Element.setTexture/)
+
+Устанавливает текстуру элемента.
+
 ## [`getChildElements()`](Element.getChildElements/)
 
 Возвращает список дочерних [элементов]().
@@ -98,22 +146,6 @@ new Element(view)
 ## [`setProperty()`](Element.setProperty/)
 
 Устанавливает значение указанного свойства элемента.
-
-## [`getFocusable()`](Element.getFocusable/)
-
-Возвращает значение, определяющее, возможно ли установить фокус ввода на элемент.
-
-## [`setFocusable()`](Element.setFocusable/)
-
-Устанавливает значение, определяющее, возможно ли установить фокус ввода на элемент.
-
-## [`getFocused()`](Element.getFocused/)
-
-Возвращает значение, определяющее, установлен ли фокус ввода на элемент.
-
-## [`focus()`](Element.focus/)
-
-Устанавливает фокус ввода на элемент.
 
 # Events
 
