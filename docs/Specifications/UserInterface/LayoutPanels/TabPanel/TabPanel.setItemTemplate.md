@@ -32,14 +32,14 @@ TabPanel.setItemTemplate(value)
 
 ```js
 TabPanel.setHeaderTemplate(function(context, argument) {
-  var header = new Label(context.view);
+  var header = new Label();
   header.setValue(argument.value);
   return header;
 });
 
 TabPanel.setItemTemplate(function(context, argument) {
-  var tabPage = new TabPage(context.view);
-  var content = new Label(context.view);
+  var tabPage = new TabPage();
+  var content = new Label();
   content.setValue(argument.value);
   tabPage.getItems().add(content);
   return tabPage;

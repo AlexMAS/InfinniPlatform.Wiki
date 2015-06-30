@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.setTextStyle()"
-position: 19
+position: 30
 ---
 
 Устанавливает [стиль текста](../../Style/TextStyle/) элемента.

@@ -20,14 +20,14 @@ position: 1
 # Syntax
 
 ```js
-new TabPanel(view)
+new TabPanel([parent])
 ```
 
 ## Parameters
 
-`view`
+`parent`
 
-Родительское [представление](../../KeyConcepts/View/) элемента.
+Необязательный. Родительский [элемент](../../KeyConcepts/Element/).
 
 # Methods
 
@@ -80,9 +80,3 @@ new TabPanel(view)
 ## [`onSelectedItemChanged`](TabPanel.onSelectedItemChanged/)
 
 Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что выделенный элемент изменился.
-
-# Examples
-
-```js
-var tabPanel = new TabPanel(view);
-```

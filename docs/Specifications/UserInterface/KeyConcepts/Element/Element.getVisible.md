@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.getVisible()"
-position: 12
+position: 23
 ---
 
 Возвращает значение, определяющее, отображается ли элемент в интерфейсе.
@@ -14,12 +14,13 @@ Element.getVisible()
 
 ## Returns
 
-Логическое значение, определяющее, отображается ли элемент в интерфейсе.
+Логическое значение, определяющее, отображается ли элемент в интерфейсе. Значение `true` означает,
+что элемент отображается в интерфейсе, `false` - элемент не отображается.
 
 # Examples
 
 ```js
-var elementVisible = Element.getVisible();
+var isVisible = Element.getVisible();
 ```
 
 # See Also

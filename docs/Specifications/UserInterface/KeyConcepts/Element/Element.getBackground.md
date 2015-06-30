@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.getBackground()"
-position: 22
+position: 33
 ---
 
 Возвращает [цвет](../../Style/ColorStyle/) фона элемента.

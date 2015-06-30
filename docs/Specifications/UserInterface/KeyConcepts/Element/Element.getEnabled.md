@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.getEnabled()"
-position: 10
+position: 21
 ---
 
 Возвращает значение, определяющее, возможен ли доступ к элементу.
@@ -13,12 +13,13 @@ Element.getEnabled()
 ```
 ## Returns
 
-Логическое значение, определяющее, возможен ли доступ к элементу.
+Логическое значение, определяющее, возможен ли доступ к элементу. Значение `true` означает, что
+доступ к элементу разрешен, `false` - доступ к элементу не разрешен.
 
 # Examples
 
 ```js
-var elementEnabled = Element.getEnabled();
+var isEnabled = Element.getEnabled();
 ```
 
 # See Also

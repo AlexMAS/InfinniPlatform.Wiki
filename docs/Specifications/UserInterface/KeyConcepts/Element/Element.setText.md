@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.setText()"
-position: 5
+position: 16
 ---
 
 Устанавливает текст заголовка элемента.
@@ -21,7 +21,7 @@ Element.setText(value)
 # Examples
 
 ```js
-Element.setText('Push me');
+Element.setText('Text');
 ```
 
 # See Also

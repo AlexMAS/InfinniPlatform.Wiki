@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.setFocused()"
-position: 9
+position: 20
 ---
 
 Устанавливает значение, определяющее, установлен ли фокус ввода на элемент.

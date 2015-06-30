@@ -18,14 +18,14 @@ tags: [ element ]
 # Syntax
 
 ```js
-new Element(view)
+new Element([parent])
 ```
 
 ## Parameters
 
-`view`
+`parent`
 
-Родительское [представление](../View/) визуального элемента.
+Необязательный. Родительский [элемент]().
 
 # Properties
 
@@ -38,6 +38,14 @@ new Element(view)
 ## [`getView()`](Element.getView/)
 
 Возвращает родительское [представление](../View/).
+
+## [`getParent()`](Element.getParent/)
+
+Возвращает родительский [элемент]().
+
+## [`setParent()`](Element.setParent/)
+
+Устанавливает родительский [элемент]().
 
 ## [`getName()`](Element.getName/)
 

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.getForeground()"
-position: 20
+position: 31
 ---
 
 Возвращает [цвет](../../Style/ColorStyle/) текста элемента.

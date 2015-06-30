@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.setName()"
-position: 3
+position: 14
 ---
 
 Устанавливает наименование элемента.

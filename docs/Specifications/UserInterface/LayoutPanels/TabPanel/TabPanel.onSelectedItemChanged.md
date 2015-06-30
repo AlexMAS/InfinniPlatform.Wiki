@@ -35,9 +35,9 @@ TabPanel.onSelectedItemChanged(callback)
 # Examples
 
 ```js
-var tabPanel = new TabPanel(view);
-var tabPage1 = new TabPage(view);
-var tabPage2 = new TabPage(view);
+var tabPanel = new TabPanel();
+var tabPage1 = new TabPage();
+var tabPage2 = new TabPage();
 tabPanel.getItems().add(tabPage1);
 tabPanel.getItems().add(tabPage2);
 tabPanel.setSelectedItem(tabPage1);

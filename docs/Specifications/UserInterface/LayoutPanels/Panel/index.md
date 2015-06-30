@@ -21,14 +21,14 @@ position: 0
 # Syntax
 
 ```js
-new Panel(view)
+new Panel([parent])
 ```
 
 ## Parameters
 
-`view`
+`parent`
 
-Родительское [представление](../../KeyConcepts/View/) элемента.
+Необязательный. Родительский [элемент](../../KeyConcepts/Element/).
 
 # Methods
 
@@ -93,9 +93,3 @@ new Panel(view)
 ## [`onCollapsed`](Panel.onCollapsed/)
 
 Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что панель была свернута.
-
-# Examples
-
-```js
-var panel = new Panel(view);
-```

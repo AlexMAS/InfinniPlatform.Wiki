@@ -32,7 +32,7 @@ Panel.setHeaderTemplate(value)
 
 ```js
 Panel.setHeaderTemplate(function(context, argument) {
-  var element = new Label(context.view);
+  var element = new Label();
   element.setValue(argument.value);
   return element;
 });

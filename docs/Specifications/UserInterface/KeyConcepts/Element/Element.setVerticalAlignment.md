@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.setVerticalAlignment()"
-position: 17
+position: 28
 ---
 
 Возвращает [вертикальное выравнивание в родительском элементе](../ElementVerticalAlignment/).

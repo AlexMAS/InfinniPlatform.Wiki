@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.setProperty()"
-position: 28
+position: 39
 ---
 
 Устанавливает значение указанного свойства элемента.

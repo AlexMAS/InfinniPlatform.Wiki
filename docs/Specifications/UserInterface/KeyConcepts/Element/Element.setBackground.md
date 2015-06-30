@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.setBackground()"
-position: 23
+position: 34
 ---
 
 Устанавливает [цвет](../../Style/ColorStyle/) фона элемента.

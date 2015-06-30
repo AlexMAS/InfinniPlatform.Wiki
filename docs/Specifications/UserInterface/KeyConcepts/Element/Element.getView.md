@@ -1,10 +1,14 @@
 ---
 layout: doc
 title: "Element.getView()"
-position: 1
+position: 10
 ---
 
 Возвращает родительское [представление](../../View/).
+
+# Description
+
+Результат работы метода зависит от значения, возвращаемого методом [`getParent()`](../Element.getParent/).
 
 # Syntax
 
@@ -24,4 +28,6 @@ var parentView = Element.getView();
 
 # See Also
 
+* [`getParent()`](../Element.getParent/)
+* [`setParent()`](../Element.setParent/)
 * [`View`](../../View/)

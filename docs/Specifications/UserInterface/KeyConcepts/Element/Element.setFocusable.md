@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.setFocusable()"
-position: 7
+position: 18
 ---
 
 Устанавливает значение, определяющее, возможно ли установить фокус ввода на элемент.

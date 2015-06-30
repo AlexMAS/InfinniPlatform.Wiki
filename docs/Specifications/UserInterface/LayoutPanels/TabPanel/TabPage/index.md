@@ -21,24 +21,16 @@ position: 1000
 # Syntax
 
 ```js
-new TabPage(view)
+new TabPage([parent])
 ```
 
 ## Parameters
 
-`view`
+`parent`
 
-Родительское [представление](../../../KeyConcepts/View/) элемента.
+Необязательный. Родительский [элемент](../../../KeyConcepts/Element/).
 
 # Methods
-
-## [`getTabPanel()`](TabPage.getTabPanel/)
-
-Возвращает родительскую [панель закладок](../).
-
-## [`setTabPanel()`](TabPage.setTabPanel/)
-
-Устанавливает родительскую [панель закладок](../).
 
 ## [`getIcon()`](TabPage.getIcon/)
 

@@ -16,7 +16,7 @@ position: 14
 # Syntax
 
 ```js
-Panel.setHeaderTemplate(value)
+Panel.setHeader(value)
 ```
 
 ## Parameters

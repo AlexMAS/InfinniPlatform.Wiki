@@ -20,14 +20,14 @@ position: 1
 # Syntax
 
 ```js
-new View(view)
+new View([parent])
 ```
 
 ## Parameters
 
-`view`
+`parent`
 
-Родительское [представление]().
+Необязательный. Родительский [элемент](../Element/).
 
 # Methods
 
