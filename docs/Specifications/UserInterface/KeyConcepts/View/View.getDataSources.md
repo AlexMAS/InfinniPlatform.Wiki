@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "View.getDataSources()"
-position: 9
+position: 15
 ---
 
 Возвращает [коллекцию](../../Collection/) [источников данных представления](../../../DataSources/BaseDataSource/).

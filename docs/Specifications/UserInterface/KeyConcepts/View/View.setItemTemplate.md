@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "View.setItemTemplate()"
-position: 16
+position: 17
 ---
 
 Устанавливает [функцию](../../Script/) шаблонизации дочерних элементов панели.

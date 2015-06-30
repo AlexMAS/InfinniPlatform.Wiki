@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "View.getParameters()"
-position: 6
+position: 14
 ---
 
 Возвращает [коллекцию](../../Collection/) [параметров представления](../../Parameter/).

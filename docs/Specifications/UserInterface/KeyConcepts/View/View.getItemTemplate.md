@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "View.getItemTemplate()"
-position: 15
+position: 16
 ---
 
 Возвращает [функцию](../../Script/) шаблонизации дочерних элементов представления.

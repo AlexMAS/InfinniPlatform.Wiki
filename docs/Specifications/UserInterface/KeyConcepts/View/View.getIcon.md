@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "View.getIcon()"
-position: 12
+position: 10
 ---
 
 Возвращает изображение заголовка представления.

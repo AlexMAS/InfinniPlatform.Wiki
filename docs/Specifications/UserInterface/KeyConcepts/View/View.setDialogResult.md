@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "View.setDialogResult()"
-position: 17
+position: 20
 ---
 
 Устанавливает [результат работы представления](../DialogResult/).

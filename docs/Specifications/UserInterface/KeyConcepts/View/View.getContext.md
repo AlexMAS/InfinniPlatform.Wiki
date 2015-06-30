@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "View.getContext()"
-position: 1
+position: 12
 ---
 
 Возвращает [контекст представления](../../ViewContext/).

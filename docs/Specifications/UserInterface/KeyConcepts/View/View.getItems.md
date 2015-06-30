@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "View.getItems()"
-position: 17
+position: 18
 ---
 
 Возвращает [коллекцию](../../Collection/) дочерних элементов представления.

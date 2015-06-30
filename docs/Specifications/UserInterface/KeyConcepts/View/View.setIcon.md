@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "View.setIcon()"
-position: 13
+position: 11
 ---
 
 Устанавливает изображение заголовка представления.

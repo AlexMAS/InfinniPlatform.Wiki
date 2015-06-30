@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "View.getScripts()"
-position: 3
+position: 13
 ---
 
 Возвращает [коллекцию](../../Collection/) [скриптов представления](../../Script/).
