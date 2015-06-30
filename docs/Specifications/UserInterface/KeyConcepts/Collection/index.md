@@ -94,7 +94,7 @@ new Collection([items[, idProperty[, comparator]]])
 
 Удаляет указанный элемент из коллекции.
 
-## [`removeId()`](Collection.removeId/)
+## [`removeById()`](Collection.removeById/)
 
 Удаляет элемент с указанным идентификатором из коллекции.
 

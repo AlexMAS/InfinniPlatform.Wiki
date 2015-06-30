@@ -41,7 +41,7 @@ collection.remove('C'); // [ ]
 # See Also
 
 * [`pop()`](../Collection.pop/)
-* [`removeId()`](../Collection.removeId/)
+* [`removeById()`](../Collection.removeById/)
 * [`removeAt()`](../Collection.removeAt/)
 * [`removeAll()`](../Collection.removeAll/)
 * [`removeRange()`](../Collection.removeRange/)

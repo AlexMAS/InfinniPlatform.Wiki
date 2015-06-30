@@ -41,7 +41,7 @@ collection.removeAll([ 'B', 'D' ]); // [ ]
 
 * [`pop()`](../Collection.pop/)
 * [`remove()`](../Collection.remove/)
-* [`removeId()`](../Collection.removeId/)
+* [`removeById()`](../Collection.removeById/)
 * [`removeAt()`](../Collection.removeAt/)
 * [`removeRange()`](../Collection.removeRange/)
 * [`removeEvery()`](../Collection.removeEvery/)

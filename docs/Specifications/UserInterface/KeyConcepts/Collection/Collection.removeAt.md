@@ -42,7 +42,7 @@ collection.removeAt(0); // [ ]
 
 * [`pop()`](../Collection.pop/)
 * [`remove()`](../Collection.remove/)
-* [`removeId()`](../Collection.removeId/)
+* [`removeById()`](../Collection.removeById/)
 * [`removeAll()`](../Collection.removeAll/)
 * [`removeRange()`](../Collection.removeRange/)
 * [`removeEvery()`](../Collection.removeEvery/)

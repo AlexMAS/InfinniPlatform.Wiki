@@ -9,7 +9,7 @@ position: 102
 # Description
 
 Успешное выполнение методов [`pop()`](../Collection.pop/), [`remove()`](../Collection.remove/),
-[`removeId()`](../Collection.removeId/), [`removeAt()`](../Collection.removeAt/),
+[`removeById()`](../Collection.removeById/), [`removeAt()`](../Collection.removeAt/),
 [`removeAll()`](../Collection.removeAll/), [`removeRange()`](../Collection.removeRange/),
 [`removeEvery()`](../Collection.removeEvery/) и [`clear()`](../Collection.clear/)
 приводит к возникновению события [`onRemove`](../Collection.onRemove/). Вместе с этим событием
@@ -48,7 +48,7 @@ collection.remove('A');
 
 * [`pop()`](../Collection.pop/)
 * [`remove()`](../Collection.remove/)
-* [`removeId()`](../Collection.removeId/)
+* [`removeById()`](../Collection.removeById/)
 * [`removeAt()`](../Collection.removeAt/)
 * [`removeAll()`](../Collection.removeAll/)
 * [`removeRange()`](../Collection.removeRange/)

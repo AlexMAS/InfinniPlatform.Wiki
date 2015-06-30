@@ -51,7 +51,7 @@ collection.removeEvery(function(item, index, collection) {
 
 * [`pop()`](../Collection.pop/)
 * [`remove()`](../Collection.remove/)
-* [`removeId()`](../Collection.removeId/)
+* [`removeById()`](../Collection.removeById/)
 * [`removeAt()`](../Collection.removeAt/)
 * [`removeAll()`](../Collection.removeAll/)
 * [`removeRange()`](../Collection.removeRange/)

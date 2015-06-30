@@ -34,7 +34,7 @@ collection.clear(); // [ ]
 
 * [`pop()`](../Collection.pop/)
 * [`remove()`](../Collection.remove/)
-* [`removeId()`](../Collection.removeId/)
+* [`removeById()`](../Collection.removeById/)
 * [`removeAt()`](../Collection.removeAt/)
 * [`removeAll()`](../Collection.removeAll/)
 * [`removeRange()`](../Collection.removeRange/)

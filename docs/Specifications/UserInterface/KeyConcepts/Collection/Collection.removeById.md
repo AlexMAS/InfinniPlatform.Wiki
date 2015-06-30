@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Collection.removeId()"
+title: "Collection.removeById()"
 position: 21
 ---
 
@@ -8,7 +8,7 @@ position: 21
 
 # Description
 
-Метод [`removeId()`](../Collection.removeId/) удаляет элемент с указанным идентификатором из коллекции.
+Метод [`removeById()`](../Collection.removeById/) удаляет элемент с указанным идентификатором из коллекции.
 Успешное выполнение данного метода приводит к возникновению события [`onRemove`](../Collection.onRemove/).
 Вместе с этим событием также генерируется событие [`onChange`](../Collection.onChange/), которое
 информирует о наличии любых изменений. Аргументы обеих событий в данном случае будут идентичны.
@@ -16,7 +16,7 @@ position: 21
 # Syntax
 
 ```js
-Collection.removeId(id)
+Collection.removeById(id)
 ```
 
 ## Parameters
@@ -38,9 +38,9 @@ var collection = new Collection([
   { key: 3, value: 'C' }
 ], 'key');
 
-collection.removeId(2);
-collection.removeId(1);
-collection.removeId(3);
+collection.removeById(2);
+collection.removeById(1);
+collection.removeById(3);
 ```
 
 # See Also
