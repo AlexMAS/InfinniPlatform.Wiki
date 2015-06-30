@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ViewPanel"
-position: 5
+position: 1005
 ---
 
 Контейнер для встраивания представления.

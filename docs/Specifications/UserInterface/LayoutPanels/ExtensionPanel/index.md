@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ExtensionPanel"
-position: 6
+position: 1006
 ---
 
 Контейнер для встраивания внешнего компонента.

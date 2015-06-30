@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Panel"
-position: 0
+position: 1000
 ---
 
 Контейнер в виде прямоугольной области.
@@ -81,3 +81,7 @@ new Panel([parent])
 ## [`onCollapsed`](Panel.onCollapsed/)
 
 Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что панель была свернута.
+
+# See Also
+
+* [`Container`](../../KeyConcepts/Container/)

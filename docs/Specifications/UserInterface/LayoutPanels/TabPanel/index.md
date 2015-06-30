@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TabPanel"
-position: 1
+position: 1001
 ---
 
 Контейнер в виде набора закладок.
@@ -68,3 +68,8 @@ new TabPanel([parent])
 ## [`onSelectedItemChanged`](TabPanel.onSelectedItemChanged/)
 
 Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что выделенный элемент изменился.
+
+# See Also
+
+* [`TabPage`](TabPage/)
+* [`Container`](../../KeyConcepts/Container/)

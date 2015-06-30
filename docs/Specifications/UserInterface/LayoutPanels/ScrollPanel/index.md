@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ScrollPanel"
-position: 4
+position: 1004
 ---
 
 Контейнер в виде прокручиваемой области.
