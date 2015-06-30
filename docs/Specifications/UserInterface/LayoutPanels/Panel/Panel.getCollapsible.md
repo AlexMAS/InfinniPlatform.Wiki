@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Panel.getCollapsible()"
-position: 3
+position: 10
 ---
 
 Возвращает значение, определяющее, свернута ли панель.

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TabPanel.getSelectedItem()"
-position: 18
+position: 16
 ---
 
 Возвращает выделенный дочерний элемент панели.

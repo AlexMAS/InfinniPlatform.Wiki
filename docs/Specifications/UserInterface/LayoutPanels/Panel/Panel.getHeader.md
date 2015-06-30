@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Panel.getHeader()"
-position: 13
+position: 16
 ---
 
 Возвращает заголовок панели.

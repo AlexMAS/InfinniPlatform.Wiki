@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TabPage.setIcon()"
-position: 13
+position: 11
 ---
 
 Устанавливает изображение заголовка страницы.

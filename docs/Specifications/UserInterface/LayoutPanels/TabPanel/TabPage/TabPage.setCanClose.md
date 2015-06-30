@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TabPage.setCanClose()"
-position: 15
+position: 13
 ---
 
 Устанавливает значение, определяющее, разрешено ли закрытие страницы.

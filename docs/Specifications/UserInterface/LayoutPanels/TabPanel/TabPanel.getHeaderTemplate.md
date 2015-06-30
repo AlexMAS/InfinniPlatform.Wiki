@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TabPanel.getHeaderTemplate()"
-position: 5
+position: 14
 ---
 
 Возвращает [функцию](../../../KeyConcepts/Script/) шаблонизации закладок дочерних элементов панели.

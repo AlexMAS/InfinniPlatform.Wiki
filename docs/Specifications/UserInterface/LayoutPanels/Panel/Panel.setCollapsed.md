@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Panel.setCollapsed()"
-position: 6
+position: 13
 ---
 
 Устанавливает значение, определяющее, свернута ли панель.

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "View.getDialogResult()"
-position: 19
+position: 16
 ---
 
 Возвращает [результат работы представления](../DialogResult/).

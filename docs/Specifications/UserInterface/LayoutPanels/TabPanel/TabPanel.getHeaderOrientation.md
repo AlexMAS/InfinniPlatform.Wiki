@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TabPanel.getHeaderOrientation()"
-position: 3
+position: 12
 ---
 
 Возвращает [ориентацию закладок](../TabHeaderOrientation/).

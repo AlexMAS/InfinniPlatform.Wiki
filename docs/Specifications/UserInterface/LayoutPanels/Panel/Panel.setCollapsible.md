@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Panel.setCollapsible()"
-position: 4
+position: 11
 ---
 
 Устанавливает значение, определяющее, разрешено ли сворачивание панели.

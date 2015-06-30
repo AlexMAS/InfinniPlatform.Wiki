@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Logger"
-position: 7
+position: 1008
 ---
 
 Сервис регистрации сообщений.

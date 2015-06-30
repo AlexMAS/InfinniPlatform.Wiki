@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Panel.getHeaderTemplate()"
-position: 11
+position: 14
 ---
 
 Возвращает [функцию](../../../KeyConcepts/Script/) шаблонизации заголовка панели.

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TabPanel.getHeaderLocation()"
-position: 1
+position: 10
 ---
 
 Возвращает [расположение закладок](../TabHeaderLocation/).

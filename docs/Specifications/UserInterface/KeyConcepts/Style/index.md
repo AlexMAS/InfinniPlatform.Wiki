@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Style"
-position: 12
+position: 1013
 tags: [ style, color, text ]
 ---
 

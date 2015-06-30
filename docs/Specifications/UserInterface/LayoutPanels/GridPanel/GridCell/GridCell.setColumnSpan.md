@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "GridCell.setColumnSpan()"
-position: 13
+position: 11
 ---
 
 Возвращает размер ячейки в колонках.

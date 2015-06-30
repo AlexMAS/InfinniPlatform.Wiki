@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TabPanel.setHeaderLocation()"
-position: 2
+position: 11
 ---
 
 Устанавливает [расположение закладок](../TabHeaderLocation/).

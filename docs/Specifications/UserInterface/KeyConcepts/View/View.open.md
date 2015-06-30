@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "View.open()"
-position: 21
+position: 18
 ---
 
 Открывает представление.

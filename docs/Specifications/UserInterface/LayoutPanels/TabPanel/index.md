@@ -11,11 +11,11 @@ position: 1
 Панель закладок - контейнер визуальных элементов в виде прямоугольной области с набором закладок,
 которые позволяют переключаться между связанными с ними [страницами](TabPage/). При переключении
 на какую-либо страницу, она занимает все пространство контейнера, перекрывая при этом все остальные
-страницы панели закладок.
+страницы панели.
 
 # Extends
 
-[`Element`](../../KeyConcepts/Element/)
+[`Container`](../../KeyConcepts/Container/)
 
 # Syntax
 
@@ -54,18 +54,6 @@ new TabPanel([parent])
 ## [`setHeaderTemplate()`](TabPanel.setHeaderTemplate/)
 
 Устанавливает [функцию](../../KeyConcepts/Script/) шаблонизации закладок дочерних элементов панели.
-
-## [`getItemTemplate()`](TabPanel.getItemTemplate/)
-
-Возвращает [функцию](../../KeyConcepts/Script/) шаблонизации дочерних элементов панели.
-
-## [`setItemTemplate()`](TabPanel.setItemTemplate/)
-
-Устанавливает [функцию](../../KeyConcepts/Script/) шаблонизации дочерних элементов панели.
-
-## [`getItems()`](TabPanel.getItems/)
-
-Возвращает [коллекцию](../../KeyConcepts/Collection/) дочерних элементов панели.
 
 ## [`getSelectedItem()`](TabPanel.getSelectedItem/)
 

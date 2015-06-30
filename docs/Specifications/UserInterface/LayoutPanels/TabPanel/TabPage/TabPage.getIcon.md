@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TabPage.getIcon()"
-position: 12
+position: 10
 ---
 
 Возвращает изображение заголовка страницы.

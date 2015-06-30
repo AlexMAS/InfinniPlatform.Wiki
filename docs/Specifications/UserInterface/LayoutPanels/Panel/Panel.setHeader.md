@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Panel.setHeader()"
-position: 14
+position: 17
 ---
 
 Устанавливает заголовок панели.

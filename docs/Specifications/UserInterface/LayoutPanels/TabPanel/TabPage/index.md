@@ -10,13 +10,13 @@ position: 1000
 
 Страница панели закладок - контейнер визуальных элементов в виде прямоугольной области, отображаемой
 в рамках [панели закладок](../). Дочерние элементы страницы располагаются внутри контейнера и визуально
-не могут выходить за его пределы. Способ расположения элементов внутри контейнера зависит от их настроек
+не могут выходить за его пределы. Способ расположения элементов внутри страницы зависит от их настроек
 выравнивания - [`Element.getHorizontalAlignment()`](../../../KeyConcepts/Element/Element.getHorizontalAlignment/)
 и [`Element.getVerticalAlignment()`](../../../KeyConcepts/Element/Element.getVerticalAlignment/).
 
 # Extends
 
-[`Element`](../../../KeyConcepts/Element/)
+[`Container`](../../../KeyConcepts/Container/)
 
 # Syntax
 
@@ -51,18 +51,6 @@ new TabPage([parent])
 ## [`close()`](TabPage.close/)
 
 Закрывает страницу.
-
-## [`getItemTemplate()`](TabPage.getItemTemplate/)
-
-Возвращает [функцию](../../../KeyConcepts/Script/) шаблонизации дочерних элементов страницы.
-
-## [`setItemTemplate()`](TabPage.setItemTemplate/)
-
-Устанавливает [функцию](../../../KeyConcepts/Script/) шаблонизации дочерних элементов страницы.
-
-## [`getItems()`](TabPage.getItems/)
-
-Возвращает [коллекцию](../../../KeyConcepts/Collection/) дочерних элементов страницы.
 
 # Events
 

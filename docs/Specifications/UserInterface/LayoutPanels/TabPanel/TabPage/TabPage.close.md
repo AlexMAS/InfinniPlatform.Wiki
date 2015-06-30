@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TabPage.close()"
-position: 16
+position: 14
 ---
 
 Закрывает страницу.

@@ -6,21 +6,27 @@ position: 1000
 
 Ячейка панели [`GridPanel`](../).
 
+# Description
+
+Способ расположения элементов внутри ячейки зависит от их настроек выравнивания -
+[`Element.getHorizontalAlignment()`](../../../KeyConcepts/Element/Element.getHorizontalAlignment/)
+и [`Element.getVerticalAlignment()`](../../../KeyConcepts/Element/Element.getVerticalAlignment/).
+
+# Extends
+
+[`Container`](../../../../KeyConcepts/Container/)
+
 # Syntax
 
 ```js
-new GridCell([columnSpan = 1[, item]])
+new GridCell([parent])
 ```
 
 ## Parameters
 
-`columnSpan`
+`parent`
 
-Необязательный. Размер ячейки в колонках.
-
-`item`
-
-Необязательный. Дочерний элемент ячейки.
+Необязательный. Родительский [элемент](../../../KeyConcepts/Element/).
 
 # Methods
 
@@ -31,14 +37,6 @@ new GridCell([columnSpan = 1[, item]])
 ## [`setColumnSpan()`](GridCell.setColumnSpan/)
 
 Устанавливает размер ячейки в колонках.
-
-## [`getItem()`](GridCell.getItem/)
-
-Возвращает дочерний элемент ячейки.
-
-## [`setItem()`](GridCell.setItem/)
-
-Устанавливает дочерний элемент ячейки.
 
 # See Also
 

@@ -10,13 +10,13 @@ position: 0
 
 Панель - контейнер визуальных элементов в виде прямоугольной области. Дочерние элементы панели
 располагаются внутри контейнера и визуально не могут выходить за его пределы. Способ расположения
-элементов внутри контейнера зависит от их настроек выравнивания -
+элементов внутри панели зависит от их настроек выравнивания -
 [`Element.getHorizontalAlignment()`](../../KeyConcepts/Element/Element.getHorizontalAlignment/)
 и [`Element.getVerticalAlignment()`](../../KeyConcepts/Element/Element.getVerticalAlignment/).
 
 # Extends
 
-[`Element`](../../KeyConcepts/Element/)
+[`Container`](../../KeyConcepts/Container/)
 
 # Syntax
 
@@ -63,18 +63,6 @@ new Panel([parent])
 ## [`setHeader()`](Panel.setHeader/)
 
 Устанавливает заголовок панели.
-
-## [`getItemTemplate()`](Panel.getItemTemplate/)
-
-Возвращает [функцию](../../KeyConcepts/Script/) шаблонизации дочерних элементов панели.
-
-## [`setItemTemplate()`](Panel.setItemTemplate/)
-
-Устанавливает [функцию](../../KeyConcepts/Script/) шаблонизации дочерних элементов панели.
-
-## [`getItems()`](Panel.getItems/)
-
-Возвращает [коллекцию](../../KeyConcepts/Collection/) дочерних элементов панели.
 
 # Events
 
