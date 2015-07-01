@@ -4,7 +4,7 @@ title: "TabPanel.metadata"
 position: 0
 ---
 
-Метаданные [контейнера в виде набора закладок](../).
+Метаданные типа [`TabPanel`](../).
 
 # Schema
 
@@ -16,24 +16,28 @@ position: 0
 {
   "Items": [
     {
-      "Text": "Page1",
-      "Items": [
-        {
-          "Label": {
-            "Value": "Content of Page1"
+      "TabPage": {
+        "Text": "Header of Page1",
+        "Items": [
+          {
+            "Label": {
+              "Value": "Content of Page1"
+            }
           }
-        }
-      ]
+        ]
+      }
     },
     {
-      "Text": "Page2",
-      "Items": [
-        {
-          "Label": {
-            "Value": "Content of Page2"
+      "TabPage": {
+        "Text": "Header of Page2",
+        "Items": [
+          {
+            "Label": {
+              "Value": "Content of Page2"
+            }
           }
-        }
-      ]
+        ]
+      }
     }
   ]
 }

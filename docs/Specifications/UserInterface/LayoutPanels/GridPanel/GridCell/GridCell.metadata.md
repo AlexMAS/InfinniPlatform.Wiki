@@ -15,10 +15,12 @@ position: 0
 ```json
 {
   "ColumnSpan": 2,
-  "Item": {
-    "Label": {
-      "Value": "Cell text"
+  "Items": [
+    {
+      "Label": {
+        "Value": "Cell text"
+      }
     }
-  }
+  ]
 }
 ```
