@@ -4,8 +4,32 @@ title: "ScrollPanel.metadata"
 position: 0
 ---
 
-Метаданные [контейнера в виде прокручиваемой области](../).
+Метаданные типа [`ScrollPanel`](../).
 
 # Schema
 
 {% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/LayoutPanel/ScrollPanel/ScrollPanel.resjson" lang="json" %}
+
+# Examples
+
+```json
+{
+  "Items": [
+    {
+      "Label": {
+        "Value": "One"
+      }
+    },
+    {
+      "Label": {
+        "Value": "Two"
+      }
+    },
+    {
+      "Label": {
+        "Value": "Three"
+      }
+    }
+  ]
+}
+```

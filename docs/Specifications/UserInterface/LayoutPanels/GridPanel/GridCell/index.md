@@ -41,3 +41,4 @@ new GridCell([parent])
 # See Also
 
 * [`GridPanel`](../)
+* [`Container`](../../../../KeyConcepts/Container/)

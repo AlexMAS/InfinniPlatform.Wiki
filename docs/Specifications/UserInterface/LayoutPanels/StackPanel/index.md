@@ -66,3 +66,8 @@ new StackPanel([parent])
 ## [`setOrientation()`](StackPanel.setOrientation/)
 
 Устанавливает [ориентацию стека элементов](StackPanelOrientation/).
+
+# See Also
+
+* [`StackPanelOrientation`](StackPanelOrientation/)
+* [`Container`](../../KeyConcepts/Container/)
