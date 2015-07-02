@@ -8,9 +8,9 @@ position: 1003
 
 # Description
 
-Стек - контейнер визуальных элементов, который позволяет располагать дочерние элементы друг за
-другом, в порядке их следования по [горизонтали или вертикали](StackPanelOrientation/). Размеры
-стека и его дочерних элементов во многом зависит от настроек выравнивания элементов -
+Стек - [контейнер визуальных элементов](../../KeyConcepts/Container/), который позволяет располагать
+дочерние элементы друг за другом, в порядке их следования по [горизонтали или вертикали](StackPanelOrientation/).
+Размеры стека и его дочерних элементов во многом зависит от настроек выравнивания элементов -
 [`Element.getHorizontalAlignment()`](../../KeyConcepts/Element/Element.getHorizontalAlignment/)
 и [`Element.getVerticalAlignment()`](../../KeyConcepts/Element/Element.getVerticalAlignment/).
 
