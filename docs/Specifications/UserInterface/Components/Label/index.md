@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Label"
-position: 4
+position: 1007
 ---
 
 Текстовая метка.

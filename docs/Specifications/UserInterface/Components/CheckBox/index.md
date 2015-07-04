@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "CheckBox"
-position: 4
+position: 1008
 ---
 
 Переключатель в виде флажка.

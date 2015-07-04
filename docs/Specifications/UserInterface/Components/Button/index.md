@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Button"
-position: 4
+position: 1003
 ---
 
 Кнопка.

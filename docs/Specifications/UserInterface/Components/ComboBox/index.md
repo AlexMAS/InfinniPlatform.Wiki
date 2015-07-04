@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ComboBox"
-position: 4
+position: 1015
 ---
 
 Выпадающий список.

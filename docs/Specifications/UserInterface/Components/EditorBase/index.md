@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "EditorBase"
-position: 4
+position: 1000
 ---
 
 Интерфейс редакторов значений.
