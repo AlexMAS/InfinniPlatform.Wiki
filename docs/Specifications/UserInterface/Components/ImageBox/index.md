@@ -25,5 +25,13 @@ new ImageBox([parent])
 # Methods
 
 ## [`getMaxSize()`](ImageBox.getMaxSize/)
+
+Возвращает максимальный размер данных в байтах.
+
 ## [`setMaxSize()`](ImageBox.setMaxSize/)
+
+Устанавливает максимальный размер данных в байтах.
+
 ## [`getAcceptTypes()`](ImageBox.getAcceptTypes/)
+
+Возвращает [коллекцию](../../KeyConcepts/Collection/) допустимых форматов данных.

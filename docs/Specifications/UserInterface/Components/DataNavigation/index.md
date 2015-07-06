@@ -25,5 +25,13 @@ new DataNavigation([parent])
 # Methods
 
 ## [`getDataSource()`](DataNavigation.getDataSource/)
+
+Возвращает [источник данных](../../DataSources/BaseDataSource/).
+
 ## [`setDataSource()`](DataNavigation.setDataSource/)
+
+Устанавливает [источник данных](../../DataSources/BaseDataSource/).
+
 ## [`getAvailablePageSizes()`](DataNavigation.getAvailablePageSizes/)
+
+Возвращает [коллекцию](../../KeyConcepts/Collection/) доступных размеров страниц.

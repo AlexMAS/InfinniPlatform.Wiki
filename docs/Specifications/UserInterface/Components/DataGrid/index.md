@@ -25,3 +25,5 @@ new DataGrid([parent])
 # Methods
 
 ## [`getColumns()`](DataGrid.getColumns/)
+
+Возвращает [коллекцию](../../KeyConcepts/Collection/) колонок таблицы.

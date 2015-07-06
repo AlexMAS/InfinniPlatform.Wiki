@@ -25,5 +25,13 @@ new FileBox([parent])
 # Methods
 
 ## [`getMaxSize()`](FileBox.getMaxSize/)
+
+Возвращает максимальный размер данных в байтах.
+
 ## [`setMaxSize()`](FileBox.setMaxSize/)
+
+Устанавливает максимальный размер данных в байтах.
+
 ## [`getAcceptTypes()`](FileBox.getAcceptTypes/)
+
+Возвращает [коллекцию](../../KeyConcepts/Collection/) допустимых форматов данных.

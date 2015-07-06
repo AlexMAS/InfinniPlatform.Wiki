@@ -25,4 +25,9 @@ new RadioGroup([parent])
 # Methods
 
 ## [`getOrientation()`](RadioGroup.getOrientation/)
+
+Возвращает [ориентацию списка](RadioGroupOrientation/).
+
 ## [`setOrientation()`](RadioGroup.setOrientation/)
+
+Устанавливает [ориентацию списка](RadioGroupOrientation/).

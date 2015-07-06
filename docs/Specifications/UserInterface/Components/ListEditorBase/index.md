@@ -64,6 +64,14 @@ new ListEditorBase([parent])
 
 Устанавливает [функцию сравнения](../../KeyConcepts/Collection/Comparator/) для сортировки групп.
 
+## [`getSelectedItem()`](ListEditorBase.getSelectedItem/)
+
+Возвращает выделенный элемент коллекции.
+
+## [`setSelectedItem()`](ListEditorBase.setSelectedItem/)
+
+Устанавливает выделенный элемент коллекции.
+
 # Events
 
 ## [`onSelectedItemChanged`](ListEditorBase.onSelectedItemChanged/)

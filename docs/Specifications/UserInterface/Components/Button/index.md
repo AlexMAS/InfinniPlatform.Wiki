@@ -25,11 +25,27 @@ new Button([parent])
 # Methods
 
 ## [`getContentTemplate()`](Button.getContentTemplate/)
+
+Возвращает [функцию](../../KeyConcepts/Script/) шаблонизации содержимого кнопки.
+
 ## [`setContentTemplate()`](Button.setContentTemplate/)
+
+Устанавливает [функцию](../../KeyConcepts/Script/) шаблонизации содержимого кнопки.
+
 ## [`getContent()`](Button.getContent/)
+
+Возвращает содержимое кнопки.
+
 ## [`setContent()`](Button.setContent/)
+
+Устанавливает содержимое кнопки.
+
 ## [`click()`](Button.click/)
+
+Осуществляет программный клик по кнопке.
 
 # Events
 
 ## [`onClick`](Button.onClick/)
+
+Устанавливает [обработчик события](../../KeyConcepts/Script/) нажатия на кнопку.

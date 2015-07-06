@@ -25,6 +25,17 @@ new ToggleButton([parent])
 # Methods
 
 ## [`getTextOn()`](ToggleButton.getTextOn/)
+
+Возвращает текст на включенное состояние.
+
 ## [`setTextOn()`](ToggleButton.setTextOn/)
+
+Устанавливает текст на включенное состояние.
+
 ## [`getTextOff()`](ToggleButton.getTextOff/)
+
+Возвращает текст на выключенное состояние.
+
 ## [`setTextOff()`](ToggleButton.setTextOff/)
+
+Устанавливает текст на выключенное состояние.

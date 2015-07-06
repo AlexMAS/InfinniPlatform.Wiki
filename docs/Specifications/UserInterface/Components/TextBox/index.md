@@ -25,6 +25,17 @@ new TextBox([parent])
 # Methods
 
 ## [`getMultiline()`](TextBox.getMultiline/)
+
+Возвращает значение, определяющее, разрешен ли многострочный текст.
+
 ## [`setMultiline()`](TextBox.setMultiline/)
+
+Устанавливает значение, определяющее, разрешен ли многострочный текст.
+
 ## [`getLineCount()`](TextBox.getLineCount/)
+
+Возвращает максимально видимое количество строк.
+
 ## [`setLineCount()`](TextBox.setLineCount/)
+
+Устанавливает максимально видимое количество строк.
