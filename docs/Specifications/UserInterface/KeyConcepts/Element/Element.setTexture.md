@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.setTexture()"
-position: 36
+position: 40
 ---
 
 Устанавливает текстуру элемента.

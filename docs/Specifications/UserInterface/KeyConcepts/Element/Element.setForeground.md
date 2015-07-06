@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.setForeground()"
-position: 32
+position: 36
 ---
 
 Устанавливает [цвет](../../Style/ColorStyle/) текста элемента.

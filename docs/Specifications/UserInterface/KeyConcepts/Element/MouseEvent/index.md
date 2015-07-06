@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "MouseEvent"
-position: 1002
+position: 1004
 ---
 
 Событие от мыши.

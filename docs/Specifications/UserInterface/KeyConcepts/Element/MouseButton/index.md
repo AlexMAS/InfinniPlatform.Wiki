@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "MouseButton"
-position: 1003
+position: 1005
 ---
 
 Кнопка мыши.

@@ -4,7 +4,7 @@ title: "Element.getHorizontalAlignment()"
 position: 25
 ---
 
-Возвращает [горизонтальное выравнивание в родительском элементе](../ElementHorizontalAlignment/).
+Возвращает [горизонтальное выравнивание](../ElementHorizontalAlignment/) в родительском элементе.
 
 # Syntax
 
@@ -14,7 +14,7 @@ Element.getHorizontalAlignment()
 
 ## Returns
 
-[Горизонтальное выравнивание в родительском элементе](../ElementHorizontalAlignment/).
+[Горизонтальное выравнивание](../ElementHorizontalAlignment/) в родительском элементе.
 
 # Examples
 

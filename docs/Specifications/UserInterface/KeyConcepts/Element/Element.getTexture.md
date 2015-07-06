@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.getTexture()"
-position: 35
+position: 39
 ---
 
 Возвращает текстуру элемента.

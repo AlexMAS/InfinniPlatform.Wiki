@@ -97,19 +97,35 @@ new Element([parent])
 
 ## [`getHorizontalAlignment()`](Element.getHorizontalAlignment/)
 
-Возвращает [горизонтальное выравнивание в родительском элементе](ElementHorizontalAlignment/).
+Возвращает [горизонтальное выравнивание](ElementHorizontalAlignment/) в родительском элементе.
 
 ## [`setHorizontalAlignment()`](Element.setHorizontalAlignment/)
 
-Устанавливает [горизонтальное выравнивание в родительском элементе](ElementHorizontalAlignment/).
+Устанавливает [горизонтальное выравнивание](ElementHorizontalAlignment/) в родительском элементе.
 
 ## [`getVerticalAlignment()`](Element.getVerticalAlignment/)
 
-Возвращает [вертикальное выравнивание в родительском элементе](ElementVerticalAlignment/).
+Возвращает [вертикальное выравнивание](ElementVerticalAlignment/) в родительском элементе.
 
 ## [`setVerticalAlignment()`](Element.setVerticalAlignment/)
 
-Устанавливает [вертикальное выравнивание в родительском элементе](ElementVerticalAlignment/).
+Устанавливает [вертикальное выравнивание](ElementVerticalAlignment/) в родительском элементе.
+
+## [`getTextHorizontalAlignment()`](Element.getTextHorizontalAlignment/)
+
+Возвращает [горизонтальное выравнивание текста](TextHorizontalAlignment/) в элементе.
+
+## [`setTextHorizontalAlignment()`](Element.setTextHorizontalAlignment/)
+
+Устанавливает [горизонтальное выравнивание текста](TextHorizontalAlignment/) в элементе.
+
+## [`getTextVerticalAlignment()`](Element.getTextVerticalAlignment/)
+
+Возвращает [вертикальное выравнивание текста](TextVerticalAlignment/) в элементе.
+
+## [`setTextVerticalAlignment()`](Element.setTextVerticalAlignment/)
+
+Устанавливает [вертикальное выравнивание текста](TextVerticalAlignment/) в элементе.
 
 ## [`getTextStyle()`](Element.getTextStyle/)
 

@@ -4,7 +4,7 @@ title: "Element.setHorizontalAlignment()"
 position: 26
 ---
 
-Устанавливает [горизонтальное выравнивание в родительском элементе](../ElementHorizontalAlignment/).
+Устанавливает [горизонтальное выравнивание](../ElementHorizontalAlignment/) в родительском элементе.
 
 # Syntax
 
@@ -16,7 +16,7 @@ Element.setHorizontalAlignment(value)
 
 `value`
 
-[Горизонтальное выравнивание в родительском элементе](../ElementHorizontalAlignment/).
+[Горизонтальное выравнивание](../ElementHorizontalAlignment/) в родительском элементе.
 
 # Examples
 

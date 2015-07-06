@@ -4,7 +4,7 @@ title: "Element.setVerticalAlignment()"
 position: 28
 ---
 
-Возвращает [вертикальное выравнивание в родительском элементе](../ElementVerticalAlignment/).
+Устанавливает [вертикальное выравнивание](../ElementVerticalAlignment/) в родительском элементе.
 
 # Syntax
 
@@ -16,7 +16,7 @@ Element.setVerticalAlignment(value)
 
 `value`
 
-[Вертикальное выравнивание в родительском элементе](../ElementVerticalAlignment/).
+[Вертикальное выравнивание](../ElementVerticalAlignment/) в родительском элементе.
 
 # Examples
 

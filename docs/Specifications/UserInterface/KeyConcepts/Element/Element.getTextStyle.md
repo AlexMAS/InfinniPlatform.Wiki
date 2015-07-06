@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.getTextStyle()"
-position: 29
+position: 33
 ---
 
 Возвращает [стиль текста](../../Style/TextStyle/) элемента.
