@@ -10,10 +10,10 @@ position: 1001
 
 ```js
 ElementVerticalAlignment = {
-  top: 0,
-  center: 1,
-  bottom: 2,
-  stretch: 3
+  top: 'Top',
+  center: 'Center',
+  bottom: 'Bottom',
+  stretch: 'Stretch'
 }
 ```
 

@@ -10,10 +10,10 @@ position: 1000
 
 ```js
 ElementHorizontalAlignment = {
-  left: 0,
-  center: 1,
-  right: 2,
-  stretch: 3
+  left: 'Left',
+  center: 'Center',
+  right: 'Right',
+  stretch: 'Stretch'
 }
 ```
 
