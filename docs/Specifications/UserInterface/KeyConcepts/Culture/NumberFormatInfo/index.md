@@ -283,3 +283,9 @@ position: 101
 // en-US:
 "NaN"
 ```
+
+# Methods
+
+## [`format()`](NumberFormatInfo.format/)
+
+Осуществляет форматирование числового значения по указанному [шаблону](NumberFormatting/).

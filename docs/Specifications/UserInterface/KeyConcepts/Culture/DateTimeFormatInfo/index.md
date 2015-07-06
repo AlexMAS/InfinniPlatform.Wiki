@@ -210,3 +210,9 @@ DayOfWeek.monday
 // en-US:
 DayOfWeek.sunday
 ```
+
+# Methods
+
+## [`format()`](DateTimeFormatInfo.format/)
+
+Осуществляет форматирование даты и времени по указанному [шаблону](DateTimeFormating/).
