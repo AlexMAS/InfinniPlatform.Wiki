@@ -10,9 +10,9 @@ position: 1000
 
 ```js
 BindingMode = {
-  twoWay: 0,
-  toSource: 1,
-  toElement: 2
+  twoWay: 'TwoWay',
+  toSource: 'ToSource',
+  toElement: 'ToElement'
 }
 ```
 
