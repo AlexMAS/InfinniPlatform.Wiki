@@ -21,7 +21,7 @@ public dynamic InsertService(dynamic serviceMetadata, string version, string con
 
 ```csharp
 dynamic serviceMetadata = api.CreateService("1.0.0.0,"TestConfig1","TestDocument1");
-serviceMetadata.Name = "TestProcess1";
+serviceMetadata.Name = "TestService1";
 
 api.InsertService(serviceMetadata);
 ```
