@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "GetView"
+title: "GetPrintView"
 position: 1
 categories: 
 tags:
@@ -11,7 +11,7 @@ tags:
 
 ## Syntax
 ```csharp
-public dynamic GetView(string version, string configuration, string document, string view)
+public dynamic GetPrintView(string version, string configuration, string document, string printView)
 ```
 
 ### Parameters
@@ -24,9 +24,9 @@ public dynamic GetView(string version, string configuration, string document, st
 
 Наименование объекта конфигурации
 
-`view`
+`printView`
 
-Наименование представления
+Наименование печатного представления
 
 ## Example
 
@@ -34,21 +34,18 @@ public dynamic GetView(string version, string configuration, string document, st
 Пример запроса метаданных:
 
 ```csharp
-dynamic view = GetView("2.0.0.0","TestConfig1","TestDocument1","TestView1");
+dynamic printView = GetPrintView("2.0.0.0","TestConfig1","TestDocument1","PrintView1");
 ```
 
 Пример результата запроса:
 
 ```js
 {
-  "Id": "2f95b47f-e582-49a0-ba8e-61eabe52cbf5",
-  "Name": "View1",
-  "DataSources": [],
-  "ChildViews": [],
-  "Scripts": [],
-  "ParentId": "4c42274d-fbd1-41c2-b154-5f3e56bd1462",
+  "Id": "fc23beac-78eb-48d1-932b-b48c7b64aee9",
+  "Name": "PrintView1",
+  "ParentId": "833304d9-3eec-41b5-8179-b6608b3daef0",
   "Version": "2.0.0.0",
   "__ConfigId": "systemconfig",
-  "__DocumentId": "viewmetadata"
+  "__DocumentId": "printviewmetadata"
 }
 ```

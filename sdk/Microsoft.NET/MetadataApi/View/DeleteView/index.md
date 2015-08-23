@@ -20,7 +20,7 @@ public dynamic DeleteView(string version, string configuration, string document,
 Пример запроса метаданных:
 
 ```csharp
-api.DeleteService("TestView1");
+api.DeleteView("TestView1");
 ```
 
 При успешном выполнении запроса возвращается статус 200 ОК
