@@ -6,23 +6,35 @@ categories:
 tags:
 ---
 
+## Method 
+
+GET
+
 ## Description
-Предоставляет возможность чтения списка существующих в конфигурации сервисов.
+Предоставляет возможность чтения списка заголовков существующих в конфигурации сервисов.
 
 ## Syntax
-```csharp
-public dynamic GetServiceList(string version, string configuration)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/Service/List
 ```
 
 ### Parameters
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 `version`
 
 Семантическая версия конфигурации (например, "1.0.0.0").
 
-`configuration`
+`configName`
 
-Наименование конфигурации, для которой требуется получить список сервисов
+Наименование объекта конфигурации
+
+`documentName`
+
+Наименование документа, к которому относится сервис
 
 
 ## Example
@@ -30,21 +42,18 @@ public dynamic GetServiceList(string version, string configuration)
 
 Пример запроса метаданных:
 
-```csharp
-dynamic serviceList = GetServiceList("2.0.0.0","TestConfig1");
+```js
+GET http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/Service/List
 ```
 
 Пример результата запроса:
 
 ```js
 [
-	{
-	  "Id": "7442c7e6-826f-4b84-907a-28fd9e8e937b",
-	  "Version": "2.0.0.0",
-	  "Name": "TestService1",
-	},
-	{
-		...
-	}
+  {
+    "Id": "dd9d0b63-e874-44e4-b19a-c8d7ad7508c5",
+    "Name": "Service1_v1",
+    "Caption": ""
+  }
 ]
 ```

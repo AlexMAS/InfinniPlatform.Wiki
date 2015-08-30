@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "DeleteScenario"
+title: "DeleteProcess"
 position: 5
 categories: 
 tags:

@@ -6,25 +6,37 @@ categories:
 tags:
 ---
 
+## Method
+
+GET
+
 ## Description
 Предоставляет возможность чтения существующего сервиса из хранилища.
 
 ## Syntax
-```csharp
-public dynamic GetService(string version, string configuration, string document, string service)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/Service/<ServiceName>
 ```
 
 ### Parameters
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 `version`
 
 Семантическая версия конфигурации (например, "1.0.0.0").
 
-`configuration`
+`configName`
 
 Наименование объекта конфигурации
 
-`service`
+`documentName`
+
+Наименование документа, к которому относится сервис
+
+`ServiceName`
 
 Наименование сервиса
 
@@ -33,20 +45,22 @@ public dynamic GetService(string version, string configuration, string document,
 
 Пример запроса метаданных:
 
-```csharp
-dynamic service = GetService("2.0.0.0","TestConfig1","TestDocument1","TestService1");
+```js
+GET http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/Service/Service1
 ```
 
 Пример результата запроса:
 
 ```js
+
 {
-  "Id": "1d21b628-a4a1-4857-9383-7f7b0b29145c",
+  "Id": "dd9d0b63-e874-44e4-b19a-c8d7ad7508c5",
+  "Secured": true,
   "Version": "2.0.0.0",
-  "Name": "TestService1",
+  "Name": "Service1",
   "Caption": "",
   "Description": "",
-  "ParentId": "4a1ecc15-dbfa-44d2-8760-d938049c9ef8",
+  "ParentId": "842815a4-523a-4781-a0fd-697abd959997",
   "__ConfigId": "systemconfig",
   "__DocumentId": "servicemetadata"
 }

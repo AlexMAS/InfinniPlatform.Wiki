@@ -6,35 +6,42 @@ categories:
 tags:
 ---
 
+## Method
+POST
+
 ## Description
-Предоставляет возможность создания шаблона нового пользовательского сервиса конфигурации.
+Предоставляет возможность создания шаблона нового сервиса конфигурации.
 ПОлученный шаблон будет инциализирован значениями по умолчанию для всех обязательных полей
 
 ## Syntax
-```csharp
-public dynamic CreateService(string version, string configuration, string document)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/Service
 ```
 
 ### Parameters
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 `version`
 
 Семантическая версия конфигурации (например, "1.0.0.0").
 
-`configuration`
+`configName`
 
 Наименование объекта конфигурации
 
-`document`
+`documentName`
 
-Наименование документа, к которому относится пользовательский сервис
+Наименование документа, к которому относится сервис
 
 ## Example
 
 Пример запроса метаданных:
 
-```csharp
-dynamic process = api.CreateService("1.0.0.0","TestConfig1","TestDocument1");
+```js
+POST http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/Service
 ```
 
 Результат выполнения запроса:
