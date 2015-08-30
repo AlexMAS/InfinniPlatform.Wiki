@@ -6,23 +6,45 @@ categories:
 tags:
 ---
 
+## Method
+
+GET
+
 ## Description
 Предоставляет возможность получения списка всех существующих экземпляров конфигурации 
 метаданных из хранилища.
 
 
 ## Syntax
-```csharp
-public void GetConfigList();
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/configuration
 ```
 
 ## Example
 
 Пример запроса метаданных:
 
-```csharp
-dynamic configList = api.GetConfigList();
+```js
+GET http://localhost:9900/1/metadata/configuration 
 ```
+
+### Parameters
+
+`serverScheme`
+
+Серверный протокол (HTTP/HTTPS).
+
+`serverName`
+
+Наименование сервера (например: localhost, 'demo.somedomain.ru').
+
+`serverPort`
+
+Порт сервера.
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 Результат выполнения запроса:
 
@@ -30,9 +52,9 @@ dynamic configList = api.GetConfigList();
 [
 	{
 	  "Id": "5011f3a7-2fa6-4c00-9fd1-96c9b14d2698",
-	  "Name": "NewConfig,
-	  "Caption": "NewConfig",
-	  "Description": "NewConfig",
+	  "Name": "TestConfigVersion,
+	  "Caption": "TestConfigVersion",
+	  "Description": "TestConfigVersion",
 	  "Version": "1.0.0.0",
 	  "Menu": [],
 	  "Documents": [
@@ -44,7 +66,7 @@ dynamic configList = api.GetConfigList();
 		},
 		{
 		  "Id": "48f15683-ad44-4691-bbd9-4c42279a13ab",
-		  "Name": "TestConfigVersion_bee5b0c8-f001-44a1-8043-fd2f0cf629c6_Registers",
+		  "Name": "TestConfigVersion_Registers",
 		  "Caption": "Registers common options",
 		  "Description": "Storage for register's common information (e.g. actual date)"
 		}

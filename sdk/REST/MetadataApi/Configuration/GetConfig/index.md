@@ -6,20 +6,36 @@ categories:
 tags:
 ---
 
+##Method
+
+GET
+
 ## Description
 Предоставляет возможность получения существующего экземпляра конфигурации метаданных из хранилища.
 
 
 ## Syntax
 ```csharp
-public void GetConfig(string version, string configName);
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/configuration/<version>/<configName>
 ```
 
 ### Parameters
 
-`version`
+`serverScheme`
 
-Семантическая версия конфигурации (например, "1.0.0.0").
+Серверный протокол (HTTP/HTTPS).
+
+`serverName`
+
+Наименование сервера (например: localhost, 'demo.somedomain.ru').
+
+`serverPort`
+
+Порт сервера.
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 `configName`
 
@@ -30,29 +46,29 @@ public void GetConfig(string version, string configName);
 Пример запроса документов:
 
 ```csharp
-dynamic config = api.GetConfig("1.0.0.0","NewConfig");
+GET http://localhost:9900/1/metadata/configuration/2.0.0.0/TestConfigVersion 
 ```
 
 Результат выполнения запроса:
 
 ```js
 {
-  "Id": "5011f3a7-2fa6-4c00-9fd1-96c9b14d2698",
-  "Name": "NewConfig",
+  "Id": "9a5e2aa4-bf9f-48f4-a166-dd96b2f6eafc",
+  "Name": "TestConfigVersion",
   "Caption": "NewConfig",
   "Description": "NewConfig",
-  "Version": "1.0.0.0",
+  "Version": "2.0.0.0",
   "Menu": [],
   "Documents": [
     {
-      "Id": "94894e62-019d-4426-bb9e-56e8f9dd7518",
+      "Id": "a03bf2ba-3209-485c-8a0f-e98f7e949f7e",
       "Name": "Common",
       "Caption": "Common options",
       "Description": "Common options"
     },
     {
-      "Id": "48f15683-ad44-4691-bbd9-4c42279a13ab",
-      "Name": "TestConfigVersion_bee5b0c8-f001-44a1-8043-fd2f0cf629c6_Registers",
+      "Id": "ba432572-8cd6-4f10-8928-695d5afd52a5",
+      "Name": "TestConfigVersion_Registers",
       "Caption": "Registers common options",
       "Description": "Storage for register's common information (e.g. actual date)"
     }
