@@ -14,7 +14,7 @@ tags:
 
 # URL
 ```js
-<serverScheme>://<serverName>:<serverPort>/<version>/Administration/Role/<roleName>
+<serverScheme>://<serverName>:<serverPort>/<route>/Administration/Role/<roleName>
 ```
 
 # Verb Type
@@ -35,9 +35,9 @@ DELETE
 
 Порт сервера.
 
-`version`
+`route` 
 
-Версия приложения.
+Указание на роутинг сервера в составе кластера
 
 `roleName`
 

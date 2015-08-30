@@ -16,7 +16,7 @@ tags:
 # URL
 
 ```js
-<serverScheme>://<serverName>:<serverPort>/<version>/Administration/<resourceType>/?filter=<filter>&pageNumber=<pageNumber>&pageSize=<pageSize>&sorting=<sorting>
+<serverScheme>://<serverName>:<serverPort>/<route>/Administration/<resourceType>/?filter=<filter>&pageNumber=<pageNumber>&pageSize=<pageSize>&sorting=<sorting>
 ```
 
 # Verb Type
@@ -37,9 +37,9 @@ GET
 
 Порт сервера.
 
-`version`
+`route` 
 
-Версия приложения.
+Указание на роутинг сервера в составе кластера
 
 `resourceType`
 

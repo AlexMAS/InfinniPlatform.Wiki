@@ -12,7 +12,7 @@ tags:
 # URL
 
 ```js
-<serverScheme>://<serverName>:<serverPort>/<version>/SignOut
+<serverScheme>://<serverName>:<serverPort>/<route>/<application>/<documentType>/<service>
 ```
 
 # Verb Type
@@ -34,9 +34,21 @@ POST
 
 Порт сервера.
 
-`version`
+`route` 
 
-Версия приложения.
+Указание на роутинг сервера в составе кластера
+
+`application`
+
+Наименование конфигурации (приложения), в которой находится пользовательский сервис
+
+`documentType`
+Наименование документа конфигурации, в котором объявлен пользовательский сервис
+
+`service`
+
+Наименование пользовательского сервиса
+
 
 # Body
 

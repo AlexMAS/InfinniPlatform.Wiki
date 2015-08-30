@@ -16,7 +16,7 @@ tags:
 
 # URL
 ```js
-<serverScheme>://<serverName>:<serverPort>/<version>/<application>/<documentType>/<documentUid>
+<serverScheme>://<serverName>:<serverPort>/<route>/<application>/<documentType>/<documentUid>
 ```
 
 # Verb Type
@@ -38,9 +38,9 @@ PUT
 
 Порт сервера.
 
-`version`
+`route` 
 
-Версия приложения.
+Указание на роутинг сервера в составе кластера
 
 `application`
 

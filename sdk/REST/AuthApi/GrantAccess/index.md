@@ -24,7 +24,7 @@ tags:
 # URL
 
 ```js
-<serverScheme>://<serverName>:<serverPort>/<version>/Administration/User/GrantAccess
+<serverScheme>://<serverName>:<serverPort>/<route>/Administration/User/GrantAccess
 ```
 
 # Verb Type
@@ -45,9 +45,9 @@ POST
 
 Порт сервера.
 
-`version`
+`route` 
 
-Версия приложения.
+Указание на роутинг сервера в составе кластера
 
 # Body
 

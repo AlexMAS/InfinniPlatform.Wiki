@@ -13,7 +13,7 @@ tags:
 
 # URL
 ```js
-<serverScheme>://<serverName>:<serverPort>/<version>/<application>/Files/Download/?Form=<formData>
+<serverScheme>://<serverName>:<serverPort>/<route>/<application>/Files/Download/?Form=<formData>
 ```
 
 # Verb Type
@@ -34,9 +34,9 @@ GET
 
 Порт сервера.
 
-`version`
+`route` 
 
-Версия приложения.
+Указание на роутинг сервера в составе кластера
 
 `application`
 

@@ -24,7 +24,7 @@ tags:
 
 # URL
 ```js
-<serverScheme>://<serverName>:<serverPort>/<version>/
+<serverScheme>://<serverName>:<serverPort>/<route>/
 ```
 
 # Verb Type
@@ -45,10 +45,9 @@ PUT
 
 Порт сервера.
 
-`version`
+`route` 
 
-Версия приложения.
-
+Указание на роутинг сервера в составе кластера
 
 # Example
 

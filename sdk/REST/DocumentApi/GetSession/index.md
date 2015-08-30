@@ -12,7 +12,7 @@ tags:
 
 # URL
 ```js
-<serverScheme>://<serverName>:<serverPort>/<version>/<sessionId>
+<serverScheme>://<serverName>:<serverPort>/<route>/<sessionId>
 ```
 
 # Verb Type
@@ -33,9 +33,9 @@ GET
 
 Порт сервера.
 
-`version`
+`route` 
 
-Версия приложения.
+Указание на роутинг сервера в составе кластера
 
 `sessionId`
 
@@ -65,7 +65,7 @@ Date: Wed, 24 Jun 2015 05:31:43 GMT
 			"Name": "Diablo III",
 			"Price": 1800
 		},
-		"Version": "1"
+		"Version": "1.0.0.0"
 	},
 	{
 		"Application": "gameshop",
@@ -75,7 +75,7 @@ Date: Wed, 24 Jun 2015 05:31:43 GMT
 			"Name": "Wolfenstein:New Order",
 			"Price": 999
 		},
-		"Version": "1"
+		"Version": "1.0.0.0"
 	}]
 }
 ```

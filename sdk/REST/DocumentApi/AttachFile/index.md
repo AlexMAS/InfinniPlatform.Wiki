@@ -8,7 +8,7 @@ tags:
 
 # URL
 ```js
-<serverScheme>://<serverName>:<serverPort>/<version>/?linkedData=<linkedData>
+<serverScheme>://<serverName>:<serverPort>/<route>/?linkedData=<linkedData>
 ```
 
 # Verb Type
@@ -29,9 +29,9 @@ POST
 
 Порт сервера.
 
-`version`
+`route` 
 
-Версия приложения.
+Указание на роутинг сервера в составе кластера
 
 `linkedData`
 

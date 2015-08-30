@@ -11,7 +11,7 @@ tags:
 
 # URL
 ```js
-<serverScheme>://<serverName>:<serverPort>/<version>/SignOut
+<serverScheme>://<serverName>:<serverPort>/<route>/SignOut
 ```
 
 # Verb Type
@@ -33,9 +33,9 @@ POST
 
 Порт сервера.
 
-`version`
+`route` 
 
-Версия приложения.
+Указание на роутинг сервера в составе кластера
 
 # Example
 
