@@ -6,24 +6,56 @@ categories:
 tags:
 ---
 
+## Method 
+
+PUT
+
+
 ## Description
 Предоставляет возможность сохранения нового бизнес-процесса в постоянное хранилище.
 При этом не происходит никакой дополнительной обработки сохраняемых метаданных.
 
 ## Syntax
-```csharp
-public dynamic InsertProcess(dynamic processMetadata, string version, string configuration, string document)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/Process/
 ```
+
+### Parameters
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
+
+`version`
+
+Семантическая версия конфигурации (например, "1.0.0.0").
+
+`configName`
+
+Наименование объекта конфигурации
+
+`documentName`
+
+Наименование документа, к которому относится бизнес-процесс
 
 ## Example
 
 Пример запроса метаданных:
 
-```csharp
-dynamic processMetadata = api.CreateProcess("1.0.0.0,"TestConfig1","TestDocument1");
-processMetadata.Name = "TestProcess1";
+```js
+PUT http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/Process
 
-api.InsertProcess(processMetadata);
+BODY 
+
+{
+  "Id": "dbc5bb3f-54a8-4aae-be1c-239f1fde53bb",
+  "Version": "2.0.0.0",
+  "Name": "Process1",
+  "Caption": "",
+  "Description": "",
+  "SettingsType": "Default",
+  "Type": 1
+}
 ```
 
 При успешном выполнении запроса возвращается статус 200 ОК

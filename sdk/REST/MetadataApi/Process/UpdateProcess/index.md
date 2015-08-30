@@ -6,6 +6,10 @@ categories:
 tags:
 ---
 
+## Method
+
+POST
+
 ## Description
 Предоставляет возможность изменения существующего бизнес-процесса в хранилище.
 При этом не происходит никакой дополнительной обработки сохраняемых метаданных.
@@ -13,25 +17,25 @@ tags:
 создается новый бизнес-процесс.
 
 ## Syntax
-```csharp
-public dynamic UpdateProcess(dynamic processMetadata, string version, string configuration, string document)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/Process/
 ```
 
 ### Parameters
 
-`processMetadata`
+`route` 
 
-Объект метаданных бизнес-процесса
+Указание на роутинг сервера в составе кластера
 
 `version`
 
 Семантическая версия конфигурации (например, "1.0.0.0").
 
-`configuration`
+`configName`
 
-Наименование конфигурации
+Наименование объекта конфигурации
 
-`document`
+`documentName`
 
 Наименование документа, к которому относится бизнес-процесс
 
@@ -40,12 +44,21 @@ public dynamic UpdateProcess(dynamic processMetadata, string version, string con
 
 Пример запроса метаданных:
 
-```csharp
-dynamic process = api.GetProcess("2.0.0.0","TestConfig1",,"TestDocument1","TestProcess1");
+```js
 
-process.Name = "TestProcess2";
-api.UpdateProcess(process, "2.0.0.0","TestConfig1","TestDocument1");
+POST http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/Process
 
+
+
+{
+  "Id": "dbc5bb3f-54a8-4aae-be1c-239f1fde53bb",
+  "Version": "2.0.0.0",
+  "Name": "Process1_v1",
+  "Caption": "",
+  "Description": "",
+  "SettingsType": "Default",
+  "Type": 1
+}
 ```
 
 В результате успешного выполнения запроса возвращается статус 200 ОК

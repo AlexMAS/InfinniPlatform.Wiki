@@ -6,23 +6,35 @@ categories:
 tags:
 ---
 
+## Method 
+
+GET
+
 ## Description
 Предоставляет возможность чтения списка существующих в конфигурации бизнес-процессов.
 
 ## Syntax
-```csharp
-public dynamic GetProcessList(string version, string configuration)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/Process/List
 ```
 
 ### Parameters
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 `version`
 
 Семантическая версия конфигурации (например, "1.0.0.0").
 
-`configuration`
+`configName`
 
-Наименование конфигурации, для которой требуется получить список бизнес-процессов
+Наименование объекта конфигурации
+
+`documentName`
+
+Наименование документа, к которому относится бизнес-процесс
 
 
 ## Example
@@ -30,21 +42,18 @@ public dynamic GetProcessList(string version, string configuration)
 
 Пример запроса метаданных:
 
-```csharp
-dynamic processList = GetProcessList("2.0.0.0","TestConfig1");
+```js
+GET http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/Process/List
 ```
 
 Пример результата запроса:
 
 ```js
 [
-	{
-	  "Id": "7442c7e6-826f-4b84-907a-28fd9e8e937b",
-	  "Version": "2.0.0.0",
-	  "Name": "TestProcess",
-	},
-	{
-		...
-	}
+  {
+    "Id": "dbc5bb3f-54a8-4aae-be1c-239f1fde53bb",
+    "Name": "Process1_v1",
+    "Caption": ""
+  }
 ]
 ```

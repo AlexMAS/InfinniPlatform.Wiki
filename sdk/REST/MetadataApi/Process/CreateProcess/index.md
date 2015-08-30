@@ -6,26 +6,33 @@ categories:
 tags:
 ---
 
+## Method
+POST
+
 ## Description
 Предоставляет возможность создания шаблона нового бизнес-процесса конфигурации.
 ПОлученный шаблон будет инциализирован значениями по умолчанию для всех обязательных полей
 
 ## Syntax
-```csharp
-public dynamic CreateProcess(string version, string configuration, string document)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/Process
 ```
 
 ### Parameters
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 `version`
 
 Семантическая версия конфигурации (например, "1.0.0.0").
 
-`configuration`
+`configName`
 
 Наименование объекта конфигурации
 
-`document`
+`documentName`
 
 Наименование документа, к которому относится бизнес-процесс
 
@@ -33,14 +40,13 @@ public dynamic CreateProcess(string version, string configuration, string docume
 
 Пример запроса метаданных:
 
-```csharp
-dynamic process = api.CreateProcess("1.0.0.0","TestConfig1","TestDocument1");
+```js
+POST http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/Process
 ```
 
 Результат выполнения запроса:
 
 ```js
-
 	{
 	  "Id": "c2a00771-3ded-428d-8d1d-680aa672e394",
 	  "Version": "1.0.0.0",
@@ -48,5 +54,4 @@ dynamic process = api.CreateProcess("1.0.0.0","TestConfig1","TestDocument1");
 	  "Caption": "",
 	  "Description": ""
 	}
-
 ```
