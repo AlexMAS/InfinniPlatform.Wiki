@@ -1,45 +1,62 @@
 ---
 layout: doc
 title: "CreateRegister"
-position: 16
+position: 0
 categories: 
 tags:
 ---
 
+Создать новый шаблон метаданных регистра
+
+## Method 
+
+POST
+
 ## Description
-Предоставляет возможность создания нового шаблона регистра.
-Шаблон создается со списком обязательных полей, значения которых установлены по умолчанию.
+Предоставляет возможность получения шаблона для создания нового экземпляра регистра.
+При этом получаемый экземпляр имеет инициализированные по умолчанию необходимые поля метаданных
 
 ## Syntax
-```csharp
-public dynamic CreateRegister(string version, string configName)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<configName>/register
 ```
 
 ### Parameters
 
-`version`
+`serverScheme`
 
-Семантическая версия конфигурации (например, "1.0.0.0").
+Серверный протокол (HTTP/HTTPS).
+
+`serverName`
+
+Наименование сервера (например: localhost, 'demo.somedomain.ru').
+
+`serverPort`
+
+Порт сервера.
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 `configName`
 
-Наименование объекта конфигурации
-
+Наименование конфигурации
 
 ## Example
 
-
-Пример запроса метаданных:
-
-```csharp
-dynamic assembly = api.CreateRegister("2.0.0.0","TestConfig1");
-```
-
-Пример результата запроса щаблона новой конфигурации:
+Пример запроса:
 
 ```js
+POST http://localhost:9900/1/metadata/2.0.0.0/NewSolution/Register
+```
+
+Пример результата запроса на создание метаданных:
+
+```js
+
 {
-  "Id": "ff7f1ba9-d6d7-4268-a325-f77d92e79126",
+  "Id": "011d28a2-1421-4f0c-ac1b-f915172dc205",
   "Version": "2.0.0.0",
   "Name": "",
   "Caption": "",

@@ -1,53 +1,66 @@
 ---
 layout: doc
 title: "GetRegisterList"
-position: 19
+position: 3
 categories: 
 tags:
 ---
 
+Получить список заголовков метаданных регистра из хранилища метаданных
+
+## Method 
+
+GET
+
 ## Description
-Предоставляет возможность получения списка всех регистров, существующих в конфигурации с указанным
-наименованием и имеющей указанную версию.
+Предоставляет возможность получения списка заголовков метаданных регистров из хранилища метаданных.
 
 ## Syntax
-```csharp
-public dynamic GetRegisterList(string version, string configName)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<configName>/register/
 ```
 
 ### Parameters
 
-`version`
+`serverScheme`
 
-Семантическая версия конфигурации (например, "1.0.0.0").
+Серверный протокол (HTTP/HTTPS).
+
+`serverName`
+
+Наименование сервера (например: localhost, 'demo.somedomain.ru').
+
+`serverPort`
+
+Порт сервера.
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 `configName`
 
-Наименование объекта конфигурации
-
+Наименование регистра
 
 ## Example
 
+Пример запроса:
 
-Пример запроса метаданных:
-
-```csharp
-api.GetRegisterList("2.0.0.0","TestConfig1","TestRegister1");
+```js
+GET http://192.168.0.17:9900/1/metadata/2.0.0.0/NewConfig/Register
 ```
 
-Пример результата запроса
+В результате успешного выполнения запроса возвращается
 
 ```js
 [
-	{
-	  "Id": "66754495-8c0f-48d0-a118-bb6cc9464f3b",
-	  "Version": "2.0.0.0",
-	  "Name": "TestRegister1",
-	  "Caption": "",
-	  "Description": "",
-	  "ParentId": "TestConfig1",
-	  "__ConfigId": "systemconfig",
-	  "__DocumentId": "registermetadata"
-	}
+  {
+    "Id": "ceae998a-2707-4caf-8883-49dacb9961f3",
+    "Name": "Register1_v1",
+    "Caption": ""
+  },
+  {
+	...
+  }
 ]
 ```

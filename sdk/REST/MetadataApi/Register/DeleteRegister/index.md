@@ -1,16 +1,16 @@
 ---
 layout: doc
-title: "GetRegister"
+title: "DeleteRegister"
 position: 2
 categories: 
 tags:
 ---
 
-Получить экземпляр метаданных регистра из хранилища метаданных
+Удалить экземпляр метаданных регистра из хранилища метаданных
 
 ## Method 
 
-GET
+DELETE
 
 ## Description
 Предоставляет возможность получения экземпляра метаданных регистра из хранилища метаданных.
@@ -51,21 +51,8 @@ GET
 Пример запроса:
 
 ```js
-GET http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Register/TestRegister 
+DELETE http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Register/TestRegister 
 ```
 
-В результате успешного выполнения запроса возвращается
+В результате успешного выполнения запроса возвращается статус 200 ОК
 
-```js
-{
-  "Id": "ceae998a-2707-4caf-8883-49dacb9961f3",
-  "Secured": true,
-  "Version": "2.0.0.0",
-  "Name": "TestRegister",
-  "Caption": "",
-  "Description": "",
-  "ParentId": "TestConfigVersion_07bd4f5d-2753-434e-90bd-9a3fa5991ff2",
-  "__ConfigId": "systemconfig",
-  "__DocumentId": "registermetadata"
-}
-```

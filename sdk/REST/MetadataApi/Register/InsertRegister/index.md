@@ -1,45 +1,63 @@
 ---
 layout: doc
 title: "InsertRegister"
-position: 17
+position: 0
 categories: 
 tags:
 ---
 
+Сохранить новый экземпляр метаданных документа в хранилище метаданных
+
+## Method 
+
+PUT
+
 ## Description
-Предоставляет возможность добавления нового регистра в хранилище метаданных.
-При этом не происходит никакой дополнительной обработки данных.
+Предоставляет возможность сохранения нового экземпляра документа в хранилище метаданных.
 
 ## Syntax
-```csharp
-public dynamic InsertRegister(dynamic register, string version, string configName)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<configName>/register
 ```
 
 ### Parameters
 
-`register`
+`serverScheme`
 
-Экземпляр добавляемого регистра
+Серверный протокол (HTTP/HTTPS).
 
-`version`
+`serverName`
 
-Семантическая версия конфигурации (например, "1.0.0.0").
+Наименование сервера (например: localhost, 'demo.somedomain.ru').
+
+`serverPort`
+
+Порт сервера.
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 `configName`
 
-Наименование объекта конфигурации
-
+Наименование конфигурации
 
 ## Example
 
+Пример запроса:
 
-Пример запроса метаданных:
+```js
+PUT http://localhost:9900/1/metadata/2.0.0.0/NewSolution/Register
 
-```csharp
-dynamic register = api.CreateRegister("2.0.0.0","TestConfig1");
-register.Name = "TestRegister";
+BODY
 
-api.InsertRegister(register, "2.0.0.0","TestConfig1");
+{
+  "Id": "ceae998a-2707-4caf-8883-49dacb9961f3",
+  "Version": "2.0.0.0",
+  "Name": "Register1",
+  "Caption": "",
+  "Description": ""
+}
 ```
 
-При успешном выполнении запроса возвращается статус 200 ОК
+В результате успешного выполнения запроса возвращается 200 ОК
