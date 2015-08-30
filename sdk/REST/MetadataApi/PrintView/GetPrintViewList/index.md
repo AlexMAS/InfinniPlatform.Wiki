@@ -6,23 +6,35 @@ categories:
 tags:
 ---
 
+## Method 
+
+GET
+
 ## Description
 Предоставляет возможность чтения списка существующих в конфигурации печатных представлений.
 
 ## Syntax
-```csharp
-public dynamic GetPrintViewList(string version, string configuration)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/PrintView/
 ```
 
 ### Parameters
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 `version`
 
 Семантическая версия конфигурации (например, "1.0.0.0").
 
-`configuration`
+`configName`
 
-Наименование конфигурации, для которой требуется получить список печатных представлений
+Наименование объекта конфигурации
+
+`documentName`
+
+Наименование документа, к которому относится печатное представление
 
 
 ## Example
@@ -30,8 +42,8 @@ public dynamic GetPrintViewList(string version, string configuration)
 
 Пример запроса метаданных:
 
-```csharp
-dynamic printViewList = GetPrintViewList("2.0.0.0","TestConfig1");
+```js
+GET http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/PrintView/
 ```
 
 Пример результата запроса:

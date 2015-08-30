@@ -6,24 +6,54 @@ categories:
 tags:
 ---
 
+## Method 
+
+PUT
+
+
 ## Description
 Предоставляет возможность сохранения нового печатного представления в постоянное хранилище.
 При этом не происходит никакой дополнительной обработки сохраняемых метаданных.
 
 ## Syntax
-```csharp
-public dynamic InsertPrintView(dynamic printViewMetadata, string version, string configuration, string document)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/PrintView/
 ```
+
+### Parameters
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
+
+`version`
+
+Семантическая версия конфигурации (например, "1.0.0.0").
+
+`configName`
+
+Наименование объекта конфигурации
+
+`documentName`
+
+Наименование документа, к которому относится печатное представление
 
 ## Example
 
 Пример запроса метаданных:
 
-```csharp
-dynamic printViewMetadata = api.CreatePrintView("1.0.0.0,"TestConfig1","TestDocument1");
-printViewMetadata.Name = "TestView1";
+```js
+PUT http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/PrintView
 
-api.InsertPrintView(printViewMetadata);
+BODY 
+
+{
+  "Id": "ae7b62d1-ab0d-4920-866e-7c7c7cf6d5a1",
+  "Name": "PrintView1",
+  "ViewType": null,
+  "Blocks": null,
+  "Source": null
+}
 ```
 
 При успешном выполнении запроса возвращается статус 200 ОК

@@ -6,26 +6,33 @@ categories:
 tags:
 ---
 
+## Method
+POST
+
 ## Description
 Предоставляет возможность создания шаблона нового печатного представления конфигурации.
 ПОлученный шаблон будет инциализирован значениями по умолчанию для всех обязательных полей
 
 ## Syntax
-```csharp
-public dynamic CreatePrintView(string version, string configuration, string document)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/PrintView
 ```
 
 ### Parameters
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 `version`
 
 Семантическая версия конфигурации (например, "1.0.0.0").
 
-`configuration`
+`configName`
 
 Наименование объекта конфигурации
 
-`document`
+`documentName`
 
 Наименование документа, к которому относится печатное представление
 
@@ -33,8 +40,8 @@ public dynamic CreatePrintView(string version, string configuration, string docu
 
 Пример запроса метаданных:
 
-```csharp
-dynamic printView = api.CreatePrintView("1.0.0.0","TestConfig1","TestDocument1");
+```js
+POST http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/PrintView 
 ```
 
 Результат выполнения запроса:

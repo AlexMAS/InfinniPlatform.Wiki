@@ -6,6 +6,10 @@ categories:
 tags:
 ---
 
+## Method
+
+POST
+
 ## Description
 Предоставляет возможность изменения существующего печатного представления в хранилище.
 При этом не происходит никакой дополнительной обработки сохраняемых метаданных.
@@ -13,8 +17,8 @@ tags:
 создается новое печатное представление.
 
 ## Syntax
-```csharp
-public dynamic UpdatePrintView(dynamic printViewMetadata, string version, string configuration, string document)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/PrintView/
 ```
 
 ### Parameters
@@ -40,12 +44,17 @@ public dynamic UpdatePrintView(dynamic printViewMetadata, string version, string
 
 Пример запроса метаданных:
 
-```csharp
-dynamic printView = api.GetPrintView("2.0.0.0","TestConfig1",,"TestDocument1","TestPrintView1");
+```js
 
-printView.Name = "TestView2";
-api.UpdatePrintView(printView, "2.0.0.0","TestConfig1","TestDocument1");
+POST http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/PrintView
 
+{
+  "Id": "ae7b62d1-ab0d-4920-866e-7c7c7cf6d5a1",
+  "Name": "View1_v1",
+  "ViewType": null,
+  "Blocks": null,
+  "Source": null
+}
 ```
 
 В результате успешного выполнения запроса возвращается статус 200 ОК
