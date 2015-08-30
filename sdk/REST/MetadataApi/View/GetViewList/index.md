@@ -6,23 +6,35 @@ categories:
 tags:
 ---
 
+## Method 
+
+GET
+
 ## Description
 Предоставляет возможность чтения списка существующих в конфигурации представлений.
 
 ## Syntax
-```csharp
-public dynamic GetViewList(string version, string configuration)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/View/List
 ```
 
 ### Parameters
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 `version`
 
 Семантическая версия конфигурации (например, "1.0.0.0").
 
-`configuration`
+`configName`
 
-Наименование конфигурации, для которой требуется получить список представлений
+Наименование объекта конфигурации
+
+`documentName`
+
+Наименование документа, к которому относится представление
 
 
 ## Example
@@ -30,21 +42,17 @@ public dynamic GetViewList(string version, string configuration)
 
 Пример запроса метаданных:
 
-```csharp
-dynamic viewList = GetViewList("2.0.0.0","TestConfig1");
+```js
+GET http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/View/List
 ```
 
 Пример результата запроса:
 
 ```js
 [
-	{
-	  "Id": "7442c7e6-826f-4b84-907a-28fd9e8e937b",
-	  "Version": "2.0.0.0",
-	  "Name": "TestView1",
-	},
-	{
-		...
-	}
+  {
+    "Id": "16700b90-cf16-41a4-ad1d-a057d0c846d1",
+    "Name": "View1_v1"
+  }
 ]
 ```

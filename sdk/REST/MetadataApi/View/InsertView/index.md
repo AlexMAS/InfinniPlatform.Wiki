@@ -6,24 +6,58 @@ categories:
 tags:
 ---
 
+## Method 
+
+PUT
+
+
 ## Description
 Предоставляет возможность сохранения нового представления в постоянное хранилище.
 При этом не происходит никакой дополнительной обработки сохраняемых метаданных.
 
 ## Syntax
-```csharp
-public dynamic InsertView(dynamic viewMetadata, string version, string configuration, string document)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/View/
 ```
+
+### Parameters
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
+
+`version`
+
+Семантическая версия конфигурации (например, "1.0.0.0").
+
+`configName`
+
+Наименование объекта конфигурации
+
+`documentName`
+
+Наименование документа, к которому относится представление
 
 ## Example
 
 Пример запроса метаданных:
 
-```csharp
-dynamic viewMetadata = api.CreateView("1.0.0.0,"TestConfig1","TestDocument1");
-viewMetadata.Name = "TestView1";
+```js
+PUT http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/View
 
-api.InsertView(viewMetadata);
+BODY 
+
+{
+  "Id": "16700b90-cf16-41a4-ad1d-a057d0c846d1",
+  "Name": "View1_v1",
+  "MetadataType": "EditView",
+  "Text": "View",
+  "LayoutPanel": {
+  },
+  "DataSources": [],
+  "ChildViews": [],
+  "Scripts": []
+}
 ```
 
 При успешном выполнении запроса возвращается статус 200 ОК

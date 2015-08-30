@@ -6,47 +6,60 @@ categories:
 tags:
 ---
 
+## Method
+
+GET
+
 ## Description
-Предоставляет возможность чтения существующего пользовательского представления из хранилища.
+Предоставляет возможность чтения существующего представления из хранилища.
 
 ## Syntax
-```csharp
-public dynamic GetView(string version, string configuration, string document, string view)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/View/<ViewName>
 ```
 
 ### Parameters
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 `version`
 
 Семантическая версия конфигурации (например, "1.0.0.0").
 
-`configuration`
+`configName`
 
 Наименование объекта конфигурации
 
-`view`
+`documentName`
 
-Наименование представления
+Наименование документа, к которому относится представление
+
+`ViewName`
+
+Наименование печатной формы
 
 ## Example
 
 
 Пример запроса метаданных:
 
-```csharp
-dynamic view = GetView("2.0.0.0","TestConfig1","TestDocument1","TestView1");
+```js
+GET http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/View/View1
 ```
 
 Пример результата запроса:
 
 ```js
 {
-  "Id": "2f95b47f-e582-49a0-ba8e-61eabe52cbf5",
+  "Id": "16700b90-cf16-41a4-ad1d-a057d0c846d1",
+  "Secured": true,
   "Name": "View1",
   "DataSources": [],
   "ChildViews": [],
   "Scripts": [],
-  "ParentId": "4c42274d-fbd1-41c2-b154-5f3e56bd1462",
+  "ParentId": "85819c33-10d7-460d-a0a9-37bc295e9d7d",
   "Version": "2.0.0.0",
   "__ConfigId": "systemconfig",
   "__DocumentId": "viewmetadata"

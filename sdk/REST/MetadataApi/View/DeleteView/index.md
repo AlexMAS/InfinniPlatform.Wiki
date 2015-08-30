@@ -7,20 +7,41 @@ tags:
 ---
 
 ## Description
-Предоставляет возможность удаления существующих метаданных пользовательского представления.
+Предоставляет возможность удаления существующих метаданных представления.
 
 
 ## Syntax
-```csharp
-public dynamic DeleteView(string version, string configuration, string document, string view)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/View/<ViewName>
 ```
+### Parameters
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
+
+`version`
+
+Семантическая версия конфигурации (например, "1.0.0.0").
+
+`configName`
+
+Наименование объекта конфигурации
+
+`documentName`
+
+Наименование документа, к которому относится представление
+
+`ViewName`
+
+Наименование представления
 
 ## Example
 
 Пример запроса метаданных:
 
-```csharp
-api.DeleteView("TestView1");
+```js
+DELETE http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/View/View1
 ```
 
 При успешном выполнении запроса возвращается статус 200 ОК

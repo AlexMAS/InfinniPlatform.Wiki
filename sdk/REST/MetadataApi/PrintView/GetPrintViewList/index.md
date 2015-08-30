@@ -15,7 +15,7 @@ GET
 
 ## Syntax
 ```js
-<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/PrintView/
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/PrintView/List
 ```
 
 ### Parameters
@@ -43,7 +43,7 @@ GET
 Пример запроса метаданных:
 
 ```js
-GET http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/PrintView/
+GET http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/PrintView/List
 ```
 
 Пример результата запроса:

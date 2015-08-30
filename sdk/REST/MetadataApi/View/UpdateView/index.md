@@ -6,46 +6,59 @@ categories:
 tags:
 ---
 
+## Method
+
+POST
+
 ## Description
-Предоставляет возможность изменения существующего пользовательского представления в хранилище.
+Предоставляет возможность изменения существующего представления в хранилище.
 При этом не происходит никакой дополнительной обработки сохраняемых метаданных.
 Существующие метаданные представления будут обновлены. В случае, если представления с таким идентификатором не существует,
 создается новое представление.
 
 ## Syntax
-```csharp
-public dynamic UpdateView(dynamic viewMetadata, string version, string configuration, string document)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/View/
 ```
 
 ### Parameters
 
-`viewMetadata`
+`route` 
 
-Объект метаданных представления
+Указание на роутинг сервера в составе кластера
 
 `version`
 
 Семантическая версия конфигурации (например, "1.0.0.0").
 
-`configuration`
+`configName`
 
-Наименование конфигурации
+Наименование объекта конфигурации
 
-`document`
+`documentName`
 
-Наименование документа, к которому относится сервис
+Наименование документа, к которому относится представление
 
 ## Example
 
 
 Пример запроса метаданных:
 
-```csharp
-dynamic view = api.GetView("2.0.0.0","TestConfig1",,"TestDocument1","TestView1");
+```js
 
-view.Name = "TestView2";
-api.UpdateView(view, "2.0.0.0","TestConfig1","TestDocument1");
+POST http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/View
 
+{
+  "Id": "16700b90-cf16-41a4-ad1d-a057d0c846d1",
+  "Name": "View1_v1",
+  "MetadataType": "ListView",
+  "Text": "Some Text",
+  "LayoutPanel": {
+  },
+  "DataSources": [],
+  "ChildViews": [],
+  "Scripts": []
+}
 ```
 
 В результате успешного выполнения запроса возвращается статус 200 ОК
