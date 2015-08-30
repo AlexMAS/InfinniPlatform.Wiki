@@ -6,6 +6,10 @@ categories:
 tags:
 ---
 
+## Method
+
+POST
+
 ## Description
 Предоставляет возможность изменения существующего сценария в хранилище.
 При этом не происходит никакой дополнительной обработки сохраняемых метаданных.
@@ -13,25 +17,25 @@ tags:
 создается новый сценарий.
 
 ## Syntax
-```csharp
-public dynamic UpdateScenario(dynamic scenarioMetadata, string version, string configuration, string document)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/Scenario/
 ```
 
 ### Parameters
 
-`scenarioMetadata`
+`route` 
 
-Объект метаданных сценария
+Указание на роутинг сервера в составе кластера
 
 `version`
 
 Семантическая версия конфигурации (например, "1.0.0.0").
 
-`configuration`
+`configName`
 
 Наименование объекта конфигурации
 
-`document`
+`documentName`
 
 Наименование документа, к которому относится сценарий
 
@@ -40,12 +44,19 @@ public dynamic UpdateScenario(dynamic scenarioMetadata, string version, string c
 
 Пример запроса метаданных:
 
-```csharp
-dynamic scenario = api.GetScenario("2.0.0.0","TestConfig1",,"TestDocument1","TestScenario1");
+```js
 
-scenario.Name = "TestScenario2";
-api.UpdateScenario(scenario, "2.0.0.0","TestConfig1","TestDocument1");
+POST http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/Scenario
 
+
+{
+  "Id": "4e3a2b51-6a28-411b-a935-a29251584f7c",
+  "Version": "2.0.0.0",
+  "Name": "Scenario1_v1",
+  "Caption": "",
+  "Description": "",
+  "ScenarioId": "ActionUnitThatNotExistsAndOnlyForTestName"
+}
 ```
 
 В результате успешного выполнения запроса возвращается статус 200 ОК

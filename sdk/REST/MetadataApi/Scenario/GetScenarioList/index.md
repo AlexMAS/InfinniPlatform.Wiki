@@ -6,23 +6,35 @@ categories:
 tags:
 ---
 
+## Method 
+
+GET
+
 ## Description
-Предоставляет возможность чтения списка существующих в конфигурации сценариев.
+Предоставляет возможность чтения списка существующих в конфигурации пользовательских прикладных сценариев.
 
 ## Syntax
-```csharp
-public dynamic GetScenarioList(string version, string configuration)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/<version>/<configName>/<documentName>/Scenario/List
 ```
 
 ### Parameters
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 `version`
 
 Семантическая версия конфигурации (например, "1.0.0.0").
 
-`configuration`
+`configName`
 
-Наименование конфигурации, для которой требуется получить список сценариев
+Наименование объекта конфигурации
+
+`documentName`
+
+Наименование документа, к которому относится представление
 
 
 ## Example
@@ -30,21 +42,18 @@ public dynamic GetScenarioList(string version, string configuration)
 
 Пример запроса метаданных:
 
-```csharp
-dynamic scenarioList = GetScenarioList("2.0.0.0","TestConfig1");
+```js
+GET http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Document1/Scenario/List
 ```
 
 Пример результата запроса:
 
 ```js
 [
-	{
-	  "Id": "7442c7e6-826f-4b84-907a-28fd9e8e937b",
-	  "Version": "2.0.0.0",
-	  "Name": "TestScenario",
-	},
-	{
-		...
-	}
+  {
+    "Id": "4e3a2b51-6a28-411b-a935-a29251584f7c",
+    "Name": "Scenario1_v1",
+    "Caption": ""
+  }
 ]
 ```
