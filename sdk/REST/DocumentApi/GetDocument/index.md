@@ -14,7 +14,7 @@ tags:
 
 ## URL
 ```js
-<serverScheme>://<serverName>:<serverPort>/<version>/<application>/<documentType>/?filter=<filter>
+<serverScheme>://<serverName>:<serverPort>/<route>/<application>/<documentType>/?filter=<filter>
 	&pageNumber=<pageNumber>&pageSize=<pageSize>&sorting=<sorting>
 ```
 
@@ -29,6 +29,10 @@ tags:
 `serverPort`
 
 Порт сервера.
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 `version`
 
