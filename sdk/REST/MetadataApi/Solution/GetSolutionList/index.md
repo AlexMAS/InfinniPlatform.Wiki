@@ -8,21 +8,42 @@ tags:
 
 Получить список метаданных существующих решений
 
+## Method 
+
+GET
+
 ## Description
 Предоставляет возможность получения списка метаданных существующих решений в хранилище.
 
 ## Syntax
-```csharp
-public dynamic GetSolutionList()
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/solution/
 ```
+
+### Parameters
+
+`serverScheme`
+
+Серверный протокол (HTTP/HTTPS).
+
+`serverName`
+
+Наименование сервера (например: localhost, 'demo.somedomain.ru').
+
+`serverPort`
+
+Порт сервера.
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 ## Example
 
 Пример запроса списка решений:
 
-```csharp
-
- api.GetSolutionList();
+```js
+GET http://localhost:9900/1/metadata/solution 
 ```
 
 Результат выполнения запроса:

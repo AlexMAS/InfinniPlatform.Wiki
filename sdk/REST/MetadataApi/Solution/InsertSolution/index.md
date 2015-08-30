@@ -8,6 +8,10 @@ tags:
 
 Добавить метаданные нового решения 
 
+## Method
+
+PUT
+
 ## Description
 Предоставляет возможность добавления новых метаданных решения в хранилище.
 При этом получаемый экземпляр не будет никаким образом инициализирован.
@@ -16,23 +20,43 @@ CreateSolution.
 Внимание! Поле Name решения должно быть уникальным
 
 ## Syntax
-```csharp
-public dynamic InsertSolution(dynamic solutionMetadata);
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/solution/
 ```
+
+### Parameters
+
+`serverScheme`
+
+Серверный протокол (HTTP/HTTPS).
+
+`serverName`
+
+Наименование сервера (например: localhost, 'demo.somedomain.ru').
+
+`serverPort`
+
+Порт сервера.
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
+
 
 ## Example
 
 Пример запроса документов:
 
-```csharp
+PUT http://localhost:9900/1/metadata/solution 
 
-dynamic solution = new {
+```js
+{
   "Name": "NewSolution",
   "Caption": "NewSolution",
-  "ReferencedConfigurations": []
-};
-
- api.InsertSolution(solution);
+  "ReferencedConfigurations": [],
+  "Id": "c62df9b7-4030-433b-91d3-9e7bb658a261",
+  "Version": "2.0.0.0"
+}
 ```
 
 В случае успешного выполнения запроса возвращается статус: 200 OK

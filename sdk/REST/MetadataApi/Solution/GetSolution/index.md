@@ -8,18 +8,44 @@ tags:
 
 Получить метаданные существующего решения 
 
+## Method 
+
+GET
+
 ## Description
 Предоставляет возможность получения метаданных существующего решения в хранилище.
 Поиск существующего решения выполняется по полю Name.
 
 ## Syntax
-```csharp
-public dynamic GetSolution(string name)
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/solution/<version>/<solutionName>
 ```
 
-# Parameters
+### Parameters
 
-`name`
+`serverScheme`
+
+Серверный протокол (HTTP/HTTPS).
+
+`serverName`
+
+Наименование сервера (например: localhost, 'demo.somedomain.ru').
+
+`serverPort`
+
+Порт сервера.
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
+
+`version`
+
+Версия решения
+
+`solutionName`
+
+НАименование solution
 
 Наименование решения
 
@@ -27,9 +53,8 @@ public dynamic GetSolution(string name)
 
 Пример запроса документов:
 
-```csharp
-
- api.GetSolution("NewSolution");
+```js
+GET http://localhost:9900/1/metadata/solution/2.0.0.0/NewSolution
 ```
 
 Результат выполнения запроса:

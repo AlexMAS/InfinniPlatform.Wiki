@@ -8,28 +8,53 @@ tags:
 
 Обновить метаданные существующего решения 
 
+## Method
+
+POST
+
 ## Description
 Предоставляет возможность изменения метаданных существующего решения в хранилище.
 Поиск существующего решения выполняется по полю Name.
 
 ## Syntax
-```csharp
-public dynamic UpdateSolution(dynamic solutionMetadata);
+```js
+<serverScheme>://<serverName>:<serverPort>/<route>/metadata/solution/
 ```
+
+### Parameters
+
+`serverScheme`
+
+Серверный протокол (HTTP/HTTPS).
+
+`serverName`
+
+Наименование сервера (например: localhost, 'demo.somedomain.ru').
+
+`serverPort`
+
+Порт сервера.
+
+`route` 
+
+Указание на роутинг сервера в составе кластера
 
 ## Example
 
 Пример запроса документов:
 
-```csharp
+```js
+POST http://localhost:9900/1/metadata/solution 
 
-dynamic solution = new {  
+BODY 
+
+{
   "Name": "NewSolution",
   "Caption": "NewSolution",
-  "ReferencedConfigurations": []
-};
-
- api.UpdateSolution(solution);
+  "ReferencedConfigurations": [],
+  "Id": "c62df9b7-4030-433b-91d3-9e7bb658a261",
+  "Version": "2.0.0.0"
+}
 ```
 
 В случае успешного выполнения запроса возвращается статус: 200 OK
