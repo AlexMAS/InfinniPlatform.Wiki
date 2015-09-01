@@ -23,7 +23,7 @@ var myDataSource = new ObjectDataSource(View);
 myDataSource.setName('myDataSource');
 
 var dataSources = View.getDataSources();
-parameters.add(myDataSource);
+dataSources.add(myDataSource);
 var myDataSource2 = dataSources.getById('myDataSource'); // myDataSource2 === myDataSource
 ```
 
