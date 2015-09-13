@@ -41,7 +41,7 @@ POST
 
 ## Example
 
-Пример запроса документов:
+Пример запроса:
 
 ```js
 POST http://localhost:9900/1/metadata/solution 

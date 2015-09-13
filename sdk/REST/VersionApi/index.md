@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "InfinniVersionApi"
+title: "VersionApi"
 position: 0 
 categories: 
 tags:

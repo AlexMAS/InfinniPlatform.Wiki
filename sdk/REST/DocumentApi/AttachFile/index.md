@@ -45,6 +45,7 @@ POST
     "SessionId": `<SessionId>`  
 } 
 
+
 где  
 `InstanceId` - идентификатор документа, к которому присоединяется файла.  
 `FieldName` - поле бинарных данных, ассоциированное с присоединяемым файлом.  
@@ -58,13 +59,16 @@ POST
 ```js
 POST http://localhost:9900/1/?linkedData=%7B%22InstanceId%22%3A%228e61d269-ed65-4c0b-85ce-1de341880ed8%22%2C%22FieldName%22%3A%22Avatar%22%2C%22FileName%22%3A%22avatar.gif%22%2C%22SessionId%22%3A%22ee4e0d71-539c-4a1a-a394-a71754051b6c%22%7D
 ```
-где параметр linkedData заполнен сериализованным объектом JSON:  
+где параметр linkedData заполнен сериализованным объектом JSON: 
+
+```js 
 {  
     "InstanceId": "8e61d269-ed65-4c0b-85ce-1de341880ed8",  
     "FieldName": "Avatar",  
     "FileName": "avatar.gif",  
     "SessionId": "ee4e0d71-539c-4a1a-a394-a71754051b6c"  
 }  
+```
 
 Пример ответа на запрос присоединения файла
 

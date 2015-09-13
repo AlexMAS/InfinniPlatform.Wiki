@@ -46,14 +46,14 @@ POST
 
 Описание бинарных данных в виде сериализованного в строку JSON-документа следующего формата
 
-```js
+
 {  
    InstanceId : <instanceId>,
    FieldName : <fieldName>,
    FileName : <fileName>,
    SessionId : <sessionId>
 }
-```
+
 
 `instanceId` 
 

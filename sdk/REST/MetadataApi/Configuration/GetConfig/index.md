@@ -43,7 +43,7 @@ GET
 
 ## Example
 
-Пример запроса документов:
+Пример запроса:
 
 ```csharp
 GET http://localhost:9900/1/metadata/configuration/2.0.0.0/TestConfigVersion 

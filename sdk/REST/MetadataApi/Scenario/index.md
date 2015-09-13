@@ -22,5 +22,5 @@ tags:
 [InsertScenario](InsertScenario)  | Добавить метаданные сценария |
 [GetScenario](GetScenario)  | Получить метаданные сценария |
 [GetScenarioList](GetScenarioList)  | Получить список метаданных всех сценариев |
-[UpdateScenario](UpdateScenario)  | Обновить метаданные указанного сценариев |
+[UpdateScenario](UpdateScenario)  | Обновить метаданные указанного сценария |
 [DeleteScenario](DeleteScenario)  | Удалить метаданные сценария |

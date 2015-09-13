@@ -40,7 +40,7 @@ POST
 
 ## Example
 
-Пример запроса документов:
+Пример запроса:
 
 ```csharp
 POST http://localhost:9900/1/metadata/configuration 

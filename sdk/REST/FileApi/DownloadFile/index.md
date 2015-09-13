@@ -47,38 +47,22 @@ GET
 Содержит информацию о загружаемом бинарном контенте в виде сериализованного в строку
 JSON - документа следующего формата
 
-```js
 {
-   Application : <application>,
-   DocumentType : <documentType>,
-   InstanceId : <instanceId>,
-   FieldName : <fieldName>
+   ContentId : <contentId>,
 }
-```
 
-`application`
 
-Приложение, к которому относится документ, содержащий бинарный контент
+`ContentId`
 
-`documentType`
-
-Тип документа, к которому относится экземпляр документа, содержащего бинарный контент
-
-`instanceId`
-
-Экземпляр документа, содержащего бинарный контент
-
-`fieldName`
-
-Наименование поля, содержащего бинарный контент
+Идентификатор бинарного контента, который требуется загрузить
 
 
 # Example
 
-Пример запроса на присоединение данных
+Пример запроса на получение данных
 
 ```js
-GET http: //localhost:9900/1/Gameshop/files/download/?Form={"Application":"Gameshop","DocumentType":"UserProfile","InstanceId":"eb851504-77d6-4195-b118-b31b338fe4b1","FieldName":"Avatar"}
+GET http: //localhost:9900/1/Gameshop/files/download/?Form={"ContentId":"eb851504-77d6-4195-b118-b31b338fe4b1"}
 ```
 
 Пример ответа на запрос присоединения бинарных данных

@@ -45,7 +45,7 @@ CreateSolution.
 
 ## Example
 
-Пример запроса документов:
+Пример запроса:
 
 PUT http://localhost:9900/1/metadata/solution 
 

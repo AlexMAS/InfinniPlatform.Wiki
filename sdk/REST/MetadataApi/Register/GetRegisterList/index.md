@@ -47,7 +47,7 @@ GET
 Пример запроса:
 
 ```js
-GET http://192.168.0.17:9900/1/metadata/2.0.0.0/NewConfig/Register
+GET http://localhost:9900/1/metadata/2.0.0.0/NewConfig/Register
 ```
 
 В результате успешного выполнения запроса возвращается

@@ -39,7 +39,7 @@ PUT
 
 ## Example
 
-Пример запроса документов:
+Пример запроса:
 
 ```js
 PUT http://localhost:9900/1/metadata/configuration 

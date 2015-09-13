@@ -48,7 +48,7 @@ DELETE
 
 ## Example
 
-Пример запроса документов:
+Пример запроса:
 
 ```js
 DELETE http://localhost:9900/1/metadata/solution/2.0.0.0/NewSolution
