@@ -16,6 +16,7 @@ position: 0
 {
   "Label": "Password",
   "LabelFloating": true,
+  "PasswordChar": "*",
   "Value": {
     "Source": "dataSource1",
     "Property": "$.Password"
