@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DatePicker"
-position: 1014
+position: 1015
 ---
 
 Редактор даты и времени.

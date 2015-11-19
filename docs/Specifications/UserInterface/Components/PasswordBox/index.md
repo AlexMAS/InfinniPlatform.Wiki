@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "PasswordBox"
-position: 1015
+position: 1016
 ---
 
 Редактор пароля.

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ImageBox"
-position: 1010
+position: 1011
 ---
 
 Редактор изображений.

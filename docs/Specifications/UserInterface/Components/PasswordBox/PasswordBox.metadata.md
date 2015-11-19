@@ -9,3 +9,16 @@ position: 0
 # Schema
 
 {% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Components/PasswordBox/PasswordBox.resjson" lang="json" %}
+
+# Examples
+
+```json
+{
+  "Label": "Password",
+  "LabelFloating": true,
+  "Value": {
+    "Source": "dataSource1",
+    "Property": "$.Password"
+  }
+}
+```

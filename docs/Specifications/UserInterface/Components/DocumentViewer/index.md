@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DocumentViewer"
-position: 1022
+position: 1023
 ---
 
 Элемент для отображения печатного представления.
