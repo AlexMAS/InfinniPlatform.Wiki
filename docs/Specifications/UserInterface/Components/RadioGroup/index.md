@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "RadioGroup"
-position: 1017
+position: 1018
 ---
 
 Список радиокнопок.

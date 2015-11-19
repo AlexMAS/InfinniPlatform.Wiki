@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DataGrid"
-position: 1018
+position: 1019
 ---
 
 Таблица.
