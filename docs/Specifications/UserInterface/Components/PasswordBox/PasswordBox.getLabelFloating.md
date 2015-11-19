@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "PasswordChar.getLabelFloating()"
+title: "PasswordBox.getLabelFloating()"
 position: 12
 ---
 
@@ -16,13 +16,13 @@ position: 12
 тем, что при получении фокуса ввода метка обычно перемещается в другую область рядом с редактором,
 чтобы оставаться видимой пользователю в момент ввода данных.
 
-Текст метки можно установить с помощью метода [`setLabelText()`](../PasswordChar.setLabelText/), а
-способ отображения - с помощью метода [`setLabelFloating()`](../PasswordChar.setLabelFloating/).
+Текст метки можно установить с помощью метода [`setLabelText()`](../PasswordBox.setLabelText/), а
+способ отображения - с помощью метода [`setLabelFloating()`](../PasswordBox.setLabelFloating/).
 
 # Syntax
 
 ```js
-PasswordChar.getLabelFloating()
+PasswordBox.getLabelFloating()
 ```
 
 ## Returns
@@ -33,9 +33,9 @@ PasswordChar.getLabelFloating()
 # Examples
 
 ```js
-var isFloating = PasswordChar.getLabelFloating();
+var isFloating = PasswordBox.getLabelFloating();
 ```
 
 # See Also
 
-* [`setLabelFloating()`](../PasswordChar.setLabelFloating/)
+* [`setLabelFloating()`](../PasswordBox.setLabelFloating/)

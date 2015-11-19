@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "PasswordChar.getPasswordChar()"
+title: "PasswordBox.getPasswordChar()"
 position: 14
 ---
 
@@ -9,7 +9,7 @@ position: 14
 # Syntax
 
 ```js
-PasswordChar.getPasswordChar()
+PasswordBox.getPasswordChar()
 ```
 
 ## Returns
@@ -19,9 +19,9 @@ Cимвол маскировки символов пароля.
 # Examples
 
 ```js
-var passwordChar = PasswordChar.getPasswordChar();
+var passwordChar = PasswordBox.getPasswordChar();
 ```
 
 # See Also
 
-* [`setPasswordChar()`](../PasswordChar.setPasswordChar/)
+* [`setPasswordChar()`](../PasswordBox.setPasswordChar/)

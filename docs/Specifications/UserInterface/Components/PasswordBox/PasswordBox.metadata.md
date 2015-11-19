@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: "PasswordChar.metadata"
+title: "PasswordBox.metadata"
 position: 0
 ---
 
-Метаданные типа [`PasswordChar`](../).
+Метаданные типа [`PasswordBox`](../).
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Components/PasswordChar/PasswordChar.resjson" lang="json" %}
+{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Components/PasswordBox/PasswordBox.resjson" lang="json" %}

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "PasswordChar"
+title: "PasswordBox"
 position: 1015
 ---
 
@@ -24,26 +24,26 @@ new PasswordChar([parent])
 
 # Methods
 
-## [`getLabelText()`](PasswordChar.getLabelText/)
+## [`getLabelText()`](PasswordBox.getLabelText/)
 
 Возвращает текст метки.
 
-## [`setLabelText()`](PasswordChar.setLabelText/)
+## [`setLabelText()`](PasswordBox.setLabelText/)
 
 Устанавливает текст метки.
 
-## [`getLabelFloating()`](PasswordChar.getLabelFloating/)
+## [`getLabelFloating()`](PasswordBox.getLabelFloating/)
 
 Возвращает значение, определяющее, является ли метка плавающей.
 
-## [`setLabelFloating()`](PasswordChar.setLabelFloating/)
+## [`setLabelFloating()`](PasswordBox.setLabelFloating/)
 
 Устанавливает значение, определяющее, является ли метка плавающей.
 
-## [`getPasswordChar()`](PasswordChar.getPasswordChar/)
+## [`getPasswordChar()`](PasswordBox.getPasswordChar/)
 
 Возвращает символ маскировки символов пароля.
 
-## [`setPasswordChar()`](PasswordChar.setPasswordChar/)
+## [`setPasswordChar()`](PasswordBox.setPasswordChar/)
 
 Устанавливает символ маскировки символов пароля.
