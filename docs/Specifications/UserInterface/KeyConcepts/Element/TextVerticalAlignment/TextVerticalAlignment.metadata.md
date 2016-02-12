@@ -8,4 +8,4 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Element/TextVerticalAlignment.resjson" lang="json" %}
+{% include github.html path="InfinniPlatform.Core/.schema/UI/Element/TextVerticalAlignment.resjson" lang="json" %}

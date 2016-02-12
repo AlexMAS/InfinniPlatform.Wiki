@@ -8,4 +8,4 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/LayoutPanel/ScrollPanel/ScrollVisibility.resjson" lang="json" %}
+{% include github.html path="InfinniPlatform.Core/.schema/UI/LayoutPanel/ScrollPanel/ScrollVisibility.resjson" lang="json" %}

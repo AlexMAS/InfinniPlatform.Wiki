@@ -8,4 +8,4 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/DataSource/BaseDataSource.resjson" lang="json" %}
+{% include github.html path="InfinniPlatform.Core/.schema/UI/DataSource/BaseDataSource.resjson" lang="json" %}
