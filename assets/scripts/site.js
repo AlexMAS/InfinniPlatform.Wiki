@@ -9,3 +9,4 @@
 {% include_relative pageNavigation.js %}
 {% include_relative githubCodeHighlight.js %}
 {% include_relative liveInfinniExample.js %}
+{% include_relative liveJsExample.js %}

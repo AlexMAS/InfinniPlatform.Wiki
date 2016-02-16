@@ -15,44 +15,18 @@ tags: [ element ]
 # Syntax
 
 ```js
-//infinni-ui-demo
-{
-    "DataSources": [
-        {
-            "ObjectDataSource": {
-                "Name": "ObjectDataSource2",
-                "Items": [
-                    {"Value": {"Id": 2, "Display": "2G"}}
-                ]
-            }
-        }
-    ],
-    //infinni-ui-display-begin
-    "Items": [{
-            "GridPanel": {
-                "Items": [
-                    {
-                        "Cell": {
-                            "ColumnSpan": 4,
-                            "Items": [
-                                {
-                                    "ToggleButton": {
-                                        "Name": "TB",
-                                        "Text": "Subscribe",
-                                        "TextOn": "yes",
-                                        "TextOff": "no"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        }
-    ]
-    //infinni-ui-display-end
-}
+new Element([parent], [viewMode]);
+```
 
+
+```js
+//js-demo
+var button = new Button();
+var $button = button.render();
+
+button.setText("ButtonText")
+
+$elementForExample.append($button);
 ```
 
 
@@ -70,7 +44,7 @@ tags: [ element ]
 
 ## [`name`](Element.name/)
 
-Содержит имя элемента.
+Содержит имя элемента. Свойство строчного типа.
 
 # Methods
 
