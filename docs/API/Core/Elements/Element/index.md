@@ -1,0 +1,258 @@
+---
+layout: doc
+title: "Element"
+position: 0
+tags: [ element ]
+---
+
+Базовый тип для всех визуальных элементов InfinniUI.
+
+# Description
+
+Все визуальные элементы (далее просто "элементы"), представленные в InfinniUI, являются потомками Element.
+В Element реализованы базовые API, которые в итоге будут предоставлять все элементы InfinniUI.
+
+# Syntax
+
+```js
+//infinni-ui-demo
+{
+    "DataSources": [
+        {
+            "ObjectDataSource": {
+                "Name": "ObjectDataSource2",
+                "Items": [
+                    {"Value": {"Id": 2, "Display": "2G"}}
+                ]
+            }
+        }
+    ],
+    //infinni-ui-display-begin
+    "Items": [{
+            "GridPanel": {
+                "Items": [
+                    {
+                        "Cell": {
+                            "ColumnSpan": 4,
+                            "Items": [
+                                {
+                                    "ToggleButton": {
+                                        "Name": "TB",
+                                        "Text": "Subscribe",
+                                        "TextOn": "yes",
+                                        "TextOff": "no"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+    //infinni-ui-display-end
+}
+
+```
+
+
+## Parameters
+
+`parent`
+
+Необязательный. Родительский [элемент]().
+
+`viewMode`
+
+Необязательный. Строка со значением [режима отображения](../../viewMode).
+
+# Properties
+
+## [`name`](Element.name/)
+
+Содержит имя элемента.
+
+# Methods
+
+## [`getView()`](Element.getView/)
+
+Возвращает родительское [представление](../View/).
+
+## [`getParent()`](Element.getParent/)
+
+Возвращает родительский [элемент]().
+
+## [`setParent(parent)`](Element.setParent/)
+
+Устанавливает родительский [элемент]().
+
+## [`getName()`](Element.getName/)
+
+Возвращает имя элемента.
+
+## [`setName(name)`](Element.setName/)
+
+Устанавливает имя элемента.
+
+## [`getText()`](Element.getText/)
+
+Возвращает текст элемента (в разных потомках Element, поле text используется по разному. Например, во View это
+заголовок представления, а в ImageBox это текст кнопки, инициирующей выбор загружаемого изображения).
+
+## [`setText(text)`](Element.setText/)
+
+Устанавливает текст элемента.
+
+## [`getFocusable()`](Element.getFocusable/)
+
+Возвращает значение, определяющее, может ли элемент получить фокус.
+
+## [`setFocusable(isFocusable)`](Element.setFocusable/)
+
+Устанавливает значение, определяющее, может ли элемент получить фокус.
+
+## [`getFocused()`](Element.getFocused/)
+
+Возвращает значение, определяющее, установлен ли на элементе фокус.
+
+## [`setFocused(isFocused)`](Element.setFocused/)
+
+Устанавливает/снимает фокус с элемента (в зависимости от передаваемого значения).
+
+## [`getEnabled()`](Element.getEnabled/)
+
+Возвращает значение, определяющее, возможен ли доступ к элементу.
+
+## [`setEnabled(isEnabled)`](Element.setEnabled/)
+
+Устанавливает значение, определяющее, возможен ли доступ к элементу.
+
+## [`getVisible()`](Element.getVisible/)
+
+Возвращает значение, определяющее, отображается ли элемент в интерфейсе.
+
+## [`setVisible(isVisible)`](Element.setVisible/)
+
+Устанавливает значение, определяющее, отображается ли элемент в интерфейсе.
+
+## [`getHorizontalAlignment()`](Element.getHorizontalAlignment/)
+
+Возвращает [горизонтальное выравнивание](ElementHorizontalAlignment/) в родительском элементе.
+
+## [`setHorizontalAlignment(horizontalAlignment)`](Element.setHorizontalAlignment/)
+
+Устанавливает [горизонтальное выравнивание](ElementHorizontalAlignment/) в родительском элементе.
+
+## [`getTextHorizontalAlignment()`](Element.getTextHorizontalAlignment/)
+
+Возвращает [горизонтальное выравнивание текста](TextHorizontalAlignment/) в элементе.
+
+## [`setTextHorizontalAlignment()`](Element.setTextHorizontalAlignment/)
+
+Устанавливает [горизонтальное выравнивание текста](TextHorizontalAlignment/) в элементе.
+
+## [`getTextVerticalAlignment()`](Element.getTextVerticalAlignment/)
+
+Возвращает [вертикальное выравнивание текста](TextVerticalAlignment/) в элементе.
+
+## [`setTextVerticalAlignment()`](Element.setTextVerticalAlignment/)
+
+Устанавливает [вертикальное выравнивание текста](TextVerticalAlignment/) в элементе.
+
+## [`getTextStyle()`](Element.getTextStyle/)
+
+Возвращает [стиль текста](../Style/TextStyle/) элемента.
+
+## [`setTextStyle()`](Element.setTextStyle/)
+
+Устанавливает [стиль текста](../Style/TextStyle/) элемента.
+
+## [`getForeground()`](Element.getForeground/)
+
+Возвращает [цвет](../Style/ColorStyle/) текста элемента.
+
+## [`setForeground()`](Element.setForeground/)
+
+Устанавливает [цвет](../Style/ColorStyle/) текста элемента.
+
+## [`getBackground()`](Element.getBackground/)
+
+Возвращает [цвет](../Style/ColorStyle/) фона элемента.
+
+## [`setBackground()`](Element.setBackground/)
+
+Устанавливает [цвет](../Style/ColorStyle/) фона элемента.
+
+## [`getTexture()`](Element.getTexture/)
+
+Возвращает текстуру элемента.
+
+## [`setTexture()`](Element.setTexture/)
+
+Устанавливает текстуру элемента.
+
+## [`getChildElements()`](Element.getChildElements/)
+
+Возвращает список дочерних [элементов]().
+
+## [`getProperty()`](Element.getProperty/)
+
+Возвращает значение указанного свойства элемента.
+
+## [`setProperty()`](Element.setProperty/)
+
+Устанавливает значение указанного свойства элемента.
+
+# Events
+
+## [`onLoaded`](Element.onLoaded/)
+
+Устанавливает [обработчик события](../Script/) о том, что элемент был загружен.
+
+## [`onGotFocus`](Element.onGotFocus/)
+
+Устанавливает [обработчик события](../Script/) о том, что элемент получил фокус ввода.
+
+## [`onLostFocus`](Element.onLostFocus/)
+
+Устанавливает [обработчик события](../Script/) о том, что элемент потерял фокус ввода.
+
+## [`onMouseDoubleClick`](Element.onMouseDoubleClick/)
+
+Устанавливает [обработчик события](../Script/) о том, что по элементу сделали двойной клик мыши.
+
+## [`onMouseDown`](Element.onMouseDown/)
+
+Устанавливает [обработчик события](../Script/) о том, что на элементе нажали кнопку мыши.
+
+## [`onMouseUp`](Element.onMouseUp/)
+
+Устанавливает [обработчик события](../Script/) о том, что на элементе отпустили кнопку мыши.
+
+## [`onMouseWheel`](Element.onMouseWheel/)
+
+Устанавливает [обработчик события](../Script/) о том, что на элементе прокрутили колесо мыши.
+
+## [`onMouseEnter`](Element.onMouseEnter/)
+
+Устанавливает [обработчик события](../Script/) о том, что указатель мыши вошел в границы элемента.
+
+## [`onMouseLeave`](Element.onMouseLeave/)
+
+Устанавливает [обработчик события](../Script/) о том, что указатель мыши покинул границы элемента.
+
+## [`onMouseMove`](Element.onMouseMove/)
+
+Устанавливает [обработчик события](../Script/) о том, что указатель мыши двигался внутри элемента.
+
+## [`onKeyDown`](Element.onKeyDown/)
+
+Устанавливает [обработчик события](../Script/) о том, что на элементе нажали клавишу клавиатуры.
+
+## [`onKeyUp`](Element.onKeyUp/)
+
+Устанавливает [обработчик события](../Script/) о том, что на элементе отпустили клавишу клавиатуры.
+
+## [`onPropertyChanged`](Element.onPropertyChanged/)
+
+Устанавливает [обработчик события](../Script/) о том, что одно из свойств элемента изменилось.
