@@ -18,6 +18,18 @@ tags: [ element ]
 new Element([parent], [viewMode]);
 ```
 
+## Parameters
+
+`parent`
+
+Необязательный. Родительский [элемент]().
+
+`viewMode`
+
+Необязательный. Строка со значением [режима отображения](../../viewMode).
+
+# Usage
+Создать экземпляр Element нельзя, однако можно например создать экземпляр кнопки, которая наследуется от Element. И зададим ей текст.
 
 ```js
 //js-demo
@@ -29,16 +41,46 @@ button.setText("ButtonText")
 $elementForExample.append($button);
 ```
 
+```js
+//infinni-ui-demo
+{
+    "DataSources": [
+        {
+            "ObjectDataSource": {
+                "Name": "ObjectDataSource2",
+                "Items": [
+                    {"Value": {"Id": 2, "Display": "2G"}}
+                ]
+            }
+        }
+    ],
+    //infinni-ui-display-begin
+    "Items": [{
+            "GridPanel": {
+                "Items": [
+                    {
+                        "Cell": {
+                            "ColumnSpan": 4,
+                            "Items": [
+                                {
+                                    "ToggleButton": {
+                                        "Name": "TB",
+                                        "Text": "Subscribe",
+                                        "TextOn": "yes",
+                                        "TextOff": "no"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+    //infinni-ui-display-end
+}
 
-## Parameters
-
-`parent`
-
-Необязательный. Родительский [элемент]().
-
-`viewMode`
-
-Необязательный. Строка со значением [режима отображения](../../viewMode).
+```
 
 # Properties
 
@@ -59,6 +101,18 @@ $elementForExample.append($button);
 ## [`setParent(parent)`](Element.setParent/)
 
 Устанавливает родительский [элемент]().
+
+## [`getChildElements()`](Element.getChildElements/)
+
+Возвращает список дочерних [элементов]().
+
+## [`getProperty()`](Element.getProperty/)
+
+Возвращает значение указанного свойства элемента. Например 'text', 'visible' 'value', и др.
+
+## [`setProperty()`](Element.setProperty/)
+
+Устанавливает значение указанного свойства элемента.
 
 ## [`getName()`](Element.getName/)
 
@@ -111,7 +165,7 @@ $elementForExample.append($button);
 
 ## [`getHorizontalAlignment()`](Element.getHorizontalAlignment/)
 
-Возвращает [горизонтальное выравнивание](ElementHorizontalAlignment/) в родительском элементе.
+Возвращает [горизонтальное выравнивание](ElementHorizontalAlignment/) в родительском элементе. Возможные значения: 'left', 'right', 'center', 'stretch'.
 
 ## [`setHorizontalAlignment(horizontalAlignment)`](Element.setHorizontalAlignment/)
 
@@ -124,14 +178,6 @@ $elementForExample.append($button);
 ## [`setTextHorizontalAlignment()`](Element.setTextHorizontalAlignment/)
 
 Устанавливает [горизонтальное выравнивание текста](TextHorizontalAlignment/) в элементе.
-
-## [`getTextVerticalAlignment()`](Element.getTextVerticalAlignment/)
-
-Возвращает [вертикальное выравнивание текста](TextVerticalAlignment/) в элементе.
-
-## [`setTextVerticalAlignment()`](Element.setTextVerticalAlignment/)
-
-Устанавливает [вертикальное выравнивание текста](TextVerticalAlignment/) в элементе.
 
 ## [`getTextStyle()`](Element.getTextStyle/)
 
@@ -165,23 +211,11 @@ $elementForExample.append($button);
 
 Устанавливает текстуру элемента.
 
-## [`getChildElements()`](Element.getChildElements/)
-
-Возвращает список дочерних [элементов]().
-
-## [`getProperty()`](Element.getProperty/)
-
-Возвращает значение указанного свойства элемента.
-
-## [`setProperty()`](Element.setProperty/)
-
-Устанавливает значение указанного свойства элемента.
-
 # Events
 
 ## [`onLoaded`](Element.onLoaded/)
 
-Устанавливает [обработчик события](../Script/) о том, что элемент был загружен.
+Устанавливает [обработчик события](../Script/) о том, что элемент был загружен. Обычно этот обработчик срабатывает при завершении
 
 ## [`onGotFocus`](Element.onGotFocus/)
 

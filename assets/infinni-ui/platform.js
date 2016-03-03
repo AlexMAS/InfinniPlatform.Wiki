@@ -1867,7 +1867,9 @@ window.InfinniUI.ObjectUtils = (function () {
 
                 if(propertyValue instanceof Date){
                     setPropertyByPath(target, propertyPathTerms, new Date(propertyValue));
-                }else{
+                } else if(propertyValue instanceof File){
+                    setPropertyByPath(target, propertyPathTerms, propertyValue);
+                } else{
                     setPropertyByPath(target, propertyPathTerms, _.clone(propertyValue));
                 }
             }
@@ -2478,12 +2480,6 @@ var layoutManager = {
             this.exchange = window.InfinniUI.global.messageBus;
             this.exchange.subscribe('OnChangeLayout', _.debounce(this.onChangeLayout.bind(this), 42));
         }
-
-
-        /*var exchange = messageBus.getExchange('modal-dialog');
-        exchange.subscribe(messageTypes.onLoading, function () {
-            this.resizeDialog();
-        }.bind(this));*/
     },
 
     onChangeLayout: function (container) {
@@ -2789,6 +2785,10 @@ InfinniUI.Metadata.isValidValue = function (value, metadata) {
     }
 
     return result;
+};
+
+InfinniUI.Metadata.isBindingMetadata = function(metadata){
+    return $.isPlainObject(metadata) && 'Source' in metadata;
 };
 //####app/utils/numeric.js
 Number.isInteger = Number.isInteger || function(value) {
@@ -6409,7 +6409,7 @@ var CheckBoxView = ControlView.extend(/** @lends CheckBoxView.prototype */ _.ext
     template: InfinniUI.Template["new/controls/checkBox/template/checkBox.tpl.html"],
 
     UI: _.extend({}, editorBaseViewMixin.UI, {
-        text: 'span',
+        text: '.checkbox-label',
         input: 'input'
     }),
 
@@ -6587,6 +6587,7 @@ var ComboBoxView = ListEditorBaseView.extend({
     initHandlersForProperties: function(){
         ListEditorBaseView.prototype.initHandlersForProperties.call(this);
         this.listenTo(this.model, 'change:showClear', this.updateShowClear);
+        this.listenTo(this.model, 'change:labelText', this.updateLabelText);
     },
 
     render: function () {
@@ -6612,7 +6613,10 @@ var ComboBoxView = ListEditorBaseView.extend({
     },
 
     onClickClearHandler: function () {
-        this.model.set('value', null);
+        var enabled = this.model.get('enabled');
+        if (enabled) {
+            this.model.set('value', null);
+        }
     },
 
     onClickGripHandler: function () {
@@ -6636,12 +6640,12 @@ var ComboBoxView = ListEditorBaseView.extend({
     updateLabelText: function () {
         var labelText = this.model.get('labelText');
         if (labelText && labelText !== '') {
-            this.ui.label.text(labelText);
             this.ui.label.toggleClass('hidden', false);
         } else {
             this.ui.label.toggleClass('hidden', true);
         }
 
+        this.ui.label.text(labelText);
     },
 
     updateEnabled: function () {
@@ -9983,7 +9987,7 @@ var FileBoxView = ControlView.extend(/** @lends FileBoxView.prototype */ _.exten
         this.listenTo(this.model, 'change:fileSize', this.updateFileSize);
         this.listenTo(this.model, 'change:fileTime', this.updateFileTime);
         this.listenTo(this.model, 'change:fileType', this.updateFileType);
-        this.listenTo(this.model, 'change:value', this.updateUrl);
+        this.listenTo(this.model, 'change:value', this.updateValue);
 
         this.listenTo(this.model, 'change:hintText', this.updateHintText);
         this.listenTo(this.model, 'change:errorText', this.updateErrorText);
@@ -9997,7 +10001,7 @@ var FileBoxView = ControlView.extend(/** @lends FileBoxView.prototype */ _.exten
         this.updateFileSize();
         this.updateFileType();
         this.updateFileTime();
-        this.updateUrl();
+        this.updateValue();
 
         this.updateHintText();
         this.updateErrorText();
@@ -10061,25 +10065,49 @@ var FileBoxView = ControlView.extend(/** @lends FileBoxView.prototype */ _.exten
     },
 
     updateFileName: function () {
-        var fileName = this.model.get('fileName');
-        var enabled = this.model.get('enabled');
-
-        this.ui.download.text(fileName);
-
-        this.ui.empty.toggleClass('hidden', !!fileName);
-        this.ui.info.toggleClass('hidden', !fileName);
-
+        //var fileName = this.model.get('fileName');
+        //var enabled = this.model.get('enabled');
+        //var value = this.model.get('value');
+        //
+        //if (value && (!fileName || fileName.length === 0)) {
+        //    fileName = 'Скачать файл';
+        //}
+        //this.ui.download.text(fileName);
+        //
+        ////this.ui.empty.toggleClass('hidden', !!fileName);
+        //this.ui.empty.toggleClass('hidden', !value);
+        //this.ui.info.toggleClass('hidden', !fileName);
+        this.updateFileInfo();
         this.updateRemoveButtonState();
     },
 
     updateFileSize: function () {
-        var fileSize = this.model.get('fileSize');
+        //var fileSize = this.model.get('fileSize');
+        //
+        //var text = '';
+        //if (typeof fileSize !== 'undefined' && fileSize !== null) {
+        //    text = InfinniUI.format.humanFileSize(fileSize);
+        //}
+        //this.ui.fileSize.text(text);
+    },
 
-        var text = '';
-        if (typeof fileSize !== 'undefined' && fileSize !== null) {
-            text = InfinniUI.format.humanFileSize(fileSize);
+    updateFileInfo: function() {
+        var model = this.model;
+        var
+            value = model.get('value'),
+            fileName = model.get('fileName');
+
+        if (!value || value.length === 0) {
+            this.ui.info.toggleClass('hidden', true);
+            this.ui.empty.toggleClass('hidden', false);
+        } else {
+            if (!fileName || fileName.length === 0) {
+                fileName = 'Скачать файл';
+            }
+            this.ui.download.text(fileName);
+            this.ui.info.toggleClass('hidden', false);
+            this.ui.empty.toggleClass('hidden', true);
         }
-        this.ui.fileSize.text(text);
     },
 
     updateRemoveButtonState: function () {
@@ -10101,14 +10129,22 @@ var FileBoxView = ControlView.extend(/** @lends FileBoxView.prototype */ _.exten
         //@TODO Update file's mime type on view
     },
 
-    updateUrl: function () {
-        var url = this.model.get('value');
-        if (!url) {
-            this.ui.download.removeAttr('href');
-        } else {
-            this.ui.download.attr('href', url);
-        }
+    updateValue: function () {
+        var model = this.model;
+        var value = model.get('value');
 
+        if (value && typeof value === 'object') {
+            this.updateUrl(null);
+        } else {
+            this.updateUrl(value);
+        }
+    },
+
+    updateUrl: function (url) {
+        this.ui.download.attr('href', url);
+        var none = url === null || typeof url === 'undefined';
+        this.$el.toggleClass('pl-empty', none);
+        this.updateFileInfo();
     },
 
     onClickRemoveImageHandler: function () {
@@ -10388,43 +10424,43 @@ var ImageBoxModel = ControlModel.extend( _.extend({
     },
 
     onChangeFileHandler: function (model, file) {
-        this.stopLoadingFile();
-        if (file) {
-            var fileLoader = this.loadPreview(file);
-
-            this.fileLoader = fileLoader;
-
-            fileLoader.then(function (file, content) {
-                model.set('value', content);
-            }, function (err) {
-                console.log(err);
-            });
-        } else {
-            model.set('value', null);
-        }
+        //this.stopLoadingFile();
+        //if (file) {
+        //    var fileLoader = this.loadPreview(file);
+        //
+        //    this.fileLoader = fileLoader;
+        //
+        //    fileLoader.then(function (file, content) {
+        //        model.set('value', content);
+        //    }, function (err) {
+        //        console.log(err);
+        //    });
+        //} else {
+        //    model.set('value', null);
+        //}
     },
 
-    stopLoadingFile: function () {
-        var fileLoader = this.fileLoader;
-        if (fileLoader && fileLoader.state() === 'pending') {
-            fileLoader.reject();
-        }
-    },
-
-    loadPreview: function (file) {
-        var defer = $.Deferred();
-        var reader = new FileReader();
-        reader.onload = (function (file) {
-            return function (event) {
-                defer.resolve(file, event.target.result);
-            };
-        }(file));
-        reader.onerror  = function (event) {
-            defer.reject(event);
-        };
-        reader.readAsDataURL(file);
-        return defer.promise();
-    }
+    //stopLoadingFile: function () {
+    //    var fileLoader = this.fileLoader;
+    //    if (fileLoader && fileLoader.state() === 'pending') {
+    //        fileLoader.reject();
+    //    }
+    //},
+    //
+    //loadPreview: function (file) {
+    //    var defer = $.Deferred();
+    //    var reader = new FileReader();
+    //    reader.onload = (function (file) {
+    //        return function (event) {
+    //            defer.resolve(file, event.target.result);
+    //        };
+    //    }(file));
+    //    reader.onerror  = function (event) {
+    //        defer.reject(event);
+    //    };
+    //    reader.readAsDataURL(file);
+    //    return defer.promise();
+    //}
 
 }, editorBaseModelMixin));
 //####app/new/controls/imageBox/imageBoxView.js
@@ -10456,7 +10492,7 @@ var ImageBoxView = ControlView.extend(/** @lends ImageBoxView.prototype */ _.ext
     initHandlersForProperties: function(){
         ControlView.prototype.initHandlersForProperties.call(this);
 
-        this.listenTo(this.model, 'change:value', this.updateUrl);
+        this.listenTo(this.model, 'change:value', this.updateValue);
         this.listenTo(this.model, 'change:hintText', this.updateHintText);
         this.listenTo(this.model, 'change:errorText', this.updateErrorText);
         this.listenTo(this.model, 'change:warningText', this.updateWarningText);
@@ -10465,7 +10501,7 @@ var ImageBoxView = ControlView.extend(/** @lends ImageBoxView.prototype */ _.ext
     updateProperties: function(){
         ControlView.prototype.updateProperties.call(this);
 
-        this.updateUrl();
+        this.updateValue();
         this.updateHintText();
         this.updateErrorText();
         this.updateWarningText();
@@ -10482,12 +10518,53 @@ var ImageBoxView = ControlView.extend(/** @lends ImageBoxView.prototype */ _.ext
         this.ui.input.prop('disabled', !isEnabled);
     },
 
-    updateUrl: function () {
-        var url = this.model.get('value');
+    updateValue: function () {
+        var model = this.model;
+        var value = model.get('value');
 
+        if (value && typeof value === 'object') {
+            //Native FileAPI File instance, start loading preview
+            this.stopLoadingFile();
+            var fileLoader = this.loadPreview(value);
+
+            this.fileLoader = fileLoader;
+
+            fileLoader.then(function (file, content) {
+                this.updateUrl(content);
+            }.bind(this), function (err) {
+                console.log(err);
+            });
+        } else {
+            this.updateUrl(value);
+        }
+    },
+
+    updateUrl: function (url) {
         this.ui.img.attr('src', url);
         var none = url === null || typeof url === 'undefined';
         this.$el.toggleClass('pl-empty', none);
+    },
+
+    stopLoadingFile: function () {
+        var fileLoader = this.fileLoader;
+        if (fileLoader && fileLoader.state() === 'pending') {
+            fileLoader.reject();
+        }
+    },
+
+    loadPreview: function (file) {
+        var defer = $.Deferred();
+        var reader = new FileReader();
+        reader.onload = (function (file) {
+            return function (event) {
+                defer.resolve(file, event.target.result);
+            };
+        }(file));
+        reader.onerror  = function (event) {
+            defer.reject(event);
+        };
+        reader.readAsDataURL(file);
+        return defer.promise();
     },
 
     onClickRemoveImageHandler: function () {
@@ -11504,7 +11581,7 @@ var PanelView = ContainerView.extend(/** @lends PanelView.prototype */ {
     },
 
     events: {
-        'click .pl-panel-header': 'onClickHeaderHandler'
+        'click >.pl-panel-header': 'onClickHeaderHandler'
     },
 
     initialize: function (options) {
@@ -13839,6 +13916,7 @@ _.extend(Element.prototype, {
                 var parentView = this.getView(),
                     context = parentView ? parentView.getContext() : undefined,
                     args = {
+                        property: propertyName,
                         oldValue: model.previous(propertyName),
                         newValue: value
                     };
@@ -14252,10 +14330,11 @@ _.extend(Element.prototype, {
 
     createControlEventHandler: function(element, handler, additionParams) {
         var context;
+        var parentView = element.getView();
         additionParams = additionParams || {};
 
-        if (element.parentView) {
-            context = element.parentView.context;
+        if (parentView) {
+            context = parentView.context;
         }
 
         return function (message) {
@@ -14415,7 +14494,7 @@ _.extend(ElementBuilder.prototype, /** @lends ElementBuilder.prototype */ {
         var metadata = params.metadata;
         var propertyMetadata = metadata[propertyName];
         var element = params.element;
-        var lowerCasePropertyName = propertyName.toLowerCase();
+        var lowerCasePropertyName = this.lowerFirstSymbol(propertyName);
         var converter;
 
         if (!propertyMetadata || typeof propertyMetadata != 'object') {
@@ -14493,6 +14572,10 @@ _.extend(ElementBuilder.prototype, /** @lends ElementBuilder.prototype */ {
             exchange.send(messageTypes.onToolTipHide.name, { source: element });
         });
 
+    },
+
+    lowerFirstSymbol: function(s){
+        return s[0].toLowerCase() + s.substr(1);
     }
 
 });
@@ -15193,18 +15276,23 @@ var editorBaseBuilderMixin = {
         }
 
         if (metadata.Value !== undefined) {
-            var buildParams = {
-                parentView: params.parentView,
-                basePathOfProperty: params.basePathOfProperty
-            };
+            if(InfinniUI.Metadata.isBindingMetadata(metadata.Value)){
+                var buildParams = {
+                    parentView: params.parentView,
+                    basePathOfProperty: params.basePathOfProperty
+                };
 
-            var dataBinding = params.builder.buildBinding(metadata.Value, buildParams);
-            if (bindingOptions.converter) {
-                dataBinding.setConverter(bindingOptions.converter);
+                var dataBinding = params.builder.buildBinding(metadata.Value, buildParams);
+                if (bindingOptions.converter) {
+                    dataBinding.setConverter(bindingOptions.converter);
+                }
+                dataBinding.bindElement(params.element, bindingOptions.valueProperty);
+
+                this.initValidationResultText(element, dataBinding);
+
+            }else{
+                params.element.setValue(metadata.Value);
             }
-            dataBinding.bindElement(params.element, bindingOptions.valueProperty);
-
-            this.initValidationResultText(element, dataBinding);
         }
 
         return {
@@ -15910,6 +15998,14 @@ ComboBox.prototype.getShowClear = function () {
     return this.control.get('showClear');
 };
 
+ComboBox.prototype.setSearch = function (value) {
+    this.control.set('search', value);
+};
+
+ComboBox.prototype.getSearch = function () {
+    return this.control.get('search');
+};
+
 
 //####app/new/elements/comboBox/comboBoxBuilder.js
 /**
@@ -15930,33 +16026,75 @@ _.extend(ComboBoxBuilder.prototype, /** @lends ComboBoxBuilder.prototype */{
 
     applyMetadata: function (params) {
         var element = params.element;
+        var that = this;
 
         var data = ListEditorBaseBuilder.prototype.applyMetadata.call(this, params);
         this.initValueTemplate(data.valueBinding, params);
-        element.setLabelText(params.metadata.LabelText);
+        this.initBindingToProperty(params, 'LabelText');
         element.setAutocomplete(params.metadata.Autocomplete);
         element.setShowClear(params.metadata.ShowClear);
 
-        (function (binding) {
-            var source = binding.getSource();
-            var fullSearchFilter = {
-                CriteriaType: criteriaType.FullTextSearch,
-                Property: "",
-                Value: null
-            };
+        if(params.metadata.Autocomplete){
+            var name = element.getName();
 
-            if (!source.getQueryFilter) {
-                return;
+            if(!name){
+                name = that.generateName();
+                element.setName(name);
             }
 
-            var queryFilter = source.getQueryFilter();
-            var criteria = queryFilter.appendCriteria(fullSearchFilter);
 
-            element.onPropertyChanged('search', function (context, args) {
-                criteria.value = args.newValue;
-            });
+            if(params.metadata.AutocompleteProperty){
+                (function (binding) {
 
-        })(data.itemsBinding);
+
+                    var source = binding.getSource();
+                    var fullSearchFilter = {
+                        CriteriaType: criteriaType.IsContains,
+                        Property: params.metadata.AutocompleteProperty,
+                        Value: {
+                            "Source": name,
+                            "Property": "search",
+                            "Converter":{
+                                "ToElement":"{var val = args.value || ''; return val;}"
+                            }
+                        }
+                    };
+
+                    if (!source.getFilterManager) {
+                        return;
+                    }
+
+                    source.addFilter([fullSearchFilter]);
+
+                })(data.itemsBinding);
+
+            }else{
+                (function (binding) {
+
+
+                    var source = binding.getSource();
+                    var fullSearchFilter = {
+                        CriteriaType: criteriaType.FullTextSearch,
+                        Property: "",
+                        Value: {
+                            "Source": name,
+                            "Property": "search",
+                            "Converter":{
+                                "ToElement":"{var val = args.value || ''; return val;}"
+                            }
+                        }
+                    };
+
+                    if (!source.getFilterManager) {
+                        return;
+                    }
+
+                    source.addFilter([fullSearchFilter]);
+
+                })(data.itemsBinding);
+            }
+        }
+
     },
 
     initValueTemplate: function (binding, params) {
@@ -16078,6 +16216,10 @@ _.extend(ComboBoxBuilder.prototype, /** @lends ComboBoxBuilder.prototype */{
 
             return label;
         };
+    },
+
+    generateName: function(){
+        return 'combobox-' + guid();
     }
 });
 //####app/new/elements/dataGrid/dataGrid.js
@@ -16908,26 +17050,29 @@ _.extend(FileBoxBuilder.prototype, {
                 var fileProvider = ds.getFileProvider();
                 var url = null;
                 var info = {};
-                //Формируем URL изображения
-                if (value && value.Info && value.Info.ContentId && fileProvider) {
-                    info = value.Info;
-                    var instanceId = ds.lookupIdPropertyValue(sourceProperty);
-                    if (typeof instanceId !== 'undefined') {
-                        url = fileProvider.getFileUrl(binding.getSourceProperty(), instanceId, value.Info.ContentId);
+                //Формируем ссылку для получения файла
+                if (value) {
+                    if (value.Info && value.Info.ContentId && fileProvider) {
+                        url = fileProvider.getFileUrl(null, null, value.Info.ContentId);
+                        //element.setFileName(info.Name)
+                        //    .setFileSize(info.Size)
+                        //    .setFileTime(info.Time)
+                        //    .setFileType(info.Type);
+
+                    } else if (typeof value === 'string') {
+                        //@TODO Добавить проверку на валидность URI
+                        url = value;
+                    } else {
+                        //Native File instance from FileAPI
+                        url = value;
                     }
                 }
-
-                element.setFileName(info.Name)
-                    .setFileSize(info.Size)
-                    .setFileTime(info.Time)
-                    .setFileType(info.Type);
 
                 return url;
             }
         };
 
         var data = this.applyMetadata_editorBaseBuilder(params, {
-            //valueProperty: 'url',
             converter: converter
         });
 
@@ -16935,14 +17080,14 @@ _.extend(FileBoxBuilder.prototype, {
 
         if (binding) {
             binding.setMode(BindingModes.toElement);
+            var ds = binding.getSource();
 
             params.element.onPropertyChanged('file', function (context, args) {
-                var ds = binding.getSource();
-                var property = args.property,
-                    file = args.newValue;
+                var file = args.newValue;
 
-                //Файл в очередь на загрузк
-                ds.setFile(file, binding.getSourceProperty());
+                if (file instanceof File) {
+                    ds.setProperty(binding.getSourceProperty(), args.newValue)
+                }
             })
         }
 
@@ -17179,18 +17324,23 @@ _.extend(ImageBoxBuilder.prototype, {
                 var url = null;
                 //Формируем URL изображения
 
-                if (value && value.Info && value.Info.ContentId && fileProvider) {
-                    var instanceId = ds.lookupIdPropertyValue(sourceProperty);
-                    if (typeof instanceId !== 'undefined') {
-                        url = fileProvider.getFileUrl(binding.getSourceProperty(), instanceId, value.Info.ContentId);
+                if (value) {
+                    if (value.Info && value.Info.ContentId && fileProvider) {
+                        url = fileProvider.getFileUrl(null, null, value.Info.ContentId);
+                    } else if (typeof value === 'string') {
+                        //@TODO Добавить проверку на валидность URI
+                        url = value;
+                    } else {
+                        //Native File instance from FileAPI
+                        url = value;
                     }
                 }
                 return url;
             }
+
         };
 
         var data = this.applyMetadata_editorBaseBuilder(params, {
-            //valueProperty: 'url',
             converter: converter
         });
 
@@ -17199,14 +17349,13 @@ _.extend(ImageBoxBuilder.prototype, {
             binding.setMode(BindingModes.toElement);
 
             var ds = binding.getSource();
-            var fileProvider = ds.getFileProvider();
 
             params.element.onPropertyChanged('file', function (context, args) {
-                var property = args.property,
-                    file = args.newValue;
+                var file = args.newValue;
 
-                //Файл в очередь на загрузк
-                ds.setFile(file, binding.getSourceProperty());
+                if (file instanceof File) {
+                    ds.setProperty(binding.getSourceProperty(), args.newValue)
+                }
             });
 
             ds.onItemsUpdated(function (context, args) {
@@ -17227,16 +17376,6 @@ _.extend(ImageBoxBuilder.prototype, {
                     element.setValue(url);
                 }
             });
-
-            //params.element.onPropertyChanged('value', function (context, args) {
-            //    var url = null;
-            //    var value = args.newValue;
-            //    //Формируем URL изображения
-            //    if (value && value.ContentId && fileProvider) {
-            //        url = fileProvider.getFileUrl(binding.getSourceProperty(), value.ContentId);
-            //    }
-            //    params.element.setProperty('url', url);
-            //});
         }
 
     }
@@ -19342,8 +19481,7 @@ _.extend(AddAction.prototype, {
             editDataSource.setItems([{}]);
             editDataSource.setSelectedItem({});
         } else {
-            var criteria = [ { CriteriaType:1, Property: "Id", Value:  "0000"  } ];
-            editDataSource.setFilter( criteria );
+            editDataSource.suspendUpdate();
 
             editView.onBeforeLoaded(function() {
                 editDataSource.createItem();
@@ -19357,7 +19495,7 @@ _.extend(AddAction.prototype, {
             destinationProperty = this.getProperty('destinationProperty');
 
         if( this._isObjectDataSource(editDataSource) ) {
-            var items = destinationDataSource.getProperty(destinationProperty),
+            var items = destinationDataSource.getProperty(destinationProperty) || [],
                 newItem = editDataSource.getSelectedItem();
 
             items = _.clone(items);
@@ -19378,7 +19516,7 @@ function AddActionBuilder(){
 
         var action = new AddAction(parentView);
 
-        var linkView = builder.build(metadata['LinkView'], {parent: args.parent, parentView: parentView});
+        var linkView = builder.build(metadata['LinkView'], {parent: args.parent, parentView: parentView, basePathOfProperty: args.basePathOfProperty});
 
         action.setProperty('linkView', linkView);
 		action.setProperty('sourceSource', metadata.SourceValue.Source);
@@ -19459,7 +19597,7 @@ _.extend(DeleteAction.prototype, {
         var dataSource = this.getProperty('destinationSource'),
             property = this.getProperty('destinationProperty');
 
-        if( this._isPredefinedIdentifierProperty(property) ) {
+        if( this._isDocument(property) ) {
             this._deleteDocument(dataSource, property, callback);
         } else {
             this._deleteItem(dataSource, property, callback);
@@ -19494,8 +19632,8 @@ _.extend(DeleteAction.prototype, {
         }
     },
 
-    _isPredefinedIdentifierProperty: function(propertyName){
-        return propertyName == '$' || propertyName == '#';
+    _isDocument: function(propertyName){
+        return propertyName == '$' || _.isFinite(propertyName);
     }
 });
 
@@ -19555,6 +19693,10 @@ _.extend(EditAction.prototype, {
     setItem: function(editDataSource, selectedItem){
         var item = _.clone( selectedItem );
 
+        if(item === undefined || item === null){
+            item = {};
+        }
+
         editDataSource.setItems( [item] );
         editDataSource.setSelectedItem( item );
     },
@@ -19585,7 +19727,7 @@ function EditActionBuilder(){
 
         var action = new EditAction(parentView);
 
-        var linkView = builder.build(metadata['LinkView'], {parent: args.parent, parentView: parentView});
+        var linkView = builder.build(metadata['LinkView'], {parent: args.parent, parentView: parentView, basePathOfProperty: args.basePathOfProperty});
         action.setProperty('linkView', linkView);
 
         action.setProperty('sourceSource', metadata.SourceValue.Source);
@@ -21862,8 +22004,6 @@ _.extend(AuthenticationProvider.prototype, {
             }
 
             this.handlers.onActiveRoleChanged.fire.apply(this.handlers.onActiveRoleChanged, args);
-            var exchange = messageBus.getExchange('global');
-            exchange.send('OnActiveRoleChanged', {value: args});
         }, errorCallback);
     },
 
@@ -21972,8 +22112,6 @@ _.extend(AuthenticationProvider.prototype, {
             }
 
             this.handlers.onSignOut.fire.apply(this.handlers.onSignOut, args);
-            var exchange = messageBus.getExchange('global');
-            exchange.send('OnSignOut', {value: args});
         }.bind(this), errorCallback);
     },
 
@@ -24182,11 +24320,11 @@ var DataBinding = Backbone.Model.extend({
         var elementProperty = this.get('elementProperty');
 
         if(this.shouldRefreshSource(mode) && argument.property == elementProperty){
-            this._setValueToSource(argument.newValue);
+            this._setValueToSource(argument.newValue, context);
         }
     },
 
-    _setValueToSource: function(value){
+    _setValueToSource: function(value, context){
         var element = this.get('element');
         var source = this.get('source');
         var sourceProperty = this.get('sourceProperty');
@@ -24276,7 +24414,6 @@ DataBindingBuilder.prototype.build = function (context, args) {
         }else{
             property = metadataProperty;
         }
-        result.bindSource(source, property);
 
         if(metadata.Mode){
             result.setMode(metadata.Mode);
@@ -24293,6 +24430,8 @@ DataBindingBuilder.prototype.build = function (context, args) {
             }
             result.setConverter(converter);
         }
+
+        result.bindSource(source, property);
     });
 
     return result;
@@ -24382,6 +24521,35 @@ function DataProviderREST(urlConstructor, successCallback, failCallback) {
         }, request);
 
     };
+
+    //this.prepareItem = function prepareItem (item) {
+    //    var value, result = {};
+    //    for(var i in item) {
+    //        if (!item.hasOwnProperty(i)) {
+    //            continue;
+    //        }
+    //
+    //        value = item[i];
+    //        if (value !== null && typeof (value) === 'object') {
+    //            if (value.constructor === Date) {
+    //                result[i] = value
+    //            }
+    //            if (value.constructor === Object) {
+    //                //Plain object
+    //                result[i] = prepareItem(value);
+    //            } else {
+    //                //Object instance
+    //                continue;
+    //            }
+    //        } else {
+    //            result[i] = value;
+    //        }
+    //
+    //    }
+    //
+    //    return result;
+    //
+    //};
 
     this.setConfigId = function(configId){
         urlConstructor.setConfigId (configId);
@@ -24882,7 +25050,14 @@ RequestExecutorDataStrategy.prototype.strategies = {
             },
             beforeSend: this.onBeforeRequest(),
             success: this.onSuccessRequest(onSuccess),
-            error: this.onErrorRequest(onFail),
+            error: function (err) {
+                if (err.status === 200) {
+                    //@TODO Убрать этот костыль. Нужен т.к. запрос на загрузку файла возвращает 200 и пустой ответ!
+                    this.onSuccessRequest(onSuccess)();
+                } else {
+                    this.onErrorRequest(onFail)(err);
+                }
+            }.bind(this),
             data: JSON.stringify(requestData.args),
             contentType: "application/json;charset=UTF-8"
         });
@@ -24899,7 +25074,14 @@ RequestExecutorDataStrategy.prototype.strategies = {
             },
             beforeSend: this.onBeforeRequest(),
             success: this.onSuccessRequest(onSuccess),
-            error: this.onErrorRequest(onFail),
+            error: function (err) {
+                if (err.status === 200) {
+                    //@TODO Убрать этот костыль. Нужен т.к. запрос на загрузку файла возвращает 200 и пустой ответ!
+                    this.onSuccessRequest(onSuccess)();
+                } else {
+                    this.onErrorRequest(onFail)(err);
+                }
+            }.bind(this),
             processData: processData,
             contentType: false,
             data: requestData.args
@@ -25091,9 +25273,9 @@ DocumentUploadQueryConstructor.prototype.constructUploadFileRequest = function (
  */
 DocumentUploadQueryConstructor.prototype.getFileUrl = function (fieldName, instanceId, contentId) {
 
-    if (typeof instanceId === 'undefined' || instanceId === null) {
-        return null;
-    }
+    //if (typeof instanceId === 'undefined' || instanceId === null) {
+    //    return null;
+    //}
 
     var data = {
         Configuration: this.configId,
@@ -25366,114 +25548,6 @@ ServerActionProvider.prototype.download = function (params, resultCallback) {
 };
 
 
-//####app/data/dataSource/QueryFilter.js
-var QueryFilter = function (listCriteria, bindingBuilder) {
-    this._bindingBuilder = bindingBuilder;
-    this._criteriaList = [];
-    this._bindings = [];
-    this.setCriteria(listCriteria);
-};
-
-_.extend(QueryFilter.prototype, {
-
-    clean: function () {
-        if (this._criteriaList.length === 0) {
-            return;
-        }
-        this.stopListening();
-        //this.off();
-        this._list = null;
-        this._criteriaList.length = 0;
-        this._bindings.length = 0;
-    },
-
-    appendCriteria: function (itemCriteria, silent) {
-        var criteria = new CriteriaItem();
-        criteria.property = ('Property' in itemCriteria) ? itemCriteria.Property : itemCriteria.property;
-        criteria.criteriaType = ('CriteriaType' in itemCriteria) ? itemCriteria.CriteriaType : itemCriteria.criteriaType;
-
-        var value = ('Value' in itemCriteria) ? itemCriteria.Value : itemCriteria.value;
-        if (value !== null && typeof value === 'object' && !Array.isArray(value) && value.constructor !== Date) {
-            //Объект не массив и не дата = DataBinding
-            this.bindToValue(criteria, value);
-        } else {
-            criteria.value = value;
-        }
-        this.listenTo(criteria, 'change', function () {
-            this.triggerOnChange();
-        });
-        this._criteriaList.push(criteria);
-
-        if (silent !== true) {
-            this.triggerOnChange();
-        }
-        return criteria;
-    },
-
-    setCriteria: function (list, cb) {
-        var newList = list || null,
-            currentList = this._list || null;
-
-        if (_.isEqual(newList, currentList)) {
-            return;
-        }
-
-        this.clean();
-
-        this._list = list;
-
-        if (Array.isArray(list)) {
-            list.forEach(function (item) {
-                this.appendCriteria(item, true);
-            }, this);
-        }
-        this.triggerOnChange(cb);
-    },
-
-    triggerOnChange: function (cb) {
-        this.trigger('change', this.getCriteriaList(), cb);
-    },
-
-    getCriteriaList: function () {
-        return this._criteriaList.map(function (CriteriaItem) {
-            return CriteriaItem.toJSON();
-        });
-    },
-
-    isReady: function () {
-        return this._bindings.every(function (binding) {
-            var source = binding.getSource();
-            if ('isDataReady' in source) {
-                return source.isDataReady()
-            }
-
-            return true;
-        });
-    },
-
-    bindToValue: function(criteria, valueMetadata){
-        var binding = this._bindingBuilder(valueMetadata);
-        var that = this;
-
-        binding.bindElement({
-
-            setProperty: function(propName, propValue){
-                criteria.value = propValue;
-            },
-
-            onPropertyChanged: function(){}
-        });
-
-        this._bindings.push(binding);
-    },
-
-    onChange: function (handler) {
-        this.on('change', handler);
-    }
-});
-
-_.extend(QueryFilter.prototype, Backbone.Events);
-
 //####app/data/dataSource/_mixins/dataSourceFileProviderMixin.js
 /**
  *
@@ -25499,7 +25573,7 @@ var dataSourceFileProviderMixin = {
         //Отмечаем элемент данных как измененный при установке файла на загрузку
         this._includeItemToModifiedSet(this.getSelectedItem());
 
-        var items = queue.filter(function(item) {
+        var items = queue.filter(function (item) {
             return item.name === propertyName;
         });
 
@@ -25512,24 +25586,65 @@ var dataSourceFileProviderMixin = {
                 file: file
             });
         }
+        this.setProperty(propertyName, file);
     },
 
-    uploadFiles: function (instanceId) {
+    extractFiles: function (item, callback) {
+
+        var files = Object.create(null);
+        var itemWithoutFiles = extractFile(item, []);
+
+
+        if (typeof callback === 'function') {
+            callback.call(null, files, itemWithoutFiles);
+        }
+
+        function extractFile (item, path) {
+            var value, result = Array.isArray(item) ? [] : {}, currentPath;
+            for (var i in item) {
+                if (!item.hasOwnProperty(i)) {
+                    continue;
+                }
+
+                currentPath = path.slice();
+                currentPath.push(i);
+                value = item[i];
+                if (value !== null && typeof (value) === 'object') {
+                    if (value.constructor === Date) {
+                        result[i] = value
+                    } else if (value.constructor === Object || value.constructor === Array)  {
+                        //Plain object
+                        result[i] = extractFile(value, currentPath);
+                    } else {
+                        //Object instance
+                        files[currentPath.join('.')] = value;
+                        continue;
+                    }
+                } else {
+                    result[i] = value;
+                }
+
+            }
+
+            return result;
+        }
+    },
+
+    uploadFiles: function (instanceId, files) {
         var promises = [];
+        var promise;
         var fileProvider = this.getFileProvider();
         var ds = this;
-        var queue = this.get('queueFiles');
-        if (fileProvider  && queue && queue.length) {
-            promises = queue.map(function (item, index) {
-                return fileProvider.uploadFile(item.name, instanceId, item.file)
-                    .then(function () {
-                        //@TODO Как обрабатывать ошибки загрузки файлов?
-                        var i = queue.indexOf(item);
-                        queue.splice(i, 1);
-                        ds.trigger('onFileUploaded', ds.getContext, {value: item.file});
-                        return true;
-                    });
-            }, this);
+
+        for (var path in files) {
+            promise = fileProvider.uploadFile(path, instanceId, files[path])
+                .then(function () {
+                    //@TODO Как обрабатывать ошибки загрузки файлов?
+                    ds.trigger('onFileUploaded', ds.getContext(), {value: files[path]});
+                    return true;
+                });
+
+            promises.push(promise);
         }
 
         return $.when.apply($, promises);
@@ -25635,6 +25750,7 @@ var BaseDataSource = Backbone.Model.extend({
         pageSize: 15,
         sorting: null,
         criteriaList: [],
+        filterManager: null,
 
         view: null,
 
@@ -25660,19 +25776,12 @@ var BaseDataSource = Backbone.Model.extend({
 
     },
 
-    setQueryFilter: function (queryFilter) {
-        this._queryFilter = queryFilter;
-
-        queryFilter.onChange(function(newCriteriaList, cb){
-            if(queryFilter.isReady()){
-                this._setCriteriaList(newCriteriaList, cb);
-            }
-        }.bind(this));
-
+    setFilterManager: function (filterManager) {
+        this.set('filterManager', filterManager);
     },
 
-    getQueryFilter: function () {
-        return this._queryFilter;
+    getFilterManager: function () {
+        return this.get('filterManager');
     },
 
     initialize: function () {
@@ -26103,21 +26212,22 @@ var BaseDataSource = Backbone.Model.extend({
         this._onPropertyChangesList
             .filter(function (name) {
                 var prop, matched = false;
+                var template = property + '.';
                 if (property === name) {
                     matched = false;
                 } else if (property.length && name.length){
                     if (isBindToSelectedItem(name) && isBindToSelectedItem(property)) {
-                        if (name.indexOf(property) === 0) {
+                        if (name.indexOf(template) === 0) {
                             matched = true;
                         }
                     } else  if (isBindToSelectedItem(name)) {
                         prop = resolveProperty(name);
-                        if (prop.indexOf(property) === 0) {
+                        if (prop.indexOf(template) === 0) {
                             matched = true;
                         }
                     } else if (isBindToSelectedItem(property)) {
                         prop = resolveProperty(property);
-                        if (name.indexOf(prop) === 0) {
+                        if (name.indexOf(template) === 0) {
                             matched = true;
                         }
                     }
@@ -26185,23 +26295,30 @@ var BaseDataSource = Backbone.Model.extend({
             return;
         }
 
-        dataProvider.saveItem(item, function (data) {
-            if (!('isValid' in data) || data.isValid === true) {
-                //@TODO Что приходит в ответ на сохранение?????
-                ds.uploadFiles(data.Id)
-                    .then(function () {
-                        ds._excludeItemFromModifiedSet(item);
-                        ds._notifyAboutItemSaved(item, data, success);
-                    }, function (err) {
-                        logger.error(err);
-                        if (error) {
-                            error(err);
-                        }
-                    });
-            } else {
-                ds._notifyAboutFailValidationBySaving(item, data, error);
-            }
+        ds.extractFiles(item, function (files, itemWithoutFiles) {
+
+            dataProvider.saveItem(itemWithoutFiles, function (data) {
+                if (!('isValid' in data) || data.isValid === true) {
+                    //@TODO Что приходит в ответ на сохранение?????
+                    ds.uploadFiles(data.Id, files)
+                        .then(function () {
+                            ds._excludeItemFromModifiedSet(item);
+                            ds._notifyAboutItemSaved(item, data, success);
+                        }, function (err) {
+                            logger.error(err);
+                            if (error) {
+                                error(err);
+                            }
+                        });
+                } else {
+                    ds._notifyAboutFailValidationBySaving(item, data, error);
+                }
+            });
+
+
         });
+
+
     },
 
     _notifyAboutItemSaved: function (item, result, successHandler) {
@@ -26452,22 +26569,31 @@ var BaseDataSource = Backbone.Model.extend({
     },
 
     getFilter: function () {
-        var queryFilter = this.getQueryFilter();
-        return queryFilter ? queryFilter.getCriteriaList() : [];
+        return this.get('criteriaList');
+    },
+
+    addFilter: function (value) {
+        var filterManager = this.getFilterManager();
+        filterManager.addFilter(value);
     },
 
     setFilter: function (value, onSuccess, onError) {
-        var filter = this.getQueryFilter();
-        if (filter) {
-            filter.setCriteria(value, onSuccess);
-        }
+        var filterManager = this.getFilterManager();
+
+        filterManager.clean();
+
+        filterManager.onChange(function(newCriteriaList){
+            if(filterManager.isReady()){
+                this._setCriteriaList(newCriteriaList, onSuccess, onError);
+            }
+        }.bind(this));
+
+        filterManager.addFilter(value);
     },
 
     _setCriteriaList: function(criteriaList, onSuccess, onError){
         this.set('criteriaList', criteriaList);
-        if (this.isDataReady()) {
-            this.updateItems(onSuccess, onError);
-        }
+        this.updateItems(onSuccess, onError);
     },
 
     setIdFilter: function (itemId) {
@@ -26652,8 +26778,8 @@ _.extend(BaseDataSourceBuilder.prototype, /** @lends BaseDataSourceBuilder.proto
         var dataSource = this.createDataSource(args.parentView);
         dataSource.suspendUpdate();
 
-        var queryFilter = new QueryFilter(null, this.buildBindingBuilder(args));
-        dataSource.setQueryFilter(queryFilter);
+        var filterManager = new FilterManager(this.buildBindingBuilder(args));
+        dataSource.setFilterManager(filterManager);
 
         this.applyMetadata(args.builder, args.parentView, args.metadata, dataSource);
         this.initFileProvider(dataSource, args.metadata);
@@ -26686,8 +26812,7 @@ _.extend(BaseDataSourceBuilder.prototype, /** @lends BaseDataSourceBuilder.proto
 
         var queryMetadata;
         if('Query' in metadata){
-            var queryFilter = dataSource.getQueryFilter();
-            queryFilter.setCriteria(metadata.Query);
+            dataSource.setFilter(metadata.Query);
         }
 
         if('IsLazy' in metadata){
@@ -27121,6 +27246,81 @@ _.extend(DocumentDataSourceBuilder.prototype, {
     }
 });
 
+//####app/data/dataSource/filterManager.js
+var FilterManager = function (bindingBuilder) {
+    this._bindingBuilder = bindingBuilder;
+    this._criteriaList = [];
+    this._bindings = [];
+};
+
+_.extend(FilterManager.prototype, {
+
+    clean: function () {
+        this.off();
+        this._criteriaList.length = 0;
+        this._bindings.length = 0;
+    },
+
+    addFilter: function (filterList) {
+        var startCriteriaIndex = this._criteriaList.length;
+        var index;
+        var binding;
+
+        filterList.forEach(function (filter, i) {
+
+            index = startCriteriaIndex + i;
+
+            this._criteriaList.push(filter);
+
+            if('Value' in filter && $.isPlainObject(filter['Value'])){
+                binding = this.bindToValue(filter['Value'], index);
+                this._bindings.push(binding);
+            }
+
+        }, this);
+
+        this.triggerOnChange();
+    },
+
+    triggerOnChange: function () {
+        this.trigger('change', this.getCriteriaList());
+    },
+
+    getCriteriaList: function () {
+        return this._criteriaList;
+    },
+
+    isReady: function () {
+        return this._bindings.every(function (binding) {
+            var source = binding.getSource();
+            return source && ( !('isDataReady' in source) || source.isDataReady() );
+        });
+    },
+
+    bindToValue: function(valueMetadata, indexOfFilter){
+        var binding = this._bindingBuilder(valueMetadata);
+        var that = this;
+
+        binding.bindElement({
+
+            setProperty: function(propName, propValue){
+                that._criteriaList[indexOfFilter]['Value'] = propValue;
+                that.triggerOnChange();
+            },
+
+            onPropertyChanged: function(){}
+        });
+
+        return binding;
+    },
+
+    onChange: function (handler) {
+        this.on('change', handler);
+    }
+});
+
+_.extend(FilterManager.prototype, Backbone.Events);
+
 //####app/data/dataSource/metadataDataSource.js
 function MetadataDataSource(view, metadata) {
 
@@ -27451,7 +27651,7 @@ function ParameterBuilder() {
             var parameter = new Parameter({view: parentView});
             parameter.setName(metadata['Name']);
 
-            if(this.isBindingMetadata(metadata['Value'])){
+            if(InfinniUI.Metadata.isBindingMetadata(metadata['Value'])){
                 var dataBinding = builder.buildBinding(metadata['Value'], {parentView: parentView, basePathOfProperty: basePathOfProperty});
                 dataBinding.bindElement(parameter, '');
             }else{
@@ -27460,10 +27660,6 @@ function ParameterBuilder() {
         }
 
         return parameter;
-    };
-
-    this.isBindingMetadata = function(metadata){
-        return $.isPlainObject(metadata) && 'Source' in metadata;
     };
 }
 //####app/data/upload/uploadService.js
@@ -34634,7 +34830,7 @@ function InlineViewBuilder() {
         if (typeof parametersMetadata !== 'undefined' && parametersMetadata !== null) {
             for (var i = 0; i < parametersMetadata.length; i++) {
                 if (parametersMetadata[i].Value !== undefined) {
-                    parameter = builder.buildType('Parameter', parametersMetadata[i], {parentView: parentView})
+                    parameter = builder.buildType('Parameter', parametersMetadata[i], {parentView: parentView, basePathOfProperty: params.basePathOfProperty})
                     result[parameter.getName()] = parameter;
                 }
             }
