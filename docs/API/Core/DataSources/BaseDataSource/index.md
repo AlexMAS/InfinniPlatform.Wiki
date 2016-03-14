@@ -4,7 +4,7 @@ title: "BaseDataSource"
 position: 0
 ---
 
-Базовый тип источников данных представления.
+Базовый тип источников данных [представление](../../Elements/View/).
 
 # Syntax
 
@@ -28,7 +28,7 @@ new BaseDataSource(parameters)
 
 ## [`getView()`](BaseDataSource.getView/)
 
-Возвращает родительское [представление](../../KeyConcepts/View/).
+Возвращает родительское [представление](../../Elements/View/).
 
 ## [`getName()`](BaseDataSource.getName/)
 

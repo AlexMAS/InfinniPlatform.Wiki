@@ -29,7 +29,7 @@ new Element([parent], [viewMode]);
 Необязательный. Строка со значением [режима отображения](../../viewMode).
 
 # Usage
-Создать экземпляр Element нельзя, однако можно например создать экземпляр кнопки, которая наследуется от Element. И зададим ей текст.
+Создать экземпляр Element нельзя, однако можно например создать экземпляр кнопки, которая наследуется от Element. Сделаем это, а так же зададим кнопке текст.
 
 ```js
 //js-demo
@@ -39,47 +39,6 @@ var $button = button.render();
 button.setText("ButtonText")
 
 $elementForExample.append($button);
-```
-
-```js
-//infinni-ui-demo
-{
-    "DataSources": [
-        {
-            "ObjectDataSource": {
-                "Name": "ObjectDataSource2",
-                "Items": [
-                    {"Value": {"Id": 2, "Display": "2G"}}
-                ]
-            }
-        }
-    ],
-    //infinni-ui-display-begin
-    "Items": [{
-            "GridPanel": {
-                "Items": [
-                    {
-                        "Cell": {
-                            "ColumnSpan": 4,
-                            "Items": [
-                                {
-                                    "ToggleButton": {
-                                        "Name": "TB",
-                                        "Text": "Subscribe",
-                                        "TextOn": "yes",
-                                        "TextOff": "no"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        }
-    ]
-    //infinni-ui-display-end
-}
-
 ```
 
 # Properties
