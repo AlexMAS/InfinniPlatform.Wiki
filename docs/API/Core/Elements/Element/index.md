@@ -132,7 +132,7 @@ $elementForExample.append($button);
 
 ## [`getHorizontalAlignment()`](Element.getHorizontalAlignment/)
 
-Возвращает [горизонтальное выравнивание](ElementHorizontalAlignment/) в родительском элементе. Возможные значения: 'left', 'right', 'center', 'stretch'.
+Возвращает [горизонтальное выравнивание](ElementHorizontalAlignment/) в родительском элементе. Возможные значения: 'Left', 'Right', 'Center', 'Stretch'.
 
 ## [`setHorizontalAlignment(horizontalAlignment)`](Element.setHorizontalAlignment/)
 
