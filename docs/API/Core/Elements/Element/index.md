@@ -63,7 +63,16 @@ $elementForExample.append($button);
 
 ## [`getChildElements()`](Element.getChildElements/)
 
-Возвращает список дочерних [элементов]().
+Возвращает список дочерних [элементов](). Речь идет о непосредственных потомках, дочерние дочерних элементов в этот список не входят. В отличии от следующих методов.
+
+## [`findAllChildrenByType(type)`](Element.findAllChildrenByType/)
+
+Возвращает список потомков (дочерних, их дочерних и т. д.) [элементов]() с заданным типом (Button, Label и др.). Параметр `type` задается строкой.
+
+
+## [`findAllChildrenByName(name)`](Element.findAllChildrenByName/)
+
+Возвращает список потомков (дочерних, их дочерних и т. д.) [элементов]() с заданным именем. Параметр `name` задается строкой.
 
 ## [`getProperty()`](Element.getProperty/)
 
