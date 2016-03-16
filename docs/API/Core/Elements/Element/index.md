@@ -148,27 +148,27 @@ $elementForExample.append($button);
 
 ## [`getTextStyle()`](Element.getTextStyle/)
 
-Возвращает [стиль текста](../Style/TextStyle/) элемента.
+Возвращает [стиль текста](Style/TextStyle/) элемента.
 
 ## [`setTextStyle()`](Element.setTextStyle/)
 
-Устанавливает [стиль текста](../Style/TextStyle/) элемента.
+Устанавливает [стиль текста](Style/TextStyle/) элемента.
 
 ## [`getForeground()`](Element.getForeground/)
 
-Возвращает [цвет](../Style/ColorStyle/) текста элемента.
+Возвращает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) текста элемента.
 
 ## [`setForeground()`](Element.setForeground/)
 
-Устанавливает [цвет](../Style/ColorStyle/) текста элемента.
+Устанавливает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) текста элемента.
 
 ## [`getBackground()`](Element.getBackground/)
 
-Возвращает [цвет](../Style/ColorStyle/) фона элемента.
+Возвращает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) фона элемента.
 
 ## [`setBackground()`](Element.setBackground/)
 
-Устанавливает [цвет](../Style/ColorStyle/) фона элемента.
+Устанавливает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) фона элемента.
 
 ## [`getTexture()`](Element.getTexture/)
 
