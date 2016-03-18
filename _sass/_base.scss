@@ -246,9 +246,14 @@ th {
 
 td,
 th {
+  	vertical-align: top;
 	padding: 8px;
-	border: 1px solid $grey-color;
 }
+
+td{
+  border-top: 1px solid $grey-color;
+}
+
 tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {
 }
