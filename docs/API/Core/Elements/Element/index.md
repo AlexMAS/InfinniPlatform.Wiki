@@ -72,7 +72,7 @@ $elementForExample.append($button);
 |[setEnabled](Element.setEnabled/)|Устанавливает значение, определяющее, возможен ли доступ к элементу|
 |[getVisible](Element.getVisible/)|Возвращает значение, определяющее, отображается ли элемент в интерфейсе|
 |[setVisible](Element.setVisible/)|Устанавливает значение, определяющее, отображается ли элемент в интерфейсе|
-|[getHorizontalAlignment](Element.getHorizontalAlignment/)|Возвращает [горизонтальное выравнивание](ElementHorizontalAlignment/) в родительском элементе. Возможные значения: 'left', 'right', 'center', 'stretch'|
+|[getHorizontalAlignment](Element.getHorizontalAlignment/)|Возвращает [горизонтальное выравнивание](ElementHorizontalAlignment/) в родительском элементе|
 |[setHorizontalAlignment](Element.setHorizontalAlignment/)|Устанавливает [горизонтальное выравнивание](ElementHorizontalAlignment/) в родительском элементе|
 |[getTextHorizontalAlignment](Element.getTextHorizontalAlignment/)|Возвращает [горизонтальное выравнивание текста](TextHorizontalAlignment/) в элементе|
 |[setTextHorizontalAlignment](Element.setTextHorizontalAlignment/)|Устанавливает [горизонтальное выравнивание текста](TextHorizontalAlignment/) в элементе|
@@ -80,12 +80,12 @@ $elementForExample.append($button);
 |[setToolTip](Element.setToolTip/)|Устанавливает всплывающее сообщение для элемента|
 |[getValidationState](Element.getValidationState/)|Возвращает валидационный статус элемента
 |[setValidationState](Element.setValidationState/)|Устанавливает заданный валидационный статус и валидационное сообщение сообщение
-|[getTextStyle](Element.getTextStyle/)|Возвращает [стиль текста](../Style/TextStyle/) элемента
-|[setTextStyle](Element.setTextStyle/)|Устанавливает [стиль текста](../Style/TextStyle/) элемента
-|[getForeground](Element.getForeground/)|Возвращает [цвет](../Style/ColorStyle/) текста элемента
-|[setForeground](Element.setForeground/)|Устанавливает [цвет](../Style/ColorStyle/) текста элемента
-|[getBackground](Element.getBackground/)|Возвращает [цвет](../Style/ColorStyle/) фона элемента
-|[setBackground](Element.setBackground/)|Устанавливает [цвет](../Style/ColorStyle/) фона элемента
+|[getTextStyle](Element.getTextStyle/)|Возвращает [стиль текста](/docs/Specifications/UserInterface/KeyConcepts/Style/TextStyle/) элемента
+|[setTextStyle](Element.setTextStyle/)|Устанавливает [стиль текста](/docs/Specifications/UserInterface/KeyConcepts/Style/TextStyle/) элемента
+|[getForeground](Element.getForeground/)|Возвращает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) текста элемента
+|[setForeground](Element.setForeground/)|Устанавливает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) текста элемента
+|[getBackground](Element.getBackground/)|Возвращает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) фона элемента
+|[setBackground](Element.setBackground/)|Устанавливает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) фона элемента
 |[getTexture](Element.getTexture/)|Возвращает текстуру элемента
 |[setTexture](Element.setTexture/)|Устанавливает текстуру элемента
 |[getStyle](Element.getStyle/)|Возвращает кастомный стиль элемента (на деле это класс, стили которых могут быть заданы в подключаемых на страницу стилях)|
