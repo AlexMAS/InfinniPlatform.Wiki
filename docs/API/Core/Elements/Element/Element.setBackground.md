@@ -14,9 +14,9 @@ Element.setBackground(value)
 
 ## Parameters
 
-`value`
-
-[Цвет](../../Style/ColorStyle/) фона элемента.
+|Name|Type|Description|
+|----|----|-----------|
+|value|`String`|[Цвет](../../Style/ColorStyle/) фона элемента.|
 
 # Examples
 

@@ -26,11 +26,12 @@ position: 12
 Element.setParent(value)
 ```
 
+
 ## Parameters
 
-`value`
-
-Родительский [элемент](../).
+|Name|Type|Description|
+|----|----|-----------|
+|value|[элемент](../)|Родительский [элемент](../).|
 
 # Examples
 

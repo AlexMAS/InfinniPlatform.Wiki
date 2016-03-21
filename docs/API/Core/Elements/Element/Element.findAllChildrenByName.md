@@ -20,9 +20,9 @@ Element.findAllChildrenByName(name)
 
 ## Parameters
 
-`name`
-
-Наименование элемента.
+|Name|Type|Description|
+|----|----|-----------|
+|value|`String`|Наименование элемента|
 
 ## Returns
 

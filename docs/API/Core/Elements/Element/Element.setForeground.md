@@ -12,11 +12,12 @@ position: 36
 Element.setForeground(value)
 ```
 
+
 ## Parameters
 
-`value`
-
-[Цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) текста элемента.
+|Name|Type|Description|
+|----|----|-----------|
+|value|`String`|[Цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) текста элемента.|
 
 # Examples
 

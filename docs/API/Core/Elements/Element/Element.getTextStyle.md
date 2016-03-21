@@ -12,6 +12,11 @@ position: 33
 Element.getBackground()
 ```
 
+
+## Parameters
+
+Нет
+
 ## Returns
 
 [Стиль текста](../../Style/TextStyle/) элемента.

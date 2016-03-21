@@ -16,6 +16,10 @@ position: 10
 Element.getView()
 ```
 
+## Parameters
+
+Нет
+
 # Examples
 
 ```js

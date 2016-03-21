@@ -12,6 +12,10 @@ position: 39
 Element.getTexture()
 ```
 
+## Parameters
+
+Нет
+
 ## Returns
 
 Текстура элемента.

@@ -14,9 +14,9 @@ Element.setTexture(value)
 
 ## Parameters
 
-`value`
-
-Текстура элемента.
+|Name|Type|Description|
+|----|----|-----------|
+|value|`String`|Текстура элемента.|
 
 # Examples
 

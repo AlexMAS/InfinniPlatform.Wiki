@@ -12,11 +12,12 @@ position: 26
 Element.setHorizontalAlignment(value)
 ```
 
+
 ## Parameters
 
-`value`
-
-[Горизонтальное выравнивание](../ElementHorizontalAlignment/) в родительском элементе.
+|Name|Type|Description|
+|----|----|-----------|
+|value|`String`|[Горизонтальное выравнивание](../ElementHorizontalAlignment/) в родительском элементе.|
 
 # Examples
 

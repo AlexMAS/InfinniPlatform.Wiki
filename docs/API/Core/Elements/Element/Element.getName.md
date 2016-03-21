@@ -12,6 +12,11 @@ position: 13
 Element.getName()
 ```
 
+
+## Parameters
+
+Нет
+
 ## Returns
 
 Наименование элемента.

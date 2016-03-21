@@ -19,9 +19,9 @@ Element.setStyle(value)
 
 ## Parameters
 
-`value`
-
-Стилевой класс элемента.
+|Name|Type|Description|
+|----|----|-----------|
+|value|`String`|Стилевой класс элемента.|
 
 # Examples
 

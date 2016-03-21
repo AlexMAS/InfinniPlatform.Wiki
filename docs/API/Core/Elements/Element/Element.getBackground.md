@@ -12,6 +12,10 @@ position: 37
 Element.getBackground()
 ```
 
+## Parameters
+
+Нет
+
 ## Returns
 
 [Цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) фона элемента.
