@@ -22,4 +22,3 @@ position: 1
 * [`BaseDataSource`](BaseDataSource/) - базовый тип источников данных представления.
 * [`ObjectDataSource`](ObjectDataSource/) - источник данных представления для произвольного массива данных.
 * [`DocumentDataSource`](DocumentDataSource/) - источник данных представления для документов InfinniPlatform.
-* [`MetadataDataSource`](MetadataDataSource/) - источник данных представления для метаданных InfinniPlatform.
