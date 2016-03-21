@@ -12,6 +12,11 @@ position: 25
 Element.getHorizontalAlignment()
 ```
 
+
+## Parameters
+
+Нет
+
 ## Returns
 
 [Горизонтальное выравнивание](../ElementHorizontalAlignment/) в родительском элементе.

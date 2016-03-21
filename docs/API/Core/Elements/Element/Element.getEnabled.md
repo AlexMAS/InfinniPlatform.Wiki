@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.getEnabled()"
-position: 23
+position: 22
 ---
 
 Возвращает значение, определяющее, возможен ли доступ к элементу или он заблокирован.
@@ -15,6 +15,10 @@ position: 23
 ```js
 Element.getEnabled()
 ```
+
+## Parameters
+
+Нет
 
 ## Returns
 

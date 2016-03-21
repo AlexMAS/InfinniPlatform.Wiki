@@ -14,9 +14,9 @@ Element.setText(value)
 
 ## Parameters
 
-`value`
-
-Текст элемента.
+|Name|Type|Description|
+|----|----|-----------|
+|value|`String`|Текст элемента.|
 
 # Examples
 

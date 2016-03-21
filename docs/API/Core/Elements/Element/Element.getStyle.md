@@ -13,6 +13,10 @@ position: 39
 Element.getStyle()
 ```
 
+## Parameters
+
+Нет
+
 ## Returns
 
 Стилевой класс элемента. 

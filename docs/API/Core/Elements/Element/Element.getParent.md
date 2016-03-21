@@ -26,6 +26,10 @@ position: 11
 Element.getParent()
 ```
 
+## Parameters
+
+Нет
+
 ## Returns
 
 Родительский [элемент](../).

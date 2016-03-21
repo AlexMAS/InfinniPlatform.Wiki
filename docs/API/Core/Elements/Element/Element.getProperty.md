@@ -21,9 +21,7 @@ Element.getProperty(property)
 
 ## Parameters
 
-`property`
-
-Путь к свойству.
+Нет
 
 ## Returns
 

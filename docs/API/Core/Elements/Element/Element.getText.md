@@ -13,6 +13,11 @@ position: 15
 Element.getText()
 ```
 
+
+## Parameters
+
+Нет
+
 ## Returns
 
 Текст заголовка элемента.

@@ -21,13 +21,10 @@ Element.setProperty(property, value)
 
 ## Parameters
 
-`property`
-
-Путь к свойству.
-
-`value`
-
-Значение свойства.
+|Name|Type|Description|
+|----|----|-----------|
+|property|`String`|Путь к свойству.|
+|value| * |Значение свойства.|
 
 # Examples
 

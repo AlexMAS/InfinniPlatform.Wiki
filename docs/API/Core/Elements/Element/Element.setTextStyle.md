@@ -12,11 +12,12 @@ position: 34
 Element.setTextStyle(value)
 ```
 
+
 ## Parameters
 
-`value`
-
-[Стиль текста](../Style/TextStyle/) элемента.
+|Name|Type|Description|
+|----|----|-----------|
+|value|`String`|[Стиль текста](../Style/TextStyle/) элемента.|
 
 # Examples
 

@@ -12,6 +12,11 @@ position: 35
 Element.getForeground()
 ```
 
+
+## Parameters
+
+Нет
+
 ## Returns
 
 [Цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) текста элемента.

@@ -20,9 +20,9 @@ Element.findAllChildrenByType(type)
 
 ## Parameters
 
-`type`
-
-Тип элемента.
+|Name|Type|Description|
+|----|----|-----------|
+|`type`|`String`|Тип элемента.|
 
 ## Returns
 
