@@ -14,9 +14,9 @@ Element.setName(value)
 
 ## Parameters
 
-`value`
-
-Наименование элемента.
+|Name|Type|Description|
+|----|----|-----------|
+|value|`String`|Наименование элемента|
 
 # Examples
 
