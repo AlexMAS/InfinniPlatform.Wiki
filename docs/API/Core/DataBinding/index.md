@@ -40,6 +40,8 @@ new DataBinding()
 
 ## Parameters
 
+Нет
+
 # Usage
 
 ```js
@@ -81,3 +83,4 @@ $elementForExample.append($source);
 
 # Events
 
+Нет
