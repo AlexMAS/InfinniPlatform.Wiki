@@ -1,6 +1,7 @@
 ---
 layout: doc
 title: "Button"
+position: 0
 ---
 
 Кнопка.
@@ -42,6 +43,4 @@ new Button(parent, viewMode)
 
 # Events
 
-|Name|Description|
-|----|---------|
-|[onClick](Button.onClick/)|Устанавливает [обработчик события](../../Script/) нажатия на кнопку|
+Нет
