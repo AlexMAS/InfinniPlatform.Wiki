@@ -42,6 +42,11 @@ new DataBinding()
 
 Нет
 
+## Returns
+
+DataBinding
+
+
 # Usage
 
 ```js

@@ -9,8 +9,12 @@ position: 10
 # Syntax
 
 ```js
-DataBinding.getSourceProperty()
+dataBinding.getElementProperty()
 ```
+
+## Parameters
+
+Нет
 
 ## Returns
 
@@ -19,8 +23,8 @@ DataBinding.getSourceProperty()
 # Examples
 
 ```js
-DataBinding.bindElement(context.controls.textBox1, 'Value');
-var elementProperty = DataBinding.getElementProperty(); // elementProperty === 'Value'
+dataBinding.bindElement(context.controls['TextBox1'], 'Value');
+var elementProperty = dataBinding.getElementProperty(); // elementProperty === 'Value'
 ```
 
 # See Also

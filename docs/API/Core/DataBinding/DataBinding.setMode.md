@@ -9,19 +9,24 @@ position: 2
 # Syntax
 
 ```js
-DataBinding.setMode(value)
+dataBinding.setMode(value)
 ```
 
 ## Parameters
 
-`value`
+|Name|Type|Description|
+|----|----|-----------|
+|value|[`BindingMode`](../BindingMode/)|Направление обмена данными в привязке|
 
-[Направление обмена данными в привязке](../BindingMode/).
+## Returns
+
+Метод ничего не возвращает.
+
 
 # Examples
 
 ```js
-DataBinding.setMode(BindingMode.twoWay);
+dataBinding.setMode(BindingModes.twoWay);
 ```
 
 # See Also
