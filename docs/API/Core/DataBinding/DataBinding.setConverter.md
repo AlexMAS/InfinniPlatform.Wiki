@@ -14,9 +14,9 @@ dataBinding.setConverter(value)
 
 ## Parameters
 
-|Name|Type|Description|
-|----|----|-----------|
-|value|[`BindingConverter`](../BindingConverter/)|Преобразователь данных между элементом и источником|
+|Name|Type|Required|Description|
+|----|----|:--:|-----------|
+|value|[`BindingConverter`](../BindingConverter/)|-|Преобразователь данных между элементом и источником|
 
 ## Returns
 

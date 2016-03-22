@@ -14,9 +14,9 @@ dataBinding.setDefaultValue(value)
 
 ## Parameters
 
-|Name|Description|
-|----|-----------|
-|value|Значение по умолчанию для элемента|
+|Name|Required|Description|
+|----|:--:|-----------|
+|value|-|Значение по умолчанию для элемента|
 
 ## Returns
 
