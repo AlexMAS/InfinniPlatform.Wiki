@@ -37,7 +37,7 @@ position: 0
 	  "Value": {
 	    "Source": "DataSource_1",
 	    "Property": "Name",
-	    "Mode": "toElement"
+	    "Mode": "ToElement"
 	  }
 	}
 }
@@ -52,7 +52,7 @@ position: 0
 	    "Source": "DataSource_1",
 	    "Property": "Name",
 	    "Converter": {
-            "ToElement": "{return args.value == '-' ? 'minus': 'plus';}",
+            "ToElement": "{ return args.value == '-' ? 'minus': 'plus'; }",
             "ToSource": "ConvertTextBoxToDataSource_1" //выполнится скрипт из контекста родительской view
         }
 	  }
