@@ -48,12 +48,11 @@ new DataBinding()
 //js-demo
 var element = new TextBox();
 var $element = element.render();
-element.setHintText("Element");
+element.setLabelText("Element");
 
 var source = new TextBox();
 var $source = source.render();
-source.setHintText("Source");
-source.setValue("Введите текст в Element");
+source.setLabelText("Source");
 
 var binding = new DataBinding();
 binding.setMode('ToSource');
