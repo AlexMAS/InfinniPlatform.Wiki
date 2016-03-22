@@ -21,8 +21,8 @@ Element.onClick(callback)
 # Examples
 
 ```js
-Element.onMouseDoubleClick(
-  function(context, argument) { alert('onMouseDoubleClick'); }
+Element.onClick(
+  function(context, argument) { alert('onClick'); }
 );
 ```
 
