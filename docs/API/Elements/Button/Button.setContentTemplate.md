@@ -4,7 +4,7 @@ title: "Button.setContentTemplate"
 position: 2
 ---
 
-Устанавливает [функцию](../../Script/) шаблонизации содержимого кнопки.
+Устанавливает [функцию](../../../Core/Script/) шаблонизации содержимого кнопки.
 
 # Syntax
 
@@ -14,9 +14,9 @@ button.setContentTemplate(value)
 
 ## Parameters
 
-|Name|Type|Required|Description|
-|----|----|:--:|-----------|
-|value|[`Script`](../../Script/)|-|Преобразователь данных между элементом и источником|
+|Name|Type|Description|
+|----|----|-----------|
+|value|[`Script`](../../Script/)|Функция шаблонизации содержимого кнопки|
 
 ## Returns
 
@@ -27,10 +27,14 @@ button.setContentTemplate(value)
 ```js
 //js-demo
 var button = new Button();
-var $button = button.render();
-//button.setContentTemplate(???);
+var contentTemplate = function (context, args) {
+    var label = new Label();
+    label.setValue('Button 1');
+    return label;
+}
 
-$elementForExample.append($button);
+button.setContentTemplate(contentTemplate);
+$elementForExample.append(button.render());
 ```
 
 # See Also

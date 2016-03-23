@@ -8,32 +8,15 @@ position: 0
 
 # Schema
 
-|Name|Type|Default|Required|Description|
-|----|----|:--:|:--:|-----------|
-|Action|[`Action`](../../Action)| - | - |Основное действие кнопки|
-|Content|???| - | - |Содержимое кнопки|
-|ContentTemplate|[ContentTemplate](???)| - | - |Шаблон содержимого кнопки|
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+|Action|[`ActionMetadata`](../../../Core/Action/Action.metadata/)| - |Основное действие кнопки|
+|Content|`String`| - |Содержимое кнопки|
+|ContentTemplate|[ElementMetadata](../../../Core/Elements/Element/Element.metadata/)| - |Шаблон содержимого кнопки|
 
 # Examples
 
 ```js
-//infinni-ui-demo
-{
-	"DataSources": [
-    ],
-    "Items": [{
-//infinni-ui-display-begin
-"Button": {
-	"Text": "Push me",
-	"OnClick": "{ alert("Hello!"); }"
-}
-//infinni-ui-display-end
-	}]
-}
-
-```
-
-```json
 {
 	"ContentTemplate": {
 		"Icon": {
@@ -42,7 +25,7 @@ position: 0
 	},
 	"Action": {
 		"EditAction": {
-			...
+			/** ... **/
 		}
 	}
 }
