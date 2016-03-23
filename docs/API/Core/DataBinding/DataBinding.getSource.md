@@ -9,8 +9,12 @@ position: 6
 # Syntax
 
 ```js
-DataBinding.getSource()
+dataBinding.getSource()
 ```
+
+## Parameters
+
+Нет
 
 ## Returns
 
@@ -19,8 +23,8 @@ DataBinding.getSource()
 # Examples
 
 ```js
-DataBinding.bindSource(context.dataSources.dataSource1, '$.FirstName');
-var source = DataBinding.getSource(); // source === context.dataSources.dataSource1
+dataBinding.bindSource(context.dataSources['DataSource1'], '$.FirstName');
+var source = dataBinding.getSource(); // source === context.dataSources['DataSource1']
 ```
 
 # See Also

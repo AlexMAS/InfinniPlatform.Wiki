@@ -9,8 +9,12 @@ position: 9
 # Syntax
 
 ```js
-DataBinding.getElement()
+dataBinding.getElement()
 ```
+
+## Parameters
+
+Нет
 
 ## Returns
 
@@ -19,8 +23,8 @@ DataBinding.getElement()
 # Examples
 
 ```js
-DataBinding.bindElement(context.controls.textBox1, 'Value');
-var element = DataBinding.getElement(); // element === context.controls.textBox1
+dataBinding.bindElement(context.controls['TextBox1'], 'Value');
+var element = dataBinding.getElement(); // element === context.controls['TextBox1']
 ```
 
 # See Also

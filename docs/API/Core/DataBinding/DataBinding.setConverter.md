@@ -9,24 +9,29 @@ position: 4
 # Syntax
 
 ```js
-DataBinding.setConverter(value)
+dataBinding.setConverter(value)
 ```
 
 ## Parameters
 
-`value`
+|Name|Type|Required|Description|
+|----|----|:--:|-----------|
+|value|[`BindingConverter`](../BindingConverter/)|-|Преобразователь данных между элементом и источником|
 
-[Преобразователь данных между элементом и источником](../BindingConverter/).
+## Returns
+
+Метод ничего не возвращает.
+
 
 # Examples
 
 ```js
-DataBinding.setConverter({
-  toSource: function(context, argument) {
-    return parseInt(argument.value); // string to integer
+dataBinding.setConverter({
+  toSource: function(context, args) {
+    return parseInt(args.value); // string to integer
   },
-  toElement: function(context, argument) {
-    return argument.value.toString(); // integer to string
+  toElement: function(context, args) {
+    return args.value.toString(); // integer to string
   }
 });
 ```

@@ -8,13 +8,43 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/DataBinding/BindingConverter.resjson" lang="json" %}
+|Name|Type|Description|
+|----|----|-----------|
+|ToSource|`String`|Функция конвертации, осуществляющая преобразование данных элемента в формат данных источника|
+|ToElement|`String`|Функция конвертации, осуществляющая преобразование данных источника в формат данных элемента|
+
 
 # Examples
 
+В качестве функции конвертации может быть указано как название прикладного скрипта,
+
 ```json
 {
-  "ToSource": "convertFunction1",
-  "ToElement": "convertFunction2"
+	"Scripts": [
+		{
+	      "Name": "ElementToSourceConverter",
+	      "Body": "..."
+	    },
+	    {
+	      "Name": "SourceToElementConverter",
+	      "Body": "..."
+	    }
+	],
+	... 
+	"Converter": {
+	  "ToSource": "ElementToSourceConverter", 
+	  "ToElement": "SourceToElementConverter"
+	}
+}
+```
+
+так и тело функции.
+
+```json
+{
+	"Converter": {
+	  "ToSource": "{ return (args.value == '-' ? false : true); }", 
+	  "ToElement": "{ return args.value ? '+' : '-'; }"
+	}
 }
 ```

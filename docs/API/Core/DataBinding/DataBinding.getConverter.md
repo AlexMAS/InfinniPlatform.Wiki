@@ -9,8 +9,12 @@ position: 3
 # Syntax
 
 ```js
-DataBinding.getConverter()
+dataBinding.getConverter()
 ```
+
+## Parameters
+
+Нет
 
 ## Returns
 
@@ -19,7 +23,7 @@ DataBinding.getConverter()
 # Examples
 
 ```js
-var converter = DataBinding.getConverter();
+var converter = dataBinding.getConverter();
 ```
 
 # See Also

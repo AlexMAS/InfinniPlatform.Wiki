@@ -9,8 +9,12 @@ position: 1
 # Syntax
 
 ```js
-DataBinding.getMode()
+dataBinding.getMode()
 ```
+
+## Parameters
+
+Нет
 
 ## Returns
 
@@ -19,7 +23,7 @@ DataBinding.getMode()
 # Examples
 
 ```js
-var bindingMode = DataBinding.getMode();
+var bindingMode = dataBinding.getMode();
 ```
 
 # See Also
