@@ -16,7 +16,7 @@ Label.setTextTrimming(value)
 
 |Name|Type|Description|
 |----|----------|---------|
-|value|`Boolean`|Устанавливает значение, определяющее, усекается ли текст при переполнении.|
+|value|`Boolean`|Значение, определяющее, усекается ли текст при переполнении.|
 
 ## Returns
 
@@ -25,7 +25,7 @@ Label.setTextTrimming(value)
 # Examples
 
 ```js
-myLabel.ыetTextTrimming(false);
+myLabel.setTextTrimming(false);
 ```
 
 # See Also
