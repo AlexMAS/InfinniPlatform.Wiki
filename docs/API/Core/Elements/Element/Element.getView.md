@@ -4,10 +4,6 @@ title: "Element.getView()"
 position: 10
 ---
 
-Возвращает родительское [представление](../../View/).
-
-# Description
-
 Возвращает родительское [представление](../../View/) элемента.
 
 # Syntax
@@ -19,6 +15,10 @@ Element.getView()
 ## Parameters
 
 Нет
+
+## Returns
+
+Родительское [представление](../../View/) элемента.
 
 # Examples
 

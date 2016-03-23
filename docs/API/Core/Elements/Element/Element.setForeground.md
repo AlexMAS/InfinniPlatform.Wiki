@@ -19,6 +19,10 @@ Element.setForeground(value)
 |----|----|-----------|
 |value|`String`|[Цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) текста элемента.|
 
+## Returns
+
+Метод не возвращает значений.
+
 # Examples
 
 ```js

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.getChildElements()"
-position: 43
+position: 12.1
 ---
 
 Возвращает список дочерних [элементов](../).

@@ -26,6 +26,10 @@ Element.setProperty(property, value)
 |property|`String`|Путь к свойству.|
 |value| * |Значение свойства.|
 
+## Returns
+
+Метод не возвращает значений.
+
 # Examples
 
 ```js

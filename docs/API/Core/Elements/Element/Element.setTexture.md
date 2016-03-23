@@ -18,6 +18,10 @@ Element.setTexture(value)
 |----|----|-----------|
 |value|`String`|Текстура элемента.|
 
+## Returns
+
+Метод не возвращает значений.
+
 # Examples
 
 ```js

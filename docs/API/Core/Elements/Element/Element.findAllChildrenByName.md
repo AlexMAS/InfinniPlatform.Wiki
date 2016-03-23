@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.findAllChildrenByName()"
-position: 43
+position: 12.2
 ---
 
 Возвращает список потомков (дочерних, их дочерних и т. д.) [элементов]() с заданным именем.

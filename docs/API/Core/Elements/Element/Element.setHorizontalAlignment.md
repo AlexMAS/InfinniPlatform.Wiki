@@ -19,6 +19,10 @@ Element.setHorizontalAlignment(value)
 |----|----|-----------|
 |value|`String`|[Горизонтальное выравнивание](../ElementHorizontalAlignment/) в родительском элементе.|
 
+## Returns
+
+Метод не возвращает значений.
+
 # Examples
 
 ```js

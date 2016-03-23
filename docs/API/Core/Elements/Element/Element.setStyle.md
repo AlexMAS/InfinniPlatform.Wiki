@@ -23,6 +23,10 @@ Element.setStyle(value)
 |----|----|-----------|
 |value|`String`|Стилевой класс элемента.|
 
+## Returns
+
+Метод не возвращает значений.
+
 # Examples
 
 ```js

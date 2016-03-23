@@ -18,6 +18,10 @@ Element.setText(value)
 |----|----|-----------|
 |value|`String`|Текст элемента.|
 
+## Returns
+
+Метод не возвращает значений.
+
 # Examples
 
 ```js

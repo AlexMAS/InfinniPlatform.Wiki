@@ -18,6 +18,10 @@ Element.setName(value)
 |----|----|-----------|
 |value|`String`|Наименование элемента|
 
+## Returns
+
+Метод не возвращает значений.
+
 # Examples
 
 ```js

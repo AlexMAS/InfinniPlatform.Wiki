@@ -19,6 +19,10 @@ Element.setTextStyle(value)
 |----|----|-----------|
 |value|`String`|[Стиль текста](../Style/TextStyle/) элемента.|
 
+## Returns
+
+Метод не возвращает значений.
+
 # Examples
 
 ```js
