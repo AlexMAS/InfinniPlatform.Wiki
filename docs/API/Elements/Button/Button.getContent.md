@@ -4,7 +4,7 @@ title: "Button.getContent"
 position: 3
 ---
 
-Возвращает содержимое кнопки.
+Возвращает содержимое кнопки, установленное методом [`setContent`](../Button.setContent/).
 
 # Syntax
 
