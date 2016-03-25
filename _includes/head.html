@@ -6,8 +6,8 @@
 	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 	<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-	<link rel="stylesheet" href="{{ "/assets/bootstrap/css/bootstrap.min.css" | prepend: site.baseurl }}">
-	<link rel="stylesheet" href="{{ "/assets/font-awesome/css/font-awesome.min.css" | prepend: site.baseurl }}">
+	<link rel="stylesheet" href="{{ "/assets/infinni-ui/css/vendor.css" | prepend: site.baseurl }}">
+	<link rel="stylesheet" href="{{ "/assets/infinni-ui/css/main.css" | prepend: site.baseurl }}">
 	<link rel="stylesheet" href="{{ "/assets/highlight.js/css/github.css" | prepend: site.baseurl }}">
 	<link rel="stylesheet" href="{{ "/assets/css/site.css" | prepend: site.baseurl }}">
 

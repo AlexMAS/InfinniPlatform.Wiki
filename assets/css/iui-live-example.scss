@@ -1,0 +1,15 @@
+.iui-live-example{
+  border: 1px solid rgb(231, 231, 231);
+  min-height: 200px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+}
+
+.iui-live-example:before{
+  content: 'Результат';
+  display: block;
+  background-color: rgb(231, 231, 231);
+  font-size: 14px;
+  padding: 5px 0 5px 10px;
+  margin-bottom: 10px;
+}
