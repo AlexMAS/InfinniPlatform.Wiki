@@ -30,7 +30,7 @@ position: 1003
 
 ## [`parameters`](ViewContext.parameters/)
 
-Возвращает ассоциативный список [параметров представления](../Parameter/).
+Возвращает ассоциативный список [параметров представления](../Parameters/).
 
 ## [`dataSources`](ViewContext.dataSources/)
 

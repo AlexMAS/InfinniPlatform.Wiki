@@ -24,7 +24,7 @@ dataBinding.bindSource(source, property)
 
 |Name|Type|Required|Description|
 |----|----|:--:|-----------|
-|source|[`визуальный элемент`](../../Elements/) / [`источник данных`](../../DataSources/) / [`параметр представления`](../../Parameter)|+|Источник данных привязки|
+|source|[`визуальный элемент`](../../Elements/) / [`источник данных`](../../DataSources/) / [`параметр представления`](../../Parameters/)|+|Источник данных привязки|
 |property|`String`|+|Путь к свойству источника данных привязки|
 
 ## Returns

@@ -25,7 +25,7 @@ dataBinding.bindElement(element, property)
 
 |Name|Type|Required|Description|
 |----|----|:--:|-----------|
-|element|[`визуальный элемент`](../../Elements/) / [`источник данных`](../../DataSources/) / [`параметр представления`](../../Parameter)|+|Элемент привязки|
+|element|[`визуальный элемент`](../../Elements/) / [`источник данных`](../../DataSources/) / [`параметр представления`](../../Parameters/)|+|Элемент привязки|
 |property|`String`|+|Путь к свойству элемента привязки|
 
 ## Returns

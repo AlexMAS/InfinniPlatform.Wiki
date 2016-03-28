@@ -4,7 +4,7 @@ title: "ViewContext.parameters"
 position: 4
 ---
 
-Возвращает ассоциативный список [параметров представления](../../Parameter/).
+Возвращает ассоциативный список [параметров представления](../../Parameters/).
 
 # Syntax
 
@@ -21,4 +21,4 @@ var parameter2 = ViewContext.parameters['myParameter']; // parameter2 === parame
 
 # See Also
 
-* [`Parameter`](../../Parameter/)
+* [`Parameter`](../../Parameters/)
