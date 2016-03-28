@@ -11,8 +11,8 @@ position: 0
 |Name|Description|
 |----|-----------|
 |[OpenAction](OpenAction/)|Открывает [представление](../Elements/View/)|
-|[AcceptAction](AcceptAction/)|Устанавливает результат работы [представления](../Elements/View/) в значение [DialogResult.accepted](../Elements/View/DialogResult/)|
-|[CancelAction](CancelAction/)|Устанавливает результат работы [представления](../Elements/View/) в значение [DialogResult.canceled](../Elements/View/DialogResult/)|
+|[AcceptAction](AcceptAction/)|Устанавливает в качестве результата работы [представления](../Elements/View/) значение [DialogResult.accepted](../Elements/View/DialogResult/)|
+|[CancelAction](CancelAction/)|Устанавливает в качестве результата работы [представления](../Elements/View/) значение [DialogResult.canceled](../Elements/View/DialogResult/)|
 |[AddAction](AddAction/)|Создает новый элемент в [источнике данных](../DataSources)|
 |[EditAction](EditAction/)|Редактирует элемент в [источнике данных](../DataSources)|
 |[DeleteAction](DeleteAction/)|Удаляет элемент из [источника данных](../DataSources)|
