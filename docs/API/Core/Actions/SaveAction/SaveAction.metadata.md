@@ -8,10 +8,10 @@ position: 0
 
 # Schema
 
-|Name|Type|Default|Required|Description|
-|----|----|:--:|:--:|-----------|
-|DestinationValue.Source|`String`| - | + |Название источника данных|
-|CanClose|`Boolean`| true | - |Значение, определяющее, нужно ли закрыть родительское представление после сохранения|
+|Name|Type|Default|Description|
+|----|----|----|-----------|
+|DestinationValue.Source|`String`| |Название источника данных|
+|CanClose|`Boolean`|true| (Необязательное) Значение, определяющее, нужно ли закрыть родительское представление после сохранения|
 
 
 

@@ -8,9 +8,9 @@ position: 0
 
 # Schema
 
-|Name|Type|Default|Required|Description|
-|----|----|:--:|:--:|-----------|
-|LinkView|[`LinkView.metadata`](../../../LinkView/LinkView.metadata/)| - | + |Объект, который будет создавать и настраивать [представление](../../../Elements/View/)|
+|Name|Type|Description|
+|----|----|-----------|
+|LinkView|[`LinkView.metadata`](../../../LinkView/LinkView.metadata/)|Объект, который будет создавать и настраивать [представление](../../../Elements/View/)|
 
 
 

@@ -8,9 +8,9 @@ position: 0
 
 # Schema
 
-|Name|Type|Default|Required|Description|
-|----|----|:--:|:--:|-----------|
-|DestinationValue.Source|`String`| - | + |Название источника данных|
+|Name|Type|Description|
+|----|----|-----------|
+|DestinationValue.Source|`String`|Название источника данных|
 
 
 

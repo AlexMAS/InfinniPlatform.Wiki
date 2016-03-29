@@ -21,9 +21,9 @@ new OpenAction(parentView)
 
 Для работы с данными свойствами используйте методы [getProperty](../BaseAction/BaseAction.getProperty/) и [setProperty](../BaseAction/BaseAction.setProperty/).
 
-|Name|Type|Required|Description|
-|----|----|:--:|-----------|
-|linkView|[`LinkView`](../../LinkView/)| + |Объект, который будет создавать и настраивать [представление](../../Elements/View/)|
+|Name|Type|Description|
+|----|----|-----------|
+|linkView|[`LinkView`](../../LinkView/)|Объект, который будет создавать и настраивать [представление](../../Elements/View/)|
 
 
 # Examples

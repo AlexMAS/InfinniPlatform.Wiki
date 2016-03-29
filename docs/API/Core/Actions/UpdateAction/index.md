@@ -21,9 +21,9 @@ new UpdateAction(parentView)
 
 Для работы с данными свойствами используйте методы [getProperty](../BaseAction/BaseAction.getProperty/) и [setProperty](../BaseAction/BaseAction.setProperty/).
 
-|Name|Type|Required|Description|
-|----|----|:--:|-----------|
-|dataSource|[`DataSource`](../../DataSources/)| + |Источник данных, который будет обновляться|
+|Name|Type|Description|
+|----|----|-----------|
+|dataSource|[`DataSource`](../../DataSources/)|Источник данных, который будет обновляться|
 
 
 # Examples

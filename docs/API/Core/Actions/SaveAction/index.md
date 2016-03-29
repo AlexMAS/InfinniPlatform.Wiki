@@ -21,10 +21,10 @@ new SaveAction(parentView)
 
 Для работы с данными свойствами используйте методы [getProperty](../BaseAction/BaseAction.getProperty/) и [setProperty](../BaseAction/BaseAction.setProperty/).
 
-|Name|Type|Required|Description|
-|----|----|:--:|-----------|
-|dataSource|[`DataSource`](../../DataSources/)| + |Источник данных, который будет сохранятся|
-|canClose|`Boolean`| + |Значение, определяющее, нужно ли закрыть родительское представление после сохранения|
+|Name|Type|Default|Description|
+|----|----|----|-----------|
+|dataSource|[`DataSource`](../../DataSources/)| |Источник данных, который будет сохранятся|
+|canClose|`Boolean`|true|Значение, определяющее, нужно ли закрыть родительское представление после сохранения|
 
 
 # Examples
