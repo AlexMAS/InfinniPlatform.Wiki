@@ -4,7 +4,7 @@ title: "Element.metadata"
 position: 0
 ---
 
-Метаданные типа [`Element`](../).
+Метаданные описывающие настройки [`Element`](../).
 
 # Schema
 
