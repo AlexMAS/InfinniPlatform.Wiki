@@ -11,7 +11,7 @@ position: 0
 |Name|Type|Default|Required|Description|
 |----|----|:--:|:--:|-----------|
 |DestinationValue.Source|`String`| - | + |Название источника данных|
-|CanClose|`Boolean`| true | - |Флаг, определяющий, нужно ли закрыть родительское представление после сохранения|
+|CanClose|`Boolean`| true | - |Значение, определяющее, нужно ли закрыть родительское представление после сохранения|
 
 
 
@@ -30,4 +30,4 @@ position: 0
 
 # See Also
 
-* [`DataSource`](../../DataSources/)
+* [`DataSource`](../../../DataSources/)

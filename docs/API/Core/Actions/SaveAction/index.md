@@ -23,8 +23,8 @@ new SaveAction(parentView)
 
 |Name|Type|Required|Description|
 |----|----|:--:|-----------|
-|dataSource|[`DataSource`](../../DataSources/)| + |Источник данных, который будет обновляться|
-|canClose|`Boolean`| + |Флаг, определяющий, нужно ли закрыть родительское представление после сохранения|
+|dataSource|[`DataSource`](../../DataSources/)| + |Источник данных, который будет сохранятся|
+|canClose|`Boolean`| + |Значение, определяющее, нужно ли закрыть родительское представление после сохранения|
 
 
 # Examples
@@ -33,7 +33,7 @@ new SaveAction(parentView)
 var saveAction = new SaveAction(parentView);
 saveAction.setProperty('dataSource', parentView.context.dataSources['DataSource1']);
 saveAction.setProperty('canClose', true);
-saveAction.execute(); // обновит DataSource1 и закроет parentView
+saveAction.execute(); // сохранит выбранный элемент DataSource1 и закроет parentView
 ```
 
 # See Also
