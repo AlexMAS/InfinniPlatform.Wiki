@@ -29,11 +29,8 @@ position: 0
 		  "Source": "MainDataSource"
 		},
 		"LinkView": {
-		  "AutoView": {
-		    "ConfigId": "PTA",
-		    "DocumentId": "Child",
-		    "MetadataName": "ChildEditViewFromParent",
-		    "OpenMode": "Dialog"
+		  "InlineView": {
+		  	...
 		  }
 		}
 	}

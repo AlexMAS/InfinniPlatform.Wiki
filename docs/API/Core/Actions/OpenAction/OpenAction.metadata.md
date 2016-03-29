@@ -20,9 +20,8 @@ position: 0
 {
 	"OpenAction": {
 		"LinkView": {
-			"AutoView": {
-			  "ConfigId": "Patient",
-			  "DocumentId": "EditView"
+			"InlineView": {
+				...
 			}
 		}
 	}
