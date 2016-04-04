@@ -4,7 +4,7 @@ title: "View.getParameters()"
 position: 3
 ---
 
-Возвращает [коллекцию](../../Collection/) [параметров представления](../../Parameters/).
+Возвращает [коллекцию](../../../Collection/) [параметров представления](../../../Parameters/).
 
 # Syntax
 
@@ -18,7 +18,7 @@ view.getParameters()
 
 ## Returns
 
-[Коллекция](../../Collection/) [параметров представления](../../Parameters/).
+[Коллекция](../../../Collection/) [параметров представления](../../../Parameters/).
 
 # Examples
 
@@ -36,5 +36,5 @@ myParameter2.getValue(); // 123
 
 # See Also
 
-* [`Collection`](../../Collection/)
-* [`Parameter`](../../Parameters/)
+* [`Collection`](../../../Collection/)
+* [`Parameter`](../../../Parameters/)

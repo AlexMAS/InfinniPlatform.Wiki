@@ -4,7 +4,7 @@ title: "View.getDataSources()"
 position: 4
 ---
 
-Возвращает [коллекцию](../../Collection/) [источников данных представления](../../DataSources/BaseDataSource/).
+Возвращает [коллекцию](../../../Collection/) [источников данных представления](../../../DataSources/BaseDataSource/).
 
 # Syntax
 
@@ -18,7 +18,7 @@ view.getDataSources()
 
 ## Returns
 
-[Коллекция](../../Collection/) [источников данных представления](../../DataSources/BaseDataSource/).
+[Коллекция](../../../Collection/) [источников данных представления](../../../DataSources/BaseDataSource/).
 
 # Examples
 
@@ -34,5 +34,5 @@ var myDataSource2 = dataSources.getById('myDataSource'); // myDataSource2 === my
 
 # See Also
 
-* [`Collection`](../../Collection/)
-* [`BaseDataSource`](../../DataSources/BaseDataSource/)
+* [`Collection`](../../../Collection/)
+* [`BaseDataSource`](../../../DataSources/BaseDataSource/)

@@ -4,7 +4,7 @@ title: "View.getContext()"
 position: 1
 ---
 
-Возвращает [контекст представления](../../Context/).
+Возвращает [контекст представления](../../../Context/).
 
 # Syntax
 
@@ -18,7 +18,7 @@ view.getContext()
 
 ## Returns
 
-[Контекст представления](../../Context/).
+[Контекст представления](../../../Context/).
 
 # Examples
 
@@ -28,4 +28,4 @@ var viewContext = view.getContext();
 
 # See Also
 
-* [`ViewContext`](../../Context/)
+* [`ViewContext`](../../../Context/)
