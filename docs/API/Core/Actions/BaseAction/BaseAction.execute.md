@@ -9,12 +9,14 @@ position: 1
 # Syntax
 
 ```js
-action.execute();
+action.execute(callback);
 ```
 
 ## Parameters
 
-Нет
+|Name|Description|
+|----|---------|
+|callback| (Необязательное) Функция, которая будет выполнена после после окончания действия, реализуемого Action'ом|
 
 ## Returns
 
@@ -25,5 +27,5 @@ action.execute();
 ```js
 var updateAction = new UpdateAction(parentView);
 updateAction.setProperty('dataSource', parentView.context.dataSources['DataSource1']);
-updateAction.execute(); // обновит DataSource1
+updateAction.execute(function(){ alert('DataSource1 was updated'); }); // обновит DataSource1
 ```
