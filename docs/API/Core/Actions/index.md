@@ -18,7 +18,5 @@ position: 0
 |[DeleteAction](DeleteAction/)|Удаляет элемент из [источника данных](../DataSources)|
 |[UpdateAction](UpdateAction/)|Обновляет список элементов [источника данных](../DataSources)|
 |[SaveAction](SaveAction/)|Сохраняет изменения для текущего элемента в [источнике данных](../DataSources)|
-|[SelectAction](SelectAction/)|???|
+|[SelectAction](SelectAction/)|Заполняет поле элемента в [источнике данных](../DataSources) данными из другого элемента [источника данных](../DataSources)|
 |[ServerAction](ServerAction/)|???|
-|[PrintReportAction](PrintReportAction/)|???|
-|[PrintViewAction](PrintViewAction/)|???|
