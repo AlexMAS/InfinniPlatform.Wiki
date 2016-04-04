@@ -14,9 +14,9 @@ action.execute(callback);
 
 ## Parameters
 
-|Name|Description|
-|----|---------|
-|callback| (Необязательное) Функция, которая будет выполнена после после окончания действия, реализуемого Action'ом|
+|Name|Type|Description|
+|----|----|---------|
+|callback|[`Script`](../../../Script/)| (Необязательное) Обработчик события о том, что Action был выполнен|
 
 ## Returns
 
