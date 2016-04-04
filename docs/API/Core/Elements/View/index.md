@@ -43,6 +43,21 @@ new View([parent])
 |[`setDialogResult`](View.setDialogResult/)|Устанавливает [результат работы представления](DialogResult/)|
 |[`open`](View.open/)|Открывает представление|
 |[`close`](View.close/)|Закрывает представление|
+createControl
+getApplicationView
+isApplication
+registerElement
+getIcon
+setIcon
+getScriptsStorage
+setOpenStrategy
+setHeaderTemplate
+getHeaderTemplate
+setCloseButton
+getCloseButton
+noDataSourceOnView
+registerMember
+getDeferredOfMember
 
 # Events
 
@@ -52,3 +67,4 @@ new View([parent])
 |[`onOpened`](View.onOpened/)|Устанавливает [обработчик события](../../Script/) о том, что представление было открыто|
 |[`onClosing`](View.onClosing/)|Устанавливает [обработчик события](../../Script/) о том, что представление закрывается|
 |[`onClosed`](View.onClosed/)|Устанавливает [обработчик события](../../Script/) о том, что представление было закрыто|
+|[`onBeforeLoaded`](View.onBeforeLoaded/)|Устанавливает [обработчик события](../../Script/) о том, что представление было загружено. Данный обработчик сработает до [`onLoaded`](../Element/Element.onLoaded/)|
