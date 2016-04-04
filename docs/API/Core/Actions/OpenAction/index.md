@@ -26,6 +26,15 @@ new OpenAction(parentView)
 |linkView|[`LinkView`](../../LinkView/)|Объект, который будет создавать и настраивать [представление](../../Elements/View/)|
 
 
+# Метод execute
+
+Если при вызове метода [execute](../BaseAction/BaseAction.execute/) указан параметр callback, то вызов данного обработчика осуществляется с параметром view. 
+
+|Name|Type|Description|
+|----|----|-----------|
+|view|[Представление](../../Elements/View/)|Открытое представление|
+
+
 # Examples
 
 ```js
@@ -34,10 +43,13 @@ var linkView = (new InlineViewBuilder()).build(null, {
 														metadata: {View: viewMetadata}, 
 														parentView: args.parentView
 													});
+var openActionCallback = function(view){
+	console.log('%s was opened', view.name);
+};
 
 var openAction = new OpenAction(args.parentView);
 openAction.setProperty('linkView', linkView);
-openAction.execute();
+openAction.execute(openActionCallback);
 ```
 
 # See Also

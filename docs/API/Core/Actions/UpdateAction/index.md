@@ -25,6 +25,15 @@ new UpdateAction(parentView)
 |----|----|-----------|
 |dataSource|[`DataSource`](../../DataSources/)|Источник данных, который будет обновляться|
 
+# Метод execute
+
+Если при вызове метода [execute](../BaseAction/BaseAction.execute/) указан параметр callback, то вызов данного обработчика осуществляется с параметрами context и argument. 
+
+|Name|Type|Description|
+|----|----|-----------|
+|context|[Контекст представления](../../Context/)|Контекст родительского представления|
+|argument.value|`Array`|Новый список элементов [источника данных](../../DataSources)|
+
 
 # Examples
 

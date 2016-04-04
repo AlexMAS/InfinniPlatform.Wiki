@@ -27,6 +27,16 @@ new ServerAction(parentView)
 |contentType|`String`|Тип передаваемых данных. Может принимать значение 'File' или 'Object'|
 |parameters|`Array`|Массив [`параметров`](../../Parameters)|
 
+# Метод execute
+
+Если при вызове метода [execute](../BaseAction/BaseAction.execute/) указан параметр callback, то вызов данного обработчика осуществляется с параметром value. 
+
+|Name|Description|
+|----|-----------|
+|value.requestUrl|Url запроса|
+|value.method|Метод запроса|
+|value.args|Параметры запроса|
+
 
 # Examples
 

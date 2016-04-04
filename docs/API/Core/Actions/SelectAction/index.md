@@ -31,6 +31,13 @@ new SelectAction(parentView)
 
 ![](Scheme.png)
 
+# Метод execute
+
+Если при вызове метода [execute](../BaseAction/BaseAction.execute/) указан параметр callback, то вызов данного обработчика осуществляется с параметром value. 
+
+|Name|Description|
+|----|-----------|
+|value|Выбранное значение|
 
 # Examples
 
@@ -40,6 +47,9 @@ var linkView = (new InlineViewBuilder()).build(null, {
 														metadata: {View: selectPatientView}, 
 														parentView: parentView
 													});
+var selectActionCallback = function(value) {
+	console.log(value);
+};
 
 var selectAction = new SelectAction(parentView);
 
@@ -49,7 +59,7 @@ selectAction.setProperty('destinationProperty', '$.Patient');
 selectAction.setProperty('sourceSource', 'Patients');
 selectAction.setProperty('sourceProperty', '$');
 
-selectAction.execute();//откроет окно выбора пациента. Выбранный пацент будет записан в текущей госпитализации
+selectAction.execute(selectActionCallback);//откроет окно выбора пациента. Выбранный пацент будет записан в текущей госпитализации
 ```
 
 
