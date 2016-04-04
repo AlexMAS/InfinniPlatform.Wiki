@@ -35,8 +35,6 @@ new View([parent])
 
 |Name|Description|
 |----|---------|
-|[`getIcon`](View.getIcon/)|Возвращает изображение заголовка представления|
-|[`setIcon`](View.setIcon/)|Устанавливает изображение заголовка представления|
 |[`getContext`](View.getContext/)|Возвращает [контекст представления](../Context/)|
 |[`getScripts`](View.getScripts/)|Возвращает [коллекцию](../Collection/) [скриптов представления](../Script/)|
 |[`getParameters`](View.getParameters/)|Возвращает [коллекцию](../Collection/) [параметров представления](../Parameters/)|
