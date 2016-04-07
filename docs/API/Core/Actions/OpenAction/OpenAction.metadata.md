@@ -10,7 +10,7 @@ position: 0
 
 |Name|Type|Description|
 |----|----|-----------|
-|LinkView|[`LinkView.metadata`](../../../LinkView/LinkView.metadata/)|Объект, который будет создавать и настраивать [представление](../../../Elements/View/)|
+|LinkView|[`LinkView.metadata`](../../../Elements/View/LinkView/LinkView.metadata/)|Объект, который будет создавать и настраивать [представление](../../../Elements/View/)|
 
 
 
@@ -30,4 +30,4 @@ position: 0
 
 # See Also
 
-* [`LinkView`](../../../LinkView/)
+* [`LinkView`](../../../Elements/View/LinkView/)

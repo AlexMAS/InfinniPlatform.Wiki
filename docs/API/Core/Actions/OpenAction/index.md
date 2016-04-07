@@ -23,7 +23,7 @@ new OpenAction(parentView)
 
 |Name|Type|Description|
 |----|----|-----------|
-|linkView|[`LinkView`](../../LinkView/)|Объект, который будет создавать и настраивать [представление](../../Elements/View/)|
+|linkView|[`LinkView`](../../Elements/View/LinkView/)|Объект, который будет создавать и настраивать [представление](../../Elements/View/)|
 
 
 # Метод execute
