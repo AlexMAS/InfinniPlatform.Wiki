@@ -20,7 +20,7 @@ position: 0
 # Syntax
 
 ```js
-new View([parent])
+new View(parent)
 ```
 
 ## Parameters
@@ -28,7 +28,7 @@ new View([parent])
 
 |Name|Type|Description|
 |----|----|-----------|
-|parent|[Element](../Element/)|Родительский элемент|
+|parent|[Element](../Element/)| (Необязательный) Родительский элемент|
 
 
 # Methods
