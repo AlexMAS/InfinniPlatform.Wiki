@@ -19,4 +19,4 @@ position: 0
 |[UpdateAction](UpdateAction/)|Обновляет список элементов [источника данных](../DataSources)|
 |[SaveAction](SaveAction/)|Сохраняет изменения для текущего элемента в [источнике данных](../DataSources)|
 |[SelectAction](SelectAction/)|Заполняет поле элемента в [источнике данных](../DataSources) данными из другого элемента [источника данных](../DataSources)|
-|[ServerAction](ServerAction/)|???|
+|[ServerAction](ServerAction/)|Отправляет http запрос|
