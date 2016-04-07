@@ -1,5 +1,5 @@
 ---
 layout: doc
-title: "Elements"
+title: "LinkView.metadata"
 position: 1
 ---

@@ -1,5 +1,6 @@
 ---
 layout: doc
-title: "Elements"
+title: "DialogResult"
 position: 1
 ---
+
