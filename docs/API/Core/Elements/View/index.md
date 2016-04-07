@@ -43,21 +43,12 @@ new View([parent])
 |[`setDialogResult`](View.setDialogResult/)|Устанавливает [результат работы представления](DialogResult/)|
 |[`open`](View.open/)|Открывает представление|
 |[`close`](View.close/)|Закрывает представление|
-createControl
-getApplicationView
-isApplication
-registerElement
-getIcon
-setIcon
-getScriptsStorage
-setOpenStrategy
-setHeaderTemplate
-getHeaderTemplate
-setCloseButton
-getCloseButton
-noDataSourceOnView
-registerMember
-getDeferredOfMember
+|[`setOpenStrategy`](View.setOpenStrategy/)|Устанавливает [стратегию отображения представления](LinkView/OpenMode/)|
+|[`getHeaderTemplate`](View.getHeaderTemplate/)|Возвращает [функцию](../../Script/) шаблонизации заголовка представления|
+|[`setHeaderTemplate`](View.setHeaderTemplate/)|Устанавливает [функцию](../../Script/) шаблонизации заголовка представления|
+|[`getCloseButtonVisibility`](View.getCloseButtonVisibility/)|Возвращает флаг видимости кнопки закрытия|
+|[`setCloseButtonVisibility`](View.setCloseButtonVisibility/)|Устанавливает флаг видимости кнопки закрытия|
+|[`getApplicationView`](View.getApplicationView/)|Возвращает корневое представление|
 
 # Events
 
