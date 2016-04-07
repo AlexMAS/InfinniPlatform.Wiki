@@ -29,7 +29,7 @@ EditorBase.setValue(value)
 
 ## Returns
 
-Если значение редактора было изменено, возвращается `true`, иначе `false`.
+Нет.
 
 # Examples
 

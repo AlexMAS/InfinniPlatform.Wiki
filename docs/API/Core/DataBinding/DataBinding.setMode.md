@@ -14,9 +14,9 @@ dataBinding.setMode(value)
 
 ## Parameters
 
-|Name|Type|Required|Description|
-|----|----|:--:|-----------|
-|value|[`BindingMode`](../BindingMode/)|+|Направление обмена данными в привязке|
+|Name|Type|Description|
+|----|----|-----------|
+|value|[`BindingMode`](../BindingMode/)|Направление обмена данными в привязке|
 
 ## Returns
 

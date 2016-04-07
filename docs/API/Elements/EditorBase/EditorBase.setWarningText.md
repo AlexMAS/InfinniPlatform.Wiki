@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "EditorBase.setWarningText()"
+title: "EditorBase.setWarningText"
 position: 16
 ---
 

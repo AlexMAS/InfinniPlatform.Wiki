@@ -8,12 +8,12 @@ position: 0
 
 # Schema
 
-|Name|Type|Default|Required|Description|
-|----|----|----|:--:|-----------|
-|Source|`String`| | + |Наименование источника данных привязки|
-|Property|`String`| | |Путь к свойству источника данных привязки|
-|Mode|[BindingMode](../BindingMode/)|`TwoWay`| |Направление потока данных в привязке|
-|Converter|[BindingConverter](../BindingConverter/)| | |Преобразователь данных между элементом и источником|
+|Name|Type|Default|Description|
+|----|----|----|-----------|
+|Source|`String`| |Наименование источника данных привязки|
+|Property|`String`| |(Необязательное) Путь к свойству источника данных привязки|
+|Mode|[BindingMode](../BindingMode/)|`TwoWay`|(Необязательное) Направление потока данных в привязке|
+|Converter|[BindingConverter](../BindingConverter/)| |(Необязательное) Преобразователь данных между элементом и источником|
 
 # Examples
 
