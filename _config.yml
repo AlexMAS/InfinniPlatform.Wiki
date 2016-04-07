@@ -19,7 +19,7 @@ safe:         false
 keep_files:   [".git",".hg"]
 encoding:     "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-exclude:      ["*.confluence"]
+exclude:      ["*.confluence", ".git", ".idea", "docs/Specifications", "docs/_obsolete", "docs/Deployment", "docs/GettingStarted", "docs/ProductDesign", "sdk"]
 
 # Conversion
 markdown:    redcarpet
