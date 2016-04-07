@@ -20,7 +20,7 @@ position: 0
 
 # Examples
 
-```js
+```json
 {
     "MultiSelect": true,
     "ValueProperty": "id",

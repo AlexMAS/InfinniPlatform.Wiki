@@ -17,7 +17,7 @@ position: 9
 
 # Examples
 
-```js
+```json
 {
 	"LabelText": "Birthday",
 	"LabelFloating": true,

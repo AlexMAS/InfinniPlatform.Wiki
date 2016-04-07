@@ -19,7 +19,7 @@ position: 0
 
 # Examples
 
-```js
+```json
 {
 	"Value": {
 		"Source": "MainDataSource",
