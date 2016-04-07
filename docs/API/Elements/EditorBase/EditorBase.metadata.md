@@ -14,8 +14,8 @@ position: 0
 |HintText|`String`||Текст с подсказкой для ввода|
 |ErrorText|`String`||Текст с информацией об ошибке|
 |WarningText|`String`||Текст с информацией о предупреждении|
-|OnValueChanging|[Script](../../../KeyConcepts/Script/)||Обработчик события о том, что значение изменяется|
-|OnValueChanged|[Script](../../../KeyConcepts/Script/)||Обработчик события о том, что значение было изменено|
+|OnValueChanging|[Script](../../../Core/Script/)||Обработчик события о том, что значение изменяется|
+|OnValueChanged|[Script](../../../Core/Script/)||Обработчик события о том, что значение было изменено|
 
 # Examples
 
