@@ -8,7 +8,7 @@ position: 1000
 
 # Extends
 
-[`Element`](../../KeyConcepts/Element/)
+[`Element`](../../Core/Elements/Element)
 
 # Syntax
 
@@ -20,7 +20,7 @@ new EditorBase([parent])
 
 |Name|Type|Description|
 |----|----|-----------|
-|`parent`|[Element](../../KeyConcepts/Element/)|Необязательный. Родительский [элемент](../../KeyConcepts/Element/).|
+|`parent`|[`Element`](../../Core/Elements/Element)|Необязательный. Родительский [элемент](../../Core/Elements/Element).|
 
 # Methods
 
@@ -40,5 +40,5 @@ new EditorBase([parent])
 
 |Name|Description|
 |----|-----------|
-|[`onValueChanging`](EditorBase.onValueChanging/)|Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что значение изменяется.|
-|[`onValueChanged`](EditorBase.onValueChanged/)|Устанавливает [обработчик события](../../KeyConcepts/Script/) о том, что значение было изменено.|
+|[`onValueChanging`](EditorBase.onValueChanging/)|Устанавливает [обработчик события](../../Core/Script/) о том, что значение изменяется.|
+|[`onValueChanged`](EditorBase.onValueChanged/)|Устанавливает [обработчик события](../../Core/Script/) о том, что значение было изменено.|
