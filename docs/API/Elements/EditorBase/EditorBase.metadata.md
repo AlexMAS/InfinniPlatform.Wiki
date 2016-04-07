@@ -1,0 +1,31 @@
+---
+layout: doc
+title: "EditorBase.metadata"
+position: 0
+---
+
+Метаданные типа [`EditorBase`](../).
+
+# Schema
+
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+|Value|[`BindingMetadata`](../../../Core/Binding/Binding.metadata/)|Нет|Значение|
+|HintText|`String`||Текст с подсказкой для ввода|
+|ErrorText|`String`||Текст с информацией об ошибке|
+|WarningText|`String`||Текст с информацией о предупреждении|
+|OnValueChanging|[Script](../../../KeyConcepts/Script/)||Обработчик события о том, что значение изменяется|
+|OnValueChanged|[Script](../../../KeyConcepts/Script/)||Обработчик события о том, что значение было изменено|
+
+# Examples
+
+```js
+{
+	"Value": {
+		"Source": "MainDataSource",
+		"Property": "Name"
+	},
+	"HintText": "Enter your name",
+	"OnValueChanged": "onNameChengedScript"
+}
+```
