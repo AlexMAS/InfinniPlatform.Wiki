@@ -12,21 +12,3 @@ position: 0
 |----|----|-----------|
 |Parameters|`Array`|Массив [`параметров`](../../../Parameters/Parameter.metadata/)|
 |ContentType|`String`|Тип передаваемых данных. Может принимать значение 'File' или 'Object'|
-
-
-
-# Examples
-
-```json
-{
-	"ServerAction": {
-		"Parameters": [
-			{
-	            "Name": "",
-	            "Value": ""
-	        }
-		],
-		"ContentType": ""
-	}
-}
-```

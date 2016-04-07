@@ -4,7 +4,7 @@ title: "ServerAction"
 position: 11
 ---
 
-
+Отправляет http запрос.
 
 # Syntax
 
@@ -37,19 +37,6 @@ new ServerAction(parentView)
 |value.method|Метод запроса|
 |value.args|Параметры запроса|
 
-
-# Examples
-
-```js
-var serverAction = new ServerAction(parentView);
-var provider = ;
-
-serverAction.setProperty('provider', provider);
-serverAction.setProperty('contentType', 'Object');
-serverAction.setProperty('parameters', []);
-
-serverAction.execute(); //
-```
 
 # See Also
 
