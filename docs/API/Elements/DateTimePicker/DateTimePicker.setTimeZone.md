@@ -1,22 +1,22 @@
 ---
 layout: doc
-title: "DateTimePicker.setMinValue"
-position: 2
+title: "DateTimePicker.setTimeZone"
+position: 4
 ---
 
-Устанавливает минимальное значение для ввода.
+Устанавливает смещение часового пояса. Смещение задается разностью в минутах между временем UTC и местным временем.
 
 # Syntax
 
 ```js
-DateTimePicker.setMinValue(value)
+DateTimePicker.setTimeZone(value)
 ```
 
 ## Parameters
 
 |Name|Type|Description|
 |----|----|-----------|
-|`value`|`Date`|Минимальное значение для ввода.|
+|`value`|`Integer`|Смещение часового пояса.|
 
 # Examples
 
@@ -25,7 +25,8 @@ DateTimePicker.setMinValue(value)
 
 //  Format
 var format = new DateTimeFormat("G");
-format.setOptions({TimeZone: -180});
+var timeZone = -180; // UTC+3
+format.setOptions({TimeZone: timeZone});    
 var displayFormat = function (context, args) {
     return format.formatValue(args.value);
 }
@@ -38,12 +39,12 @@ editMask.format = format;
 //  DateTimePicker
 var dtPicker = new DateTimePicker();
 dtPicker.setMode("DateTime");
-dtPicker.setTimeZone(-180);
-dtPicker.setMinValue(new Date());   // Set minimum value
+dtPicker.setTimeZone(timeZone);
 dtPicker.setDisplayFormat(displayFormat);
 dtPicker.setEditMask(editMask);
 dtPicker.onValueChanged(function (context, args) {
     dtPicker.setHintText("New Value: " + args.newValue);
+    dtPicker.setWarningText("TimeZone: " + dtPicker.getTimeZone());
 });
 
 //  Render
@@ -52,4 +53,4 @@ $elementForExample.append(dtPicker.render());
 
 # See Also
 
-* [`getMinValue()`](../DateTimePicker.getMinValue/)
+* [`getTimeZone()`](../DateTimePicker.getTimeZone/)
