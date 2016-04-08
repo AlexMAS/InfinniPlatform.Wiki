@@ -33,4 +33,4 @@ linkView.setContainer('Footer');
 
 * [`getOpenMode`](../LinkView.getOpenMode/)
 * [`setOpenMode`](../LinkView.setOpenMode/)
-* [`OpenModeContainerStrategy`](../OpenMode/OpenModeContainerStrategy/)
+* [`OpenMode`](../OpenMode/)

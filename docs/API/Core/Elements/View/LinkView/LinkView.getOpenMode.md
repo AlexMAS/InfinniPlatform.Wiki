@@ -4,7 +4,7 @@ title: "LinkView.getOpenMode()"
 position: 1
 ---
 
-Возвращает название стратегии отображения представления. 
+Возвращает [режим отображения представления](../OpenMode/). 
 
 # Syntax
 
@@ -18,15 +18,7 @@ linkView.getOpenMode()
 
 ## Returns
 
-Название стратегии отображения представления. 
-
-Возможные значения:
-
-|Name|Strategy|Description|
-|----|----|---------|
-|Default|[`OpenModeDefaultStrategy`](../OpenMode/OpenModeDefaultStrategy/)|Представление откроется вместо корневого представления|
-|Dialog|[`OpenModeDialogStrategy`](../OpenMode/OpenModeDialogStrategy/)|Представление откроется в диалоговом окне|
-|Container|[`OpenModeContainerStrategy`](../OpenMode/OpenModeContainerStrategy/)|Представление откроется в указанном контейнере|
+Режим отображения представления. 
 
 # Examples
 

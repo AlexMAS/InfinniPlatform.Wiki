@@ -43,4 +43,4 @@ linkView.setDialogWidth('Large');
 
 * [`getOpenMode`](../LinkView.getOpenMode/)
 * [`setOpenMode`](../LinkView.setOpenMode/)
-* [`OpenModeDialogStrategy`](../OpenMode/OpenModeDialogStrategy/)
+* [`OpenMode`](../OpenMode/)

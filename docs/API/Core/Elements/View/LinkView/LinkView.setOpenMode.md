@@ -4,27 +4,19 @@ title: "LinkView.setOpenMode()"
 position: 2
 ---
 
-Устанавливает название стратегии отображения представления.
+Устанавливает [режим отображения представления](../OpenMode/).
 
 # Syntax
 
 ```js
-linkView.setOpenMode(strategyName)
+linkView.setOpenMode(value)
 ```
 
 ## Parameters
 
 |Name|Type|Description|
 |----|----|-----------|
-|strategyName|`String`|Название стратегии отображения представления|
-
-Возможные значения:
-
-|Name|Strategy|Description|
-|----|----|---------|
-|Default|[`OpenModeDefaultStrategy`](../OpenMode/OpenModeDefaultStrategy/)|Представление откроется вместо корневого представления|
-|Dialog|[`OpenModeDialogStrategy`](../OpenMode/OpenModeDialogStrategy/)|Представление откроется в диалоговом окне|
-|Container|[`OpenModeContainerStrategy`](../OpenMode/OpenModeContainerStrategy/)|Представление откроется в указанном контейнере|
+|value|`String`|Режим отображения представления|
 
 ## Returns
 
