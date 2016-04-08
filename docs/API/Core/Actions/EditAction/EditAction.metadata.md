@@ -10,7 +10,7 @@ position: 0
 
 |Name|Type|Description|
 |----|----|-----------|
-|LinkView|[`LinkView.metadata`](../../../LinkView/LinkView.metadata/)|Объект, который будет создавать и настраивать [представление](../../../Elements/View/)|
+|LinkView|[`LinkView.metadata`](../../../Elements/View/LinkView/LinkView.metadata/)|Объект, который будет создавать и настраивать [представление](../../../Elements/View/)|
 |SourceValue.Source|`String`|Название редактируемого источника данных на представлении редактирования|
 |DestinationValue.Source|`String`|Название редактируемого источника данных, на представлении, откуда редактирование было вызвано|
 |DestinationValue.Property|`String`|Путь до поля в источнике данных, которое будет редактироваться. Данное поле должно быть представлено массивом|
