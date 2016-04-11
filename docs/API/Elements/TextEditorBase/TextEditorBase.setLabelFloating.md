@@ -34,7 +34,7 @@ TextEditorBase.setLabelFloating(value)
 # Examples
 
 ```js
-TextEditorBase.setLabelFloating('Label text');
+TextEditorBase.setLabelFloating(true);
 ```
 
 # See Also
