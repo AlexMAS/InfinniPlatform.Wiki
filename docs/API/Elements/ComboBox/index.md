@@ -34,8 +34,8 @@ new ComboBox(parent)
 |[setAutocomplete](ComboBox.setAutocomplete/)|Устанавливает значение, определяющее, разрешено ли автозавершение ввода|
 |[getValueTemplate](ComboBox.getValueTemplate/)|Возвращает [функцию](../../../Core/Script/) шаблонизации выбранного значения|
 |[setValueTemplate](ComboBox.setValueTemplate/)|Устанавливает [функцию](../../../Core/Script/) шаблонизации выбранного значения|
-|[getShowClear](ComboBox.getShowClear/)|Возвращает значение, определяющее, нужна ли кнопка, очищающая выбранное значение|
-|[setShowClear](ComboBox.setShowClear/)|Устанавливает значение, определяющее, нужна ли кнопка, очищающая выбранное значение|
+|[getShowClear](ComboBox.getShowClear/)|Возвращает значение, которое определяет наличие кнопки, очищающей выбранное значение|
+|[setShowClear](ComboBox.setShowClear/)|Устанавливает значение, которое определяет наличие кнопки, очищающей выбранное значение|
 
 # Events
 
