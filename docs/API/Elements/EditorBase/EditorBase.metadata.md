@@ -10,7 +10,7 @@ position: 0
 
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
-|Value|[`BindingMetadata`](../../../Core/Binding/Binding.metadata/)|Нет|Значение|
+|Value|[`BindingMetadata`](../../../Core/DataBinding/DataBinding.metadata/)|Нет|Значение|
 |HintText|`String`||Текст с подсказкой для ввода|
 |ErrorText|`String`||Текст с информацией об ошибке|
 |WarningText|`String`||Текст с информацией о предупреждении|
