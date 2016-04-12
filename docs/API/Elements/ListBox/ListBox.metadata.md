@@ -8,7 +8,9 @@ position: 0
 
 # Schema
 
-Метаданные полностью определяются [`ListEditorBase.metadata`](../../ListEditorBase/ListEditorBase.metadata/)
+|Name|Type|Default|Description|
+|----|----|----|-----------|
+|ViewMode|`String`|`common`|(Необязательное) [Режим отображения](../../../Core/viewMode/) списка. Может принимать значения: 'common', 'base', 'checking'.|
 
 # Examples
 
