@@ -20,7 +20,7 @@ new ListBox(parent, viewMode)
 
 |Name|Type|Description|
 |----|----|-----------|
-|parent|[`Element`](../../Core/Elements/Element)|Родительский элемент|
+|parent|[`Element`](../../Core/Elements/Element)|(Необязательный) Родительский элемент|
 |viewMode|`String`|Строка со значением [режима отображения](../../Core/viewMode/). Может принимать значения: 'common', 'base', 'checking'. Если указать значение 'checking', то отобразится [список радиокнопок](../RadioGroup/)|
 
 
