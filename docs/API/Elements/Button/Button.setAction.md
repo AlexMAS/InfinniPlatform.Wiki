@@ -4,7 +4,7 @@ title: "Button.setAction"
 position: 3
 ---
 
-Устанавливает [`действие`](../../../Core/Action/) при нажатии на кнопку.
+Устанавливает [`действие`](../../../Core/Actions/) при нажатии на кнопку.
 
 # Syntax
 
@@ -16,7 +16,7 @@ button.setAction(action)
 
 |Name|Type|Description|
 |----|----|-----------|
-|action|[`Action`](../../../Core/Action/)|Действие|
+|action|[`Action`](../../../Core/Actions/)|Действие|
 
 ## Returns
 

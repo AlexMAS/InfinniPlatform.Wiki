@@ -36,8 +36,8 @@ new Button(parent, viewMode)
 |[setContentTemplate](Button.setContentTemplate/)|Устанавливает [функцию](../../Core/Script/) шаблонизации содержимого кнопки|
 |[getContent](Button.getContent/)|Возвращает содержимое кнопки|
 |[setContent](Button.setContent/)|Устанавливает содержимое кнопки|
-|[getAction](Button.getAction/)|Возвращает основное [действие](../../../Core/Action/) кнопки|
-|[setAction](Button.setAction/)|Устанавливает основное [действие](../../../Core/Action/) кнопки|
+|[getAction](Button.getAction/)|Возвращает основное [действие](../../Core/Actions/) кнопки|
+|[setAction](Button.setAction/)|Устанавливает основное [действие](../../Core/Actions/) кнопки|
 |[click](Button.click/)|Осуществляет программный клик по кнопке|
 
 # Events

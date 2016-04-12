@@ -23,10 +23,10 @@ dataBinding.bindElement(element, property)
 
 ## Parameters
 
-|Name|Type|Required|Description|
-|----|----|:--:|-----------|
-|element|[`визуальный элемент`](../../Elements/) / [`источник данных`](../../DataSources/) / [`параметр представления`](../../Parameter)|+|Элемент привязки|
-|property|`String`|+|Путь к свойству элемента привязки|
+|Name|Type|Description|
+|----|----|-----------|
+|element|[`визуальный элемент`](../../Elements/) / [`источник данных`](../../DataSources/) / [`параметр представления`](../../Parameters/)|Элемент привязки|
+|property|`String`|Путь к свойству элемента привязки|
 
 ## Returns
 

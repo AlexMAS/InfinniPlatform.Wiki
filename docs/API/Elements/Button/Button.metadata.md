@@ -9,10 +9,11 @@ position: 0
 # Schema
 
 |Name|Type|Default|Description|
-|----|----|-------|-----------|
-|Action|[`ActionMetadata`](../../../Core/Action/Action.metadata/)| - |Основное действие кнопки|
-|Content|`String`| - |Содержимое кнопки|
-|ContentTemplate|[ElementMetadata](../../../Core/Elements/Element/Element.metadata/)| - |Шаблон содержимого кнопки|
+|----|----|----|-----------|
+|Action|[`ActionMetadata`](../../../Core/Actions/Action.metadata/)| |(Необязательное) Основное действие кнопки|
+|Content|`String`| |(Необязательное) Содержимое кнопки|
+|ContentTemplate|[ElementMetadata](../../../Core/Elements/Element/Element.metadata/)| |(Необязательное) Шаблон содержимого кнопки|
+|ViewMode|[`viewMode`](../../Core/viewMode/)|`common`|(Необязательное) Может принимать значения: 'link' или 'common'. Если указать значение 'link', то кнопка примет вид ссылки|
 
 # Examples
 
