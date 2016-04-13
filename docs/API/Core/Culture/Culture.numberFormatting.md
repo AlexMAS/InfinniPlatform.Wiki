@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "NumberFormat.format"
+title: "Culture.numberFormatting"
 position: 1
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "DateTimeFormat.format"
+title: "Culture.DateTimeFormatting"
 position: 1
 ---
 

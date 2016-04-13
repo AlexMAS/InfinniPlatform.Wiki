@@ -4,7 +4,7 @@ title: "DateTimeFormat"
 position: 1020
 ---
 
-Формат отображения даты/времени. Строка форматирования должна записываться в формате, который описан в разделе [`DateTimeFormat`](../DateTimeFormat.format). 
+Формат отображения даты/времени. Строка форматирования должна записываться в формате, который описан в разделе [`dateTimeFormatting`](../../Culture/Culture.dateTimeFormatting/). 
 
 # Extends
 
@@ -22,4 +22,4 @@ $elementForExample.append(format.formatValue(new Date()));
 
 # See also
 
-[Настройки форматирования для даты и времени](DateTimeFormat.format)
+[`dateTimeFormatting`](../../Culture/Culture.dateTimeFormatting/)
