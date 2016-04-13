@@ -13,7 +13,7 @@ position: 1000
 # Syntax
 
 ```js
-new Row(parent)
+new Row (parent)
 ```
 
 ## Parameters

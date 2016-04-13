@@ -26,7 +26,7 @@ dataBinding.setMode(value)
 # Examples
 
 ```js
-dataBinding.setMode(BindingModes.twoWay);
+dataBinding.setMode(InfinniUI.BindingModes.twoWay);
 ```
 
 # See Also
