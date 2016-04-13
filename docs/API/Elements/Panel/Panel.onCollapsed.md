@@ -25,7 +25,7 @@ panel.onCollapsed(callback)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`callback`|[`Script`](../../../Core/Script/)|Обработчик события о том, что панель была свернута|
+|callback|[`Script`](../../../Core/Script/)|Обработчик события о том, что панель была свернута|
 
 ## Returns
 

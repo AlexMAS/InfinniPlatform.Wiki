@@ -25,7 +25,7 @@ panel.onExpanded(callback)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`callback`|[`Script`](../../../Core/Script/)|Обработчик события о том, что панель была развернута|
+|callback|[`Script`](../../../Core/Script/)|Обработчик события о том, что панель была развернута|
 
 ## Returns
 

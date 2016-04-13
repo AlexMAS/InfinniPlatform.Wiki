@@ -35,13 +35,10 @@ new TabPanel(parent)
 |----|-----------|
 |[getHeaderLocation](TabPanel.getHeaderLocation/)|Возвращает [расположение закладок](TabHeaderLocation/)|
 |[setHeaderLocation](TabPanel.setHeaderLocation/)|Устанавливает [расположение закладок](TabHeaderLocation/)|
-|[getHeaderOrientation](TabPanel.getHeaderOrientation/)|Возвращает [ориентацию закладок](TabHeaderOrientation/)|
-|[setHeaderOrientation](TabPanel.setHeaderOrientation/)|Устанавливает [ориентацию закладок](TabHeaderOrientation/)|
 |[getHeaderTemplate](TabPanel.getHeaderTemplate/)|Возвращает [функцию](../../Core/Script/) шаблонизации закладок дочерних элементов панели|
 |[setHeaderTemplate](TabPanel.setHeaderTemplate/)|Устанавливает [функцию](../../Core/Script/) шаблонизации закладок дочерних элементов панели|
 |[getSelectedItem](TabPanel.getSelectedItem/)|Возвращает выделенный [дочерний элемент панели](TabPage/)|
 |[setSelectedItem](TabPanel.setSelectedItem/)|Устанавливает выделенный [дочерний элемент панели](TabPage/)|
-|!!![closeTab](TabPanel.closeTab/)|Закрывает заданный [дочерний элемент панели](TabPage/)|
 
 # Events
 
@@ -53,5 +50,4 @@ new TabPanel(parent)
 
 * [`TabPage`](TabPage/)
 * [`TabHeaderLocation`](TabHeaderLocation/)
-* [`TabHeaderOrientation`](TabHeaderOrientation/)
 * [`Container`](../../Core/Elements/Container/)

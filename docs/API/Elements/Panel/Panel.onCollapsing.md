@@ -25,7 +25,7 @@ panel.onCollapsing(callback)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`callback`|[`Script`](../../../Core/Script/)|Обработчик события о том, что панель сворачивается|
+|callback|[`Script`](../../../Core/Script/)|Обработчик события о том, что панель сворачивается|
 
 ## Returns
 

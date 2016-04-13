@@ -11,7 +11,6 @@ position: 0
 |Name|Type|Description|
 |----|----|-----------|
 |HeaderLocation|[`TabHeaderLocation`](../TabHeaderLocation/)|(Необязательное) Расположение закладок|
-|HeaderOrientation|[`TabHeaderOrientation`](../TabHeaderOrientation/)|(Необязательное) Ориентация закладок|
 |OnSelectedItemChanged|[Script](../../../Core/Script/)|(Необязательное) Обработчик события о том, что выделенный элемент изменился|
 
 # Examples
@@ -24,7 +23,6 @@ position: 0
 {
   "TabPanel": {
     "HeaderLocation": "Left",
-    "HeaderOrientation": "Horizontal",
     "Items": [
       {
         "TabPage": {
