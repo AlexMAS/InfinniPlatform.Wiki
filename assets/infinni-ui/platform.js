@@ -2846,6 +2846,11 @@ var MessageBox = Backbone.View.extend({
     ),
 
     initialize: function (options) {
+        // чтобы пользователь случайно не обратился к элементу в фокусе,
+        // пока диалоговое окно создается и ещё не перехватило фокус,
+        // необходимо старую фокусировку снять
+        $(document.activeElement).blur();
+
         this.options = options;
 
         this.addButtonClasses();
@@ -9878,6 +9883,10 @@ var DataGridRowView = ControlView.extend({
         this.updateShowSelectors();
     },
 
+    updateVerticalAlignment: function () {
+        //Use Vertical alignment for DataGrid
+    },
+
     render: function () {
         this.prerenderingActions();
         var $el = this.$el;
@@ -10602,9 +10611,23 @@ var FileBoxModel = ControlModel.extend( _.extend({
                 }
             }
 
-            if (acceptTypes.length && !acceptTypes.contains(file.type)) {
-                return 'Загрузка данного типа файла не разрешена';
+            if (acceptTypes.length) {
+                var acceptType = acceptTypes.contains(file.type);
+                var fileName = file.name.toLowerCase();
+                if (!acceptType) {
+                    var len = fileName.length;
+                    var acceptType = acceptTypes.some(function(name) {
+                        return fileName.lastIndexOf(name.toLowerCase()) === len - name.length;
+                    });
+                }
+
+                if (!acceptType) {
+                    return 'Загрузка данного типа файла не разрешена';
+                }
+
             }
+
+
         }
     },
 
@@ -16298,7 +16321,7 @@ _.extend(ContainerBuilder.prototype, {
 
         if(metadata.ItemComparator){
             itemComparator = function (item1, item2) {
-                return scriptExecutor.executeScript(metadata.ItemComparator.Name, {item1: item1, item2: item2});
+                return scriptExecutor.executeScript(metadata.ItemComparator.Name || metadata.ItemComparator, {item1: item1, item2: item2});
             };
         }
 
@@ -16830,7 +16853,7 @@ _.extend(TextEditorBaseBuilder.prototype, {
         var metadata = params.metadata;
         var element = params.element;
 
-        element.setLabelText(metadata.LabelText);
+        this.initBindingToProperty(params, 'LabelText');
 
         this
             .initDisplayFormat(params)
@@ -17327,14 +17350,6 @@ ComboBox.prototype.setValueTemplate = function (value) {
 
 ComboBox.prototype.getValueTemplate = function () {
     return this.control.get('valueTemplate');
-};
-
-ComboBox.prototype.setValueFormat = function (value) {
-    this.control.set('valueFormat', value);
-};
-
-ComboBox.prototype.getValueFormat = function () {
-    return this.control.get('valueFormat');
 };
 
 ComboBox.prototype.getAutocomplete = function () {
@@ -19179,25 +19194,25 @@ _.extend(PanelBuilder.prototype, /** @lends PanelBuilder.prototype*/ {
         if (metadata.OnExpanding) {
             element.onExpanding(function (context, args) {
                 return createScriptExecutor()
-                    .executeScript(metadata.OnExpanding.Name, args);
+                    .executeScript(metadata.OnExpanding.Name || metadata.OnExpanding, args);
             });
         }
         if (metadata.OnExpanded) {
             element.onExpanded(function (context, args) {
                 return createScriptExecutor()
-                    .executeScript(metadata.OnExpanded.Name, args);
+                    .executeScript(metadata.OnExpanded.Name || metadata.OnExpanded, args);
             });
         }
         if (metadata.OnCollapsing) {
             element.onCollapsing(function (context, args) {
                 return createScriptExecutor()
-                    .executeScript(metadata.OnCollapsing.Name, args);
+                    .executeScript(metadata.OnCollapsing.Name || metadata.OnCollapsing, args);
             });
         }
         if (metadata.OnCollapsed) {
             element.onCollapsed(function (context, args) {
                 return createScriptExecutor()
-                    .executeScript(metadata.OnCollapsed.Name, args);
+                    .executeScript(metadata.OnCollapsed.Name || metadata.OnCollapsed, args);
             });
         }
 
@@ -19316,7 +19331,7 @@ _.extend(PasswordBoxBuilder.prototype, /** @lends PasswordBoxBuilder.prototype *
             var metadata = params.metadata,
                 element = params.element;
 
-            element.setLabelText(metadata.LabelText);
+            this.initBindingToProperty(params, 'LabelText');
             element.setPasswordChar(metadata.PasswordChar);
         },
 
@@ -19908,7 +19923,7 @@ _.extend(TabPanelBuilder.prototype, /** @lends TabPanelBuilder.prototype*/ {
         if (metadata.OnSelectedItemChanged) {
             element.onSelectedItemChanged(function (context, args) {
                 return new ScriptExecutor(params.parentView)
-                    .executeScript(metadata.OnSelectedItemChanged.Name, args);
+                    .executeScript(metadata.OnSelectedItemChanged.Name || metadata.OnSelectedItemChanged, args);
             });
         }
     }
@@ -29835,14 +29850,6 @@ var builderHintTextMixin = {
     }
 
 };
-//####app/element/_mixins/builder/builderLabelTextMixin.js
-var builderLabelTextMixin = {
-
-    initLabelText: function (params) {
-        params.element.setLabelText(params.metadata.LabelText);
-    }
-};
-
 //####app/element/_mixins/builder/builderLayoutPanelMixin.js
 var builderLayoutPanelMixin = {
     registerLayoutPanel: function (params) {
@@ -34408,6 +34415,11 @@ _.extend(OpenModeDialogStrategy.prototype, {
     },
 
     open: function(){
+        // чтобы пользователь случайно не обратился к элементу в фокусе,
+        // пока диалоговое окно создается и ещё не перехватило фокус,
+        // необходимо старую фокусировку снять
+        $(document.activeElement).blur();
+
         var modalParams = {dialogWidth: this.dialogWidth};
         var $template = $(this.template(modalParams));
         var $closeButton = $('button', $template);
