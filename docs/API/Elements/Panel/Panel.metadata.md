@@ -14,10 +14,10 @@ position: 0
 |Collapsed|`Boolean`|(Необязательное) Значение, определяющее, свернута ли панель|
 |HeaderTemplate|[`Script`](../../../Core/Script/)|(Необязательное) Функция шаблонизации заголовка панели|
 |Header|`String`/[`BindingMetadata`](../../../Core/DataBinding/DataBinding.metadata/)|(Необязательное) Заголовок панели|
-|OnExpanding|[Script](../../../Core/Script/)|Обработчик события о том, что панель разворачивается|
-|OnExpanded|[Script](../../../Core/Script/)|Обработчик события о том, что панель была развернута|
-|OnCollapsing|[Script](../../../Core/Script/)|Обработчик события о том, что панель сворачивается|
-|OnCollapsed|[Script](../../../Core/Script/)|Обработчик события о том, что панель была свернута|
+|OnExpanding|[Script](../../../Core/Script/)|(Необязательное) Обработчик события о том, что панель разворачивается|
+|OnExpanded|[Script](../../../Core/Script/)|(Необязательное) Обработчик события о том, что панель была развернута|
+|OnCollapsing|[Script](../../../Core/Script/)|(Необязательное) Обработчик события о том, что панель сворачивается|
+|OnCollapsed|[Script](../../../Core/Script/)|(Необязательное) Обработчик события о том, что панель была свернута|
 
 # Examples
 
