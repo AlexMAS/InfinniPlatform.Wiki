@@ -13,7 +13,7 @@ position: 1016
 # Syntax
 
 ```js
-new PasswordChar([parent])
+new PasswordBox([parent])
 ```
 
 ## Parameters
@@ -30,3 +30,5 @@ new PasswordChar([parent])
 |[`setLabelText`](PasswordBox.setLabelText/)|Устанавливает текст метки.|
 |[`getLabelFloating`](PasswordBox.getLabelFloating/)|Возвращает значение, определяющее, является ли метка плавающей.|
 |[`setLabelFloating`](PasswordBox.setLabelFloating/)|Устанавливает значение, определяющее, является ли метка плавающей.|
+|[`getAutocomplete`](PasswordBox.getAutocomplete/)|Возвращает значение, определяющее, будет ли срабатывать стандартная автоподстановка пароля.|
+|[`setAutocomplete`](PasswordBox.setAutocomplete/)|Устанавливает значение, определяющее, будет ли срабатывать стандартная автоподстановка пароля.|

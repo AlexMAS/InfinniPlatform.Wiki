@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "PasswordBox.setLabelFloating"
-position: 13
+position: 4
 ---
 
 Устанавливает значение, определяющее, является ли метка плавающей.

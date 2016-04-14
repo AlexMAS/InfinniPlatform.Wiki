@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "PasswordBox.getLabelText"
-position: 10
+position: 1
 ---
 
 Возвращает текст метки.

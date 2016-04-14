@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "PasswordBox.setLabelText"
-position: 11
+position: 2
 ---
 
 Устанавливает текст метки.
