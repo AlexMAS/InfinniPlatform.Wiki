@@ -1,28 +1,47 @@
 ---
 layout: doc
 title: "Culture.DateTimeFormatting"
-position: 1
+position: 3
 ---
 
 Ниже приведены настройки форматирования для даты и времени.
-Интерпретация большинства перечисленных форматов зависит от текущей культуры ([GlobalContext](../../GlobalContext/).[Culture.DateTimeFormatInfo](../../Culture/Culture.DateTimeFormatInfo/)).
+Интерпретация большинства перечисленных форматов зависит от текущей культуры ([GlobalContext](../../GlobalContext/).[Culture.dateTimeFormatInfo](../../Culture/Culture.dateTimeFormatInfo/)).
 
 # Предопределенные форматы
 
-Формат|Наименование|Описание|Пример
+## Форматы для культуры "ru-RU"
+
+Формат|Наименование|Строка форматирования|Пример
 ------|------------|--------|------
-`f`|Полное представление даты и краткое представление времени.|Комбинация шаблонов `GlobalContext.Culture.DateTimeFormatInfo.LongDatePattern` и `GlobalContext.Culture.DateTimeFormatInfo.ShortTimePattern`, разделенных пробелом.|ru-RU: "4 сентября 2014 г. 16:17", en-US: "Thursday, September 04, 2014 4:17 PM"
-`F`|Полное представление даты и полное представление времени.|Комбинация шаблонов GlobalContext.Culture.DateTimeFormatInfo.LongDatePattern и GlobalContext.Culture.DateTimeFormatInfo.LongTimePattern, разделенных пробелом.|ru-RU: "4 сентября 2014 г. 16:17:21", en-US: "Thursday, September 04, 2014 4:17:21 PM"
-`g`|Краткое представление даты и краткое представление времени.|Комбинация шаблонов GlobalContext.Culture.DateTimeFormatInfo.ShortDatePattern и GlobalContext.Culture.DateTimeFormatInfo.ShortTimePattern, разделенных пробелом.|ru-RU: "04.09.2014 16:17",en-US: "9/4/2014 4:17 PM"
-`G`|Краткое представление даты и полное представление времени.|Комбинация шаблонов GlobalContext.Culture.DateTimeFormatInfo.ShortDatePattern и GlobalContext.Culture.DateTimeFormatInfo.LongTimePattern, разделенных пробелом.|ru-RU: "04.09.2014 16:17:21", en-US: "9/4/2014 4:17:21 PM" 	 	 	 
-`d`|Краткое представление даты.|Соответствует шаблону GlobalContext.Culture.DateTimeFormatInfo.ShortDatePattern.|ru-RU: "04.09.2014",  en-US: "9/4/2014"
-`D`|Полное представление даты.|Соответствует шаблону GlobalContext.Culture.DateTimeFormatInfo.LongDatePattern.|ru-RU: "4 сентября 2014 г.",  en-US: "Thursday, September 04, 2014"
-`t`|Краткое представление времени.|Соответствует шаблону GlobalContext.Culture.DateTimeFormatInfo.ShortTimePattern.|ru-RU: "16:17",  en-US: "4:17 PM"
-`T`|Полное представление времени.|Соответствует шаблону GlobalContext.Culture.DateTimeFormatInfo.LongTimePattern.|ru-RU: "16:17:21",  en-US: "4:17:21 PM" 	 	 
-`y` or `Y`|Представление год/месяц.|Соответствует шаблону GlobalContext.Culture.DateTimeFormatInfo.YearMonthPattern.|ru-RU: "Сентябрь 2014", en-US: "September, 2014"
-`m` or `M`|Представление месяц/день.|Соответствует шаблону GlobalContext.Culture.DateTimeFormatInfo.MonthDayPattern.|ru-RU: "сентября 04", en-US: "September 04"
-`s`|Представление в формате ISO 8601.|Соответствует шаблону GlobalContext.Culture.DateTimeFormatInfo.SortableDateTimePattern.|ru-RU: "2014-09-04T16:17:21", en-US: "2014-09-04T16:17:21"
-`u`|Представление в универсальном формате.|Соответствует шаблону GlobalContext.Culture.DateTimeFormatInfo.UniversalSortableDateTimePattern.|ru-RU: "2014-09-04 16:17:21Z", en-US: "2014-09-04 16:17:21Z"
+`f`|Полное представление даты и краткое представление времени.|`dd MMMM yyyy г. HH:mm`|"4 сентября 2014 г. 16:17"
+`F`|Полное представление даты и полное представление времени.|`dd MMMM yyyy г. HH:mm:ss`|"4 сентября 2014 г. 16:17:21"
+`g`|Краткое представление даты и краткое представление времени.|`dd.MM.yyyy HH:mm`|"04.09.2014 16:17"
+`G`|Краткое представление даты и полное представление времени.|`dd.MM.yyyy HH:mm:ss`|"04.09.2014 16:17:21" 	 	 	 
+`d`|Краткое представление даты.|`dd.MM.yyyy`|"04.09.2014"
+`D`|Полное представление даты.|`dd MMMM yyyy г.`|"4 сентября 2014 г."
+`t`|Краткое представление времени.|`H:mm`|"16:17"
+`T`|Полное представление времени.|`H:%m:%s`|"16:17:21" 	 	 
+`y` or `Y`|Представление год/месяц.|`MMMM yyyy', Y: 'MMMM yyyy`|"Сентябрь 2014"
+`m` or `M`|Представление месяц/день.|`MMMM yy', M: 'MMMM yy`|"сентября 04"
+`s`|Представление в формате ISO 8601.|`yyyy-MM-ddTHH:mm:ss`|"2014-09-04T16:17:21"
+`u`|Представление в универсальном формате.|`yyyy-MM-dd HH:mm:ssZ`|"2014-09-04 16:17:21Z"
+
+## Форматы для культуры "en-US"
+
+Формат|Наименование|Строка форматирования|Пример
+------|------------|--------|------
+`f`|Полное представление даты и краткое представление времени.|`dddd, MMMM dd, yyyy h:%m tt`|"Thursday, September 04, 2014 4:17 PM"
+`F`|Полное представление даты и полное представление времени.|`dddd, MMMM dd, yyyy h:%m:%s tt`|"Thursday, September 04, 2014 4:17:21 PM"
+`g`|Краткое представление даты и краткое представление времени.|`M/%d/yyyy h:%m tt`|"9/4/2014 4:17 PM"
+`G`|Краткое представление даты и полное представление времени.|`M/%d/yyyy h:%m:%s tt`|"9/4/2014 4:17:21 PM" 	 	 	 
+`d`|Краткое представление даты.|`M/%d/yyyy`|"9/4/2014"
+`D`|Полное представление даты.|`dddd, MMMM dd, yyyy`|"Thursday, September 04, 2014"
+`t`|Краткое представление времени.|`h:%m tt`|"4:17 PM"
+`T`|Полное представление времени.|`h:%m:%s tt`|"4:17:21 PM" 	 	 
+`y` or `Y`|Представление год/месяц.|`MMMM, yyyy', Y: 'MMMM, yyyy`|"September, 2014"
+`m` or `M`|Представление месяц/день.|`MMMM yy', M: 'MMMM yy`|"September 04"
+`s`|Представление в формате ISO 8601.|`yyyy-MM-ddTHH:mm:ss`|"2014-09-04T16:17:21"
+`u`|Представление в универсальном формате.|`yyyy-MM-dd HH:mm:ssZ`|"2014-09-04 16:17:21Z"
 
 # Элементы пользовательского формата
 
@@ -37,13 +56,13 @@ position: 1
 ||_Месяц_
 `M`|Порядковый номер месяца. Если порядковый номер месяца представлен одной цифрой (1-9), он будет отображен в виде одной цифры (1-9). Если строка форматирования представлена одним символом `M`, то ее следует записывать в формате `%M`, чтобы отличать ее от предопределенного формата.
 `MM`|Порядковый номер месяца. Если порядковый номер месяца представлен одной цифрой (1-9), он будет отображен с ведущим нулем (01-09).
-`MMM`|Сокращенное наименование месяца с использованием `GlobalContext.Culture.DateTimeFormatInfo.AbbreviatedMonthNames`.
-`MMMM`|Полное наименование месяца с использованием `GlobalContext.Culture.DateTimeFormatInfo.MonthNames`. 
+`MMM`|Сокращенное наименование месяца с использованием [GlobalContext](../../GlobalContext/).[Culture.dateTimeFormatInfo.abbreviatedMonthNames](../Culture.dateTimeFormatInfo#abbreviatedmonthnames).
+`MMMM`|Полное наименование месяца с использованием [GlobalContext](../../GlobalContext/).[Culture.dateTimeFormatInfo.monthNames](../Culture.dateTimeFormatInfo#monthnames). 
 ||_День_
 `d`|Порядковый номер дня месяца. Если день месяца представлен одной цифрой (1-9), он будет отображен в виде одной цифры (1-9). Если строка форматирования представлена одним символом `d`, то ее следует записывать в формате `%d`, чтобы отличать ее от предопределенного формата.
 `dd`|Порядковый номер дня месяца. Если день месяца представлен одной цифрой (1-9), он будет отображен с ведущим нулем (01-09).
-`ddd`|Сокращенное наименование дня месяца с использованием `GlobalContext.Culture.DateTimeFormatInfo.AbbreviatedDayNames`.
-`dddd`|Полное наименование дня месяца с использованием `GlobalContext.Culture.DateTimeFormatInfo.DayNames`.
+`ddd`|Сокращенное наименование дня месяца с использованием [GlobalContext](../../GlobalContext/).[Culture.dateTimeFormatInfo.abbreviatedDayNames](../Culture.dateTimeFormatInfo#abbreviateddaynames).
+`dddd`|Полное наименование дня месяца с использованием [GlobalContext](../../GlobalContext/).[Culture.dateTimeFormatInfo.dayNames](../Culture.dateTimeFormatInfo#daynames).
 ||_Часы_
 `h`|Час в 12-часовом формате. Если час представлен одной цифрой (0-9), он будет отображен в виде одной цифры (0-9).
 `hh`|Час в 12-часовом формате. Если час представлен одной цифрой (0-9), он будет отображен с ведущим нулем (00-09).
@@ -56,15 +75,15 @@ position: 1
 `s`|Если секунда представлена одной цифрой (0-9), она будет отображена в виде одной цифры (0-9). Если строка форматирования представлена одним символом `s`, то ее следует записывать в формате `%s`, чтобы отличать ее от предопределенного формата.
 `ss`|Если секунда представлена одной цифрой (0-9), она будет отображена с ведущим нулем (00-09). 
 ||_Половина суток_
-`t`|Первый символ `GlobalContext.Culture.DateTimeFormatInfo.AmDesignator` или `GlobalContext.Culture.DateTimeFormatInfo.PmDesignator`.
-`tt`|`GlobalContext.Culture.DateTimeFormatInfo.AmDesignator` или `GlobalContext.Culture.DateTimeFormatInfo.PmDesignator`.
+`t`|Первый символ [GlobalContext](../../GlobalContext/).[Culture.dateTimeFormatInfo.amDesignator](../Culture.dateTimeFormatInfo#amdesignator) или [GlobalContext](../../GlobalContext/).[Culture.dateTimeFormatInfo.pmDesignator](../Culture.dateTimeFormatInfo#pmdesignator).
+`tt`|[GlobalContext](../../GlobalContext/).[Culture.dateTimeFormatInfo.amDesignator](../Culture.dateTimeFormatInfo#amdesignator) или [GlobalContext](../../GlobalContext/).[Culture.dateTimeFormatInfo.pmDesignator](../Culture.dateTimeFormatInfo#pmdesignator).
 ||_Номер часового пояса_
 `z`|Если номер часового пояса представлен одной цифрой (0-9), он будет отображен в виде одной цифры (0-9) с явным указанием знака ("+" или "-"). Например: "+0", "+6", "-6".
 `zz`|Если номер часового пояса представлен одной цифрой (0-9), он будет отображен с ведущим нулем (00-09) с явным указанием знака ("+" или "-"). Например: "+00", "+06", "-06".
 `zzz`|Номер часового пояса отображается с указанием часов и минут, где часы и минуты всегда отображаются с ведущим нулем, если они представлены одной цифрой. Например: "+00:00", "+06:00", "-06:00".
 ||_Разделители даты и времени_
-`/`|Должен заменяться на `GlobalContext.Culture.DateTimeFormatInfo.DateSeparator`.
-`:`|Должен заменяться на `GlobalContext.Culture.DateTimeFormatInfo.TimeSeparato`r.
+`/`|Должен заменяться на [GlobalContext](../../GlobalContext/).[Culture.dateTimeFormatInfo.dateSeparator](../Culture.dateTimeFormatInfo#dateseparator).
+`:`|Должен заменяться на [GlobalContext](../../GlobalContext/).[Culture.dateTimeFormatInfo.timeSeparator](../Culture.dateTimeFormatInfo#timeseparator).
 ||_Прочие элементы_
 `'abc'` or `"abc"`|Вставляет строку в кавычках, как есть, даже если она содержит элементы формата. Например, "yyyy'-'MM'-'dd HH':'mm':'ss'Z'".
 Иные символы|Вставляются, как есть, без изменения.

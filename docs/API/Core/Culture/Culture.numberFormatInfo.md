@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Culture.numberFormatInfo"
-position: 1008
+position: 2
 ---
 
 Сведения о формате представления числовых значений.
