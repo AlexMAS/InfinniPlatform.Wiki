@@ -6263,6 +6263,15 @@ fieldset[disabled] .btn-danger.active {
 .pl-text-horizontal-Justify {
   text-align: justify;
 }
+.pl-horizontal-Left {
+  float: left;
+}
+.pl-horizontal-Right {
+  float: right;
+}
+.pl-horizontal-Center {
+  text-align: center;
+}
 .pl-transparent-bg {
   background-color: transparent;
 }
@@ -6641,6 +6650,7 @@ body {
   margin-left: -50px;
 }
 .togglebutton-box {
+  display: inline-block;
   width: 66px;
   border: 1px solid #337ab7;
   transition: border 0.5s;
@@ -6869,6 +6879,9 @@ body {
   display: inline-block;
   float: none;
 }
+.pl-stack-panel.pl-stack-panel_horizontal .pl-stack-panel__content {
+  float: left;
+}
 .pl-scrollpanel {
   position: relative;
 }
@@ -7010,6 +7023,21 @@ body {
 .pl-text-wrapping {
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+.pl-button-edit-group__control[readonly] {
+  background-color: #fff;
+  background-image: none;
+}
+.pl-button-edit-group__control[disabled] {
+  background-color: #eeeeee;
+  opacity: 1;
+}
+.pl-button-edit-button_disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .pl-label-floating.pl-empty-text-editor:not(.pl-focused) label {
   color: #757575;
