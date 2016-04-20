@@ -4,7 +4,7 @@ title: "BaseDataSource.getView()"
 position: 1
 ---
 
-Возвращает родительское [представление](../../../KeyConcepts/View/).
+Возвращает родительское [представление](../../../Elements/View/).
 
 # Syntax
 
@@ -12,9 +12,13 @@ position: 1
 BaseDataSource.getView()
 ```
 
+## Parameters
+
+Нет
+
 ## Returns
 
-Родительское [представление](../../../KeyConcepts/View/) источника данных.
+Родительское [представление](../../../Elements/View/) источника данных.
 
 # Examples
 
@@ -24,4 +28,4 @@ var parentView = BaseDataSource.getView();
 
 # See Also
 
-* [`View`](../../../KeyConcepts/View/)
+* [`View`](../../../Elements/View/)

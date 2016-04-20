@@ -1,14 +1,14 @@
 ---
 layout: doc
 title: "BaseDataSource.getErrorValidator()"
-position: 14
+position: 11
 ---
 
-Возвращает [функцию](../../../KeyConcepts/Script/) проверки элемента на ошибки.
+Возвращает [функцию](../../../Script/) проверки элемента на ошибки.
 
 # Description
 
-[Функция](../../../KeyConcepts/Script/) проверки элемента на ошибки в параметре `argument` принимает
+[Функция](../../../Script/) проверки элемента на ошибки в параметре `argument` принимает
 элемент источника данных, который необходимо проверить. Результатом работы функции является объект
 [предопределенного формата](../ValidationResult/).
 
@@ -18,9 +18,13 @@ position: 14
 BaseDataSource.getErrorValidator()
 ```
 
+## Parameters
+
+Нет
+
 ## Returns
 
-[Функция](../../../KeyConcepts/Script/) проверки элемента на ошибки.
+[Функция](../../../Script/) проверки элемента на ошибки.
 
 # Examples
 

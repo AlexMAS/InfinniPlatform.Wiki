@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getIdProperty()"
-position: 4
+position: 5
 ---
 
 Возвращает наименование свойства с идентификатором элемента.
@@ -11,6 +11,10 @@ position: 4
 ```js
 BaseDataSource.getIdProperty()
 ```
+
+## Parameters
+
+Нет
 
 ## Returns
 

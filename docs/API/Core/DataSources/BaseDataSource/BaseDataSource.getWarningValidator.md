@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getWarningValidator()"
-position: 16
+position: 13
 ---
 
 Возвращает [функцию](../../../KeyConcepts/Script/) проверки элемента на предупреждения.

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getProperty()"
-position: 25
+position: 21
 ---
 
 Возвращает значение указанного свойства источника.
@@ -21,9 +21,9 @@ BaseDataSource.getProperty(property)
 
 ## Parameters
 
-`property`
-
-Путь к свойству.
+|Name|Description|
+|----|-----------|
+|property|Путь к свойству|
 
 ## Returns
 

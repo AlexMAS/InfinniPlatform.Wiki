@@ -1,14 +1,14 @@
 ---
 layout: doc
 title: "BaseDataSource.getFilter()"
-position: 12
+position: 9
 ---
 
 Возвращает фильтр элементов.
 
 # Description
 
-Фильтр элементов представляется массивом [критериев фильтрации](../Criteria/).
+Фильтр элементов представляется массивом критериев фильтрации. 
 
 # Syntax
 
@@ -16,9 +16,13 @@ position: 12
 BaseDataSource.getFilter()
 ```
 
+## Parameters
+
+Нет
+
 ## Returns
 
-Массив [критериев фильтрации](../Criteria/).
+Массив критериев фильтрации
 
 # Examples
 
@@ -29,7 +33,5 @@ var filter = BaseDataSource.getFilter();
 # See Also
 
 * [`setFilter()`](../BaseDataSource.setFilter/)
-* [`onFilterChanged`](../BaseDataSource.onFilterChanged/)
+* [`setIdFilter()`](../BaseDataSource.setIdFilter/)
 * [`updateItems()`](../BaseDataSource.updateItems/)
-* [`addNextItems()`](../BaseDataSource.addNextItems/)
-* [`Criteria`](../Criteria/)

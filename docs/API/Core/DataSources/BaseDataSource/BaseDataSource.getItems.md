@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getItems()"
-position: 33
+position: 34
 ---
 
 Возвращает список элементов источника данных.
@@ -18,6 +18,10 @@ position: 33
 BaseDataSource.getItems()
 ```
 
+## Parameters
+
+Нет
+
 ## Returns
 
 Массив элементов источника данных.
@@ -30,5 +34,4 @@ var items = BaseDataSource.getItems();
 
 # See Also
 
-* [`addNextItems()`](../BaseDataSource.addNextItems/)
 * [`updateItems()`](../BaseDataSource.updateItems/)

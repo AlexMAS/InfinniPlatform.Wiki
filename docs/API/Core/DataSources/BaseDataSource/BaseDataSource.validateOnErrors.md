@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.validateOnErrors()"
-position: 34
+position: 35
 ---
 
 Осуществляет проверку на ошибки.

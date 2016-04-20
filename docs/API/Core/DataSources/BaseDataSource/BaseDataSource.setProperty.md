@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.setProperty()"
-position: 25
+position: 22
 ---
 
 Устанавливает значение указанного свойства источника.
@@ -21,13 +21,14 @@ BaseDataSource.setProperty(property, value)
 
 ## Parameters
 
-`property`
+|Name|Description|
+|----|-----------|
+|property|Путь к свойству|
+|value|Значение свойства|
 
-Путь к свойству.
+## Returns
 
-`value`
-
-Значение свойства.
+Метод ничего не возвращает.
 
 # Examples
 

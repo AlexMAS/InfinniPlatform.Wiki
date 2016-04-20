@@ -1,60 +1,48 @@
 ---
 layout: doc
 title: "BaseDataSource.setFilter()"
-position: 13
+position: 10
 ---
 
 Устанавливает фильтр элементов.
 
 # Description
 
-Фильтр элементов представляется массивом [критериев фильтрации](../Criteria/). Изменение фильтра
-элементов приводит к возникновению события [`onFilterChanged`](../BaseDataSource.onFilterChanged/).
+Фильтр элементов представляется массивом критериев фильтрации. 
 Если в источнике данных [разрешено обновление списка элементов](../BaseDataSource.resumeUpdate/),
 изменение фильтра приводит к автоматическому [обновлению списка элементов источника данных](../BaseDataSource.updateItems/).
 
 # Syntax
 
 ```js
-BaseDataSource.setFilter(value[, success[, error]])
+BaseDataSource.setFilter(value)
 ```
 
 ## Parameters
 
-`value`
+|Name|Type|Description|
+|----|----|-----------|
+|value|`Array`|Массив критериев фильтрации|
 
-Массив [критериев фильтрации](../Criteria/).
+## Returns
 
-`success`
-
-Необязательный. [Обработчик события](../../../KeyConcepts/Script/) о том, что фильтр элементов изменился.
-В параметре `argument` передается информация о произошедшем событии. Свойство `argument.oldValue`
-содержит предыдущий фильтр, `argument.newValue` - новый фильтр.
-
-`error`
-
-Необязательный. [Обработчик события](../../../KeyConcepts/Script/) о том, что при изменении фильтра
-элементов произошла ошибка. В параметре `argument` передается информация о произошедшем событии.
-Свойство `argument.error` содержит информацию об ошибке.
+Метод ничего не возвращает.
 
 # Examples
 
 ```js
 BaseDataSource.setFilter([
   {
-    criteriaType: CriteriaType.isContains,
+    criteriaType: 1,
     property: 'FirstName',
     value: 'Jo'
   }
 ]);
-```
 
 # See Also
 
 * [`getFilter()`](../BaseDataSource.getFilter/)
-* [`onFilterChanged`](../BaseDataSource.onFilterChanged/)
+* [`setIdFilter()`](../BaseDataSource.setIdFilter/)
 * [`suspendUpdate()`](../BaseDataSource.suspendUpdate/)
 * [`resumeUpdate()`](../BaseDataSource.resumeUpdate/)
 * [`updateItems()`](../BaseDataSource.updateItems/)
-* [`addNextItems()`](../BaseDataSource.addNextItems/)
-* [`Criteria`](../Criteria/)
