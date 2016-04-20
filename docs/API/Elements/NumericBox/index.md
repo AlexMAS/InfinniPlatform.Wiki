@@ -32,3 +32,7 @@ new NumericBox([parent])
 |[`setMaxValue`](NumericBox.setMaxValue/)|Устанавливает максимальное значение для ввода.|
 |[`getIncrement`](NumericBox.getIncrement/)|Возвращает приращение значения при вводе с помощью кнопок.|
 |[`setIncrement`](NumericBox.setIncrement/)|Устанавливает приращение значения при вводе с помощью кнопок.|
+|[`getStartValue`](NumericBox.getStartValue/)|Возвращает начальное значение по умолчанию.|
+|[`setStartValue`](NumericBox.setStartValue/)|Устанавливает начальное значение по умолчанию.|
+
+

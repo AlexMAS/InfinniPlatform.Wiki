@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "NumericBox.metadata"
-position: 7
+position: 9
 ---
 
 Метаданные типа [`NumericBox`](../).
@@ -13,6 +13,7 @@ position: 7
 |MinValue|`Number`||Минимальное значение|
 |MaxValue|`Number`||Максимальное значение|
 |Increment|`Number`|1|Приращение значения|
+|StartValue|`Number`||Начальное значение по умолчанию|
 
 # Examples
 
