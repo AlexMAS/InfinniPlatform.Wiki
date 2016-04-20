@@ -21,11 +21,17 @@ new ServerAction(parentView)
 
 Для работы с данными свойствами используйте методы [getProperty](../BaseAction/BaseAction.getProperty/) и [setProperty](../BaseAction/BaseAction.setProperty/).
 
-|Name|Type|Description|
-|----|----|-----------|
-|provider|[`ServerActionProvider`](ServerActionProvider/)||
-|contentType|`String`|Тип передаваемых данных. Может принимать значение 'File' или 'Object'|
-|parameters|`Array`|Массив [`параметров`](../../Parameters)|
+|Name|Type|Default|Description|
+|----|----|----|-----------|
+|origin|`String`<sup>*</sup>| |Хост и порт|
+|path|`String`<sup>*</sup>| |Строка пути (относительно хоста)|
+|data|`Object`<sup>*</sup>| |(Необязательное) Данные запроса|
+|contentType|`String`|'application/x-www-form-urlencoded; charset=utf-8'|(Необязательное) Тип данных|
+|method|`String`|'GET'|(Необязательное) Метод запроса. Допустимые значения: `GET`, `POST`|
+
+Url запроса определяется конкатинацией свойств origin и path.
+
+<sup>*</sup> Шаблонизируемая величина (см. ниже)
 
 # Метод execute
 
@@ -35,10 +41,20 @@ new ServerAction(parentView)
 |----|-----------|
 |value.requestUrl|Url запроса|
 |value.method|Метод запроса|
-|value.args|Параметры запроса|
+|value.contentType|Тип данных|
+|value.args|Данные запроса|
 
+# Methods
 
-# See Also
+|Name|Description|
+|----|---------|
+|[getParam](ServerAction.getParam/)|Возвращает значение параметра|
+|[setParam](ServerAction.setParam/)|Устанавливает значение параметра|
 
-* [`getProperty`](../BaseAction/BaseAction.getProperty/)
-* [`setProperty`](../BaseAction/BaseAction.setProperty/)
+# Шаблонизация параметров
+
+Зачастую при описании запроса возникает необходимость использовать изменяемые значения.  
+Для этого в ServerAction введены параметры. Вы можете задать значение параметра с помощью метода [setParam](ServerAction.setParam/). 
+А затем использовать его в шаблонизируемых величинах, обозначив `<%[paramName]%>`.  
+Например, задан параметр *userId*, тогда в свойстве **path** можно обратится к нему следующим образом: `"/users?filter=eq(userId,<%userId%>)"`. 
+При отправке запроса вместо *<%userId%>* будет установлено соответсвующее значение параметра.
