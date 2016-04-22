@@ -4288,14 +4288,16 @@ var ControlView = Backbone.View.extend(/** @lends ControlView.prototype */{
     },
 
     updateVerticalAlignment: function () {
-        var verticalAlignment = this.model.get('verticalAlignment');
-        var prefix = 'verticalAlignment';
-        var regexp = new RegExp('(^|\\s)' + prefix + '\\S+', 'ig');
+        //var verticalAlignment = this.model.get('verticalAlignment');
+        this.switchClass('verticalAlignment', this.model.get('verticalAlignment'), this.$el, false);
 
-        this.$el.removeClass(function (i, name) {
-                return (name.match(regexp) || []).join(' ');
-            })
-            .addClass(prefix + verticalAlignment);
+        //var prefix = 'verticalAlignment';
+        //var regexp = new RegExp('(^|\\s)' + prefix + '\\S+', 'ig');
+        //
+        //this.$el.removeClass(function (i, name) {
+        //        return (name.match(regexp) || []).join(' ');
+        //    })
+        //    .addClass(prefix + verticalAlignment);
     },
 
     updateTextHorizontalAlignment: function () {
@@ -4478,9 +4480,14 @@ var ControlView = Backbone.View.extend(/** @lends ControlView.prototype */{
         }
     },
 
-    switchClass: function (name, value, $el) {
+    switchClass: function (name, value, $el, separator) {
+        if (typeof separator === 'undefined') {
+            separator = '-';
+        } else if (separator === false) {
+            separator = '';
+        }
 
-        var startWith = name + '-';
+        var startWith = name + separator;
         var regexp = new RegExp('(^|\\s)' + startWith + '\\S+', 'ig');
         var $element = $el || this.$el;
         $element.removeClass(function (i, name) {
@@ -5783,6 +5790,7 @@ var ListEditorBaseView = ContainerView.extend( _.extend( {}, editorBaseViewMixin
         editorBaseViewMixin.initHandlersForProperties.call(this);
 
         this.listenTo(this.model, 'change:selectedItem', this.updateSelectedItem);
+        this.listenTo(this.model, 'change:multiSelect', this.updateMultiSelect);
     },
 
     updateProperties: function(){
@@ -5790,6 +5798,11 @@ var ListEditorBaseView = ContainerView.extend( _.extend( {}, editorBaseViewMixin
         editorBaseViewMixin.updateProperties.call(this);
 
         this.updateSelectedItem();
+        this.updateMultiSelect();
+    },
+
+    updateMultiSelect: function () {
+
     }
 
 }));
@@ -9769,7 +9782,7 @@ var DataGridRowModel = ControlModel.extend({
 //####app/new/controls/dataGrid/dataGridRow/dataGridRowView.js
 var DataGridRowView = ControlView.extend({
 
-    className: 'pl-datagrid-row',
+    className: 'pl-datagrid-row pl-datagrid-row_data',
 
     classNameSelected: 'info',
 
@@ -9779,13 +9792,14 @@ var DataGridRowView = ControlView.extend({
 
     template: {
         singleSelect: InfinniUI.Template["new/controls/dataGrid/dataGridRow/template/singleSelect.tpl.html"],
-        multiSelect: InfinniUI.Template["new/controls/dataGrid/dataGridRow/template/multiSelect.tpl.html"]
+        multiSelect: InfinniUI.Template["new/controls/dataGrid/dataGridRow/template/multiSelect.tpl.html"],
+        dataCell: InfinniUI.Template["new/controls/dataGrid/dataGridRow/template/dataCell.tpl.html"]
     },
 
     UI: {
-        toggleCell: '.pl-toggle-cell',
-        toggle: '.toggle',
-        toggleControl: '.toggle input'
+        toggleCell: '.pl-datagrid-row__cell_toggle',
+        toggle: '.pl-datagrid-toggle',
+        toggleControl: '.pl-datagrid-toggle input'
     },
 
     initialize: function () {
@@ -9823,10 +9837,10 @@ var DataGridRowView = ControlView.extend({
         this.bindUIElements();
 
         var templates = this.model.get('cellTemplates');
+        var templateDataCell = this.template.dataCell;
         if (Array.isArray(templates)) {
             templates.forEach(function (template, index) {
-                var $cell = $('<td></td>');
-                row.setColumnWidth($cell, index);
+                var $cell = $(templateDataCell());
                 $cell.append(template().render());
                 $el.append($cell);
             });
@@ -9837,21 +9851,6 @@ var DataGridRowView = ControlView.extend({
 
         this.postrenderingActions();
         return this;
-    },
-
-    setColumnWidth: function ($el, index) {
-        var grid = this.model.get('grid');
-        var columns = grid.getColumns();
-        var column = columns.getByIndex(index);
-        var width = column.getWidth();
-
-        if (width !== null && typeof width !== 'undefined') {
-            $el.css({
-                "width": width,
-                "max-width": width
-            });
-        }
-
     },
 
     updateShowSelectors: function () {
@@ -9883,14 +9882,22 @@ var DataGridRowView = ControlView.extend({
  */
 var DataGridView = ListEditorBaseView.extend({
 
-    template: InfinniUI.Template["new/controls/dataGrid/template/dataGrid.tpl.html"],
+    template: {
+        "grid": InfinniUI.Template["new/controls/dataGrid/template/dataGrid.tpl.html"],
+        "gridStretched": InfinniUI.Template["new/controls/dataGrid/template/dataGridStretched.tpl.html"],
+        "headerCell": InfinniUI.Template["new/controls/dataGrid/template/headerCell.tpl.html"],
+        "sizeCell": InfinniUI.Template["new/controls/dataGrid/template/sizeCell.tpl.html"]
+    },
 
     className: 'pl-datagrid',
 
-    events: {},
-
     UI: _.defaults({
-        header: 'tr',
+        body: ".pl-datagrid__body",
+        head: ".pl-datagrid__head",
+        headContainer: ".pl-datagrid-container_head",
+
+        header: '.pl-datagrid-row_header',
+        firstRows: '.pl-datagrid-row_first',
         toggleCell: ".pl-toggle-cell",
         items: 'tbody'
     }, ListEditorBaseView.prototype.UI),
@@ -9912,6 +9919,18 @@ var DataGridView = ListEditorBaseView.extend({
 
     updateGrouping: function () {
 
+    },
+
+    updateVerticalAlignment: function () {
+        ListEditorBaseView.prototype.updateVerticalAlignment.call(this);
+        this.switchClass('verticalAlignment', this.model.get('verticalAlignment'), this.ui.body, false);
+    },
+
+    updateMultiSelect: function () {
+        ListEditorBaseView.prototype.updateMultiSelect.call(this);
+
+        var multiSelect = this.model.get('multiSelect');
+        this.$el.toggleClass('pl-datagrid_multiselect', multiSelect === true);
     },
 
     updateValue: function () {
@@ -9956,7 +9975,9 @@ var DataGridView = ListEditorBaseView.extend({
     render: function () {
         this.prerenderingActions();
 
-        this.$el.html(this.template());
+        var verticalAlignment = this.model.get('verticalAlignment');
+        var template = (verticalAlignment === 'Stretch') ? this.template.gridStretched : this.template.grid;
+        this.$el.html(template());
 
         this.bindUIElements();
 
@@ -9966,17 +9987,63 @@ var DataGridView = ListEditorBaseView.extend({
 
         this.trigger('render');
 
+        this.applyColumnWidth();
+        this.syncBodyAndHead();
         this.postrenderingActions();
         return this;
+    },
 
+    applyColumnWidth: function () {
+        var columns = this.model.get('columns');
 
+        this.ui.firstRows.children().each(function (i, el) {
+            var columnIndex = i % (columns.length + 1);
+
+            if (columnIndex === 0) {
+                //skip columns with checkbox/radiobutton
+                return;
+            }
+
+            var column = columns.getByIndex(columnIndex - 1);
+            var width = column && column.getWidth();
+
+            if (width) {
+                $(el).css('width', width);
+            }
+        });
+
+    },
+
+    syncBodyAndHead: function () {
+        var $body = this.ui.body;
+        var $head = this.ui.head;
+
+        setTimeout(function () {
+            //Need update after element added to DOM
+            var scrollWidth = $body[0].offsetWidth - $body[0].clientWidth;
+            $head.css('padding-right', scrollWidth + "px");
+        }, 0);
+
+        this.ui.body
+            .off('scroll')
+            .on('scroll', this.onScrollBodyHandler.bind(this));
+
+    },
+
+    onScrollBodyHandler: function () {
+        this.ui.headContainer.scrollLeft(this.ui.body.scrollLeft());
     },
 
     renderHeaders: function () {
         var columns = this.model.get('columns');
+        var templateHeaderCell = this.template.headerCell;
+        var sizeCells = [];
+        var templateSizeCells = this.template.sizeCell;
 
         var $headers = columns.toArray().map(function (column) {
-            var $th = $('<th></th>');
+
+            sizeCells.push(templateSizeCells());
+            var $th = $(templateHeaderCell());
 
             var headerTemplate = column.getHeaderTemplate();
             var header = column.getHeader();
@@ -9994,6 +10061,7 @@ var DataGridView = ListEditorBaseView.extend({
         });
 
         this.ui.header.append($headers);
+        this.ui.firstRows.append(sizeCells);
     },
 
     renderItems: function () {
@@ -11435,11 +11503,14 @@ var CommonLabelView = ControlView.extend(_.extend({}, editorBaseViewMixin, /** @
     },
 
     updateValue: function(){
+        var escapeHtml = this.model.get('escapeHtml');
+        var setContent = escapeHtml ? 'text' : 'html';
         var textForLabel = this.getLabelText();
         var $label = this.getLabelElement();
-        $label
-            .text(textForLabel)
-            .attr('title', textForLabel);
+
+        $label[setContent](textForLabel);
+        var title = String(textForLabel);
+        $label.attr('title', title.replace(/<\/?[^>]+>/g, ''));
     },
 
     updateDisplayFormat: function(){
@@ -11476,8 +11547,6 @@ var CommonLabelView = ControlView.extend(_.extend({}, editorBaseViewMixin, /** @
     },
 
     render: function () {
-        var model = this.model;
-
         this.prerenderingActions();
         this.renderTemplate(this.template);
 
@@ -11549,7 +11618,8 @@ var LabelModel = ControlModel.extend(_.extend({
         horizontalTextAlignment: 'Left',
         verticalAlignment: 'Top',
         textWrapping: true,
-        textTrimming: true
+        textTrimming: true,
+        escapeHtml: true
     }, ControlModel.prototype.defaults),
 
     initialize: function(){
@@ -13081,6 +13151,14 @@ var ScrollPanelView = ContainerView.extend(/** @lends ScrollPanelView.prototype 
 
         this.trigger('render');
         this.updateProperties();
+
+        (function ($el) {
+            //Firefox сохраняет позицию прокрутки. Принудительно крутим в начало.
+            setTimeout(function () {
+                $el.scrollTop(0);
+            }, 0);
+        })(this.$el);
+
         return this;
     },
 
@@ -19207,9 +19285,28 @@ _.extend(Label.prototype, {
         
         getDisplayValue: function () {
             return this.control.getDisplayValue();
-        }
+        },
 
-    },
+        /**
+         * @description Возвращает режим отображения HTML разметки
+         * @returns {Boolean}
+         */
+        getEscapeHtml: function () {
+            return this.control.get('escapeHtml');
+        },
+
+        /**
+         * @description Устанавливает режим отображения HTML разметки
+         * @param {Boolean} value
+         */
+        setEscapeHtml: function (value) {
+            if (_.isBoolean(value)) {
+                this.control.set('escapeHtml', value);
+            }
+        }
+    }
+
+    ,
     editorBaseMixin
     //formatPropertyMixin,
     //elementHorizontalTextAlignmentMixin,
@@ -19234,6 +19331,7 @@ function LabelBuilder() {
 _.inherit(LabelBuilder, ElementBuilder);
 _.extend(LabelBuilder.prototype, {
     applyMetadata: function(params){
+        /** @type Label **/
         var element = params.element;
         ElementBuilder.prototype.applyMetadata.call(this, params);
         this.applyMetadata_editorBaseBuilder(params);
@@ -19241,6 +19339,7 @@ _.extend(LabelBuilder.prototype, {
         element.setLineCount(params.metadata.LineCount);
         element.setTextWrapping(params.metadata.TextWrapping);
         element.setTextTrimming(params.metadata.TextTrimming);
+        element.setEscapeHtml(params.metadata.EscapeHtml);
         
         this.initDisplayFormat(params);
         this.initScriptsHandlers(params);

@@ -6637,6 +6637,12 @@ body {
     box-shadow: 15px -15px #dfdfdf, 15px 15px #4f4d49, -15px 15px #dfdfdf, -15px -15px #4f4d49;
   }
 }
+.modal.messagebox {
+  z-index: 1060;
+}
+.modal.messagebox + .modal-backdrop {
+  z-index: 1055;
+}
 .pl-dropdown-container {
   z-index: 2000;
 }
@@ -7220,6 +7226,19 @@ body {
   display: table;
   clear: both;
 }
+.pl-datagrid {
+  overflow-x: hidden;
+}
+.pl-datagrid .pl-datagrid-row__cell_checker,
+.pl-datagrid .pl-datagrid-row__cell_toggle {
+  width: 0;
+  display: none;
+}
+.pl-datagrid_multiselect .pl-datagrid-row__cell_checker,
+.pl-datagrid_multiselect .pl-datagrid-row__cell_toggle {
+  width: 40px;
+  display: table-cell;
+}
 .pl-datagrid.verticalAlignmentTop table > tbody > tr > td {
   vertical-align: top;
 }
@@ -7237,6 +7256,29 @@ body {
 }
 .pl-datagrid .pl-toggle-cell {
   width: 30px;
+}
+.pl-datagrid.verticalAlignmentStretch .pl-datagrid-table {
+  table-layout: fixed;
+}
+.pl-datagrid.verticalAlignmentStretch .pl-datagrid__body {
+  overflow-y: scroll;
+  overflow-x: auto;
+}
+.pl-datagrid-table {
+  margin-bottom: 0;
+}
+.pl-datagrid-table_body {
+  border-top: 0!important;
+}
+.pl-datagrid-container_head {
+  overflow-x: hidden;
+}
+.pl-datagrid-row__cell {
+  overflow: hidden;
+}
+.pl-datagrid-row__cell_width {
+  padding: 0!important;
+  border: 0!important;
 }
 .timepicker-seconds {
   cursor: pointer;
