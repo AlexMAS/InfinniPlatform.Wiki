@@ -74,6 +74,8 @@ $elementForExample.append($button);
 |[setVisible](Element.setVisible/)|Устанавливает значение, определяющее, отображается ли элемент в интерфейсе|
 |[getHorizontalAlignment](Element.getHorizontalAlignment/)|Возвращает [горизонтальное выравнивание](ElementHorizontalAlignment/) в родительском элементе|
 |[setHorizontalAlignment](Element.setHorizontalAlignment/)|Устанавливает [горизонтальное выравнивание](ElementHorizontalAlignment/) в родительском элементе|
+|[getVerticalAlignment](Element.getVerticalAlignment/)|Возвращает [вертикальное выравнивание](ElementVerticalAlignment/) в родительском элементе|
+|[setVerticalAlignment](Element.setVerticalAlignment/)|Устанавливает [вертикальное выравнивание](ElementVerticalAlignment/) в родительском элементе|
 |[getTextHorizontalAlignment](Element.getTextHorizontalAlignment/)|Возвращает [горизонтальное выравнивание текста](TextHorizontalAlignment/) в элементе|
 |[setTextHorizontalAlignment](Element.setTextHorizontalAlignment/)|Устанавливает [горизонтальное выравнивание текста](TextHorizontalAlignment/) в элементе|
 |[getToolTip](Element.getToolTip/)|Возвращает устанавленное всплывающее сообщение элемента|
