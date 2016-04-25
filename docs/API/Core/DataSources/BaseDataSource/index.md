@@ -45,13 +45,10 @@ new BaseDataSource(parameters)
 |[getFilter](BaseDataSource.getFilter/)|Возвращает фильтр элементов|
 |[setFilter](BaseDataSource.setFilter/)|Устанавливает фильтр элементов|
 |[setIdFilter](BaseDataSource.setIdFilter/)|Устанавливает фильтр элементов по идентификатору|
-
-*
 |[getErrorValidator](BaseDataSource.getErrorValidator/)|Возвращает [функцию](../../Script/) проверки элемента на ошибки|
 |[setErrorValidator](BaseDataSource.setErrorValidator/)|Устанавливает [функцию](../../Script/) проверки элемента на ошибки|
 |[getWarningValidator](BaseDataSource.getWarningValidator/)|Возвращает [функцию](../../Script/) проверки элемента на предупреждения|
 |[setWarningValidator](BaseDataSource.setWarningValidator/)|Устанавливает [функцию](../../Script/) проверки элемента на предупреждения|
-
 |[isUpdateSuspended](BaseDataSource.isUpdateSuspended/)|Возвращает значение, указывающее, запрещено ли обновление списка элементов|
 |[suspendUpdate](BaseDataSource.suspendUpdate/)|Запрещает обновление списка элементов|
 |[resumeUpdate](BaseDataSource.resumeUpdate/)|Разрешает обновление списка элементов|
@@ -59,34 +56,22 @@ new BaseDataSource(parameters)
 |[setSelectedItem](BaseDataSource.setSelectedItem/)|Устанавливает выделенный элемент|
 |[getProperty](BaseDataSource.getProperty/)|Возвращает значение указанного свойства источника|
 |[setProperty](BaseDataSource.setProperty/)|Устанавливает значение указанного свойства источника|
-
-*
 |[isDataReady](BaseDataSource.isDataReady/)|Возвращает значение, указывающее, загрузились ли данные в источник или нет|
 |[isLazy](BaseDataSource.isLazy/)|Возвращает значение, является ли прогрузка данных в источнике "ленивой" или нет|
 |[setIsLazy](BaseDataSource.setIsLazy/)|Устанавливает значение, является ли прогрузка данных в источнике "ленивой" или нет|
 |[idOfItem](BaseDataSource.idOfItem/)|Возвращает значение идентификатора по переданному элементу item|
-
 |[isModified](BaseDataSource.isModified/)|Проверяет, является ли элемент несохраненным|
 |[isModifiedItems](BaseDataSource.isModifiedItems/)|Проверяет, есть ли несохраненные элементы|
-
 |[createItem](BaseDataSource.createItem/)|Создает новый элемент в источнике данных|
 |[saveItem](BaseDataSource.saveItem/)|Сохраняет элемент в источнике данных|
 |[deleteItem](BaseDataSource.deleteItem/)|Удаляет элемент из источника данных|
-
 |[updateItems](BaseDataSource.updateItems/)|Обновляет список элементов источника данных|
-
-*
 |[tryInitData](BaseDataSource.tryInitData/)|Пытается обновить список элементов источника. Делает это только в случае, если до этого источник не был прогружен данными|
-
-
 |[getItems](BaseDataSource.getItems/)|Возвращает список элементов источника данных|
-
-*
 |[validateOnErrors](BaseDataSource.validateOnErrors/)|Осуществляет проверку на ошибки|
 |[validateOnWarnings](BaseDataSource.validateOnWarnings/)|Осуществляет проверку на предупреждения|
-|[initDataProvider](BaseDataSource.initDataProvider/)|Определяет обязательное свойство `dataProvider`. Наследники BaseDataSource должны переопределять этот метод!|
+|[initDataProvider](BaseDataSource.initDataProvider/)|Определяет обязательное свойство [`dataProvider`](../../DataProviders/). Наследники BaseDataSource должны переопределять этот метод!|
 |[beforeDeleteItem](BaseDataSource.beforeDeleteItem/)|Вы можете переопределить этот метод в наследнике BaseDataSource, если есть необходимость выполнять некие действия перед удалением элемента|
-
 
 
 # Events
@@ -101,4 +86,3 @@ new BaseDataSource(parameters)
 |[onItemsUpdated](BaseDataSource.onItemsUpdated/)|Устанавливает [обработчик события](../../Script/) о том, что список элементов обновлен|
 |[onErrorValidator](BaseDataSource.onErrorValidator/)|Устанавливает [обработчик события](../../Script/) о том, что проверка на ошибки завершена|
 |[onWarningValidator](BaseDataSource.onWarningValidator/)|Устанавливает [обработчик события](../../Script/) о том, что проверка на предупреждения завершена|
-|[onError](BaseDataSource.onError/)|Устанавливает [обработчик события](../../Script/) о том, произошла ошибка|

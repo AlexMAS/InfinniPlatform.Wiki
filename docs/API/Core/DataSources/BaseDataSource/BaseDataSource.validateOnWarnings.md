@@ -15,37 +15,36 @@ position: 36
 # Syntax
 
 ```js
-BaseDataSource.validateOnWarnings([item[, callback]])
+BaseDataSource.validateOnWarnings(item, callback)
 ```
 
 ## Parameters
 
-`item`
+|Name|Type|Description|
+|----|----|-----------|
+|item| |(Необязательный) Элемент источника данных. Если указан, на наличие предупреждений проверяется только указанный
+элемент; если не указан на наличие предупреждений проверяются все элементы|
+|callback|[Script](../../../Script/)|(Необязательный) Обработчик события о том, что проверка на предупреждения завершена. Параметр args данного обработчика в поле value содержит результаты проверки в [предопределенном формате](../ValidationResult/)|
 
-Необязательный. Элемент источника данных. Если указан, на наличие предупреждений проверяется только
-указанный элемент; если не указан на наличие предупреждений проверяются все элементы.
+## Returns
 
-`callback`
-
-Необязательный. [Обработчик события](../../../KeyConcepts/Script/) о том, что проверка на
-предупреждения завершена. В параметре `argument` передается информация о произошедшем событии.
-Свойство `argument.value` содержит результаты проверки в [предопределенном формате](../ValidationResult/).
+[Результат](../ValidationResult/) проверки на предупреждения
 
 # Examples
 
 ```js
 BaseDataSource.validateOnWarnings(
   BaseDataSource.getSelectedItem(),
-  function(context, argument) {
-    alert('Selected item does not have any warnings: ' + argument.value.isValid);
+  function(context, args) {
+    alert('Selected item does not have any warnings: ' + args.value.isValid);
   }
 );
 ```
 
 # See Also
 
+* [`validateOnErrors()`](../BaseDataSource.validateOnErrors/)
 * [`onWarningValidator`](../BaseDataSource.onWarningValidator/)
-* [`validateOnErrors()`](../BaseDataSource.validateOnWarnings/)
 * [`getWarningValidator()`](../BaseDataSource.getWarningValidator/)
 * [`setWarningValidator()`](../BaseDataSource.setWarningValidator/)
 * [`ValidationResult`](../ValidationResult/)
