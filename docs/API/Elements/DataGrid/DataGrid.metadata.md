@@ -13,6 +13,7 @@ Name|Type|Default|Description
 Columns|Array.<[`DataGridColumn`](../DataGridColumn/)>||Список колонок таблицы.
 ShowSelectors|Boolean|`true`|Определяет показывать ли колонку с CheckBox/Radio для выбора элементов.
 CheckAllVisible|Boolean|`false`|Определяет виден ли элемент "Выбрать все" в шапке таблицы.
+OnCheckAllChanged|[`Script`](../../../Core/Script/)||Устанавливает обработчик изменения состоняие элемента "Выбрать все" в шапке таблицы.
 
 # Examples
 
