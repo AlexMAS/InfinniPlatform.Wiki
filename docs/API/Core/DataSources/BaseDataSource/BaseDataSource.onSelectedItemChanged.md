@@ -1,30 +1,29 @@
 ---
 layout: doc
 title: "BaseDataSource.onSelectedItemChanged"
-position: 103
+position: 100
 ---
 
-Устанавливает [обработчик события](../../../KeyConcepts/Script/) о том, что выделенный элемент изменился.
+Устанавливает [обработчик события](../../../Script/) о том, что выделенный элемент изменился.
 
 # Syntax
 
 ```js
-BaseDataSource.onSelectedItemChanged(callback)
+BaseDataSource.onSelectedItemChanged(callback, owner)
 ```
 
 ## Parameters
 
-`callback`
-
-[Обработчик события](../../../KeyConcepts/Script/) о том, что выделенный элемент изменился. В параметре
-`argument` передается информация о произошедшем событии. Свойство `argument.oldValue` содержит
-предыдущий выделенный элемент, `argument.newValue` - новый выделенный элемент.
+|Name|Type|Description|
+|----|----|-----------|
+|callback|[Script](../../../Script/)|Обработчик события о том, что выделенный элемент изменился. Параметр `args` данного обработчика содержит поля: source - ссылка на [источник данных](../), value - выбранный элемент|
+|owner| |(Необязательное) Родительский элемент, используется для автоматической отписки. Должен иметь поле или метод isRemoved. Если isRemoved возвращает истину, происходит автоматическая отписка |
 
 # Examples
 
 ```js
 BaseDataSource.onSelectedItemChanged(
-  function(context, argument) { alert('Selected item is changed!'); }
+  function(context, args) { alert('Selected item is changed!'); }
 );
 ```
 

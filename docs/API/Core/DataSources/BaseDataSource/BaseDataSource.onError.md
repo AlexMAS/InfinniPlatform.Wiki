@@ -1,14 +1,14 @@
 ---
 layout: doc
 title: "BaseDataSource.onError"
-position: 112
+position: 108
 ---
 
-Устанавливает [обработчик события](../../../KeyConcepts/Script/) о том, произошла ошибка.
+Устанавливает [обработчик события](../../../Script/) о том, что произошла ошибка.
 
 # Description
 
-[Обработчик события](../../../KeyConcepts/Script/) [`onError`](../BaseDataSource.onError/) позволяет
+[Обработчик события](../../../Script/) [`onError`](../BaseDataSource.onError/) позволяет
 отлавливать все ошибки, которые возникают на уровне источника данных.
 
 # Syntax
@@ -19,16 +19,14 @@ BaseDataSource.onError(callback)
 
 ## Parameters
 
-`callback`
-
-[Обработчик события](../../../KeyConcepts/Script/) о том, что на уровне источника данных произошла
-ошибка. В параметре `argument` передается информация о произошедшем событии. Свойство `argument.error`
-содержит информацию об ошибке.
+|Name|Type|Description|
+|----|----|-----------|
+|callback|[Script](../../../Script/)|Обработчик события о том, что произошла ошибка. Свойство error параметра args содержит информацию об ошибке|
 
 # Examples
 
 ```js
 BaseDataSource.onError(
-  function(context, argument) { alert(argument.error); }
+  function(context, args) { alert(args.error); }
 );
 ```
