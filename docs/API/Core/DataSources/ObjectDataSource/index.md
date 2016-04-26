@@ -30,6 +30,13 @@ new ObjectDataSource(parameters)
 |----|----------|---------|
 |parameters|`Object`| Объект с параметрами представления. Один из параметров обязательный: parameters.view - родительское представление источника данных|
 
+# Properties
+
+Нет
+
+# Specific Properties
+
+Нет
 
 # Methods
 
