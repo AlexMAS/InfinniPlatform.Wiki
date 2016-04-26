@@ -49,6 +49,9 @@ new View(parent)
 |[`getCloseButtonVisibility`](View.getCloseButtonVisibility/)|Возвращает флаг видимости кнопки закрытия|
 |[`setCloseButtonVisibility`](View.setCloseButtonVisibility/)|Устанавливает флаг видимости кнопки закрытия|
 |[`getApplicationView`](View.getApplicationView/)|Возвращает корневое представление|
+|[`getFocusOnControl`](View.getFocusOnControl/)|Возвращает имя элемента представления, который получит фокус при открытии представления|
+|[`setFocusOnControl`](View.setFocusOnControl/)|Устанавливает имя элемента представления, который получит фокус при открытии представления|
+
 
 # Events
 

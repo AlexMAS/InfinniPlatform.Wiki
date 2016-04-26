@@ -71,9 +71,6 @@ LiveInfinniExample.prototype.clipText = function($el){
 };
 
 //----------------
-
-document.title = InfinniUI.config.configName;
-
 moment.locale('ru');
 
 (function ($target/*, metadata*/, homePageMetadata) {
