@@ -34,7 +34,8 @@ new Label([parent])
 |[`setTextTrimming`](Label.setTextTrimming/)|Устанавливает значение, определяющее, усекается ли текст при переполнении.|
 |[`getTextWrapping`](Label.getTextWrapping/)|Возвращает значение, определяющее, переносится ли текст при переполнении.|
 |[`setTextWrapping`](Label.setTextWrapping/)|Устанавливает значение, определяющее, переносится ли текст при переполнении.|
-
+|[`getEscapeHtml`](Label.getEscapeHtml/)|Возвращает значение, определяющее, экранируется ли HTML-разметка.|
+|[`setEscapeHtml`](Label.setEscapeHtml/)|Устанавливает значение, определяющее, экранируется ли HTML-разметка.|
 
 
 

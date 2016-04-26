@@ -22,3 +22,9 @@ new MenuBar([parent])
 |----|----|-----------|
 |`parent`|[элемент](../../Core/Elements/Element)|Необязательный. Родительский [элемент](../../Core/Elements/Element).|
 
+# Methods
+
+Name|Description
+----|-----------
+[`highlightItem`](MenuBar.highlightItem/)|Устанавливает/снимает выделение элемента меню с указанным именем
+

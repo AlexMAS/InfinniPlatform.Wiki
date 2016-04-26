@@ -9,7 +9,7 @@ position: 1000
 # Syntax
 
 ```js
-BindingModes = {
+InfinniUI.BindingModes = {
   twoWay: 'TwoWay',
   toSource: 'ToSource',
   toElement: 'ToElement'

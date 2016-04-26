@@ -14,7 +14,7 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Core/.schema/UI/Script/Script.resjson" lang="json" %}
+{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Script/Script.resjson" lang="json" %}
 
 # Examples
 

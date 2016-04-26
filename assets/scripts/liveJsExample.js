@@ -38,6 +38,9 @@ LiveJsExample.prototype.createLiveExampleWrap = function($el){
 
 LiveJsExample.prototype.clipText = function($el){
     var $code = $el.find('pre code');
-    var s = $code.get(0).innerHTML.replace(/<span class="c1">[\s\S]*\/\/js-demo<\/span>\s*/, '');
+	var hiddenCodeRegExp = /<span class="c1">[\s\S]*\/\/\s*hiddenCodeStart<\/span>[\s\S]*<span class="c1">[\s\S]*\/\/\s*hiddenCodeStop<\/span>\s*/
+    
+	var s = $code.get(0).innerHTML.replace(/<span class="c1">[\s\S]*\/\/js-demo<\/span>\s*/, '')
+	 							  .replace(hiddenCodeRegExp, '');
     $code.get(0).innerHTML = s;
 };

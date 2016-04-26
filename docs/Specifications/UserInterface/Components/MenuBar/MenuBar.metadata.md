@@ -8,7 +8,7 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Core/.schema/UI/Components/MenuBar/MenuBar.resjson" lang="json" %}
+{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Components/MenuBar/MenuBar.resjson" lang="json" %}
 
 # Examples
 
