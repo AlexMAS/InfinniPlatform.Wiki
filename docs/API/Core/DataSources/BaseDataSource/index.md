@@ -30,6 +30,16 @@ new BaseDataSource(parameters)
 |----|----|-----------|
 |[name](BaseDataSource.name/)|`String`|Содержит наименование источника данных|
 
+# Specific Properties
+
+Для работы с данными свойствами используйте методы [getProperty](BaseDataSource.getProperty/) и [setProperty](BaseDataSource.setProperty/).  
+Обратите внимание, что для работы с данными свойствами необходимо [указывать точку в названии](BaseDataSource.getProperty/#path-rules).
+
+|Name|Description|
+|----|---------|
+|items|Список элементов источника данных|
+|selectedItem|Выделенный элемент|
+
 # Methods
 
 |Name|Description|

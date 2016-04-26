@@ -24,6 +24,10 @@ BaseDataSource.setErrorValidator(value)
 |----|----|-----------|
 |value|[Script](../../../Script/)|Функция проверки элемента на ошибки|
 
+## Returns
+
+Метод ничего не возвращает
+
 # Examples
 
 ```js

@@ -23,7 +23,7 @@ BaseDataSource.setProperty(property, value)
 
 |Name|Description|
 |----|-----------|
-|property|Путь к свойству|
+|property|Путь к свойству (подробности использования см. в разделе [Path rules](../BaseDataSource.getProperty/#path-rules))|
 |value|Значение свойства|
 
 ## Returns

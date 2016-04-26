@@ -23,11 +23,17 @@ BaseDataSource.getProperty(property)
 
 |Name|Description|
 |----|-----------|
-|property|Путь к свойству|
+|property|Путь к свойству (подробности использования см. в разделе [Path rules](#path-rules))|
 
 ## Returns
 
 Значение свойства.
+
+# Path rules
+
+По умолчанию методы [getProperty](../BaseDataSource.getProperty/), [setProperty](../BaseDataSource.setProperty/) и [onPropertyChanged](../BaseDataSource.onPropertyChanged/) обращаются к свойствам элементов источников данных. Например, dataSource.getProperty('0.Name') вернёт свойство Name первого элемента.  
+Однако, иногда необходимо обращаться к [собственным свойствам источника данных](../#specific-properties), тогда передназванием свойства укажите точку. 
+Например, dataSource.getProperty('.selectedItem') вернёт текущий элемент.  
 
 # Examples
 

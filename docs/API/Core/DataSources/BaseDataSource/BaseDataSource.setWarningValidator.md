@@ -24,6 +24,10 @@ BaseDataSource.setWarningValidator(value)
 |----|----|-----------|
 |value|[Script](../../../Script/)|Функция проверки элемента на предупреждения|
 
+## Returns
+
+Метод ничего не возвращает
+
 # Examples
 
 ```js
