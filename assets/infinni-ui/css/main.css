@@ -7229,15 +7229,18 @@ body {
 .pl-datagrid {
   overflow-x: hidden;
 }
-.pl-datagrid .pl-datagrid-row__cell_checker,
-.pl-datagrid .pl-datagrid-row__cell_toggle {
-  width: 0;
+.pl-datagrid_select_single .pl-datagrid-toggle_all {
   display: none;
 }
-.pl-datagrid_multiselect .pl-datagrid-row__cell_checker,
-.pl-datagrid_multiselect .pl-datagrid-row__cell_toggle {
+.pl-datagrid_selectors_show .pl-datagrid-row__cell_checker,
+.pl-datagrid_selectors_show .pl-datagrid-row__cell_toggle {
   width: 40px;
   display: table-cell;
+}
+.pl-datagrid_selectors_hide .pl-datagrid-row__cell_checker,
+.pl-datagrid_selectors_hide .pl-datagrid-row__cell_toggle {
+  width: 0;
+  display: none;
 }
 .pl-datagrid.verticalAlignmentTop table > tbody > tr > td {
   vertical-align: top;
@@ -7253,9 +7256,6 @@ body {
 }
 .pl-datagrid table {
   /*table-layout: fixed;*/
-}
-.pl-datagrid .pl-toggle-cell {
-  width: 30px;
 }
 .pl-datagrid.verticalAlignmentStretch .pl-datagrid-table {
   table-layout: fixed;

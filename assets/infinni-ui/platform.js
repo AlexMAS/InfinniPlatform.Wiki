@@ -108,10 +108,107 @@ _.defaults( InfinniUI.config, {
     maxLengthUrl: 2048,
     cacheMetadata: false, //boolean - enable/disable cache | milliseconds
     serverUrl: 'http://localhost:9900',//'http://10.0.0.32:9900';
-    configId: 'PTA'
+    configId: 'PTA',
+    configName: 'Хабинет'
 
 
 });
+//####app/utils/BlobUtils.js
+/**
+ * Набор утилит для работы с BlobData объектами
+ **/
+
+
+window.InfinniUI.BlobUtils = (function () {
+
+    return  {
+        createFromFile: function(file) {
+            var blobData = {
+                Info:{
+                    Name:   file.name,
+                    Type:   file.type,
+                    Size:   file.size,
+                    Time:   file.lastModifiedDate
+                }
+            };
+
+            return blobData;
+        }
+    }
+
+})();
+
+
+
+
+
+//####app/utils/EventsManager.js
+function EventsManager () {
+    this.handlers = {};
+
+}
+
+
+EventsManager.prototype.on = function (event, handler) {
+    if (typeof this.handlers[event] === 'undefined') {
+        this.handlers[event] = [];
+    }
+
+    var handlers = this.handlers[event];
+    var manager = this;
+    handlers.push(handler);
+
+    return {
+        off: this.off.bind(this, event, handler)
+    };
+};
+
+EventsManager.prototype.off = function (event, handler) {
+    if (typeof event !== 'undefined') {
+        var handlers = this.handlers[event];
+
+        if (Array.isArray(handlers)) {
+            for(var i = 0; i < handlers.length; i = i + 1) {
+                if (handlers[i] === handler) {
+                    handlers.splice(i, 1);
+                    break;
+                }
+            }
+        }
+    }
+};
+
+EventsManager.prototype.trigger = function (event) {
+    var handlers = this.handlers[event],
+        args = Array.prototype.slice.call(arguments, 1),
+        deferred = $.Deferred();
+
+    if (Array.isArray(handlers)) {
+        var results = handlers.map(function (handler) {
+            return handler.apply(null, args);
+        });
+        $.when.apply($, results)
+            .done(function () {
+                var results = Array.prototype.slice.call(arguments);
+                var cancel = results.some(function (res) {
+                    return res === false;
+                });
+
+                if (cancel) {
+                    deferred.reject();
+                } else {
+                    deferred.resolve(results);
+                }
+            })
+            .fail(function () {
+                deferred.reject();
+            });
+    } else {
+        deferred.resolve();
+    }
+
+    return deferred.promise();
+};
 //####app/utils/actionOnLoseFocus.js
 var ActionOnLoseFocus = function ($el, action) {
     var that = this;
@@ -198,35 +295,6 @@ _.extend(BasePathOfProperty.prototype, {
         return str.substr(1, str.length - 1);
     }
 });
-//####app/utils/BlobUtils.js
-/**
- * Набор утилит для работы с BlobData объектами
- **/
-
-
-window.InfinniUI.BlobUtils = (function () {
-
-    return  {
-        createFromFile: function(file) {
-            var blobData = {
-                Info:{
-                    Name:   file.name,
-                    Type:   file.type,
-                    Size:   file.size,
-                    Time:   file.lastModifiedDate
-                }
-            };
-
-            return blobData;
-        }
-    }
-
-})();
-
-
-
-
-
 //####app/utils/cache.js
 var Cache = function () {
     this.cleanup();
@@ -1817,20 +1885,18 @@ window.InfinniUI.ObjectUtils = (function () {
             var nextTerm = propertyPathTerms[i + 1];
             var nextTermCollectionIndex = parseCollectionIndex(nextTerm);
 
-            if (termValue === null || termValue === undefined) {
-                if (nextTermCollectionIndex >= 0) {
-                    termValue = [ ];
-                }
-                else {
-                    termValue = { };
+            if(nextTermCollectionIndex >= 0){
+                if(!$.isArray(termValue)){
+                    termValue = [];
                 }
 
-                if (termCollectionIndex >= 0) {
-                    setCollectionItem(parent, termCollectionIndex, termValue);
+                setCollectionItem(parent, termCollectionIndex, termValue);
+            }else{
+                if(!$.isPlainObject(termValue)){
+                    termValue = {};
                 }
-                else {
-                    setObjectProperty(parent, term, termValue);
-                }
+
+                setObjectProperty(parent, term, termValue);
             }
 
             parent = termValue;
@@ -2006,7 +2072,7 @@ window.InfinniUI.ObjectUtils = (function () {
                 } else if(propertyValue instanceof File){
                     setPropertyByPath(target, propertyPathTerms, propertyValue);
                 } else{
-                    setPropertyByPath(target, propertyPathTerms, _.clone(propertyValue));
+                    setPropertyByPath(target, propertyPathTerms, propertyValue);
                 }
             }
         },
@@ -2053,73 +2119,6 @@ Function.prototype.estimate = function (name) {
         }
     }
 };
-//####app/utils/EventsManager.js
-function EventsManager () {
-    this.handlers = {};
-
-}
-
-
-EventsManager.prototype.on = function (event, handler) {
-    if (typeof this.handlers[event] === 'undefined') {
-        this.handlers[event] = [];
-    }
-
-    var handlers = this.handlers[event];
-    var manager = this;
-    handlers.push(handler);
-
-    return {
-        off: this.off.bind(this, event, handler)
-    };
-};
-
-EventsManager.prototype.off = function (event, handler) {
-    if (typeof event !== 'undefined') {
-        var handlers = this.handlers[event];
-
-        if (Array.isArray(handlers)) {
-            for(var i = 0; i < handlers.length; i = i + 1) {
-                if (handlers[i] === handler) {
-                    handlers.splice(i, 1);
-                    break;
-                }
-            }
-        }
-    }
-};
-
-EventsManager.prototype.trigger = function (event) {
-    var handlers = this.handlers[event],
-        args = Array.prototype.slice.call(arguments, 1),
-        deferred = $.Deferred();
-
-    if (Array.isArray(handlers)) {
-        var results = handlers.map(function (handler) {
-            return handler.apply(null, args);
-        });
-        $.when.apply($, results)
-            .done(function () {
-                var results = Array.prototype.slice.call(arguments);
-                var cancel = results.some(function (res) {
-                    return res === false;
-                });
-
-                if (cancel) {
-                    deferred.reject();
-                } else {
-                    deferred.resolve(results);
-                }
-            })
-            .fail(function () {
-                deferred.reject();
-            });
-    } else {
-        deferred.resolve();
-    }
-
-    return deferred.promise();
-};
 //####app/utils/fileSize.js
 window.InfinniUI = window.InfinniUI || {};
 window.InfinniUI.format = window.InfinniUI.format || {};
@@ -2131,6 +2130,817 @@ window.InfinniUI.format.humanFileSize = function (size) {
     var i = Math.floor( Math.log(size) / Math.log(1024) );
     return ( size / Math.pow(1024, i) ).toFixed(2) * 1 + ' ' + ['B', 'kB', 'MB', 'GB', 'TB'][i];
 };
+//####app/utils/filterItems.js
+var filterItems = (function() {
+
+	return function(items, filter) {
+		if( !filter ){
+			return items;
+		}
+
+		var itemsForFilter = JSON.parse(JSON.stringify(items)),
+				filterMethods = filterItems.filterMethods,
+				filterTree = filterItems.filterTreeBuilder.buildUpFilterTree(filter);
+
+		function stringToNum(value) {
+			if( typeof value === 'string' && !isNaN(value) ) {
+				value = +value;
+			}
+			return value;
+		}
+		function stringToBoolean(value) {
+			if( value === 'true' ) {
+				value = true;
+			} else if( value === 'false' ) {
+				value = false;
+			} else if( value === 'null' ) {
+				value = null;
+			}
+			return value;
+		}
+		function stringToArr(value) {
+			if( typeof value === 'string' && value.search(/\[[\'a-zA-Z0-9,]+\]/) !== -1 ) {
+				value = value.slice(1, -1).split(',');
+				for( var i = 0, ii = value.length; i < ii; i += 1 ) {
+					if( value[i].slice(-1) === "'" ) {
+						value[i] = value[i].slice(1, -1);
+					}
+					value[i] = stringToBoolean( value[i] );
+					value[i] = stringToNum( value[i] );
+				}
+			}
+			return value;
+		}
+		function findContext(currentContext, currentFunc) {
+			if( currentFunc.functionName === 'match' ) {
+				currentContext = currentFunc.children[0].valueName;
+			}
+			return currentContext;
+		}
+		function filterExec(filterTree, items, context) { // filterTree is object, items is array
+			var tmpChild1, tmpChild2 = [];
+			// find context
+			context = findContext( context, filterTree );
+			for( var j = 0, jj = filterTree.children.length; j < jj; j += 1 ) {
+				// if any child is function
+				// call filterExec with children of this child
+				if( filterTree.children[j].type === 'function' ) {
+					tmpChild1 = filterTree.children[j];
+
+					filterTree.children[j].valueName = filterExec(tmpChild1, items, context);
+					filterTree.children[j].newType = 'value';
+				}
+				if( filterTree.children[j].type === 'value' || filterTree.children[j].newType === 'value' ) {
+					if( filterTree.children[j].type === 'value' ) {
+						filterTree.children[j].valueName = stringToNum( filterTree.children[j].valueName ); // check on Number
+						filterTree.children[j].valueName = stringToBoolean( filterTree.children[j].valueName ); // check on Boolean
+						filterTree.children[j].valueName = stringToArr( filterTree.children[j].valueName ); // check on Array
+					}
+					tmpChild2.push( filterTree.children[j].valueName );
+				}
+			}
+			return filterMethods[filterTree.functionName](tmpChild2, items, context); // tmpChild2 is array
+		}
+		return filterExec(filterTree, itemsForFilter);
+	};
+})(filterItems);
+
+
+filterItems.filterTreeBuilder = (function() {
+	var that = {},
+			splitStringToArray = function(filter) { //filter is string
+				var tmpArr,
+						tmpNum,
+						tmpString,
+						tmpString2,
+						tmpRE,
+						reForDates = /date\(\'[0-9a-zA-Z\:\-\+\.\s]+\'\)/g,
+						reForParamAsArray = /\,[a-zA-Z0-9\'\,\_\.]+\)/g,
+						reForArrayFromOneElem = /\[[a-zA-Z0-9\'\_\.]+\]/g,
+						reForElemsOfTree = /[a-zA-Z]+[(]|\[[a-zA-Z0-9\S]+\]|[-\']{0,1}[a-zA-Z0-9_\.]+[\']{0,1}[,)$]/g,
+						reForClosingBrackets = /[)]/g,
+						reForRegExp = /\'([a-zA-Z0-9\S\W\D]+\s*)+\'/g,
+						reForSpaces = /\s+/g,
+						reForFewWordsInQuotes = /\'([a-zA-Z0-9\s]+\s*)+\'/g,
+						arr = [];
+				while( tmpArr = reForDates.exec(filter) ) { // search all dates and convert it to number of s [0.000]
+					tmpNum = Date.parse( tmpArr[0].slice(6, -2) ) / 1000 + '';
+					filter = filter.slice(0, tmpArr.index) + tmpNum + filter.slice(tmpArr.index + tmpArr[0].length);
+					reForDates.lastIndex = tmpArr.index + tmpNum.length;
+				}
+				while( tmpArr = reForRegExp.exec(filter) ) { // search for regexp
+					tmpNum = tmpArr[0];
+					if( tmpNum.search(reForSpaces) !== -1 || tmpNum.search(reForFewWordsInQuotes) !== -1 ) {
+						while( tmpString = reForFewWordsInQuotes.exec(tmpNum) ) {
+							tmpString2 = tmpString[0].replace(reForSpaces, '_');
+							tmpNum = tmpNum.slice(0, tmpString.index) + tmpString2 + tmpNum.slice(tmpString.index + tmpString[0].length);
+						}
+					} else {
+						tmpRE = tmpNum.slice(1, -1);
+						tmpNum = 'tmpRE';
+					}
+					filter = filter.slice(0, tmpArr.index) + tmpNum + filter.slice(tmpArr.index + tmpArr[0].length);
+					reForRegExp.lastIndex = tmpArr.index + tmpNum.length;
+				}
+				filter = filter.replace(/\s+/g, '');
+				while( tmpArr = reForParamAsArray.exec(filter) ) { // search second param
+					tmpNum = '[' + tmpArr[0].slice(1, -1) + '])';
+					filter = filter.slice(0, tmpArr.index + 1) + tmpNum + filter.slice(tmpArr.index + tmpArr[0].length);
+					reForParamAsArray.lastIndex = tmpArr.index + tmpNum.length;
+				}
+				while( tmpArr = reForArrayFromOneElem.exec(filter) ) { // convert array from 1 element to number or string or boolean
+					tmpNum = tmpArr[0].slice(1, -1);
+					filter = filter.slice(0, tmpArr.index) + tmpNum + filter.slice(tmpArr.index + tmpArr[0].length);
+					reForArrayFromOneElem.lastIndex = tmpArr.index + tmpNum.length;
+				}
+				while( tmpArr = reForElemsOfTree.exec(filter) ) { // search all functions and values with their index
+					if( tmpArr[0].length > 1 && (tmpArr[0].slice(-1) === ',' || tmpArr[0].slice(-1) === ')')  ) {
+						tmpArr[0] = tmpArr[0].slice(0, -1);
+					}
+					if( tmpArr[0].length > 1 && tmpArr[0].slice(0, 1) === "'" ) {
+						tmpArr[0] = tmpArr[0].slice(1, -1);
+					}
+					if( tmpArr[0].search(/tmpRE/) !== -1 ) {
+						tmpArr[0] = tmpArr[0].slice(1, -1).split(',');
+						tmpArr[0][0] = tmpRE;
+					}
+					arr.push(tmpArr);
+				}
+				while( tmpArr = reForClosingBrackets.exec(filter) ) { // search all closing brackets with their index
+					arr.push(tmpArr);
+				}
+				arr.sort(function(a, b) { // sort arr by indexes to put all data in right order
+					return a.index - b.index;
+				});
+				return arr;
+			},
+			divideToFunctionsAndValues = function(arrayToDivide) { //arrayToDivide is array
+				var tmpArr = [],
+						values = [],
+						filterArr = [],
+						counter = 0,
+						that,
+						tmpSymbol,
+						thatValue,
+						firstPart;
+				// split all data to different functions
+				for( var i = 0, ii = arrayToDivide.length; i < ii; i += 1 ) {
+					if( typeof arrayToDivide[i][0] === 'string' ) {
+						tmpSymbol = arrayToDivide[i][0].slice(-1);
+					} else {
+						tmpSymbol = ']';
+					}
+					if( tmpSymbol === '(' ) { // define functions from string
+						that = {};
+						that.type = 'function';
+						that.functionName = arrayToDivide[i][0].slice(0, -1);
+						that.index = arrayToDivide[i].index;
+						tmpArr.push( that );
+					} else if( tmpSymbol === ')' ) { // define where end of function
+						filterArr[counter] = [];
+						firstPart = tmpArr.pop();
+						firstPart.range = [];
+						firstPart.range.push( firstPart.index );
+						firstPart.children = [];
+						firstPart.range.push( arrayToDivide[i].index );
+						filterArr[counter] = firstPart;
+						counter += 1;
+					} else { // define params that are values
+						thatValue = {};
+						thatValue.type = 'value';
+						thatValue.valueName = arrayToDivide[i][0];
+						thatValue.index = arrayToDivide[i].index;
+						values.push( thatValue );
+					}
+				}
+				return [filterArr, values];
+			},
+			addValuesAsChildren = function(filterArr, values) { // filterArr, values are arrays
+				//add values to right place as children for functions
+				//define right place by range of index property
+				for( var i = 0, ii = values.length; i < ii; i += 1 ) {
+					for( var j = 0, jj = filterArr.length; j < jj; j += 1 ) {
+						if( values[i] !== null ) {
+							if( values[i].index > filterArr[j].range[0] && values[i].index < filterArr[j].range[1] ) {
+								filterArr[j].children.push( values[i] );
+								values[i] = null;
+							}
+						}
+					}
+				}
+				return filterArr;
+			},
+			filterArrToTree = function(filterArr) { // filterArr is array
+				// build up a filter tree
+				// by putting some functions as children for other
+				for( var i = 0; i < filterArr.length; i += 1 ) {
+					for( var j = 0; j < filterArr.length; j += 1 ) {
+						if( filterArr[j] !== null || filterArr[i] !== null ) {
+							//search for first result[j] where we can put result[i] as his child
+							//if find, put it and remove result[i]
+							if( filterArr[i].range[0] > filterArr[j].range[0] && filterArr[i].range[1] < filterArr[j].range[1] ) {
+								//if result[j] already have any children, check their indexes to define where put new child
+								if( filterArr[j].children[0] !== undefined && filterArr[j].children[0].index > filterArr[i].range[0] ) {
+									filterArr[j].children.unshift( filterArr[i] );
+									filterArr.splice(i, 1);
+									i -= 1;
+									break;
+								} else {
+									filterArr[j].children.push( filterArr[i] );
+									filterArr.splice(i, 1);
+									i -= 1;
+									break;
+								}
+							}
+						}
+					}
+				}
+				return filterArr[0];
+			};
+	that.buildUpFilterTree = function(filter) { // filter is string
+		var tmpArr;
+		tmpArr = splitStringToArray(filter);
+		tmpArr = divideToFunctionsAndValues(tmpArr);
+		tmpArr = addValuesAsChildren(tmpArr[0], tmpArr[1]);
+		return filterArrToTree(tmpArr);
+	};
+	return that;
+})();
+
+//sub method for filterItems with filter methods
+filterItems.filterMethods = (function() {
+	var that = {};
+
+	that.eq = function(value, items, context) { // value is array: value[0] - param, value[1] - value
+		var tmpResult = [],
+				tmpResult2,
+				length,
+				globalUI = InfinniUI.ObjectUtils;
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			if( context ) {
+				tmpResult2 = [];
+				if( items[i][context] === undefined ) {
+					length = -1;
+				} else {
+					length = items[i][context].length;
+				}
+				for( var j = 0, jj = length; j < jj; j += 1 ) {
+					if( globalUI.getPropertyValue( items[i][context][j], value[0] ) === value[1] ) {
+						tmpResult2.push( items[i] );
+					}
+				}
+				if( length === tmpResult2.length ) {
+					tmpResult.push( items[i] );
+				}
+			} else {
+				if( globalUI.getPropertyValue( items[i], value[0] ) === value[1] ) {
+					tmpResult.push( items[i] );
+				}
+			}
+		}
+		return tmpResult;
+	};
+
+	that.and = function(values, items, context) {
+		return _.intersection.apply(_, values);
+	};
+
+	that.or = function(values, items, context) {
+		return _.union.apply(_, values);
+	};
+
+	that.not = function(values, items, context) { // values[0] is array
+		var tmpResult = items.slice();
+		return _.difference(tmpResult, values[0]);
+	};
+
+	that.notEq = function(value, items, context) {
+		var tmpResult = [],
+				tmpResult2,
+				length,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			if( context ) {
+				tmpResult2 = [];
+				if( items[i][context] === undefined ) {
+					length = -1;
+				} else {
+					length = items[i][context].length;
+				}
+				for( var j = 0, jj = length; j < jj; j += 1 ) {
+					if( globalUI.getPropertyValue( items[i][context][j], value[0] ) !== value[1] ) {
+						tmpResult2.push( items[i] );
+					}
+				}
+				if( length === tmpResult2.length ) {
+					tmpResult.push( items[i] );
+				}
+			} else {
+				if( globalUI.getPropertyValue( items[i], value[0] ) !== value[1] ) {
+					tmpResult.push( items[i] );
+				}
+			}
+		}
+		return tmpResult;
+	};
+	// compare for numbers and dates
+	that.gt = function(value, items, context) { // value is array: value[0] - param, value[1] - value
+		var tmpResult = [],
+				tmpResult2,
+				length,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			if( context ) {
+				tmpResult2 = [];
+				if( items[i][context] === undefined ) {
+					length = -1;
+				} else {
+					length = items[i][context].length;
+				}
+				for( var j = 0, jj = length; j < jj; j += 1 ) {
+					if( globalUI.getPropertyValue( items[i][context][j], value[0] ) > value[1] ) {
+						tmpResult2.push( items[i] );
+					}
+				}
+				if( length === tmpResult2.length ) {
+					tmpResult.push( items[i] );
+				}
+			} else {
+				if( globalUI.getPropertyValue( items[i], value[0] ) > value[1] ) {
+					tmpResult.push( items[i] );
+				}
+			}
+		}
+		return tmpResult;
+	};
+	// compare for numbers and dates
+	that.gte = function(value, items, context) { // value is array: value[0] - param, value[1] - value
+		var tmpResult = [],
+				tmpResult2,
+				length,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			if( context ) {
+				tmpResult2 = [];
+				if( items[i][context] === undefined ) {
+					length = -1;
+				} else {
+					length = items[i][context].length;
+				}
+				for( var j = 0, jj = length; j < jj; j += 1 ) {
+					if( globalUI.getPropertyValue( items[i][context][j], value[0] ) >= value[1] ) {
+						tmpResult2.push( items[i] );
+					}
+				}
+				if( length === tmpResult2.length ) {
+					tmpResult.push( items[i] );
+				}
+			} else {
+				if( globalUI.getPropertyValue( items[i], value[0] ) >= value[1] ) {
+					tmpResult.push( items[i] );
+				}
+			}
+		}
+		return tmpResult;
+	};
+	// compare for numbers and dates
+	that.lt = function(value, items, context) { // value is array: value[0] - param, value[1] - value
+		var tmpResult = [],
+				tmpResult2,
+				length,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			if( context ) {
+				tmpResult2 = [];
+				if( items[i][context] === undefined ) {
+					length = -1;
+				} else {
+					length = items[i][context].length;
+				}
+				for( var j = 0, jj = length; j < jj; j += 1 ) {
+					if( globalUI.getPropertyValue( items[i][context][j], value[0] ) < value[1] ) {
+						tmpResult2.push( items[i] );
+					}
+				}
+				if( length === tmpResult2.length ) {
+					tmpResult.push( items[i] );
+				}
+			} else {
+				if( globalUI.getPropertyValue( items[i], value[0] ) < value[1] ) {
+					tmpResult.push( items[i] );
+				}
+			}
+		}
+		return tmpResult;
+	};
+	// compare for numbers and dates
+	that.lte = function(value, items, context) { // value is array: value[0] - param, value[1] - value
+		var tmpResult = [],
+				tmpResult2,
+				length,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			if( context ) {
+				tmpResult2 = [];
+				if( items[i][context] === undefined ) {
+					length = -1;
+				} else {
+					length = items[i][context].length;
+				}
+				for( var j = 0, jj = length; j < jj; j += 1 ) {
+					if( globalUI.getPropertyValue( items[i][context][j], value[0] ) <= value[1] ) {
+						tmpResult2.push( items[i] );
+					}
+				}
+				if( length === tmpResult2.length ) {
+					tmpResult.push( items[i] );
+				}
+			} else {
+				if( globalUI.getPropertyValue( items[i], value[0] ) <= value[1] ) {
+					tmpResult.push( items[i] );
+				}
+			}
+		}
+		return tmpResult;
+	};
+
+	that.in = function(values, items, context) { // values[1] is array
+		var tmpResult = [],
+				tmpResult2,
+				length,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			if( context ) {
+				tmpResult2 = [];
+				if( items[i][context] === undefined ) {
+					length = -1;
+				} else {
+					length = items[i][context].length;
+				}
+				for( var j = 0, jj = length; j < jj; j += 1 ) {
+					if( _.indexOf( values[1], globalUI.getPropertyValue( items[i][context][j], values[0] ) ) !== -1 ) {
+						tmpResult2.push( items[i] );
+					}
+				}
+				if( length === tmpResult2.length ) {
+					tmpResult.push( items[i] );
+				}
+			} else {
+				if( _.indexOf( values[1], globalUI.getPropertyValue( items[i], values[0] ) ) !== -1 ) {
+					tmpResult.push( items[i] );
+				}
+			}
+		}
+		return tmpResult;
+	};
+
+	that.notIn = function(values, items, context) { // values[1] is array
+		var tmpResult = [],
+				tmpResult2,
+				length,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			if( context ) {
+				tmpResult2 = [];
+				if( items[i][context] === undefined ) {
+					length = -1;
+				} else {
+					length = items[i][context].length;
+				}
+				for( var j = 0, jj = length; j < jj; j += 1 ) {
+					if( _.indexOf( values[1], globalUI.getPropertyValue( items[i][context][j], values[0] ) ) === -1 ) {
+						tmpResult2.push( items[i] );
+					}
+				}
+				if( length === tmpResult2.length ) {
+					tmpResult.push( items[i] );
+				}
+			} else {
+				if( _.indexOf( values[1], globalUI.getPropertyValue( items[i], values[0] ) ) === -1 ) {
+					tmpResult.push( items[i] );
+				}
+			}
+		}
+		return tmpResult;
+	};
+
+	that.exist = function(value, items, context) { // value[1] is string
+		var tmpResult = [],
+				tmpValue,
+				globalUI = InfinniUI.ObjectUtils;
+
+		if( value[1] === undefined ) {
+			value[1] = true;
+		}
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpValue = globalUI.getPropertyValue( items[i], value[0] );
+			if( value[1] === true ) {
+				if( !_.isUndefined(tmpValue) && !_.isNull(tmpValue) ) {
+					tmpResult.push( items[i] );
+				}
+			} else {
+				if( _.isUndefined(tmpValue) || _.isNull(tmpValue) ) {
+					tmpResult.push( items[i] );
+				}
+			}
+		}
+		return tmpResult;
+	};
+
+	that.match = function(values, items, context) {
+		var tmpResult = [],
+				globalUI = InfinniUI.ObjectUtils;
+		for( var i = 0, ii = values[1].length; i < ii; i += 1 ) {
+			if( globalUI.getPropertyValue( values[1][i], values[0] ) !== undefined ) {
+				tmpResult.push( values[1][i] );
+			}
+		}
+		return tmpResult;
+	};
+
+	that.all = function(values, items, context) { // value[1] is array
+		var tmpResult = [],
+				counter,
+				tmpArr,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpArr = globalUI.getPropertyValue( items[i], values[0] );
+			counter = 0;
+			for( var j = 0, jj = tmpArr.length; j < jj; j += 1 ) {
+				if( _.indexOf( values[1], tmpArr[j] ) !== -1 ) {
+					counter += 1;
+				}
+			}
+			if( jj === counter ) {
+				tmpResult.push( items[i] );
+			}
+		}
+		return tmpResult;
+	};
+
+	that.anyIn = function(values, items, context) { // value[1] is array
+		var tmpResult = [],
+				tmpArr,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpArr = globalUI.getPropertyValue( items[i], values[0] );
+			for( var j = 0, jj = tmpArr.length; j < jj; j += 1 ) {
+				if( _.indexOf( values[1], tmpArr[j] ) !== -1 ) {
+					tmpResult.push( items[i] );
+					break;
+				}
+			}
+		}
+		return tmpResult;
+	};
+
+	that.anyNotIn = function(values, items, context) { // value[1] is array
+		var tmpResult = [],
+				counter,
+				tmpArr,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpArr = globalUI.getPropertyValue( items[i], values[0] );
+			counter = 0;
+			for( var j = 0, jj = tmpArr.length; j < jj; j += 1 ) {
+				if( _.indexOf( values[1], tmpArr[j] ) !== -1 ) {
+					counter += 1;
+				}
+			}
+			if( counter === 0 ) {
+				tmpResult.push( items[i] );
+			}
+		}
+		return tmpResult;
+	};
+
+	that.anyEq = function(value, items, context) {
+		var tmpResult = [],
+				tmpArr,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpArr = globalUI.getPropertyValue( items[i], value[0] );
+			if( _.indexOf(tmpArr, value[1]) !== -1 ) {
+				tmpResult.push( items[i] );
+			}
+		}
+		return tmpResult;
+	};
+
+	that.anyNotEq = function(value, items, context) {
+		var tmpResult = [],
+				tmpArr,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpArr = globalUI.getPropertyValue( items[i], value[0] );
+			for( var j = 0, jj = tmpArr.length; j < jj; j += 1 ) {
+				if( tmpArr[j] !== value[1] ) {
+					tmpResult.push( items[i] );
+					break;
+				}
+			}
+		}
+		return tmpResult;
+	};
+
+	that.anyGt = function(value, items, context) {
+		var tmpResult = [],
+				tmpArr,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpArr = globalUI.getPropertyValue( items[i], value[0] );
+			for( var j = 0, jj = tmpArr.length; j < jj; j += 1 ) {
+				if( tmpArr[j] > value[1] ) {
+					tmpResult.push( items[i] );
+					break;
+				}
+			}
+		}
+		return tmpResult;
+	};
+
+	that.anyGte = function(value, items, context) {
+		var tmpResult = [],
+				tmpArr,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpArr = globalUI.getPropertyValue( items[i], value[0] );
+			for( var j = 0, jj = tmpArr.length; j < jj; j += 1 ) {
+				if( tmpArr[j] >= value[1] ) {
+					tmpResult.push( items[i] );
+					break;
+				}
+			}
+		}
+		return tmpResult;
+	};
+
+	that.anyLt = function(value, items, context) {
+		var tmpResult = [],
+				tmpArr,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpArr = globalUI.getPropertyValue( items[i], value[0] );
+			for( var j = 0, jj = tmpArr.length; j < jj; j += 1 ) {
+				if( tmpArr[j] < value[1] ) {
+					tmpResult.push( items[i] );
+					break;
+				}
+			}
+		}
+		return tmpResult;
+	};
+
+	that.anyLte = function(value, items, context) {
+		var tmpResult = [],
+				tmpArr,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpArr = globalUI.getPropertyValue( items[i], value[0] );
+			for( var j = 0, jj = tmpArr.length; j < jj; j += 1 ) {
+				if( tmpArr[j] <= value[1] ) {
+					tmpResult.push( items[i] );
+					break;
+				}
+			}
+		}
+		return tmpResult;
+	};
+
+	that.sizeEq = function(value, items, context) {
+		var tmpResult = [],
+				tmpArr,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpArr = globalUI.getPropertyValue( items[i], value[0] );
+			if( tmpArr.length === value[1] ) {
+				tmpResult.push( items[i] );
+			}
+		}
+		return tmpResult;
+	};
+
+	that.sizeNotEq = function(value, items, context) {
+		var tmpResult = [],
+				tmpArr,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpArr = globalUI.getPropertyValue( items[i], value[0] );
+			if( tmpArr.length !== value[1] ) {
+				tmpResult.push( items[i] );
+			}
+		}
+		return tmpResult;
+	};
+
+	that.sizeGt = function(value, items, context) {
+		var tmpResult = [],
+				tmpArr,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpArr = globalUI.getPropertyValue( items[i], value[0] );
+			if( tmpArr.length > value[1] ) {
+				tmpResult.push( items[i] );
+			}
+		}
+		return tmpResult;
+	};
+
+	that.sizeGte = function(value, items, context) {
+		var tmpResult = [],
+				tmpArr,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpArr = globalUI.getPropertyValue( items[i], value[0] );
+			if( tmpArr.length >= value[1] ) {
+				tmpResult.push( items[i] );
+			}
+		}
+		return tmpResult;
+	};
+
+	that.sizeLt = function(value, items, context) {
+		var tmpResult = [],
+				tmpArr,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpArr = globalUI.getPropertyValue( items[i], value[0] );
+			if( tmpArr.length < value[1] ) {
+				tmpResult.push( items[i] );
+			}
+		}
+		return tmpResult;
+	};
+
+	that.sizeLte = function(value, items, context) {
+		var tmpResult = [],
+				tmpArr,
+				globalUI = InfinniUI.ObjectUtils;
+
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpArr = globalUI.getPropertyValue( items[i], value[0] );
+			if( tmpArr.length <= value[1] ) {
+				tmpResult.push( items[i] );
+			}
+		}
+		return tmpResult;
+	};
+
+	that.regexp = function(values, items, context) { // value[1] is array
+		var tmpResult = [],
+				tmpObjValue,
+				globalUI = InfinniUI.ObjectUtils,
+				flags = '',
+				regexp;
+		for( var j = 1, jj = values[1].length; j < jj; j += 1 ) {
+			flags += values[1][j];
+		}
+		regexp = new RegExp(values[1][0], flags);
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpObjValue = globalUI.getPropertyValue( items[i], values[0] );
+			if( tmpObjValue.search(regexp) !== -1 ) {
+				tmpResult.push( items[i] );
+			}
+		}
+		return tmpResult;
+	};
+
+	that.text = function(value, items, context) {
+		var tmpResult = [],
+				tmpString,
+				subString = value[0].replace('_', ' ').toLowerCase();
+		for( var i = 0, ii = items.length; i < ii; i += 1 ) {
+			tmpString = JSON.stringify(items[i]).toLowerCase();
+			if( tmpString.indexOf( subString ) !== -1 ) {
+				tmpResult.push( items[i] );
+			}
+		}
+		return tmpResult;
+	};
+	return that;
+})();
+
 //####app/utils/hashMap.js
 /**
  * @description Простая реализация хеша у которого в качестве ключей м.б. объект
@@ -2909,6 +3719,8 @@ var MessageBox = Backbone.View.extend({
     },
 
     addColor: function(){
+        this.options.color = '#2ECC71;';
+
         if(this.options.type){
             if(this.options.type == 'error'){
                 this.options.color = '#E74C3C;';
@@ -2916,8 +3728,6 @@ var MessageBox = Backbone.View.extend({
             if(this.options.type == 'warning'){
                 this.options.color = '#F1C40F;';
             }
-        }else{
-            this.options.color = '#2ECC71;';
         }
     },
 
@@ -3079,6 +3889,16 @@ var stringUtils = {
 
     isNumeric: function(n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
+    },
+
+    joinDataForQuery: function(data){
+        var result = [];
+
+        for(var k in data){
+            result.push(k + '=' + data[k]);
+        }
+
+        return result.join('&');
     }
 };
 
@@ -3279,6 +4099,203 @@ function guid() {
 })(window, document, jQuery);
 
 
+//####app/utils/treeModel.js
+var TreeModel = function(context, source, startTree){
+    this.context = context;
+    this.source = source;
+    this.dataTree = startTree || {};
+
+    this.handlersTree = {};
+
+    this.mirroringFrom = null;
+    this.mirroringTo = null;
+};
+
+_.extend(TreeModel.prototype, {
+
+    counter: 1,
+
+    getProperty: function(propertyName){
+        if(this.mirroringFrom){
+            propertyName = propertyName.replace(this.mirroringFrom, this.mirroringTo);
+        }
+        return InfinniUI.ObjectUtils.getPropertyValue(this.dataTree, propertyName)
+    },
+
+    setProperty: function(propertyName, value){
+        var oldValue = this.getProperty(propertyName);
+        if(value == oldValue){
+            return false;
+        }
+
+        InfinniUI.ObjectUtils.setPropertyValue(this.dataTree, propertyName, value);
+
+        this._notifyAboutPropertyChanged(propertyName, oldValue);
+
+        return true;
+    },
+
+    simulateSetProperty: function(propertyName, oldValue){
+        this._notifyAboutPropertyChanged(propertyName, oldValue);
+    },
+
+    onPropertyChanged: function(propertyName, handler, params){
+        var handlersNode;
+        var bindId = this.counter;
+        this.counter ++;
+
+        if(_.isFunction(propertyName)){
+            params = handler;
+            handler = propertyName;
+
+            handlersNode = this._getHandlersSubTree('*', true);
+        }else{
+            handlersNode = this._getHandlersSubTree(propertyName, true);
+        }
+
+        handler._bindId = bindId;
+        if(params && 'owner' in params){
+            handler._owner = params.owner;
+        }
+
+        handlersNode[bindId] = handler;
+    },
+
+    _getHandlersSubTree: function(propertyName, restoreIfNoProperty){
+        if(propertyName == ''){
+            return this.handlersTree;
+        }
+
+        var propertyPaths = propertyName.split('.');
+        var tmpResult = this.handlersTree;
+        for(var i = 0, ii = propertyPaths.length; i<ii; i++){
+            if(tmpResult[propertyPaths[i]]){
+                tmpResult = tmpResult[propertyPaths[i]];
+            }else{
+                if(restoreIfNoProperty){
+                    tmpResult[propertyPaths[i]] = {};
+                    tmpResult = tmpResult[propertyPaths[i]];
+                }else{
+                    return {};
+                }
+            }
+        }
+
+        return tmpResult;
+    },
+
+    _notifyAboutPropertyChanged: function(propertyName, oldValue){
+        var handlers = this._getHandlersSubTree(propertyName);
+
+        var needMirroring = this.mirroringTo != null && this.mirroringFrom != null && propertyName.indexOf(this.mirroringTo) == 0;
+        var mirroringPath = propertyName.replace(this.mirroringTo, this.mirroringFrom);
+
+        this._notifyAboutPropertyChanged_bubblingAction(propertyName, oldValue, handlers);
+
+        this._notifyAboutPropertyChanged_capturingAction(propertyName, oldValue, handlers);
+        if(needMirroring){
+            handlers = this._getHandlersSubTree(mirroringPath);
+            this._notifyAboutPropertyChanged_capturingAction(mirroringPath, oldValue, handlers);
+        }
+    },
+
+    _notifyAboutPropertyChanged_capturingAction: function(propertyName, oldValue, handlersSubTree){
+        var tmpValue;
+        var tmpProperty;
+        var handler;
+
+        for( var k in handlersSubTree ){
+            if($.isFunction(handlersSubTree[k])){
+
+                handler = handlersSubTree[k];
+                if(this._isOwnerAlive(handler)){
+                    this._callHandlerAboutPropertyChanged(handler, propertyName, oldValue);
+                }else{
+                    delete handlersSubTree[k];
+                }
+
+            } else if($.isPlainObject(handlersSubTree[k]) && k != '*'){
+
+                tmpValue = $.isPlainObject(oldValue) ? oldValue[k] : undefined;
+                tmpProperty = propertyName == '' ? k :propertyName + '.' + k;
+                this._notifyAboutPropertyChanged_capturingAction(tmpProperty, tmpValue, handlersSubTree[k]);
+
+            }
+        }
+    },
+
+    _notifyAboutPropertyChanged_bubblingAction: function(propertyName, oldValue, handlersSubTree){
+        var propertyNamePaths = propertyName.split('.');
+        var tmpPropertyName;
+
+        var handlersNode = this.handlersTree;
+        var that = this;
+
+        checkAndCallAnyHandlers(handlersNode);
+
+        if(propertyName != ''){
+            for(var i = 0, ii = propertyNamePaths.length; i < ii; i++){
+
+                tmpPropertyName = propertyNamePaths[i];
+                if(handlersNode[tmpPropertyName]){
+                    handlersNode = handlersNode[tmpPropertyName];
+                    checkAndCallAnyHandlers(handlersNode);
+
+                }else{
+                    break;
+                }
+            }
+        }
+
+
+
+        function checkAndCallAnyHandlers(_handlersNode){
+            var handler;
+
+            if('*', _handlersNode){
+                for( var k in _handlersNode['*'] ){
+                    handler = _handlersNode['*'][k];
+                    if(that._isOwnerAlive(handler)){
+                        that._callHandlerAboutPropertyChanged(handler, propertyName, oldValue);
+                    }else{
+                        delete _handlersNode['*'][k];
+                    }
+                }
+            }
+        }
+    },
+
+    _isOwnerAlive: function(handler){
+        if(handler._owner && 'isRemoved' in handler._owner){
+
+            if(typeof handler._owner.isRemoved == 'function'){
+                return handler._owner.isRemoved();
+            }else{
+                return !handler._owner.isRemoved;
+            }
+
+        }else{
+            return true;
+        }
+    },
+
+    _callHandlerAboutPropertyChanged: function(handler, propertyName, oldValue){
+        var args = {
+            property: propertyName,
+            newValue: this.getProperty(propertyName),
+            oldValue: oldValue,
+            source: this.source
+        };
+
+        handler(this.context, args);
+    },
+
+    setMirroring: function(mirroringFrom, mirroringTo){
+        this.mirroringFrom = mirroringFrom;
+        this.mirroringTo = mirroringTo;
+    }
+
+});
 //####app/utils/urlManager.js
 var urlManager = {
     getParams: function(){
@@ -4029,6 +5046,10 @@ _.extend(Control.prototype, {
 
     remove: function () {
         this.controlView.remove();
+    },
+
+    setFocus: function () {
+        this.controlView.setFocus();
     }
 });
 
@@ -4535,6 +5556,10 @@ var ControlView = Backbone.View.extend(/** @lends ControlView.prototype */{
             background: model.get('background'),
             texture: model.get('texture')
         }
+    },
+
+    setFocus: function () {
+        this.$el.focus();
     }
 
 });
@@ -5859,7 +6884,8 @@ var TextEditorBaseView = ControlView.extend(/** @lends TextEditorBaseView.protot
     UI: _.extend({}, editorBaseViewMixin.UI, {
         control: '.pl-control',
         editor: '.pl-control-editor',
-        label: '.pl-control-label'
+        label: '.pl-control-label',
+        textbox: '.pl-text-box-input'
     }),
 
     events: {
@@ -6098,6 +7124,10 @@ var TextBoxView = TextEditorBaseView.extend(/** @lends TextBoxView.prototype */{
         });
 
         return this;
+    },
+
+    setFocus: function () {
+        this.ui.textbox.focus();
     }
 
 });
@@ -7672,13 +8702,7 @@ var SelectDate = Backbone.View.extend({
     },
 
     onClickTodayHandler: function () {
-        var days = this.days,
-            months = this.months,
-            years = this.years;
-
-        days.today();
-        months.today();
-        years.today();
+        this.useValue(new Date());
     }
 
 });
@@ -8135,6 +9159,406 @@ var TimePickerView = DateTimePickerView .extend({
     className: "pl-datepicker pl-timepicker form-group"
 
 });
+//####app/new/controls/GridPanel/gridPanelControl.js
+/**
+ *
+ * @param parent
+ * @constructor
+ * @augments ContainerControl
+ */
+function GridPanelControl(parent) {
+    _.superClass(GridPanelControl, this, parent);
+}
+
+_.inherit(GridPanelControl, ContainerControl);
+
+_.extend(GridPanelControl.prototype,
+    /** @lends GridPanelControl.prototype */
+    {
+        createControlModel: function () {
+            return new GridPanelModel();
+        },
+
+        createControlView: function (model) {
+            return new GridPanelView({model: model});
+        }
+    }
+);
+
+
+//####app/new/controls/GridPanel/gridPanelModel.js
+/**
+ * @constructor
+ * @augments ContainerModel
+ */
+var GridPanelModel = ContainerModel.extend(
+    /** @lends GridPanelModel.prototype */
+    {
+        initialize: function () {
+            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+        }
+    }
+);
+//####app/new/controls/GridPanel/gridPanelView.js
+/**
+ * @class
+ * @augments ControlView
+ */
+var GridPanelView = ContainerView.extend(
+    /** @lends GridPanelView.prototype */
+    {
+        className: 'pl-grid-panel pl-clearfix',
+
+        columnCount: 12,
+
+        template: {
+            row: InfinniUI.Template["new/controls/GridPanel/template/row.tpl.html"]
+        },
+
+        initialize: function (options) {
+            ContainerView.prototype.initialize.call(this, options);
+        },
+
+        render: function () {
+            this.prerenderingActions();
+
+            this.removeChildElements();
+
+            this.renderItemsContents();
+            this.updateProperties();
+            this.trigger('render');
+
+            this.postrenderingActions();
+            return this;
+        },
+
+        renderItemsContents: function(){
+            var items = this.model.get('items'),
+                itemTemplate = this.model.get('itemTemplate'),
+                view = this,
+                row = [],
+                rowSize = 0,
+                element, item;
+
+            items.forEach(function(item, i){
+                element = itemTemplate(undefined, {item: item, index: i});
+                var span = element.getColumnSpan();
+                if (rowSize + span > view.columnCount) {
+                    view.renderRow(row);
+                    row.length = 0;
+                    rowSize = 0;
+                }
+
+                row.push(element);
+                rowSize += span;
+            });
+
+            if (row.length) {
+                view.renderRow(row);
+            }
+        },
+
+        renderRow: function (row) {
+            var view = this;
+            var $row = $(this.template.row());
+            $row.append(row.map(function(element) {
+                view.addChildElement(element);
+                return element.render();
+            }));
+            this.$el.append($row);
+        },
+
+        updateGrouping: function(){}
+    }
+);
+
+//####app/new/controls/TablePanel/cell/cellControl.js
+/**
+ *
+ * @param parent
+ * @constructor
+ * @augments ContainerControl
+ */
+function CellControl(parent) {
+    _.superClass(CellControl, this, parent);
+}
+
+_.inherit(CellControl, ContainerControl);
+
+_.extend(CellControl.prototype,
+    /** @lends CellControl.prototype */
+    {
+        createControlModel: function () {
+            return new CellModel();
+        },
+
+        createControlView: function (model) {
+            return new CellView({model: model});
+        }
+    }
+);
+
+
+//####app/new/controls/TablePanel/cell/cellModel.js
+/**
+ * @constructor
+ * @augments ContainerModel
+ */
+var CellModel = ContainerModel.extend(
+    /** @lends CellModel.prototype */
+    {
+        defaults: _.defaults({
+            columnSpan: 1
+        }, ContainerModel.prototype.defaults),
+
+        initialize: function () {
+            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+        }
+    }
+);
+//####app/new/controls/TablePanel/cell/cellView.js
+/**
+ * @class
+ * @augments ControlView
+ */
+var CellView = ContainerView.extend(
+    /** @lends CellView.prototype */
+    {
+        className: 'pl-cell',
+
+        initialize: function (options) {
+            ContainerView.prototype.initialize.call(this, options);
+
+            this.initColumnSpan();
+        },
+
+        render: function () {
+            this.prerenderingActions();
+
+            this.removeChildElements();
+
+            this.renderItemsContents();
+
+            this.updateProperties();
+            this.trigger('render');
+
+            this.postrenderingActions();
+            return this;
+        },
+
+        renderItemsContents: function(){
+            var items = this.model.get('items'),
+                itemTemplate = this.model.get('itemTemplate'),
+                that = this,
+                element, item;
+
+            items.forEach(function(item, i){
+                element = itemTemplate(undefined, {item: item, index: i});
+                that.addChildElement(element);
+                that.$el
+                    .append(element.render());
+            });
+        },
+
+        initColumnSpan: function () {
+            this.listenTo(this.model, 'change:columnSpan', this.updateColumnSpan);
+            this.updateColumnSpan();
+        },
+
+        updateColumnSpan: function () {
+            var columnSpan = this.model.get('columnSpan'),
+                currentColumnSpan = this.columnSpan;
+
+            if(columnSpan != currentColumnSpan){
+
+                if(currentColumnSpan){
+                    this.$el
+                        .removeClass('col-xs-' + currentColumnSpan);
+                }
+
+                this.$el
+                    .addClass('col-xs-' + columnSpan);
+
+                this.columnSpan = columnSpan;
+            }
+
+        },
+
+        updateGrouping: function(){}
+    }
+);
+
+//####app/new/controls/TablePanel/row/RowControl.js
+/**
+ *
+ * @param parent
+ * @constructor
+ * @augments ContainerControl
+ */
+function RowControl(parent) {
+    _.superClass(RowControl, this, parent);
+}
+
+_.inherit(RowControl, ContainerControl);
+
+_.extend(RowControl.prototype,
+    /** @lends RowControl.prototype */
+    {
+        createControlModel: function () {
+            return new RowModel();
+        },
+
+        createControlView: function (model) {
+            return new RowView({model: model});
+        }
+    }
+);
+
+
+//####app/new/controls/TablePanel/row/rowModel.js
+/**
+ * @constructor
+ * @augments ContainerModel
+ */
+var RowModel = ContainerModel.extend(
+    /** @lends RowModel.prototype */
+    {
+        initialize: function () {
+            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+        }
+    }
+);
+//####app/new/controls/TablePanel/row/rowView.js
+/**
+ * @class
+ * @augments ControlView
+ */
+var RowView = ContainerView.extend(
+    /** @lends RowView.prototype */
+    {
+        className: 'pl-row row',
+
+        initialize: function (options) {
+            ContainerView.prototype.initialize.call(this, options);
+        },
+
+        render: function () {
+            this.prerenderingActions();
+
+            this.removeChildElements();
+
+            this.renderItemsContents();
+
+            this.updateProperties();
+            this.trigger('render');
+
+            this.postrenderingActions();
+            return this;
+        },
+
+        renderItemsContents: function(){
+            var items = this.model.get('items'),
+                itemTemplate = this.model.get('itemTemplate'),
+                that = this,
+                element, item;
+
+            items.forEach(function(item, i){
+                element = itemTemplate(undefined, {item: item, index: i});
+                that.addChildElement(element);
+                that.$el
+                    .append(element.render());
+            });
+        },
+
+        updateGrouping: function(){}
+    }
+);
+
+//####app/new/controls/TablePanel/tablePanelControl.js
+/**
+ *
+ * @param parent
+ * @constructor
+ * @augments ContainerControl
+ */
+function TablePanelControl(parent) {
+    _.superClass(TablePanelControl, this, parent);
+}
+
+_.inherit(TablePanelControl, ContainerControl);
+
+_.extend(TablePanelControl.prototype,
+    /** @lends TablePanelControl.prototype */
+    {
+        createControlModel: function () {
+            return new TablePanelModel();
+        },
+
+        createControlView: function (model) {
+            return new TablePanelView({model: model});
+        }
+    }
+);
+
+
+//####app/new/controls/TablePanel/tablePanelModel.js
+/**
+ * @constructor
+ * @augments ContainerModel
+ */
+var TablePanelModel = ContainerModel.extend(
+    /** @lends TablePanelModel.prototype */
+    {
+        initialize: function () {
+            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+        }
+    }
+);
+//####app/new/controls/TablePanel/tablePanelView.js
+/**
+ * @class
+ * @augments ControlView
+ */
+var TablePanelView = ContainerView.extend(
+    /** @lends TablePanelView.prototype */
+    {
+        className: 'pl-table-panel',
+
+        initialize: function (options) {
+            ContainerView.prototype.initialize.call(this, options);
+        },
+
+        render: function () {
+            this.prerenderingActions();
+
+            this.removeChildElements();
+
+            this.renderItemsContents();
+            this.updateProperties();
+            this.trigger('render');
+
+            this.postrenderingActions();
+            return this;
+        },
+
+        renderItemsContents: function(){
+            var items = this.model.get('items'),
+                itemTemplate = this.model.get('itemTemplate'),
+                that = this,
+                element, item;
+
+            items.forEach(function(item, i){
+                element = itemTemplate(undefined, {item: item, index: i});
+                that.addChildElement(element);
+                that.$el
+                    .append(element.render());
+            });
+        },
+
+        updateGrouping: function(){}
+    }
+);
+
 //####app/new/controls/button/buttonControl.js
 /**
  *
@@ -8279,7 +9703,13 @@ var CommonButtonView = ControlView.extend({
 
     getButtonElement: function(){
         return this.ui.button;
+    },
+
+    setFocus: function () {
+        this.ui.button.focus();
     }
+
+
 
 });
 
@@ -8652,6 +10082,10 @@ var CheckBoxView = ControlView.extend(/** @lends CheckBoxView.prototype */ _.ext
     updateValue: function () {
         var value = this.model.get('value');
         this.ui.input.prop('checked', !!value);
+    },
+
+    setFocus: function () {
+        this.ui.input.focus();
     }
 }));
 
@@ -8849,22 +10283,7 @@ var ComboBoxView = ListEditorBaseView.extend({
                     this.listenTo(dropdownView, 'search', _.debounce(view.onSearchValueHandler.bind(view), 300));
 
                     var $dropdown = dropdownView.render();
-
-                    var rect = view.$el[0].getBoundingClientRect();
-                    //@TODO Вынести общие стили в css
-                    var style = {
-                        position: "absolute",
-                        top: window.pageYOffset + rect.bottom/* + parseInt(view.$el.css('margin-bottom'))*/,
-                        left: window.pageXOffset + rect.left,
-                        width: Math.round(rect.width) - 1
-                    };
-                    //@TODO Добавить алгоритм определения куда расхлапывать список вверх/вниз
-                    //Для расхлопывания вверх:
-                    //bottom: pageYOffset - rect.height
-                    //Для расхлопывания вниз:
-                    //top: window.pageYOffset + rect.bottom
-
-                    $dropdown.css(style);
+                    dropdownView.setPositionFor(view.$el[0]);
                     $('body').append($dropdown);
                     if (model.get('autocomplete')) {
                         dropdownView.setSearchFocus();
@@ -9313,6 +10732,30 @@ var ComboBoxDropdownView = Backbone.View.extend({
 
     onChangeSelectedItem: function (model, value) {
         this.markSelectedItems();
+    },
+
+    setPositionFor: function (parentDOMElement) {
+        clearInterval(this._intervalId);
+        this._intervalId = setInterval(this.applyStyle.bind(this, parentDOMElement), 100);
+    },
+
+    remove: function () {
+        clearInterval(this._intervalId);
+        return Backbone.View.prototype.remove.apply(this, arguments);
+    },
+
+    applyStyle: function (parentDOMElement) {
+
+        var rect = parentDOMElement.getBoundingClientRect();
+        //@TODO Вынести общие стили в css
+        var style = {
+            position: "absolute",
+            top: window.pageYOffset + rect.bottom/* + parseInt(view.$el.css('margin-bottom'))*/,
+            left: window.pageXOffset + rect.left,
+            width: Math.round(rect.width) - 1
+        };
+
+        this.$el.css(style);
     }
 
 });
@@ -9720,6 +11163,10 @@ _.extend(DataGridControl.prototype, {
 
     createControlView: function (model) {
         return new DataGridView({model: model});
+    },
+
+    onCheckAllChanged: function (handler) {
+        this.controlModel.onCheckAllChanged(handler);
     }
 });
 
@@ -9731,12 +11178,24 @@ _.extend(DataGridControl.prototype, {
  */
 var DataGridModel = ListEditorBaseModel.extend({
     defaults: _.defaults({
-        showSelectors: true
+        showSelectors: true,
+        checkAllVisible: false,
+        checkAll: false
     }, ListEditorBaseModel.prototype.defaults),
 
     initialize: function () {
         ListEditorBaseModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
         this.initColumns();
+    },
+
+    toggleCheckAll: function () {
+        this.set('checkAll', !this.get('checkAll'));
+    },
+
+    onCheckAllChanged: function (handler) {
+        this.on('change:checkAll', function (model, checkAll) {
+            handler.call(null, {value: checkAll});
+        });
     },
 
     /**
@@ -9804,7 +11263,7 @@ var DataGridRowView = ControlView.extend({
     initialize: function () {
         ControlView.prototype.initialize.call(this);
         this.on('render', function () {
-            this.ui.toggle.on('click', this.onToggleHandler.bind(this));
+            this.ui.toggleCell.on('click', this.onToggleHandler.bind(this));
         }, this);
     },
 
@@ -9890,6 +11349,13 @@ var DataGridView = ListEditorBaseView.extend({
 
     className: 'pl-datagrid',
 
+    events: _.extend({},
+        ListEditorBaseView.prototype.events,
+        {
+            "click .pl-datagrid-toggle_all": "onClickCheckAllHandler"
+        }
+    ),
+
     UI: _.defaults({
         body: ".pl-datagrid__body",
         head: ".pl-datagrid__head",
@@ -9898,6 +11364,7 @@ var DataGridView = ListEditorBaseView.extend({
         header: '.pl-datagrid-row_header',
         firstRows: '.pl-datagrid-row_first',
         toggleCell: ".pl-toggle-cell",
+        checkAll: ".pl-datagrid-toggle__button",
         items: 'tbody'
     }, ListEditorBaseView.prototype.UI),
 
@@ -9906,14 +11373,25 @@ var DataGridView = ListEditorBaseView.extend({
         this.childElements = new HashMap();
     },
 
+    initHandlersForProperties: function(){
+        ListEditorBaseView.prototype.initHandlersForProperties.call(this);
+
+        this.listenTo(this.model, 'change:showSelectors', this.updateShowSelectors);
+        this.listenTo(this.model, 'change:checkAllVisible', this.updateCheckAllVisible);
+        this.listenTo(this.model, 'change:checkAll', this.updateCheckAll);
+    },
+
     updateProperties: function () {
         ListEditorBaseView.prototype.updateProperties.call(this);
         this.updateShowSelectors();
+        this.updateCheckAllVisible();
+        this.updateCheckAll();
     },
 
     updateShowSelectors: function () {
         var showSelectors = this.model.get('showSelectors');
-        this.ui.toggleCell.toggleClass('hidden', !showSelectors);
+        this.$el.toggleClass('pl-datagrid_selectors_show', showSelectors);
+        this.$el.toggleClass('pl-datagrid_selectors_hide', !showSelectors);
     },
 
     updateGrouping: function () {
@@ -9925,11 +11403,22 @@ var DataGridView = ListEditorBaseView.extend({
         this.switchClass('verticalAlignment', this.model.get('verticalAlignment'), this.ui.body, false);
     },
 
+    updateCheckAll: function () {
+        var checkAll = this.model.get('checkAll');
+        this.ui.checkAll.prop('checked', checkAll);
+    },
+
+    updateCheckAllVisible: function () {
+        var checkAllVisible = this.model.get('checkAllVisible');
+        this.ui.checkAll.toggleClass('hidden', !checkAllVisible);
+    },
+
     updateMultiSelect: function () {
         ListEditorBaseView.prototype.updateMultiSelect.call(this);
 
         var multiSelect = this.model.get('multiSelect');
-        this.$el.toggleClass('pl-datagrid_multiselect', multiSelect === true);
+        this.$el.toggleClass('pl-datagrid_select_multi', multiSelect === true);
+        this.$el.toggleClass('pl-datagrid_select_single', multiSelect !== true);
     },
 
     updateValue: function () {
@@ -9968,7 +11457,6 @@ var DataGridView = ListEditorBaseView.extend({
         this.childElements.forEach(function (rowElement, item) {
             rowElement.setSelected(item === selectedItem);
         });
-
     },
 
     render: function () {
@@ -10095,6 +11583,10 @@ var DataGridView = ListEditorBaseView.extend({
         this.childElements.clear(function (element) {
             element.remove();
         });
+    },
+
+    onClickCheckAllHandler: function () {
+        this.model.toggleCheckAll();
     }
 
 
@@ -11029,119 +12521,6 @@ var FrameView = ControlView.extend(_.extend({}, editorBaseViewMixin, /** @lends 
 
 }));
 
-//####app/new/controls/GridPanel/gridPanelControl.js
-/**
- *
- * @param parent
- * @constructor
- * @augments ContainerControl
- */
-function GridPanelControl(parent) {
-    _.superClass(GridPanelControl, this, parent);
-}
-
-_.inherit(GridPanelControl, ContainerControl);
-
-_.extend(GridPanelControl.prototype,
-    /** @lends GridPanelControl.prototype */
-    {
-        createControlModel: function () {
-            return new GridPanelModel();
-        },
-
-        createControlView: function (model) {
-            return new GridPanelView({model: model});
-        }
-    }
-);
-
-
-//####app/new/controls/GridPanel/gridPanelModel.js
-/**
- * @constructor
- * @augments ContainerModel
- */
-var GridPanelModel = ContainerModel.extend(
-    /** @lends GridPanelModel.prototype */
-    {
-        initialize: function () {
-            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
-        }
-    }
-);
-//####app/new/controls/GridPanel/gridPanelView.js
-/**
- * @class
- * @augments ControlView
- */
-var GridPanelView = ContainerView.extend(
-    /** @lends GridPanelView.prototype */
-    {
-        className: 'pl-grid-panel pl-clearfix',
-
-        columnCount: 12,
-
-        template: {
-            row: InfinniUI.Template["new/controls/GridPanel/template/row.tpl.html"]
-        },
-
-        initialize: function (options) {
-            ContainerView.prototype.initialize.call(this, options);
-        },
-
-        render: function () {
-            this.prerenderingActions();
-
-            this.removeChildElements();
-
-            this.renderItemsContents();
-            this.updateProperties();
-            this.trigger('render');
-
-            this.postrenderingActions();
-            return this;
-        },
-
-        renderItemsContents: function(){
-            var items = this.model.get('items'),
-                itemTemplate = this.model.get('itemTemplate'),
-                view = this,
-                row = [],
-                rowSize = 0,
-                element, item;
-
-            items.forEach(function(item, i){
-                element = itemTemplate(undefined, {item: item, index: i});
-                var span = element.getColumnSpan();
-                if (rowSize + span > view.columnCount) {
-                    view.renderRow(row);
-                    row.length = 0;
-                    rowSize = 0;
-                }
-
-                row.push(element);
-                rowSize += span;
-            });
-
-            if (row.length) {
-                view.renderRow(row);
-            }
-        },
-
-        renderRow: function (row) {
-            var view = this;
-            var $row = $(this.template.row());
-            $row.append(row.map(function(element) {
-                view.addChildElement(element);
-                return element.render();
-            }));
-            this.$el.append($row);
-        },
-
-        updateGrouping: function(){}
-    }
-);
-
 //####app/new/controls/icon/iconControl.js
 /**
  *
@@ -11509,7 +12888,7 @@ var CommonLabelView = ControlView.extend(_.extend({}, editorBaseViewMixin, /** @
 
         $label[setContent](textForLabel);
         var title = String(textForLabel);
-        $label.attr('title', title.replace(/<\/?[^>]+>/g, ''));
+        $label.attr('title', title.replace(/<\/?[^>]+>/g, '')); //strip html tags
     },
 
     updateDisplayFormat: function(){
@@ -13500,293 +14879,6 @@ var StackPanelModel = ContainerModel.extend(
         }
     }
 );
-//####app/new/controls/TablePanel/cell/cellControl.js
-/**
- *
- * @param parent
- * @constructor
- * @augments ContainerControl
- */
-function CellControl(parent) {
-    _.superClass(CellControl, this, parent);
-}
-
-_.inherit(CellControl, ContainerControl);
-
-_.extend(CellControl.prototype,
-    /** @lends CellControl.prototype */
-    {
-        createControlModel: function () {
-            return new CellModel();
-        },
-
-        createControlView: function (model) {
-            return new CellView({model: model});
-        }
-    }
-);
-
-
-//####app/new/controls/TablePanel/cell/cellModel.js
-/**
- * @constructor
- * @augments ContainerModel
- */
-var CellModel = ContainerModel.extend(
-    /** @lends CellModel.prototype */
-    {
-        defaults: _.defaults({
-            columnSpan: 1
-        }, ContainerModel.prototype.defaults),
-
-        initialize: function () {
-            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
-        }
-    }
-);
-//####app/new/controls/TablePanel/cell/cellView.js
-/**
- * @class
- * @augments ControlView
- */
-var CellView = ContainerView.extend(
-    /** @lends CellView.prototype */
-    {
-        className: 'pl-cell',
-
-        initialize: function (options) {
-            ContainerView.prototype.initialize.call(this, options);
-
-            this.initColumnSpan();
-        },
-
-        render: function () {
-            this.prerenderingActions();
-
-            this.removeChildElements();
-
-            this.renderItemsContents();
-
-            this.updateProperties();
-            this.trigger('render');
-
-            this.postrenderingActions();
-            return this;
-        },
-
-        renderItemsContents: function(){
-            var items = this.model.get('items'),
-                itemTemplate = this.model.get('itemTemplate'),
-                that = this,
-                element, item;
-
-            items.forEach(function(item, i){
-                element = itemTemplate(undefined, {item: item, index: i});
-                that.addChildElement(element);
-                that.$el
-                    .append(element.render());
-            });
-        },
-
-        initColumnSpan: function () {
-            this.listenTo(this.model, 'change:columnSpan', this.updateColumnSpan);
-            this.updateColumnSpan();
-        },
-
-        updateColumnSpan: function () {
-            var columnSpan = this.model.get('columnSpan'),
-                currentColumnSpan = this.columnSpan;
-
-            if(columnSpan != currentColumnSpan){
-
-                if(currentColumnSpan){
-                    this.$el
-                        .removeClass('col-xs-' + currentColumnSpan);
-                }
-
-                this.$el
-                    .addClass('col-xs-' + columnSpan);
-
-                this.columnSpan = columnSpan;
-            }
-
-        },
-
-        updateGrouping: function(){}
-    }
-);
-
-//####app/new/controls/TablePanel/row/RowControl.js
-/**
- *
- * @param parent
- * @constructor
- * @augments ContainerControl
- */
-function RowControl(parent) {
-    _.superClass(RowControl, this, parent);
-}
-
-_.inherit(RowControl, ContainerControl);
-
-_.extend(RowControl.prototype,
-    /** @lends RowControl.prototype */
-    {
-        createControlModel: function () {
-            return new RowModel();
-        },
-
-        createControlView: function (model) {
-            return new RowView({model: model});
-        }
-    }
-);
-
-
-//####app/new/controls/TablePanel/row/rowModel.js
-/**
- * @constructor
- * @augments ContainerModel
- */
-var RowModel = ContainerModel.extend(
-    /** @lends RowModel.prototype */
-    {
-        initialize: function () {
-            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
-        }
-    }
-);
-//####app/new/controls/TablePanel/row/rowView.js
-/**
- * @class
- * @augments ControlView
- */
-var RowView = ContainerView.extend(
-    /** @lends RowView.prototype */
-    {
-        className: 'pl-row row',
-
-        initialize: function (options) {
-            ContainerView.prototype.initialize.call(this, options);
-        },
-
-        render: function () {
-            this.prerenderingActions();
-
-            this.removeChildElements();
-
-            this.renderItemsContents();
-
-            this.updateProperties();
-            this.trigger('render');
-
-            this.postrenderingActions();
-            return this;
-        },
-
-        renderItemsContents: function(){
-            var items = this.model.get('items'),
-                itemTemplate = this.model.get('itemTemplate'),
-                that = this,
-                element, item;
-
-            items.forEach(function(item, i){
-                element = itemTemplate(undefined, {item: item, index: i});
-                that.addChildElement(element);
-                that.$el
-                    .append(element.render());
-            });
-        },
-
-        updateGrouping: function(){}
-    }
-);
-
-//####app/new/controls/TablePanel/tablePanelControl.js
-/**
- *
- * @param parent
- * @constructor
- * @augments ContainerControl
- */
-function TablePanelControl(parent) {
-    _.superClass(TablePanelControl, this, parent);
-}
-
-_.inherit(TablePanelControl, ContainerControl);
-
-_.extend(TablePanelControl.prototype,
-    /** @lends TablePanelControl.prototype */
-    {
-        createControlModel: function () {
-            return new TablePanelModel();
-        },
-
-        createControlView: function (model) {
-            return new TablePanelView({model: model});
-        }
-    }
-);
-
-
-//####app/new/controls/TablePanel/tablePanelModel.js
-/**
- * @constructor
- * @augments ContainerModel
- */
-var TablePanelModel = ContainerModel.extend(
-    /** @lends TablePanelModel.prototype */
-    {
-        initialize: function () {
-            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
-        }
-    }
-);
-//####app/new/controls/TablePanel/tablePanelView.js
-/**
- * @class
- * @augments ControlView
- */
-var TablePanelView = ContainerView.extend(
-    /** @lends TablePanelView.prototype */
-    {
-        className: 'pl-table-panel',
-
-        initialize: function (options) {
-            ContainerView.prototype.initialize.call(this, options);
-        },
-
-        render: function () {
-            this.prerenderingActions();
-
-            this.removeChildElements();
-
-            this.renderItemsContents();
-            this.updateProperties();
-            this.trigger('render');
-
-            this.postrenderingActions();
-            return this;
-        },
-
-        renderItemsContents: function(){
-            var items = this.model.get('items'),
-                itemTemplate = this.model.get('itemTemplate'),
-                that = this,
-                element, item;
-
-            items.forEach(function(item, i){
-                element = itemTemplate(undefined, {item: item, index: i});
-                that.addChildElement(element);
-                that.$el
-                    .append(element.render());
-            });
-        },
-
-        updateGrouping: function(){}
-    }
-);
-
 //####app/new/controls/tabPanel/tabHeader/tabHeaderView.js
 var TabHeaderModel = Backbone.Model.extend({
 
@@ -15507,7 +16599,6 @@ _.extend(Element.prototype, {
     setFocused: function (value) {
         return this.control.set('focused', !!value);
     },
-
     onLostFocus: function (handler) {
         this.control.on('OnLostFocus', handler);
     },
@@ -15784,6 +16875,10 @@ _.extend(Element.prototype, {
 
     _upperFirstSymbol: function (s) {
         return s[0].toUpperCase() + s.substr(1);
+    },
+
+    setFocus: function () {
+        this.control.setFocus();
     }
 });
 //####app/element/elementBuilder.js
@@ -15963,7 +17058,8 @@ _.extend(ElementBuilder.prototype, /** @lends ElementBuilder.prototype */ {
         if (metadata.ToolTip) {
             var argumentForBuilder = {
                 parent: element,
-                parentView: params.parentView
+                parentView: params.parentView,
+                basePathOfProperty: params.basePathOfProperty
             };
 
             if (typeof metadata.ToolTip === 'string') {
@@ -16031,6 +17127,2071 @@ var ajaxRequestMixin = (function (bus) {
     }
 
 })(window.InfinniUI.global.messageBus);
+//####app/data/dataSource/_mixins/dataSourceFileProviderMixin.js
+/**
+ *
+ * @mixin dataSourceFileProviderMixin
+ */
+var dataSourceFileProviderMixin = {
+
+    setFileProvider: function (fileProvider) {
+        this.set('fileProvider', fileProvider);
+    },
+
+    getFileProvider: function () {
+        return this.get('fileProvider');
+    },
+
+    setFile: function (file, propertyName) {
+        var queue = this.get('queueFiles');
+        var item;
+        if (!queue) {
+            queue = [];
+            this.set('queueFiles', queue);
+        }
+        //Отмечаем элемент данных как измененный при установке файла на загрузку
+        this._includeItemToModifiedSet(this.getSelectedItem());
+
+        var items = queue.filter(function (item) {
+            return item.name === propertyName;
+        });
+
+        if (items.length) {
+            var item = items[0];
+            item.file = file;
+        } else {
+            queue.push({
+                name: propertyName,
+                file: file
+            });
+        }
+        this.setProperty(propertyName, file);
+    },
+
+    extractFiles: function (item, callback) {
+
+        var files = Object.create(null);
+        var itemWithoutFiles = extractFile(item, []);
+
+
+        if (typeof callback === 'function') {
+            callback.call(null, files, itemWithoutFiles);
+        }
+
+        function extractFile (item, path) {
+            var value, result = Array.isArray(item) ? [] : {}, currentPath;
+            for (var i in item) {
+                if (!item.hasOwnProperty(i)) {
+                    continue;
+                }
+
+                currentPath = path.slice();
+                currentPath.push(i);
+                value = item[i];
+                if (value !== null && typeof (value) === 'object') {
+                    if (value.constructor === Date) {
+                        result[i] = value
+                    } else if (value.constructor === Object || value.constructor === Array)  {
+                        //Plain object
+                        result[i] = extractFile(value, currentPath);
+                    } else {
+                        //Object instance
+                        files[currentPath.join('.')] = value;
+                        continue;
+                    }
+                } else {
+                    result[i] = value;
+                }
+
+            }
+
+            return result;
+        }
+    },
+
+    uploadFiles: function (instanceId, files) {
+        var promises = [];
+        var promise;
+        var fileProvider = this.getFileProvider();
+        var ds = this;
+
+        for (var path in files) {
+            promise = fileProvider.uploadFile(path, instanceId, files[path])
+                .then(function () {
+                    //@TODO Как обрабатывать ошибки загрузки файлов?
+                    ds.trigger('onFileUploaded', ds.getContext(), {value: files[path]});
+                    return true;
+                });
+
+            promises.push(promise);
+        }
+
+        return $.when.apply($, promises);
+    }
+};
+//####app/data/dataSource/_mixins/dataSourceLookupMixin.js
+var dataSourceLookupMixin = {
+
+    lookupIdPropertyValue: function (sourceProperty) {
+        var items = this.getItems();
+        var value, item;
+
+        if (Array.isArray(items)) {
+            var
+                name = [sourceProperty.split('.')[0], this.getIdProperty()].join('.');
+
+            value = this.getProperty(name);
+        }
+
+        return value;
+    },
+
+    lookupPropertyValue: function (name, cb, sourceProperty) {
+        var items = this.getItems();
+        var value, item;
+
+        if (Array.isArray(items) && typeof cb === 'function') {
+            var path = sourceProperty.split('.');
+
+            var propertyValue = this.getProperty(sourceProperty);
+
+            for (var i = 0; i < items.length; i = i + 1) {
+                item = items[i];
+                if (cb.call(null, propertyValue) === true) {
+                    value = InfinniUI.ObjectUtils.getPropertyValue(item, name);
+                    break;
+                }
+            }
+        }
+
+        return value;
+    }
+
+};
+//####app/data/dataSource/_mixins/dataSourceValidationNotifierMixin.js
+/**
+ *
+ * @mixin
+ */
+var DataSourceValidationNotifierMixin = {
+    /**
+     * @param dataSource
+     */
+    initNotifyValidation: function (dataSource) {
+        dataSource.onErrorValidator(this.notifyOnValidationError.bind(this));
+        dataSource.onWarningValidator(this.notifyOnValidationError.bind(this));
+    },
+
+    /**
+     * @param context
+     * @param args
+     */
+    notifyOnValidationError: function (context, args) {
+        this.notifyOnValidationResult(args.value, 'error');
+    },
+
+    /**
+     * @param context
+     * @param args
+     */
+    notifyOnValidationWarning: function (context, args) {
+        this.notifyOnValidationResult(args.value, 'warning');
+    },
+
+    /**
+     * @param {Object} result
+     * @param {boolean} result.isValid
+     * @param {Array.<Object>} result.items
+     * @param {string} validationType Тип сообщения "error" или "warning"
+     */
+    notifyOnValidationResult: function (result, validationType) {
+        if (typeof result === 'undefined' || result === null || result.isValid || !Array.isArray(result.ValidationMessage)) {
+            return;
+        }
+
+        result.ValidationMessage.forEach(function (item) {
+            var exchange = window.InfinniUI.global.messageBus;
+            exchange.send(messageTypes.onNotifyUser, {messageText: item.Message, messageType: "error"});
+        });
+    }
+};
+//####app/data/dataSource/_newBaseDataSource.js
+/**
+ * @constructor
+ * @augments Backbone.Model
+ * @mixes dataSourceFileProviderMixin, dataSourceFindItemMixin
+ */
+var newBaseDataSource = Backbone.Model.extend({
+    defaults: {
+        name: null,
+        idProperty: '_id',
+        identifyingMode: 'byId', // byId, byLink. detect automatically
+
+        view: null,
+
+        isDataReady: false,
+
+        dataProvider: null,
+
+        /*
+        * TreeModel for handling
+        * model.items
+        * model.selectedItem
+        * */
+        model: null,
+
+        modifiedItems: {},
+        itemsById: {},
+
+        fillCreatedItem: true,
+
+        suspendingList: null, // []
+
+        waitingOnUpdateItemsHandlers: null, //[]
+
+        errorValidator: null,
+        warningValidator: null,
+        showingWarnings: false,
+
+        isRequestInProcess: false,
+
+        isLazy: true,
+
+        newItemsHandler: null,
+
+        isNumRegEx: /^\d/
+
+    },
+
+    initialize: function () {
+        var view = this.get('view');
+        var modelStartTree = {
+            items: null,
+            selectedItem: null
+        };
+
+        this.initDataProvider();
+        if (!view) {
+            throw 'BaseDataSource.initialize: При создании объекта не была задана view.'
+        }
+        this.set('suspendingList', []);
+        this.set('waitingOnUpdateItemsHandlers', []);
+        this.set('model', new TreeModel(view.getContext(), this, modelStartTree));
+    },
+
+    initDataProvider: function () {
+        throw 'BaseDataSource.initDataProvider В потомке BaseDataSource не задан провайдер данных.'
+    },
+
+    onPropertyChanged: function (property, handler, owner) {
+
+        if (typeof property == 'function') {
+            owner = handler;
+            handler = property;
+            property = '*';
+        }
+
+        if(property.charAt(0) == '.'){
+            property = property.substr(1);
+        }else{
+            if(property == ''){
+                property = 'items';
+            }else{
+                property = 'items.' + property;
+            }
+
+        }
+
+        this.get('model').onPropertyChanged(property, function(context, args){
+            var property = args.property;
+
+            if(property.substr(0,6) == 'items.'){
+                property = property.substr(6);
+            }else if(property == 'items'){
+                property = '';
+            } else{
+                property = '.' + property;
+            }
+
+            args.property = property;
+
+            handler(context, args);
+        }, owner);
+    },
+
+    onSelectedItemChanged: function (handler, owner) {
+        var that = this;
+
+        this.get('model').onPropertyChanged('selectedItem', function(context, args){
+            var argument = that._getArgumentTemplate();
+            argument.value = args.newValue;
+
+            handler(context, argument);
+        }, owner);
+    },
+
+    onErrorValidator: function (handler) {
+        this.on('onErrorValidator', handler);
+    },
+
+    onWarningValidator: function (handler) {
+        this.on('onWarningValidator', handler);
+    },
+
+    onItemSaved: function (handler) {
+        this.on('onItemSaved', handler);
+    },
+
+    onItemCreated: function (handler) {
+        this.on('onItemCreated', handler);
+    },
+
+    onItemsUpdated: function (handler) {
+        this.on('onItemsUpdated', handler);
+    },
+
+    onItemDeleted: function (handler) {
+        this.on('onItemDeleted', handler);
+    },
+
+    getName: function () {
+        return this.get('name');
+    },
+
+    setName: function (name) {
+        this.set('name', name);
+        this.name = name;
+    },
+
+    getView: function () {
+        return this.get('view');
+    },
+
+    getProperty: function (property) {
+        var firstChar = property.charAt(0);
+        var indexOfSelectedItem;
+
+        if( this.get('isNumRegEx').test(firstChar) ){
+            property = 'items.' + property;
+
+        }else if(firstChar == ''){
+            property = 'items';
+
+        }else if(firstChar == '$'){
+            indexOfSelectedItem = this._indexOfSelectedItem();
+            if(indexOfSelectedItem == -1){
+                return undefined;
+            }
+            property = 'items.' + indexOfSelectedItem + property.substr(1);
+
+        }else if(firstChar == '.'){
+            property = property.substr(1);
+        }else{
+            indexOfSelectedItem = this._indexOfSelectedItem();
+            if(indexOfSelectedItem == -1){
+                return undefined;
+            }
+            property = 'items.' + indexOfSelectedItem + '.' + property;
+        }
+
+        return this.get('model').getProperty(property);
+    },
+
+    setProperty: function (property, value) {
+        var propertyPaths = property.split('.');
+        var firstChar;
+        var indexOfSelectedItem;
+        var index;
+        var resultOfSet;
+
+        if(propertyPaths[0] == '$'){
+            indexOfSelectedItem = this._indexOfSelectedItem();
+            if(indexOfSelectedItem == -1){
+                return;
+            }
+
+            property = indexOfSelectedItem + property.substr(1);
+            propertyPaths[0] = indexOfSelectedItem.toString();
+        }
+
+        firstChar = property.charAt(0);
+
+        if(propertyPaths.length == 1){
+
+            if(propertyPaths[0] == ''){
+                this._setItems(value);
+
+            }else if( this.get('isNumRegEx').test(propertyPaths[0]) ){
+                this._changeItem(propertyPaths[0], value);
+
+            }else{
+                indexOfSelectedItem = this._indexOfSelectedItem();
+                if(indexOfSelectedItem == -1){
+                    return;
+                }
+                property = 'items.' + indexOfSelectedItem + '.' + property;
+                resultOfSet = this.get('model').setProperty(property, value);
+
+                if(resultOfSet){
+                    this._includeItemToModifiedSetByIndex(indexOfSelectedItem);
+                }
+            }
+
+        }else{
+            if(firstChar == '.'){
+                property = property.substr(1);
+                this.get('model').setProperty(property, value);
+
+            }else if(this.get('isNumRegEx').test(firstChar)){
+                property = 'items.' + property;
+                resultOfSet = this.get('model').setProperty(property, value);
+
+                if(resultOfSet){
+                    this._includeItemToModifiedSetByIndex( parseInt(propertyPaths[0]));
+                }
+            }else{
+                indexOfSelectedItem = this._indexOfSelectedItem();
+                if(indexOfSelectedItem == -1){
+                    return;
+                }
+                property = 'items.' + indexOfSelectedItem + '.' + property;
+                resultOfSet = this.get('model').setProperty(property, value);
+
+                if(resultOfSet){
+                    this._includeItemToModifiedSetByIndex(indexOfSelectedItem);
+                }
+            }
+        }
+    },
+
+    _setItems: function (items) {
+        this._detectIdentifyingMode(items);
+
+        var indexOfItemsById;
+
+        this.set('isDataReady', true);
+        this.get('model').setProperty('items', items);
+        this._clearModifiedSet();
+        if (items && items.length > 0) {
+            indexOfItemsById = this._indexItemsById(items);
+            this.set('itemsById', indexOfItemsById);
+
+            if( !this._restoreSelectedItem() ){
+                this.setSelectedItem(items[0]);
+            }
+
+        } else {
+            this.setSelectedItem(null);
+        }
+    },
+
+    _restoreSelectedItem: function(){
+        // override by strategy
+        var logger = window.InfinniUI.global.logger;
+        logger.warn({
+            message: 'BaseDataSource._restoreSelectedItem: not overrided by strategy',
+            source: this
+        });
+    },
+
+    _addItems: function (newItems) {
+        var indexedItemsById = this.get('itemsById'),
+            items = this.getItems(),
+            newIndexedItemsById;
+
+        this.set('isDataReady', true);
+        items = _.union(items, newItems);
+        this.set('items', items);
+        if (newItems && newItems.length > 0) {
+            newIndexedItemsById = this._indexItemsById(newItems);
+            _.extend(indexedItemsById, newIndexedItemsById);
+            this.set('itemsById', indexedItemsById);
+        }
+
+        this._notifyAboutItemsUpdatedAsPropertyChanged(items);
+        //this.trigger('settingNewItemsComplete');
+    },
+
+    getSelectedItem: function () {
+        return this.get('model').getProperty('selectedItem');
+    },
+
+    setSelectedItem: function (item, success, error) {
+        // override by strategy
+        var logger = window.InfinniUI.global.logger;
+        logger.warn({
+            message: 'BaseDataSource.setSelectedItem: not overrided by strategy',
+            source: this
+        });
+    },
+
+    _notifyAboutSelectedItem: function (item, successHandler) {
+        var context = this.getContext(),
+            argument = this._getArgumentTemplate();
+
+        argument.value = item;
+
+        if (successHandler) {
+            successHandler(context, argument);
+        }
+    },
+
+    _tuneMirroringOfModel: function(index){
+        if(index != -1){
+            this.get('model').setMirroring('items.$', 'items.'+index);
+        }else{
+            this.get('model').setMirroring(null, null);
+        }
+    },
+
+    getIdProperty: function () {
+        return this.get('idProperty');
+    },
+
+    setIdProperty: function (value) {
+        this.set('idProperty', value);
+    },
+
+    getFillCreatedItem: function () {
+        return this.get('fillCreatedItem');
+    },
+
+    setFillCreatedItem: function (fillCreatedItem) {
+        this.set('fillCreatedItem', fillCreatedItem);
+    },
+
+    suspendUpdate: function (name) {
+        var reason = name || 'default';
+
+        var suspended = this.get('suspendingList');
+        if (suspended.indexOf(reason) === -1) {
+            suspended = suspended.slice(0);
+            suspended.push(reason);
+            this.set('suspendingList', suspended);
+        }
+    },
+
+    resumeUpdate: function (name) {
+        var reason = name || 'default';
+
+        var suspended = this.get('suspendingList');
+        var index = suspended.indexOf(reason);
+
+        if (index !== -1) {
+            suspended = suspended.slice(0);
+            suspended.splice(index, 1);
+            this.set('suspendingList', suspended);
+
+            // если источник полностью разморожен, а до этого вызывались updateItems, не выполненные из-за заморозки, нужно вызвать updateItems
+            if(!this.isUpdateSuspended() && this.get('waitingOnUpdateItemsHandlers').length > 0){
+                this.updateItems();
+            }
+        }
+    },
+
+    isUpdateSuspended: function () {
+        var suspended = this.get('suspendingList');
+        return suspended.length > 0;
+    },
+
+    isModifiedItems: function () {
+        return this.isModified();
+    },
+
+    isModified: function (item) {
+        if (arguments.length == 0) {
+            return _.size(this.get('modifiedItems')) > 0;
+        }
+
+        if (item === null || item === undefined) {
+            return false;
+        }
+        else {
+            var itemId = this.idOfItem(item);
+            return itemId in this.get('modifiedItems');
+        }
+    },
+
+    _includeItemToModifiedSetByIndex: function (index) {
+        var item;
+
+        item = this.getItems()[index];
+        this._includeItemToModifiedSet(item);
+    },
+
+    _includeItemToModifiedSet: function (item) {
+        // override by strategy
+        var logger = window.InfinniUI.global.logger;
+        logger.warn({
+            message: 'BaseDataSource._includeItemToModifiedSet: not overrided by strategy',
+            source: this
+        });
+    },
+
+    _excludeItemFromModifiedSet: function (item) {
+        // override by strategy
+        var logger = window.InfinniUI.global.logger;
+        logger.warn({
+            message: 'BaseDataSource._excludeItemFromModifiedSet: not overrided by strategy',
+            source: this
+        });
+    },
+
+    _clearModifiedSet: function () {
+        this.set('modifiedItems', {});
+    },
+
+    /**
+     * @description Проверяет формат имя свойства атрибута
+     * @param propertyName
+     * @private
+     */
+    _checkPropertyName: function (propertyName) {
+        var result = true;
+        try {
+            if (propertyName && propertyName.length > 0) {
+                result = propertyName.match(/^[\$#@\d]+/);
+            }
+            if (!result) {
+                throw new Error('Wrong property name "' + propertyName + '"');
+            }
+        } catch (e) {
+            console.debug(e);
+        }
+    },
+
+    _changeItem: function(index, value){
+        var item = this.get('model').getProperty('items.'+index);
+        var oldValue = {};
+
+        if(value == item){
+            return;
+        }
+
+        this._excludeItemFromModifiedSet(item);
+
+        this._replaceAllProperties(oldValue, item);
+        this._replaceAllProperties(item, value);
+
+        this.get('model').simulateSetProperty('items.'+index, oldValue);
+
+        this._includeItemToModifiedSet(item);
+    },
+
+    tryInitData: function(){
+        if (!this.get('isDataReady') && !this.get('isRequestInProcess')){
+            this.updateItems();
+        }
+    },
+
+    saveItem: function (item, success, error) {
+        var dataProvider = this.get('dataProvider'),
+            ds = this,
+            logger = window.InfinniUI.global.logger,
+            that = this,
+            validateResult;
+
+        if (!this.isModified(item)) {
+            this._notifyAboutItemSaved(item, 'notModified', success);
+            return;
+        }
+
+        validateResult = this.validateOnErrors(item);
+        if (!validateResult.isValid) {
+            this._notifyAboutFailValidationBySaving(item, validateResult, error);
+            return;
+        }
+
+        dataProvider.saveItem(item, function(data){
+            if( !('isValid' in data) || data.isValid === true ){
+                that._excludeItemFromModifiedSet(item);
+                that._notifyAboutItemSaved(item, 'modified', success);
+            }else{
+                that._notifyAboutFailValidationBySaving(item, data, error);
+            }
+        });
+    },
+
+    _notifyAboutItemSaved: function (item, result, successHandler) {
+        var context = this.getContext(),
+            argument = this._getArgumentTemplate();
+
+        argument.value = item;
+        argument.result = result;
+
+        if (successHandler) {
+            successHandler(context, argument);
+        }
+        this.trigger('onItemSaved', context, argument);
+    },
+
+    _notifyAboutFailValidationBySaving: function (item, validationResult, errorHandler) {
+        this._notifyAboutValidation(validationResult, errorHandler, 'error');
+    },
+
+    deleteItem: function (item, success, error) {
+        var dataProvider = this.get('dataProvider'),
+            that = this,
+            itemId = this.idOfItem(item),
+            isItemInSet = this.get('itemsById')[itemId] !== undefined;
+
+        if ( item == null || ( itemId !== undefined && !isItemInSet ) ) {
+            this._notifyAboutMissingDeletedItem(item, error);
+            return;
+        }
+
+        this.beforeDeleteItem(item);
+        dataProvider.deleteItem(item, function (data) {
+            if (!('IsValid' in data) || data['IsValid'] === true) {
+                that._handleDeletedItem(item, success);
+            } else {
+                that._notifyAboutFailValidationByDeleting(item, data, error);
+            }
+        });
+    },
+
+    beforeDeleteItem: function(item){},
+
+    _handleDeletedItem: function (item, successHandler) {
+        var items = this.getItems(),
+            idProperty = this.get('idProperty'),
+            itemId = this.idOfItem(item),
+            selectedItem = this.getSelectedItem();
+
+        for (var i = 0, ii = items.length, needExit = false; i < ii && !needExit; i++) {
+            if (items[i][idProperty] == itemId) {
+                items.splice(i, 1);
+                needExit = true;
+            }
+        }
+        delete this.get('itemsById')[itemId];
+        this._excludeItemFromModifiedSet(item);
+
+        if (selectedItem && selectedItem[idProperty] == itemId) {
+            this.setSelectedItem(null);
+        }
+
+        this._notifyAboutItemDeleted(item, successHandler);
+    },
+
+    _notifyAboutItemDeleted: function (item, successHandler) {
+        var context = this.getContext(),
+            argument = this._getArgumentTemplate();
+
+        argument.value = item;
+
+        if (successHandler) {
+            successHandler(context, argument);
+        }
+        this.trigger('onItemDeleted', context, argument);
+    },
+
+    _notifyAboutMissingDeletedItem: function (item, errorHandler) {
+        var context = this.getContext(),
+            argument = this._getArgumentTemplate();
+
+        argument.value = item;
+        argument.error = {
+            message: 'Нельзя удалить элемент, которого нет текущем наборе источника данных'
+        };
+
+        if (errorHandler) {
+            errorHandler(context, argument);
+        }
+    },
+
+    _notifyAboutFailValidationByDeleting: function (item, errorData, errorHandler) {
+        var context = this.getContext(),
+            argument = this._getArgumentTemplate();
+
+        argument.value = item;
+        argument.error = errorData;
+
+        this._notifyAboutValidation(errorData, errorHandler);
+    },
+
+    isDataReady: function () {
+        return this.get('isDataReady');
+    },
+
+    getItems: function () {
+        var logger = window.InfinniUI.global.logger;
+
+        if (!this.isDataReady()) {
+            logger.warn({
+                message: 'BaseDataSource: Попытка получить данные источника данных (' + this.get('name') + '), до того как он был проинициализирован данными',
+                source: this
+            });
+        }
+
+        return this.get('model').getProperty('items');
+    },
+
+    updateItems: function (onSuccess, onError) {
+        if (!this.isUpdateSuspended()) {
+            var dataProvider = this.get('dataProvider'),
+                that = this;
+
+            this.set('isRequestInProcess', true);
+            dataProvider.getItems(function (data) {
+
+                that.set('isRequestInProcess', false);
+                that._handleUpdatedItemsData(data.data, onSuccess, onError);
+
+            }, onError);
+        }else{
+            var handlers = this.get('waitingOnUpdateItemsHandlers');
+            handlers.push({
+                onSuccess: onSuccess,
+                onError: onError
+            });
+        }
+
+    },
+
+    _handleUpdatedItemsData: function (itemsData, successHandler, errorHandler) {
+        if(this.get('newItemsHandler')){
+            itemsData = this.get('newItemsHandler')(itemsData);
+        }
+
+        this.setProperty('', itemsData);
+        this._notifyAboutItemsUpdated(itemsData, successHandler, errorHandler);
+    },
+
+    _notifyAboutItemsUpdated: function (itemsData, successHandler, errorHandler) {
+        var context = this.getContext();
+        var argument = {
+                value: itemsData
+            };
+
+        // вызываем обработчики которые были переданы на отложенных updateItems (из за замороженного источника)
+        var handlers = this.get('waitingOnUpdateItemsHandlers');
+        for(var i = 0, ii = handlers.length; i < ii; i++){
+            if(handlers[i].onSuccess){
+                handlers[i].onSuccess(context, argument);
+            }
+        }
+
+        this.set('waitingOnUpdateItemsHandlers', []);
+
+        if (successHandler) {
+            successHandler(context, argument);
+        }
+
+        this.trigger('onItemsUpdated', context, argument);
+    },
+
+    _notifyAboutItemsUpdatedAsPropertyChanged: function (itemsData) {
+        var context = this.getContext(),
+            argument = this._getArgumentTemplate();
+
+        argument.property = '';
+        argument.newValue = itemsData;
+        argument.oldValue = null;
+
+        this.trigger('onPropertyChanged', context, argument);
+        this.trigger('onPropertyChanged:', context, argument);
+    },
+
+    _handleAddedItems: function (itemsData, successHandler) {
+        this._addItems(itemsData);
+        this._notifyAboutItemsAdded(itemsData, successHandler);
+
+    },
+
+    _notifyAboutItemsAdded: function (itemsData, successHandler) {
+        var context = this.getContext(),
+            argument = {
+                value: itemsData
+            };
+
+        if (successHandler) {
+            successHandler(context, argument);
+        }
+        this.trigger('onItemsAdded', context, argument);
+    },
+
+    createItem: function (success, error) {
+        var dataProvider = this.get('dataProvider'),
+            idProperty = this.get('idProperty'),
+            that = this,
+            localItem;
+
+        if (this.get('fillCreatedItem')) {
+            dataProvider.createItem(
+                function (item) {
+                    that._handleDataForCreatingItem(item, success);
+                },
+                idProperty
+            );
+        } else {
+            localItem = dataProvider.createLocalItem(idProperty);
+            this._handleDataForCreatingItem(localItem, success);
+        }
+    },
+
+    _handleDataForCreatingItem: function (itemData, successHandler) {
+        var items = this.getItems();
+
+        if(items) {
+            items = items.slice();
+            items.push(itemData);
+        }else{
+            items = [itemData];
+        }
+
+        this.setProperty('', items);
+        this.setSelectedItem(itemData);
+        this._notifyAboutItemCreated(itemData, successHandler);
+    },
+
+    _notifyAboutItemCreated: function (createdItem, successHandler) {
+        var context = this.getContext(),
+            argument = {
+                value: createdItem
+            };
+
+        if (successHandler) {
+            successHandler(context, argument);
+        }
+        this.trigger('onItemCreated', context, argument);
+    },
+
+    getFilter: function () {
+    },
+
+    setFilter: function (value, onSuccess, onError) {
+    },
+
+    _setCriteriaList: function(criteriaList, onSuccess, onError){
+        this.set('criteriaList', criteriaList);
+        this.updateItems(onSuccess, onError);
+    },
+
+    setIdFilter: function (itemId) {
+        var dataProvider = this.get('dataProvider'),
+            idFilter = dataProvider.createIdFilter(itemId);
+
+        this.setFilter(idFilter);
+    },
+
+    setNewItemsHandler: function(handler){
+        this.set('newItemsHandler', handler);
+    },
+
+    getErrorValidator: function () {
+        return this.get('errorValidator');
+    },
+
+    setErrorValidator: function (validatingFunction) {
+        this.set('errorValidator', validatingFunction);
+    },
+
+    getWarningValidator: function () {
+        return this.get('warningValidator');
+    },
+
+    setWarningValidator: function (validatingFunction) {
+        this.set('warningValidator', validatingFunction);
+    },
+
+    validateOnErrors: function (item, callback) {
+        return this._validatingActions(item, callback, 'error');
+    },
+
+    validateOnWarnings: function (item, callback) {
+        return this._validatingActions(item, callback, 'warning');
+    },
+
+    _validatingActions: function (item, callback, validationType) {
+        var validatingFunction = validationType == 'error' ? this.get('errorValidator') : this.get('warningValidator'),
+            result = {
+                isValid: true,
+                items: []
+            },
+            isCheckingOneItem = !!item,
+            context = this.getContext(),
+            items, subResult, itemIndex;
+
+        if (validatingFunction) {
+            if (isCheckingOneItem) {
+
+                result = validatingFunction(context, item);
+
+            } else {
+
+                items = this.getItems();
+                for (var i = 0, ii = items.length; i < ii; i++) {
+
+                    subResult = validatingFunction(context, items[i]);
+                    if (!subResult.isValid) {
+                        this._addIndexToPropertiesOfValidationMessage(subResult.items, i);
+                        result.isValid = false;
+                        result.items = _.union(result.items, subResult.items);
+                    }
+
+                }
+
+            }
+        }
+
+        this._notifyAboutValidation(result, callback, validationType);
+
+        return result;
+    },
+
+    _addIndexToPropertiesOfValidationMessage: function (validationMessages, index) {
+        for (var i = 0, ii = validationMessages.length; i < ii; i++) {
+            validationMessages[i].property = index + '.' + validationMessages[i].property;
+        }
+    },
+
+    _notifyAboutValidation: function (validationResult, validationHandler, validationType) {
+        var context = this.getContext(),
+            argument = {
+                value: validationResult
+            };
+
+        if (validationHandler) {
+            validationHandler(context, argument);
+        }
+
+        var eventType = (validationType == 'warning') ? 'onWarningValidator' : 'onErrorValidator';
+        this.trigger(eventType, context, argument);
+    },
+
+    getContext: function () {
+        return this.getView().getContext();
+    },
+
+    _indexItemsById: function (items) {
+        var idProperty = this.get('idProperty'),
+            result = {},
+            idValue;
+        for (var i = 0, ii = items.length; i < ii; i++) {
+            idValue = items[i][idProperty];
+            result[idValue] = items[i];
+        }
+
+        return result;
+    },
+
+    _indexOfItem: function(item){
+        var items = this.getItems();
+        if(!items){
+            return -1;
+        }
+        return items.indexOf(item);
+    },
+
+    _indexOfSelectedItem: function(){
+        var selectedItem = this.getSelectedItem();
+
+        return this._indexOfItem(selectedItem);
+    },
+
+    idOfItem: function (item) {
+        var idProperty = this.get('idProperty');
+        if (!item) {
+            return undefined;
+        }
+        return item[idProperty];
+    },
+
+    getCurrentRequestPromise: function(){
+        var promise = $.Deferred();
+        var logger = window.InfinniUI.global.logger;
+
+        if(this.get('isRequestInProcess')){
+            this.once('onItemsUpdated', function(){
+                if(this.isDataReady()){
+                    promise.resolve();
+                }else{
+                    logger.warn({
+                        message: 'BaseDataSource: strange, expected other dataReady status',
+                        source: this
+                    });
+                }
+            });
+        }else{
+            promise.resolve();
+        }
+
+        return promise;
+    },
+
+    //setBindingBuilder: function(bindingBuilder){
+    //    this.set('bindingBuilder', bindingBuilder);
+    //},
+
+    setIsLazy: function(isLazy){
+        this.set('isLazy', isLazy);
+    },
+
+    isLazy: function(){
+        return this.get('isLazy');
+    },
+
+    _replaceAllProperties: function (currentObject, newPropertiesSet) {
+        for (var property in currentObject) {
+            delete(currentObject[property]);
+        }
+
+        for (var property in newPropertiesSet) {
+            currentObject[property] = newPropertiesSet[property];
+        }
+    },
+
+    _copyObject: function (currentObject) {
+        return JSON.parse(JSON.stringify(currentObject));
+    },
+
+    _getArgumentTemplate: function () {
+        return {
+            source: this
+        };
+    },
+
+    _detectIdentifyingMode: function(items){
+        if( $.isArray(items) && items.length > 0){
+            if( !$.isPlainObject(items[0]) || this.getIdProperty() in items[0] ){
+                this.set('identifyingMode', 'byId');
+                _.extend( this, newBaseDataSource.identifyingStrategy.byId);
+            }else{
+                this.set('identifyingMode', 'byLink');
+                _.extend( this, newBaseDataSource.identifyingStrategy.byLink);
+            }
+        }else{
+            this.set('identifyingMode', 'byId');
+            _.extend( this, newBaseDataSource.identifyingStrategy.byId);
+        }
+    },
+
+    _getIdentifyingMode: function(){
+        return this.get('identifyingMode');
+    }
+
+});
+
+
+newBaseDataSource.identifyingStrategy = {
+
+    byId: {
+        _restoreSelectedItem: function(){
+
+            var selectedItem = this.getSelectedItem(),
+                selectedItemId = this.idOfItem(selectedItem);
+
+            if( selectedItemId != null ){
+                var items = this.get('itemsById');
+                var newSelectedItem = items[selectedItemId];
+
+                if( newSelectedItem != null ){
+                    this.setSelectedItem(newSelectedItem);
+                    return true;
+                }
+            }
+
+            return false;
+        },
+
+        setSelectedItem: function (item, success, error) {
+            var currentSelectedItem = this.getSelectedItem(),
+                items = this.get('itemsById'),
+                itemId = this.idOfItem(item),
+                index;
+
+
+            if (typeof item == 'undefined') {
+                item = null;
+            }
+
+            if (item == currentSelectedItem) {
+                return;
+            }
+
+            if (item !== null) {
+                if (!items[itemId]) {
+                    if (!error) {
+                        throw 'BaseDataSource.setSelectedItem() Попытка выбрать элемент в источнике, которого нет среди элементов этого источника.';
+                    } else {
+                        error(this.getContext(), {error: 'BaseDataSource.setSelectedItem() Попытка выбрать элемент в источнике, которого нет среди элементов этого источника.'});
+                        return;
+                    }
+                }
+            }
+
+            this.get('model').setProperty('selectedItem', item);
+
+            index = this._indexOfItem(items[itemId]);
+            this._tuneMirroringOfModel(index);
+
+            this._notifyAboutSelectedItem(item, success);
+        },
+
+        _includeItemToModifiedSet: function (item) {
+            var itemId = this.idOfItem(item);
+            this.get('modifiedItems')[itemId] = item;
+        },
+
+        _excludeItemFromModifiedSet: function (item) {
+            var itemId = this.idOfItem(item);
+            delete this.get('modifiedItems')[itemId];
+        },
+    },
+
+    byLink: {
+        _restoreSelectedItem: function(){
+
+            var selectedItem = this.getSelectedItem();
+            var items = this.getItems();
+
+            if( items.indexOf(selectedItem) == -1 ){
+                return false;
+            }else{
+                return true;
+            }
+        },
+
+        setSelectedItem: function (item, success, error) {
+            var currentSelectedItem = this.getSelectedItem(),
+                items = this.getItems(),
+                index = this._indexOfItem(item);
+
+
+            if (typeof item == 'undefined') {
+                item = null;
+            }
+
+            if (item == currentSelectedItem) {
+                return;
+            }
+
+            if (item !== null) {
+                if (index == -1) {
+                    if (!error) {
+                        throw 'BaseDataSource.setSelectedItem() Попытка выбрать элемент в источнике, которого нет среди элементов этого источника.';
+                    } else {
+                        error(this.getContext(), {error: 'BaseDataSource.setSelectedItem() Попытка выбрать элемент в источнике, которого нет среди элементов этого источника.'});
+                        return;
+                    }
+                }
+            }
+
+            this.get('model').setProperty('selectedItem', item);
+
+            this._tuneMirroringOfModel(index);
+
+            this._notifyAboutSelectedItem(item, success);
+        },
+
+        _includeItemToModifiedSet: function (item) {
+            this.get('modifiedItems')['-'] = item;
+        },
+
+        _excludeItemFromModifiedSet: function (item) {
+            delete this.get('modifiedItems')['-'];
+        },
+    }
+};
+//####app/data/dataSource/restDataSource.js
+var RestDataSource = newBaseDataSource.extend({
+
+    initialize: function(){
+        newBaseDataSource.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+
+        var model = this.get('model');
+        model.urlParams = {
+            get: {
+                method: 'get',
+                origin: null,
+                path: '',
+                data: {},
+                params: {}
+            },
+
+            set: {
+                method: 'post',
+                origin: null,
+                path: '',
+                data: {},
+                params: {}
+            },
+
+            delete: {
+                method: 'delete',
+                origin: null,
+                path: '',
+                data: {},
+                params: {}
+            }
+        };
+
+        this.initUrlParamsHandlers();
+    },
+
+    initDataProvider: function(){
+        var dataProvider = window.providerRegister.build('RestDataSource');
+        this.set('dataProvider', dataProvider);
+    },
+
+    initUrlParamsHandlers: function(){
+        var that = this;
+
+        this.get('model').onPropertyChanged('urlParams.get.*', function(context, args){
+            var dataProvider = that.get('dataProvider');
+            var urlParams = that.getGettingUrlParams();
+            var templated;
+
+            dataProvider.setOrigin('get', urlParams.origin);
+            templated = that._templateParamsInStr(urlParams.path, urlParams.params);
+            dataProvider.setPath('get', templated);
+            templated = that._templateParamsInObject(urlParams.data, urlParams.params);
+            dataProvider.setData('get', templated);
+
+
+            if( that.get('isDataReady') || that.get('isRequestInProcess') || that.get('waitingOnUpdateItemsHandlers').length > 0 ){ // ds was resolved or waiting resolving
+                that.updateItems();
+            }
+        });
+
+        this.get('model').onPropertyChanged('urlParams.set.*', function(context, args){
+            var dataProvider = that.get('dataProvider');
+            var urlParams = that.getSettingUrlParams();
+            var templated;
+
+            dataProvider.setOrigin('set', urlParams.origin);
+            templated = that._templateParamsInStr(urlParams.path, urlParams.params);
+            dataProvider.setPath('set', templated);
+            templated = that._templateParamsInObject(urlParams.data, urlParams.params);
+            dataProvider.setData('set', templated);
+        });
+
+        this.get('model').onPropertyChanged('urlParams.delete.*', function(context, args){
+            var dataProvider = that.get('dataProvider');
+            var urlParams = that.getDeletingUrlParams();
+            var templated;
+
+            dataProvider.setOrigin('delete', urlParams.origin);
+            templated = that._templateParamsInStr(urlParams.path, urlParams.params);
+            dataProvider.setPath('delete', templated);
+            templated = that._templateParamsInObject(urlParams.data, urlParams.params);
+            dataProvider.setData('delete', templated);
+        });
+    },
+
+    updateItems: function(){
+
+        if(this._checkGettingUrlParamsReady()){
+            newBaseDataSource.prototype.updateItems.apply(this, Array.prototype.slice.call(arguments));
+            this.resumeUpdate('urlGettingParamsNotReady');
+
+        }else{
+            this.suspendUpdate('urlGettingParamsNotReady');
+            newBaseDataSource.prototype.updateItems.apply(this, Array.prototype.slice.call(arguments));
+        }
+
+    },
+
+    getGettingUrlParams: function(propertyName){
+        if(arguments.length == 0){
+            propertyName = 'urlParams.get';
+
+        }else{
+            if(propertyName == ''){
+                propertyName = 'urlParams.get';
+            }else{
+                propertyName = 'urlParams.get.' + propertyName;
+            }
+        }
+        return this.get('model').getProperty(propertyName);
+    },
+
+    setGettingUrlParams: function(propertyName, value){
+        if(arguments.length == 1){
+            value = propertyName;
+            propertyName = 'urlParams.get';
+
+        }else{
+            if(propertyName == ''){
+                propertyName = 'urlParams.get';
+            }else{
+                propertyName = 'urlParams.get.' + propertyName;
+            }
+        }
+
+        this.get('model').setProperty(propertyName, value);
+    },
+
+    getSettingUrlParams: function(propertyName){
+        if(arguments.length == 0){
+            propertyName = 'urlParams.set';
+
+        }else{
+            if(propertyName == ''){
+                propertyName = 'urlParams.set';
+            }else{
+                propertyName = 'urlParams.set.' + propertyName;
+            }
+        }
+        return this.get('model').getProperty(propertyName);
+    },
+
+    setSettingUrlParams: function(propertyName, value){
+        if(arguments.length == 1){
+            value = propertyName;
+            propertyName = 'urlParams.set';
+
+        }else{
+            if(propertyName == ''){
+                propertyName = 'urlParams.set';
+            }else{
+                propertyName = 'urlParams.set.' + propertyName;
+            }
+        }
+
+        this.get('model').setProperty(propertyName, value);
+    },
+
+    getDeletingUrlParams: function(propertyName){
+        if(arguments.length == 0){
+            propertyName = 'urlParams.delete';
+
+        }else{
+            if(propertyName == ''){
+                propertyName = 'urlParams.delete';
+            }else{
+                propertyName = 'urlParams.delete.' + propertyName;
+            }
+        }
+        return this.get('model').getProperty(propertyName);
+    },
+
+    setDeletingUrlParams: function(propertyName, value){
+        if(arguments.length == 1){
+            value = propertyName;
+            propertyName = 'urlParams.delete';
+
+        }else{
+            if(propertyName == ''){
+                propertyName = 'urlParams.delete';
+            }else{
+                propertyName = 'urlParams.delete.' + propertyName;
+            }
+        }
+
+        this.get('model').setProperty(propertyName, value);
+    },
+
+    _checkGettingUrlParamsReady: function(){
+        var allParams = [];
+        var strWithParams;
+        var params;
+        var data;
+        var definedParams;
+        var param;
+
+        if(!this._checkUrlParamsReady(this.getGettingUrlParams())){
+            return false;
+        }
+
+        strWithParams = this.getGettingUrlParams('path');
+        params = this._findSubstitutionParams(strWithParams);
+        allParams = allParams.concat(params);
+
+        data = this.getGettingUrlParams('data');
+        strWithParams = JSON.stringify(data);
+        params = this._findSubstitutionParams(strWithParams);
+        allParams = allParams.concat(params);
+
+        definedParams = this.getGettingUrlParams('params');
+        for(var i = 0, ii = allParams.length; i<ii; i++){
+            param = allParams[i];
+            if(definedParams[param] === undefined){
+                return false;
+            }
+        }
+
+        return true;
+    },
+
+    _checkUrlParamsReady: function(params){
+        return params && typeof params.origin == 'string'// && params.origin.lentgh > 0
+                && typeof params.path == 'string'
+                && typeof params.data == 'object'
+                && typeof params.params == 'object';
+    },
+
+    _findSubstitutionParams: function(str){
+        if(!str){
+            return [];
+        }
+
+        var result = [];
+        str.replace(/<%([\s\S]+?)%>/g, function(p1, p2){
+            result.push(p2);
+            return p1;
+        });
+
+        return result;
+    },
+
+    _templateParamsInStr: function(str, params){
+        if(!str || !params){
+            return str;
+        }
+
+        return str.replace(/<%([\s\S]+?)%>/g, function(p1, p2){
+            return params[p2];
+        });
+    },
+
+    _templateParamsInObject: function(obj, params){
+        if(!obj || !params){
+            return obj;
+        }
+
+        var str = JSON.stringify(obj);
+        var tmpTemplated = this._templateParamsInStr(str, params);
+        return JSON.parse(tmpTemplated);
+    }//,
+    //
+    //_handleUpdatedItemsData: function (itemsData, successHandler, errorHandler) {
+    //    var items = itemsData['Result']['Items'];
+    //    newBaseDataSource.prototype._handleUpdatedItemsData.call(this, items, successHandler, errorHandler);
+    //}
+
+});
+//####app/data/dataSource/documentDataSource.js
+var DocumentDataSource = RestDataSource.extend({
+    defaults: _.defaults({
+        documentId: null
+
+    }, RestDataSource.prototype.defaults),
+
+    initialize: function () {
+        RestDataSource.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+
+        var model = this.get('model');
+        model.setProperty('pageNumber', 0);
+        model.setProperty('pageSize', 15);
+        model.setProperty('filterParams', {});
+
+        this.initHandlers();
+    },
+
+    initHandlers: function(){
+        var model = this.get('model');
+        var that = this;
+        var updateGettingUrlParams = _.bind(this.updateGettingUrlParams, this);
+
+        model.onPropertyChanged('documentId', function(){
+            that.updateGettingUrlParams();
+            that.updateSettingUrlParams();
+            that.updateDeletingUrlParams();
+        });
+        model.onPropertyChanged('filter', updateGettingUrlParams);
+        model.onPropertyChanged('filterParams.*', updateGettingUrlParams);
+        model.onPropertyChanged('pageNumber', updateGettingUrlParams);
+        model.onPropertyChanged('pageSize', updateGettingUrlParams);
+        model.onPropertyChanged('search', updateGettingUrlParams);
+        model.onPropertyChanged('select', updateGettingUrlParams);
+        model.onPropertyChanged('order', updateGettingUrlParams);
+        model.onPropertyChanged('count', updateGettingUrlParams);
+
+        this.updateGettingUrlParams();
+        this.updateSettingUrlParams();
+        this.updateDeletingUrlParams();
+    },
+
+    updateGettingUrlParams: function(){
+        var model = this.get('model'),
+            params = {
+                type: 'get',
+                origin: InfinniUI.config.serverUrl,
+                path: '/documents/' + this.get('model').getProperty('documentId'),
+                data: {},
+                params: {}
+            },
+            filter = model.getProperty('filter'),
+            filterParams = model.getProperty('filterParams'),
+            pageNumber = model.getProperty('pageNumber'),
+            pageSize = model.getProperty('pageSize'),
+            searchStr = model.getProperty('search'),
+            select = model.getProperty('select'),
+            order = model.getProperty('order'),
+            count = model.getProperty('count');
+
+        if(filter){
+            params.data.filter = filter;
+            if(filterParams){
+                _.extend(params.params, filterParams);
+            }
+        }
+
+        if(pageSize){
+            pageNumber = pageNumber || 0;
+            params.data.skip = pageNumber*pageSize;
+            params.data.take = pageSize;
+        }
+
+        if(searchStr){
+            params.data.search = searchStr;
+        }
+
+        if(select){
+            params.data.select = select;
+        }
+
+        if(order){
+            params.data.order = order;
+        }
+
+        if(count){
+            params.data.count = count;
+        }
+
+        this.setGettingUrlParams(params);
+    },
+
+    updateSettingUrlParams: function(){
+        var model = this.get('model'),
+            params = {
+                type: 'post',
+                origin: InfinniUI.config.serverUrl,
+                path: '/documents/' + this.get('model').getProperty('documentId'),
+                data: {},
+                params: {}
+            };
+
+        this.setSettingUrlParams(params);
+    },
+
+    updateDeletingUrlParams: function(){
+        var model = this.get('model'),
+            params = {
+                type: 'delete',
+                origin: InfinniUI.config.serverUrl,
+                path: '/documents/' + this.get('model').getProperty('documentId') + '/<%id%>',
+                data: {},
+                params: {}
+            };
+
+        this.setDeletingUrlParams(params);
+    },
+
+    initDataProvider: function(){
+        var dataProvider = window.providerRegister.build('DocumentDataSource');
+
+        this.set('dataProvider', dataProvider);
+    },
+
+    getDocumentId: function(){
+        return this.get('model').getProperty('documentId');
+    },
+
+    setDocumentId: function(documentId){
+        this.get('model').setProperty('documentId', documentId);
+    },
+
+    getFilter: function(){
+        return this.get('model').getProperty('filter');
+    },
+
+    setFilter: function(filter){
+        this.get('model').setProperty('filter', filter);
+    },
+
+    getFilterParams: function(propertyName){
+        if(arguments.length == 0){
+            propertyName = 'filterParams';
+
+        }else{
+            if(propertyName == ''){
+                propertyName = 'filterParams';
+            }else{
+                propertyName = 'filterParams.' + propertyName;
+            }
+        }
+
+        return this.get('model').getProperty(propertyName);
+    },
+
+    setFilterParams: function(propertyName, value){
+        if(arguments.length == 1){
+            value = propertyName;
+            propertyName = 'filterParams';
+
+        }else{
+            if(propertyName == ''){
+                propertyName = 'filterParams';
+            }else{
+                propertyName = 'filterParams.' + propertyName;
+            }
+        }
+
+        this.get('model').setProperty(propertyName, value);
+    },
+
+    setIdFilter: function (itemId) {
+        this.setFilter('eq(' + this.getIdProperty() + ','+ this.quoteValue(itemId) + ')');
+    },
+
+    getPageNumber: function(){
+        return this.get('model').getProperty('pageNumber');
+    },
+
+    setPageNumber: function(pageNumber){
+        this.get('model').setProperty('pageNumber', pageNumber);
+    },
+
+    getPageSize: function(){
+        return this.get('model').getProperty('pageSize');
+    },
+
+    setPageSize: function(pageSize){
+        this.get('model').setProperty('pageSize', pageSize);
+    },
+
+    getSearch: function(){
+        return this.get('model').getProperty('search');
+    },
+
+    setSearch: function(searchStr){
+        this.get('model').setProperty('search', searchStr);
+    },
+
+    getSelect: function(){
+        return this.get('model').getProperty('select');
+    },
+
+    setSelect: function(selectStr){
+        this.get('model').setProperty('select', selectStr);
+    },
+
+    getOrder: function(){
+        return this.get('model').getProperty('order');
+    },
+
+    setOrder: function(orderConditionStr){
+        this.get('model').setProperty('order', orderConditionStr);
+    },
+
+    getCount: function(){
+        return this.get('model').getProperty('count');
+    },
+
+    setCount: function(isCountNeed){
+        this.get('model').setProperty('count', isCountNeed);
+    },
+
+    beforeDeleteItem: function(item){
+        var itemId = this.idOfItem(item);
+        if(itemId !== undefined){
+            this.setDeletingUrlParams('params.id', itemId);
+        }
+    },
+
+    _handleUpdatedItemsData: function (itemsData, successHandler, errorHandler) {
+        var items = itemsData['Result']['Items'];
+        newBaseDataSource.prototype._handleUpdatedItemsData.call(this, items, successHandler, errorHandler);
+    },
+
+    quoteValue: function (value) {
+        var VALUE_QUOTE_CHAR = '\'';
+
+        if (_.isString(value)) {
+            return VALUE_QUOTE_CHAR + value + VALUE_QUOTE_CHAR;
+        } else {
+            return value
+        }
+    }
+
+});
+
+//####app/data/dataSource/_newBaseDataSourceBuilder.js
+/**
+ * @constructor
+ * @mixes DataSourceValidationNotifierMixin
+ */
+var newBaseDataSourceBuilder = function() {
+}
+
+_.extend(newBaseDataSourceBuilder.prototype, /** @lends BaseDataSourceBuilder.prototype */ {
+    build: function (context, args) {
+        var dataSource = this.createDataSource(args.parentView);
+        dataSource.suspendUpdate('tuningInSourceBuilder');
+
+        this.applyMetadata(args.builder, args.parentView, args.metadata, dataSource);
+        //this.initFileProvider(dataSource, args.metadata);
+
+        this.applySuspended(dataSource, args.suspended);
+
+        dataSource.resumeUpdate('tuningInSourceBuilder');
+
+        return dataSource;
+    },
+
+    applySuspended: function (dataSource, suspended) {
+        if (!suspended) {
+            return;
+        }
+
+        for (var name in suspended) {
+            if (!suspended.hasOwnProperty(name) || dataSource.getName() !== name) {
+                continue;
+            }
+
+            dataSource.suspendUpdate(suspended[name]);
+        }
+
+    },
+
+    applyMetadata: function (builder, parentView, metadata, dataSource) {
+        var idProperty = metadata.IdProperty;
+        if (idProperty) {
+            dataSource.setIdProperty(idProperty);
+        }
+
+        dataSource.setName(metadata.Name);
+        dataSource.setFillCreatedItem(metadata.FillCreatedItem);
+        //dataSource.setPageSize(metadata.PageSize || 15);
+        //dataSource.setPageNumber(metadata.PageNumber || 0);
+        //
+        //if('Sorting' in metadata){
+        //    dataSource.setSorting(metadata['Sorting']);
+        //}
+        //
+        //var queryMetadata;
+        //if('Query' in metadata){
+        //    dataSource.setFilter(metadata['Query']);
+        //}
+
+        if('IsLazy' in metadata){
+            dataSource.setIsLazy(metadata['IsLazy']);
+        }
+
+        this.initValidation(parentView, dataSource, metadata);
+        this.initNotifyValidation(dataSource);
+        this.initScriptsHandlers(parentView, metadata, dataSource);
+    },
+
+    createDataSource: function (parent) {
+        throw 'BaseDataSourceBuilder.createDataSource В потомке BaseDataSourceBuilder не переопределен метод createDataSource.';
+    },
+
+    /**
+     * @protected
+     * @description Инициализация обработчиков для валидации данных
+     * @param parentView
+     * @param dataSource
+     * @param metadata
+     */
+    initValidation: function (parentView, dataSource, metadata) {
+        if (metadata.ValidationErrors) {
+            dataSource.setErrorValidator(function (context, args) {
+                return new ScriptExecutor(parentView).executeScript(metadata.ValidationErrors.Name || metadata.ValidationErrors, args);
+            });
+        }
+
+        if (metadata.ValidationWarnings) {
+            dataSource.setWarningValidator(function (context, args) {
+                return new ScriptExecutor(parentView).executeScript(metadata.ValidationWarnings.Name || metadata.ValidationWarnings, args);
+            });
+        }
+    },
+
+    initScriptsHandlers: function (parentView, metadata, dataSource) {
+        //Скриптовые обработчики на события
+        if (parentView && metadata.OnSelectedItemChanged) {
+            dataSource.onSelectedItemChanged(function () {
+                new ScriptExecutor(parentView).executeScript(metadata.OnSelectedItemChanged.Name || metadata.OnSelectedItemChanged);
+            });
+        }
+
+        if (parentView && metadata.OnItemsUpdated) {
+            dataSource.onItemsUpdated(function () {
+                new ScriptExecutor(parentView).executeScript(metadata.OnItemsUpdated.Name || metadata.OnItemsUpdated);
+            });
+        }
+
+        //if (parentView && metadata.OnSelectedItemModified) {
+        //    dataSource.onSelectedItemModified(function () {
+        //        new ScriptExecutor(parentView).executeScript(metadata.OnSelectedItemModified.Name || metadata.OnSelectedItemModified);
+        //    });
+        //}
+
+        if (parentView && metadata.OnPropertyChanged) {
+            dataSource.onPropertyChanged(function (context, args) {
+                new ScriptExecutor(parentView).executeScript(metadata.OnPropertyChanged.Name || metadata.OnPropertyChanged, args);
+            });
+        }
+
+        if (parentView && metadata.OnItemDeleted) {
+            dataSource.onItemDeleted(function () {
+                new ScriptExecutor(parentView).executeScript(metadata.OnItemDeleted.Name || metadata.OnItemDeleted);
+            });
+        }
+    },
+
+    buildBindingBuilder: function(params){
+
+        return function(bindingMetadata){
+            return params.builder.buildBinding(bindingMetadata, {
+                parentView: params.parentView,
+                basePathOfProperty: params.basePathOfProperty
+            });
+        };
+    },
+
+    initFileProvider: function (dataSource, metadata) {
+
+    }
+});
+
+
+_.extend(newBaseDataSourceBuilder.prototype, DataSourceValidationNotifierMixin);
+//####app/data/dataSource/restDataSourceBuilder.js
+var RestDataSourceBuilder = function() {
+    _.superClass(RestDataSourceBuilder, this);
+}
+
+_.inherit(RestDataSourceBuilder, newBaseDataSourceBuilder);
+
+_.extend(RestDataSourceBuilder.prototype, {
+    createDataSource: function(parent){
+        return new RestDataSource({
+            view: parent
+        });
+    },
+
+    applyMetadata: function(builder, parent, metadata, dataSource){
+        newBaseDataSourceBuilder.prototype.applyMetadata.call(this, builder, parent, metadata, dataSource);
+
+        var tmpParams;
+
+        if('GettingParams' in metadata){
+            tmpParams = this.extractUrlParams(metadata['GettingParams'], '.urlParams.get.params');
+            dataSource.setGettingUrlParams(tmpParams);
+            this.bindParams(metadata['GettingParams'], dataSource, parent, '.urlParams.get.params', builder);
+        }
+
+        if('SettingParams' in metadata){
+            tmpParams = this.extractUrlParams(metadata['SettingParams'], '.urlParams.set.params');
+            dataSource.setSettingUrlParams(tmpParams);
+            this.bindParams(metadata['SettingParams'], dataSource, parent, '.urlParams.set.params', builder);
+        }
+
+        if('DeletingParams' in metadata){
+            tmpParams = this.extractUrlParams(metadata['DeletingParams'], '.urlParams.delet.params');
+            dataSource.setDeletingUrlParams(tmpParams);
+            this.bindParams(metadata['DeletingParams'], dataSource, parent, '.urlParams.delet.params', builder);
+        }
+
+    },
+
+    extractUrlParams: function(urlParamsMetadata, pathForBinding){
+        var result = {};
+
+        if('Origin' in urlParamsMetadata){
+            result.origin = urlParamsMetadata['Origin'];
+        }
+
+        if('Path' in urlParamsMetadata){
+            result.path = urlParamsMetadata['Path'];
+        }
+
+        if('Data' in urlParamsMetadata){
+            result.data = urlParamsMetadata['Data'];
+        }
+
+        if('Method' in urlParamsMetadata){
+            result.method = urlParamsMetadata['Method'];
+        }
+
+        result.params = {};
+
+        return result;
+    },
+
+    bindParams: function(methodMetadata, dataSource, parentView, pathForBinding, builder){
+        if('Params' in methodMetadata){
+            var params = methodMetadata['Params'];
+            for(var k in params){
+                this.initBindingToProperty(params[k], dataSource, parentView, pathForBinding + '.' + k, builder);
+            }
+        }
+    },
+
+    initBindingToProperty: function (valueMetadata, dataSource, parentView, pathForBinding, builder) {
+        if (typeof valueMetadata != 'object') {
+            if (valueMetadata !== undefined) {
+                dataSource.setProperty(pathForBinding, valueMetadata);
+            }
+
+        } else {
+            var args = {
+                parent: parentView,
+                parentView: parentView
+            };
+
+            var dataBinding = builder.buildBinding(valueMetadata, args);
+
+            dataBinding.setMode(InfinniUI.BindingModes.toElement);
+
+            dataBinding.bindElement(dataSource, pathForBinding);
+        }
+    }
+});
+//####app/data/dataSource/documentDataSourceBuilder.js
+var DocumentDataSourceBuilder = function() {
+    _.superClass(DocumentDataSourceBuilder, this);
+}
+
+_.inherit(DocumentDataSourceBuilder, newBaseDataSourceBuilder);
+
+_.extend(DocumentDataSourceBuilder.prototype, {
+    applyMetadata: function(builder, parent, metadata, dataSource){
+        newBaseDataSourceBuilder.prototype.applyMetadata.call(this, builder, parent, metadata, dataSource);
+
+        dataSource.setDocumentId(metadata['DocumentId']);
+
+        if('PageNumber' in metadata){ dataSource.setPageNumber(metadata['PageNumber']); }
+        if('PageSize' in metadata){ dataSource.setPageSize(metadata['PageSize']); }
+
+        if('Filter' in metadata){ dataSource.setFilter(metadata['Filter']); }
+        if('FilterParams' in metadata){
+            var params = metadata['FilterParams'];
+            for(var k in params){
+                this.initBindingToProperty(params[k], dataSource, parent, '.filterParams.' + k, builder);
+            }
+        }
+
+        if('Search' in metadata){ dataSource.setSearch(metadata['Search']); }
+        if('Select' in metadata){ dataSource.setSelect(metadata['Select']); }
+        if('Order' in metadata){ dataSource.setOrder(metadata['Order']); }
+        if('Count' in metadata){ dataSource.setOrder(metadata['Count']); }
+
+    },
+
+    createDataSource: function(parent){
+        return new DocumentDataSource({
+            view: parent
+        });
+    },
+
+    initBindingToProperty: RestDataSourceBuilder.prototype.initBindingToProperty
+
+    //initFileProvider: function (dataSource) {
+    //    var fileProvider = window.providerRegister.build('DocumentFileProvider', {
+    //        documentId: dataSource.getDocumentId(),
+    //        configId: dataSource.getConfigId()
+    //    });
+    //
+    //    dataSource.setFileProvider(fileProvider);
+    //}
+});
+
 //####app/new/elements/_base/_common/buttonBuilderMixin.js
 var buttonBuilderMixin = {
     applyButtonMetadata: function(params){
@@ -17454,6 +20615,56 @@ TimePickerBuilder.prototype.applyMaxValue = function (element, maxValue) {
         element.setMaxValue(date);
     }
 };
+//####app/new/elements/GridPanel/gridPanel.js
+/**
+ * @param parent
+ * @constructor
+ * @augments Container
+ */
+function GridPanel(parent) {
+    _.superClass(GridPanel, this, parent);
+}
+
+_.inherit(GridPanel, Container);
+
+_.extend(GridPanel.prototype, {
+    createControl: function () {
+        return new GridPanelControl();
+    }
+});
+//####app/new/elements/GridPanel/gridPanelBuilder.js
+/**
+ * @constructor
+ * @augments ContainerBuilder
+ */
+function GridPanelBuilder() {
+    _.superClass(GridPanelBuilder, this);
+}
+
+_.inherit(GridPanelBuilder, ContainerBuilder);
+
+_.extend(GridPanelBuilder.prototype,
+    /** @lends GridPanelBuilder.prototype*/
+    {
+        createElement: function (params) {
+            return new GridPanel(params.parent);
+        },
+
+        /**
+         * @param {Object} params
+         * @param {TablePanel} params.element
+         * @param {Object} params.metadata
+         */
+        applyMetadata: function (params) {
+            var
+                metadata = params.metadata,
+                element = params.element;
+
+            ContainerBuilder.prototype.applyMetadata.call(this, params);
+        }
+
+    });
+
 //####app/new/elements/button/button.js
 /**
  * @param parent
@@ -18040,6 +21251,40 @@ DataGrid.prototype.createRow = function () {
     return new DataGridRow(this);
 };
 
+/**
+ * @description Устанавливает значение, определяющее виден ли элемент "Выбрать все" в шапке таблицы.
+ * @param {boolean} value
+ */
+DataGrid.prototype.setCheckAllVisible = function (value) {
+    if (_.isBoolean(value)) {
+        this.control.set('checkAllVisible', value);
+    }
+};
+
+/**
+ * @description Возвращает значение, определяющее виден ли элемент "Выбрать все" в шапке таблицы.
+ * @returns {boolean}
+ */
+DataGrid.prototype.getCheckAllVisible = function () {
+    return this.control.get('checkAllVisible');
+};
+
+/**
+ * @description Возвращает состояние элемента "Выбрать все" из шапки таблицы
+ * @returns {boolean}
+ */
+DataGrid.prototype.getCheckAll = function () {
+    return this.control.get('checkAll');
+};
+
+/**
+ * @description Устанавливает обработчик события о том, что изменилось состояние элемента "Выбрать все" в шапке таблицы
+ * @param {function} handler
+ */
+DataGrid.prototype.onCheckAllChanged = function (handler) {
+    this.control.onCheckAllChanged(this.createControlEventHandler(this, handler));
+};
+
 DataGrid.prototype.createControl = function () {
     return new DataGridControl();
 };
@@ -18060,7 +21305,17 @@ _.extend(DataGridBuilder.prototype, /** @lends DataGridBuilder.prototype */{
     applyMetadata: function (params) {
         ListEditorBaseBuilder.prototype.applyMetadata.call(this, params);
 
-        params.element.setShowSelectors(params.metadata.ShowSelectors);
+        var metadata = params.metadata;
+        /** @type DataGrid **/
+        var element = params.element;
+        element.setShowSelectors(metadata.ShowSelectors);
+        element.setCheckAllVisible(metadata.CheckAllVisible);
+
+        if(metadata.OnCheckAllChanged){
+            element.onCheckAllChanged(function(context, args) {
+                new ScriptExecutor(element.getScriptsStorage()).executeScript(metadata.OnCheckAllChanged.Name || metadata.OnCheckAllChanged, args);
+            });
+        }
         this.applyColumnsMetadata(params);
     },
 
@@ -18947,56 +22202,6 @@ _.extend(FrameBuilder.prototype, {
     },
     editorBaseBuilderMixin
 );
-//####app/new/elements/GridPanel/gridPanel.js
-/**
- * @param parent
- * @constructor
- * @augments Container
- */
-function GridPanel(parent) {
-    _.superClass(GridPanel, this, parent);
-}
-
-_.inherit(GridPanel, Container);
-
-_.extend(GridPanel.prototype, {
-    createControl: function () {
-        return new GridPanelControl();
-    }
-});
-//####app/new/elements/GridPanel/gridPanelBuilder.js
-/**
- * @constructor
- * @augments ContainerBuilder
- */
-function GridPanelBuilder() {
-    _.superClass(GridPanelBuilder, this);
-}
-
-_.inherit(GridPanelBuilder, ContainerBuilder);
-
-_.extend(GridPanelBuilder.prototype,
-    /** @lends GridPanelBuilder.prototype*/
-    {
-        createElement: function (params) {
-            return new GridPanel(params.parent);
-        },
-
-        /**
-         * @param {Object} params
-         * @param {TablePanel} params.element
-         * @param {Object} params.metadata
-         */
-        applyMetadata: function (params) {
-            var
-                metadata = params.metadata,
-                element = params.element;
-
-            ContainerBuilder.prototype.applyMetadata.call(this, params);
-        }
-
-    });
-
 //####app/new/elements/icon/icon.js
 function Icon(parent) {
     _.superClass(Icon, this, parent);
@@ -20125,166 +23330,6 @@ _.extend(StackPanelBuilder.prototype,
 
     });
 
-//####app/new/elements/tablePanel/cell/cell.js
-/**
- * @param parent
- * @constructor
- * @augments Container
- */
-function Cell(parent) {
-    _.superClass(Cell, this, parent);
-}
-
-_.inherit(Cell, Container);
-
-_.extend(Cell.prototype, {
-    createControl: function () {
-        return new CellControl();
-    },
-
-    getColumnSpan: function(){
-        return this.control.get('columnSpan');
-    },
-
-    setColumnSpan: function(newColumnSpan){
-        this.control.set('columnSpan', newColumnSpan);
-    }
-});
-//####app/new/elements/tablePanel/cell/cellBuilder.js
-/**
- * @constructor
- * @augments ContainerBuilder
- */
-function CellBuilder() {
-    _.superClass(CellBuilder, this);
-}
-
-_.inherit(CellBuilder, ContainerBuilder);
-
-_.extend(CellBuilder.prototype,
-    /** @lends CellBuilder.prototype*/
-    {
-        createElement: function (params) {
-            return new Cell(params.parent);
-        },
-
-        /**
-         * @param {Object} params
-         * @param {CellBuilder} params.element
-         * @param {Object} params.metadata
-         */
-        applyMetadata: function (params) {
-            var
-                metadata = params.metadata,
-                element = params.element;
-
-            ContainerBuilder.prototype.applyMetadata.call(this, params);
-
-            params.element.setColumnSpan(metadata.ColumnSpan);
-        }
-
-    });
-
-//####app/new/elements/tablePanel/row/row.js
-/**
- * @param parent
- * @constructor
- * @augments Container
- */
-function Row(parent) {
-    _.superClass(Row, this, parent);
-}
-
-_.inherit(Row, Container);
-
-_.extend(Row.prototype, {
-    createControl: function () {
-        return new RowControl();
-    }
-});
-//####app/new/elements/tablePanel/row/RowBuilder.js
-/**
- * @constructor
- * @augments ContainerBuilder
- */
-function RowBuilder() {
-    _.superClass(RowBuilder, this);
-}
-
-_.inherit(RowBuilder, ContainerBuilder);
-
-_.extend(RowBuilder.prototype,
-    /** @lends RowBuilder.prototype*/
-    {
-        createElement: function (params) {
-            return new Row(params.parent);
-        },
-
-        /**
-         * @param {Object} params
-         * @param {RowBuilder} params.element
-         * @param {Object} params.metadata
-         */
-        applyMetadata: function (params) {
-            var
-                metadata = params.metadata,
-                element = params.element;
-
-            ContainerBuilder.prototype.applyMetadata.call(this, params);
-        }
-
-    });
-
-//####app/new/elements/tablePanel/tablePanel.js
-/**
- * @param parent
- * @constructor
- * @augments Container
- */
-function TablePanel(parent) {
-    _.superClass(TablePanel, this, parent);
-}
-
-_.inherit(TablePanel, Container);
-
-_.extend(TablePanel.prototype, {
-    createControl: function () {
-        return new TablePanelControl();
-    }
-});
-//####app/new/elements/tablePanel/tablePanelBuilder.js
-/**
- * @constructor
- * @augments ContainerBuilder
- */
-function TablePanelBuilder() {
-    _.superClass(TablePanelBuilder, this);
-}
-
-_.inherit(TablePanelBuilder, ContainerBuilder);
-
-_.extend(TablePanelBuilder.prototype,
-    /** @lends TablePanelBuilder.prototype*/
-    {
-        createElement: function (params) {
-            return new TablePanel(params.parent);
-        },
-
-        /**
-         * @param {Object} params
-         * @param {TablePanel} params.element
-         * @param {Object} params.metadata
-         */
-        applyMetadata: function (params) {
-            var
-                metadata = params.metadata,
-                element = params.element;
-
-            ContainerBuilder.prototype.applyMetadata.call(this, params);
-        }
-
-    });
-
 //####app/new/elements/tabPanel/tabPage/tabPage.js
 /**
  * @param parent
@@ -20630,6 +23675,166 @@ _.extend(TabPanelBuilder.prototype, /** @lends TabPanelBuilder.prototype*/ {
 
 
 });
+
+//####app/new/elements/tablePanel/cell/cell.js
+/**
+ * @param parent
+ * @constructor
+ * @augments Container
+ */
+function Cell(parent) {
+    _.superClass(Cell, this, parent);
+}
+
+_.inherit(Cell, Container);
+
+_.extend(Cell.prototype, {
+    createControl: function () {
+        return new CellControl();
+    },
+
+    getColumnSpan: function(){
+        return this.control.get('columnSpan');
+    },
+
+    setColumnSpan: function(newColumnSpan){
+        this.control.set('columnSpan', newColumnSpan);
+    }
+});
+//####app/new/elements/tablePanel/cell/cellBuilder.js
+/**
+ * @constructor
+ * @augments ContainerBuilder
+ */
+function CellBuilder() {
+    _.superClass(CellBuilder, this);
+}
+
+_.inherit(CellBuilder, ContainerBuilder);
+
+_.extend(CellBuilder.prototype,
+    /** @lends CellBuilder.prototype*/
+    {
+        createElement: function (params) {
+            return new Cell(params.parent);
+        },
+
+        /**
+         * @param {Object} params
+         * @param {CellBuilder} params.element
+         * @param {Object} params.metadata
+         */
+        applyMetadata: function (params) {
+            var
+                metadata = params.metadata,
+                element = params.element;
+
+            ContainerBuilder.prototype.applyMetadata.call(this, params);
+
+            params.element.setColumnSpan(metadata.ColumnSpan);
+        }
+
+    });
+
+//####app/new/elements/tablePanel/row/RowBuilder.js
+/**
+ * @constructor
+ * @augments ContainerBuilder
+ */
+function RowBuilder() {
+    _.superClass(RowBuilder, this);
+}
+
+_.inherit(RowBuilder, ContainerBuilder);
+
+_.extend(RowBuilder.prototype,
+    /** @lends RowBuilder.prototype*/
+    {
+        createElement: function (params) {
+            return new Row(params.parent);
+        },
+
+        /**
+         * @param {Object} params
+         * @param {RowBuilder} params.element
+         * @param {Object} params.metadata
+         */
+        applyMetadata: function (params) {
+            var
+                metadata = params.metadata,
+                element = params.element;
+
+            ContainerBuilder.prototype.applyMetadata.call(this, params);
+        }
+
+    });
+
+//####app/new/elements/tablePanel/row/row.js
+/**
+ * @param parent
+ * @constructor
+ * @augments Container
+ */
+function Row(parent) {
+    _.superClass(Row, this, parent);
+}
+
+_.inherit(Row, Container);
+
+_.extend(Row.prototype, {
+    createControl: function () {
+        return new RowControl();
+    }
+});
+//####app/new/elements/tablePanel/tablePanel.js
+/**
+ * @param parent
+ * @constructor
+ * @augments Container
+ */
+function TablePanel(parent) {
+    _.superClass(TablePanel, this, parent);
+}
+
+_.inherit(TablePanel, Container);
+
+_.extend(TablePanel.prototype, {
+    createControl: function () {
+        return new TablePanelControl();
+    }
+});
+//####app/new/elements/tablePanel/tablePanelBuilder.js
+/**
+ * @constructor
+ * @augments ContainerBuilder
+ */
+function TablePanelBuilder() {
+    _.superClass(TablePanelBuilder, this);
+}
+
+_.inherit(TablePanelBuilder, ContainerBuilder);
+
+_.extend(TablePanelBuilder.prototype,
+    /** @lends TablePanelBuilder.prototype*/
+    {
+        createElement: function (params) {
+            return new TablePanel(params.parent);
+        },
+
+        /**
+         * @param {Object} params
+         * @param {TablePanel} params.element
+         * @param {Object} params.metadata
+         */
+        applyMetadata: function (params) {
+            var
+                metadata = params.metadata,
+                element = params.element;
+
+            ContainerBuilder.prototype.applyMetadata.call(this, params);
+        }
+
+    });
 
 //####app/new/elements/toggleButton/toggleButton.js
 /**
@@ -21185,6 +24390,22 @@ _.extend(View.prototype,
             }
 
             return this.membersDeferreds[memberName];
+        },
+
+        /**
+         *
+         * @param {string} value
+         */
+        setFocusOnControl: function (value) {
+            this.control.set('focusOnControl', value);
+        },
+
+        /**
+         *
+         * @returns {string}
+         */
+        getFocusOnControl: function () {
+            return this.control.get('focusOnControl');
         }
 
 
@@ -21316,6 +24537,8 @@ _.extend(ViewBuilder.prototype, {
         }
 
         ContainerBuilder.prototype.applyMetadata.call(this, params);
+
+        element.setFocusOnControl(metadata.FocusOnControl);
     },
 
     triggerStartCreatingEvent: function (params) {
@@ -21466,11 +24689,12 @@ _.inherit(AddAction, BaseEditAction);
 _.extend(AddAction.prototype, {
     setSelectedItem: function(){
         var editDataSource = this.getProperty('editDataSource'),
-            editView = editDataSource.getView();
+            editView = editDataSource.getView(),
+            item = {};
 
         if( this._isObjectDataSource(editDataSource) ) {
-            editDataSource.setItems([{}]);
-            editDataSource.setSelectedItem({});
+            editDataSource.setItems([item]);
+            editDataSource.setSelectedItem(item);
         } else {
             editDataSource.suspendUpdate();
 
@@ -21692,10 +24916,9 @@ _.extend(EditAction.prototype, {
 
     setDocument: function (editDataSource, selectedItem){
         var selectedItemId = editDataSource.idOfItem( selectedItem );
-
-        var criteria = [ { CriteriaType:1, Property: "Id", Value:  selectedItemId  } ];
+        editDataSource.setIdFilter(selectedItemId);
+        editDataSource.tryInitData();
         this.resumeUpdateEditDataSource();
-        editDataSource.setFilter( criteria );
     },
 
     setItem: function(editDataSource, selectedItem){
@@ -22228,6 +25451,9 @@ DownloadExecutor.prototype.waitResponse = function (beforeStart) {
 //####app/actions/serverAction/serverAction.js
 function ServerAction(parentView) {
     _.superClass(ServerAction, this, parentView);
+
+    this.provider = window.providerRegister.build('ServerActionProvider');
+
     this.updateContentTypeStrategy();
     this.on('change:contentType', this.updateContentTypeStrategy);
 }
@@ -22237,35 +25463,76 @@ _.inherit(ServerAction, BaseAction);
 _.extend(ServerAction.prototype, {
 
     defaults: {
-        contentType: 'Object'
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        method: 'GET',
+        data: {}
     },
 
     updateContentTypeStrategy: function () {
         var contentType = this.getProperty('contentType');
-        this.contentTypeStrategy = serverActionContentTypeStrategy[contentType];
+
+        if( _.isString(contentType) && contentType.includes('multipart') ){
+            this.contentTypeStrategy = serverActionContentTypeStrategy['File'];
+        } else {
+            this.contentTypeStrategy = serverActionContentTypeStrategy['Object'];
+        }
     },
 
     execute: function (callback) {
-        this.contentTypeStrategy.run(this.getProperty('provider'), this.getParametersValue(), callback);
+        this.contentTypeStrategy.run(this.provider, this._getRequestData(), callback);
     },
 
-    setParameters: function (parameters) {
-        this.setProperty('parameters', parameters);
+    setParam: function(name, value) {
+        this.setProperty('params.' + name, value);
     },
 
-    getParametersValue: function () {
-        var parameters = this.getProperty('parameters');
-        var values = {};
+    getParam: function(name) {
+        return this.getProperty('params.' + name);
+    },
 
-        for (var i in parameters) {
-            if (!parameters.hasOwnProperty(i)) {
-                continue;
+    _getRequestData: function () {
+        var origin = this._replaceParamsInStr( this.getProperty('origin') );
+        var path = this._replaceParamsInStr( this.getProperty('path') );
+        var method = this.getProperty('method').toUpperCase();
+        var contentType = this.getProperty('contentType');
+        var data = this._replaceParamsInObject( this.getProperty('data') );
+
+        var result = {};
+        result.requestUrl = origin + path;
+        result.method = method;
+        result.contentType = contentType;
+
+        if( !_.isEmpty(data) ){
+            if( method == 'GET') {
+                result.requestUrl = result.requestUrl + '?' + stringUtils.joinDataForQuery(data);
+            } else {
+                result.args = ( _.isString(contentType) && contentType.includes('application/json')) ? JSON.stringify(data) : data;
             }
-
-            values[i] = parameters[i].getValue();
         }
 
-        return values;
+        return result;
+    },
+
+    _replaceParamsInStr: function(str){
+        if(!str){
+            return str;
+        }
+
+        var that = this;
+
+        return str.replace(/<%([\s\S]+?)%>/g, function(p1, p2){
+            return that.getParam(p2);
+        });
+    },
+
+    _replaceParamsInObject: function(obj){
+        if(_.isEmpty(obj) ){
+            return obj;
+        }
+
+        var str = JSON.stringify(obj);
+        var replacedStr = this._replaceParamsInStr(str);
+        return JSON.parse(replacedStr);
     }
 });
 
@@ -22277,27 +25544,60 @@ function ServerActionBuilder() {
             parentView = args.parentView;
 
         var action = new ServerAction(parentView);
-        var provider = window.providerRegister.build('ServerActionProvider', metadata);
 
-        //action.setProperty('linkView', linkView);
-        action.setProperty('provider', provider);
+        action.setProperty('origin', metadata.Origin);
+        action.setProperty('path', metadata.Path);
 
-        var parameters = {};
-
-        if (Array.isArray(metadata.Parameters)) {
-            metadata.Parameters.forEach(function (metadata) {
-                var param = builder.buildType('Parameter', metadata, {parentView: parentView});
-                parameters[param.getName()] = param;
-            });
-            action.setParameters(parameters);
+        if (metadata.Data) {
+            action.setProperty('data', metadata.Data);
         }
 
-        if (metadata.ContentType) {
+        if (metadata.Method) {
+            action.setProperty('method', metadata.Method);
+        }
+
+        if (metadata.ContentType || metadata.ContentType === false) {
             action.setProperty('contentType', metadata.ContentType);
         }
 
+        if(metadata.Params){
+            for(var name in metadata.Params) {
+
+                var value = metadata.Params[name];
+
+                if (typeof value != 'object') {
+                    if (value !== undefined) {
+                        action.setParam(name, value);
+                    }
+                } else {
+                    this._initBinding(name, value, action, parentView, builder);
+                }
+            }
+        }
+
         return action;
-    }
+    };
+
+    this._initBinding = function (paramName, paramValue, action, parentView, builder) {
+        var args = {
+            parent: parentView,
+            parentView: parentView
+        };
+
+        var dataBinding = builder.buildBinding(paramValue, args);
+
+        dataBinding.setMode(InfinniUI.BindingModes.toElement);
+
+        dataBinding.bindElement({
+            setProperty: function (name, value) {
+                action.setParam(name, value);
+            },
+
+            onPropertyChanged: function () {
+            }
+
+        }, paramName);
+    };
 }
 
 //####app/actions/serverAction/serverActionContentTypeStrategy.js
@@ -22309,7 +25609,6 @@ var serverActionContentTypeStrategy = {
     },
     "Object": {
         run: function (provider, params, callback) {
-
             provider.request(params, callback);
         }
     }
@@ -22410,13 +25709,13 @@ _.extend(ApplicationBuilder.prototype, {
         builder.register('ButtonEdit', new ButtonEditBuilder());
 
 
+        builder.register('RestDataSource', new RestDataSourceBuilder());
         builder.register('DocumentDataSource', new DocumentDataSourceBuilder());
         builder.register('DataBinding', new DataBindingBuilder());
         builder.register('PropertyBinding', new DataBindingBuilder());
         builder.register('ObjectDataSource', new ObjectDataSourceBuilder());
         builder.register('Parameter', new ParameterBuilder());
         builder.register('Validation', new ValidationBuilder());
-        builder.register('Criteria', new CriteriaBuilder());
 
 
         builder.register('AcceptAction', new AcceptActionBuilder());
@@ -23525,6 +26824,233 @@ var GlobalNavigationPopup = Backbone.View.extend({
     }
 
 });
+//####app/controls/application/statusBar/authentication/SignInSuccessView.js
+jQuery(document).ready(function () {
+    InfinniUI.user = {
+        onReadyDeferred: $.Deferred(),
+        onReady: function(handler){
+            this.onReadyDeferred.done(handler);
+        }
+    };
+
+    refreshUserInfo();
+});
+
+function getUserInfo(self){
+    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
+    authProvider.getCurrentUser(
+        function (result) {
+            self.model.set('result', result);
+        },
+        function (error) {
+            showObject('#signInInternalResult', error);
+        }
+    );
+}
+
+function refreshUserInfo() {
+    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
+    authProvider.getCurrentUser(
+        function (result) {
+            InfinniUI.user.onReadyDeferred.resolve(result);
+        },
+        function (error) {
+            InfinniUI.user .onReadyDeferred.resolve(null);
+        }
+    );
+}
+
+function changePassword() {
+    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
+
+    authProvider.changePassword(
+        $('#oldPassword').val(),
+        $('#newPassword').val(),
+        function (result) {
+            refreshUserInfo();
+        },
+        function (error) {
+            showObject('#changePasswordResult', error);
+        }
+    );
+}
+
+function changeProfile() {
+    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
+
+    authProvider.changeProfile(
+        $('#displayName').val(),
+        $('#description').val(),
+        function (result) {
+            refreshUserInfo();
+        },
+        function (error) {
+            showObject('#changeProfileResult', error);
+        }
+    );
+}
+
+function changeActiveRole() {
+    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
+
+    authProvider.changeActiveRole(
+        $('#activeRole').val(),
+        function (result) {
+            refreshUserInfo();
+        },
+        function (error) {
+            showObject('#сhangeActiveRoleResult', error);
+        }
+    );
+}
+
+function getLinkExternalLoginForm() {
+    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
+
+    authProvider.getLinkExternalLoginForm(
+        getAbsoluteUri('/Home/SignInSuccess'),
+        getAbsoluteUri('/Home/SignInFailure'),
+        function (result) {
+            $('#linkExternalLoginForm').append(result);
+        },
+        function (error) {
+            showObject('#linkExternalLoginResult', error);
+        }
+    );
+}
+
+function unlinkExternalLogin(provider, providerKey) {
+    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
+
+    authProvider.unlinkExternalLogin(
+        provider,
+        providerKey,
+        function (result) {
+            refreshUserInfo();
+        },
+        function (error) {
+            showObject('#unlinkExternalLoginResult', error);
+        }
+    );
+}
+
+function signOut(self) {
+    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
+
+    onSuccessSignOut(getHomePageContext());
+
+    authProvider.signOut(
+        function (result) {
+
+
+            window.getCurrentUserName = function(){
+                return null;
+            };
+
+            //self.model.set('result', result);
+            self.model.set('result', null);
+            location.reload();
+//            window.location = '/Home/SignIn';
+        },
+        function (error) {
+            showObject('#getCurrentUserResult', error.responseJSON);
+        }
+    );
+}
+
+function setUserInfo(userInfo) {
+    //showObject('#getCurrentUserResult', userInfo);
+    //$('#displayName').val(userInfo.DisplayName);
+    //$('#description').val(userInfo.Description);
+    //$('#activeRole').val(userInfo.ActiveRole);
+
+    if (userInfo.Logins !== null && userInfo.Logins !== undefined) {
+        var externalLogins = $('#externalLogins');
+
+        for (var i = 0; i < userInfo.Logins.length; ++i) {
+            var loginInfo = userInfo.Logins[i];
+            var provider = loginInfo.Provider;
+            var providerKey = loginInfo.ProviderKey;
+
+            var unlinkButton = $(document.createElement('input'));
+            unlinkButton.attr('type', 'button');
+            unlinkButton.attr('value', provider);
+            unlinkButton.attr('onclick', 'unlinkExternalLogin(\'' + provider + '\', \'' + providerKey + '\')');
+            externalLogins.append(unlinkButton);
+        }
+    }
+    getLinkExternalLoginForm();
+}
+
+function getAbsoluteUri(relativeUri) {
+    return location.protocol + '//' + location.host + relativeUri;
+}
+
+function showObject(element, object) {
+    var text = formatObject(object);
+    $(element).text(text);
+}
+
+function formatObject(object) {
+    return JSON.stringify(object, null, 4);
+}
+//####app/controls/application/statusBar/authentication/SignInView.js
+jQuery(document).ready(function () {
+    getSignInExternalForm();
+});
+
+function signInInternal(self) {
+    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
+    authProvider.signInInternal(
+        $('#userName').val(),
+        $('#password').val(),
+        $('#remember').is(':checked'),
+        function (result) {
+
+
+            window.getCurrentUserName = function(){
+                return result.UserName;
+            };
+
+            self.model.set('result', result);
+            self.$modal.modal('hide');
+            location.reload();
+        },
+        function (error) {
+            if(error.Error.indexOf('Invalid username or password') > -1){
+                toastr.error('Неверный логин или пароль', "Ошибка!");
+            }
+            showObject('#signInInternalResult', error);
+        }
+    );
+}
+
+function getSignInExternalForm() {
+    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
+    authProvider.getSignInExternalForm(
+        getAbsoluteUri('/Home/SignInSuccess'),
+        getAbsoluteUri('/Home/SignInFailure'),
+        function (result) {
+            $('#signInExternalForm').append(result);
+        },
+        function (error) {
+            showObject('#signInExternalResult', error);
+        }
+    );
+}
+
+function getAbsoluteUri(relativeUri) {
+    return location.protocol + '//' + location.host + relativeUri;
+}
+
+function showObject(element, object) {
+    var text = formatObject(object);
+    $(element).text(text);
+}
+
+function formatObject(object) {
+    return JSON.stringify(object, null, 4);
+}
 //####app/controls/application/statusBar/authentication/authenticationProvider.js
 /**
   * Провайдер аутентификации.
@@ -23813,233 +27339,6 @@ _.extend(AuthenticationProvider.prototype, {
 _.extend(AuthenticationProvider.prototype, ajaxRequestMixin);
 
 InfinniUI.global.session = new AuthenticationProvider(InfinniUI.config.serverUrl);
-//####app/controls/application/statusBar/authentication/SignInSuccessView.js
-jQuery(document).ready(function () {
-    InfinniUI.user = {
-        onReadyDeferred: $.Deferred(),
-        onReady: function(handler){
-            this.onReadyDeferred.done(handler);
-        }
-    };
-
-    refreshUserInfo();
-});
-
-function getUserInfo(self){
-    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
-    authProvider.getCurrentUser(
-        function (result) {
-            self.model.set('result', result);
-        },
-        function (error) {
-            showObject('#signInInternalResult', error);
-        }
-    );
-}
-
-function refreshUserInfo() {
-    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
-    authProvider.getCurrentUser(
-        function (result) {
-            InfinniUI.user.onReadyDeferred.resolve(result);
-        },
-        function (error) {
-            InfinniUI.user .onReadyDeferred.resolve(null);
-        }
-    );
-}
-
-function changePassword() {
-    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
-
-    authProvider.changePassword(
-        $('#oldPassword').val(),
-        $('#newPassword').val(),
-        function (result) {
-            refreshUserInfo();
-        },
-        function (error) {
-            showObject('#changePasswordResult', error);
-        }
-    );
-}
-
-function changeProfile() {
-    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
-
-    authProvider.changeProfile(
-        $('#displayName').val(),
-        $('#description').val(),
-        function (result) {
-            refreshUserInfo();
-        },
-        function (error) {
-            showObject('#changeProfileResult', error);
-        }
-    );
-}
-
-function changeActiveRole() {
-    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
-
-    authProvider.changeActiveRole(
-        $('#activeRole').val(),
-        function (result) {
-            refreshUserInfo();
-        },
-        function (error) {
-            showObject('#сhangeActiveRoleResult', error);
-        }
-    );
-}
-
-function getLinkExternalLoginForm() {
-    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
-
-    authProvider.getLinkExternalLoginForm(
-        getAbsoluteUri('/Home/SignInSuccess'),
-        getAbsoluteUri('/Home/SignInFailure'),
-        function (result) {
-            $('#linkExternalLoginForm').append(result);
-        },
-        function (error) {
-            showObject('#linkExternalLoginResult', error);
-        }
-    );
-}
-
-function unlinkExternalLogin(provider, providerKey) {
-    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
-
-    authProvider.unlinkExternalLogin(
-        provider,
-        providerKey,
-        function (result) {
-            refreshUserInfo();
-        },
-        function (error) {
-            showObject('#unlinkExternalLoginResult', error);
-        }
-    );
-}
-
-function signOut(self) {
-    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
-
-    onSuccessSignOut(getHomePageContext());
-
-    authProvider.signOut(
-        function (result) {
-
-
-            window.getCurrentUserName = function(){
-                return null;
-            };
-
-            //self.model.set('result', result);
-            self.model.set('result', null);
-            location.reload();
-//            window.location = '/Home/SignIn';
-        },
-        function (error) {
-            showObject('#getCurrentUserResult', error.responseJSON);
-        }
-    );
-}
-
-function setUserInfo(userInfo) {
-    //showObject('#getCurrentUserResult', userInfo);
-    //$('#displayName').val(userInfo.DisplayName);
-    //$('#description').val(userInfo.Description);
-    //$('#activeRole').val(userInfo.ActiveRole);
-
-    if (userInfo.Logins !== null && userInfo.Logins !== undefined) {
-        var externalLogins = $('#externalLogins');
-
-        for (var i = 0; i < userInfo.Logins.length; ++i) {
-            var loginInfo = userInfo.Logins[i];
-            var provider = loginInfo.Provider;
-            var providerKey = loginInfo.ProviderKey;
-
-            var unlinkButton = $(document.createElement('input'));
-            unlinkButton.attr('type', 'button');
-            unlinkButton.attr('value', provider);
-            unlinkButton.attr('onclick', 'unlinkExternalLogin(\'' + provider + '\', \'' + providerKey + '\')');
-            externalLogins.append(unlinkButton);
-        }
-    }
-    getLinkExternalLoginForm();
-}
-
-function getAbsoluteUri(relativeUri) {
-    return location.protocol + '//' + location.host + relativeUri;
-}
-
-function showObject(element, object) {
-    var text = formatObject(object);
-    $(element).text(text);
-}
-
-function formatObject(object) {
-    return JSON.stringify(object, null, 4);
-}
-//####app/controls/application/statusBar/authentication/SignInView.js
-jQuery(document).ready(function () {
-    getSignInExternalForm();
-});
-
-function signInInternal(self) {
-    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
-    authProvider.signInInternal(
-        $('#userName').val(),
-        $('#password').val(),
-        $('#remember').is(':checked'),
-        function (result) {
-
-
-            window.getCurrentUserName = function(){
-                return result.UserName;
-            };
-
-            self.model.set('result', result);
-            self.$modal.modal('hide');
-            location.reload();
-        },
-        function (error) {
-            if(error.Error.indexOf('Invalid username or password') > -1){
-                toastr.error('Неверный логин или пароль', "Ошибка!");
-            }
-            showObject('#signInInternalResult', error);
-        }
-    );
-}
-
-function getSignInExternalForm() {
-    var authProvider = new AuthenticationProvider(InfinniUI.config.serverUrl);
-    authProvider.getSignInExternalForm(
-        getAbsoluteUri('/Home/SignInSuccess'),
-        getAbsoluteUri('/Home/SignInFailure'),
-        function (result) {
-            $('#signInExternalForm').append(result);
-        },
-        function (error) {
-            showObject('#signInExternalResult', error);
-        }
-    );
-}
-
-function getAbsoluteUri(relativeUri) {
-    return location.protocol + '//' + location.host + relativeUri;
-}
-
-function showObject(element, object) {
-    var text = formatObject(object);
-    $(element).text(text);
-}
-
-function formatObject(object) {
-    return JSON.stringify(object, null, 4);
-}
 //####app/controls/application/statusBar/statusBar.js
 var StatusBarControl = function () {
     _.superClass(StatusBarControl, this);
@@ -24485,7 +27784,7 @@ ComparatorBuilder.prototype.build = function () {
 //####app/data/comparators/comparatorId.js
 var ComparatorId = function () {
 
-    this.propertyName = 'Id';
+    this.propertyName = '_id';
 };
 
 ComparatorId.prototype.isEqual = function (a, b) {
@@ -24499,389 +27798,6 @@ ComparatorId.prototype.isEqual = function (a, b) {
 
     return result;
 };
-//####app/data/criteria/criteria.js
-var Criteria = function (items) {
-    this.onValueChangedHandlers = [];
-    this.items = items || [];
-};
-
-Criteria.prototype.onValueChanged = function (handler) {
-    if (typeof handler === 'function' && this.onValueChangedHandlers.indexOf(handler) === -1) {
-        this.onValueChangedHandlers.push(handler);
-    }
-};
-
-Criteria.prototype.valueChanged = function () {
-    _.each(this.onValueChangedHandlers, function (handler) {
-        handler();
-    });
-};
-
-
-
-Criteria.prototype.getAsArray = function () {
-    var list = [];
-    _.each(this.items, function (item) {
-        var criteria = {};
-        for (var key in item) {
-            if (!item.hasOwnProperty(key)) continue;
-            if (key === 'Value' && typeof item.Value === 'function') {
-                criteria[key] = item.Value();
-            } else {
-                criteria[key] = item[key];
-            }
-        }
-        list.push(criteria);
-    });
-
-    return list;
-};
-
-Criteria.prototype.setItems = function (items) {
-    if (typeof items !== 'undefined' && items !== null) {
-        this.items = items;
-    } else {
-        this.items = [];
-    }
-};
-
-
-/**
- * Обратная совместимость (если строка то конвертирует в "флаговое соответствие")
- */
-Criteria.prototype.decodeCriteriaType = function (value) {
-    var criteriaType = value;
-
-    if (typeof value === 'string') {
-        criteriaType = parseInt(value, 10);
-        if (isNaN(criteriaType)) {
-            criteriaType = this.criteriaType[value]
-        }
-    }
-
-    return criteriaType;
-};
-
-Criteria.prototype.normalizeCriteria = function (criteria) {
-
-};
-
-Criteria.prototype.criteriaType = {
-    IsEquals: 1,
-    IsNotEquals: 2,
-    IsMoreThan: 4,
-    IsLessThan: 8,
-    IsMoreThanOrEquals: 16,
-    IsLessThanOrEquals: 32,
-    IsContains: 64,
-    IsNotContains: 128,
-    IsEmpty: 256,
-    IsNotEmpty: 512,
-    IsStartsWith: 1024,
-    IsNotStartsWith: 2048,
-    IsEndsWith: 4096,
-    IsNotEndsWith: 8192,
-    IsIn: 16384,
-    Script: 32768,
-    FullTextSearch: 65536,
-    IsIdIn: 131072
-};
-
-
-/**
- * Функция конвертирует CriteriaType в "флаговое соответствие"
- * @param val
- * @returns {number}
- */
-
-function toEnum(val) {
-
-    var criteria = new Criteria();
-
-    return criteria.decodeCriteriaType(val);
-}
-
-var criteriaType = {
-    IsEquals: 1,
-    IsNotEquals: 2,
-    IsMoreThan: 4,
-    IsLessThan: 8,
-    IsMoreThanOrEquals: 16,
-    IsLessThanOrEquals: 32,
-    IsContains: 64,
-    IsNotContains: 128,
-    IsEmpty: 256,
-    IsNotEmpty: 512,
-    IsStartsWith: 1024,
-    IsNotStartsWith: 2048,
-    IsEndsWith: 4096,
-    IsNotEndsWith: 8192,
-    IsIn: 16384,
-    Script: 32768,
-    FullTextSearch: 65536,
-    IsIdIn: 131072
-};
-
-
-//####app/data/criteria/criteriaBuilder.js
-var CriteriaBuilder = function () {
-
-};
-
-CriteriaBuilder.prototype.build = function(context, args){
-
-    var criteria = new Criteria();
-    var items = [];
-
-    var metadata = args.metadata;
-
-    if (typeof metadata !== 'undefined' && metadata !== null && metadata.length) {
-        for (var i = 0, ln = metadata.length; i < ln; i = i + 1) {
-            items.push(this.buildCriteriaItem(args.builder, args.view, metadata[i], criteria));
-        }
-    }
-
-    criteria.setItems(items);
-
-    return criteria;
-};
-
-CriteriaBuilder.prototype.buildCriteriaItem = function(builder, parent, metadata, criteria){
-
-    var item = {
-        Property: metadata.Property,
-        CriteriaType: criteria.decodeCriteriaType(metadata.CriteriaType)
-    };
-
-    var value = metadata.Value;
-    var binding;
-    item.Value = value;
-
-    if (value !== null && typeof value === 'object') {
-        binding = builder.build(parent, value);
-        if (typeof binding !== 'undefined' && binding !== null) {
-            //Если объект пострен билдером - это Binding
-            item.Value = function () {
-                return binding.getPropertyValue();
-            };
-            binding.onPropertyValueChanged(function () {
-                //Уведомить условие об изменении значение в биндинге
-                criteria.valueChanged();
-            });
-        }
-    }
-
-    return item;
-};
-
-
-//####app/data/criteria/criteriaType.js
-var CriteriaType = (function () {
-
-    return {
-        IsEquals: IsEquals,
-        IsNotEquals: IsNotEquals,
-        IsMoreThan: IsMoreThan,
-        IsLessThan: IsLessThan,
-        IsMoreThanOrEquals: IsMoreThanOrEquals,
-        IsLessThanOrEquals: IsLessThanOrEquals,
-        IsContains: IsContains,
-        IsNotContains: IsNotContains,
-        IsEmpty: IsEmpty,
-        IsNotEmpty: IsNotEmpty,
-        IsStartsWith: IsStartsWith,
-        IsNotStartsWith: IsNotStartsWith,
-        IsEndsWith: IsEndsWith,
-        IsNotEndsWith: IsNotEndsWith,
-        IsIn: IsIn,
-        isNotIn: isNotIn,
-        FullTextSearch: FullTextSearch
-    };
-
-    function IsEquals(target, property, value) {
-        return InfinniUI.ObjectUtils.getPropertyValue(target, property) === value;
-    }
-
-    function IsNotEquals(target, property, value) {
-        return !IsEquals(target, property, value);
-    }
-
-    function IsMoreThan(target, property, value) {
-        return InfinniUI.ObjectUtils.getPropertyValue(target, property) > value;
-    }
-
-    function IsLessThan(target, property, value) {
-        return InfinniUI.ObjectUtils.getPropertyValue(target, property) < value;
-    }
-
-    function IsMoreThanOrEquals(target, property, value) {
-        return InfinniUI.ObjectUtils.getPropertyValue(target, property) >= value;
-    }
-
-    function IsLessThanOrEquals(target, property, value) {
-        return InfinniUI.ObjectUtils.getPropertyValue(target, property) <= value;
-    }
-
-    function IsContains(target, property, value) {
-        var text = String(InfinniUI.ObjectUtils.getPropertyValue(target, property));
-        return text.indexOf(value) !== -1;
-    }
-
-    function IsNotContains(target, property, value) {
-        return !IsContains(target, property, value);
-    }
-
-    function IsEmpty(target, property, value) {
-        var data = InfinniUI.ObjectUtils.getPropertyValue(target, property);
-
-        return typeof data === 'undefined' || _.isEmpty(data);
-    }
-
-    function IsNotEmpty(target, property, value) {
-        return !IsEmpty(target, property, value);
-    }
-
-    function IsStartsWith(target, property, value) {
-        var text = String(InfinniUI.ObjectUtils.getPropertyValue(target, property));
-        return text.indexOf(value) === 0;
-    }
-
-    function IsNotStartsWith(target, property, value) {
-        return !IsStartsWith(target, property, value);
-    }
-
-    function IsEndsWith(target, property, value) {
-        var
-            searchValue = String(value),
-            text = String(InfinniUI.ObjectUtils.getPropertyValue(target, property));
-
-        var i = text.lastIndexOf(searchValue);
-
-        return (i === -1) ? false : i + searchValue.length === text.length;
-    }
-
-    function IsNotEndsWith(target, property, value) {
-        return !IsEndsWith(target, property, value);
-    }
-
-    function IsIn(target, property, value) {
-        var
-            data = InfinniUI.ObjectUtils.getPropertyValue(target, property),
-            match = false;
-
-        if (Array.isArray(value)) {
-            for (var i = 0; i < value.length; i = i + 1) {
-                if (data === value[i]) {
-                    match = true;
-                    break;
-                }
-            }
-        }
-
-        return match;
-    }
-
-    function isNotIn(target, property, value) {
-        return !IsIn(target, property, value);
-    }
-
-    function FullTextSearch(target, property, value) {
-        if (value === '' || typeof value === 'undefined' || value === null) {
-            return true;
-        }
-
-        var text = JSON.stringify(target);
-        text = text.replace(/\"[^\"]+\"\:/g, '').toLowerCase();
-
-        return text.indexOf(String(value).toLowerCase()) !== -1;
-    }
-
-})();
-
-//####app/data/criteria/filterCriteriaType.js
-function FilterCriteriaType() {
-
-}
-
-FilterCriteriaType.prototype.getFilterCallback = function (filter) {
-    var callback = function (item) {
-        return true;
-    };
-
-    if (Array.isArray(filter)) {
-        var chain = filter.map(this.getCriteriaCallback, this);
-        callback = function (item) {
-            return chain.every(function (cb) {
-                return cb(item);
-            });
-        }
-    }
-
-    return callback;
-};
-
-FilterCriteriaType.prototype.getCriteriaCallback = function (criteria) {
-    var filter = function () {
-        return true;
-    };
-
-    if (criteria && criteria.CriteriaType) {
-        var method = this.getCriteriaByCode(criteria.CriteriaType);
-        if (typeof method === 'function') {
-            filter = function (value) {
-                return method(value, criteria.Property, criteria.Value);
-            }
-        }
-    }
-
-    return filter;
-};
-
-FilterCriteriaType.prototype.CriteriaTypeCode = {
-    IsEquals: 1,
-    IsNotEquals: 2,
-    IsMoreThan: 4,
-    IsLessThan: 8,
-    IsMoreThanOrEquals: 16,
-    IsLessThanOrEquals: 32,
-    IsContains: 64,
-    IsNotContains: 128,
-    IsEmpty: 256,
-    IsNotEmpty: 512,
-    IsStartsWith: 1024,
-    IsNotStartsWith: 2048,
-    IsEndsWith: 4096,
-    IsNotEndsWith: 8192,
-    IsIn: 16384,
-    IsNotIn: 32768,
-    FullTextSearch: 65536
-};
-
-FilterCriteriaType.prototype.decodeCriteria = function (name) {
-    return this.CriteriaTypeCode[name];
-};
-
-FilterCriteriaType.prototype.getCriteriaByName = function (name) {
-    return this.criteria[name];
-};
-
-FilterCriteriaType.prototype.getCriteriaByCode = function (code) {
-    if (typeof this._criteriaByCode === 'undefined') {
-        this._criteriaByCode = {};
-
-        var i;
-        for (var name in this.CriteriaTypeCode) {
-            i = this.CriteriaTypeCode[name];
-            this._criteriaByCode[i] = CriteriaType[name];
-        }
-    }
-    return this._criteriaByCode[code];
-};
-
-
-
-
-
 //####app/data/dataBinding/dataBinding.js
 InfinniUI.BindingModes = {
     twoWay: 'TwoWay',
@@ -25185,357 +28101,6 @@ DataBindingBuilder.prototype.scriptByNameOrBody = function(nameOrBody, context){
     }
 
 };
-
-//####app/data/dataProviders/dataProviderRegister.js
-function DataProviderRegister() {
-    var dataProviders = {};
-
-    this.register = function (metadataType, dataProviderConstructor) {
-        dataProviders[metadataType] = dataProviderConstructor;
-    };
-
-    this.build = function (metadataType, props) {
-        var dataProvider = dataProviders[metadataType];
-        if (dataProvider !== undefined && dataProvider !== null) {
-            return new dataProviders[metadataType](props);
-        }
-        return null;
-    };
-}
-
-
-window.providerRegister = new DataProviderRegister();
-
-//####app/data/dataProviders/file/dataProviderUpload.js
-var DataProviderUpload = function (urlConstructor, successCallback, failCallback) {
-    this.urlConstructor = urlConstructor;
-    this.successCallback = successCallback;
-    this.failCallback = failCallback;
-};
-
-DataProviderUpload.prototype.uploadFile = function (fieldName, instanceId, file, resultCallback) {
-    var requestData = this.urlConstructor.constructUploadFileRequest(fieldName, instanceId, file);
-    new RequestExecutor(resultCallback, this.successCallback, this.failCallback).makeRequestRaw(requestData);
-};
-
-DataProviderUpload.prototype.getFileUrl = function (fieldName, instanceId) {
-    return this.urlConstructor.getFileUrl(fieldName, instanceId);
-};
-//####app/data/dataProviders/file/document/documentFileProvider.js
-/**
- *
- * @param {DocumentUploadQueryConstructor} urlConstructor
- * @param {Function} [successCallback]
- * @param {Function} [failCallback]
- * @constructor
- */
-var DocumentFileProvider = function (urlConstructor, successCallback, failCallback) {
-    this.urlConstructor = urlConstructor;
-    this.successCallback = successCallback;
-    this.failCallback = failCallback;
-};
-
-/**
- * @description Загружает файл для указанного поля документа
- * @param {string} fieldName
- * @param {string} instanceId
- * @param {*} file
- * @param {Function} resultCallback
- */
-DocumentFileProvider.prototype.uploadFile = function (fieldName, instanceId, file, resultCallback) {
-    var deferred = $.Deferred();
-    var requestData = this.urlConstructor.constructUploadFileRequest(fieldName, instanceId, file);
-    new RequestExecutor(resultCallback, function () {
-        deferred.resolve();
-        if (this.successCallback) {
-            this.successCallback();
-        }
-    }.bind(this), function (err) {
-        deferred.reject(err);
-        if (this.failCallback) {
-            this.failCallback();
-        }
-    }.bind(this)).makeRequestRaw(requestData);
-
-    return deferred.promise();
-};
-
-/**
- * Возвращает URL ранее загруженного файла
- * @param {string} fieldName
- * @param {string} instanceId
- * @returns {String}
- */
-DocumentFileProvider.prototype.getFileUrl = function (fieldName, instanceId, contentId) {
-    return this.urlConstructor.getFileUrl(fieldName, instanceId, contentId);
-};
-
-//####app/data/dataProviders/file/document/documentFileQueryConstructor.js
-/**
- * @param {string} host
- * @param {Object} params
- * @param {string} params.configId
- * @param {string} params.documentId
- * @constructor
- */
-var DocumentUploadQueryConstructor = function (host, params) {
-    this.host = host;
-    this.configId = params.configId;
-    this.documentId = params.documentId;
-};
-
-DocumentUploadQueryConstructor.prototype.template = {
-    download: _.template('<%= host %>/RestfulApi/UrlEncodedData/configuration/downloadbinarycontent/?Form=<%= form %>'),
-    upload: _.template('<%= host %>/RestfulApi/Upload/configuration/uploadbinarycontent/?linkedData=<%= data %>')
-};
-
-DocumentUploadQueryConstructor.prototype.normalizeFieldName = function (fieldName) {
-    return String(fieldName).replace(/^[\d\$]+\./, '');
-};
-
-/**
- * @public
- * @param fieldName
- * @param instanceId
- * @param file
- * @returns {{requestUrl: {String}, args: (FormData|*)}}
- */
-DocumentUploadQueryConstructor.prototype.constructUploadFileRequest = function (fieldName, instanceId, file) {
-    return {
-        requestUrl: this.getUploadUrl(fieldName, instanceId),
-        args: this.getUploadParams(file)
-    };
-};
-
-/**
- * @public
- * @description Возвращает ссылку на загруженный ранее файл
- * @param instanceId
- * @param fieldName
- * @returns {String}
- */
-DocumentUploadQueryConstructor.prototype.getFileUrl = function (fieldName, instanceId, contentId) {
-
-    //if (typeof instanceId === 'undefined' || instanceId === null) {
-    //    return null;
-    //}
-
-    var data = {
-        Configuration: this.configId,
-        Metadata: this.documentId,
-        DocumentId: instanceId,
-        ContentId: contentId,
-        FieldName: this.normalizeFieldName(fieldName)
-    };
-    var template = this.template.download;
-
-    return template({
-        host: this.host,
-        form: JSON.stringify((data))
-    });
-};
-
-/**
- * @description Возвращает URL для запроса загрузки файла
- * @protected
- * @param instanceId
- * @param fieldName
- * @returns {String}
- */
-DocumentUploadQueryConstructor.prototype.getUploadUrl = function (fieldName, instanceId) {
-    var data = {
-        "Configuration": this.configId,
-        "Metadata": this.documentId,
-        "DocumentId": instanceId,
-        "FieldName": this.normalizeFieldName(fieldName)
-    };
-
-    var template = this.template.upload;
-
-    return template({
-        host: this.host,
-        data: JSON.stringify(data)
-    });
-};
-
-
-/**
- * @protected
- * @param file
- * @returns {FormData}
- */
-DocumentUploadQueryConstructor.prototype.getUploadParams = function (file) {
-    var data = new FormData();
-    data.append('file', file);
-    return data;
-};
-
-
-//####app/data/dataProviders/file/queryConstructorUpload.js
-/**
- * @class QueryConstructorUpload
- * @param host
- * @param metadata
- * @constructor
- */
-var QueryConstructorUpload = function (host, metadata) {
-    this.host = host;
-    this.metadata = metadata;
-};
-
-/**
- * @public
- * @memberOf QueryConstructorUpload.prototype
- * @param fieldName
- * @param instanceId
- * @param file
- * @returns {{requestUrl: {String}, args: (FormData|*)}}
- */
-QueryConstructorUpload.prototype.constructUploadFileRequest = function (fieldName, instanceId, file) {
-    return {
-        requestUrl: this.getUploadUrl(instanceId, fieldName),
-        args: this.getUploadParams(file)
-    };
-};
-
-/**
- * @public
- * @description Возвращает ссылкц на загруженный ранее файл
- * @memberOf QueryConstructorUpload.prototype
- * @param instanceId
- * @param fieldName
- * @returns {String}
- */
-QueryConstructorUpload.prototype.getFileUrl = function (fieldName, instanceId) {
-
-    if (typeof instanceId === 'undefined' || instanceId === null) {
-        return null;
-    }
-
-    var data = {
-        "Configuration": this.metadata.ConfigId,
-        "Metadata": this.metadata.DocumentId,
-        "DocumentId": instanceId,
-        "FieldName": fieldName
-    };
-    var urlTemplate = '{0}/RestfulApi/UrlEncodedData/configuration/downloadbinarycontent/?Form={1}';
-
-    return stringUtils.format(urlTemplate, [this.host, JSON.stringify(data)]);
-};
-
-/**
- * @protected
- * @memberOf QueryConstructorUpload.prototype
- * @param instanceId
- * @param fieldName
- * @returns {String}
- */
-QueryConstructorUpload.prototype.getUploadUrl = function (instanceId, fieldName) {
-    var data = {
-        "Configuration": this.metadata.ConfigId,
-        "Metadata": this.metadata.DocumentId,
-        "DocumentId": instanceId,
-        "FieldName": fieldName
-    };
-    var urlTemplate = '{0}/RestfulApi/Upload/configuration/uploadbinarycontent/?linkedData={1}';
-
-    return stringUtils.format(urlTemplate, [this.host, JSON.stringify(data)]);
-};
-
-
-/**
- * @protected
- * @memberOf QueryConstructorUpload.prototype
- * @param file
- * @returns {FormData}
- */
-QueryConstructorUpload.prototype.getUploadParams = function (file) {
-    var data = new FormData();
-    data.append('file', file);
-    return data;
-};
-
-
-//####app/data/dataProviders/objectDataProvider.js
-var ObjectDataProvider = function (items, idProperty) {
-    this.items = items || [];
-    this.idProperty = idProperty || 'Id';
-};
-
-_.extend(ObjectDataProvider.prototype, {
-
-    setItems: function (items) {
-        this.items = items;
-    },
-
-    getItems: function (criteriaList, pageNumber, pageSize, sorting, resultCallback) {
-        var filter = new FilterCriteriaType();
-        var callback = filter.getFilterCallback(criteriaList);
-        resultCallback(this.items.filter(callback));
-    },
-
-    createItem: function (resultCallback) {
-        var item = this.createLocalItem(this.idProperty);
-        resultCallback(item);
-    },
-
-    saveItem: function (item, resultCallback) {
-        var items = this.items,
-            itemIndex = this._getIndexOfItem(item),
-            result = {
-                isValid: true
-            };
-
-        if (itemIndex == -1) {
-            items.push(item);
-        } else {
-            items[itemIndex] = item;
-        }
-
-        resultCallback(result);
-    },
-
-    deleteItem: function (item, resultCallback) {
-        var items = this.items,
-            itemIndex = this._getIndexOfItem(item),
-            result = {
-                isValid: true
-            };
-
-        if (itemIndex == -1) {
-            result.isValid = false;
-            result.message = 'Удаляемый элемент не найден';
-        } else {
-            items.splice(itemIndex, 1);
-        }
-
-        resultCallback(result);
-    },
-
-    createIdFilter: function (id) {
-        return [{
-            "Property": "Id",
-            "Value": id,
-            "CriteriaType": 1
-        }];
-    },
-
-    _getIndexOfItem: function (item) {
-        return  _.indexOf(this.items, item);
-    },
-
-    createLocalItem: function (idProperty) {
-        var result = {};
-
-        result[idProperty] = this._generateLocalId();
-
-        return result;
-    },
-
-    _generateLocalId: function () {
-        return guid();
-    }
-});
 
 //####app/data/dataProviders/REST/dataProviderREST.js
 function DataProviderREST(urlConstructor, successCallback, failCallback) {
@@ -26221,127 +28786,564 @@ function RequestExecutor(resultCallback, successCallback, failCallback, cache) {
     };
 
 }
-//####app/data/dataProviders/serverAction/queryConstructorServerAction.js
-function QueryConstructorServerAction (host, metadata) {
-    var defaults = {
-        Method: 'post'
+//####app/data/dataProviders/dataProviderRegister.js
+function DataProviderRegister() {
+    var dataProviders = {};
+
+    this.register = function (metadataType, dataProviderConstructor) {
+        dataProviders[metadataType] = dataProviderConstructor;
     };
 
-    this.host = host;
-    this.metadata = _.extend({}, defaults, metadata);
+    this.build = function (metadataType, props) {
+        var dataProvider = dataProviders[metadataType];
+        if (dataProvider !== undefined && dataProvider !== null) {
+            return new dataProviders[metadataType](props);
+        }
+        return null;
+    };
 }
 
-QueryConstructorServerAction.prototype.constructUrlRequest = function (params) {
-    //var data = {
-    //    "Configuration": this.metadata.ConfigId,
-    //    "Metadata": this.metadata.DocumentId,
-    //    "Params": params
-    //};
 
-    var urlTemplate = '{0}/{1}/{2}/{3}';
-    //var urlTemplate = 'http://localhost:3000/json';
-    //var urlTemplate = 'http://localhost:3000/file';
+window.providerRegister = new DataProviderRegister();
 
-    //@TODO Переделать шаблон, когда будет ясно что нужно.
-    return {
-        requestUrl: stringUtils.format(urlTemplate,[
-            this.host,
-            this.metadata.ConfigId,
-            this.metadata.DocumentId,
-            this.metadata.Action
-        ]),
-        method: this.metadata.Method,
-        args: params
-    };
-};
-//####app/data/dataProviders/serverAction/serverActionProvider.js
-var ServerActionProvider = function (urlConstructor, successCallback, failCallback) {
+//####app/data/dataProviders/file/dataProviderUpload.js
+var DataProviderUpload = function (urlConstructor, successCallback, failCallback) {
     this.urlConstructor = urlConstructor;
     this.successCallback = successCallback;
     this.failCallback = failCallback;
 };
 
-ServerActionProvider.prototype.request = function (params, resultCallback) {
-    var requestData = this.urlConstructor.constructUrlRequest(params);
-    new RequestExecutor(resultCallback, this.successCallback, this.failCallback)
-        .makeRequestRaw(requestData);
-
+DataProviderUpload.prototype.uploadFile = function (fieldName, instanceId, file, resultCallback) {
+    var requestData = this.urlConstructor.constructUploadFileRequest(fieldName, instanceId, file);
+    new RequestExecutor(resultCallback, this.successCallback, this.failCallback).makeRequestRaw(requestData);
 };
 
-ServerActionProvider.prototype.download = function (params, resultCallback) {
-    var requestData = this.urlConstructor.constructUrlRequest(params);
-    new DownloadExecutor(resultCallback, this.successCallback, this.failCallback)
-        .run(requestData);
+DataProviderUpload.prototype.getFileUrl = function (fieldName, instanceId) {
+    return this.urlConstructor.getFileUrl(fieldName, instanceId);
 };
-
-
-//####app/data/dataSource/_mixins/dataSourceFileProviderMixin.js
+//####app/data/dataProviders/file/document/documentFileProvider.js
 /**
  *
- * @mixin dataSourceFileProviderMixin
+ * @param {DocumentUploadQueryConstructor} urlConstructor
+ * @param {Function} [successCallback]
+ * @param {Function} [failCallback]
+ * @constructor
  */
-var dataSourceFileProviderMixin = {
+var DocumentFileProvider = function (urlConstructor, successCallback, failCallback) {
+    this.urlConstructor = urlConstructor;
+    this.successCallback = successCallback;
+    this.failCallback = failCallback;
+};
 
-    setFileProvider: function (fileProvider) {
-        this.set('fileProvider', fileProvider);
-    },
-
-    getFileProvider: function () {
-        return this.get('fileProvider');
-    },
-
-    setFile: function (file, propertyName) {
-        var queue = this.get('queueFiles');
-        var item;
-        if (!queue) {
-            queue = [];
-            this.set('queueFiles', queue);
+/**
+ * @description Загружает файл для указанного поля документа
+ * @param {string} fieldName
+ * @param {string} instanceId
+ * @param {*} file
+ * @param {Function} resultCallback
+ */
+DocumentFileProvider.prototype.uploadFile = function (fieldName, instanceId, file, resultCallback) {
+    var deferred = $.Deferred();
+    var requestData = this.urlConstructor.constructUploadFileRequest(fieldName, instanceId, file);
+    new RequestExecutor(resultCallback, function () {
+        deferred.resolve();
+        if (this.successCallback) {
+            this.successCallback();
         }
-        //Отмечаем элемент данных как измененный при установке файла на загрузку
-        this._includeItemToModifiedSet(this.getSelectedItem());
+    }.bind(this), function (err) {
+        deferred.reject(err);
+        if (this.failCallback) {
+            this.failCallback();
+        }
+    }.bind(this)).makeRequestRaw(requestData);
 
-        var items = queue.filter(function (item) {
-            return item.name === propertyName;
-        });
+    return deferred.promise();
+};
 
-        if (items.length) {
-            var item = items[0];
-            item.file = file;
+/**
+ * Возвращает URL ранее загруженного файла
+ * @param {string} fieldName
+ * @param {string} instanceId
+ * @returns {String}
+ */
+DocumentFileProvider.prototype.getFileUrl = function (fieldName, instanceId, contentId) {
+    return this.urlConstructor.getFileUrl(fieldName, instanceId, contentId);
+};
+
+//####app/data/dataProviders/file/document/documentFileQueryConstructor.js
+/**
+ * @param {string} host
+ * @param {Object} params
+ * @param {string} params.configId
+ * @param {string} params.documentId
+ * @constructor
+ */
+var DocumentUploadQueryConstructor = function (host, params) {
+    this.host = host;
+    this.configId = params.configId;
+    this.documentId = params.documentId;
+};
+
+DocumentUploadQueryConstructor.prototype.template = {
+    download: _.template('<%= host %>/RestfulApi/UrlEncodedData/configuration/downloadbinarycontent/?Form=<%= form %>'),
+    upload: _.template('<%= host %>/RestfulApi/Upload/configuration/uploadbinarycontent/?linkedData=<%= data %>')
+};
+
+DocumentUploadQueryConstructor.prototype.normalizeFieldName = function (fieldName) {
+    return String(fieldName).replace(/^[\d\$]+\./, '');
+};
+
+/**
+ * @public
+ * @param fieldName
+ * @param instanceId
+ * @param file
+ * @returns {{requestUrl: {String}, args: (FormData|*)}}
+ */
+DocumentUploadQueryConstructor.prototype.constructUploadFileRequest = function (fieldName, instanceId, file) {
+    return {
+        requestUrl: this.getUploadUrl(fieldName, instanceId),
+        args: this.getUploadParams(file)
+    };
+};
+
+/**
+ * @public
+ * @description Возвращает ссылку на загруженный ранее файл
+ * @param instanceId
+ * @param fieldName
+ * @returns {String}
+ */
+DocumentUploadQueryConstructor.prototype.getFileUrl = function (fieldName, instanceId, contentId) {
+
+    //if (typeof instanceId === 'undefined' || instanceId === null) {
+    //    return null;
+    //}
+
+    var data = {
+        Configuration: this.configId,
+        Metadata: this.documentId,
+        DocumentId: instanceId,
+        ContentId: contentId,
+        FieldName: this.normalizeFieldName(fieldName)
+    };
+    var template = this.template.download;
+
+    return template({
+        host: this.host,
+        form: JSON.stringify((data))
+    });
+};
+
+/**
+ * @description Возвращает URL для запроса загрузки файла
+ * @protected
+ * @param instanceId
+ * @param fieldName
+ * @returns {String}
+ */
+DocumentUploadQueryConstructor.prototype.getUploadUrl = function (fieldName, instanceId) {
+    var data = {
+        "Configuration": this.configId,
+        "Metadata": this.documentId,
+        "DocumentId": instanceId,
+        "FieldName": this.normalizeFieldName(fieldName)
+    };
+
+    var template = this.template.upload;
+
+    return template({
+        host: this.host,
+        data: JSON.stringify(data)
+    });
+};
+
+
+/**
+ * @protected
+ * @param file
+ * @returns {FormData}
+ */
+DocumentUploadQueryConstructor.prototype.getUploadParams = function (file) {
+    var data = new FormData();
+    data.append('file', file);
+    return data;
+};
+
+
+//####app/data/dataProviders/file/queryConstructorUpload.js
+/**
+ * @class QueryConstructorUpload
+ * @param host
+ * @param metadata
+ * @constructor
+ */
+var QueryConstructorUpload = function (host, metadata) {
+    this.host = host;
+    this.metadata = metadata;
+};
+
+/**
+ * @public
+ * @memberOf QueryConstructorUpload.prototype
+ * @param fieldName
+ * @param instanceId
+ * @param file
+ * @returns {{requestUrl: {String}, args: (FormData|*)}}
+ */
+QueryConstructorUpload.prototype.constructUploadFileRequest = function (fieldName, instanceId, file) {
+    return {
+        requestUrl: this.getUploadUrl(instanceId, fieldName),
+        args: this.getUploadParams(file)
+    };
+};
+
+/**
+ * @public
+ * @description Возвращает ссылкц на загруженный ранее файл
+ * @memberOf QueryConstructorUpload.prototype
+ * @param instanceId
+ * @param fieldName
+ * @returns {String}
+ */
+QueryConstructorUpload.prototype.getFileUrl = function (fieldName, instanceId) {
+
+    if (typeof instanceId === 'undefined' || instanceId === null) {
+        return null;
+    }
+
+    var data = {
+        "Configuration": this.metadata.ConfigId,
+        "Metadata": this.metadata.DocumentId,
+        "DocumentId": instanceId,
+        "FieldName": fieldName
+    };
+    var urlTemplate = '{0}/RestfulApi/UrlEncodedData/configuration/downloadbinarycontent/?Form={1}';
+
+    return stringUtils.format(urlTemplate, [this.host, JSON.stringify(data)]);
+};
+
+/**
+ * @protected
+ * @memberOf QueryConstructorUpload.prototype
+ * @param instanceId
+ * @param fieldName
+ * @returns {String}
+ */
+QueryConstructorUpload.prototype.getUploadUrl = function (instanceId, fieldName) {
+    var data = {
+        "Configuration": this.metadata.ConfigId,
+        "Metadata": this.metadata.DocumentId,
+        "DocumentId": instanceId,
+        "FieldName": fieldName
+    };
+    var urlTemplate = '{0}/RestfulApi/Upload/configuration/uploadbinarycontent/?linkedData={1}';
+
+    return stringUtils.format(urlTemplate, [this.host, JSON.stringify(data)]);
+};
+
+
+/**
+ * @protected
+ * @memberOf QueryConstructorUpload.prototype
+ * @param file
+ * @returns {FormData}
+ */
+QueryConstructorUpload.prototype.getUploadParams = function (file) {
+    var data = new FormData();
+    data.append('file', file);
+    return data;
+};
+
+
+//####app/data/dataProviders/objectDataProvider.js
+var ObjectDataProvider = function (items, idProperty) {
+    this.items = items || [];
+    this.idProperty = idProperty || '_id';
+};
+
+_.extend(ObjectDataProvider.prototype, {
+
+    setItems: function (items) {
+        this.items = items;
+    },
+
+    getItems: function (resultCallback, criteriaList, pageNumber, pageSize, sorting) {
+        //var filter = new FilterCriteriaType();
+        //var callback = filter.getFilterCallback(criteriaList);
+        resultCallback({data: this.items});
+    },
+
+    createItem: function (resultCallback) {
+        var item = this.createLocalItem(this.idProperty);
+        resultCallback(item);
+    },
+
+    saveItem: function (item, resultCallback) {
+        var items = this.items,
+            itemIndex = this._getIndexOfItem(item),
+            result = {
+                isValid: true
+            };
+
+        if (itemIndex == -1) {
+            items.push(item);
         } else {
-            queue.push({
-                name: propertyName,
-                file: file
-            });
+            items[itemIndex] = item;
         }
-        this.setProperty(propertyName, file);
+
+        resultCallback(result);
     },
 
-    extractFiles: function (item, callback) {
+    deleteItem: function (item, resultCallback) {
+        var items = this.items,
+            itemIndex = this._getIndexOfItem(item),
+            result = {
+                isValid: true
+            };
+
+        if (itemIndex == -1) {
+            result.isValid = false;
+            result.message = 'Удаляемый элемент не найден';
+        } else {
+            items.splice(itemIndex, 1);
+        }
+
+        resultCallback(result);
+    },
+
+    createIdFilter: function (id) {
+        return [{
+            "Property": "_id",
+            "Value": id,
+            "CriteriaType": 1
+        }];
+    },
+
+    _getIndexOfItem: function (item) {
+        return  _.indexOf(this.items, item);
+    },
+
+    createLocalItem: function (idProperty) {
+        var result = {};
+
+        result[idProperty] = this._generateLocalId();
+
+        return result;
+    },
+
+    _generateLocalId: function () {
+        return guid();
+    }
+});
+
+//####app/data/dataProviders/restDataProvider.js
+var RestDataProvider = function(){
+
+    this.requestParams = {
+        'get': {
+            method: 'get',
+            origin: null, // http://abs.com
+            path: '',
+            data: {}
+        },
+
+        'set':{
+            method: 'post',
+            origin: null,
+            path: '',
+            data: {}
+        },
+
+        'delete':{
+            method: 'delete',
+            origin: null,
+            path: '',
+            data: {}
+        }
+    };
+
+};
+
+_.extend(RestDataProvider.prototype, {
+
+    getOrigin: function(type){
+        return this.requestParams[type].origin;
+    },
+
+    setOrigin: function(type, newOrigin){
+        this.requestParams[type].origin = newOrigin;
+    },
+
+    getPath: function(type){
+        return this.requestParams[type].path;
+    },
+
+    setPath: function(type, path){
+        this.requestParams[type].path = path;
+    },
+
+    getData: function(type){
+        return this.requestParams[type].data;
+    },
+
+    setData: function(type, data){
+        this.requestParams[type].data = data;
+    },
+
+    getMethod: function(type){
+        return this.requestParams[type].method;
+    },
+
+    setMethod: function(type, queryMethod){
+        this.requestParams[type].method = queryMethod;
+    },
+
+    send: function(type, successHandler, errorHandler){
+        var params = this.requestParams[type];
+
+        var urlString = params.origin + params.path;
+        var queryString;
+        var requestId = Math.round((Math.random() * 100000));
+        var requestParams;
+
+        var filesInData = this.extractFilesFromData(params.data);
+
+        if( _.size(filesInData.files) == 0){
+
+            requestParams = {
+                type: params.method,
+                xhrFields: {
+                    withCredentials: true
+                },
+                url: urlString,
+                success: function(data){
+                    successHandler({
+                        requestId: requestId,
+                        data: data
+                    });
+                },
+                error: function(data){
+                    if (typeof errorHandler !== 'function') {
+                        //Unhandled error
+                        InfinniUI.global.logger.error(data);
+                        return;
+                    }
+                    errorHandler({
+                        requestId: requestId,
+                        data: data
+                    });
+                }
+            };
+
+            if(params.method.toLowerCase() != 'get'){
+                requestParams.contentType = 'application/json';
+                requestParams.data = JSON.stringify( params.data );
+            }else{
+                if(_.size(params.data) > 0){
+                    requestParams.url = requestParams.url + '?' + stringUtils.joinDataForQuery(params.data);
+                }
+            }
+
+        }else{
+
+            var formData = new FormData();
+            formData.append('document', JSON.stringify( filesInData.dataWithoutFiles ));
+
+            for(var k in filesInData.files){
+                formData.append(k, filesInData.files[k]);
+            }
+
+
+            requestParams = {
+                type: params.method,
+                url: urlString,
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(data){
+                    successHandler({
+                        requestId: requestId,
+                        data: data
+                    });
+                },
+                error: function(data){
+                    errorHandler({
+                        requestId: requestId,
+                        data: data
+                    });
+                }
+            };
+        }
+
+        $.ajax(requestParams);
+
+        return requestId;
+    },
+
+    getItems: function(successHandler, errorHandler){
+        return this.send('get', successHandler, errorHandler);
+    },
+
+    saveItem: function(item, successHandler, errorHandler){
+        this.requestParams['set'].data = item;
+        return this.send('set', successHandler, errorHandler);
+    },
+
+    deleteItem: function(item, successHandler, errorHandler){
+        return this.send('delete', successHandler, errorHandler);
+    },
+
+    createItem: function (resultCallback, idProperty) {
+       var that = this;
+        setTimeout( function(){
+            resultCallback(that.createLocalItem(idProperty));
+        }, 10);
+    },
+
+    createLocalItem: function (idProperty) {
+        var result = {};
+
+        result[idProperty] = this._generateLocalId();
+
+        return result;
+    },
+
+    _generateLocalId: function(){
+        return guid();
+    },
+
+    extractFilesFromData: function (data) {
 
         var files = Object.create(null);
-        var itemWithoutFiles = extractFile(item, []);
+        var dataWithoutFiles = extractFilesFromNode(data, []);
 
 
-        if (typeof callback === 'function') {
-            callback.call(null, files, itemWithoutFiles);
-        }
+        return {
+            dataWithoutFiles: dataWithoutFiles,
+            files: files
+        };
 
-        function extractFile (item, path) {
-            var value, result = Array.isArray(item) ? [] : {}, currentPath;
-            for (var i in item) {
-                if (!item.hasOwnProperty(i)) {
+        function extractFilesFromNode (node, path) {
+            var value, result = Array.isArray(node) ? [] : {}, currentPath;
+            for (var i in node) {
+                if (!node.hasOwnProperty(i)) {
                     continue;
                 }
 
                 currentPath = path.slice();
                 currentPath.push(i);
-                value = item[i];
+                value = node[i];
                 if (value !== null && typeof (value) === 'object') {
                     if (value.constructor === Date) {
                         result[i] = value
                     } else if (value.constructor === Object || value.constructor === Array)  {
                         //Plain object
-                        result[i] = extractFile(value, currentPath);
+                        result[i] = extractFilesFromNode(value, currentPath);
                     } else {
                         //Object instance
                         files[currentPath.join('.')] = value;
@@ -26355,114 +29357,53 @@ var dataSourceFileProviderMixin = {
 
             return result;
         }
-    },
-
-    uploadFiles: function (instanceId, files) {
-        var promises = [];
-        var promise;
-        var fileProvider = this.getFileProvider();
-        var ds = this;
-
-        for (var path in files) {
-            promise = fileProvider.uploadFile(path, instanceId, files[path])
-                .then(function () {
-                    //@TODO Как обрабатывать ошибки загрузки файлов?
-                    ds.trigger('onFileUploaded', ds.getContext(), {value: files[path]});
-                    return true;
-                });
-
-            promises.push(promise);
-        }
-
-        return $.when.apply($, promises);
     }
+
+
+});
+//####app/data/dataProviders/serverAction/serverActionProvider.js
+var ServerActionProvider = function () {
 };
-//####app/data/dataSource/_mixins/dataSourceLookupMixin.js
-var dataSourceLookupMixin = {
 
-    lookupIdPropertyValue: function (sourceProperty) {
-        var items = this.getItems();
-        var value, item;
+ServerActionProvider.prototype.request = function (requestData, resultCallback) {
+    var that = this;
+    var requestId = Math.round((Math.random() * 100000));
 
-        if (Array.isArray(items)) {
-            var
-                name = [sourceProperty.split('.')[0], this.getIdProperty()].join('.');
-
-            value = this.getProperty(name);
-        }
-
-        return value;
-    },
-
-    lookupPropertyValue: function (name, cb, sourceProperty) {
-        var items = this.getItems();
-        var value, item;
-
-        if (Array.isArray(items) && typeof cb === 'function') {
-            var path = sourceProperty.split('.');
-
-            var propertyValue = this.getProperty(sourceProperty);
-
-            for (var i = 0; i < items.length; i = i + 1) {
-                item = items[i];
-                if (cb.call(null, propertyValue) === true) {
-                    value = InfinniUI.ObjectUtils.getPropertyValue(item, name);
-                    break;
-                }
+    $.ajax({
+        type: requestData.method,
+        url: requestData.requestUrl,
+        xhrFields: {
+            withCredentials: true
+        },
+        data: requestData.args,
+        contentType: requestData.contentType,
+        success: function(data){
+            if( _.isFunction(resultCallback) ){
+                resultCallback({
+                    requestId: requestId,
+                    data: data
+                });
+            }
+        },
+        error: function (data) {
+            if( _.isFunction(resultCallback) ){
+                resultCallback({
+                    requestId: requestId,
+                    data: data
+                });
             }
         }
+    });
 
-        return value;
-    }
-
+    return requestId;
 };
-//####app/data/dataSource/_mixins/dataSourceValidationNotifierMixin.js
-/**
- *
- * @mixin
- */
-var DataSourceValidationNotifierMixin = {
-    /**
-     * @param dataSource
-     */
-    initNotifyValidation: function (dataSource) {
-        dataSource.onErrorValidator(this.notifyOnValidationError.bind(this));
-        dataSource.onWarningValidator(this.notifyOnValidationError.bind(this));
-    },
 
-    /**
-     * @param context
-     * @param args
-     */
-    notifyOnValidationError: function (context, args) {
-        this.notifyOnValidationResult(args.value, 'error');
-    },
-
-    /**
-     * @param context
-     * @param args
-     */
-    notifyOnValidationWarning: function (context, args) {
-        this.notifyOnValidationResult(args.value, 'warning');
-    },
-
-    /**
-     * @param {Object} result
-     * @param {boolean} result.isValid
-     * @param {Array.<Object>} result.items
-     * @param {string} validationType Тип сообщения "error" или "warning"
-     */
-    notifyOnValidationResult: function (result, validationType) {
-        if (typeof result === 'undefined' || result === null || result.isValid || !Array.isArray(result.ValidationMessage)) {
-            return;
-        }
-
-        result.ValidationMessage.forEach(function (item) {
-            var exchange = window.InfinniUI.global.messageBus;
-            exchange.send(messageTypes.onNotifyUser, {messageText: item.Message, messageType: "error"});
-        });
-    }
+ServerActionProvider.prototype.download = function (requestData, resultCallback) {
+    new DownloadExecutor(resultCallback)
+        .run(requestData);
 };
+
+
 //####app/data/dataSource/baseDataSource.js
 /**
  * @constructor
@@ -26491,6 +29432,7 @@ var BaseDataSource = Backbone.Model.extend({
         selectedItem: null,
 
         fillCreatedItem: true,
+        suspended: [],
         isUpdateSuspended: false,
 
         errorValidator: null,
@@ -27874,256 +30816,8 @@ var DataProviderReplaceItemQueue = function (attributes) {
     };
 
 };
-//####app/data/dataSource/documentDataSource.js
-var DocumentDataSource = BaseDataSource.extend({
-    defaults: _.defaults({
-
-        configId:           null,
-        documentId:         null,
-        createActionName:   'CreateDocument',
-        readActionName:     'GetDocument',
-        updateActionName:   'SetDocument',
-        deleteActionName:   'DeleteDocument'
-
-    }, BaseDataSource.prototype.defaults),
-
-
-    initDataProvider: function(){
-        var dataProvider = window.providerRegister.build('DocumentDataSource'),
-            createActionName = this.getCreateAction(),
-            readActionName = this.getReadAction(),
-            updateActionName = this.getUpdateAction(),
-            deleteActionName = this.getDeleteAction();
-
-        dataProvider.setCreateAction(createActionName);
-        dataProvider.setReadAction(readActionName);
-        dataProvider.setUpdateAction(updateActionName);
-        dataProvider.setDeleteAction(deleteActionName);
-
-        this.set('dataProvider', dataProvider);
-    },
-
-    getConfigId: function(){
-        return this.get('configId');
-    },
-
-    setConfigId: function(configId){
-        var dataProvider = this.get('dataProvider');
-
-        dataProvider.setConfigId(configId);
-        this.set('configId', configId);
-    },
-
-    getDocumentId: function(){
-        return this.get('documentId');
-    },
-
-    setDocumentId: function(documentId){
-        var dataProvider = this.get('dataProvider');
-
-        dataProvider.setDocumentId(documentId);
-        this.set('documentId', documentId);
-    },
-
-    getCreateAction: function(){
-        return this.get('createActionName');
-    },
-
-    setCreateAction: function(createActionName){
-        var dataProvider = this.get('dataProvider');
-
-        dataProvider.setCreateAction(createActionName);
-        this.set('createActionName', createActionName);
-    },
-
-    getReadAction: function(){
-        return this.get('readActionName');
-    },
-
-    setReadAction: function(readActionName){
-        var dataProvider = this.get('dataProvider');
-
-        dataProvider.setReadAction(readActionName);
-        this.set('readActionName', readActionName);
-    },
-
-    getUpdateAction: function(){
-        return this.get('updateActionName');
-    },
-
-    setUpdateAction: function(updateActionName){
-        var dataProvider = this.get('dataProvider');
-
-        dataProvider.setUpdateAction(updateActionName);
-        this.set('updateActionName', updateActionName);
-    },
-
-    getDeleteAction: function(){
-        return this.get('deleteActionName');
-    },
-
-    setDeleteAction: function(deleteActionName){
-        var dataProvider = this.get('dataProvider');
-
-        dataProvider.setDeleteAction(deleteActionName);
-        this.set('deleteActionName', deleteActionName);
-    },
-
-    saveItem: function (item, success, error) {
-        var
-            dataProvider = this.get('dataProvider'),
-            ds = this;
-
-        BaseDataSource.prototype.saveItem.call(this, item, function () {
-            uploadFiles(success, error);
-        }, error);
-
-        function uploadFiles (success, error) {
-            ds.extractFiles(item, function (files, itemWithoutFiles) {
-                dataProvider.saveItem(itemWithoutFiles, function (data) {
-                    if (!('isValid' in data) || data.isValid === true) {
-                        //@TODO Что приходит в ответ на сохранение?????
-                        ds.uploadFiles(data.Id, files)
-                            .then(function () {
-                                ds._excludeItemFromModifiedSet(item);
-                                ds._notifyAboutItemSaved(item, data, success);
-                            }, function (err) {
-                                logger.error(err);
-                                if (error) {
-                                    error(err);
-                                }
-                            });
-                    } else {
-                        ds._notifyAboutFailValidationBySaving(item, data, error);
-                    }
-                });
-            });
-        }
-    }
-
-});
-
-//####app/data/dataSource/documentDataSourceBuilder.js
-function DocumentDataSourceBuilder() {
-}
-
-_.inherit(DocumentDataSourceBuilder, BaseDataSourceBuilder);
-
-_.extend(DocumentDataSourceBuilder.prototype, {
-    applyMetadata: function(builder, parent, metadata, dataSource){
-        BaseDataSourceBuilder.prototype.applyMetadata.call(this, builder, parent, metadata, dataSource);
-
-        dataSource.setConfigId(metadata['ConfigId']);
-        dataSource.setDocumentId(metadata['DocumentId']);
-
-        if('CreateAction' in metadata){
-            dataSource.setCreateAction(metadata['CreateAction']);
-        }
-        if('ReadAction' in metadata){
-            dataSource.setReadAction(metadata['ReadAction']);
-        }
-        if('UpdateAction' in metadata){
-            dataSource.setUpdateAction(metadata['UpdateAction']);
-        }
-        if('DeleteAction' in metadata){
-            dataSource.setDeleteAction(metadata['DeleteAction']);
-        }
-
-    },
-
-    createDataSource: function(parent){
-        return new DocumentDataSource({
-            view: parent
-        });
-    },
-
-    initFileProvider: function (dataSource) {
-        var fileProvider = window.providerRegister.build('DocumentFileProvider', {
-            documentId: dataSource.getDocumentId(),
-            configId: dataSource.getConfigId()
-        });
-
-        dataSource.setFileProvider(fileProvider);
-    }
-});
-
-//####app/data/dataSource/filterManager.js
-var FilterManager = function (bindingBuilder) {
-    this._bindingBuilder = bindingBuilder;
-    this._criteriaList = [];
-    this._bindings = [];
-};
-
-_.extend(FilterManager.prototype, {
-
-    clean: function () {
-        this.off();
-        this._criteriaList.length = 0;
-        this._bindings.length = 0;
-    },
-
-    addFilter: function (filterList) {
-        var startCriteriaIndex = this._criteriaList.length;
-        var index;
-        var binding;
-
-        filterList.forEach(function (filter, i) {
-
-            index = startCriteriaIndex + i;
-
-            this._criteriaList.push(filter);
-
-            if('Value' in filter && $.isPlainObject(filter['Value'])){
-                binding = this.bindToValue(filter['Value'], index);
-                this._bindings.push(binding);
-            }
-
-        }, this);
-
-        this.triggerOnChange();
-    },
-
-    triggerOnChange: function () {
-        this.trigger('change', this.getCriteriaList());
-    },
-
-    getCriteriaList: function () {
-        return this._criteriaList;
-    },
-
-    isReady: function () {
-        return this._bindings.every(function (binding) {
-            var source = binding.getSource();
-            return source && ( !('isDataReady' in source) || source.isDataReady() );
-        });
-    },
-
-    bindToValue: function(valueMetadata, indexOfFilter){
-        var binding = this._bindingBuilder(valueMetadata);
-        var that = this;
-
-        binding.bindElement({
-
-            setProperty: function(propName, propValue){
-                that._criteriaList[indexOfFilter]['Value'] = propValue;
-                that.triggerOnChange();
-            },
-
-            onPropertyChanged: function(){}
-        });
-
-        return binding;
-    },
-
-    onChange: function (handler) {
-        this.on('change', handler);
-    }
-});
-
-_.extend(FilterManager.prototype, Backbone.Events);
-
 //####app/data/dataSource/objectDataSource.js
-var ObjectDataSource = BaseDataSource.extend({
+var ObjectDataSource = newBaseDataSource.extend({
 
     initDataProvider: function(){
         var dataProvider = window.providerRegister.build('ObjectDataSource');
@@ -28140,7 +30834,7 @@ var ObjectDataSource = BaseDataSource.extend({
 function ObjectDataSourceBuilder() {
 }
 
-_.inherit(ObjectDataSourceBuilder, BaseDataSourceBuilder);
+_.inherit(ObjectDataSourceBuilder, newBaseDataSourceBuilder);
 
 _.extend(ObjectDataSourceBuilder.prototype, {
     createDataSource: function(parent){
@@ -28150,7 +30844,12 @@ _.extend(ObjectDataSourceBuilder.prototype, {
     },
 
     applyMetadata: function(builder, parent, metadata, dataSource){
-        BaseDataSourceBuilder.prototype.applyMetadata.call(this, builder, parent, metadata, dataSource);
+        newBaseDataSourceBuilder.prototype.applyMetadata.call(this, builder, parent, metadata, dataSource);
+
+        if(!'IsLazy' in metadata){
+            dataSource.setIsLazy(false);
+        }
+
         if(metadata.Items){
             if($.isArray(metadata.Items)){
                 dataSource.setItems(metadata.Items);
@@ -28168,16 +30867,16 @@ _.extend(ObjectDataSourceBuilder.prototype, {
 
         }
 
-    },
-
-    initFileProvider: function (dataSource) {
-        var fileProvider = window.providerRegister.build('DocumentFileProvider', {
-            documentId: "documentId",
-            configId: "configId"
-        });
-
-        dataSource.setFileProvider(fileProvider);
     }
+
+    //initFileProvider: function (dataSource) {
+    //    var fileProvider = window.providerRegister.build('DocumentFileProvider', {
+    //        documentId: "documentId",
+    //        configId: "configId"
+    //    });
+    //
+    //    dataSource.setFileProvider(fileProvider);
+    //}
 });
 //####app/data/parameter/parameter.js
 /**
@@ -31306,6 +34005,28 @@ function DateTimeFormatBuilder () {
     }
 
 }
+//####app/formats/displayFormat/number/NumberFormatBuilder.js
+/**
+ * @description Билдер NumberFormat
+ * @class NumberFormatBuilder
+ */
+function NumberFormatBuilder () {
+
+    /**
+     * @description Создает и инициализирует экземпляр {@link NumberFormat}
+     * @memberOf NumberFormatBuilder
+     * @param context
+     * @param args
+     * @returns {NumberFormat}
+     */
+    this.build = function (context, args) {
+        var format = new NumberFormat();
+
+        format.setFormat(args.metadata.Format);
+
+        return format;
+    }
+}
 //####app/formats/displayFormat/number/numberFormat.js
 /**
  * @description Формат отображения числового значения.
@@ -31472,28 +34193,6 @@ _.extend(NumberFormat.prototype, {
         return splitter + result + postfix;
     }
 }, formatMixin);
-//####app/formats/displayFormat/number/NumberFormatBuilder.js
-/**
- * @description Билдер NumberFormat
- * @class NumberFormatBuilder
- */
-function NumberFormatBuilder () {
-
-    /**
-     * @description Создает и инициализирует экземпляр {@link NumberFormat}
-     * @memberOf NumberFormatBuilder
-     * @param context
-     * @param args
-     * @returns {NumberFormat}
-     */
-    this.build = function (context, args) {
-        var format = new NumberFormat();
-
-        format.setFormat(args.metadata.Format);
-
-        return format;
-    }
-}
 //####app/formats/displayFormat/object/objectFormat.js
 /**
  * @description Формат отображения объекта
@@ -34789,6 +37488,39 @@ _.extend(MetadataViewBuilder.prototype, {
         return params.parentView;
     }
 });
+//####app/linkView/openMode/strategy/_mixins/openModeAutoFocusMixin.js
+var openModeAutoFocusMixin = {
+
+    applyAutoFocus: function () {
+        var view = this.view;
+        var focusOnControl = view && view.getFocusOnControl();
+
+        if (!focusOnControl) {
+            return;
+        }
+
+        var focusInterval = setInterval(function () {
+            var elements = view.findAllChildrenByName(focusOnControl);
+            if (Array.isArray(elements) && elements.length > 0) {
+                var element = elements[0];
+                if (!jQuery.contains(document, element.control.controlView.el)) {
+                    return;
+                }
+
+                element.setFocus && element.setFocus();
+                clearFocusInterval();
+            }
+        }, 1000 / 3);
+
+        setTimeout(clearFocusInterval, 3000);
+
+        function clearFocusInterval() {
+            clearInterval(focusInterval);
+        }
+
+    }
+
+};
 //####app/linkView/openMode/strategy/openModeContainerStrategy.js
 var OpenModeContainerStrategy = function () {
 };
@@ -34837,12 +37569,15 @@ _.extend(OpenModeDefaultStrategy.prototype, {
         $container
             .append(this.view.render())
             .data('view', this.view);
+
+        this.applyAutoFocus();
     },
 
     close: function () {
         this.view.remove();
     }
-});
+
+}, openModeAutoFocusMixin);
 
 //####app/linkView/openMode/strategy/openModeDialogStrategy.js
 var OpenModeDialogStrategy = function () {
