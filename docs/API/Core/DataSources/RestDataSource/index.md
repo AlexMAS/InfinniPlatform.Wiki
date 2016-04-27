@@ -76,6 +76,8 @@ RestDataSource.setGettingUrlParams('path', '/users?filter=eq(userId,<%userId%>)'
 |[setSettingUrlParams](RestDataSource.setSettingUrlParams/)|Устанавливает параметры запроса на сохранение данных|
 |[getDeletingUrlParams](RestDataSource.getDeletingUrlParams/)|Возвращает параметры запроса на удаление|
 |[setDeletingUrlParams](RestDataSource.setDeletingUrlParams/)|Устанавливает параметры запроса на удаление|
+|[setUpdatingItemsConverter](RestDataSource.setUpdatingItemsConverter/)|Устанавливает конвертер ответа http-сервиса в контейнер элементов источника данных|
+
 
 # Events
 
