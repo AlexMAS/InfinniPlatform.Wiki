@@ -48,7 +48,7 @@ new DocumentDataSource(parameters)
 |search| |Строка полнотекстового поиска|
 |select| |Правило отображения документов|
 |order| |Правило сортировки документов|
-|count| |Необходимость подсчета количества|
+|needTotalCount|false|Необходимость подсчета общего количества документов|
 
 # Methods
 
@@ -71,8 +71,9 @@ new DocumentDataSource(parameters)
 |[setSelect](DocumentDataSource.setSelect/)|Устанавливает правило отображения документов|
 |[getOrder](DocumentDataSource.getOrder/)|Возвращает правило сортировки документов|
 |[setOrder](DocumentDataSource.setOrder/)|Устанавливает правило сортировки документов|
-|[getCount](DocumentDataSource.getCount/)|Возвращает значение, определяющее необходимость подсчета количества|
-|[setCount](DocumentDataSource.setCount/)|Устанавливает значение, определяющее необходимость подсчета количества|
+|[getNeedTotalCount](DocumentDataSource.getNeedTotalCount/)|Возвращает значение, определяющее необходимость подсчета общего количества документов|
+|[setNeedTotalCount](DocumentDataSource.setNeedTotalCount/)|Устанавливает значение, определяющее необходимость подсчета общего количества документов|
+|[getTotalCount](DocumentDataSource.getTotalCount/)|Возвращает общее количество документов, хранящихся в InfinniPlatform и соответсвующих запросу|
 
 # Events
 

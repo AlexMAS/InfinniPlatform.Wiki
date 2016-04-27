@@ -18,7 +18,7 @@ position: 0
 |Search|`String`|Строка полнотекстового поиска|
 |Select|`String`|Правило отображения документов|
 |Order|`String`|Правило сортировки документов|
-|Count|`Boolean`|Необходимость подсчета количества|
+|NeedTotalCount|`Boolean`|Необходимость подсчета количества|
 
 <sup>*</sup> [Шаблонизируемая величина](../../RestDataSource/#parameters-templating). Заполняется значениями из FilterParams.
 
@@ -47,7 +47,7 @@ position: 0
 		"Name": "documentDataSource2",
 		"DocumentId": "MyDocument",
 		"Search": "Иванов Иван Иванович",
-		"Count": true
+		"NeedTotalCount": true
 	}
 }
 ```

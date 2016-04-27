@@ -8,8 +8,7 @@ position: 4
 
 # Description
 
-Фильтр элементов представляется массивом критериев фильтрации. 
-Если в источнике данных [разрешено обновление списка элементов](../../BaseDataSource/BaseDataSource.resumeUpdate/),
+Если в источнике данных [разрешено обновление списка элементов](../../BaseDataSource/BaseDataSource.resumeUpdate/) и он уже [обновлялся](../../BaseDataSource/BaseDataSource.updateItems/),
 изменение фильтра приводит к автоматическому [обновлению списка элементов источника данных](../../BaseDataSource/BaseDataSource.updateItems/).
 
 # Syntax
@@ -32,7 +31,7 @@ DocumentDataSource.setFilter(value)
 
 # Filter Format
 
-|Filter|Description|
+|Syntax|Description|
 |----|-----------|
 ||**Логические функции**|
 ||*Обозначим, через f_1, f_2, ... - функции возвращающие булевы значения*|
