@@ -30,4 +30,6 @@ var filter = DocumentDataSource.getFilter();
 
 * [`setFilter()`](../DocumentDataSource.setFilter/)
 * [`setIdFilter()`](../DocumentDataSource.setIdFilter/)
+* [`getFilterParams()`](../DocumentDataSource.getFilterParams/)
+* [`setFilterParams()`](../DocumentDataSource.setFilterParams/)
 * [`updateItems()`](../../BaseDataSource/BaseDataSource.updateItems/)

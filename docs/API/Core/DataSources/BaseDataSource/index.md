@@ -52,7 +52,6 @@ new BaseDataSource(parameters)
 |[setIdProperty](BaseDataSource.setIdProperty/)|Устанавливает наименование свойства с идентификатором элемента|
 |[getFillCreatedItem](BaseDataSource.getFillCreatedItem/)|Возвращает, нужно ли предзаполнение новых элементов на сервере|
 |[setFillCreatedItem](BaseDataSource.setFillCreatedItem/)|Устанавливает, нужно ли предзаполнение новых элементов на сервере|
-|[setIdFilter](BaseDataSource.setIdFilter/)|Устанавливает фильтр элементов по идентификатору|
 |[getErrorValidator](BaseDataSource.getErrorValidator/)|Возвращает [функцию](../../Script/) проверки элемента на ошибки|
 |[setErrorValidator](BaseDataSource.setErrorValidator/)|Устанавливает [функцию](../../Script/) проверки элемента на ошибки|
 |[getWarningValidator](BaseDataSource.getWarningValidator/)|Возвращает [функцию](../../Script/) проверки элемента на предупреждения|

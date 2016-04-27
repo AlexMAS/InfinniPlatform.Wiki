@@ -20,7 +20,7 @@ position: 0
 |Order|`String`|Правило сортировки документов|
 |Count|`Boolean`|Необходимость подсчета количества|
 
-<sup>*</sup> [Шаблонизируемая величина](../../../Actions/ServerAction/#parameters-templating). Заполняется значениями из FilterParams.
+<sup>*</sup> [Шаблонизируемая величина](../../RestDataSource/#parameters-templating). Заполняется значениями из FilterParams.
 
 # Examples
 

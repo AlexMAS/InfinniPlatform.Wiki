@@ -9,8 +9,8 @@ position: 4
 # Description
 
 Фильтр элементов представляется массивом критериев фильтрации. 
-Если в источнике данных [разрешено обновление списка элементов](../BaseDataSource.resumeUpdate/),
-изменение фильтра приводит к автоматическому [обновлению списка элементов источника данных](../BaseDataSource.updateItems/).
+Если в источнике данных [разрешено обновление списка элементов](../../BaseDataSource/BaseDataSource.resumeUpdate/),
+изменение фильтра приводит к автоматическому [обновлению списка элементов источника данных](../../BaseDataSource/BaseDataSource.updateItems/).
 
 # Syntax
 
@@ -22,7 +22,9 @@ DocumentDataSource.setFilter(value)
 
 |Name|Type|Description|
 |----|----|-----------|
-|value|`String`|Правило фильтрации документов|
+|value|`String`<sup>*</sup>|Правило фильтрации документов|
+
+<sup>*</sup> [Шаблонизируемая величина](../../RestDataSource/#parameters-templating). Для определения параметров используйте метод [setFilterParams()](../DocumentDataSource.setFilterParams/).
 
 ## Returns
 
@@ -49,9 +51,7 @@ DocumentDataSource.setFilter(value)
 |lt(propertyName, value)|Вернёт элементы, в которых свойство propertyName принимает значение меньшее, чем value|
 |lte(propertyName, value)|Вернёт элементы, в которых свойство propertyName принимает значение, которое меньше либо равно value|
 |text(search[, language[, caseSensitive[, diacriticSensitive]]])|Вернёт элементы, в которых содержится строка search. Если указать language(напр, 'ru'), то поиск будет осуществляться с учётом особенностей данного языка. Если в параметрах caseSensitive и diacriticSensitive передать значение true, то поиск будет осуществляться с учётом регистра и диакритических знаков|
-|regex(propertyName, pattern[, arg1, arg2, ...])|Вернёт элементы, в которых свойство propertyName соответсвут шаблону pattern. В качестве arg1, arg2, ... можно передать настройки regex. Возможны следующие настройки: IgnoreCase - Игнорирует регистр символов.
-Singleline - Указывает однострочный режим. Изменяет значение точки (.) так, что она соответствует любому символу (вместо любого символа, кроме "\n").
-Multiline - Многострочный режим. Изменяет значение символов "^" и "$" так, что они совпадают, соответственно, в начале и конце любой строки, а не только в начале и конце целой строки.|
+|regex(propertyName, pattern[, arg1, arg2, ...])|Вернёт элементы, в которых свойство propertyName соответсвут шаблону pattern. В качестве arg1, arg2, ... можно передать настройки regex. Возможны следующие настройки: *IgnoreCase* - Игнорирует регистр символов. *Singleline* - Указывает однострочный режим. Изменяет значение точки (.) так, что она соответствует любому символу (вместо любого символа, кроме "\n"). *Multiline* - Многострочный режим. Изменяет значение символов "^" и "$" так, что они совпадают, соответственно, в начале и конце любой строки, а не только в начале и конце целой строки.|
 ||**Функции фильтрации по содержимому массивов, хранящихся в элементах**|
 ||*Обозначим через arrayProperty - свойство ссылающееся на массив*|
 |match(arrayProperty, f_1)|Все элементы из массива удовлетворяют условию f_1|
@@ -73,31 +73,33 @@ Multiline - Многострочный режим. Изменяет значен
 # Examples
 
 ```js
-BaseDataSource.setFilter('eq(_id,123)');
+BaseDataSource.setFilter("eq(_id,123)");
 ```
 
 ```js
-BaseDataSource.setFilter('gt(birthday,date('2012-01-26T13:51:50.417Z'))');
+BaseDataSource.setFilter("gt(birthday,date('2012-01-26T13:51:50.417Z'))");
 ```
 
 ```js
-BaseDataSource.setFilter('regex(FirstName, '^И(ван|рина)$', IgnoreCase)');
+BaseDataSource.setFilter("regex(FirstName, '^И(ван|рина)$', IgnoreCase)");
 ```
 
 ```js
-BaseDataSource.setFilter('match(props, eq(name,'font')));
+BaseDataSource.setFilter("match(props, eq(name,'font'))");
 ```
 
 ```js
-BaseDataSource.setFilter('anyNotIn(items, true, 34535, 'hello')');
+BaseDataSource.setFilter("anyNotIn(items, true, 34535, 'hello')");
 ```
 
 ```js
-BaseDataSource.setFilter('or(and(eq(id,231),eq(id,342342)),eq(id,423434))');
+BaseDataSource.setFilter("or(and(eq(id,231),eq(id,342342)),eq(id,423434))");
 ```
 
 # See Also
 
+* [`setFilterParams()`](../DocumentDataSource.setFilterParams/)
+* [`getFilterParams()`](../DocumentDataSource.getFilterParams/)
 * [`getFilter()`](../DocumentDataSource.getFilter/)
 * [`setIdFilter()`](../DocumentDataSource.setIdFilter/)
 * [`updateItems()`](../../BaseDataSource/BaseDataSource.updateItems/)

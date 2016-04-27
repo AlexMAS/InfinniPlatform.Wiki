@@ -39,7 +39,7 @@ new DocumentDataSource(parameters)
 Обратите внимание, что для работы с данными свойствами необходимо [указывать точку в названии](../BaseDataSource/BaseDataSource.getProperty/#path-rules).
 
 |Name|Default|Description|
-|----|----|---------|
+|----|:--:|---------|
 |documentId| |Идентификатор документа|
 |filter| |Правило фильтрации документов|
 |filterParams| |Параметры фильтра|

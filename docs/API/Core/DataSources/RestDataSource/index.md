@@ -50,7 +50,21 @@ new RestDataSource(parameters)
 |data|`Object`<sup>*</sup>|Данные запроса|
 |params|`Object`|Параметры запроса|
 
-<sup>*</sup> [Шаблонизируемая величина](../../Actions/ServerAction/#parameters-templating).
+<sup>*</sup> [Шаблонизируемая величина](#parameters-templating).
+
+# Parameters Templating
+
+Зачастую при описании запроса возникает необходимость использовать изменяемые значения.  
+Для этого в RestDataSource введены параметры. Вы можете задать значение параметра в свойстве params. 
+А затем использовать его в шаблонизируемых величинах, обозначив `<%[paramName]%>`.
+ 
+Например, задан параметр *userId*, тогда в свойстве **path** можно обратится к нему следующим образом: `"/users?filter=eq(userId,<%userId%>)"`. 
+При отправке запроса вместо *<%userId%>* будет установлено соответсвующее значение параметра.
+
+```js
+RestDataSource.setGettingUrlParams('params.userId', '12345');
+RestDataSource.setGettingUrlParams('path', '/users?filter=eq(userId,<%userId%>)');
+```
 
 # Methods
 
