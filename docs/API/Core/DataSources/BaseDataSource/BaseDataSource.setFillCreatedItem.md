@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.setFillCreatedItem()"
-position: 7
+position: 8
 ---
 
 Устанавливает, нужно ли предзаполнение новых элементов на сервере.
@@ -14,9 +14,13 @@ BaseDataSource.setFillCreatedItem(value)
 
 ## Parameters
 
-`value`
+|Name|Type|Description|
+|----|----|-----------|
+|value|`Boolean`|Логическое значение, указывающее, нужно ли предзаполнение новых элементов на сервере|
 
-Логическое значение, указывающее, нужно ли предзаполнение новых элементов на сервере.
+## Returns
+
+Метод ничего не возвращает.
 
 # Examples
 

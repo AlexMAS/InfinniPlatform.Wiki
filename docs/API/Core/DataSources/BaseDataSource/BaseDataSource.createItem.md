@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.createItem()"
-position: 28
+position: 29
 ---
 
 Создает новый элемент в источнике данных.
@@ -19,28 +19,25 @@ position: 28
 # Syntax
 
 ```js
-BaseDataSource.createItem([success[, error]])
+BaseDataSource.createItem(success, error)
 ```
 
 ## Parameters
 
-`success`
+|Name|Description|
+|----|-----------|
+|success|(Необязательный) [Обработчик события](../../../Script/) о том, что элемент создан. Параметр args данного обработчика содержит поле value, в котором хранится ссылка на созданный элемент|
+|error|(Необязательный) [Обработчик события](../../../Script/) о том, что при создании элемента произошла ошибка|
 
-Необязательный. [Обработчик события](../../../KeyConcepts/Script/) о том, что элемент создан.
-В параметре `argument` передается информация о произошедшем событии. Свойство `argument.value`
-содержит ссылку на созданный элемент.
+## Returns
 
-`error`
-
-Необязательный. [Обработчик события](../../../KeyConcepts/Script/) о том, что при создании элемента
-произошла ошибка. В параметре `argument` передается информация о произошедшем событии. Свойство
-`argument.error` содержит информацию об ошибке.
+Метод ничего не возвращает.
 
 # Examples
 
 ```js
 BaseDataSource.createItem(
-  function(context, argument) { alert('New item is created!'); }
+  function(context, args) { alert('New item is created!'); }
 );
 ```
 

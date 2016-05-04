@@ -1,14 +1,14 @@
 ---
 layout: doc
 title: "BaseDataSource.setErrorValidator()"
-position: 15
+position: 13
 ---
 
-Устанавливает [функцию](../../../KeyConcepts/Script/) проверки элемента на ошибки.
+Устанавливает [функцию](../../../Script/) проверки элемента на ошибки.
 
 # Description
 
-[Функция](../../../KeyConcepts/Script/) проверки элемента на ошибки в параметре `argument` принимает
+[Функция](../../../Script/) проверки элемента на ошибки в параметре `args` принимает
 элемент источника данных, который необходимо проверить. Результатом работы функции является объект
 [предопределенного формата](../ValidationResult/).
 
@@ -20,16 +20,20 @@ BaseDataSource.setErrorValidator(value)
 
 ## Parameters
 
-`value`
+|Name|Type|Description|
+|----|----|-----------|
+|value|[Script](../../../Script/)|Функция проверки элемента на ошибки|
 
-[Функция](../../../KeyConcepts/Script/) проверки элемента на ошибки.
+## Returns
+
+Метод ничего не возвращает
 
 # Examples
 
 ```js
 BaseDataSource.setErrorValidator(
-  function(context, argument) {
-    if (/^[a-z]+$/i.test(argument.FirstName)) {
+  function(context, args) {
+    if (/^[a-z]+$/i.test(args.FirstName)) {
       return {
         isValid: true
       };

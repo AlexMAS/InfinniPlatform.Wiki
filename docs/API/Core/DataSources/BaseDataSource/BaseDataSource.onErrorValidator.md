@@ -1,10 +1,10 @@
 ---
 layout: doc
 title: "BaseDataSource.onErrorValidator"
-position: 110
+position: 106
 ---
 
-Устанавливает [обработчик события](../../../KeyConcepts/Script/) о том, что проверка на ошибки завершена.
+Устанавливает [обработчик события](../../../Script/) о том, что проверка на ошибки завершена.
 
 # Description
 
@@ -20,18 +20,16 @@ BaseDataSource.onErrorValidator(callback)
 
 ## Parameters
 
-`callback`
-
-[Обработчик события](../../../KeyConcepts/Script/) о том, что проверка на ошибки завершена.
-В параметре `argument` передается информация о произошедшем событии. Свойство `argument.value`
-содержит результаты проверки в [предопределенном формате](../ValidationResult/).
+|Name|Type|Description|
+|----|----|-----------|
+|callback|[Script](../../../Script/)|Обработчик события о том, что проверка на ошибки завершена. Параметр args данного обработчика в поле value содержит результаты проверки в [предопределенном формате](../ValidationResult/)|
 
 # Examples
 
 ```js
 BaseDataSource.onErrorValidator(
-  function(context, argument) {
-    alert('Validation result does not have any errors: ' + argument.value.isValid);
+  function(context, args) {
+    alert('Validation result does not have any errors: ' + args.value.isValid);
   }
 );
 ```

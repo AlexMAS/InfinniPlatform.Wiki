@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getName()"
-position: 2
+position: 3
 ---
 
 Возвращает наименование источника данных.
@@ -11,6 +11,10 @@ position: 2
 ```js
 BaseDataSource.getName()
 ```
+
+## Parameters
+
+Нет
 
 ## Returns
 

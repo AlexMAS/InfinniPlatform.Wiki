@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getSelectedItem()"
-position: 23
+position: 19
 ---
 
 Возвращает выделенный элемент.
@@ -18,6 +18,10 @@ position: 23
 ```js
 BaseDataSource.getSelectedItem()
 ```
+
+## Parameters
+
+Нет
 
 ## Returns
 

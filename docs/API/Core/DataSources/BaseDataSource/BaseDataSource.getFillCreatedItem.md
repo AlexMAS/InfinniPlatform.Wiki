@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getFillCreatedItem()"
-position: 6
+position: 7
 ---
 
 Возвращает, нужно ли предзаполнение новых элементов на сервере.
@@ -11,6 +11,10 @@ position: 6
 ```js
 BaseDataSource.getFillCreatedItem()
 ```
+
+## Parameters
+
+Нет
 
 ## Returns
 

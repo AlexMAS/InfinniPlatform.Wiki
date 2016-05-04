@@ -1,14 +1,14 @@
 ---
 layout: doc
 title: "BaseDataSource.setWarningValidator()"
-position: 17
+position: 15
 ---
 
-Устанавливает [функцию](../../../KeyConcepts/Script/) проверки элемента на предупреждения.
+Устанавливает [функцию](../../../Script/) проверки элемента на предупреждения.
 
 # Description
 
-[Функция](../../../KeyConcepts/Script/) проверки элемента на предупреждения в параметре `argument` принимает
+[Функция](../../../Script/) проверки элемента на предупреждения в параметре `args` принимает
 элемент источника данных, который необходимо проверить. Результатом работы функции является объект
 [предопределенного формата](../ValidationResult/).
 
@@ -20,16 +20,20 @@ BaseDataSource.setWarningValidator(value)
 
 ## Parameters
 
-`value`
+|Name|Type|Description|
+|----|----|-----------|
+|value|[Script](../../../Script/)|Функция проверки элемента на предупреждения|
 
-[Функция](../../../KeyConcepts/Script/) проверки элемента на предупреждения.
+## Returns
+
+Метод ничего не возвращает
 
 # Examples
 
 ```js
 BaseDataSource.setWarningValidator(
-  function(context, argument) {
-    if (argument.Birthday < new Date()) {
+  function(context, args) {
+    if (args.Birthday < new Date()) {
       return {
         isValid: true
       };

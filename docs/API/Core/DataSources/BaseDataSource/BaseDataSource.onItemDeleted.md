@@ -1,10 +1,10 @@
 ---
 layout: doc
 title: "BaseDataSource.onItemDeleted"
-position: 107
+position: 104
 ---
 
-Устанавливает [обработчик события](../../../KeyConcepts/Script/) о том, что элемент удален.
+Устанавливает [обработчик события](../../../Script/) о том, что элемент удален.
 
 # Description
 
@@ -20,17 +20,15 @@ BaseDataSource.onItemDeleted(callback)
 
 ## Parameters
 
-`callback`
-
-[Обработчик события](../../../KeyConcepts/Script/) о том, что элемент удален. В параметре `argument`
-передается информация о произошедшем событии. Свойство `argument.value` содержит ссылку на удаленный
-элемент.
+|Name|Type|Description|
+|----|----|-----------|
+|callback|[Script](../../../Script/)|Обработчик события о том, что элемент удален. Параметр `args` данного обработчика содержит поля: source - ссылка на [источник данных](../), value -  удаленный элемент|
 
 # Examples
 
 ```js
 BaseDataSource.onItemDeleted(
-  function(context, argument) { alert('Item is deleted!'); }
+  function(context, args) { alert('Item is deleted!'); }
 );
 ```
 

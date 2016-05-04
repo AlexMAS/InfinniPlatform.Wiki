@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.suspendUpdate()"
-position: 21
+position: 17
 ---
 
 Запрещает обновление списка элементов.
@@ -9,20 +9,27 @@ position: 21
 # Syntax
 
 ```js
-BaseDataSource.suspendUpdate()
+BaseDataSource.suspendUpdate(value)
 ```
+## Parameters
+
+|Name|Description|
+|----|-----------|
+|value|(Необязательный) Причина запрета на обновление|
+
+## Returns
+
+Метод ничего не возвращает
 
 # Examples
 
 ```js
-BaseDataSource.suspendUpdate();
+BaseDataSource.suspendUpdate('updateParamsNotReady');
 ```
 
 # See Also
 
 * [`resumeUpdate()`](../BaseDataSource.resumeUpdate/)
-* [`setPageNumber()`](../BaseDataSource.setPageNumber/)
-* [`setPageSize()`](../BaseDataSource.setPageSize/)
+* [`isUpdateSuspended()`](../BaseDataSource.isUpdateSuspended/)
 * [`setFilter()`](../BaseDataSource.setFilter/)
 * [`updateItems()`](../BaseDataSource.updateItems/)
-* [`addNextItems()`](../BaseDataSource.addNextItems/)
