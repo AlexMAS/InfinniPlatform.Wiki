@@ -6,14 +6,18 @@ position: 0
 
 Метаданные типа [`Icon`](../).
 
-# Schema
-
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Components/Icon/Icon.resjson" lang="json" %}
 
 # Examples
 
 ```json
 {
-  "Value": "fa-star"
+    "Icon": {
+        "Value": "fa-star"
+    }
 }
 ```
+
+
+# See also
+
+[`EditorBase.metadata`](../../EditorBase/EditorBase.metadata/).

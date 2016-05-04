@@ -8,7 +8,7 @@ position: 1008
 
 # Extends
 
-[`Element`](../../KeyConcepts/Element/), [`EditorBase`](../EditorBase/)
+[`Element`](../../Core/Elements/Element), [`EditorBase`](../EditorBase/)
 
 # Syntax
 
@@ -18,6 +18,6 @@ new CheckBox([parent])
 
 ## Parameters
 
-`parent`
-
-Необязательный. Родительский [элемент](../../KeyConcepts/Element/).
+Name|Type|Default|Description
+----|----|-------|-----------
+`parent`|[`Element`](../../Core/Elements/Element)|-|Родительский [элемент](../../Core/Elements/Element)

@@ -1,14 +1,17 @@
 ---
 layout: doc
 title: "ToggleButton.metadata"
-position: 0
+position: 5
 ---
 
 Метаданные типа [`ToggleButton`](../).
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Components/ToggleButton/ToggleButton.resjson" lang="json" %}
+Name|Type|Default|Description
+----|----|-------|-----------
+TextOn|`String`|'ON'|Текст на включенное состояние.
+TextOff|`String`|'OFF'|Текст на выключенное состояние.
 
 # Examples
 
@@ -22,4 +25,22 @@ position: 0
     "Property": "$.IsSubscribe"
   }
 }
+```
+
+```js
+//js-demo
+
+var metadata = {
+    ToggleButton: {
+        "Text": "Subscribe",
+        "TextOn": "yes",
+        "TextOff": "no"
+    }
+};
+
+var builder = new ApplicationBuilder();
+var toggle = builder.build(metadata);
+
+//  Render
+$elementForExample.append(toggle.render());
 ```

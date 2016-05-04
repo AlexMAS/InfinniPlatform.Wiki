@@ -6,9 +6,6 @@ position: 0
 
 Метаданные типа [`CheckBox`](../).
 
-# Schema
-
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Components/CheckBox/CheckBox.resjson" lang="json" %}
 
 # Examples
 
@@ -21,3 +18,7 @@ position: 0
   }
 }
 ```
+
+# See also
+
+[`EditorBase.metadata`](../../EditorBase/EditorBase.metadata/).

@@ -8,7 +8,7 @@ position: 1009
 
 # Extends
 
-[`Element`](../../KeyConcepts/Element/), [`EditorBase`](../EditorBase/)
+[`Element`](../../Core/Elements/Element), [`EditorBase`](../EditorBase/)
 
 # Syntax
 
@@ -18,24 +18,15 @@ new ToggleButton([parent])
 
 ## Parameters
 
-`parent`
-
-Необязательный. Родительский [элемент](../../KeyConcepts/Element/).
+Name|Type|Default|Description
+----|----|-------|-----------
+`parent`|[`Element`](../../Core/Elements/Element)|-|Родительский элемент
 
 # Methods
 
-## [`getTextOn()`](ToggleButton.getTextOn/)
-
-Возвращает текст на включенное состояние.
-
-## [`setTextOn()`](ToggleButton.setTextOn/)
-
-Устанавливает текст на включенное состояние.
-
-## [`getTextOff()`](ToggleButton.getTextOff/)
-
-Возвращает текст на выключенное состояние.
-
-## [`setTextOff()`](ToggleButton.setTextOff/)
-
-Устанавливает текст на выключенное состояние.
+Name|Description
+----|------------
+[`getTextOn`](ToggleButton.getTextOn/)|Возвращает текст на включенное состояние.
+[`setTextOn`](ToggleButton.setTextOn/)|Устанавливает текст на включенное состояние.
+[`getTextOff`](ToggleButton.getTextOff/)|Возвращает текст на выключенное состояние.
+[`setTextOff`](ToggleButton.setTextOff/)|Устанавливает текст на выключенное состояние.
