@@ -1,18 +1,16 @@
 ---
 layout: doc
 title: "BaseDataSource.onItemsUpdated"
-position: 108
+position: 105
 ---
 
-Устанавливает [обработчик события](../../../KeyConcepts/Script/) о том, что список элементов обновлен.
+Устанавливает [обработчик события](../../../Script/) о том, что список элементов обновлен.
 
 # Description
 
 Вызов метода [`updateItems()`](../BaseDataSource.updateItems/) производит загрузку списка элементов
 из соответствующего источнику данных хранилища. Если в источнике данных были несохраненные изменения,
-они будут потеряны, так как загруженные ранее данные будут заменены (обновлены) новыми. Загрузка
-элементов производится с учетом установленного [номера](../BaseDataSource.getPageNumber/)
-и [размера](../BaseDataSource.getPageSize/) страницы, а также всех имеющихся [фильтров](../BaseDataSource.getFilter/).
+они будут потеряны, так как загруженные ранее данные будут заменены (обновлены) новыми. 
 Успешное обновление списка элементов приводит к возникновению события [`onItemsUpdated`](../BaseDataSource.onItemsUpdated/).
 
 # Syntax
@@ -23,17 +21,15 @@ BaseDataSource.onItemsUpdated(callback)
 
 ## Parameters
 
-`callback`
-
-[Обработчик события](../../../KeyConcepts/Script/) о том, что список элементов обновлен. В параметре
-`argument` передается информация о произошедшем событии. Свойство `argument.value` содержит ссылку
-на список загруженных элементов.
+|Name|Type|Description|
+|----|----|-----------|
+|callback|[Script](../../../Script/)|Обработчик события о том, что список элементов обновлен. Параметр args данного обработчика содержит новый список элементов источника данных в поле value|
 
 # Examples
 
 ```js
 BaseDataSource.onItemsUpdated(
-  function(context, argument) { alert('Items are updated!'); }
+  function(context, args) { alert('Items are updated!'); }
 );
 ```
 

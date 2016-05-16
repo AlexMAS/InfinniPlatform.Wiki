@@ -53,17 +53,25 @@ var TabHeaderOrientation = {
     vertical: 'Vertical'
 };
 //####app/element/_common/metadata/colorStyle.js
-InfinniUI.Metadata.ColorStyle = [
-    "Transparent",
-    "Primary1",
-    "Primary2",
-    "Primary3",
-    "Accent1",
-    "Accent2",
-    "Accent3",
-    "White",
-    "Black"
-];
+InfinniUI.ColorStyle = {
+    transparent: "Transparent",
+
+    primary1: "Primary1",
+    primary2: "Primary2",
+    primary3: "Primary3",
+
+    accent1: "Accent1",
+    accent2: "Accent2",
+    accent3: "Accent3",
+
+    background1: "Background1",
+    background2: "Background2",
+    background3: "Background3",
+    background4: "Background4",
+
+    white: "White",
+    black: "Black"
+};
 //####app/element/_common/metadata/horizontalTextAlignment.js
 //InfinniUI.Metadata.HorizontalTextAlignment = [
 //    "Left",
@@ -80,125 +88,30 @@ InfinniUI.Metadata.TextHorizontalAlignment = {
 };
 
 //####app/element/_common/metadata/textStyle.js
-InfinniUI.Metadata.TextStyle = [
-    "Display4",
-    "Display3",
-    "Display2",
-    "Display1",
-    "Headline",
-    "Title",
-    "Subhead",
-    "Body2",
-    "Body1",
-    "Caption",
-    "Menu",
-    "Button"
-];
+InfinniUI.TextStyle = {
+    display4: "Display4",
+    display3: "Display3",
+    display2: "Display2",
+    display1: "Display1",
+
+    headline: "Headline",
+    title: "Title",
+    subhead: "Subhead",
+    body: "Body",
+    caption: "Caption",
+    menu: "Menu",
+    button: "Button"
+};
 //####app/config.js
 _.defaults( InfinniUI.config, {
     lang: 'ru-RU',
     maxLengthUrl: 2048,
     cacheMetadata: false, //boolean - enable/disable cache | milliseconds
     serverUrl: 'http://localhost:9900',//'http://10.0.0.32:9900';
-    configId: 'PTA',
-    configName: 'Хабинет'
+    configId: 'PTA'
+
+
 });
-//####app/utils/BlobUtils.js
-/**
- * Набор утилит для работы с BlobData объектами
- **/
-
-
-window.InfinniUI.BlobUtils = (function () {
-
-    return  {
-        createFromFile: function(file) {
-            var blobData = {
-                Info:{
-                    Name:   file.name,
-                    Type:   file.type,
-                    Size:   file.size,
-                    Time:   file.lastModifiedDate
-                }
-            };
-
-            return blobData;
-        }
-    }
-
-})();
-
-
-
-
-
-//####app/utils/EventsManager.js
-function EventsManager () {
-    this.handlers = {};
-
-}
-
-
-EventsManager.prototype.on = function (event, handler) {
-    if (typeof this.handlers[event] === 'undefined') {
-        this.handlers[event] = [];
-    }
-
-    var handlers = this.handlers[event];
-    var manager = this;
-    handlers.push(handler);
-
-    return {
-        off: this.off.bind(this, event, handler)
-    };
-};
-
-EventsManager.prototype.off = function (event, handler) {
-    if (typeof event !== 'undefined') {
-        var handlers = this.handlers[event];
-
-        if (Array.isArray(handlers)) {
-            for(var i = 0; i < handlers.length; i = i + 1) {
-                if (handlers[i] === handler) {
-                    handlers.splice(i, 1);
-                    break;
-                }
-            }
-        }
-    }
-};
-
-EventsManager.prototype.trigger = function (event) {
-    var handlers = this.handlers[event],
-        args = Array.prototype.slice.call(arguments, 1),
-        deferred = $.Deferred();
-
-    if (Array.isArray(handlers)) {
-        var results = handlers.map(function (handler) {
-            return handler.apply(null, args);
-        });
-        $.when.apply($, results)
-            .done(function () {
-                var results = Array.prototype.slice.call(arguments);
-                var cancel = results.some(function (res) {
-                    return res === false;
-                });
-
-                if (cancel) {
-                    deferred.reject();
-                } else {
-                    deferred.resolve(results);
-                }
-            })
-            .fail(function () {
-                deferred.reject();
-            });
-    } else {
-        deferred.resolve();
-    }
-
-    return deferred.promise();
-};
 //####app/utils/actionOnLoseFocus.js
 var ActionOnLoseFocus = function ($el, action) {
     var that = this;
@@ -285,6 +198,35 @@ _.extend(BasePathOfProperty.prototype, {
         return str.substr(1, str.length - 1);
     }
 });
+//####app/utils/BlobUtils.js
+/**
+ * Набор утилит для работы с BlobData объектами
+ **/
+
+
+window.InfinniUI.BlobUtils = (function () {
+
+    return  {
+        createFromFile: function(file) {
+            var blobData = {
+                Info:{
+                    Name:   file.name,
+                    Type:   file.type,
+                    Size:   file.size,
+                    Time:   file.lastModifiedDate
+                }
+            };
+
+            return blobData;
+        }
+    }
+
+})();
+
+
+
+
+
 //####app/utils/cache.js
 var Cache = function () {
     this.cleanup();
@@ -1546,23 +1488,148 @@ window.InfinniUI.views = new OpenedViewCollection();
 //####app/utils/date.js
 window.InfinniUI.DateUtils = (function () {
 
-    var padInt = function (value, size) {
-        var str = '' + value;
-        var pad = '';
-        if (str.length < size) {
-            pad = Array(size - str.length + 1).join('0');
-        }
-        return pad + str;
+    init();
+
+    return {
+        toISO8601: toISO8601,
+        dateToTimestamp: dateToTimestamp,
+        dateToTimestampTime: dateToTimestampTime,
+        changeTimezoneOffset: changeTimezoneOffset,
+        restoreTimezoneOffset: restoreTimezoneOffset,
+        toDate: toDate,
+        createDate: createDate,
+        parseTimeISO8601toDate: parseTimeISO8601toDate,
+        parseISO8601toDate:parseISO8601toDate,
+        checkRangeDate: checkRangeDate,
+        getNearestDate: getNearestDate,
+        cloneDate: cloneDate
     };
+
+    function parseISO8601toDate(value) {
+        if (value === null || typeof value ==='undefined') {
+            return value;
+        }
+        return moment(value).toDate();
+    }
+
+    function cloneDate(date) {
+        if (date instanceof Date) {
+            return new Date(date.getTime());
+        }
+        return date;
+    }
+
+    /**
+     * @description Возвращает ближаешее к исходному значению из диапазона
+     * @param date
+     * @param min
+     * @param max
+     * @returns {Date}
+     */
+    function getNearestDate(date, min, max) {
+        var nearest;
+
+        var mMin = moment(min || null),
+            mMax = moment(max || null),
+            mVal = moment(date);
+
+
+        if (mMin.isValid() && mVal.isBefore(mMin)) {
+            nearest = mMin.toDate();
+        } else if (mMax.isValid() && mVal.isAfter(mMax)) {
+            nearest = mMax.toDate();
+        } else {
+            nearest = date;
+        }
+
+        return nearest;
+    }
+
+    /**
+     * @description Проверяет, что дата находится в заданном диапазоне
+     * @param date
+     * @param minDate
+     * @param maxDate
+     * @param {String} precision
+     * @returns {boolean}
+     */
+    function checkRangeDate(date, minDate, maxDate, precision) {
+        var success = true;
+
+        var mMin = moment(minDate || null),
+            mMax = moment(maxDate || null),
+            mVal = moment(date);
+
+
+        if (mMin.isValid() && mMax.isValid()) {
+            success = mVal.isSameOrBefore(mMax, precision) && mVal.isSameOrAfter(mMin, precision);
+        } else if (mMin.isValid()) {
+            success = mVal.isSameOrAfter(mMin, precision);
+        } else if (mMax.isValid()) {
+            success = mVal.isSameOrBefore(mMax, precision);
+        }
+
+        return success;
+    }
+
+    function parseTimeISO8601toDate(value) {
+        var date;
+        var formats = ['HH:mm', 'HH:mm:ss', 'HH:mm:ss.SSS', 'HHmm', 'HHmmss', 'HHmmss.SSS'];
+        var m = moment(value, formats);
+        if (m.isValid()) {
+            date = new Date(0);
+            date.setHours(m.hours(), m.minute(), m.second(), m.millisecond());
+        }
+        return date;
+    }
+
+    function toDate(value) {
+        var m = moment(value);
+        var date = null;
+
+        if (m.isValid()) {
+            date = m.toDate();
+        }
+
+        return date;
+    }
+
+    function changeTimezoneOffset(date, timezoneOffset) {
+        var newDate = date;
+
+        if (typeof timezoneOffset !== 'undefined' && date instanceof Date) {
+            var currentOffset = date.getTimezoneOffset();
+
+            if (timezoneOffset !== currentOffset) {
+                newDate = new Date(date.getTime() + (currentOffset - timezoneOffset) * 60 * 1000);
+            }
+        }
+
+        return newDate;
+    }
+
+    function restoreTimezoneOffset(date, timezoneOffset) {
+        var newDate = date;
+
+        if (typeof timezoneOffset !== 'undefined' && date instanceof Date) {
+            var currentOffset = date.getTimezoneOffset();
+
+            if (timezoneOffset !== currentOffset) {
+                newDate = new Date(date.getTime() - (currentOffset - timezoneOffset) * 60 * 1000);
+            }
+        }
+
+        return newDate;
+    }
 
     /**
      * @description Возвращает строковое представление даты в формате YYYY-MM-DDTHH:mm:ss.sss+HH:MM
      * @param {Date} date
      * @param {Object} options
-     * @param {boolean} [options.resetTime = false]
-     * @returns {string}
+     * @param {Number} options.timezoneOffset Смещение часового пояса относительно часового пояса UTC в минутах
+     * @returns {string|null}
      */
-    var toISO8601 = function (date, options) {
+    function toISO8601(date, options) {
 
         var config = options || {};
 
@@ -1574,42 +1641,111 @@ window.InfinniUI.DateUtils = (function () {
             return null;
         }
 
-        if (config.resetTime) {
-            date.setHours(0, 0, 0, 0);
-        }
+        var _date = changeTimezoneOffset(date, config.timezoneOffset);
+
         var datePart = [
-            padInt(date.getFullYear(), 4),
-            padInt(date.getMonth() + 1, 2),
-            padInt(date.getDate(), 2)
+            padInt(_date.getFullYear(), 4),
+            padInt(_date.getMonth() + 1, 2),
+            padInt(_date.getDate(), 2)
         ].join('-');
 
         var timePart = [
-            padInt(date.getHours(), 2),
-            padInt(date.getMinutes(), 2),
-            padInt(date.getSeconds(), 2)
+            padInt(_date.getHours(), 2),
+            padInt(_date.getMinutes(), 2),
+            padInt(_date.getSeconds(), 2)
         ].join(':');
-        
-        var sssPart = padInt(date.getMilliseconds(), 3) + '0';// '000' + '0'
 
-        if(!Math.sign) { //fix for devices not support ES6
-            Math.sign = function (x) {
-                return x?x<0?-1:1:0;
-            };
+        var sssPart = padInt(_date.getMilliseconds(), 3) + '0';// '000' + '0'
+
+
+        var timezoneOffset = config.timezoneOffset;
+        if (typeof timezoneOffset === 'undefined' || timezoneOffset === null) {
+            timezoneOffset = date.getTimezoneOffset();
         }
 
-        var tz = Math.abs(date.getTimezoneOffset());
-        var tzOffsetPart = Math.sign(date.getTimezoneOffset()) > 0 ? '-' : '+';
+        var tz = Math.abs(timezoneOffset);
+        var tzOffsetPart = Math.sign(timezoneOffset) > 0 ? '-' : '+';
         var tzPart = [
             padInt(Math.floor(tz / 60), 2),
             padInt(tz % 60, 2)
         ].join(':');
 
         return datePart + 'T' + timePart + '.' + sssPart + tzOffsetPart + tzPart;
-    };
+    }
 
-    return {
-        toISO8601: toISO8601
-    };
+    /**
+     * @description Возвращает заданную дату как количество секунд, прошедших с 01-01-1970T00:00 по UTC
+     * @param {String|Date} date ISO8601
+     */
+    function dateToTimestamp(date) {
+        var _date, datetime = null;
+
+        if (date && date.constructor === String) {
+            _date = new Date(date);
+        } else if (date && date.constructor === Date) {
+            _date = date;
+        }
+
+        if (_date) {
+            _date.setUTCHours(0, 0, 0, 0);
+            datetime = _date.getTime() / 1000;
+        }
+
+        return datetime;
+    }
+
+    function dateToTimestampTime(date) {
+        var time = null, _date, datetime;
+
+        if (date && date.constructor === String) {
+            _date = new Date(date);
+        } else if (date && date.constructor === Date) {
+            _date = date;
+        }
+
+        if (_date) {
+            datetime = new Date(0);
+            datetime.setUTCHours(_date.getUTCHours(), _date.getUTCMinutes(), _date.getUTCSeconds(), _date.getUTCMilliseconds());
+            time = datetime.getTime() / 1000;
+        }
+
+        return time;
+    }
+
+    function createDate(d) {
+        var date;
+
+        if (typeof d === Date) {
+            date = new Date(d.getTime());
+        } else if (typeof d === 'number') {
+            //Числовое значение интерпретируем как секунды (as unix-time)!
+            date = new Date(d * 1000);
+        } else if (typeof d === 'undefined' || d === null) {
+            date = null;
+        } else {
+            date = toDate(d);
+        }
+
+        return date;
+    }
+
+    function padInt(value, size) {
+        var str = '' + value;
+        var pad = '';
+        if (str.length < size) {
+            pad = Array(size - str.length + 1).join('0');
+        }
+        return pad + str;
+    }
+
+    function init() {
+        if (!Math.sign) { //fix for devices not support ES6
+            Math.sign = function (x) {
+                return x ? x < 0 ? -1 : 1 : 0;
+            };
+        }
+    }
+
 })();
 //####app/utils/dot.js
 /**
@@ -1916,6 +2052,73 @@ Function.prototype.estimate = function (name) {
             console.groupEnd();
         }
     }
+};
+//####app/utils/EventsManager.js
+function EventsManager () {
+    this.handlers = {};
+
+}
+
+
+EventsManager.prototype.on = function (event, handler) {
+    if (typeof this.handlers[event] === 'undefined') {
+        this.handlers[event] = [];
+    }
+
+    var handlers = this.handlers[event];
+    var manager = this;
+    handlers.push(handler);
+
+    return {
+        off: this.off.bind(this, event, handler)
+    };
+};
+
+EventsManager.prototype.off = function (event, handler) {
+    if (typeof event !== 'undefined') {
+        var handlers = this.handlers[event];
+
+        if (Array.isArray(handlers)) {
+            for(var i = 0; i < handlers.length; i = i + 1) {
+                if (handlers[i] === handler) {
+                    handlers.splice(i, 1);
+                    break;
+                }
+            }
+        }
+    }
+};
+
+EventsManager.prototype.trigger = function (event) {
+    var handlers = this.handlers[event],
+        args = Array.prototype.slice.call(arguments, 1),
+        deferred = $.Deferred();
+
+    if (Array.isArray(handlers)) {
+        var results = handlers.map(function (handler) {
+            return handler.apply(null, args);
+        });
+        $.when.apply($, results)
+            .done(function () {
+                var results = Array.prototype.slice.call(arguments);
+                var cancel = results.some(function (res) {
+                    return res === false;
+                });
+
+                if (cancel) {
+                    deferred.reject();
+                } else {
+                    deferred.resolve(results);
+                }
+            })
+            .fail(function () {
+                deferred.reject();
+            });
+    } else {
+        deferred.resolve();
+    }
+
+    return deferred.promise();
 };
 //####app/utils/fileSize.js
 window.InfinniUI = window.InfinniUI || {};
@@ -2408,6 +2611,7 @@ var layoutManager = {
             var $el = $(this.getSelector(), $modal);
 
             $el.parentsUntil('.modal').css('height', 'auto');
+            $container.css('top', (this.windowHeight - $header.outerHeight(true) - $body.outerHeight(true)) / 2);
 
             $modal.children('.modal:not(.messagebox)').height($body.outerHeight(true) + $header.outerHeight(true));
 
@@ -2455,21 +2659,19 @@ var layoutManager = {
         $container.css('margin-top', 0);
 
         var el = $(this.getSelector(), $modal);
-        if (el.length === 0) {
-            //Если диалог не содержит элементы которые должны растягиваться по вертикали на 100%
-            //Выравниваем по вертикали в центр
-            $container.css('top', (this.windowHeight - headerHeight - $body.outerHeight(true)) / 2);
-            return;
+        if (el.length !== 0) {
+            // Если диалог содержит элементы которые должны растягиваться по вертикали на 100%
+            // пересчитываем высоту
+
+            //@TODO Зачем задавалась минимальная высота диалогов?
+            //$body.css('min-height', (this.windowHeight - $header.outerHeight(true) - space * 2) / 2);
+            var containerHeight = this.setOuterHeight($modal, this.windowHeight - space * 2);
+
+            //Высота для содержимого окна диалога
+            var clientHeight = this.setOuterHeight($container, containerHeight) - $header.outerHeight();
+
+            this.resize($body[0], clientHeight);
         }
-
-        $body.css('min-height', (this.windowHeight - $header.outerHeight(true) - space * 2) / 2);
-        var containerHeight = this.setOuterHeight($modal, this.windowHeight - space * 2);
-
-        //Высота для содержимого окна диалога
-        var clientHeight = this.setOuterHeight($container, containerHeight) - $header.outerHeight();
-
-        this.resize($body[0], clientHeight);
-        $container.css('top', (this.windowHeight - headerHeight - clientHeight) / 2);
     },
 
     init: function (container) {
@@ -2647,6 +2849,11 @@ var MessageBox = Backbone.View.extend({
     ),
 
     initialize: function (options) {
+        // чтобы пользователь случайно не обратился к элементу в фокусе,
+        // пока диалоговое окно создается и ещё не перехватило фокус,
+        // необходимо старую фокусировку снять
+        $(document.activeElement).blur();
+
         this.options = options;
 
         this.addButtonClasses();
@@ -2989,7 +3196,7 @@ function guid() {
 
     InfoElement.prototype.copyInfo = function (viewName, name) {
         if (viewName || name) {
-            window.prompt("Copy to clipboard: Ctrl+C", viewName + ':' + name);
+            window.prompt("Copy to clipboard: Ctrl+C", formatInfo(viewName, name));
         }
     };
 
@@ -3003,7 +3210,7 @@ function guid() {
         this.clickManager.append($control[0], this.copyInfo.bind(this, viewName, name));
 
         $control.tooltip({
-                title: viewName + ':' + name,
+                title: formatInfo(viewName, name),
                 placement: "auto"
             })
             .tooltip('show');
@@ -3056,6 +3263,16 @@ function guid() {
             }
         }
         return this;
+    };
+
+
+    /********************/
+
+    function formatInfo(viewName, name) {
+        var info = viewName ? [viewName] : [];
+        info.push(name);
+
+        return info.join(':');
     };
 
 
@@ -3247,7 +3464,9 @@ window.messageTypes = {
     onToolTipShow: {name: 'onToolTipShow'},
     onToolTipHide: {name: 'onToolTipHide'},
     onDataLoading: {name: 'onDataLoading'},
-    onDataLoaded: {name: 'onDataLoaded'}
+    onDataLoaded: {name: 'onDataLoaded'},
+
+    onViewCreated: {name: 'onViewCreated'}
 
     //onOpenViewInContainer: {name: 'onOpenViewInContainer'}
 
@@ -3606,7 +3825,7 @@ var textEditorMixin = {
         //При ховере Editor нужен, чтобы при клике по полю, курсор выставлялся в указаннкю позицию
         var enabled = this.model.get('enabled'),
             value = this.model.get('value'),
-            isEmpty = value === '' || value === null || typeof value === undefined;
+            isEmpty = value === '' || value === null || typeof value === 'undefined';
 
         if(enabled && !isEmpty) {
             this.showEditor(this.model.get('value'), true);
@@ -3639,6 +3858,7 @@ var textEditorMixin = {
      */
     onEditorShowControl: function () {
         this.ui.control.show();
+        this.ui.control.scrollTop(0);
 
         if(this.ui.controlWrap){
             this.ui.controlWrap.show();
@@ -3941,7 +4161,9 @@ var ControlView = Backbone.View.extend(/** @lends ControlView.prototype */{
         var
             $el = this.$el,
             el = this.el,
+            view = this,
             model = this.model;
+
 
         $el
             .on('focusin', onFocusIn)
@@ -3952,13 +4174,18 @@ var ControlView = Backbone.View.extend(/** @lends ControlView.prototype */{
         }
 
         function onFocusOut(event) {
-            if ($.contains(el, event.relatedTarget)) {
+            if (view.isControlElement(event.relatedTarget)) {
                 //focus out to element inside control
+                model.set('focused', true);
             } else {
                 //focus out
                 model.set('focused', false);
             }
         }
+    },
+
+    isControlElement: function (el) {
+        return this.el ===  el || $.contains(this.el, el)
     },
 
     initTooltipHandlers: function () {
@@ -4004,6 +4231,8 @@ var ControlView = Backbone.View.extend(/** @lends ControlView.prototype */{
 
         this.updateFocusable();
         this.updateFocused();
+
+        this.updateViewMode();
     },
 
     /**
@@ -4026,7 +4255,7 @@ var ControlView = Backbone.View.extend(/** @lends ControlView.prototype */{
         if (focused) {
             var $el = this.getElementForFocus();
             if ($el && $el.length) {
-                $el.focus();
+                //$el.focus();
             }
         }
         this.$el.toggleClass(this.classNameFocused, focused);
@@ -4058,14 +4287,16 @@ var ControlView = Backbone.View.extend(/** @lends ControlView.prototype */{
     },
 
     updateVerticalAlignment: function () {
-        var verticalAlignment = this.model.get('verticalAlignment');
-        var prefix = 'verticalAlignment';
-        var regexp = new RegExp('(^|\\s)' + prefix + '\\S+', 'ig');
+        //var verticalAlignment = this.model.get('verticalAlignment');
+        this.switchClass('verticalAlignment', this.model.get('verticalAlignment'), this.$el, false);
 
-        this.$el.removeClass(function (i, name) {
-                return (name.match(regexp) || []).join(' ');
-            })
-            .addClass(prefix + verticalAlignment);
+        //var prefix = 'verticalAlignment';
+        //var regexp = new RegExp('(^|\\s)' + prefix + '\\S+', 'ig');
+        //
+        //this.$el.removeClass(function (i, name) {
+        //        return (name.match(regexp) || []).join(' ');
+        //    })
+        //    .addClass(prefix + verticalAlignment);
     },
 
     updateTextHorizontalAlignment: function () {
@@ -4073,37 +4304,7 @@ var ControlView = Backbone.View.extend(/** @lends ControlView.prototype */{
     },
 
     updateHorizontalAlignment: function () {
-        var horizontalAlignment = this.model.get('horizontalAlignment');
-        switch (horizontalAlignment) {
-            case 'Left':
-            {
-                this.$el
-                    .removeClass('center-block pull-right')
-                    .addClass('pull-left');
-                break;
-            }
-            case 'Right':
-            {
-                this.$el
-                    .removeClass('pull-left center-block')
-                    .addClass('pull-right');
-                break;
-            }
-            case 'Center':
-            {
-                this.$el
-                    .removeClass('pull-left pull-right')
-                    .addClass('center-block');
-                break;
-            }
-            case 'Stretch':
-            {
-                this.$el
-                    .removeClass('pull-left pull-right center-block')
-                    .addClass('full-width');
-                break;
-            }
-        }
+        this.switchClass('pl-horizontal', this.model.get('horizontalAlignment'));
     },
 
     updateName: function () {
@@ -4198,6 +4399,12 @@ var ControlView = Backbone.View.extend(/** @lends ControlView.prototype */{
         this.currentStyle = customStyle;
     },
 
+    updateViewMode: function () {
+        if(this.viewMode == 'FormGroup' ){
+            this.$el.addClass('pl-form-group');
+        }
+    },
+
     updateValidationState: function () {
         var newState = this.model.get('validationState'),
             message = this.model.get('validationMessage');
@@ -4272,9 +4479,14 @@ var ControlView = Backbone.View.extend(/** @lends ControlView.prototype */{
         }
     },
 
-    switchClass: function (name, value, $el) {
+    switchClass: function (name, value, $el, separator) {
+        if (typeof separator === 'undefined') {
+            separator = '-';
+        } else if (separator === false) {
+            separator = '';
+        }
 
-        var startWith = name + '-';
+        var startWith = name + separator;
         var regexp = new RegExp('(^|\\s)' + startWith + '\\S+', 'ig');
         var $element = $el || this.$el;
         $element.removeClass(function (i, name) {
@@ -4544,6 +4756,8 @@ var TextEditor = Backbone.View.extend({
         if (!skipRefocus) {
             this.ui.editor.focus();
         }
+
+        this.ui.editor.scrollTop(0);
         this.checkCurrentPosition();
         this.inFocus = true;
     },
@@ -4803,7 +5017,12 @@ var TextEditor = Backbone.View.extend({
         }
 
         var text = (event.originalEvent || event).clipboardData.getData('text/plain') || prompt('Paste something..');
-        maskEdit.pasteStringToMask(text, this.getCaretPosition());
+        var chars = text.split('');
+
+        for (var i = 0, position = this.getCaretPosition(); i < chars.length; i = i + 1) {
+            position = maskEdit.setCharAt(chars[i], position);
+        }
+        //maskEdit.pasteStringToMask(text, this.getCaretPosition());
 
         event.preventDefault();
         editor.val(maskEdit.getText());
@@ -5212,6 +5431,10 @@ var editorBaseModelMixin = {
         return this.get('value');
     },
 
+    isSetValue: function (value) {
+        return value !== null && typeof value !== 'undefined' && value !== '';
+    },
+
     onValueChanging: function (handler) {
         this.eventManager.on('onValueChanging', handler);
     },
@@ -5357,6 +5580,39 @@ EventManager.prototype.trigger = function (name, message, context) {
     }
     return response;
 };
+
+//####app/new/controls/_base/highlightMixin.js
+var highlightMixin = {
+
+    attributeName: '_highlight',
+
+    highlightClassName: 'active',
+
+    control: {
+
+        setHighlight: function (highlight) {
+            this.controlModel.set(highlightMixin.attributeName, highlight);
+        },
+
+        getHighlight: function () {
+            return this.controlModel.get(highlightMixin.attributeName);
+        }
+
+    },
+
+    controlView: {
+
+        initHighlightMixin: function () {
+            this.listenTo(this.model, 'change:' + highlightMixin.attributeName, function () {
+                var model = this.model;
+                this.$el.toggleClass(highlightMixin.highlightClassName, model.get(highlightMixin.attributeName));
+                this.$el.parent().toggleClass(highlightMixin.highlightClassName, model.get(highlightMixin.attributeName));
+            });
+        }
+
+    }
+};
+
 
 //####app/new/controls/_base/listEditorBase/listEditorBaseControl.js
 function ListEditorBaseControl(viewMode) {
@@ -5533,6 +5789,7 @@ var ListEditorBaseView = ContainerView.extend( _.extend( {}, editorBaseViewMixin
         editorBaseViewMixin.initHandlersForProperties.call(this);
 
         this.listenTo(this.model, 'change:selectedItem', this.updateSelectedItem);
+        this.listenTo(this.model, 'change:multiSelect', this.updateMultiSelect);
     },
 
     updateProperties: function(){
@@ -5540,6 +5797,11 @@ var ListEditorBaseView = ContainerView.extend( _.extend( {}, editorBaseViewMixin
         editorBaseViewMixin.updateProperties.call(this);
 
         this.updateSelectedItem();
+        this.updateMultiSelect();
+    },
+
+    updateMultiSelect: function () {
+
     }
 
 }));
@@ -5707,406 +5969,2172 @@ var TextEditorBaseView = ControlView.extend(/** @lends TextEditorBaseView.protot
 }));
 
 _.extend(TextEditorBaseView.prototype, textEditorMixin); //Работа с масками ввода
-//####app/new/controls/GridPanel/gridPanelControl.js
+//####app/new/controls/textBox/textBoxControl.js
 /**
  *
  * @param parent
  * @constructor
- * @augments ContainerControl
+ * @augments TextEditorBaseControl
  */
-function GridPanelControl(parent) {
-    _.superClass(GridPanelControl, this, parent);
+function TextBoxControl(parent) {
+    _.superClass(TextBoxControl, this, parent);
 }
 
-_.inherit(GridPanelControl, ContainerControl);
+_.inherit(TextBoxControl, TextEditorBaseControl);
 
-_.extend(GridPanelControl.prototype,
-    /** @lends GridPanelControl.prototype */
-    {
-        createControlModel: function () {
-            return new GridPanelModel();
-        },
+_.extend(TextBoxControl.prototype, {
 
-        createControlView: function (model) {
-            return new GridPanelView({model: model});
-        }
+    createControlModel: function () {
+        return new TextBoxModel();
+    },
+
+    createControlView: function (model) {
+        return new TextBoxView({model: model});
     }
-);
+});
 
 
-//####app/new/controls/GridPanel/gridPanelModel.js
-/**
- * @constructor
- * @augments ContainerModel
- */
-var GridPanelModel = ContainerModel.extend(
-    /** @lends GridPanelModel.prototype */
-    {
-        initialize: function () {
-            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
-        }
-    }
-);
-//####app/new/controls/GridPanel/gridPanelView.js
+//####app/new/controls/textBox/textBoxModel.js
 /**
  * @class
- * @augments ControlView
+ * @augments TextEditorBaseModel
  */
-var GridPanelView = ContainerView.extend(
-    /** @lends GridPanelView.prototype */
-    {
-        className: 'pl-grid-panel pl-clearfix',
+var TextBoxModel = TextEditorBaseModel.extend(/** @lends TextBoxModel.prototype */{
+    defaults: _.extend(
+        {},
+        TextEditorBaseModel.prototype.defaults,
+        {
+            multiline: false
+        }
+    ),
 
-        columnCount: 12,
+    initialize: function () {
+        TextEditorBaseModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+    }
 
-        template: {
-            row: InfinniUI.Template["new/controls/GridPanel/template/row.tpl.html"]
-        },
+});
+//####app/new/controls/textBox/textBoxView.js
+/**
+ * @class
+ * @augments TextEditorBaseView
+ */
+var TextBoxView = TextEditorBaseView.extend(/** @lends TextBoxView.prototype */{
 
-        initialize: function (options) {
-            ContainerView.prototype.initialize.call(this, options);
-        },
+    template: {
+        oneline: InfinniUI.Template["new/controls/textBox/template/textBoxInput.tpl.html"],
+        multiline: InfinniUI.Template["new/controls/textBox/template/textBoxArea.tpl.html"]
+    },
 
-        render: function () {
-            this.prerenderingActions();
+    className: 'pl-textbox form-group',
 
-            this.removeChildElements();
+    UI: _.extend({}, TextEditorBaseView.prototype.UI),
 
-            this.renderItemsContents();
-            this.updateProperties();
-            this.trigger('render');
+    events: _.extend({}, TextEditorBaseView.prototype.events, {
+        //Отображение поля редактирования для INPUT[TEXT]
+        'focus .pl-text-box-input': 'onFocusControlHandler',
+        'mouseenter .pl-text-box-input': 'onMouseenterControlHandler',
 
-            this.postrenderingActions();
-            return this;
-        },
+        //Отображение поля редактирования для TEXTAREA
+        'focus .pl-text-area-input': 'onFocusControlHandler',
+        'mouseenter .pl-text-area-input': 'onMouseenterControlHandler'
+    }),
 
-        renderItemsContents: function(){
-            var items = this.model.get('items'),
-                itemTemplate = this.model.get('itemTemplate'),
-                view = this,
-                row = [],
-                rowSize = 0,
-                element, item;
+    initHandlersForProperties: function(){
+        TextEditorBaseView.prototype.initHandlersForProperties.call(this);
 
-            items.forEach(function(item, i){
-                element = itemTemplate(undefined, {item: item, index: i});
-                var span = element.getColumnSpan();
-                if (rowSize + span > view.columnCount) {
-                    view.renderRow(row);
-                    row.length = 0;
-                    rowSize = 0;
-                }
+        this.listenTo(this.model, 'change:multiline', this.updateMultiline);
+        this.listenTo(this.model, 'change:lineCount', this.updateLineCount);
+    },
 
-                row.push(element);
-                rowSize += span;
-            });
+    updateProperties: function(){
+        TextEditorBaseView.prototype.updateProperties.call(this);
 
-            if (row.length) {
-                view.renderRow(row);
+        this.updateLineCount();
+    },
+
+    updateMultiline: function(){
+        this.rerender();
+    },
+
+    updateLineCount: function(){
+        var lineCount = this.model.get('lineCount');
+        this.ui.control.attr('rows', lineCount);
+        this.ui.editor.attr('rows', lineCount);
+    },
+
+    render: function () {
+        var model = this.model;
+        var template = model.get('multiline') ? this.template.multiline : this.template.oneline;
+
+        this.prerenderingActions();
+        this.renderTemplate(template);
+        this.renderTextBoxEditor();
+        this.updateProperties();
+
+        this.trigger('render');
+        this.postrenderingActions();
+        return this;
+    },
+
+    getData: function () {
+        var data = TextEditorBaseView.prototype.getData.call(this);
+        var model = this.model;
+        return _.extend(
+            data,
+            {
+                multiline: model.get('multiline'),
+                lineCount: model.get('lineCount')
             }
-        },
+        );
+    },
 
-        renderRow: function (row) {
-            var view = this;
-            var $row = $(this.template.row());
-            $row.append(row.map(function(element) {
-                view.addChildElement(element);
-                return element.render();
-            }));
-            this.$el.append($row);
-        },
+    renderTextBoxEditor: function () {
+        var model = this.model;
+        this.renderControlEditor({
+            el: this.ui.editor,
+            multiline: model.get('multiline'),
+            lineCount: model.get('lineCount'),
+            inputType: model.get('inputType')
+        });
 
-        updateGrouping: function(){}
+        return this;
     }
-);
 
-//####app/new/controls/TablePanel/cell/cellControl.js
-/**
- *
- * @param parent
- * @constructor
- * @augments ContainerControl
- */
-function CellControl(parent) {
-    _.superClass(CellControl, this, parent);
-}
+});
 
-_.inherit(CellControl, ContainerControl);
+//####app/new/controls/dateTimePicker/_modes/dateTimePickerMode.date.js
+var dateTimePickerModeDate = {
+    getTemplate: function () {
+        return InfinniUI.Template["new/controls/dateTimePicker/template/date.tpl.html"];
+    },
 
-_.extend(CellControl.prototype,
-    /** @lends CellControl.prototype */
-    {
-        createControlModel: function () {
-            return new CellModel();
-        },
+    onClickDropdownHandler: function (event) {
+        var model = this.model;
+        var calendar = new SelectDate({
+            model: model
+        });
+        calendar.render();
+        $('body').append(calendar.$el);
 
-        createControlView: function (model) {
-            return new CellView({model: model});
+        this.updateDropDownCalendarPosition(this.$el, calendar.$el);
+
+        this.listenTo(calendar, 'date', function (date) {
+            model.set('value', this.convertValue(date));
+        });
+    },
+
+    convertValue: function (value) {
+        return InfinniUI.DateUtils.toISO8601(value, {timezoneOffset: this.model.get('timeZone')});
+    }
+};
+
+//####app/new/controls/dateTimePicker/_modes/dateTimePickerMode.dateTime.js
+var dateTimePickerModeDateTime = {
+    getTemplate: function () {
+        return InfinniUI.Template["new/controls/dateTimePicker/template/dateTime.tpl.html"];
+    },
+
+    onClickDropdownHandler: function (event) {
+        var model = this.model;
+        var calendar = new SelectDateTime({
+            model: model
+        });
+        calendar.render();
+        $('body').append(calendar.$el);
+
+        this.updateDropDownCalendarPosition(this.$el, calendar.$el);
+
+        this.listenTo(calendar, 'date', function (date) {
+            model.set('value', this.convertValue(date));
+        });
+    },
+
+    convertValue: function (value) {
+        return InfinniUI.DateUtils.toISO8601(value, {timezoneOffset: this.model.get('timeZone')});
+    }
+};
+
+//####app/new/controls/dateTimePicker/_modes/dateTimePickerMode.time.js
+var dateTimePickerModeTime = {
+    getTemplate: function () {
+        return InfinniUI.Template["new/controls/dateTimePicker/template/time.tpl.html"];
+    },
+
+    onClickDropdownHandler: function (event) {
+        var model = this.model;
+        var calendar = new SelectTime({
+            model: model
+        });
+        calendar.render();
+        $('body').append(calendar.$el);
+
+        this.updateDropDownCalendarPosition(this.$el, calendar.$el);
+
+        this.listenTo(calendar, 'date', function (date) {
+            model.set('value', this.convertValue(date));
+        });
+    },
+
+    convertValue: function (value) {
+        return InfinniUI.DateUtils.toISO8601(value, {timezoneOffset: this.model.get('timeZone')});
+    }
+};
+
+//####app/new/controls/dateTimePicker/components/base/selectComponent.js
+var SelectComponent = Backbone.View.extend({
+
+    modelClass: Backbone.Model,
+
+    initialize: function (options) {
+        var modelClass = this.modelClass;
+
+        this.model = new modelClass({
+            today: options.today || new Date(),
+            value: options.value,
+            date: options.value || options.today,
+            max: options.max,
+            min: options.min
+        });
+        this.render();
+        return this;
+    },
+
+    show: function () {
+        this.$el.css('display', 'block');
+    },
+
+    hide: function () {
+        this.$el.css('display', 'none');
+    },
+
+    /**
+     * @description Установка текущего положения списка выбора значений
+     * Если устанавливается недействительная дата - используется текущая
+     * @param date
+     */
+    setDate: function (date) {
+        this.model.setDate(date);
+    }
+
+});
+
+
+_.extend(SelectComponent.prototype, bindUIElementsMixin);
+//####app/new/controls/dateTimePicker/components/base/selectComponentModel.js
+var SelectComponentModel = Backbone.Model.extend({
+
+    defaults: function () {
+        var today = new Date();
+
+        return {
+            today: today,
+            todayMonth: today.getMonth(),
+            todayDay: today.getDate(),
+            todayYear: today.getFullYear(),
+            hour: today.getHours(),
+            minute: today.getMinutes(),
+            second: today.getSeconds(),
+            millisecond: today.getMilliseconds()
         }
-    }
-);
+    },
 
+    initialize: function () {
+        this.updateDateParts();
+        this.on('change:date', this.onChangeDateHandler, this);
+    },
 
-//####app/new/controls/TablePanel/cell/cellModel.js
-/**
- * @constructor
- * @augments ContainerModel
- */
-var CellModel = ContainerModel.extend(
-    /** @lends CellModel.prototype */
-    {
-        defaults: _.defaults({
-            columnSpan: 1
-        }, ContainerModel.prototype.defaults),
+    updateDateParts: function () {
+        var date = this.get('date');
 
-        initialize: function () {
-            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
-        }
-    }
-);
-//####app/new/controls/TablePanel/cell/cellView.js
-/**
- * @class
- * @augments ControlView
- */
-var CellView = ContainerView.extend(
-    /** @lends CellView.prototype */
-    {
-        className: 'pl-cell',
-
-        initialize: function (options) {
-            ContainerView.prototype.initialize.call(this, options);
-
-            this.initColumnSpan();
-        },
-
-        render: function () {
-            this.prerenderingActions();
-
-            this.removeChildElements();
-
-            this.renderItemsContents();
-
-            this.updateProperties();
-            this.trigger('render');
-
-            this.postrenderingActions();
-            return this;
-        },
-
-        renderItemsContents: function(){
-            var items = this.model.get('items'),
-                itemTemplate = this.model.get('itemTemplate'),
-                that = this,
-                element, item;
-
-            items.forEach(function(item, i){
-                element = itemTemplate(undefined, {item: item, index: i});
-                that.addChildElement(element);
-                that.$el
-                    .append(element.render());
+        if (date instanceof Date) {
+            this.set({
+                year: date.getFullYear(),
+                month: date.getMonth(),
+                day: date.getDay(),
+                hour: date.getHours(),
+                minute: date.getMinutes(),
+                second: date.getSeconds(),
+                millisecond: date.getMilliseconds()
             });
-        },
+        } else {
+            this.set({
+                year: null,
+                month: null,
+                day: null,
+                hour: null,
+                minute: null,
+                second: null,
+                millisecond: null
+            });
+        }
 
-        initColumnSpan: function () {
-            this.listenTo(this.model, 'change:columnSpan', this.updateColumnSpan);
-            this.updateColumnSpan();
-        },
+    },
 
-        updateColumnSpan: function () {
-            var columnSpan = this.model.get('columnSpan'),
-                currentColumnSpan = this.columnSpan;
+    onChangeDateHandler: function (model, value) {
+        if (typeof value !== 'undefined' && value !== null) {
+            model.set({
+                year: moment(value).year(),
+                month: moment(value).month(),
+                day: moment(value).date(),
+                hour: moment(value).hour(),
+                minute: moment(value).minute(),
+                second: moment(value).second(),
+                millisecond: moment(value).millisecond()
+            })
+        } else {
+            model.set({
+                year: null,
+                month: null,
+                day: null,
+                hour: null,
+                minute: null,
+                second: null,
+                millisecond: null
+            });
+        }
+    },
 
-            if(columnSpan != currentColumnSpan){
+    updateDatePart: function (datePart, model, value) {
+        var
+            d = this.get('date'),
+            date = InfinniUI.DateUtils.createDate(d) ||  this.get('today'),
+            data = this.toJSON();
 
-                if(currentColumnSpan){
-                    this.$el
-                        .removeClass('col-xs-' + currentColumnSpan);
-                }
 
-                this.$el
-                    .addClass('col-xs-' + columnSpan);
+        switch (datePart) {
+            case 'hour':
+            case 'minute':
+            case 'second':
+                date.setHours(data.hour, data.minute, data.second);
+                break;
+            case 'year':
+            case 'month':
+            case 'day':
+                date.setFullYear(data.year, data.month, data.day);
+                break;
+        }
 
-                this.columnSpan = columnSpan;
+        this.set('date', date);
+    },
+
+    checkRange: function (date, precision) {
+        var min = this.get('min'),
+            max = this.get('max');
+
+        return InfinniUI.DateUtils.checkRangeDate(date, min, max, precision);
+    },
+
+    keepDateInRange: function () {
+        if (this.isValid()) {
+            return;
+        }
+        var date = InfinniUI.DateUtils.getNearestDate(this.get('date'), this.get('min'), this.get('max'));
+        this.set('date', date);
+    },
+
+    /**
+     * @description Установка текущего положения списка выбора значений
+     * Если устанавливается недействительная дата - используется текущая
+     * @param date
+     */
+    setDate: function (date) {
+        if (typeof date === 'undefined' || date === null){
+            var value = this.get('value'),
+                today = this.get('date');
+
+            date = value || today;
+        }
+
+        if (date instanceof Date) {
+            date = new Date(date.getTime());
+        }
+        this.set('date', date);
+    }
+
+
+});
+
+
+//####app/new/controls/dateTimePicker/components/selectDays.js
+var SelectDaysModel = SelectComponentModel.extend({
+
+    initialize: function () {
+        SelectComponentModel.prototype.initialize.call(this);
+        this.on('change:year', this.updateDatePart.bind(this, 'year'));
+        this.on('change:month', this.updateDatePart.bind(this, 'month'));
+        this.on('change:day', this.updateDatePart.bind(this, 'day'));
+    },
+
+    today: function () {
+        this.set({
+            year: this.get('todayYear'),
+            month: this.get('todayMonth')
+        });
+    },
+
+    nextMonth: function () {
+        var
+            month = this.get('month'),
+            year = this.get('year');
+
+        this.set({
+            month: month === 11 ? 0 : month + 1,
+            year: month === 11 ? year + 1 : year
+        });
+
+        this.keepDateInRange();
+    },
+
+    prevMonth: function () {
+        var
+            month = this.get('month'),
+            year = this.get('year');
+
+        this.set({
+            month: month === 0 ? 11 : month - 1,
+            year: month === 0 ? year - 1 : year
+        });
+
+        this.keepDateInRange();
+    }
+
+});
+
+var SelectDays = SelectComponent.extend({
+
+    modelClass: SelectDaysModel,
+
+    template: InfinniUI.Template["new/controls/dateTimePicker/template/date/days.tpl.html"],
+
+    UI: {
+        headerDays: '.weekdays-head .day',
+        calendarDays: '.day-calendar',
+        year: '.years-year',
+        month: '.years-month'
+    },
+
+    events: {
+        'click .years': 'onYearsClickHandler',
+        'click .btn-month-prev': 'prevMonth',
+        'click .btn-month-next': 'nextMonth',
+        'click .today-date': 'showToday',
+        'click .day-calendar:not(".day-unavailable")': 'useDay',
+        'click .time': 'showTime'
+    },
+
+    render: function () {
+        var template = this.template();
+        this.$el.html(template);
+        this.bindUIElements();
+        this.fillLegend();
+        this.fillCalendar();
+        this.renderMonth();
+        this.renderYear();
+        this.initOnChangeHandlers();
+    },
+
+    initOnChangeHandlers: function () {
+        this.listenTo(this.model, 'change:month', this.onChangeMonthHandler);
+        this.listenTo(this.model, 'change:year', this.onChangeYearHandler);
+        this.listenTo(this.model, 'change:day', this.onChangeDayHandler);
+    },
+
+    renderMonth: function () {
+        var month = this.model.get('month');
+        var dateTimeFormatInfo = localized.dateTimeFormatInfo;
+        this.ui.month.text(dateTimeFormatInfo.monthNames[month]);
+    },
+
+    renderYear: function () {
+        var year = this.model.get('year');
+        this.ui.year.text(year);
+    },
+
+    onChangeMonthHandler: function (model, value) {
+        this.renderMonth();
+        this.fillCalendar();
+    },
+
+    onChangeYearHandler: function (model, value) {
+        this.renderYear();
+        this.fillCalendar();
+    },
+
+    fillLegend: function () {
+        var dateTimeFormatInfo = localized.dateTimeFormatInfo;
+        var firstDayOfWeek = dateTimeFormatInfo.firstDayOfWeek;
+        var days = dateTimeFormatInfo.abbreviatedDayNames.map(function (day, i) {
+            return i;
+        });
+
+        if (firstDayOfWeek > 0) {
+            days = days.splice(firstDayOfWeek).concat(days);
+        }
+
+        this.ui.headerDays.each(function (i, el) {
+            var $el = $(el);
+            var index = days[i];
+            $el.text(dateTimeFormatInfo.abbreviatedDayNames[index]);
+            markWeekend($el, index);
+        });
+
+        this.ui.calendarDays.each(function (i, el) {
+            var $el = $(el);
+            var index = days[i % 7];
+            markWeekend($el, index);
+        });
+
+        function markWeekend($el, weekday) {
+            $el.toggleClass('day-weekend', weekday === 0 || weekday === 6);
+        }
+    },
+
+    fillCalendar: function () {
+        var model = this.model;
+        var valueDate = model.get('value');
+        var month = model.get('month');
+        var year = model.get('year');
+        var day = model.get('day');
+        var min = model.get('min');
+        var max = model.get('max');
+        var firstDayOfMonth = new Date(year, month);
+        var weekday = firstDayOfMonth.getDay();
+        var dateTimeFormatInfo = localized.dateTimeFormatInfo;
+        var firstDayOfWeek = dateTimeFormatInfo.firstDayOfWeek;
+
+        var weekdays = [0,1,2,3,4,5,6];
+        Array.prototype.push.apply(weekdays, weekdays.splice(0, firstDayOfWeek));
+        var start = new Date(year, month, 1 - weekdays.indexOf(weekday));
+
+        var startYear = start.getFullYear(),
+            startMonth = start.getMonth(),
+            startDate = start.getDate();
+
+        this.ui.calendarDays.each(function (i, el) {
+            var $el = $(el);
+            var d = new Date(startYear, startMonth, startDate + i);
+            $el.text(d.getDate());
+            $el.attr('data-date', d);
+            markActiveMonth($el, d.getMonth() === month);
+            markToday($el, d);
+            markSelected($el, d);
+            markAvailable($el, d);
+        });
+
+        function markActiveMonth($el, active) {
+            $el.toggleClass('day-inactive', !active);
+        }
+
+        function markToday($el, date) {
+            var today = date.getMonth() === model.get('todayMonth')
+                && date.getFullYear() === model.get('todayYear')
+                && date.getDate() === model.get('todayDay');
+
+            $el.toggleClass('day-today', today);
+        }
+
+        function markSelected($el, value) {
+            var selected = false;
+
+            if (valueDate) {
+                selected = moment(valueDate).isSame(value, 'day');
             }
 
-        },
+            $el.toggleClass('day-selected', selected);
+        }
 
-        updateGrouping: function(){}
+        function markAvailable($el, value) {
+            $el.toggleClass('day-unavailable', !model.checkRange(value, 'day'));
+        }
+
+    },
+
+    onYearsClickHandler: function (event) {
+        var date = this.model.get('date');
+
+        this.trigger('year', date);
+    },
+
+    prevMonth: function () {
+        this.model.prevMonth();
+    },
+
+    nextMonth: function () {
+        this.model.nextMonth();
+    },
+
+    showToday: function () {
+        this.today();
+    },
+
+    today: function () {
+        this.model.today();
+    },
+
+    showTime: function () {
+        this.trigger('time', this.model.get('date'));
+    },
+
+    useDay: function (event) {
+        var $el = $(event.target),
+            date = new Date($el.attr('data-date'));
+
+        this.model.set({
+            year: date.getFullYear(),
+            month: date.getMonth(),
+            day: date.getDate()
+        });
+
+        this.trigger('date', this.model.get('date'));
     }
-);
 
-//####app/new/controls/TablePanel/row/RowControl.js
+});
+
+//####app/new/controls/dateTimePicker/components/selectHours.js
+var SelectHoursModel = SelectComponentModel.extend({
+
+    initialize: function () {
+        SelectComponentModel.prototype.initialize.call(this);
+        this.on('change:hour', this.updateDatePart.bind(this, 'hour'));
+    }
+
+});
+
+var SelectHours = SelectComponent.extend({
+
+    modelClass: SelectHoursModel,
+
+    template: InfinniUI.Template["new/controls/dateTimePicker/template/time/hours.tpl.html"],
+
+    events: {
+        "click .hour:not('.hour-unavailable')": "useHour"
+    },
+
+    UI: {
+        hour: '.hour'
+    },
+
+    render: function () {
+        var template = this.template();
+        this.$el.html(template);
+        this.bindUIElements();
+        this.fillHoursTable();
+        this.initOnChangeHandlers();
+    },
+
+    fillHoursTable: function () {
+        //@TODO Заполнять в зависимости от формата 12/24
+        var
+            model = this.model;
+        var date = model.get('date') || model.get('today');
+        var now = new Date();
+
+        this.ui.hour.each(function (i, el) {
+            var $el = $(el);
+            var hour = stringUtils.padLeft(i, 2, '0');
+
+            $el.attr('data-hour', i);
+            $el.text(hour);
+            markNow($el, i);
+            markSelected($el, i);
+            markAvailable($el, i);
+        });
+
+        function markSelected($el, value) {
+            $el.toggleClass('hour-selected', date.getHours() === value);
+        }
+
+        function markNow($el, value) {
+            var selected = moment(now).isSame(value, 'hour');
+            $el.toggleClass('hour-today', selected);
+        }
+
+        function markAvailable($el, value) {
+            var date = moment(model.get('date')).hour(value);
+            $el.toggleClass('hour-unavailable', !model.checkRange(date, 'hour'));
+        }
+    },
+
+    initOnChangeHandlers: function () {
+        this.listenTo(this.model, 'change:date', this.fillHoursTable);
+    },
+
+    useHour: function (event) {
+        var
+            $el = $(event.target),
+            model = this.model,
+            date = model.get('date'),
+            hour = parseInt($el.attr('data-hour'), 10);
+
+        var newDate = InfinniUI.DateUtils.cloneDate(date);
+        newDate.setHours(hour);
+        model.set('date', newDate);
+
+        this.trigger('hour', newDate);
+    }
+
+});
+
+//####app/new/controls/dateTimePicker/components/selectMinutes.js
+var SelectMinutesModel = SelectComponentModel.extend({
+
+    initialize: function () {
+        SelectComponentModel.prototype.initialize.call(this);
+        this.on('change:minute', this.updateDatePart.bind(this, 'minute'));
+    }
+
+});
+
+var SelectMinutes = SelectComponent.extend({
+
+    modelClass: SelectMinutesModel,
+
+    template: InfinniUI.Template["new/controls/dateTimePicker/template/time/minutes.tpl.html"],
+
+    events: {
+        "click .minute:not('.minute-unavailable')": "useMinute"
+    },
+
+    UI: {
+        minute: '.minute'
+    },
+
+    render: function () {
+        var template = this.template();
+        this.$el.html(template);
+        this.bindUIElements();
+        this.fillMinutesTable();
+        this.initOnChangeHandlers();
+    },
+
+    fillMinutesTable: function () {
+        var
+            model = this.model,
+            minute = model.get('minute');
+
+        this.ui.minute.each(function (i, el) {
+            var $el = $(el);
+            var minute = $el.attr('data-minute');
+            markSelected($el, parseInt(minute, 10));
+            markAvailable($el, parseInt(minute, 10))
+        });
+
+        function markSelected($el, value) {
+            $el.toggleClass('minute-selected', value === minute);
+        }
+
+        function markAvailable($el, value) {
+            var date = moment(model.get('date')).minute(value);
+            $el.toggleClass('minute-unavailable', !model.checkRange(date, 'minute'));
+        }
+    },
+
+    initOnChangeHandlers: function () {
+        this.listenTo(this.model, 'change:date', this.fillMinutesTable);
+    },
+
+    useMinute: function (event) {
+        var
+            $el = $(event.target),
+            model = this.model,
+            date = model.get('date'),
+            minute = parseInt($el.attr('data-minute'), 10);
+
+        var newDate = InfinniUI.DateUtils.cloneDate(date);
+        newDate.setMinutes(minute);
+        this.trigger('minute', newDate);
+    }
+
+});
+
+//####app/new/controls/dateTimePicker/components/selectMonths.js
+var SelectMonthsModel = SelectComponentModel.extend({
+
+    initialize: function () {
+        SelectComponentModel.prototype.initialize.call(this);
+        this.on('change:month', this.updateDatePart.bind(this, 'month'));
+        this.on('change:year', this.updateDatePart.bind(this, 'year'));
+    },
+
+
+
+    nextYear: function () {
+        var year = this.get('year');
+        this.set('year', year + 1);
+        this.keepDateInRange();
+    },
+
+    prevYear: function () {
+        var year = this.get('year');
+        this.set('year', year - 1);
+        this.keepDateInRange();
+    },
+
+    today: function () {
+        this.set({
+            month: this.get('todayMonth'),
+            year: this.get('todayYear')
+        });
+    }
+});
+
+var SelectMonths = SelectComponent.extend({
+
+    modelClass: SelectMonthsModel,
+
+    template: InfinniUI.Template["new/controls/dateTimePicker/template/date/months.tpl.html"],
+
+    events: {
+        "click .btn-year-prev": "prevYear",
+        "click .btn-year-next": "nextYear",
+        "click .month:not('.month-unavailable')": "useMonth",
+        "click .year": "selectYear",
+        "click .today-month": "showToday"
+    },
+
+    UI: {
+        month: '.month',
+        year: '.year'
+    },
+
+    render: function () {
+        var template = this.template();
+        this.$el.html(template);
+        this.bindUIElements();
+        this.fillMonthsTable();
+        this.initOnChangeHandlers();
+    },
+
+    fillMonthsTable: function () {
+        this.ui.year.text(this.model.get('year'));
+
+        var
+            model = this.model,
+            dateTimeFormatInfo = localized.dateTimeFormatInfo,
+            todayMonth = model.get('todayMonth'),
+            month = model.get('month');
+
+        this.ui.month.each(function (i, el) {
+            var $el = $(el);
+            $el.text(dateTimeFormatInfo.abbreviatedMonthNames[i]);
+            $el.attr('data-month', i);
+            markTodayMonth($el, i);
+            markSelected($el, i);
+            markAvailable($el, i);
+        });
+
+        function markTodayMonth($el, value) {
+            var date = moment([model.get('year'), value]);
+            var today = model.get('today');
+
+            $el.toggleClass('month-today', moment(date).isSame(today, 'month'));
+        }
+
+        function markSelected($el, value) {
+            var date = moment([model.get('year'), value]);
+            var selected = model.get('value');
+
+            $el.toggleClass('month-selected', moment(date).isSame(selected, 'month'));
+        }
+
+        function markAvailable($el, value) {
+            var date = moment([model.get('year'), value]);
+            $el.toggleClass('month-unavailable', !model.checkRange(date, 'month'));
+        }
+    },
+
+    initOnChangeHandlers: function () {
+        this.listenTo(this.model, 'change:year', this.fillMonthsTable);
+    },
+
+    prevYear: function () {
+        this.model.prevYear();
+    },
+
+    nextYear: function () {
+        this.model.nextYear();
+    },
+
+    useMonth: function (event) {
+        var
+            $el = $(event.target),
+            model = this.model;
+
+        model.set({
+            year: parseInt(model.get('year'), 10),
+            month: parseInt($el.attr('data-month'), 10)
+        });
+        this.trigger('month', model.get('date'));
+    },
+
+    selectYear: function () {
+        var
+            model = this.model;
+
+        this.trigger('year', model.get('data'));
+    },
+
+    showToday: function () {
+        this.today();
+    },
+
+    today: function () {
+        this.model.today();
+    }
+
+
+
+});
+
+//####app/new/controls/dateTimePicker/components/selectSeconds.js
+var SelectSecondsModel = SelectComponentModel.extend({
+
+    initialize: function () {
+        SelectComponentModel.prototype.initialize.call(this);
+        this.on('change:second', this.updateDatePart.bind(this, 'second'));
+    }
+
+});
+
+var SelectSeconds = SelectComponent.extend({
+
+    modelClass: SelectSecondsModel,
+
+    template: InfinniUI.Template["new/controls/dateTimePicker/template/time/seconds.tpl.html"],
+
+    events: {
+        "click .second:not('.second-unavailable')": "useSecond"
+    },
+
+    UI: {
+        second: '.second'
+    },
+
+    render: function () {
+        var template = this.template();
+        this.$el.html(template);
+        this.bindUIElements();
+        this.fillSecondsTable();
+        this.initOnChangeHandlers();
+    },
+
+    fillSecondsTable: function () {
+        var
+            model = this.model,
+            second = model.get('second');
+
+        this.ui.second.each(function (i, el) {
+            var $el = $(el);
+            var second = $el.attr('data-second');
+            markSelected($el, parseInt(second, 10));
+            markAvailable($el, parseInt(second, 10))
+        });
+
+        function markSelected($el, value) {
+            $el.toggleClass('second-selected', value === second);
+        }
+
+        function markAvailable($el, value) {
+            var date = moment(model.get('date')).seconds(value);
+            $el.toggleClass('second-unavailable', !model.checkRange(date));
+        }
+    },
+
+    initOnChangeHandlers: function () {
+        this.listenTo(this.model, 'change:date', this.fillSecondsTable);
+    },
+
+    useSecond: function (event) {
+        var
+            $el = $(event.target),
+            model = this.model,
+            date = model.get('date'),
+            second = parseInt($el.attr('data-second'), 10);
+
+        var newDate = InfinniUI.DateUtils.cloneDate(date);
+
+        newDate.setSeconds(second);
+        this.trigger('second', newDate);
+    }
+
+});
+
+//####app/new/controls/dateTimePicker/components/selectTimes.js
+var SelectTimesModel = SelectComponentModel.extend({
+
+    initialize: function () {
+        SelectComponentModel.prototype.initialize.call(this);
+        this.on('change:hour', this.updateDatePart.bind(this, 'hour'));
+        this.on('change:minute', this.updateDatePart.bind(this, 'minute'));
+        this.on('change:second', this.updateDatePart.bind(this, 'second'));
+        this.on('change:millisecond', this.updateDatePart.bind(this, 'millisecond'));
+    },
+
+    nextHour: function () {
+        var hour = this.get('hour');
+        hour += 1;
+
+        //@TODO Границу использовать в зависимости от 12/24 формата записи даты из настроек локализации
+        if (hour > 23) {
+            return;
+        }
+
+        this.set('hour', hour);
+        this.keepDateInRange();
+    },
+
+    prevHour: function () {
+        var hour = this.get('hour');
+        hour -= 1;
+
+        if (hour < 0) {
+            return;
+        }
+
+        this.set('hour', hour);
+        this.keepDateInRange();
+    },
+
+    nextMinute: function () {
+        var minute = this.get('minute');
+        minute += 1;
+
+        if (minute >= 60) {
+            return;
+        }
+
+        this.set('minute', minute);
+        this.keepDateInRange();
+    },
+
+    prevMinute: function () {
+        var minute = this.get('minute');
+        minute -= 1;
+
+        if (minute < 0) {
+            return;
+        }
+
+        this.set('minute', minute);
+        this.keepDateInRange();
+    },
+
+    nextSecond: function () {
+        var second = this.get('second');
+        second += 1;
+
+        if (second >= 60) {
+            return;
+        }
+
+        this.set('second', second);
+        this.keepDateInRange();
+    },
+
+    prevSecond: function () {
+        var second = this.get('second');
+        second -= 1;
+
+        if (second < 0) {
+            return;
+        }
+
+        this.set('second', second);
+        this.keepDateInRange();
+    },
+
+    validate: function (attr, options) {
+        var value = InfinniUI.DateUtils.cloneDate(attr.date);
+        value.setHours(attr.hour, attr.minute, attr.second, attr.millisecond);
+
+        if (!this.checkRange(value)) {
+            return 'Out of range';
+        }
+    }
+
+});
+
+var SelectTimes = SelectComponent.extend({
+
+    modelClass: SelectTimesModel,
+
+    template: InfinniUI.Template["new/controls/dateTimePicker/template/time/time.tpl.html"],
+
+    events: {
+        "click .time-spin-down.time-spin-hour": "prevHour",
+        "click .time-spin-up.time-spin-hour": "nextHour",
+
+        "click .time-spin-down.time-spin-minute": "prevMinute",
+        "click .time-spin-up.time-spin-minute": "nextMinute",
+
+        "click .time-spin-down.time-spin-second": "prevSecond",
+        "click .time-spin-up.time-spin-second": "nextSecond",
+
+        "click .time-segment-hour": "selectHour",
+        "click .time-segment-minute": "selectMinute",
+        "click .time-segment-second": "selectSecond",
+        "click .days": "selectDay"
+    },
+
+    UI: {
+        month: '.month',
+        year: '.year',
+        hour: '.time-segment-hour',
+        minute: '.time-segment-minute',
+        second: '.time-segment-second'
+    },
+
+    render: function () {
+        var template = this.template();
+        this.$el.html(template);
+        this.bindUIElements();
+        this.updateHour();
+        this.updateMinute();
+        this.updateSecond();
+        this.initOnChangeHandlers();
+    },
+
+    selectHour: function () {
+        var
+            model = this.model,
+            date = model.get('date'),
+            hour = model.get('hour'),
+            minute = model.get('minute'),
+            second = model.get('second');
+
+        date.setHours(hour, minute, second);
+        this.trigger('hour', date);
+    },
+
+    selectMinute: function () {
+        var
+            model = this.model,
+            date = model.get('date'),
+            hour = model.get('hour'),
+            minute = model.get('minute'),
+            second = model.get('second');
+
+        date.setHours(hour, minute, second);
+        this.trigger('minute', date);
+    },
+
+    selectSecond: function () {
+        var
+            model = this.model,
+            date = model.get('date'),
+            hour = model.get('hour'),
+            minute = model.get('minute'),
+            second = model.get('second');
+
+        date.setHours(hour, minute, second);
+        this.trigger('second', date);
+    },
+
+    initOnChangeHandlers: function () {
+        this.listenTo(this.model, 'change:hour', this.updateHour);
+        this.listenTo(this.model, 'change:minute', this.updateMinute);
+        this.listenTo(this.model, 'change:second', this.updateSecond);
+        this.listenTo(this.model, 'change:date', this.useTime);
+    },
+
+    updateHour: function () {
+        var hour = this.model.get('hour');
+        this.ui.hour.text(stringUtils.padLeft(hour, 2, '0'));
+    },
+
+    updateMinute: function () {
+        var minute = this.model.get('minute');
+        this.ui.minute.text(stringUtils.padLeft(minute, 2, '0'));
+    },
+
+    updateSecond: function () {
+        var second = this.model.get('second');
+        this.ui.second.text(stringUtils.padLeft(second, 2, '0'));
+    },
+
+    prevHour: function () {
+        this.model.prevHour();
+    },
+
+    nextHour: function () {
+        this.model.nextHour();
+    },
+
+    prevMinute: function () {
+        this.model.prevMinute();
+    },
+
+    nextMinute: function () {
+        this.model.nextMinute();
+    },
+
+    prevSecond: function () {
+        this.model.prevSecond();
+    },
+
+    nextSecond: function () {
+        this.model.nextSecond();
+    },
+
+    useTime: function () {
+        var
+            date = this.model.get('date');
+
+        this.trigger('date', date);
+    },
+
+    selectDay: function () {
+        var
+            date = this.model.get('date');
+
+        this.trigger('day', date);
+
+    }
+
+});
+
+//####app/new/controls/dateTimePicker/components/selectYears.js
+var SelectYearsModel = SelectComponentModel.extend({
+
+    defaults: function () {
+        var defaults = SelectComponentModel.prototype.defaults.call(this);
+
+        return _.defaults({
+            pageSize: 20,
+            page: 0
+        }, defaults);
+    },
+
+    initialize: function () {
+        SelectComponentModel.prototype.initialize.call(this);
+        this.on('change:year', this.updateDatePart.bind(this, 'year'));
+        this.on('change:year', this.onChangeYearHandler);
+    },
+
+    prevPage: function () {
+        var page = this.get('page');
+        this.set('page', page - 1);
+    },
+
+    nextPage: function () {
+        var page = this.get('page');
+        this.set('page', page + 1);
+    },
+
+    resetPage: function () {
+        this.set('page', 0);
+    },
+
+    onChangeYearHandler: function (model, value) {
+        this.keepDateInRange();
+        model.set('page', 0);
+    }
+
+});
+
+var SelectYears = SelectComponent.extend({
+
+    modelClass: SelectYearsModel,
+
+    template: InfinniUI.Template["new/controls/dateTimePicker/template/date/years.tpl.html"],
+
+    events: {
+        'click .btn-year-prev': "prevPage",
+        'click .btn-year-next': "nextPage",
+        'click .today-year': "showTodayYear",
+        'click .year:not(".year-unavailable")': "useYear"
+    },
+
+    UI: {
+        years: '.year',
+        yearBegin: '.year-begin',
+        yearEnd: '.year-end'
+    },
+
+    initOnChangeHandlers: function () {
+        this.listenTo(this.model, 'change:page', this.fillYearsTable);
+        this.listenTo(this.model, 'change:year', this.fillYearsTable);
+    },
+
+    render: function () {
+        var template = this.template();
+        this.$el.html(template);
+        this.bindUIElements();
+        //this.fillCalendar();
+        this.fillYearsTable();
+        this.initOnChangeHandlers();
+    },
+
+    fillYearsTable: function () {
+        var
+            model = this.model,
+            page = model.get('page'),
+            pageSize = model.get('pageSize'),
+            year = model.get('year'),
+            todayYear = model.get('todayYear'),
+            //startYear = Math.ceil((year || todayYear) - pageSize / 2) + page * pageSize;
+            startYear = Math.ceil(year - pageSize / 2) + page * pageSize;
+
+        this.ui.years.each(function (i, el) {
+            var $el = $(el);
+            var year = startYear + i;
+            $el.text(year);
+            $el.attr('data-year', year);
+            markTodayYear($el, year);
+            markSelected($el, year);
+            markAvailable($el, year);
+        });
+
+        this.ui.yearBegin.text(startYear);
+        this.ui.yearEnd.text(startYear + pageSize - 1);
+
+        function markTodayYear($el, value) {
+            $el.toggleClass('year-today', value === todayYear);
+        }
+
+        function markSelected($el, value) {
+            $el.toggleClass('year-selected', value === year);
+        }
+        function markAvailable($el, value) {
+            var date = moment([value]);
+            $el.toggleClass('year-unavailable', !model.checkRange(date, 'year'));
+        }
+
+    },
+
+    prevPage: function () {
+        this.model.prevPage();
+    },
+
+    nextPage: function () {
+        this.model.nextPage();
+    },
+
+    showTodayYear: function () {
+        this.today();
+    },
+
+    today: function () {
+        this.model.resetPage();
+    },
+
+    useYear: function (event) {
+        var $el = $(event.target),
+            model = this.model;
+
+        model.set({
+            year: parseInt($el.attr('data-year'), 10)
+        });
+
+        this.trigger('year', model.get('date'));
+    }
+
+});
+
+//####app/new/controls/dateTimePicker/dateTimePickerControl.js
 /**
  *
  * @param parent
  * @constructor
- * @augments ContainerControl
+ * @augments TextEditorBaseControl
  */
-function RowControl(parent) {
-    _.superClass(RowControl, this, parent);
+function DateTimePickerControl(parent) {
+    _.superClass(DateTimePickerControl, this, parent);
 }
 
-_.inherit(RowControl, ContainerControl);
+_.inherit(DateTimePickerControl, TextEditorBaseControl);
 
-_.extend(RowControl.prototype,
-    /** @lends RowControl.prototype */
-    {
-        createControlModel: function () {
-            return new RowModel();
-        },
+_.extend(DateTimePickerControl.prototype, {
 
-        createControlView: function (model) {
-            return new RowView({model: model});
-        }
+    createControlModel: function () {
+        return new DateTimePickerModel();
+    },
+
+    createControlView: function (model) {
+        return new DateTimePickerView({model: model});
     }
-);
+});
 
 
-//####app/new/controls/TablePanel/row/rowModel.js
-/**
- * @constructor
- * @augments ContainerModel
- */
-var RowModel = ContainerModel.extend(
-    /** @lends RowModel.prototype */
-    {
-        initialize: function () {
-            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
-        }
-    }
-);
-//####app/new/controls/TablePanel/row/rowView.js
+//####app/new/controls/dateTimePicker/dateTimePickerModel.js
 /**
  * @class
- * @augments ControlView
+ * @augments TextEditorBaseModel
  */
-var RowView = ContainerView.extend(
-    /** @lends RowView.prototype */
-    {
-        className: 'pl-row row',
+var DateTimePickerModel = TextEditorBaseModel.extend(/** @lends DateTimePickerModel.prototype */{
+    defaults: _.extend(
+        {},
+        TextEditorBaseModel.prototype.defaults,
+        {
+            mode: "Date",
+            today: new Date()
+        }
+    ),
 
-        initialize: function (options) {
-            ContainerView.prototype.initialize.call(this, options);
-        },
+    initialize: function () {
+        TextEditorBaseModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+    },
 
-        render: function () {
-            this.prerenderingActions();
+    validate: function (attributes, options) {
+        var
+            min = attributes.minValue,
+            max = attributes.maxValue;
 
-            this.removeChildElements();
-
-            this.renderItemsContents();
-
-            this.updateProperties();
-            this.trigger('render');
-
-            this.postrenderingActions();
-            return this;
-        },
-
-        renderItemsContents: function(){
-            var items = this.model.get('items'),
-                itemTemplate = this.model.get('itemTemplate'),
-                that = this,
-                element, item;
-
-            items.forEach(function(item, i){
-                element = itemTemplate(undefined, {item: item, index: i});
-                that.addChildElement(element);
-                that.$el
-                    .append(element.render());
-            });
-        },
-
-        updateGrouping: function(){}
+        return InfinniUI.DateUtils.checkRangeDate(attributes.value, attributes.minValue, attributes.maxValue);
     }
-);
 
-//####app/new/controls/TablePanel/tablePanelControl.js
+
+});
+//####app/new/controls/dateTimePicker/dateTimePickerStrategy.js
+var dateTimePickerStrategy = (function () {
+
+    return {
+        Date: dateTimePickerModeDate,
+        DateTime: dateTimePickerModeDateTime,
+        Time: dateTimePickerModeTime
+    };
+
+})();
+
+
+//####app/new/controls/dateTimePicker/dateTimePickerView.js
 /**
- *
- * @param parent
- * @constructor
- * @augments ContainerControl
+ * @class
+ * @augments TextEditorBaseView
  */
-function TablePanelControl(parent) {
-    _.superClass(TablePanelControl, this, parent);
+var DateTimePickerView = TextEditorBaseView.extend(/** @lends DateTimePickerView.prototype */{
+
+    className: "pl-datepicker form-group",
+
+    template: InfinniUI.Template["new/controls/dateTimePicker/template/date.tpl.html"],
+
+    UI: _.extend({}, TextEditorBaseView.prototype.UI, {
+        dropdownButton: '.pl-datepicker-calendar',
+        controlWrap: '.control-wrap',
+        editorWrap: '.editor-wrap'
+    }),
+
+    events: _.extend({}, TextEditorBaseView.prototype.events, {
+        'focus .pl-datepicker-input': 'onFocusControlHandler',
+        'mouseenter .pl-datepicker-input': 'onMouseenterControlHandler',
+        'click .pl-datepicker-calendar': 'onClickDropdownHandler'
+    }),
+
+    initialize: function () {
+        TextEditorBaseView.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+        this.updateMode();
+        this.listenTo(this.model, 'change:mode', this.updateMode);
+    },
+
+    initHandlersForProperties: function(){
+        TextEditorBaseView.prototype.initHandlersForProperties.call(this);
+
+        this.listenTo(this.model, 'change:minValue', this.updateMinValue);
+        this.listenTo(this.model, 'change:maxValue', this.updateMaxValue);
+    },
+
+    updateProperties: function(){
+        TextEditorBaseView.prototype.updateProperties.call(this);
+    },
+
+    updateMode: function(){
+        var mode = this.model.get('mode');
+        _.extend(this, dateTimePickerStrategy[mode]);
+
+        this.rerender();
+    },
+
+    updateMinValue: function(){
+        var mode = this.model.get('mode');
+        _.extend(this, dateTimePickerStrategy[mode]);
+
+        this.rerender();
+    },
+
+    updateMaxValue: function(){
+        var mode = this.model.get('mode');
+        _.extend(this, dateTimePickerStrategy[mode]);
+
+        this.rerender();
+    },
+
+    updateEnabled: function(){
+        TextEditorBaseView.prototype.updateEnabled.call(this);
+
+        var isEnabled = this.model.get('enabled');
+        this.ui.dropdownButton.prop('disabled', !isEnabled);
+    },
+
+    render: function () {
+        this.prerenderingActions();
+
+        this.renderTemplate(this.getTemplate());
+        this.updateProperties();
+        this.renderDateTimePickerEditor();
+
+        this.trigger('render');
+
+        this.postrenderingActions();
+        return this;
+    },
+
+    getData: function () {
+        var
+            model = this.model;
+
+        return _.extend({},
+            TextEditorBaseView.prototype.getData.call(this), {
+                minValue: model.get('minValue'),
+                maxValue: model.get('maxValue'),
+                mode: model.get('mode')
+            });
+    },
+
+    renderDateTimePickerEditor: function () {
+        var model = this.model;
+        this.renderControlEditor({
+            el: this.ui.editor,
+            multiline: false,
+            convert: this.convertValue
+        });
+
+        return this;
+    },
+
+    /**
+     * Используется миксином textEditorMixin
+     * @param value
+     * @returns {boolean}
+     */
+    onEditorValidate: function (value) {
+        var model = this.model;
+        
+        return InfinniUI.DateUtils.checkRangeDate(value, model.get('minValue'), model.get('maxValue'));
+    },
+
+
+    getTemplate: function () {
+        throw new Error('Не перекрыт getTemplate');
+    },
+
+    onClickDropdownHandler: function (event) {},
+
+    updateDropDownCalendarPosition: function ($dateTimePicker, $calendar) {
+
+        var rect = $dateTimePicker[0].getBoundingClientRect();
+
+        var style = {
+            position: "absolute",
+            top: window.pageYOffset + rect.bottom,
+            left: window.pageXOffset + rect.right - $calendar.width()
+        };
+
+        $calendar.css(style);
+    }
+
+});
+
+//####app/new/controls/dateTimePicker/selectDate.js
+var SelectDate = Backbone.View.extend({
+
+    className: 'pl-datepicker-dropdown pl-dropdown-container',
+
+    template: InfinniUI.Template["new/controls/dateTimePicker/template/select.date.tpl.html"],
+
+    UI: {
+        days: '.days',
+        months: '.months',
+        years: '.years'
+    },
+
+    events: {
+        'click .backdrop': 'onClickBackdropHandler',
+        'click .datepicker-clear': 'onClickClearValueHandler',
+        'click .today-date': 'onClickTodayHandler'
+    },
+
+    render: function () {
+        var template = this.template();
+        this.$el.html(template);
+        this.bindUIElements();
+        this.renderComponents();
+    },
+
+    renderComponents: function () {
+        var model = this.model;
+        var value = InfinniUI.DateUtils.createDate(model.get('value'));
+        var today = InfinniUI.DateUtils.createDate(model.get('today'));
+        var timeZone = model.get('timeZone');
+        var m = moment(value);
+
+        if (m.isValid()) {
+            value = m.toDate();
+        } else {
+            value = null;
+        }
+
+        value = InfinniUI.DateUtils.changeTimezoneOffset(value, timeZone);
+
+        var options = {
+            value: value,
+            today: today || new Date(),
+            //date: value,
+            max: model.get('maxValue'),
+            min: model.get('minValue')
+        };
+
+        options.el = this.ui.months;
+        var months = new SelectMonths(options);
+
+        options.el = this.ui.years;
+        var years = new SelectYears(options);
+
+        options.el = this.ui.days;
+        var days = new SelectDays(options);
+
+        this.months = months;
+        this.years = years;
+        this.days = days;
+
+        this.workflow(days, months, years, value)(value);
+    },
+
+    onClickBackdropHandler: function (event) {
+        this.remove();
+    },
+
+    onClickClearValueHandler: function () {
+        this.clearValue();
+    },
+
+    clearValue: function () {
+        this.useValue(null);
+    },
+
+    useValue: function (date) {
+        var model = this.model;
+        var timeZone = model.get('timeZone');
+
+        var min = model.get('minValue'),
+            max = model.get('maxValue');
+
+        if (!InfinniUI.DateUtils.checkRangeDate(date, min, max)) {
+            date = InfinniUI.DateUtils.getNearestDate(date, min, max);
+        }
+
+        this.trigger('date', InfinniUI.DateUtils.restoreTimezoneOffset(date, timeZone));
+        this.remove();
+    },
+
+    workflow: function (days, months, years) {
+
+        this
+            .listenTo(days, 'date', this.useValue)
+            .listenTo(days, 'year', function (date) {
+                showYears(date);//Needed select year from list
+            })
+            .listenTo(years, 'year', function (date) {
+                showMonths(date);//Needed select month for year
+            })
+            .listenTo(months, 'year', function (date) {
+                showYears(date);//Needed select year from list
+            })
+            .listenTo(months, 'month', function (date) {
+                showDays(date);//Needed select day from calendar
+            });
+
+        return showDays;
+
+        function showDays(date) {
+            days.setDate(date);
+
+            years.hide();
+            months.hide();
+            days.show();
+        }
+
+        function showMonths(date) {
+            months.setDate(date);
+
+            days.hide();
+            years.hide();
+            months.show();
+        }
+
+        function showYears(date) {
+            years.setDate(date);
+
+            days.hide();
+            months.hide();
+            years.show();
+        }
+
+    },
+
+    onClickTodayHandler: function () {
+        var days = this.days,
+            months = this.months,
+            years = this.years;
+
+        days.today();
+        months.today();
+        years.today();
+    }
+
+});
+
+_.extend(SelectDate.prototype, bindUIElementsMixin);
+
+//####app/new/controls/dateTimePicker/selectDateTime.js
+var SelectDateTime = SelectDate.extend({
+
+    className: 'pl-datepicker-dropdown pl-dropdown-container',
+
+    template: InfinniUI.Template["new/controls/dateTimePicker/template/select.dateTime.tpl.html"],
+
+    UI: {
+        days: '.days',
+        months: '.months',
+        years: '.years',
+        times: '.times',
+        hours: '.hours',
+        minutes: '.minutes'
+    },
+
+    onClickToggleDateHandler: function () {
+        this.trigger('days');
+    },
+
+    onClickToggleTimeHandler: function () {
+        this.trigger('time');
+    },
+
+
+    renderComponents: function () {
+        var model = this.model;
+        var value = InfinniUI.DateUtils.createDate(model.get('value'));
+        var today = InfinniUI.DateUtils.createDate(model.get('today'));
+        var timeZone = model.get('timeZone');
+        var m = moment(value);
+
+        if (m.isValid()) {
+            value = m.toDate();
+        } else {
+            value = null;
+        }
+
+        value = InfinniUI.DateUtils.changeTimezoneOffset(value, timeZone);
+
+        var options = {
+            value: value,
+            today: today || new Date(),
+            //date: value,
+            max: model.get('maxValue'),
+            min: model.get('minValue')
+        };
+
+        options.el = this.ui.months;
+        var months = new SelectMonths(options);
+
+        options.el = this.ui.years;
+        var years = new SelectYears(options);
+
+        options.el = this.ui.days;
+        var days = new SelectDays(options);
+
+        options.el = this.ui.times;
+        var time = new SelectTimes(options);
+        //time.setDate(undefined);
+
+        options.el = this.ui.hours;
+        var hours = new SelectHours(options);
+
+        options.el = this.ui.minutes;
+        var minutes = new SelectMinutes(options);
+
+
+        this.workflow(days, months, years, time, hours, minutes)(value);
+    },
+
+    useTime: function (date) {
+        var model = this.model;
+        var timeZone = model.get('timeZone');
+
+        var min = model.get('minValue'),
+            max = model.get('maxValue');
+
+        if (!InfinniUI.DateUtils.checkRangeDate(date, min, max)) {
+            date = InfinniUI.DateUtils.getNearestDate(date, min, max);
+        }
+
+        this.trigger('date', InfinniUI.DateUtils.restoreTimezoneOffset(date, timeZone));
+
+        return date;
+    },
+
+    workflow: function (days, months, years, time, hours, minutes) {
+        var useTime = this.useTime.bind(this);
+        var components = Array.prototype.slice.call(arguments);
+
+        this
+            .listenTo(days, 'date', this.useValue)
+            .listenTo(days, 'year', function (date) {
+                showYears(date);//Needed select year from list
+            })
+            .listenTo(days, 'time', function (date) {
+                showTime(date);
+            })
+            .listenTo(years, 'year', function (date) {
+                showMonths(date);//Needed select month for year
+            })
+            .listenTo(months, 'year', function (date) {
+                showYears(date);//Needed select year from list
+            })
+            .listenTo(months, 'month', function (date) {
+                showDays(date);//Needed select day from calendar
+            });
+
+        this.listenTo(time, 'hour', function (date) {
+                showHours(date);
+            })
+            .listenTo(time, 'minute', function (date) {
+                showMinutes(date);
+            })
+            .listenTo(time, 'day', function (date) {
+                showDays(date);
+            })
+            .listenTo(time, 'date', function (date) {
+                useTime(date);
+            })
+            .listenTo(hours, 'hour', function (date) {
+                var newDate = useTime(date);
+                showTime(newDate);
+            })
+            .listenTo(minutes, 'minute', function (date) {
+                var newDate = useTime(date);
+                showTime(newDate);
+            });
+
+        //Переключатель режима Date/Time
+        this
+            .on('days', function (date) {
+                showDays(date);
+            })
+            .on('time', function (date) {
+                showTime(date);
+            });
+
+        return showDays;
+
+        function switchComponent(component) {
+            components.forEach(function (c) {
+                if (c !== component) {
+                    c.hide();
+                }
+            });
+            component.show();
+        }
+
+        function showDays(date) {
+            days.setDate(date);
+            switchComponent(days);
+        }
+
+        function showMonths(date) {
+            months.setDate(date);
+            switchComponent(months);
+        }
+
+        function showYears(date) {
+            years.setDate(date);
+            switchComponent(years);
+        }
+
+        function showHours(date) {
+            hours.setDate(date);
+            switchComponent(hours);
+        }
+
+        function showMinutes(date) {
+            minutes.setDate(date);
+            switchComponent(minutes);
+        }
+
+        function showTime(date) {
+            time.setDate(date);
+            switchComponent(time);
+        }
+
+    }
+
+});
+//####app/new/controls/dateTimePicker/selectTime.js
+var SelectTime = SelectDate.extend({
+
+    className: 'pl-timepicker-dropdown pl-dropdown-container',
+
+    template: InfinniUI.Template["new/controls/dateTimePicker/template/select.time.tpl.html"],
+
+    UI: {
+        times: '.times',
+        hours: '.hours',
+        minutes: '.minutes',
+        seconds: '.seconds'
+    },
+
+    renderComponents: function () {
+        var model = this.model;
+        var value = InfinniUI.DateUtils.createDate(model.get('value'));
+        var today = InfinniUI.DateUtils.createDate(model.get('today'));
+        var timeZone = model.get('timeZone');
+        var m = moment(value);
+
+        if (m.isValid()) {
+            value = m.toDate();
+        } else {
+            value = null;
+        }
+
+        value = InfinniUI.DateUtils.changeTimezoneOffset(value, timeZone);
+        //if (value === null || typeof value === 'undefined') {
+        //    value = today;
+        //}
+
+        var options = {
+            value: value,
+            today: today,
+            //date: date,
+            max: model.get('maxValue'),
+            min: model.get('minValue')
+        };
+
+        options.el = this.ui.times;
+        var time = new SelectTimes(options);
+
+        options.el = this.ui.hours;
+        var hours = new SelectHours(options);
+
+        options.el = this.ui.minutes;
+        var minutes = new SelectMinutes(options);
+
+        options.el = this.ui.seconds;
+        var seconds = new SelectSeconds(options);
+
+        this.workflow(time, hours, minutes, seconds)(value);
+    },
+
+    useTime: function (date) {
+        var model = this.model;
+        var timeZone = model.get('timeZone');
+
+        var min = model.get('minValue'),
+            max = model.get('maxValue');
+
+        if (!InfinniUI.DateUtils.checkRangeDate(date, min, max)) {
+            date = InfinniUI.DateUtils.getNearestDate(date, min, max);
+        }
+
+        this.trigger('date', InfinniUI.DateUtils.restoreTimezoneOffset(date, timeZone));
+        return date;
+    },
+
+    workflow: function (time, hours, minutes, seconds) {
+        var useTime = this.useTime.bind(this);
+        var components = Array.prototype.slice.call(arguments);
+
+        this.listenTo(time, 'hour', function (date) {
+            showHours(date);
+        })
+            .listenTo(time, 'minute', function (date) {
+                showMinutes(date);
+            })
+            .listenTo(time, 'second', function (date) {
+                showSeconds(date);
+            })
+            .listenTo(time, 'date', function (date) {
+                useTime(date);
+            })
+            .listenTo(hours, 'hour', function (date) {
+                var value = useTime(date);
+                showTime(value);
+            })
+            .listenTo(minutes, 'minute', function (date) {
+                var value = useTime(date);
+                showTime(value);
+            })
+            .listenTo(seconds, 'second', function (date) {
+                var value = useTime(date);
+                showTime(value);
+            });
+
+        return showTime;
+
+        function switchComponent(component) {
+            components.forEach(function (c) {
+                if (c !== component) {
+                    c.hide();
+                }
+            });
+            component.show();
+        }
+
+        function showHours(date) {
+            hours.setDate(date);
+            switchComponent(hours);
+        }
+
+        function showMinutes(date) {
+            minutes.setDate(date);
+            switchComponent(minutes);
+        }
+
+        function showSeconds(date) {
+            seconds.setDate(date);
+            switchComponent(seconds);
+        }
+
+        function showTime(date) {
+            time.setDate(date);
+            switchComponent(time);
+        }
+
+    }
+
+});
+//####app/new/controls/datePicker/datePickerControl.js
+function DatePickerControl(parent) {
+    _.superClass(DatePickerControl, this, parent);
 }
 
-_.inherit(TablePanelControl, ContainerControl);
+_.inherit(DatePickerControl, DateTimePickerControl);
 
-_.extend(TablePanelControl.prototype,
-    /** @lends TablePanelControl.prototype */
-    {
-        createControlModel: function () {
-            return new TablePanelModel();
-        },
+_.extend(DatePickerControl.prototype, {
 
-        createControlView: function (model) {
-            return new TablePanelView({model: model});
+    createControlModel: function () {
+        return new DatePickerModel();
+    },
+
+    createControlView: function (model) {
+        return new DatePickerView({model: model});
+    }
+});
+
+
+//####app/new/controls/datePicker/datePickerModel.js
+var DatePickerModel = DateTimePickerModel.extend({
+
+    initialize: function () {
+        DateTimePickerModel.prototype.initialize.apply(this, arguments);
+
+
+    }
+
+});
+//####app/new/controls/datePicker/datePickerView.js
+var DatePickerView = DateTimePickerView .extend({
+    
+});
+//####app/new/controls/datePicker/dateTimePickerMode.datePicker.js
+console.assert(dateTimePickerModeDate, "dateTimePickerModeDate is undefined");
+
+var dateTimePickerModeDatePicker = _.extend({}, dateTimePickerModeDate, {
+
+    onEditorDone: function (value) {
+        if(typeof value === 'undefined' || value === null || !value.toString().length) {
+            value = null;
+        } else {
+            //Дата в формате ISO 8601
+            value = InfinniUI.DateUtils.dateToTimestamp(value);
         }
-    }
-);
 
+        this.model.set('value', value);
+    },
 
-//####app/new/controls/TablePanel/tablePanelModel.js
-/**
- * @constructor
- * @augments ContainerModel
- */
-var TablePanelModel = ContainerModel.extend(
-    /** @lends TablePanelModel.prototype */
-    {
-        initialize: function () {
-            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+    convertValue: function (value) {
+        var _value = null;
+        if (value && value.constructor === Date) {
+            _value = InfinniUI.DateUtils.dateToTimestamp(value);
         }
+
+        return _value;
     }
-);
-//####app/new/controls/TablePanel/tablePanelView.js
-/**
- * @class
- * @augments ControlView
- */
-var TablePanelView = ContainerView.extend(
-    /** @lends TablePanelView.prototype */
-    {
-        className: 'pl-table-panel',
+});
 
-        initialize: function (options) {
-            ContainerView.prototype.initialize.call(this, options);
-        },
+dateTimePickerStrategy['DatePicker'] = dateTimePickerModeDatePicker;
 
-        render: function () {
-            this.prerenderingActions();
+//####app/new/controls/timePicker/dateTimePickerMode.timePicker.js
+console.assert(dateTimePickerModeTime, "dateTimePickerModeTime is undefined");
 
-            this.removeChildElements();
+var dateTimePickerModeTimePicker = _.extend({}, dateTimePickerModeTime, {
 
-            this.renderItemsContents();
-            this.updateProperties();
-            this.trigger('render');
+    onEditorDone: function (value) {
+        if(typeof value === 'undefined' || value === null || !value.toString().length) {
+            value = null;
+        } else {
+            //Дата в формате ISO 8601
+            value = InfinniUI.DateUtils.dateToTimestampTime(value);
+        }
 
-            this.postrenderingActions();
-            return this;
-        },
+        this.model.set('value', value);
+    },
 
-        renderItemsContents: function(){
-            var items = this.model.get('items'),
-                itemTemplate = this.model.get('itemTemplate'),
-                that = this,
-                element, item;
+    onEditorValidate: function (value) {
+        var model = this.model;
 
-            items.forEach(function(item, i){
-                element = itemTemplate(undefined, {item: item, index: i});
-                that.addChildElement(element);
-                that.$el
-                    .append(element.render());
-            });
-        },
+        var minValue = InfinniUI.DateUtils.restoreTimezoneOffset(model.get('minValue'), model.get('timeZone'));
+        var maxValue = InfinniUI.DateUtils.restoreTimezoneOffset(model.get('maxValue'), model.get('timeZone'));
 
-        updateGrouping: function(){}
+        console.info(value, minValue, maxValue);
+        return InfinniUI.DateUtils.checkRangeDate(value, minValue, maxValue);
+    },
+
+    convertValue: function (value) {
+        var _value = null;
+        if (value && value.constructor === Date) {
+            _value = InfinniUI.DateUtils.dateToTimestampTime(value);
+        }
+
+        return _value;
     }
-);
+});
 
+dateTimePickerStrategy['TimePicker'] = dateTimePickerModeTimePicker;
+//####app/new/controls/timePicker/timePickerControl.js
+function TimePickerControl(parent) {
+    _.superClass(TimePickerControl, this, parent);
+}
+
+_.inherit(TimePickerControl, DateTimePickerControl);
+
+_.extend(TimePickerControl.prototype, {
+
+    createControlModel: function () {
+        return new TimePickerModel();
+    },
+
+    createControlView: function (model) {
+        return new TimePickerView({model: model});
+    }
+});
+
+
+//####app/new/controls/timePicker/timePickerModel.js
+var TimePickerModel = DateTimePickerModel.extend({
+
+    initialize: function () {
+        DateTimePickerModel.prototype.initialize.apply(this, arguments);
+        var date = new Date();
+        date.setFullYear(1970, 0, 1);
+        this.set('today', date);
+    }
+
+});
+//####app/new/controls/timePicker/timePickerView.js
+var TimePickerView = DateTimePickerView .extend({
+
+    className: "pl-datepicker pl-timepicker form-group"
+
+});
 //####app/new/controls/button/buttonControl.js
 /**
  *
@@ -6120,23 +8148,25 @@ function ButtonControl(viewMode) {
 
 _.inherit(ButtonControl, Control);
 
-_.extend(ButtonControl.prototype, {
+_.extend(
+    ButtonControl.prototype,
+    highlightMixin.control, {
 
-    createControlModel: function () {
-        return new ButtonModel();
-    },
+        createControlModel: function () {
+            return new ButtonModel();
+        },
 
-    createControlView: function (model, viewMode) {
-        if(!viewMode || ! viewMode in window.InfinniUI.Button){
-            viewMode = 'common';
+        createControlView: function (model, viewMode) {
+            if (!viewMode || !viewMode in window.InfinniUI.Button) {
+                viewMode = 'common';
+            }
+
+            var ViewClass = window.InfinniUI.Button.viewModes[viewMode];
+
+            return new ViewClass({model: model});
         }
 
-        var ViewClass = window.InfinniUI.Button.viewModes[viewMode];
-
-        return new ViewClass({model: model});
-    }
-
-}, buttonControlMixin);
+    }, buttonControlMixin);
 
 
 //####app/new/controls/button/buttonModel.js
@@ -6148,7 +8178,8 @@ var ButtonModel = ControlModel.extend({
 
     defaults: _.defaults({
         content: null,
-        contentTemplate: null
+        contentTemplate: null,
+        horizontalAlignment: 'Left'
 
     }, ControlModel.prototype.defaults),
 
@@ -6174,6 +8205,11 @@ var CommonButtonView = ControlView.extend({
 
     events: {
         'click button': 'onClickHandler'
+    },
+
+    initialize: function () {
+        ControlView.prototype.initialize.apply(this, arguments);
+        this.initHighlightMixin();
     },
 
     updateProperties: function(){
@@ -6246,6 +8282,8 @@ var CommonButtonView = ControlView.extend({
     }
 
 });
+
+_.extend(CommonButtonView.prototype, highlightMixin.controlView);
 
 
 InfinniUI.ObjectUtils.setPropertyValueDirect(window.InfinniUI, 'Button.viewModes.common', CommonButtonView);
@@ -6365,6 +8403,149 @@ var MenuItemButtonView = LinkButtonView.extend({
 });
 
 InfinniUI.ObjectUtils.setPropertyValueDirect(window.InfinniUI, 'Button.viewModes.menuItem', MenuItemButtonView);
+//####app/new/controls/buttonEdit/buttonEditControl.js
+/**
+ *
+ * @param parent
+ * @constructor
+ * @augments TextBoxControl
+ */
+function ButtonEditControl(parent) {
+    _.superClass(ButtonEditControl, this, parent);
+}
+
+_.inherit(ButtonEditControl, TextBoxControl);
+
+_.extend(ButtonEditControl.prototype, {
+
+    createControlModel: function () {
+        return new ButtonEditModel();
+    },
+
+    createControlView: function (model) {
+        return new ButtonEditView({model: model});
+    },
+
+    onButtonClick: function (handler) {
+        this.controlView.on('buttonClick', handler);
+    }
+});
+
+
+//####app/new/controls/buttonEdit/buttonEditModel.js
+var ButtonEditModel = TextBoxModel.extend({
+
+    defaults: _.defaults({
+        showClear: true,
+        readOnly: true
+    }, TextBoxModel.prototype.defaults),
+
+    initialize: function () {
+        TextBoxModel.prototype.initialize.apply(this, arguments);
+    },
+
+    clearValue: function () {
+        var enabled = this.get('enabled');
+
+        if (enabled) {
+            this.set('value', null);
+        }
+    }
+
+});
+//####app/new/controls/buttonEdit/buttonEditView.js
+var ButtonEditView = TextBoxView.extend(/** @lends ButtonEditView.prototype */{
+
+    template: {
+        oneline: InfinniUI.Template["new/controls/buttonEdit/template/textBoxInput.tpl.html"],
+        multiline: InfinniUI.Template["new/controls/buttonEdit/template/textBoxArea.tpl.html"]
+    },
+
+    className: 'pl-button-edit form-group',
+
+    UI: _.extend({}, TextBoxView.prototype.UI, {
+        iconAction: '.pl-button-edit-button__icon_action',
+        buttonClear: '.pl-button-edit-button_clear',
+        buttons: '.pl-button-edit-button'
+    }),
+
+    events: _.extend({}, TextBoxView.prototype.events, {
+        'click .pl-button-edit-button_action': 'onClickButtonHandler',
+        'click .pl-button-edit-button_clear': 'onClickClearHandler'
+    }),
+
+    initHandlersForProperties: function () {
+        TextBoxView.prototype.initHandlersForProperties.call(this);
+        this.listenTo(this.model, 'change:icon', this.updateIcon);
+        this.listenTo(this.model, 'change:showClear', this.updateShowClear);
+        this.listenTo(this.model, 'change:readOnly', this.updateReadOnly);
+    },
+
+    updateProperties: function () {
+        TextBoxView.prototype.updateProperties.call(this);
+        this.updateIcon();
+        this.updateShowClear();
+        this.updateReadOnly();
+    },
+
+    updateIcon: function () {
+        var icon = this.model.get('icon');
+        this.switchClass('fa', icon, this.ui.iconAction);
+    },
+
+    updateShowClear: function () {
+        var showClear = this.model.get('showClear');
+        var value = this.model.get('value');
+
+        this.ui.buttonClear.toggleClass('hidden',  !showClear || _.isEmpty(value));
+    },
+
+    updateReadOnly: function () {
+        var readOnly = this.model.get('readOnly');
+
+        this.ui.control.prop('readonly', readOnly);
+    },
+
+    updateEnabled: function () {
+        var enabled = this.model.get('enabled');
+        TextBoxView.prototype.updateEnabled.call(this);
+
+        //@TODO Update button states
+        this.ui.buttons.toggleClass('pl-button-edit-button_disabled', !enabled);
+    },
+
+    updateValue: function () {
+        TextBoxView.prototype.updateValue.call(this);
+        this.updateShowClear();
+    },
+
+    onClickButtonHandler: function (event) {
+        var enabled = this.model.get('enabled');
+
+        if (enabled) {
+            this.trigger('buttonClick', event);
+        }
+    },
+
+    onClickClearHandler: function (event) {
+        this.model.clearValue();
+    },
+
+    onFocusControlHandler: function (event) {
+        if (this.model.get('readOnly')) {
+            return;
+        }
+        TextBoxView.prototype.onFocusControlHandler.call(this, event);
+    },
+
+    onMouseenterControlHandler: function (event) {
+        if (this.model.get('readOnly')) {
+            return;
+        }
+        TextBoxView.prototype.onMouseenterControlHandler.call(this, event);
+    }
+
+});
 //####app/new/controls/checkBox/checkBoxControl.js
 function CheckBoxControl(parent) {
     _.superClass(CheckBoxControl, this, parent);
@@ -6510,6 +8691,84 @@ var ComboBoxModel = ListEditorBaseModel.extend({
 
     initialize: function () {
         ListEditorBaseModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+
+        this.on('change:value', this.syncSelectedItem);
+    },
+
+    syncSelectedItem: function (model, value) {
+        //var value = this.getValue();
+        var selectedItem = this.itemByValue(value);
+        this.setSelectedItem(selectedItem);
+    },
+
+    getSelectedItem: function () {
+        var selectedItem = this.get('selectedItem');
+
+        return selectedItem;
+    },
+
+    setSelectedItem: function (item) {
+        this.set('selectedItem', item);
+    },
+
+    selectNextItem: function () {
+        var items = this.get('items');
+        var selectedItem = this.getSelectedItem();
+
+        if (items.length > 0) {
+            var itemIndex = 0;
+            if (selectedItem) {
+                itemIndex = items.indexOf(selectedItem);
+                if (itemIndex === -1) {
+                    itemIndex = 0;
+                } else {
+                    itemIndex = Math.min(items.length - 1, itemIndex + 1);
+                }
+            }
+            selectedItem = items.getByIndex(itemIndex);
+        } else {
+            selectedItem = null;
+        }
+        this.setSelectedItem(selectedItem);
+    },
+
+    selectPrevItem: function () {
+        var items = this.get('items');
+        var selectedItem = this.getSelectedItem();
+
+        if (items.length > 0) {
+            var itemIndex = 0;
+            if (selectedItem) {
+                itemIndex = items.indexOf(selectedItem);
+                if (itemIndex === -1) {
+                    itemIndex = 0;
+                } else {
+                    itemIndex = Math.max(0, itemIndex - 1);
+                }
+            }
+            selectedItem = items.getByIndex(itemIndex);
+        }
+        this.setSelectedItem(selectedItem);
+    },
+
+    selectFirstItem: function () {
+        var items = this.get('items');
+        var selectedItem = null;
+
+        if (items.length > 0) {
+            selectedItem = items.getByIndex(0);
+        }
+        this.setSelectedItem(selectedItem);
+    },
+
+    selectLastItem: function () {
+        var items = this.get('items');
+        var selectedItem = null;
+
+        if (items.length > 0) {
+            selectedItem = items.getByIndex(items.length - 1);
+        }
+        this.setSelectedItem(selectedItem);
     },
 
     toggleItem: function (item, toggle) {
@@ -6528,24 +8787,57 @@ var ComboBoxView = ListEditorBaseView.extend({
     events: {
         'click .pl-combobox__grip': 'onClickGripHandler',
         'click .pl-combobox__value': 'onClickValueHandler',
-        'click .pl-combobox__clear': 'onClickClearHandler'
+        'click .pl-combobox__clear': 'onClickClearHandler',
+        'click .pl-control': 'onClickValueHandler',
+        'keydown .pl-control': 'onKeyDownControlHandler'
     },
 
     UI: _.defaults({
+        control: '.pl-control',
         label: '.pl-control-label',
         value: '.pl-combobox__value',
         clear: '.pl-combobox__clear'
     }, ListEditorBaseView.prototype.UI),
 
+    isControlElement: function (el) {
+        var res = ListEditorBaseView.prototype.isControlElement.call(this, el);
+
+        if (res) {
+            return res;
+        }
+
+        if (!this.dropDownView) {
+            return false;
+        }
+
+        return $.contains(this.dropDownView.el, el);
+    },
+
+    updateFocusable: function () {
+        var focusable = this.model.get('focusable');
+        var enabled = this.model.get('enabled');
+
+        if (focusable && enabled) {
+            this.ui.control.attr('tabindex', 0);
+        } else {
+            this.ui.control.removeAttr('tabindex');
+        }
+    },
+
     initialize: function (options) {
         ListEditorBaseView.prototype.initialize.call(this, options);
         var model = this.model,
             view = this;
+
+        //this.on('beforeClick', this.activateControl);
+
         this.on('render', function () {
             view.renderValue();
+
             model.on('change:dropdown', function (model, dropdown) {
                 if (dropdown) {
                     model.set('search', '');//Сброс фильтра
+                    model.set('focused', true);
                     if (view.dropDownView) {
                         view.dropDownView.remove();
                     }
@@ -6564,7 +8856,7 @@ var ComboBoxView = ListEditorBaseView.extend({
                         position: "absolute",
                         top: window.pageYOffset + rect.bottom/* + parseInt(view.$el.css('margin-bottom'))*/,
                         left: window.pageXOffset + rect.left,
-                        width: rect.width
+                        width: Math.round(rect.width) - 1
                     };
                     //@TODO Добавить алгоритм определения куда расхлапывать список вверх/вниз
                     //Для расхлопывания вверх:
@@ -6574,9 +8866,14 @@ var ComboBoxView = ListEditorBaseView.extend({
 
                     $dropdown.css(style);
                     $('body').append($dropdown);
-                    if (!model.get('multiSelect')) {
+                    if (model.get('autocomplete')) {
                         dropdownView.setSearchFocus();
+                    } else {
+                        view.ui.control.focus();
                     }
+                    setTimeout(dropdownView.ensureVisibleSelectedItem.bind(dropdownView), 0);
+                } else {
+                    view.ui.control.focus();
                 }
             });
             model.onValueChanged(this.onChangeValueHandler.bind(this));
@@ -6612,10 +8909,35 @@ var ComboBoxView = ListEditorBaseView.extend({
         return this.template;
     },
 
+    onKeyDownControlHandler: function (event) {
+        var enabled = this.model.get('enabled');
+
+        if (!enabled) {
+            event.preventDefault();
+            return;
+        }
+
+        if (event.ctrlKey || event.altKey) {
+            return;
+        }
+
+        if (this.isDropdown()) {
+            return this.dropDownView.onKeyDownHandler.call(this.dropDownView, event);
+        }
+        switch (event.which) {
+            case 40:    //Down Arrow
+            case 13:    //Ennter
+                event.preventDefault();
+                this.toggleDropdown();
+                break;
+        }
+    },
+
     onClickClearHandler: function () {
         var enabled = this.model.get('enabled');
         if (enabled) {
             this.model.set('value', null);
+            this.ui.control.focus();
         }
     },
 
@@ -6653,6 +8975,13 @@ var ComboBoxView = ListEditorBaseView.extend({
 
         var enabled = this.model.get('enabled');
 
+        if (!enabled) {
+            //Prevent got focus
+            this.ui.control.removeAttr('tabindex');
+        } else {
+            this.updateFocusable();
+        }
+
     },
 
     updateValue: function(){
@@ -6671,6 +9000,11 @@ var ComboBoxView = ListEditorBaseView.extend({
 
     updateSelectedItem: function () {
 
+    },
+
+    isDropdown: function () {
+        var model = this.model;
+        return !!model.get('dropdown');
     },
 
     toggleDropdown: function (toggle) {
@@ -6747,9 +9081,8 @@ var ComboBoxDropdownView = Backbone.View.extend({
     className: "pl-dropdown-container",
     events: {
         'click .backdrop': 'onClickBackdropHandler',
-        //'keypress .pl-combobox-search-text': 'onKeyPressHandler',
-        //'keydown .pl-combobox-search-text': 'onKeyDownHandler',
-        'keyup .pl-combobox-filter-text': 'onKeyUpHandler'
+        'keyup .pl-combobox-filter-text': 'onKeyUpHandler',
+        'keydown .pl-combobox-filter-text': 'onFilterKeyDownHandler'
     },
 
     UI: {
@@ -6772,6 +9105,7 @@ var ComboBoxDropdownView = Backbone.View.extend({
         this.listenTo(this.model, 'change:dropdown', this.onChangeDropdownHandler);
         this.listenTo(this.model, 'change:search', this.onChangeSearchHandler);
         this.listenTo(this.model, 'change:autocomplete', this.updateAutocomplete);
+        this.listenTo(this.model, 'change:selectedItem', this.onChangeSelectedItem);
         this.listenTo(this.strategy, 'click', this.onClickItemHandler);
         this.model.onValueChanged(this.onChangeValueHandler.bind(this));
 
@@ -6806,7 +9140,7 @@ var ComboBoxDropdownView = Backbone.View.extend({
         var noItems = (items && items.length == 0);
         this.ui.noItems.toggleClass('hidden', !noItems);
 
-        this.markCheckedItems();
+        this.markSelectedItems();
     },
 
     setItemsContent: function (content) {
@@ -6830,6 +9164,64 @@ var ComboBoxDropdownView = Backbone.View.extend({
     onChangeValueHandler: function () {
         this.markCheckedItems();
     },
+
+    markSelectedItems: function () {
+        var model = this.model;
+        if (!Array.isArray(this.$items)) {
+            return;
+        }
+
+        var $container = this.ui.items;
+        var $items = this.$items;
+        var selectedItem = model.getSelectedItem();
+
+        $items.forEach(function ($item) {
+            var selected = selectedItem === $item.data('pl-data-item');
+            $item.toggleClass('pl-combobox-selected', selected);
+        });
+
+        this.ensureVisibleSelectedItem();
+
+    },
+
+    ensureVisibleSelectedItem: function () {
+        var model = this.model;
+        if (!Array.isArray(this.$items)) {
+            return;
+        }
+
+        var $container = this.ui.items;
+        var $items = this.$items;
+        var selectedItem = model.getSelectedItem();
+
+        $items.some(function ($item) {
+            var selected = selectedItem === $item.data('pl-data-item');
+            if (selected) {
+                ensureItem($container, $item);
+            }
+            return selected;
+        });
+
+        function ensureItem($container, $item) {
+            var newScrollTop;
+
+            var scrollTop = $container.scrollTop();
+            var itemTop = $item.position().top;
+            var itemHeight = $item.outerHeight();
+            var viewHeight = $container.innerHeight();
+            if (itemTop + itemHeight > viewHeight) {
+                newScrollTop = scrollTop + itemTop + itemHeight - viewHeight;
+            } else if (itemTop < 0) {
+                newScrollTop = scrollTop + itemTop;
+            }
+
+            if (typeof newScrollTop !== 'undefined') {
+                $container.scrollTop(newScrollTop);
+            }
+        }
+    },
+
+
 
     markCheckedItems: function () {
         var model = this.model;
@@ -6881,8 +9273,46 @@ var ComboBoxDropdownView = Backbone.View.extend({
         this.trigger('search', text);
     },
 
+    onKeyDownHandler: function (event) {
+        var model = this.model;
+        event.preventDefault();
+        this.onFilterKeyDownHandler(event);
+    },
+
+    onFilterKeyDownHandler: function (event) {
+        var model = this.model;
+        switch (event.which) {
+            case 36://Home;
+                model.selectFirstItem();
+                break;
+            case 35: //End
+                model.selectLastItem();
+                break;
+            case 38: //Up
+                model.selectPrevItem();
+                break;
+            case 40: //Down
+                model.selectNextItem();
+                break;
+            case 13:
+                this.onClickItemHandler(model.getSelectedItem());
+                break;
+            case 9:
+                this.close();
+                break;
+            case 27://Escape
+                this.close();
+                event.stopPropagation();
+                break;
+        }
+    },
+
     onChangeSearchHandler: function (model, value) {
         this.ui.search.text(value);
+    },
+
+    onChangeSelectedItem: function (model, value) {
+        this.markSelectedItems();
     }
 
 });
@@ -7351,7 +9781,7 @@ var DataGridRowModel = ControlModel.extend({
 //####app/new/controls/dataGrid/dataGridRow/dataGridRowView.js
 var DataGridRowView = ControlView.extend({
 
-    className: 'pl-datagrid-row',
+    className: 'pl-datagrid-row pl-datagrid-row_data',
 
     classNameSelected: 'info',
 
@@ -7361,13 +9791,14 @@ var DataGridRowView = ControlView.extend({
 
     template: {
         singleSelect: InfinniUI.Template["new/controls/dataGrid/dataGridRow/template/singleSelect.tpl.html"],
-        multiSelect: InfinniUI.Template["new/controls/dataGrid/dataGridRow/template/multiSelect.tpl.html"]
+        multiSelect: InfinniUI.Template["new/controls/dataGrid/dataGridRow/template/multiSelect.tpl.html"],
+        dataCell: InfinniUI.Template["new/controls/dataGrid/dataGridRow/template/dataCell.tpl.html"]
     },
 
     UI: {
-        toggleCell: '.pl-toggle-cell',
-        toggle: '.toggle',
-        toggleControl: '.toggle input'
+        toggleCell: '.pl-datagrid-row__cell_toggle',
+        toggle: '.pl-datagrid-toggle',
+        toggleControl: '.pl-datagrid-toggle input'
     },
 
     initialize: function () {
@@ -7390,10 +9821,14 @@ var DataGridRowView = ControlView.extend({
         this.updateShowSelectors();
     },
 
+    updateVerticalAlignment: function () {
+        //Use Vertical alignment for DataGrid
+    },
+
     render: function () {
         this.prerenderingActions();
         var $el = this.$el;
-
+        var row = this;
 
         var templateName = this.model.get('multiSelect') ? 'multiSelect' : 'singleSelect';
         var template = this.template[templateName];
@@ -7401,9 +9836,10 @@ var DataGridRowView = ControlView.extend({
         this.bindUIElements();
 
         var templates = this.model.get('cellTemplates');
+        var templateDataCell = this.template.dataCell;
         if (Array.isArray(templates)) {
-            templates.forEach(function (template) {
-                var $cell = $('<td></td>');
+            templates.forEach(function (template, index) {
+                var $cell = $(templateDataCell());
                 $cell.append(template().render());
                 $el.append($cell);
             });
@@ -7445,14 +9881,22 @@ var DataGridRowView = ControlView.extend({
  */
 var DataGridView = ListEditorBaseView.extend({
 
-    template: InfinniUI.Template["new/controls/dataGrid/template/dataGrid.tpl.html"],
+    template: {
+        "grid": InfinniUI.Template["new/controls/dataGrid/template/dataGrid.tpl.html"],
+        "gridStretched": InfinniUI.Template["new/controls/dataGrid/template/dataGridStretched.tpl.html"],
+        "headerCell": InfinniUI.Template["new/controls/dataGrid/template/headerCell.tpl.html"],
+        "sizeCell": InfinniUI.Template["new/controls/dataGrid/template/sizeCell.tpl.html"]
+    },
 
     className: 'pl-datagrid',
 
-    events: {},
-
     UI: _.defaults({
-        header: 'tr',
+        body: ".pl-datagrid__body",
+        head: ".pl-datagrid__head",
+        headContainer: ".pl-datagrid-container_head",
+
+        header: '.pl-datagrid-row_header',
+        firstRows: '.pl-datagrid-row_first',
         toggleCell: ".pl-toggle-cell",
         items: 'tbody'
     }, ListEditorBaseView.prototype.UI),
@@ -7474,6 +9918,18 @@ var DataGridView = ListEditorBaseView.extend({
 
     updateGrouping: function () {
 
+    },
+
+    updateVerticalAlignment: function () {
+        ListEditorBaseView.prototype.updateVerticalAlignment.call(this);
+        this.switchClass('verticalAlignment', this.model.get('verticalAlignment'), this.ui.body, false);
+    },
+
+    updateMultiSelect: function () {
+        ListEditorBaseView.prototype.updateMultiSelect.call(this);
+
+        var multiSelect = this.model.get('multiSelect');
+        this.$el.toggleClass('pl-datagrid_multiselect', multiSelect === true);
     },
 
     updateValue: function () {
@@ -7518,7 +9974,9 @@ var DataGridView = ListEditorBaseView.extend({
     render: function () {
         this.prerenderingActions();
 
-        this.$el.html(this.template());
+        var verticalAlignment = this.model.get('verticalAlignment');
+        var template = (verticalAlignment === 'Stretch') ? this.template.gridStretched : this.template.grid;
+        this.$el.html(template());
 
         this.bindUIElements();
 
@@ -7528,17 +9986,63 @@ var DataGridView = ListEditorBaseView.extend({
 
         this.trigger('render');
 
+        this.applyColumnWidth();
+        this.syncBodyAndHead();
         this.postrenderingActions();
         return this;
+    },
 
+    applyColumnWidth: function () {
+        var columns = this.model.get('columns');
 
+        this.ui.firstRows.children().each(function (i, el) {
+            var columnIndex = i % (columns.length + 1);
+
+            if (columnIndex === 0) {
+                //skip columns with checkbox/radiobutton
+                return;
+            }
+
+            var column = columns.getByIndex(columnIndex - 1);
+            var width = column && column.getWidth();
+
+            if (width) {
+                $(el).css('width', width);
+            }
+        });
+
+    },
+
+    syncBodyAndHead: function () {
+        var $body = this.ui.body;
+        var $head = this.ui.head;
+
+        setTimeout(function () {
+            //Need update after element added to DOM
+            var scrollWidth = $body[0].offsetWidth - $body[0].clientWidth;
+            $head.css('padding-right', scrollWidth + "px");
+        }, 0);
+
+        this.ui.body
+            .off('scroll')
+            .on('scroll', this.onScrollBodyHandler.bind(this));
+
+    },
+
+    onScrollBodyHandler: function () {
+        this.ui.headContainer.scrollLeft(this.ui.body.scrollLeft());
     },
 
     renderHeaders: function () {
         var columns = this.model.get('columns');
+        var templateHeaderCell = this.template.headerCell;
+        var sizeCells = [];
+        var templateSizeCells = this.template.sizeCell;
 
         var $headers = columns.toArray().map(function (column) {
-            var $th = $('<th></th>');
+
+            sizeCells.push(templateSizeCells());
+            var $th = $(templateHeaderCell());
 
             var headerTemplate = column.getHeaderTemplate();
             var header = column.getHeader();
@@ -7556,11 +10060,13 @@ var DataGridView = ListEditorBaseView.extend({
         });
 
         this.ui.header.append($headers);
+        this.ui.firstRows.append(sizeCells);
     },
 
     renderItems: function () {
         var
             model = this.model,
+            valueSelector = model.get('valueSelector'),
             itemTemplate = model.get('itemTemplate'),
             items = model.get('items'),
             $items = this.ui.items;
@@ -7573,7 +10079,7 @@ var DataGridView = ListEditorBaseView.extend({
                 model.set('selectedItem', item);
             });
             element.onToggle(function() {
-                model.toggleValue(item);
+                model.toggleValue(valueSelector(undefined, {value:item}));
             });
             this.addChildElement(item, element);
             $items.append(element.render());
@@ -8027,1815 +10533,6 @@ var DataNavigationPageSizes = Backbone.View.extend({
 
 });
 
-//####app/new/controls/datePicker/components/base/datePickerComponent.js
-var DatePickerComponent = Backbone.View.extend({
-
-    modelClass: Backbone.Model,
-
-    initialize: function (options) {
-        var modelClass = this.modelClass;
-
-        this.model = new modelClass({
-            today: new Date(),
-            value: options.value,
-            date: options.date,
-            max: options.max,
-            min: options.min
-        });
-        this.render();
-        return this;
-    },
-
-    show: function () {
-        this.$el.css('display', 'block');
-    },
-
-    hide: function () {
-        this.$el.css('display', 'none');
-    },
-
-    /**
-     * @description Установка текущего положения списка выбора значений
-     * Если устанавливается недействительная дата - используется текущая
-     * @param date
-     */
-    setDate: function (date) {
-        if (typeof date == 'undefined' || date === null){
-            var value = this.model.get('value'),
-                today = this.model.get('today');
-
-            date = value || today;
-        } else {
-            date = new Date(date);
-        }
-        this.model.set('date', date);
-    }
-
-});
-
-
-_.extend(DatePickerComponent.prototype, bindUIElementsMixin);
-//####app/new/controls/datePicker/components/base/datePickerComponentModel.js
-var DatePickerComponentModel = Backbone.Model.extend({
-
-    initialize: function () {
-        this.on('change:date', this.onChangeDateHandler, this);
-    },
-
-    onChangeDateHandler: function (model, value) {
-        if (typeof value !== 'undefined' && value !== null) {
-            model.set({
-                year: moment(value).year(),
-                month: moment(value).month(),
-                day: moment(value).date(),
-                hour: moment(value).hour(),
-                minute: moment(value).minute(),
-                second: moment(value).second(),
-                millisecond: moment(value).millisecond()
-            })
-        } else {
-            model.set({
-                year: null,
-                month: null,
-                day: null,
-                hour: null,
-                minute: null,
-                second: null,
-                millisecond: null
-            });
-        }
-    },
-
-    updateDatePart: function (datePart, model, value) {
-        var
-            d = this.get('date'),
-            date = new Date(d),
-            data = this.toJSON();
-
-        switch (datePart) {
-            case 'hour':
-            case 'minute':
-            case 'second':
-                date.setHours(data.hour, data.minute, data.second);
-                break;
-            case 'year':
-            case 'month':
-            case 'day':
-                date.setFullYear(data.year, data.month, data.day);
-                break;
-        }
-        this.set('date', date);
-    },
-
-    checkRange: function (value) {
-        return true;
-    }
-
-
-});
-
-
-//####app/new/controls/datePicker/components/datePickerDays.js
-var DatePickerDaysModel = DatePickerComponentModel.extend({
-    defaults: function () {
-        var today = moment();
-
-        return {
-            today: today.toDate(),
-            todayMonth: today.month(),
-            todayDay: today.date(),
-            todayYear: today.year()
-        }
-    },
-
-    initialize: function () {
-        DatePickerComponentModel.prototype.initialize.call(this);
-        this.on('change:year', this.updateDatePart.bind(this, 'year'));
-        this.on('change:month', this.updateDatePart.bind(this, 'month'));
-        this.on('change:day', this.updateDatePart.bind(this, 'day'));
-    },
-
-    today: function () {
-        this.set({
-            year: this.get('todayYear'),
-            month: this.get('todayMonth')
-        });
-    },
-
-    nextMonth: function () {
-        var
-            month = this.get('month'),
-            year = this.get('year');
-
-        this.set({
-            month: month === 11 ? 0 : month + 1,
-            year: month === 11 ? year + 1 : year
-        });
-    },
-
-    prevMonth: function () {
-        var
-            month = this.get('month'),
-            year = this.get('year');
-
-        this.set({
-            month: month === 0 ? 11 : month - 1,
-            year: month === 0 ? year - 1 : year
-        });
-    },
-
-    checkRange: function (value) {
-        var min = this.get('min'),
-            max = this.get('max'),
-            success = true;
-
-        var mMin = moment(min),
-            mMax = moment(max),
-            mVal = moment(value);
-
-        if (!isEmpty(min) && !isEmpty(max)) {
-            success = mVal.isBetween(min, max, 'day') || mVal.isSame(mMin, 'day') || mVal.isSame(mMax, 'day');
-        } else if (!isEmpty(min) && isEmpty(max)) {
-            success = mMin.isBefore(value, 'day') || mMin.isSame(value, 'day');
-        } else if (isEmpty(min) && !isEmpty(max)) {
-            success = mMax.isAfter(value, 'day') || mMax.isSame(value, 'day');
-        }
-
-        return success;
-
-        function isEmpty(value) {
-            return typeof value === 'undefined' || _.isEmpty(value);
-        }
-
-    }
-
-});
-
-var DatePickerDays = DatePickerComponent.extend({
-
-    modelClass: DatePickerDaysModel,
-
-    template: InfinniUI.Template["new/controls/datePicker/template/date/days.tpl.html"],
-
-    UI: {
-        headerDays: '.weekdays-head .day',
-        calendarDays: '.day-calendar',
-        year: '.years-year',
-        month: '.years-month'
-    },
-
-    events: {
-        'click .years': 'onYearsClickHandler',
-        'click .btn-month-prev': 'prevMonth',
-        'click .btn-month-next': 'nextMonth',
-        'click .today-date': 'showToday',
-        'click .day-calendar:not(".day-unavailable")': 'useDay',
-        'click .time': 'showTime'
-    },
-
-    render: function () {
-        var template = this.template();
-        this.$el.html(template);
-        this.bindUIElements();
-        this.fillLegend();
-        this.fillCalendar();
-        this.initOnChangeHandlers();
-    },
-
-    initOnChangeHandlers: function () {
-        this.listenTo(this.model, 'change:month', this.onChangeMonthHandler);
-        this.listenTo(this.model, 'change:year', this.onChangeYearHandler);
-    },
-
-    onChangeMonthHandler: function (model, value) {
-        var dateTimeFormatInfo = localized.dateTimeFormatInfo;
-        this.ui.month.text(dateTimeFormatInfo.monthNames[value]);
-        this.fillCalendar();
-    },
-
-    onChangeYearHandler: function (model, value) {
-        this.ui.year.text(value);
-        this.fillCalendar();
-    },
-
-    fillLegend: function () {
-        var date = new Date();
-
-        var dateTimeFormatInfo = localized.dateTimeFormatInfo;
-        var firstDayOfWeek = dateTimeFormatInfo.firstDayOfWeek;
-        var days = dateTimeFormatInfo.abbreviatedDayNames.map(function (day, i) {
-            return i;
-        });
-
-        if (firstDayOfWeek > 0) {
-            days = days.splice(firstDayOfWeek).concat(days);
-        }
-
-        this.ui.headerDays.each(function (i, el) {
-            var $el = $(el);
-            var index = days[i];
-            $el.text(dateTimeFormatInfo.abbreviatedDayNames[index]);
-            markWeekend($el, index);
-        });
-
-        this.ui.calendarDays.each(function (i, el) {
-            var $el = $(el);
-            var index = days[i % 7];
-            markWeekend($el, index);
-        });
-
-        function markWeekend($el, weekday) {
-            $el.toggleClass('day-weekend', weekday === 0 || weekday === 6);
-        }
-    },
-
-    fillCalendar: function () {
-        var model = this.model;
-        var valueDate = model.get('value');
-        var month = model.get('month');
-        var year = model.get('year');
-        var day = model.get('day');
-        var min = model.get('min');
-        var max = model.get('max');
-        var firstDayOfMonth = new Date(year, month, 1);
-        var weekday = firstDayOfMonth.getDay();
-        var dateTimeFormatInfo = localized.dateTimeFormatInfo;
-        var firstDayOfWeek = dateTimeFormatInfo.firstDayOfWeek;
-
-        var startDate = new Date(year, month, 1 - weekday + firstDayOfWeek);
-
-        this.ui.calendarDays.each(function (i, el) {
-            var $el = $(el);
-            var d = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + i);
-            $el.text(d.getDate());
-            $el.attr('data-date', moment(d).format('YYYY-MM-DD'));
-            markActiveMonth($el, d.getMonth() === month);
-            markToday($el, d);
-            markSelected($el, d);
-            markAvailable($el, d);
-        });
-
-        function markActiveMonth($el, active) {
-            $el.toggleClass('day-inactive', !active);
-        }
-
-        function markToday($el, date) {
-            var today = date.getMonth() === model.get('todayMonth')
-                && date.getFullYear() === model.get('todayYear')
-                && date.getDate() === model.get('todayDay');
-
-            $el.toggleClass('day-today', today);
-        }
-
-        function markSelected($el, value) {
-            var selected = false;
-
-            if (valueDate) {
-                selected = moment(valueDate).isSame(value, 'day');
-            }
-
-            $el.toggleClass('day-selected', selected);
-        }
-
-        function markAvailable($el, value) {
-            $el.toggleClass('day-unavailable', !model.checkRange(value));
-        }
-
-    },
-
-    onYearsClickHandler: function (event) {
-        var date = this.model.get('date');
-
-        this.trigger('year', date);
-    },
-
-    prevMonth: function () {
-        this.model.prevMonth();
-    },
-
-    nextMonth: function () {
-        this.model.nextMonth();
-    },
-
-    showToday: function () {
-        this.today();
-    },
-
-    today: function () {
-        this.model.today();
-    },
-
-    showTime: function () {
-        this.trigger('time', this.model.get('value'));
-    },
-
-    useDay: function (event) {
-        var $el = $(event.target),
-            value = $el.attr('data-date'),
-            m = moment(value, 'YYYY-MM-DD');
-
-        this.model.set({
-            year: m.year(),
-            month: m.month(),
-            day: m.date()
-        });
-
-
-        this.trigger('date', this.model.get('date'));
-    }
-
-});
-
-//####app/new/controls/datePicker/components/datePickerHours.js
-var DatePickerHoursModel = DatePickerComponentModel.extend({
-
-    initialize: function () {
-        DatePickerComponentModel.prototype.initialize.call(this);
-        this.on('change:hour', this.updateDatePart.bind(this, 'hour'));
-    },
-
-    checkRange: function (value) {
-        var min = this.get('min'),
-            max = this.get('max'),
-            success = true;
-
-        var mMin = moment(min),
-            mMax = moment(max),
-            mVal = moment(value);
-
-        [mMin, mMax].forEach(function (val) {
-            val.set({
-                year: mVal.year(),
-                month: mVal.month(),
-                date: mVal.date()
-            });
-        });
-
-
-        if (!isEmpty(min) && !isEmpty(max)) {
-            success = mVal.isBetween(mMin, mMax, 'minute') || mVal.isSame(mMin, 'minute') || mVal.isSame(mMax, 'minute');
-        } else if (!isEmpty(min) && isEmpty(max)) {
-            success = mMin.isBefore(value, 'minute') || mMin.isSame(value, 'minute');
-        } else if (isEmpty(min) && !isEmpty(max)) {
-            success = mMax.isAfter(value, 'minute') || mMax.isSame(value, 'minute');
-        }
-
-        return success;
-
-        function isEmpty(value) {
-            return typeof value === 'undefined' || _.isEmpty(value);
-        }
-    }
-
-});
-
-var DatePickerHours = DatePickerComponent.extend({
-
-    modelClass: DatePickerHoursModel,
-
-    template: InfinniUI.Template["new/controls/datePicker/template/time/hours.tpl.html"],
-
-    events: {
-        "click .hour:not('.hour-unavailable')": "useHour"
-    },
-
-    UI: {
-        hour: '.hour'
-    },
-
-    render: function () {
-        var template = this.template();
-        this.$el.html(template);
-        this.bindUIElements();
-        this.fillHoursTable();
-        this.initOnChangeHandlers();
-    },
-
-    fillHoursTable: function () {
-        //@TODO Заполнять в зависимости от формата 12/24
-        var
-            model = this.model,
-            valueDate = model.get('value');
-        var now = new Date();
-
-        this.ui.hour.each(function (i, el) {
-            var $el = $(el);
-            var hour = stringUtils.padLeft(i, 2, '0');
-
-            $el.attr('data-hour', i);
-            $el.text(hour);
-            markNow($el, i);
-            markSelected($el, i);
-            markAvailable($el, i);
-        });
-
-        function markSelected($el, value) {
-            $el.toggleClass('hour-selected', now.getHours() === value);
-        }
-
-        function markNow($el, value) {
-            var selected = moment(now).isSame(value, 'hour');
-            $el.toggleClass('hour-today', selected);
-        }
-
-        function markAvailable($el, value) {
-            var date = moment(model.get('date')).hour(value);
-            $el.toggleClass('hour-unavailable', !model.checkRange(date));
-        }
-    },
-
-    initOnChangeHandlers: function () {
-        this.listenTo(this.model, 'change:date', this.fillHoursTable);
-    },
-
-    useHour: function (event) {
-        var
-            $el = $(event.target),
-            model = this.model,
-            date = model.get('date'),
-            hour = parseInt($el.attr('data-hour'), 10);
-
-        date.setHours(hour);
-        this.trigger('hour', date);
-    }
-
-});
-
-//####app/new/controls/datePicker/components/datePickerMinutes.js
-var DatePickerMinutesModel = DatePickerComponentModel.extend({
-
-    initialize: function () {
-        DatePickerComponentModel.prototype.initialize.call(this);
-        this.on('change:minute', this.updateDatePart.bind(this, 'minute'));
-    },
-
-    checkRange: function (value) {
-        var min = this.get('min'),
-            max = this.get('max'),
-            success = true;
-
-        var mMin = moment(min),
-            mMax = moment(max),
-            mVal = moment(value);
-
-        [mMin, mMax].forEach(function (val) {
-            val.set({
-                year: mVal.year(),
-                month: mVal.month(),
-                date: mVal.date()
-            });
-        });
-
-
-        if (!isEmpty(min) && !isEmpty(max)) {
-            success = mVal.isBetween(min, max, 'minute') || mVal.isSame(mMin, 'minute') || mVal.isSame(mMax, 'minute');
-        } else if (!isEmpty(min) && isEmpty(max)) {
-            success = mMin.isBefore(value, 'minute') || mMin.isSame(value, 'minute');
-        } else if (isEmpty(min) && !isEmpty(max)) {
-            success = mMax.isAfter(value, 'minute') || mMax.isSame(value, 'minute');
-        }
-
-        return success;
-
-        function isEmpty(value) {
-            return typeof value === 'undefined' || _.isEmpty(value);
-        }
-    }
-
-});
-
-var DatePickerMinutes = DatePickerComponent.extend({
-
-    modelClass: DatePickerMinutesModel,
-
-    template: InfinniUI.Template["new/controls/datePicker/template/time/minutes.tpl.html"],
-
-    events: {
-        "click .minute:not('.minute-unavailable')": "useMinute"
-    },
-
-    UI: {
-        minute: '.minute'
-    },
-
-    render: function () {
-        var template = this.template();
-        this.$el.html(template);
-        this.bindUIElements();
-        this.fillMinutesTable();
-        this.initOnChangeHandlers();
-    },
-
-    fillMinutesTable: function () {
-        var
-            model = this.model,
-            minute = model.get('minute');
-
-        this.ui.minute.each(function (i, el) {
-            var $el = $(el);
-            var minute = $el.attr('data-minute');
-            markSelected($el, parseInt(minute, 10));
-            markAvailable($el, parseInt(minute, 10))
-        });
-
-        function markSelected($el, value) {
-            $el.toggleClass('minute-selected', value === minute);
-        }
-
-        function markAvailable($el, value) {
-            var date = moment(model.get('date')).minute(value);
-            $el.toggleClass('minute-unavailable', !model.checkRange(date));
-        }
-    },
-
-    initOnChangeHandlers: function () {
-        this.listenTo(this.model, 'change:date', this.fillMinutesTable);
-    },
-
-    useMinute: function (event) {
-        var
-            $el = $(event.target),
-            model = this.model,
-            date = model.get('date'),
-            minute = parseInt($el.attr('data-minute'), 10);
-
-        date.setMinutes(minute);
-        this.trigger('minute', date);
-    }
-
-});
-
-//####app/new/controls/datePicker/components/datePickerMonths.js
-var DatePickerMonthsModel = DatePickerComponentModel.extend({
-
-    defaults: {
-        today: moment().toDate(),
-        todayMonth: moment().month(),
-        todayYear: moment().year()
-    },
-
-    initialize: function () {
-        DatePickerComponentModel.prototype.initialize.call(this);
-        this.on('change:month', this.updateDatePart.bind(this, 'month'));
-        this.on('change:year', this.updateDatePart.bind(this, 'year'));
-    },
-
-
-
-    nextYear: function () {
-        var year = this.get('year');
-        this.set('year', year + 1);
-    },
-
-    prevYear: function () {
-        var year = this.get('year');
-        this.set('year', year - 1);
-    },
-
-    today: function () {
-        this.set({
-            month: this.get('todayMonth'),
-            year: this.get('todayYear')
-        });
-    },
-
-    checkRange: function (value) {
-        var min = this.get('min'),
-            max = this.get('max'),
-            success = true;
-
-        var mMin = moment(min),
-            mMax = moment(max),
-            mVal = moment(value);
-
-        if (!isEmpty(min) && !isEmpty(max)) {
-            success = mVal.isBetween(min, max, 'month') || mVal.isSame(mMin, 'month') || mVal.isSame(mMax, 'month');
-        } else if (!isEmpty(min) && isEmpty(max)) {
-            success = mMin.isBefore(value, 'month') || mMin.isSame(value, 'month');
-        } else if (isEmpty(min) && !isEmpty(max)) {
-            success = mMax.isAfter(value, 'month') || mMax.isSame(value, 'month');
-        }
-
-        return success;
-
-        function isEmpty(value) {
-            return typeof value === 'undefined' || _.isEmpty(value);
-        }
-
-    }
-
-
-
-});
-
-var DatePickerMonths = DatePickerComponent.extend({
-
-    modelClass: DatePickerMonthsModel,
-
-    template: InfinniUI.Template["new/controls/datePicker/template/date/months.tpl.html"],
-
-    events: {
-        "click .btn-year-prev": "prevYear",
-        "click .btn-year-next": "nextYear",
-        "click .month:not('.month-unavailable')": "useMonth",
-        "click .year": "selectYear",
-        "click .today-month": "showToday"
-    },
-
-    UI: {
-        month: '.month',
-        year: '.year'
-    },
-
-    render: function () {
-        var template = this.template();
-        this.$el.html(template);
-        this.bindUIElements();
-        this.fillMonthsTable();
-        this.initOnChangeHandlers();
-    },
-
-    fillMonthsTable: function () {
-        this.ui.year.text(this.model.get('year'));
-
-        var
-            model = this.model,
-            dateTimeFormatInfo = localized.dateTimeFormatInfo,
-            todayMonth = model.get('todayMonth'),
-            month = model.get('month');
-
-        this.ui.month.each(function (i, el) {
-            var $el = $(el);
-            $el.text(dateTimeFormatInfo.abbreviatedMonthNames[i]);
-            $el.attr('data-month', i);
-            markTodayMonth($el, i);
-            markSelected($el, i);
-            markAvailable($el, i);
-        });
-
-        function markTodayMonth($el, value) {
-            var date = moment([model.get('year'), value]);
-            var today = model.get('today');
-
-            $el.toggleClass('month-today', moment(date).isSame(today, 'month'));
-        }
-
-        function markSelected($el, value) {
-            var date = moment([model.get('year'), value]);
-            var selected = model.get('value');
-
-            $el.toggleClass('month-selected', moment(date).isSame(selected, 'month'));
-        }
-
-        function markAvailable($el, value) {
-            var date = moment([model.get('year'), value]);
-            $el.toggleClass('month-unavailable', !model.checkRange(date));
-        }
-    },
-
-    initOnChangeHandlers: function () {
-        this.listenTo(this.model, 'change:year', this.fillMonthsTable);
-    },
-
-    prevYear: function () {
-        this.model.prevYear();
-    },
-
-    nextYear: function () {
-        this.model.nextYear();
-    },
-
-    useMonth: function (event) {
-        var
-            $el = $(event.target),
-            model = this.model;
-
-        model.set({
-            year: parseInt(model.get('year'), 10),
-            month: parseInt($el.attr('data-month'), 10)
-        });
-        this.trigger('month', model.get('date'));
-    },
-
-    selectYear: function () {
-        var
-            model = this.model;
-
-        this.trigger('year', model.get('data'));
-    },
-
-    showToday: function () {
-        this.today();
-    },
-
-    today: function () {
-        this.model.today();
-    }
-
-
-
-});
-
-//####app/new/controls/datePicker/components/datePickerTime.js
-var DatePickerTimeModel = DatePickerComponentModel.extend({
-
-    defaults: {
-        today: moment().toDate(),
-        hour: moment().hour(),
-        minute: moment().minute(),
-        second: moment().second(),
-        millisecond: moment().millisecond()
-    },
-
-    initialize: function () {
-        DatePickerComponentModel.prototype.initialize.call(this);
-        this.on('change:hour', this.updateDatePart.bind(this, 'hour'));
-        this.on('change:minute', this.updateDatePart.bind(this, 'minute'));
-        this.on('change:second', this.updateDatePart.bind(this, 'second'));
-        this.on('change:millisecond', this.updateDatePart.bind(this, 'millisecond'));
-    },
-
-    nextHour: function () {
-        var hour = this.get('hour');
-        hour += 1;
-
-        var value = moment().set({
-            hour: hour,
-            minute: this.get('minute'),
-            second: this.get('second'),
-            millisecond: this.get('millisecond')
-        });
-
-
-        //@TODO Границу использовать в зависимости от 12/24 формата записи даты из настроек локализации
-        if (hour < 24) {
-            this.set('hour', hour, {validate: true});
-        }
-
-    },
-
-    prevHour: function () {
-        var hour = this.get('hour');
-        hour -= 1;
-
-        if (hour >= 0) {
-            this.set('hour', hour, {validate: true});
-        }
-    },
-
-    nextMinute: function () {
-        var minute = this.get('minute');
-        minute += 1;
-
-        if (minute < 60) {
-            this.set('minute', minute, {validate: true});
-        }
-
-    },
-
-    prevMinute: function () {
-        var minute = this.get('minute');
-        minute -= 1;
-
-        if (minute >= 0) {
-            this.set('minute', minute, {validate: true});
-        }
-    },
-
-    validate: function (attr, options) {
-        var value = moment().set({
-            hour: attr.hour,
-            minute: attr.minute,
-            second: attr.second,
-            millisecond: attr.millisecond
-        });
-
-        if (!this.checkRange(value)) {
-            return 'Out of range';
-        }
-    },
-
-    checkRange: function (value) {
-        var min = this.get('min'),
-            max = this.get('max'),
-            success = true;
-
-        var mMin = moment(min),
-            mMax = moment(max),
-            mVal = moment(value);
-
-        [mMin, mMax].forEach(function (val) {
-            val.set({
-                year: mVal.year(),
-                month: mVal.month(),
-                date: mVal.date()
-            });
-        });
-
-
-        if (!isEmpty(min) && !isEmpty(max)) {
-            success = mVal.isBetween(min, max, 'minute') || mVal.isSame(mMin, 'minute') || mVal.isSame(mMax, 'minute');
-        } else if (!isEmpty(min) && isEmpty(max)) {
-            success = mMin.isBefore(value, 'minute') || mMin.isSame(value, 'minute');
-        } else if (isEmpty(min) && !isEmpty(max)) {
-            success = mMax.isAfter(value, 'minute') || mMax.isSame(value, 'minute');
-        }
-
-        return success;
-
-        function isEmpty(value) {
-            return typeof value === 'undefined' || _.isEmpty(value);
-        }
-
-    }
-
-
-});
-
-var DatePickerTime = DatePickerComponent.extend({
-
-    modelClass: DatePickerTimeModel,
-
-    template: InfinniUI.Template["new/controls/datePicker/template/time/time.tpl.html"],
-
-    events: {
-        "click .time-spin-down.time-spin-hour": "prevHour",
-        "click .time-spin-up.time-spin-hour": "nextHour",
-        "click .time-spin-down.time-spin-minute": "prevMinute",
-        "click .time-spin-up.time-spin-minute": "nextMinute",
-        "click .time-segment-hour": "selectHour",
-        "click .time-segment-minute": "selectMinute",
-        "click .days": "selectDay"
-    },
-
-    UI: {
-        month: '.month',
-        year: '.year',
-        hour: '.time-segment-hour',
-        minute: '.time-segment-minute'
-    },
-
-    render: function () {
-        var template = this.template();
-        this.$el.html(template);
-        this.bindUIElements();
-        this.updateHour();
-        this.updateMinute();
-        this.initOnChangeHandlers();
-    },
-
-    selectHour: function () {
-        var
-            model = this.model,
-            date = model.get('date'),
-            hour = model.get('hour'),
-            minute = model.get('minute'),
-            second = model.get('second');
-
-        date.setHours(hour, minute, second);
-        this.trigger('hour', date);
-    },
-
-    selectMinute: function () {
-        var
-            model = this.model,
-            date = model.get('date'),
-            hour = model.get('hour'),
-            minute = model.get('minute'),
-            second = model.get('second');
-
-        date.setHours(hour, minute, second);
-        this.trigger('minute', date);
-    },
-
-    initOnChangeHandlers: function () {
-        this.listenTo(this.model, 'change:hour', this.updateHour);
-        this.listenTo(this.model, 'change:minute', this.updateMinute);
-        this.listenTo(this.model, 'change:date', this.useTime);
-    },
-
-    updateHour: function () {
-        var hour = this.model.get('hour');
-        this.ui.hour.text(stringUtils.padLeft(hour, 2, '0'));
-    },
-
-    updateMinute: function () {
-        var minute = this.model.get('minute');
-        this.ui.minute.text(stringUtils.padLeft(minute, 2, '0'));
-    },
-
-    prevHour: function () {
-        this.model.prevHour();
-    },
-
-    nextHour: function () {
-        this.model.nextHour();
-    },
-
-    prevMinute: function () {
-        this.model.prevMinute();
-    },
-
-    nextMinute: function () {
-        this.model.nextMinute();
-    },
-
-    useTime: function () {
-        var
-            date = this.model.get('date');
-
-        this.trigger('date', date);
-    },
-
-    selectDay: function () {
-        var
-            date = this.model.get('date');
-
-        this.trigger('day', date);
-
-    }
-
-});
-
-//####app/new/controls/datePicker/components/datePickerYears.js
-var DatePickerYearsModel = DatePickerComponentModel.extend({
-
-    defaults: {
-        pageSize: 20,
-        page: 0,
-        todayYear: moment().year()
-    },
-
-    initialize: function () {
-        DatePickerComponentModel.prototype.initialize.call(this);
-        this.on('change:year', this.updateDatePart.bind(this, 'year'));
-        this.on('change:year', this.onChangeYearHandler);
-    },
-
-    prevPage: function () {
-        var page = this.get('page');
-        this.set('page', page - 1);
-    },
-
-    nextPage: function () {
-        var page = this.get('page');
-        this.set('page', page + 1);
-    },
-
-    resetPage: function () {
-        this.set('page', 0);
-    },
-
-    onChangeYearHandler: function (model, value) {
-        model.set('page', 0);
-    },
-
-    checkRange: function (value) {
-        var min = this.get('min'),
-            max = this.get('max'),
-            success = true;
-
-        var mMin = moment(min),
-            mMax = moment(max),
-            mVal = moment(value);
-
-        if (!isEmpty(min) && !isEmpty(max)) {
-            success = mVal.isBetween(min, max, 'year') || mVal.isSame(mMin, 'year') || mVal.isSame(mMax, 'year');
-        } else if (!isEmpty(min) && isEmpty(max)) {
-            success = mMin.isBefore(value, 'year') || mMin.isSame(value, 'year');
-        } else if (isEmpty(min) && !isEmpty(max)) {
-            success = mMax.isAfter(value, 'year') || mMax.isSame(value, 'year');
-        }
-
-        return success;
-
-        function isEmpty(value) {
-            return typeof value === 'undefined' || _.isEmpty(value);
-        }
-
-    }
-});
-
-var DatePickerYears = DatePickerComponent.extend({
-
-    modelClass: DatePickerYearsModel,
-
-    template: InfinniUI.Template["new/controls/datePicker/template/date/years.tpl.html"],
-
-    events: {
-        'click .btn-year-prev': "prevPage",
-        'click .btn-year-next': "nextPage",
-        'click .today-year': "showTodayYear",
-        'click .year:not(".year-unavailable")': "useYear"
-    },
-
-    UI: {
-        years: '.year',
-        yearBegin: '.year-begin',
-        yearEnd: '.year-end'
-    },
-
-    initOnChangeHandlers: function () {
-        this.listenTo(this.model, 'change:page', this.fillYearsTable);
-        this.listenTo(this.model, 'change:year', this.fillYearsTable);
-    },
-
-    render: function () {
-        var template = this.template();
-        this.$el.html(template);
-        this.bindUIElements();
-        //this.fillCalendar();
-        this.fillYearsTable();
-        this.initOnChangeHandlers();
-    },
-
-    fillYearsTable: function () {
-        var
-            model = this.model,
-            page = model.get('page'),
-            pageSize = model.get('pageSize'),
-            year = model.get('year'),
-            todayYear = model.get('todayYear'),
-            //startYear = Math.ceil((year || todayYear) - pageSize / 2) + page * pageSize;
-            startYear = Math.ceil(year - pageSize / 2) + page * pageSize;
-
-        this.ui.years.each(function (i, el) {
-            var $el = $(el);
-            var year = startYear + i;
-            $el.text(year);
-            $el.attr('data-year', year);
-            markTodayYear($el, year);
-            markSelected($el, year);
-            markAvailable($el, year);
-        });
-
-        this.ui.yearBegin.text(startYear);
-        this.ui.yearEnd.text(startYear + pageSize - 1);
-
-        function markTodayYear($el, value) {
-            $el.toggleClass('year-today', value === todayYear);
-        }
-
-        function markSelected($el, value) {
-            $el.toggleClass('year-selected', value === year);
-        }
-        function markAvailable($el, value) {
-            var date = moment([value]);
-            $el.toggleClass('year-unavailable', !model.checkRange(date));
-        }
-
-    },
-
-    prevPage: function () {
-        this.model.prevPage();
-    },
-
-    nextPage: function () {
-        this.model.nextPage();
-    },
-
-    showTodayYear: function () {
-        this.today();
-    },
-
-    today: function () {
-        this.model.resetPage();
-    },
-
-    useYear: function (event) {
-        var $el = $(event.target),
-            model = this.model;
-
-        model.set({
-            year: parseInt($el.attr('data-year'), 10)
-        });
-
-        this.trigger('year', model.get('date'));
-    }
-
-});
-
-//####app/new/controls/datePicker/datePickerControl.js
-/**
- *
- * @param parent
- * @constructor
- * @augments TextEditorBaseControl
- */
-function DatePickerControl(parent) {
-    _.superClass(DatePickerControl, this, parent);
-}
-
-_.inherit(DatePickerControl, TextEditorBaseControl);
-
-_.extend(DatePickerControl.prototype, {
-
-    createControlModel: function () {
-        return new DatePickerModel();
-    },
-
-    createControlView: function (model) {
-        return new DatePickerView({model: model});
-    }
-});
-
-
-//####app/new/controls/datePicker/datePickerDropdown.js
-var DatePickerDropdown = Backbone.View.extend({
-
-    className: 'pl-datepicker-dropdown pl-dropdown-container',
-
-    template: InfinniUI.Template["new/controls/datePicker/template/datePicker.dropdown.tpl.html"],
-
-    UI: {
-        days: '.days',
-        months: '.months',
-        years: '.years'
-    },
-
-    events: {
-        'click .backdrop': 'onClickBackdropHandler',
-        'click .datepicker-clear': 'onClickClearValueHandler',
-        'click .today-date': 'onClickTodayHandler'
-    },
-
-    render: function () {
-        var template = this.template();
-        this.$el.html(template);
-        this.bindUIElements();
-        this.renderComponents();
-    },
-
-    renderComponents: function () {
-        var model = this.model;
-        var value = model.get('value');
-        var m = moment(value);
-
-        if (m.isValid()) {
-            value = m.toDate();
-        } else {
-            value = null;
-        }
-
-        var options = {
-            value: value,
-            //date: value,
-            max: model.get('maxValue'),
-            min: model.get('minValue')
-        };
-
-        options.el = this.ui.months;
-        var months = new DatePickerMonths(options);
-
-        options.el = this.ui.years;
-        var years = new DatePickerYears(options);
-
-        options.el = this.ui.days;
-        var days = new DatePickerDays(options);
-
-        this.months = months;
-        this.years = years;
-        this.days = days;
-
-        this.workflow(days, months, years, value)(value);
-    },
-
-    onClickBackdropHandler: function (event) {
-        this.remove();
-    },
-
-    onClickClearValueHandler: function () {
-        this.clearValue();
-    },
-
-    clearValue: function () {
-        this.useValue(null);
-    },
-
-    useValue: function (date) {
-        this.trigger('date', date);
-        this.remove();
-    },
-
-    workflow: function (days, months, years) {
-
-        this
-            .listenTo(days, 'date', this.useValue)
-            .listenTo(days, 'year', function (date) {
-                showYears(date);//Needed select year from list
-            })
-            .listenTo(years, 'year', function (date) {
-                showMonths(date);//Needed select month for year
-            })
-            .listenTo(months, 'year', function (date) {
-                showYears(date);//Needed select year from list
-            })
-            .listenTo(months, 'month', function (date) {
-                showDays(date);//Needed select day from calendar
-            });
-
-        return showDays;
-
-        function showDays(date) {
-            days.setDate(date);
-
-            years.hide();
-            months.hide();
-            days.show();
-        }
-
-        function showMonths(date) {
-            months.setDate(date);
-
-            days.hide();
-            years.hide();
-            months.show();
-        }
-
-        function showYears(date) {
-            years.setDate(date);
-
-            days.hide();
-            months.hide();
-            years.show();
-        }
-
-    },
-
-    onClickTodayHandler: function () {
-        var days = this.days,
-            months = this.months,
-            years = this.years,
-            today = moment().toDate();
-
-        //days.setDate(today);
-        //months.setDate(today);
-        //years.setDate(today);
-
-        days.today();
-        months.today();
-        years.today();
-    }
-
-});
-
-_.extend(DatePickerDropdown.prototype, bindUIElementsMixin);
-//####app/new/controls/datePicker/datePickerModel.js
-/**
- * @class
- * @augments TextEditorBaseModel
- */
-var DatePickerModel = TextEditorBaseModel.extend(/** @lends DatePickerModel.prototype */{
-    defaults: _.extend(
-        {},
-        TextEditorBaseModel.prototype.defaults,
-        {
-            mode: "Date"
-        }
-    ),
-
-    initialize: function () {
-        TextEditorBaseModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
-    },
-
-    validate: function (attributes, options) {
-        var
-            min = attributes.minValue,
-            max = attributes.maxValue;
-
-        //@TODO Check as DateTime
-        if (isSet(min) && isSet(max)) {
-            if (attributes.value < min || attributes.value > max) {
-                return 'Invalid value';
-            }
-        } else if (isSet(min) && attributes.value < min) {
-            return 'Invalid value';
-        } else if (isSet(max) && attributes.value > max) {
-            return 'invalid value';
-        }
-
-        function isSet(value) {
-            return value !== null && typeof value !== 'undefined';
-        }
-    }
-
-
-});
-//####app/new/controls/datePicker/datePickerStrategy.js
-var datePickerStrategy = {
-    Date: {
-        getTemplate: function () {
-            return InfinniUI.Template["new/controls/datePicker/template/datePicker.tpl.html"];
-        },
-
-        onClickDropdownHandler: function (event) {
-            var calendar = new DatePickerDropdown({
-                model: this.model
-            });
-
-            calendar.render();
-            $('body').append(calendar.$el);
-
-            calendar.$el.css({
-                top: event.clientY,
-                left: event.clientX
-            });
-
-            this.listenTo(calendar, 'date', function (date) {
-                this.model.set('value', this.convertValue(date));
-            });
-        },
-
-        convertValue: function (value) {
-            return InfinniUI.DateUtils.toISO8601(value, {resetTime: true});
-        }
-    },
-
-    DateTime: {
-        getTemplate: function () {
-            return InfinniUI.Template["new/controls/datePicker/template/dateTimePicker.tpl.html"];
-        },
-
-        onClickDropdownHandler: function (event) {
-            var calendar = new DateTimePickerDropdown({
-                model: this.model
-            });
-            calendar.render();
-            $('body').append(calendar.$el);
-
-            calendar.$el.css({
-                top: event.clientY,
-                left: event.clientX
-            });
-
-            this.listenTo(calendar, 'date', function (date) {
-                this.model.set('value', InfinniUI.DateUtils.toISO8601(date));
-            });
-        },
-
-        convertValue: function (value) {
-            return InfinniUI.DateUtils.toISO8601(value);
-        }
-
-    },
-
-    Time: {
-        getTemplate: function () {
-            return InfinniUI.Template["new/controls/datePicker/template/timePicker.tpl.html"];
-        },
-
-        onClickDropdownHandler: function (event) {
-            var calendar = new TimePickerDropdown({
-                model: this.model
-            });
-            calendar.render();
-            $('body').append(calendar.$el);
-
-            calendar.$el.css({
-                top: event.clientY,
-                left: event.clientX
-            });
-
-            this.listenTo(calendar, 'date', function (date) {
-                this.model.set('value', InfinniUI.DateUtils.toISO8601(date));
-            });
-        },
-
-        convertValue: function (value) {
-            return InfinniUI.DateUtils.toISO8601(value);
-        }
-
-    }
-
-};
-
-//####app/new/controls/datePicker/datePickerView.js
-/**
- * @class
- * @augments TextEditorBaseView
- */
-var DatePickerView = TextEditorBaseView.extend(/** @lends DatePickerView.prototype */{
-
-    className: "pl-datepicker form-group",
-
-    template: InfinniUI.Template["new/controls/datePicker/template/datePicker.tpl.html"],
-
-    UI: _.extend({}, TextEditorBaseView.prototype.UI, {
-        dropdownButton: '.pl-datepicker-calendar',
-        controlWrap: '.control-wrap',
-        editorWrap: '.editor-wrap'
-    }),
-
-    events: _.extend({}, TextEditorBaseView.prototype.events, {
-        'focus .pl-datepicker-input': 'onFocusControlHandler',
-        'mouseenter .pl-datepicker-input': 'onMouseenterControlHandler',
-        'click .pl-datepicker-calendar': 'onClickDropdownHandler'
-    }),
-
-    initialize: function () {
-        TextEditorBaseView.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
-        this.updateMode();
-        this.listenTo(this.model, 'change:mode', this.updateMode);
-    },
-
-    initHandlersForProperties: function(){
-        TextEditorBaseView.prototype.initHandlersForProperties.call(this);
-
-        this.listenTo(this.model, 'change:minValue', this.updateMinValue);
-        this.listenTo(this.model, 'change:maxValue', this.updateMaxValue);
-    },
-
-    updateProperties: function(){
-        TextEditorBaseView.prototype.updateProperties.call(this);
-    },
-
-    updateMode: function(){
-        var mode = this.model.get('mode');
-        _.extend(this, datePickerStrategy[mode]);
-
-        this.rerender();
-    },
-
-    updateMinValue: function(){
-        var mode = this.model.get('mode');
-        _.extend(this, datePickerStrategy[mode]);
-
-        this.rerender();
-    },
-
-    updateMaxValue: function(){
-        var mode = this.model.get('mode');
-        _.extend(this, datePickerStrategy[mode]);
-
-        this.rerender();
-    },
-
-    updateEnabled: function(){
-        TextEditorBaseView.prototype.updateEnabled.call(this);
-
-        var isEnabled = this.model.get('enabled');
-        this.ui.dropdownButton.prop('disabled', !isEnabled);
-    },
-
-    render: function () {
-        this.prerenderingActions();
-
-        this.renderTemplate(this.getTemplate());
-        this.updateProperties();
-        this.renderDatePickerEditor();
-
-        this.trigger('render');
-
-        this.postrenderingActions();
-        return this;
-    },
-
-    getData: function () {
-        var
-            model = this.model;
-
-        return _.extend({},
-            TextEditorBaseView.prototype.getData.call(this), {
-                minValue: model.get('minValue'),
-                maxValue: model.get('maxValue'),
-                mode: model.get('mode')
-            });
-    },
-
-    renderDatePickerEditor: function () {
-        var model = this.model;
-        this.renderControlEditor({
-            el: this.ui.editor,
-            multiline: false,
-            convert: this.convertValue
-        });
-
-        return this;
-    },
-
-    /**
-     * Используется миксином textEditorMixin
-     * @param value
-     * @returns {boolean}
-     */
-    onEditorValidate: function (value) {
-        return true;
-    },
-
-
-    getTemplate: function () {
-        throw new Error('Не перекрыт getTemplate');
-    },
-
-    onClickDropdownHandler: function (event) {}
-
-});
-
-//####app/new/controls/datePicker/dateTimePickerDropdown.js
-var DateTimePickerDropdown = DatePickerDropdown.extend({
-
-    className: 'pl-datepicker-dropdown pl-dropdown-container',
-
-    template: InfinniUI.Template["new/controls/datePicker/template/dateTimePicker.dropdown.tpl.html"],
-
-    UI: {
-        days: '.days',
-        months: '.months',
-        years: '.years',
-        times: '.times',
-        hours: '.hours',
-        minutes: '.minutes'
-    },
-
-    onClickToggleDateHandler: function () {
-        this.trigger('days');
-    },
-
-    onClickToggleTimeHandler: function () {
-        this.trigger('time');
-    },
-
-
-    renderComponents: function () {
-        var model = this.model;
-        var value = model.get('value');
-        var m = moment(value);
-
-        if (m.isValid()) {
-            value = m.toDate();
-        } else {
-            value = null;
-        }
-
-        var options = {
-            value: value,
-            //date: value,
-            max: model.get('maxValue'),
-            min: model.get('minValue')
-        };
-
-        options.el = this.ui.months;
-        var months = new DatePickerMonths(options);
-
-        options.el = this.ui.years;
-        var years = new DatePickerYears(options);
-
-        options.el = this.ui.days;
-        var days = new DatePickerDays(options);
-
-        options.el = this.ui.times;
-        var time = new DatePickerTime(options);
-        //time.setDate(undefined);
-
-        options.el = this.ui.hours;
-        var hours = new DatePickerHours(options);
-
-        options.el = this.ui.minutes;
-        var minutes = new DatePickerMinutes(options);
-
-
-        this.workflow(days, months, years, time, hours, minutes)(value);
-    },
-
-    useTime: function (date) {
-        this.trigger('date', date);
-    },
-
-    workflow: function (days, months, years, time, hours, minutes) {
-        var useTime = this.useTime.bind(this);
-        var components = Array.prototype.slice.call(arguments);
-
-        this
-            .listenTo(days, 'date', this.useValue)
-            .listenTo(days, 'year', function (date) {
-                showYears(date);//Needed select year from list
-            })
-            .listenTo(days, 'time', function (date) {
-                showTime(date);
-            })
-            .listenTo(years, 'year', function (date) {
-                showMonths(date);//Needed select month for year
-            })
-            .listenTo(months, 'year', function (date) {
-                showYears(date);//Needed select year from list
-            })
-            .listenTo(months, 'month', function (date) {
-                showDays(date);//Needed select day from calendar
-            });
-
-        this.listenTo(time, 'hour', function (date) {
-                showHours(date);
-            })
-            .listenTo(time, 'minute', function (date) {
-                showMinutes(date);
-            })
-            .listenTo(time, 'day', function (date) {
-                showDays(date);
-            })
-            .listenTo(time, 'date', function (date) {
-                useTime(date);
-            })
-            .listenTo(hours, 'hour', function (date) {
-                useTime(date);
-                showTime(date);
-            })
-            .listenTo(minutes, 'minute', function (date) {
-                useTime(date);
-                showTime(date);
-            });
-
-        //Переключатель режима Date/Time
-        this
-            .on('days', function (date) {
-                showDays(date);
-            })
-            .on('time', function (date) {
-                showTime(date);
-            });
-
-        return showDays;
-
-        function switchComponent(component) {
-            components.forEach(function (c) {
-                if (c !== component) {
-                    c.hide();
-                }
-            });
-            component.show();
-        }
-
-        function showDays(date) {
-            days.setDate(date);
-            switchComponent(days);
-        }
-
-        function showMonths(date) {
-            months.setDate(date);
-            switchComponent(months);
-        }
-
-        function showYears(date) {
-            years.setDate(date);
-            switchComponent(years);
-        }
-
-        function showHours(date) {
-            hours.setDate(date);
-            switchComponent(hours);
-        }
-
-        function showMinutes(date) {
-            minutes.setDate(date);
-            switchComponent(minutes);
-        }
-
-        function showTime(date) {
-            time.setDate(date);
-            switchComponent(time);
-        }
-
-    }
-
-});
-//####app/new/controls/datePicker/timePickerDropdown.js
-var TimePickerDropdown = DatePickerDropdown.extend({
-
-    className: 'pl-timepicker-dropdown pl-dropdown-container',
-
-    template: InfinniUI.Template["new/controls/datePicker/template/timePicker.dropdown.tpl.html"],
-
-    UI: {
-        times: '.times',
-        hours: '.hours',
-        minutes: '.minutes'
-    },
-
-    renderComponents: function () {
-        var model = this.model;
-        var value = model.get('value');
-        var m = moment(value);
-
-        if (m.isValid()) {
-            value = m.toDate();
-        } else {
-            value = null;
-        }
-
-        var options = {
-            value: value,
-            //date: value,
-            max: model.get('maxValue'),
-            min: model.get('minValue')
-        };
-
-        options.el = this.ui.times;
-        var time = new DatePickerTime(options);
-
-        options.el = this.ui.hours;
-        var hours = new DatePickerHours(options);
-
-        options.el = this.ui.minutes;
-        var minutes = new DatePickerMinutes(options);
-
-
-        this.workflow(time, hours, minutes)(value);
-    },
-
-    useTime: function (date) {
-        this.trigger('date', date);
-    },
-
-    workflow: function (time, hours, minutes) {
-        var useTime = this.useTime.bind(this);
-        var components = Array.prototype.slice.call(arguments);
-
-        this.listenTo(time, 'hour', function (date) {
-            showHours(date);
-        })
-            .listenTo(time, 'minute', function (date) {
-                showMinutes(date);
-            })
-            .listenTo(time, 'date', function (date) {
-                useTime(date);
-            })
-            .listenTo(hours, 'hour', function (date) {
-                useTime(date);
-                showTime(date);
-            })
-            .listenTo(minutes, 'minute', function (date) {
-                useTime(date);
-                showTime(date);
-            });
-
-        return showTime;
-
-        function switchComponent(component) {
-            components.forEach(function (c) {
-                if (c !== component) {
-                    c.hide();
-                }
-            });
-            component.show();
-        }
-
-        function showHours(date) {
-            hours.setDate(date);
-            switchComponent(hours);
-        }
-
-        function showMinutes(date) {
-            minutes.setDate(date);
-            switchComponent(minutes);
-        }
-
-        function showTime(date) {
-            time.setDate(date);
-            switchComponent(time);
-        }
-
-    }
-
-});
 //####app/new/controls/fileBox/fileBoxControl.js
 /**
  *
@@ -9884,6 +10581,11 @@ var FileBoxModel = ControlModel.extend( _.extend({
 
         this.set('acceptTypes', new Collection());
         this.on('change:file', this.onChangeFileHandler);
+        this.on('change:value', function (model, value) {
+            if (value instanceof File) {
+                model.set('fileName', value.name);
+            }
+        });
 
         this.on("invalid", function(model, error) {
             this.set('errorText', error);
@@ -9901,9 +10603,23 @@ var FileBoxModel = ControlModel.extend( _.extend({
                 }
             }
 
-            if (acceptTypes.length && !acceptTypes.contains(file.type)) {
-                return 'Загрузка данного типа файла не разрешена';
+            if (acceptTypes.length) {
+                var acceptType = acceptTypes.contains(file.type);
+                var fileName = file.name.toLowerCase();
+                if (!acceptType) {
+                    var len = fileName.length;
+                    var acceptType = acceptTypes.some(function(name) {
+                        return fileName.lastIndexOf(name.toLowerCase()) === len - name.length;
+                    });
+                }
+
+                if (!acceptType) {
+                    return 'Загрузка данного типа файла не разрешена';
+                }
+
             }
+
+
         }
     },
 
@@ -9925,7 +10641,8 @@ var FileBoxModel = ControlModel.extend( _.extend({
             model.set('fileName', null);
             model.set('fileSize', null);
         }
-        model.set('value', null);
+        model.set('value', file);
+        //model.set('value', null);
     }
 
     //stopLoadingFile: function () {
@@ -9959,30 +10676,34 @@ var FileBoxModel = ControlModel.extend( _.extend({
  */
 var FileBoxView = ControlView.extend(/** @lends FileBoxView.prototype */ _.extend({}, editorBaseViewMixin, {
 
-    template: InfinniUI.Template["new/controls/fileBox/template/fileBox.tpl.html"],
+    template: InfinniUI.Template["new/controls/fileBox/template/template.tpl.html"],
 
     className: 'pl-file-box',
 
     UI: _.extend({}, editorBaseViewMixin.UI, {
-        input: 'input',
-        link: '.pl-filebox-link',
-        download: '.pl-filebox-download',
-        fileSize: '.pl-filebox-size',
-        file: '.pl-filebox-file',
-        remove: '.pl-filebox-remove',
-        empty: '.pl-filebox-empty',
-        info: '.pl-filebox-info',
-        gripButton: '.pl-filebox-grip'
+        label: '.pl-control-label',
+        btnRemove: '.pl-filebox-btn-remove',
+        btnPick: '.pl-filebox-btn-pick',
+        fileEmpty: '.pl-filebox-file-empty',
+        fileUpload: '.pl-filebox-file-upload',
+        fileDownload: '.pl-filebox-file-download',
+        fileDownloadUrl: '.pl-filebox-file-download-url',
+        edit: '.pl-filebox-edit',
+        readonly: '.pl-filebox-readonly',
+
+
+        input: 'input'
     }),
 
     events: {
         'change input': 'onChangeFileHandler',
-        'click .pl-filebox-remove': 'onClickRemoveImageHandler'
+        'click .pl-filebox-btn-remove': 'onClickRemoveImageHandler'
     },
 
     initHandlersForProperties: function(){
         ControlView.prototype.initHandlersForProperties.call(this);
-
+        this.listenTo(this.model, 'change:labelText', this.updateLabelText);
+        this.listenTo(this.model, 'change:readOnly', this.updateReadOnly);
         this.listenTo(this.model, 'change:fileName', this.updateFileName);
         this.listenTo(this.model, 'change:fileSize', this.updateFileSize);
         this.listenTo(this.model, 'change:fileTime', this.updateFileTime);
@@ -9992,15 +10713,21 @@ var FileBoxView = ControlView.extend(/** @lends FileBoxView.prototype */ _.exten
         this.listenTo(this.model, 'change:hintText', this.updateHintText);
         this.listenTo(this.model, 'change:errorText', this.updateErrorText);
         this.listenTo(this.model, 'change:warningText', this.updateWarningText);
+
+        var acceptTypes = this.model.get('acceptTypes');
+        acceptTypes.onChange(this.updateAcceptTypes.bind(this));
     },
 
     updateProperties: function(){
         ControlView.prototype.updateProperties.call(this);
 
+        this.updateReadOnly();
+        this.updateLabelText();
         this.updateFileName();
         this.updateFileSize();
         this.updateFileType();
         this.updateFileTime();
+        this.updateAcceptTypes();
         this.updateValue();
 
         this.updateHintText();
@@ -10008,9 +10735,31 @@ var FileBoxView = ControlView.extend(/** @lends FileBoxView.prototype */ _.exten
         this.updateWarningText();
     },
 
+    updateLabelText: function () {
+        var labelText = this.model.get('labelText');
+        this.ui.label.text(labelText);
+    },
+
+    updateReadOnly: function () {
+        var model = this.model;
+        var readOnly = model.get('readOnly');
+        this.ui.edit.toggleClass('hidden', readOnly === true);
+        this.ui.readonly.toggleClass('hidden', readOnly !== true);
+    },
+
+    updateAcceptTypes: function () {
+        var acceptTypes = this.model.get('acceptTypes');
+        if (acceptTypes.length === 0) {
+            this.ui.input.removeAttr('accept');
+        } else {
+            var accept = acceptTypes.toArray().join(',');
+            this.ui.input.attr('accept', accept);
+        }
+    },
+
     updateText: function () {
         var text = this.model.get('text');
-        this.ui.gripButton.text(text);
+        this.ui.btnPick.attr('title', text);
     },
 
     updateHintText: function(){
@@ -10059,26 +10808,17 @@ var FileBoxView = ControlView.extend(/** @lends FileBoxView.prototype */ _.exten
         ControlView.prototype.updateEnabled.call(this);
 
         var isEnabled = this.model.get('enabled');
-        var fileName = this.model.get('fileName');
-        this.updateRemoveButtonState();
-        this.ui.file.toggleClass('hidden', !isEnabled);
+
+        this.ui.input.prop('disabled', !isEnabled);
+        this.ui.btnRemove.prop('disabled', !isEnabled);
+        this.ui.btnPick.toggleClass('disabled', !isEnabled);
+
     },
 
     updateFileName: function () {
-        //var fileName = this.model.get('fileName');
-        //var enabled = this.model.get('enabled');
-        //var value = this.model.get('value');
-        //
-        //if (value && (!fileName || fileName.length === 0)) {
-        //    fileName = 'Скачать файл';
-        //}
-        //this.ui.download.text(fileName);
-        //
-        ////this.ui.empty.toggleClass('hidden', !!fileName);
-        //this.ui.empty.toggleClass('hidden', !value);
-        //this.ui.info.toggleClass('hidden', !fileName);
-        this.updateFileInfo();
-        this.updateRemoveButtonState();
+        var fileName = this.model.get('fileName');
+        this.ui.fileUpload.text(fileName);
+        this.ui.fileDownloadUrl.text(fileName);
     },
 
     updateFileSize: function () {
@@ -10092,6 +10832,7 @@ var FileBoxView = ControlView.extend(/** @lends FileBoxView.prototype */ _.exten
     },
 
     updateFileInfo: function() {
+        return;
         var model = this.model;
         var
             value = model.get('value'),
@@ -10110,13 +10851,6 @@ var FileBoxView = ControlView.extend(/** @lends FileBoxView.prototype */ _.exten
         }
     },
 
-    updateRemoveButtonState: function () {
-        var enabled = this.model.get('enabled');
-        var fileName = this.model.get('fileName');
-        this.ui.remove.toggleClass('hidden', !enabled ||!fileName);
-        this.ui.remove.prop('disabled', !enabled || !fileName);
-    },
-
     updateFileTime: function () {
         var time = this.model.get('fileTime');
 
@@ -10133,15 +10867,34 @@ var FileBoxView = ControlView.extend(/** @lends FileBoxView.prototype */ _.exten
         var model = this.model;
         var value = model.get('value');
 
-        if (value && typeof value === 'object') {
+        var fileEmpty = false,
+            fileUpload = false,
+            fileDownload = false;
+
+        if (value === null || typeof value === 'undefined') {
+            //No file
+            fileEmpty = value === null || typeof value === 'undefined';
+            this.updateUrl(null);
+        } else if (value && typeof value === 'object') {
+            //File instance
+            fileUpload = value && typeof value === 'object';
             this.updateUrl(null);
         } else {
+            //Url
+            fileDownload = true;
             this.updateUrl(value);
         }
+
+        this.ui.fileEmpty.toggleClass('hidden', !fileEmpty);
+        this.ui.fileUpload.toggleClass('hidden', !fileUpload);
+        this.ui.fileDownload.toggleClass('hidden', !fileDownload);
+
+        this.ui.btnRemove.toggleClass('hidden', fileEmpty);
+        this.ui.btnPick.toggleClass('hidden', !fileEmpty);
     },
 
     updateUrl: function (url) {
-        this.ui.download.attr('href', url);
+        this.ui.fileDownloadUrl.attr('href', url);
         var none = url === null || typeof url === 'undefined';
         this.$el.toggleClass('pl-empty', none);
         this.updateFileInfo();
@@ -10275,6 +11028,119 @@ var FrameView = ControlView.extend(_.extend({}, editorBaseViewMixin, /** @lends 
     }
 
 }));
+
+//####app/new/controls/GridPanel/gridPanelControl.js
+/**
+ *
+ * @param parent
+ * @constructor
+ * @augments ContainerControl
+ */
+function GridPanelControl(parent) {
+    _.superClass(GridPanelControl, this, parent);
+}
+
+_.inherit(GridPanelControl, ContainerControl);
+
+_.extend(GridPanelControl.prototype,
+    /** @lends GridPanelControl.prototype */
+    {
+        createControlModel: function () {
+            return new GridPanelModel();
+        },
+
+        createControlView: function (model) {
+            return new GridPanelView({model: model});
+        }
+    }
+);
+
+
+//####app/new/controls/GridPanel/gridPanelModel.js
+/**
+ * @constructor
+ * @augments ContainerModel
+ */
+var GridPanelModel = ContainerModel.extend(
+    /** @lends GridPanelModel.prototype */
+    {
+        initialize: function () {
+            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+        }
+    }
+);
+//####app/new/controls/GridPanel/gridPanelView.js
+/**
+ * @class
+ * @augments ControlView
+ */
+var GridPanelView = ContainerView.extend(
+    /** @lends GridPanelView.prototype */
+    {
+        className: 'pl-grid-panel pl-clearfix',
+
+        columnCount: 12,
+
+        template: {
+            row: InfinniUI.Template["new/controls/GridPanel/template/row.tpl.html"]
+        },
+
+        initialize: function (options) {
+            ContainerView.prototype.initialize.call(this, options);
+        },
+
+        render: function () {
+            this.prerenderingActions();
+
+            this.removeChildElements();
+
+            this.renderItemsContents();
+            this.updateProperties();
+            this.trigger('render');
+
+            this.postrenderingActions();
+            return this;
+        },
+
+        renderItemsContents: function(){
+            var items = this.model.get('items'),
+                itemTemplate = this.model.get('itemTemplate'),
+                view = this,
+                row = [],
+                rowSize = 0,
+                element, item;
+
+            items.forEach(function(item, i){
+                element = itemTemplate(undefined, {item: item, index: i});
+                var span = element.getColumnSpan();
+                if (rowSize + span > view.columnCount) {
+                    view.renderRow(row);
+                    row.length = 0;
+                    rowSize = 0;
+                }
+
+                row.push(element);
+                rowSize += span;
+            });
+
+            if (row.length) {
+                view.renderRow(row);
+            }
+        },
+
+        renderRow: function (row) {
+            var view = this;
+            var $row = $(this.template.row());
+            $row.append(row.map(function(element) {
+                view.addChildElement(element);
+                return element.render();
+            }));
+            this.$el.append($row);
+        },
+
+        updateGrouping: function(){}
+    }
+);
 
 //####app/new/controls/icon/iconControl.js
 /**
@@ -10636,11 +11502,14 @@ var CommonLabelView = ControlView.extend(_.extend({}, editorBaseViewMixin, /** @
     },
 
     updateValue: function(){
+        var escapeHtml = this.model.get('escapeHtml');
+        var setContent = escapeHtml ? 'text' : 'html';
         var textForLabel = this.getLabelText();
         var $label = this.getLabelElement();
-        $label
-            .text(textForLabel)
-            .attr('title', textForLabel);
+
+        $label[setContent](textForLabel);
+        var title = String(textForLabel);
+        $label.attr('title', title.replace(/<\/?[^>]+>/g, ''));
     },
 
     updateDisplayFormat: function(){
@@ -10677,8 +11546,6 @@ var CommonLabelView = ControlView.extend(_.extend({}, editorBaseViewMixin, /** @
     },
 
     render: function () {
-        var model = this.model;
-
         this.prerenderingActions();
         this.renderTemplate(this.template);
 
@@ -10750,7 +11617,8 @@ var LabelModel = ControlModel.extend(_.extend({
         horizontalTextAlignment: 'Left',
         verticalAlignment: 'Top',
         textWrapping: true,
-        textTrimming: true
+        textTrimming: true,
+        escapeHtml: true
     }, ControlModel.prototype.defaults),
 
     initialize: function(){
@@ -11048,6 +11916,14 @@ var CheckingListBoxView = BaseListBoxView.extend({
         this.initDomHandlers();
     },
 
+    updateEnabled: function () {
+        ListEditorBaseView.prototype.updateEnabled.call(this);
+
+        var enabled = this.model.get('enabled');
+
+        this.ui.checkingInputs.attr('disabled', !enabled);
+    },
+
     initDomHandlers: function(){
         var $listBox = this.$el,
             that = this;
@@ -11056,6 +11932,10 @@ var CheckingListBoxView = BaseListBoxView.extend({
             e = $.event.fix(e);
             var $el = $(e.target),
                 $currentListItem, item;
+
+            if (!that.model.get('enabled')) {
+                return;
+            }
 
             while($el.get(0) != $listBox.get(0)){
                 if($el.hasClass('pl-listbox-i')){
@@ -11286,37 +12166,77 @@ var NumericBoxModel = TextEditorBaseModel.extend(/** @lends TextBoxModel.prototy
     ),
 
     transformValue: function (value) {
+        var result = value;
+
         if (typeof value !== 'undefined' && value !== null) {
-            var value = +value;
-            if (isNaN(value) || !isFinite(value)) {
-                value = null;
+            var result = +value;
+            if (isNaN(result) || !isFinite(result)) {
+                result = null;
             }
         }
-        return value;
+        return result;
+    },
+
+    incValue: function () {
+        var delta = this.get('increment');
+        this.addToValue(delta);
+    },
+
+    decValue: function () {
+        var delta = this.get('increment');
+        this.addToValue(-delta);
+    },
+
+    addToValue: function (delta) {
+
+        var value = this.get('value');
+        var startValue = this.get('startValue');
+        var minValue = this.get('minValue');
+        var maxValue = this.get('maxValue');
+
+        var newValue = _.isNumber(value) ? value : +value;
+
+        if (this.isSetValue(value) && _.isNumber(value)) {
+            newValue += delta;
+        } else {
+            newValue = (_.isNumber(startValue)) ? startValue : 0;
+        }
+
+        if (_.isNumber(minValue) && newValue < minValue) {
+            newValue = minValue;
+        } else if (_.isNumber(maxValue) && newValue > maxValue) {
+            newValue = maxValue;
+        }
+
+        this.set('value', newValue);
     },
 
     initialize: function () {
         TextEditorBaseModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
     },
 
-    validate: function (attributes, options) {
+    validateValue: function (value, callback) {
+
         var
-            min = attributes.minValue,
-            max = attributes.maxValue;
+            isValid = true,
+            min = this.get('minValue'),
+            max = this.get('maxValue');
 
-        if (isSet(min) && isSet(max)) {
-            if (attributes.value < min || attributes.value > max) {
-                return 'Invalid value';
+        if (!this.isSetValue(value)) {
+            return true;
+        }
+
+        if (_.isNumber(min) && _.isNumber(max)) {
+            if (value < min || value > max) {
+                isValid = false
             }
-        } else if (isSet(min) && attributes.value < min) {
-                return 'Invalid value';
-        } else if (isSet(max) && attributes.value > max) {
-            return 'invalid value';
+        } else if (_.isNumber(min) && value < min) {
+            isValid = false;
+        } else if (_.isNumber(max) && value > max) {
+            isValid = false;
         }
 
-        function isSet(value) {
-            return value !== null && typeof value !== 'undefined';
-        }
+        return isValid;
     }
 
 
@@ -11388,39 +12308,27 @@ var NumericBoxView = TextEditorBaseView.extend(/** @lends TextBoxView.prototype 
     },
 
     onClickMinControlHandler: function () {
-        var increment = this.model.get('increment');
-        this.addToValue(increment * -1);
+        this.model.decValue();
     },
 
     onClickMaxControlHandler: function () {
-        var increment = this.model.get('increment');
-        this.addToValue(increment);
+        this.model.incValue();
     },
 
     onMousedownMinControlHandler: function (event) {
-        var el = event.target,
-            increment = this.model.get('increment');
-
-        this.repeatAddToValue(el, increment * -1);
+        this.repeatUpdateValue(this.model.decValue.bind(this.model));
     },
 
     onMousedownMaxControlHandler: function (event) {
-        var el = event.target,
-            increment = this.model.get('increment');
-
-        this.repeatAddToValue(el, increment);
+        this.repeatUpdateValue(this.model.incValue.bind(this.model));
     },
 
-    repeatAddToValue: function (el, delta) {
-        var
-            numericBox = this,
-            intervalId;
+    repeatUpdateValue: function (cb) {
+        var intervalId;
 
         window.document.addEventListener('mouseup', stopRepeat);
 
-        intervalId = setInterval(function () {
-            numericBox.addToValue(delta);
-        }, 200);
+        intervalId = setInterval(cb, 200);
 
         function stopRepeat() {
             if (intervalId) {
@@ -11429,19 +12337,7 @@ var NumericBoxView = TextEditorBaseView.extend(/** @lends TextBoxView.prototype 
             }
             window.document.removeEventListener('mouseup', stopRepeat);
         }
-    },
 
-    addToValue: function (delta) {
-        var value = this.model.get('value');
-
-        value = (value === null || typeof value === 'undefined') ? 0 : parseInt(value, 10);
-
-        if (!isFinite(value)) {
-            return;
-        }
-
-        value = value + delta;
-        this.model.set('value', value, {validate: true});
     },
 
     /**
@@ -11450,7 +12346,7 @@ var NumericBoxView = TextEditorBaseView.extend(/** @lends TextBoxView.prototype 
      * @returns {boolean}
      */
     onEditorValidate: function (value) {
-        return true;
+        return this.model.validateValue(value);
     }
 
 });
@@ -11716,6 +12612,9 @@ _.extend(PasswordBoxControl.prototype, /** @lends PasswordBoxControl.prototype *
 var PasswordBoxModel = ControlModel.extend(_.extend({
 
     defaults: _.defaults(
+        {
+            autocomplete: true
+        },
         editorBaseModelMixin.defaults_editorBaseModel,
         ControlModel.prototype.defaults
     ),
@@ -11736,7 +12635,10 @@ var PasswordBoxView = ControlView.extend(_.extend({}, editorBaseViewMixin, {
 
     className: 'pl-password-box form-group',
 
-    template: InfinniUI.Template["new/controls/passwordBox/template/passwordBox.tpl.html"],
+    template: {
+        "autocomplete": InfinniUI.Template["new/controls/passwordBox/template/passwordBox.on.tpl.html"],
+        "noautocomplete": InfinniUI.Template["new/controls/passwordBox/template/passwordBox.off.tpl.html"]
+    },
 
     UI: _.extend({}, editorBaseViewMixin.UI, {
         label: '.pl-control-label',
@@ -11758,6 +12660,8 @@ var PasswordBoxView = ControlView.extend(_.extend({}, editorBaseViewMixin, {
         this.listenTo(this.model, 'change:labelText', this.updateLabelText);
         this.listenTo(this.model, 'change:labelFloating', this.updateLabelFloating);
         this.listenTo(this.model, 'change:passwordChar', this.updatePasswordChar);
+        this.listenTo(this.model, 'change:autocomplete', this.updateAutocomplete);
+
     },
 
     updateProperties: function(){
@@ -11770,6 +12674,10 @@ var PasswordBoxView = ControlView.extend(_.extend({}, editorBaseViewMixin, {
     updateLabelText: function () {
         var labelText = this.model.get('labelText');
         this.ui.label.text(labelText);
+    },
+
+    updateAutocomplete: function () {
+        this.rerender();
     },
 
     updatePasswordChar: function () {
@@ -11802,13 +12710,19 @@ var PasswordBoxView = ControlView.extend(_.extend({}, editorBaseViewMixin, {
         var model = this.model;
 
         this.prerenderingActions();
-        this.renderTemplate(this.template);
+        this.renderTemplate(this.getTemplate());
 
         this.updateProperties();
 
         this.trigger('render');
         this.postrenderingActions();
         return this;
+    },
+
+    getTemplate: function () {
+        var model = this.model;
+
+        return model.get('autocomplete') ? this.template.autocomplete : this.template.noautocomplete;
     },
 
     onBlurHandler: function () {
@@ -12236,6 +13150,14 @@ var ScrollPanelView = ContainerView.extend(/** @lends ScrollPanelView.prototype 
 
         this.trigger('render');
         this.updateProperties();
+
+        (function ($el) {
+            //Firefox сохраняет позицию прокрутки. Принудительно крутим в начало.
+            setTimeout(function () {
+                $el.scrollTop(0);
+            }, 0);
+        })(this.$el);
+
         return this;
     },
 
@@ -12373,22 +13295,6 @@ var StackPanelView = ContainerView.extend(
             return this;
         },
 
-        //renderItemsContents: function(){
-        //    var $items = this.$el.find('.pl-stack-panel-i'),
-        //        items = this.model.get('items'),
-        //        itemTemplate = this.model.get('itemTemplate'),
-        //        that = this,
-        //        element, item;
-        //
-        //    $items.each(function(i, el){
-        //        item = items.getByIndex(i);
-        //        element = itemTemplate(undefined, {item: item, index: i});
-        //        that.addChildElement(element);
-        //        $(el)
-        //            .append(element.render());
-        //    });
-        //},
-
         initOrientation: function () {
             this.listenTo(this.model, 'change:orientation', this.updateOrientation);
             this.updateOrientation();
@@ -12397,6 +13303,7 @@ var StackPanelView = ContainerView.extend(
         updateOrientation: function () {
             var orientation = this.model.get('orientation');
             this.$el.toggleClass('horizontal-orientation', orientation == 'Horizontal');
+            this.$el.toggleClass('pl-stack-panel_horizontal', orientation == 'Horizontal');
         },
 
         getItems: function(){
@@ -12420,15 +13327,16 @@ var StackPanelView = ContainerView.extend(
 //####app/new/controls/stackPanel/baseView/viewGroupStrategy.js
 function StackPanelViewGroupStrategy(stackPanel) {
     this.stackPanel = stackPanel;
-};
+}
 
 _.extend(StackPanelViewGroupStrategy.prototype, {
+
+    groupTemplate: InfinniUI.Template["new/controls/stackPanel/baseView/template/stackPanelGroup.tpl.html"],
 
     prepareItemsForRendering: function(){
         var items = this.stackPanel.getItems(),
             inputName = 'listbox-' + guid(),
             result = {
-                isMultiselect: this.stackPanel.isMultiselect(),
                 inputName: inputName,
                 groups: []
             },
@@ -12446,9 +13354,15 @@ _.extend(StackPanelViewGroupStrategy.prototype, {
         });
 
         for(var k in groups){
+            if (!groups.hasOwnProperty(k)) {
+                continue;
+            }
             result.groups.push({
-                items: groups[k]
-            })
+                items: groups[k],
+                indices: groups[k].map(function (item) {
+                    return items.indexOf(item);
+                })
+            });
         }
 
         return result;
@@ -12458,33 +13372,51 @@ _.extend(StackPanelViewGroupStrategy.prototype, {
         return this.stackPanel.template.grouped;
     },
 
-    appendItemsContent: function(preparedItems){
-        var $stackPanel = this.stackPanel.$el,
-            $stackPanelItems = $stackPanel.find('.pl-stack-panel-i'),
-            itemTemplate = this.stackPanel.getItemTemplate(),
-            groupTitleTemplate = this.stackPanel.getGroupItemTemplate(),
-            index = 0,
-            groups = preparedItems.groups,
+    /**
+     *
+     * @param {Object} preparedItems
+     * @param {Array} preparedItems.groups
+     */
+    appendItemsContent: function (preparedItems) {
+        var
             stackPanel = this.stackPanel,
-            itemEl, titleEl;
+            $stackPanel = stackPanel.$el,
+            groupTemplate = this.groupTemplate,
+            groupHeaderTemplate = this.stackPanel.getGroupItemTemplate(),
+            itemTemplate = this.stackPanel.getItemTemplate(),
+            $groups,
+            groups = preparedItems.groups;
 
-        $stackPanel.find('.pl-stack-panel-group-title').each(function(i, el){
-            titleEl = groupTitleTemplate(undefined, {index: index, item: groups[i]});
-            stackPanel.addChildElement(titleEl);
-            $(el).append(titleEl.render());
+        $groups = groups.map(function (group, groupIndex) {
 
-            _.forEach( groups[i].items, function(item){
-                itemEl = itemTemplate(undefined, {index: i, item: item});
-                stackPanel.addChildElement(itemEl);
-                $stackPanelItems.eq(index).append(itemEl.render());
+            var $items,
+                items = group.items || [],
+                indices = group.indices || [],
+                $group = $(groupTemplate({items: items})),
+                groupHeader = groupHeaderTemplate(null, {
+                    index: indices[0],  //Индекс любого элемента в этой группе
+                    item: group
+                });
 
-                $stackPanelItems.eq(index).parent()
-                    .data('pl-data-item', item);
+            stackPanel.addChildElement(groupHeader);
 
-                index++;
+            $items = items.map(function (item, itemIndex) {
+                var element = itemTemplate(null, {index: indices[itemIndex], item: item});
+                stackPanel.addChildElement(element);
+                return element.render();
             });
 
+            $('.pl-stack-panel-group__header', $group).append(groupHeader.render());
+
+            $('.pl-stack-panel-list__item', $group).each(function (i, el) {
+                $(el).append($items[i]);
+            });
+
+            return $group;
+
         });
+
+        $stackPanel.append($groups);
     }
 });
 //####app/new/controls/stackPanel/baseView/viewPlainStrategy.js
@@ -12531,8 +13463,8 @@ _.extend(StackPanelViewPlainStrategy.prototype, {
  * @constructor
  * @augments ContainerControl
  */
-function StackPanelControl(parent) {
-    _.superClass(StackPanelControl, this, parent);
+function StackPanelControl(viewMode) {
+    _.superClass(StackPanelControl, this, viewMode);
 }
 
 _.inherit(StackPanelControl, ContainerControl);
@@ -12544,8 +13476,12 @@ _.extend(StackPanelControl.prototype,
             return new StackPanelModel();
         },
 
-        createControlView: function (model) {
-            return new StackPanelView({model: model});
+        createControlView: function (model, viewMode) {
+            var view = new StackPanelView({model: model});
+
+            view.viewMode = viewMode;
+
+            return view;
         }
     }
 );
@@ -12564,6 +13500,293 @@ var StackPanelModel = ContainerModel.extend(
         }
     }
 );
+//####app/new/controls/TablePanel/cell/cellControl.js
+/**
+ *
+ * @param parent
+ * @constructor
+ * @augments ContainerControl
+ */
+function CellControl(parent) {
+    _.superClass(CellControl, this, parent);
+}
+
+_.inherit(CellControl, ContainerControl);
+
+_.extend(CellControl.prototype,
+    /** @lends CellControl.prototype */
+    {
+        createControlModel: function () {
+            return new CellModel();
+        },
+
+        createControlView: function (model) {
+            return new CellView({model: model});
+        }
+    }
+);
+
+
+//####app/new/controls/TablePanel/cell/cellModel.js
+/**
+ * @constructor
+ * @augments ContainerModel
+ */
+var CellModel = ContainerModel.extend(
+    /** @lends CellModel.prototype */
+    {
+        defaults: _.defaults({
+            columnSpan: 1
+        }, ContainerModel.prototype.defaults),
+
+        initialize: function () {
+            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+        }
+    }
+);
+//####app/new/controls/TablePanel/cell/cellView.js
+/**
+ * @class
+ * @augments ControlView
+ */
+var CellView = ContainerView.extend(
+    /** @lends CellView.prototype */
+    {
+        className: 'pl-cell',
+
+        initialize: function (options) {
+            ContainerView.prototype.initialize.call(this, options);
+
+            this.initColumnSpan();
+        },
+
+        render: function () {
+            this.prerenderingActions();
+
+            this.removeChildElements();
+
+            this.renderItemsContents();
+
+            this.updateProperties();
+            this.trigger('render');
+
+            this.postrenderingActions();
+            return this;
+        },
+
+        renderItemsContents: function(){
+            var items = this.model.get('items'),
+                itemTemplate = this.model.get('itemTemplate'),
+                that = this,
+                element, item;
+
+            items.forEach(function(item, i){
+                element = itemTemplate(undefined, {item: item, index: i});
+                that.addChildElement(element);
+                that.$el
+                    .append(element.render());
+            });
+        },
+
+        initColumnSpan: function () {
+            this.listenTo(this.model, 'change:columnSpan', this.updateColumnSpan);
+            this.updateColumnSpan();
+        },
+
+        updateColumnSpan: function () {
+            var columnSpan = this.model.get('columnSpan'),
+                currentColumnSpan = this.columnSpan;
+
+            if(columnSpan != currentColumnSpan){
+
+                if(currentColumnSpan){
+                    this.$el
+                        .removeClass('col-xs-' + currentColumnSpan);
+                }
+
+                this.$el
+                    .addClass('col-xs-' + columnSpan);
+
+                this.columnSpan = columnSpan;
+            }
+
+        },
+
+        updateGrouping: function(){}
+    }
+);
+
+//####app/new/controls/TablePanel/row/RowControl.js
+/**
+ *
+ * @param parent
+ * @constructor
+ * @augments ContainerControl
+ */
+function RowControl(parent) {
+    _.superClass(RowControl, this, parent);
+}
+
+_.inherit(RowControl, ContainerControl);
+
+_.extend(RowControl.prototype,
+    /** @lends RowControl.prototype */
+    {
+        createControlModel: function () {
+            return new RowModel();
+        },
+
+        createControlView: function (model) {
+            return new RowView({model: model});
+        }
+    }
+);
+
+
+//####app/new/controls/TablePanel/row/rowModel.js
+/**
+ * @constructor
+ * @augments ContainerModel
+ */
+var RowModel = ContainerModel.extend(
+    /** @lends RowModel.prototype */
+    {
+        initialize: function () {
+            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+        }
+    }
+);
+//####app/new/controls/TablePanel/row/rowView.js
+/**
+ * @class
+ * @augments ControlView
+ */
+var RowView = ContainerView.extend(
+    /** @lends RowView.prototype */
+    {
+        className: 'pl-row row',
+
+        initialize: function (options) {
+            ContainerView.prototype.initialize.call(this, options);
+        },
+
+        render: function () {
+            this.prerenderingActions();
+
+            this.removeChildElements();
+
+            this.renderItemsContents();
+
+            this.updateProperties();
+            this.trigger('render');
+
+            this.postrenderingActions();
+            return this;
+        },
+
+        renderItemsContents: function(){
+            var items = this.model.get('items'),
+                itemTemplate = this.model.get('itemTemplate'),
+                that = this,
+                element, item;
+
+            items.forEach(function(item, i){
+                element = itemTemplate(undefined, {item: item, index: i});
+                that.addChildElement(element);
+                that.$el
+                    .append(element.render());
+            });
+        },
+
+        updateGrouping: function(){}
+    }
+);
+
+//####app/new/controls/TablePanel/tablePanelControl.js
+/**
+ *
+ * @param parent
+ * @constructor
+ * @augments ContainerControl
+ */
+function TablePanelControl(parent) {
+    _.superClass(TablePanelControl, this, parent);
+}
+
+_.inherit(TablePanelControl, ContainerControl);
+
+_.extend(TablePanelControl.prototype,
+    /** @lends TablePanelControl.prototype */
+    {
+        createControlModel: function () {
+            return new TablePanelModel();
+        },
+
+        createControlView: function (model) {
+            return new TablePanelView({model: model});
+        }
+    }
+);
+
+
+//####app/new/controls/TablePanel/tablePanelModel.js
+/**
+ * @constructor
+ * @augments ContainerModel
+ */
+var TablePanelModel = ContainerModel.extend(
+    /** @lends TablePanelModel.prototype */
+    {
+        initialize: function () {
+            ContainerModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+        }
+    }
+);
+//####app/new/controls/TablePanel/tablePanelView.js
+/**
+ * @class
+ * @augments ControlView
+ */
+var TablePanelView = ContainerView.extend(
+    /** @lends TablePanelView.prototype */
+    {
+        className: 'pl-table-panel',
+
+        initialize: function (options) {
+            ContainerView.prototype.initialize.call(this, options);
+        },
+
+        render: function () {
+            this.prerenderingActions();
+
+            this.removeChildElements();
+
+            this.renderItemsContents();
+            this.updateProperties();
+            this.trigger('render');
+
+            this.postrenderingActions();
+            return this;
+        },
+
+        renderItemsContents: function(){
+            var items = this.model.get('items'),
+                itemTemplate = this.model.get('itemTemplate'),
+                that = this,
+                element, item;
+
+            items.forEach(function(item, i){
+                element = itemTemplate(undefined, {item: item, index: i});
+                that.addChildElement(element);
+                that.$el
+                    .append(element.render());
+            });
+        },
+
+        updateGrouping: function(){}
+    }
+);
+
 //####app/new/controls/tabPanel/tabHeader/tabHeaderView.js
 var TabHeaderModel = Backbone.Model.extend({
 
@@ -13130,139 +14353,6 @@ var TabPanelView = ContainerView.extend(/** @lends TabPanelView.prototype */ {
     }
 
 });
-//####app/new/controls/textBox/textBoxControl.js
-/**
- *
- * @param parent
- * @constructor
- * @augments TextEditorBaseControl
- */
-function TextBoxControl(parent) {
-    _.superClass(TextBoxControl, this, parent);
-}
-
-_.inherit(TextBoxControl, TextEditorBaseControl);
-
-_.extend(TextBoxControl.prototype, {
-
-    createControlModel: function () {
-        return new TextBoxModel();
-    },
-
-    createControlView: function (model) {
-        return new TextBoxView({model: model});
-    }
-});
-
-
-//####app/new/controls/textBox/textBoxModel.js
-/**
- * @class
- * @augments TextEditorBaseModel
- */
-var TextBoxModel = TextEditorBaseModel.extend(/** @lends TextBoxModel.prototype */{
-    defaults: _.extend(
-        {},
-        TextEditorBaseModel.prototype.defaults,
-        {
-            multiline: false
-        }
-    ),
-
-    initialize: function () {
-        TextEditorBaseModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
-    }
-
-});
-//####app/new/controls/textBox/textBoxView.js
-/**
- * @class
- * @augments TextEditorBaseView
- */
-var TextBoxView = TextEditorBaseView.extend(/** @lends TextBoxView.prototype */{
-
-    template: {
-        oneline: InfinniUI.Template["new/controls/textBox/template/textBoxInput.tpl.html"],
-        multiline: InfinniUI.Template["new/controls/textBox/template/textBoxArea.tpl.html"]
-    },
-
-    className: 'pl-textbox form-group',
-
-    UI: _.extend({}, TextEditorBaseView.prototype.UI),
-
-    events: _.extend({}, TextEditorBaseView.prototype.events, {
-        //Отображение поля редактирования для INPUT[TEXT]
-        'focus .pl-text-box-input': 'onFocusControlHandler',
-        'mouseenter .pl-text-box-input': 'onMouseenterControlHandler',
-
-        //Отображение поля редактирования для TEXTAREA
-        'focus .pl-text-area-input': 'onFocusControlHandler',
-        'mouseenter .pl-text-area-input': 'onMouseenterControlHandler'
-    }),
-
-    initHandlersForProperties: function(){
-        TextEditorBaseView.prototype.initHandlersForProperties.call(this);
-
-        this.listenTo(this.model, 'change:multiline', this.updateMultiline);
-        this.listenTo(this.model, 'change:lineCount', this.updateLineCount);
-    },
-
-    updateProperties: function(){
-        TextEditorBaseView.prototype.updateProperties.call(this);
-
-        this.updateLineCount();
-    },
-
-    updateMultiline: function(){
-        this.rerender();
-    },
-
-    updateLineCount: function(){
-        var lineCount = this.model.get('lineCount');
-        this.ui.control.attr('rows', lineCount);
-        this.ui.editor.attr('rows', lineCount);
-    },
-
-    render: function () {
-        var model = this.model;
-        var template = model.get('multiline') ? this.template.multiline : this.template.oneline;
-
-        this.prerenderingActions();
-        this.renderTemplate(template);
-        this.renderTextBoxEditor();
-        this.updateProperties();
-
-        this.trigger('render');
-        this.postrenderingActions();
-        return this;
-    },
-
-    getData: function () {
-        var data = TextEditorBaseView.prototype.getData.call(this);
-        var model = this.model;
-        return _.extend(
-            data,
-            {
-                multiline: model.get('multiline'),
-                lineCount: model.get('lineCount')
-            }
-        );
-    },
-
-    renderTextBoxEditor: function () {
-        var model = this.model;
-        this.renderControlEditor({
-            el: this.ui.editor,
-            multiline: model.get('multiline'),
-            lineCount: model.get('lineCount'),
-            inputType: model.get('inputType')
-        });
-
-        return this;
-    }
-
-});
-
 //####app/new/controls/toggleButton/toggleButtonControl.js
 function ToggleButtonControl(parent) {
     _.superClass(ToggleButtonControl, this, parent);
@@ -13316,7 +14406,7 @@ var ToggleButtonView = ControlView.extend(/** @lends ToggleButtonView.prototype 
     }),
 
     events: {
-        'click': 'onClickHandler'
+        'click .togglebutton-box': 'onClickHandler'
     },
 
     initHandlersForProperties: function(){
@@ -13482,6 +14572,324 @@ var ToolBarView = ContainerView.extend({
     updateGrouping: function(){}
 });
 
+//####app/new/controls/treeView/node/treeViewNodeBase.js
+var TreeViewNodeBase = Backbone.View.extend({
+
+    className: 'pl-treeview-node',
+
+    classNameCheckerChecked: 'pl-treeview-item__checker_checked',
+    classNameContentSelected: 'pl-treeview-item__content_selected',
+    classNameItemsExpanded: 'pl-treeview-node__items_expanded',
+    classNameItemsCollapsed: 'pl-treeview-node__items_collapsed',
+    classNameButtonCollapse: 'pl-treeview-node__button_collapse',
+    classNameButtonExpand: 'pl-treeview-node__button_expand',
+
+    UI: {
+        checker: '.pl-treeview-item__checker',
+        content: '.pl-treeview-item__content',
+        items: '.pl-treeview-node__items',
+        button: '.pl-treeview-node__button'
+    },
+
+    initialize: function () {
+        var model = new Backbone.Model({collapsed: true});
+        this.model = model;
+        this.listenTo(model, 'change:selected', this.updateSelected);
+        this.listenTo(model, 'change:checked', this.updateChecked);
+        this.listenTo(model, 'change:collapsed', this.updateCollapsed);
+    },
+
+    updateChecked: function () {
+        var checked = this.model.get('checked');
+        this.ui.checker.toggleClass(this.classNameCheckerChecked, checked === true);
+    },
+
+    updateSelected: function () {
+        var selected = this.model.get('selected');
+        this.ui.content.toggleClass(this.classNameContentSelected, selected === true);
+    },
+
+    updateCollapsed: function () {
+        var collapsed = !!this.model.get('collapsed');
+        this.ui.items.toggleClass(this.classNameItemsExpanded, !collapsed);
+        this.ui.items.toggleClass(this.classNameItemsCollapsed, collapsed);
+        this.ui.button.toggleClass(this.classNameButtonCollapse, !collapsed);
+        this.ui.button.toggleClass(this.classNameButtonExpand, collapsed);
+    },
+
+    updateState: function () {
+        this.updateCollapsed();
+        this.updateSelected();
+        this.updateChecked();
+    },
+
+    render: function () {
+        this.$el.html(this.template);
+        this.bindUIElements();
+        this.updateState();
+        this.initDomEventsHandlers();
+        return this;
+    },
+
+    initDomEventsHandlers: function () {
+        this.ui.button.on('click', this.onClickEventHandler.bind(this));
+        this.ui.content[0].addEventListener('click', this.onClickItemHandler.bind(this), true);
+        this.ui.checker[0].addEventListener('click', this.onClickCheckHandler.bind(this), true);
+    },
+
+    onClickItemHandler: function (event) {
+        this.trigger('select');
+    },
+
+    onClickCheckHandler: function (event) {
+        this.trigger('check');
+    },
+
+    toggle: function () {
+        var model = this.model;
+        var collapsed = model.get('collapsed');
+
+        this.model.set('collapsed', !collapsed);
+    },
+
+    setItemContent: function ($itemContent) {
+        this.ui.content.empty();
+        this.ui.content.append($itemContent);
+    },
+
+    setItemsContent: function ($itemsContent) {
+        this.ui.items.empty();
+        this.ui.items.append($itemsContent);
+    },
+
+    onClickEventHandler: function (event) {
+        this.toggle();
+    },
+
+    setSelected: function (selected) {
+        this.model.set('selected', selected);
+    },
+
+    setChecked: function (checked) {
+        this.model.set('checked', checked);
+    }
+});
+
+_.extend(TreeViewNodeBase.prototype, bindUIElementsMixin);
+//####app/new/controls/treeView/node/treeViewNodeCheckbox.js
+var TreeViewNodeCheckbox = TreeViewNodeBase.extend({
+
+    template: InfinniUI.Template["new/controls/treeView/template/node-checkbox.tpl.html"]
+
+});
+//####app/new/controls/treeView/node/treeViewNodeRadio.js
+var TreeViewNodeRadio = TreeViewNodeBase.extend({
+
+    template: InfinniUI.Template["new/controls/treeView/template/node-radio.tpl.html"]
+
+});
+
+//####app/new/controls/treeView/treeViewControl.js
+function TreeViewControl() {
+    _.superClass(TreeViewControl, this);
+}
+
+_.inherit(TreeViewControl, ListEditorBaseControl);
+
+_.extend(TreeViewControl.prototype, {
+
+    createControlModel: function () {
+        return new TreeViewModel();
+    },
+
+    createControlView: function (model) {
+        return new TreeViewView({model: model});
+    }
+});
+
+
+//####app/new/controls/treeView/treeViewModel.js
+var TreeViewModel = ListEditorBaseModel.extend({
+
+    initialize: function () {
+        ListEditorBaseModel.prototype.initialize.apply(this, Array.prototype.slice.call(arguments));
+    },
+
+    toggleItem: function (item, toggle) {
+        var value = this.valueByItem(item);
+        this.toggleValue(value, toggle);
+        this.trigger('toggle');
+    }
+});
+//####app/new/controls/treeView/treeViewView.js
+var TreeViewView = ListEditorBaseView.extend({
+
+    className: 'pl-treeview',
+    classNameMultiSelect: 'pl-treeview_multi-select',
+    classNameSingleSelect: 'pl-treeview_single-select',
+
+    template: InfinniUI.Template["new/controls/treeView/template/treeview.tpl.html"],
+
+    events: {},
+
+    UI: _.defaults({}, ListEditorBaseView.prototype.UI),
+
+    initialize: function (options) {
+        ListEditorBaseView.prototype.initialize.call(this, options);
+    },
+
+    render: function () {
+        this.prerenderingActions();
+
+        this.renderTemplate(this.getTemplate());
+
+        this.renderItems();
+        this.updateProperties();
+
+        this.trigger('render');
+
+        this.postrenderingActions();
+        return this;
+    },
+
+    renderItems: function (parentId) {
+        var
+            view = this,
+            $nodes,
+            model = this.model,
+            collection = model.get('items'),
+            parentSelector = model.get('parentSelector'),
+            keySelector = model.get('keySelector'),
+            nodeConstructor = this.getNodeConstructor(),
+            itemTemplate = model.get('itemTemplate');
+
+        $nodes = renderNodes();
+        this.$el.append($nodes);
+
+        function renderNodes (parentId) {
+            return collection.toArray()
+                .filter(function (item) {
+                    var parent = parentSelector(null, {value: item});
+                    return isEmpty(parentId) ? isEmpty(parent) : parent === parentId;
+                })
+                .map(function (item) {
+                    var node = new nodeConstructor().render();
+                    var $node = node.$el;
+                    var $item = itemTemplate(null, {
+                        value: item,
+                        index: collection.indexOf(item)
+                    }).render();
+
+                    node.listenTo(model, 'change:selectedItem', function (model, selectedItem) {
+                        node.setSelected(selectedItem === item);
+                    });
+
+                    node.listenTo(model, 'change:value', function (model, value) {
+                        var multiSelect = model.get('multiSelect');
+
+                        var checked;
+                        if (!multiSelect) {
+                            checked = isValueForItem(value);
+                        } else if (Array.isArray(value)) {
+                            checked = value.some(isValueForItem)
+                        } else {
+                            checked = false;
+                        }
+                        node.setChecked(checked);
+                    });
+
+                    view.listenTo(node, 'select', view.onSelectNodeHandler.bind(view, item, node));
+                    view.listenTo(node, 'check', view.onCheckNodeHandler.bind(view, item, node));
+
+                    node.setItemContent($item);
+                    var $subitems = renderNodes(keySelector(null, {value: item}));
+                    node.setItemsContent($subitems);
+
+                    return $node;
+
+                    function isValueForItem(value) {
+                        return model.itemByValue(value) === item;
+                    }
+                });
+        }
+
+        function isEmpty(value) {
+            return value === null || typeof value === 'undefined';
+        }
+    },
+
+    getNodeConstructor: function () {
+        var multiSelect = this.model.get('multiSelect');
+
+        return (multiSelect === true) ? TreeViewNodeCheckbox : TreeViewNodeRadio;
+    },
+
+    onSelectNodeHandler: function(item , index) {
+        var model = this.model;
+
+        var multiSelect = model.get('multiSelect');
+
+        model.set('selectedItem', item);
+        if (!multiSelect) {
+            //Клик по элементу одновременно переключает значение и делает элемент выделенным
+            var value = model.valueByItem(item);
+            model.toggleValue(value);
+        }
+    },
+
+    onCheckNodeHandler: function (item, index) {
+        var model = this.model;
+
+        var multiSelect = model.get('multiSelect');
+
+        var value = model.valueByItem(item);
+        model.toggleValue(value);
+
+        if (!multiSelect) {
+            //Клик по элементу одновременно переключает значение и делает элемент выделенным
+            model.set('selectedItem', item);
+        }
+    },
+
+    getTemplate: function () {
+        return this.template;
+    },
+
+    updateProperties: function () {
+        ListEditorBaseView.prototype.updateProperties.call(this);
+        this.updateMultiSelect();
+    },
+
+    updateMultiSelect: function () {
+        var multiSelect = this.model.get('multiSelect');
+        this.$el.toggleClass(this.classNameMultiSelect, !!multiSelect);
+        this.$el.toggleClass(this.classNameSingleSelect, !multiSelect);
+    },
+
+    updateEnabled: function () {
+        ListEditorBaseView.prototype.updateEnabled.call(this);
+
+        var enabled = this.model.get('enabled');
+
+    },
+
+    updateValue: function () {
+
+    },
+
+    updateSelectedItem: function () {
+
+    },
+
+    updateGrouping: function () {
+    },
+
+    rerender: function () {
+
+    }
+
+
+});
 //####app/new/controls/view/viewControl.js
 /**
  *
@@ -13521,7 +14929,7 @@ var ViewModel = ContainerModel.extend({
     defaults: _.defaults({
         dialogResult: DialogResult.none,
         isApplication: false,
-        closeButton: true
+        closeButtonVisibility: true
     }, ContainerModel.prototype.defaults),
 
     initialize: function () {
@@ -13780,8 +15188,6 @@ var Element = function (parent, viewMode) {
     };
 
     this.childElements = [];
-
-    this.eventStore = new EventStore();
 };
 
 Object.defineProperties(Element.prototype, {
@@ -13852,7 +15258,7 @@ _.extend(Element.prototype, {
 
     getView: function () {
         if (!this.parentView) {
-            if (this.parent instanceof View) {
+            if (this.parent && this.parent.isView) {
                 this.parentView = this.parent;
 
             } else {
@@ -14405,6 +15811,8 @@ _.extend(ElementBuilder.prototype, /** @lends ElementBuilder.prototype */ {
             args.parent.addChild(element);
         }
 
+
+
         return element;
     },
 
@@ -14514,7 +15922,7 @@ _.extend(ElementBuilder.prototype, /** @lends ElementBuilder.prototype */ {
             var oldConverter;
 
             if (isBooleanBinding) {
-                dataBinding.setMode(BindingModes.toElement);
+                dataBinding.setMode(InfinniUI.BindingModes.toElement);
 
                 converter = dataBinding.getConverter();
                 if (!converter) {
@@ -14557,18 +15965,26 @@ _.extend(ElementBuilder.prototype, /** @lends ElementBuilder.prototype */ {
                 parent: element,
                 parentView: params.parentView
             };
-            tooltip = builder.build(metadata.ToolTip, argumentForBuilder);
+
+            if (typeof metadata.ToolTip === 'string') {
+                tooltip = builder.buildType("Label", {
+                    "Text": metadata.ToolTip
+                }, argumentForBuilder);
+            } else {
+                tooltip = builder.build(metadata.ToolTip, argumentForBuilder);
+            }
+
             element.setToolTip(tooltip);
             exchange.send(messageTypes.onToolTip.name, { source: element, content: tooltip.render() });
         }
 
-        element.onShowToolTip(function () {
+        element.onShowToolTip && element.onShowToolTip(function () {
             if (tooltip) {
                 exchange.send(messageTypes.onToolTipShow.name, { source: element, content: tooltip.render() });
             }
         });
 
-        element.onHideToolTip(function () {
+        element.onHideToolTip && element.onHideToolTip(function () {
             exchange.send(messageTypes.onToolTipHide.name, { source: element });
         });
 
@@ -14753,6 +16169,7 @@ var displayFormatBuilderMixin = {
      * @returns {Function}
      */
     buildDisplayFormat: function (displayFormat, params) {
+        var formatOptions = params.formatOptions;
         var builder = params.builder;
         var formatter, format = defaultFormat;
         if (typeof displayFormat === 'string') {
@@ -14761,6 +16178,17 @@ var displayFormatBuilderMixin = {
                 args = args || {};
                 return formatter.format(args.value);
             }
+        } else if (displayFormat && typeof displayFormat === 'object') {
+            formatter = builder.build(displayFormat);
+
+            format = function (context, args){
+                args = args || {};
+                return formatter.format(args.value);
+            }
+        }
+
+        if (formatter) {
+            formatter.setOptions(formatOptions);
         }
 
         return format;
@@ -14772,6 +16200,15 @@ var displayFormatBuilderMixin = {
     }
 };
 
+//####app/new/elements/_base/_common/labelTextElementMixin.js
+var labelTextElementMixin = {
+    getLabelText: function () {
+        return this.control.get('labelText');
+    },
+    setLabelText: function (value) {
+        this.control.set('labelText', value);
+    }
+};
 //####app/new/elements/_base/_common/veiwBuilderHeaderTemplateMixin.js
 var viewBuilderHeaderTemplateMixin = {
 
@@ -14925,7 +16362,7 @@ _.extend(ContainerBuilder.prototype, {
             basePathOfProperty: params.basePathOfProperty
         });
 
-        binding.setMode(BindingModes.toElement);
+        binding.setMode(InfinniUI.BindingModes.toElement);
 
         //if ('ItemComparator' in metadata) {
         this.bindElementItemsWithSorting(binding, params);
@@ -15043,7 +16480,7 @@ _.extend(ContainerBuilder.prototype, {
             var label = new Label(this);
             var sourceProperty;
             var source = itemsBinding.getSource();
-            var binding = new DataBinding(this);
+            var binding = new DataBinding();
 
             sourceProperty = index.toString();
             if (itemsBinding.getSourceProperty() != '') {
@@ -15069,7 +16506,7 @@ _.extend(ContainerBuilder.prototype, {
 
             var sourceProperty = itemsBinding.getSourceProperty();
             var source = itemsBinding.getSource();
-            var binding = new DataBinding(this);
+            var binding = new DataBinding();
 
             sourceProperty = index.toString();
             if (itemsBinding.getSourceProperty() != '') {
@@ -15095,7 +16532,8 @@ _.extend(ContainerBuilder.prototype, {
 
             var sourceProperty = itemsBinding.getSourceProperty();
             var source = itemsBinding.getSource();
-            var binding = new DataBinding(this);
+            var binding = new DataBinding();
+            binding.setMode(InfinniUI.BindingModes.toElement);
 
             sourceProperty = index.toString();
             if (itemsBinding.getSourceProperty() != '') {
@@ -15188,7 +16626,7 @@ _.extend(ContainerBuilder.prototype, {
 
         if(metadata.ItemComparator){
             itemComparator = function (item1, item2) {
-                return scriptExecutor.executeScript(metadata.ItemComparator.Name, {item1: item1, item2: item2});
+                return scriptExecutor.executeScript(metadata.ItemComparator.Name || metadata.ItemComparator, {item1: item1, item2: item2});
             };
         }
 
@@ -15462,11 +16900,12 @@ _.extend(ListEditorBase.prototype, {
 
     onSelectedItemChanged: function (handler) {
         this.control.onSelectedItemChanged(this.createControlEventHandler(this, handler));
-    },
-
-    getValueComparator: function () {
-        return this.control.get('valueComparator');
     }
+
+    // UNUSED ?
+    //getValueComparator: function () {
+    //    return this.control.get('valueComparator');
+    //}
 
 }, editorBaseMixin);
 
@@ -15566,72 +17005,7 @@ _.extend(ListEditorBaseBuilder.prototype, {
         element.setValueSelector(valueSelector);
     }
 }, editorBaseBuilderMixin);
-/*
-    initValue: function(params){
-        var metadata = params.metadata;
-        var element = params.element;
 
-        if (typeof metadata.MultiSelect !== 'undefined' && metadata.MultiSelect !== null) {
-            element.setMultiSelect(metadata.MultiSelect);
-        }
-
-        this.initValueSelector(params);
-    }
-});
-
-
-ListEditorBaseBuilder.prototype.initGroupItemTemplate = function (params) {
-};
-
-ListEditorBaseBuilder.prototype.initGroupItemTemplate = function (params) {
-};
-
-
-ListEditorBaseBuilder.prototype.getGroupItemTemplateBuilder = function () {
-    throw new Error('Не перекрыт метод getGroupItemTemplateBuilder')
-};
-
-ListEditorBaseBuilder.prototype.initItemsBinding = function (params) {
-    var element = params.element;
-    var metadata = params.metadata.Items;
-    var itemsCollection = element.getItems();
-    if(!metadata) {
-        return;
-    }
-
-    var binding = params.builder.build(params.parent, metadata, params.collectionProperty);
-
-    if (typeof binding !== 'undefined' && binding !== null) {
-        binding.onPropertyValueChanged(function (context, argument) {
-            var newItems = argument.value;
-
-            if (!Array.isArray(newItems)) {
-                itemsCollection.clear();
-                return;
-            }
-
-            //Удалить элементы, которых нет в новых данных
-            itemsCollection
-                .filter(function (item) {
-                    return newItems.indexOf(item) === -1;
-                })
-                .forEach(function(item) {
-                    itemsCollection.remove(item);
-                });
-
-            //Добавить новые элементы,которые появились в данных
-            newItems.filter(function (item) {
-                    return !itemsCollection.contains(item)
-                })
-                .forEach(function(item){
-                    itemsCollection.add(item);
-                });
-
-        });
-    }
-    return binding;
-};
-*/
 //####app/new/elements/_base/textEditorBase/textEditorBase.js
 /**
  *
@@ -15639,6 +17013,7 @@ ListEditorBaseBuilder.prototype.initItemsBinding = function (params) {
  * @constructor
  * @augments Element
  * @mixes editorBaseMixin
+ * @mixes labelTextElementMixin
  */
 function TextEditorBase(parent) {
     _.superClass(TextEditorBase, this, parent);
@@ -15648,14 +17023,6 @@ function TextEditorBase(parent) {
 _.inherit(TextEditorBase, Element);
 
 _.extend(TextEditorBase.prototype, {
-
-    setLabelText: function (value) {
-        this.control.set('labelText', value);
-    },
-
-    getLabelText: function () {
-        return this.control.get('labelText');
-    },
 
     setDisplayFormat: function (value) {
         this.control.set('displayFormat', value);
@@ -15671,8 +17038,35 @@ _.extend(TextEditorBase.prototype, {
 
     getEditMask: function () {
         return this.control.get('editMask');
+    },
+
+    /**
+     * @description Возвращает значение, которое введено в поле редактирования в данный момент
+     * @returns {*}
+     */
+    getRawValue: function () {
+        var value = this.getValue(),
+            editMask = this.getEditMask();
+
+        if (editMask) {
+            var val = editMask.getValue();
+            var txt = editMask.getText();
+
+            if (isNotEmpty(val)) {
+                value = val;
+            } else if (isNotEmpty(txt)) {
+                value = txt;
+            }
+        }
+
+        return value;
+
+        function isNotEmpty(val) {
+            return val !== null && typeof val !== 'undefined';
+        }
     }
-}, editorBaseMixin);
+
+}, editorBaseMixin, labelTextElementMixin);
 
 //####app/new/elements/_base/textEditorBase/textEditorBaseBuilder.js
 /**
@@ -15699,7 +17093,7 @@ _.extend(TextEditorBaseBuilder.prototype, {
         var metadata = params.metadata;
         var element = params.element;
 
-        element.setLabelText(metadata.LabelText);
+        this.initBindingToProperty(params, 'LabelText');
 
         this
             .initDisplayFormat(params)
@@ -15724,7 +17118,10 @@ _.extend(TextEditorBaseBuilder.prototype, {
             editMask;
 
         if (metadata.EditMask) {
-            editMask = builder.build(metadata.EditMask, {parentView: params.parentView});
+            editMask = builder.build(metadata.EditMask, {
+                parentView: params.parentView,
+                formatOptions: params.formatOptions
+            });
         }
         params.element.setEditMask(editMask);
         return this;
@@ -15762,56 +17159,301 @@ _.extend(ListBoxBuilder.prototype, /** @lends ListBoxBuilder.prototype */{
     }
 
 });
-//####app/new/elements/GridPanel/gridPanel.js
+//####app/new/elements/textBox/textBox.js
 /**
+ *
  * @param parent
  * @constructor
- * @augments Container
+ * @augments TextEditorBase
  */
-function GridPanel(parent) {
-    _.superClass(GridPanel, this, parent);
+function TextBox(parent) {
+    _.superClass(TextBox, this, parent);
 }
 
-_.inherit(GridPanel, Container);
+_.inherit(TextBox, TextEditorBase);
 
-_.extend(GridPanel.prototype, {
-    createControl: function () {
-        return new GridPanelControl();
-    }
-});
-//####app/new/elements/GridPanel/gridPanelBuilder.js
+TextBox.prototype.createControl = function (parent) {
+    return new TextBoxControl(parent);
+};
+
+TextBox.prototype.getMultiline = function () {
+    return this.control.get('multiline');
+};
+
+TextBox.prototype.setMultiline = function (value) {
+    this.control.set('multiline', value);
+};
+
+TextBox.prototype.getLineCount = function () {
+    return this.control.get('lineCount');
+};
+
+TextBox.prototype.setLineCount = function (value) {
+    this.control.set('lineCount', value);
+};
+
+
+
+//####app/new/elements/textBox/textBoxBuilder.js
 /**
+ *
  * @constructor
- * @augments ContainerBuilder
+ * @augments TextEditorBaseBuilder
  */
-function GridPanelBuilder() {
-    _.superClass(GridPanelBuilder, this);
+function TextBoxBuilder() {
+    _.superClass(TextBoxBuilder, this);
 }
 
-_.inherit(GridPanelBuilder, ContainerBuilder);
+_.inherit(TextBoxBuilder, TextEditorBaseBuilder);
 
-_.extend(GridPanelBuilder.prototype,
-    /** @lends GridPanelBuilder.prototype*/
-    {
-        createElement: function (params) {
-            return new GridPanel(params.parent);
+TextBoxBuilder.prototype.createElement = function (params) {
+    return new TextBox(params.parent);
+};
+
+TextBoxBuilder.prototype.applyMetadata = function (params) {
+    TextEditorBaseBuilder.prototype.applyMetadata.call(this, params);
+
+    var element = params.element;
+    var metadata = params.metadata;
+    var lineCount = metadata.LineCount;
+    element.setMultiline(metadata.Multiline);
+    if (metadata.Multiline && lineCount === null || typeof lineCount === 'undefined') {
+        lineCount = 2;
+    }
+    element.setLineCount(lineCount);
+};
+
+
+//####app/new/elements/dateTimePicker/dateTimePicker.js
+/**
+ *
+ * @param parent
+ * @constructor
+ * @augments TextEditorBase
+ */
+function DateTimePicker(parent) {
+    _.superClass(DateTimePicker, this, parent);
+}
+
+_.inherit(DateTimePicker, TextEditorBase);
+
+DateTimePicker.prototype.createControl = function (parent) {
+    return new DateTimePickerControl(parent);
+};
+
+DateTimePicker.prototype.getMinValue = function () {
+    return this.control.get('minValue');
+};
+
+DateTimePicker.prototype.setMinValue = function (value) {
+    this.control.set('minValue', value);
+};
+
+DateTimePicker.prototype.getMaxValue = function () {
+    return this.control.get('maxValue');
+};
+
+DateTimePicker.prototype.setMaxValue = function (value) {
+    this.control.set('maxValue', value);
+};
+
+DateTimePicker.prototype.getMode = function () {
+    return this.control.get('mode');
+};
+
+DateTimePicker.prototype.setMode = function (value) {
+    this.control.set('mode', value);
+};
+
+DateTimePicker.prototype.getTimeZone = function () {
+    return this.control.get('timeZone');
+};
+
+DateTimePicker.prototype.setTimeZone = function (value) {
+    this.control.set('timeZone', value);
+};
+
+DateTimePicker.prototype.setDateFormat = function (value) {
+    this.control.set('format', value);
+};
+
+
+
+//####app/new/elements/dateTimePicker/dateTimePickerBuilder.js
+/**
+ *
+ * @constructor
+ * @augments TextEditorBaseBuilder
+ */
+function DateTimePickerBuilder() {
+    _.superClass(DateTimePickerBuilder, this);
+}
+
+_.inherit(DateTimePickerBuilder, TextEditorBaseBuilder);
+
+DateTimePickerBuilder.prototype.createElement = function (params) {
+    return new DateTimePicker(params.parent);
+};
+
+DateTimePickerBuilder.prototype.applyMetadata = function (params) {
+    var element = params.element;
+    var metadata = params.metadata;
+    this.applyDefaultMetadata(params);
+    TextEditorBaseBuilder.prototype.applyMetadata.call(this, params);
+
+    element.setTimeZone(metadata.TimeZone);
+    element.setMode(metadata.Mode);
+
+    this.applyMinValue(element, metadata.MinValue);
+    this.applyMaxValue(element, metadata.MaxValue);
+
+    //var format = params.builder.buildType(params.parent, 'DateFormat', {}, null);
+    //element.setDateFormat(format);
+};
+
+DateTimePickerBuilder.prototype.applyMinValue = function (element, minValue) {
+    element.setMinValue(InfinniUI.DateUtils.parseISO8601toDate(minValue));
+};
+
+DateTimePickerBuilder.prototype.applyMaxValue = function (element, maxValue) {
+    element.setMaxValue(InfinniUI.DateUtils.parseISO8601toDate(maxValue));
+};
+
+DateTimePickerBuilder.prototype.applyDefaultMetadata = function (params) {
+    var metadata = params.metadata;
+
+    var defaultFormat = {
+            Date: '{:d}',
+            DateTime: '{:g}',
+            Time: '{:t}'
         },
+        defaultEditMask = {
+            Date: {DateTimeEditMask: {Mask: 'd'}},
+            DateTime: {DateTimeEditMask: {Mask: 'g'}},
+            Time: {DateTimeEditMask: {Mask: 't'}}
+        };
 
-        /**
-         * @param {Object} params
-         * @param {TablePanel} params.element
-         * @param {Object} params.metadata
-         */
-        applyMetadata: function (params) {
-            var
-                metadata = params.metadata,
-                element = params.element;
+    _.defaults(metadata, {Mode: 'Date'});
+    _.defaults(metadata, {DisplayFormat: defaultFormat[metadata.Mode], EditMask: defaultEditMask[metadata.Mode]});
+};
 
-            ContainerBuilder.prototype.applyMetadata.call(this, params);
-        }
+DateTimePickerBuilder.prototype.initDisplayFormat = function (params) {
+    return TextEditorBaseBuilder.prototype.initDisplayFormat.call(this, this.applyTimeZone(params));
+};
 
+DateTimePickerBuilder.prototype.initEditMask = function (params) {
+    return TextEditorBaseBuilder.prototype.initEditMask.call(this, this.applyTimeZone(params));
+};
+
+DateTimePickerBuilder.prototype.applyTimeZone = function (params) {
+    var metadata = params.metadata;
+    var _params = {};
+    var formatOptions = {};
+
+    if (typeof metadata.TimeZone !== 'undefined' && metadata.TimeZone !== null ) {
+        formatOptions.TimeZone = metadata.TimeZone;
+    }
+
+    _.defaults(_params, params, {formatOptions: formatOptions});
+    return _params;
+};
+//####app/new/elements/datePicker/datePicker.js
+function DatePicker(parent) {
+    _.superClass(DatePicker, this, parent);
+
+    this.setMode('DatePicker');
+    this.setTimeZone();
+}
+
+_.inherit(DatePicker, DateTimePicker);
+
+DatePicker.prototype.setTimeZone = function () {
+    DateTimePicker.prototype.setTimeZone.call(this, 0);
+};
+
+DatePicker.prototype.createControl = function (parent) {
+    return new DatePickerControl(parent);
+};
+//####app/new/elements/datePicker/datePickerBuilder.js
+function DatePickerBuilder() {
+    _.superClass(DatePickerBuilder, this);
+}
+
+_.inherit(DatePickerBuilder, DateTimePickerBuilder);
+
+DatePickerBuilder.prototype.applyDefaultMetadata = function (params) {
+
+    DateTimePickerBuilder.call(this, params);
+
+    var metadata = params.metadata;
+    metadata.Mode = 'DatePicker';
+    metadata.TimeZone = 0;
+
+    _.defaults(metadata, {
+        DisplayFormat: '{:d}',
+        EditMask: {DateTimeEditMask: {Mask: 'd'}}
     });
 
+};
+//####app/new/elements/timePicker/timePicker.js
+function TimePicker(parent) {
+    _.superClass(TimePicker, this, parent);
+
+    this.setMode('TimePicker');
+    this.setTimeZone();
+}
+
+_.inherit(TimePicker, DateTimePicker);
+
+
+TimePicker.prototype.createControl = function (parent) {
+    return new TimePickerControl(parent);
+};
+
+TimePicker.prototype.setTimeZone = function () {
+    DateTimePicker.prototype.setTimeZone.call(this, 0);
+};
+//####app/new/elements/timePicker/timePickerBuilder.js
+function TimePickerBuilder() {
+    _.superClass(TimePickerBuilder, this);
+}
+
+_.inherit(TimePickerBuilder, DateTimePickerBuilder);
+
+TimePickerBuilder.prototype.createElement = function (params) {
+    return new TimePicker(params.parent);
+};
+
+TimePickerBuilder.prototype.applyDefaultMetadata = function (params) {
+
+    DateTimePickerBuilder.call(this, params);
+
+    var metadata = params.metadata;
+    metadata.Mode = 'TimePicker';
+    metadata.TimeZone = 0;
+
+    _.defaults(metadata, {
+        DisplayFormat: '{:T}',
+        EditMask: {DateTimeEditMask: {Mask: 'T'}}
+    });
+
+};
+
+TimePickerBuilder.prototype.applyMinValue = function (element, minValue) {
+    var date = InfinniUI.DateUtils.parseTimeISO8601toDate(minValue, 0);
+
+    if (typeof date !== 'undefined') {
+        element.setMinValue(date);
+    }
+};
+
+TimePickerBuilder.prototype.applyMaxValue = function (element, maxValue) {
+    var date = InfinniUI.DateUtils.parseTimeISO8601toDate(maxValue, 0);
+
+    if (typeof date !== 'undefined') {
+        element.setMaxValue(date);
+    }
+};
 //####app/new/elements/button/button.js
 /**
  * @param parent
@@ -15887,6 +17529,166 @@ _.extend(ButtonBuilder.prototype, {
     }
 
 }, buttonBuilderMixin);
+//####app/new/elements/buttonEdit/buttonEdit.js
+/**
+ *
+ * @param parent
+ * @constructor
+ * @augments TextBox
+ */
+function ButtonEdit(parent) {
+    _.superClass(ButtonEdit, this, parent);
+}
+
+_.inherit(ButtonEdit, TextBox);
+
+ButtonEdit.prototype.createControl = function (parent) {
+    return new ButtonEditControl(parent);
+};
+
+/**
+ * @public
+ * @param {String} icon
+ */
+ButtonEdit.prototype.setIcon = function (icon) {
+    if (icon && icon.toLowerCase) {
+        icon = icon.toLowerCase();
+    }
+    this.control.set('icon', icon);
+};
+
+/**
+ * @public
+ * @returns {String}
+ */
+ButtonEdit.prototype.getIcon = function () {
+    return this.control.get('icon');
+};
+
+/**
+ * @public
+ * @param {boolean} readOnly
+ */
+ButtonEdit.prototype.setReadOnly = function (readOnly) {
+    if (typeof  readOnly !== 'undefined' && readOnly !== null) {
+        this.control.set('readOnly', !!readOnly);
+    }
+};
+
+/**
+ * @public
+ * @returns {boolean}
+ */
+ButtonEdit.prototype.getReadOnly = function () {
+    return this.control.get('readOnly');
+};
+
+/**
+ * @public
+ * @param {boolean} showClear
+ */
+ButtonEdit.prototype.setShowClear = function (showClear) {
+    if (typeof showClear !== 'undefined' && showClear !== null) {
+        this.control.set('showClear', !!showClear);
+    }
+};
+
+/**
+ * @public
+ * @returns {boolean}
+ */
+ButtonEdit.prototype.getShowClear = function () {
+    return this.control.get('showClear');
+};
+
+
+ButtonEdit.prototype.onButtonClick = function (handler) {
+    var element = this;
+    var callback = function (nativeEventData) {
+        var eventData = element._getHandlingMouseEventData(nativeEventData);
+        handler(eventData);
+    };
+    return this.control.onButtonClick(callback);
+};
+//####app/new/elements/buttonEdit/buttonEditBuilder.js
+/**
+ *
+ * @constructor
+ * @augments TextBoxBuilder
+ */
+function ButtonEditBuilder() {
+    _.superClass(ButtonEditBuilder, this);
+}
+
+_.inherit(ButtonEditBuilder, TextBoxBuilder);
+
+ButtonEditBuilder.prototype.createElement = function (params) {
+    return new ButtonEdit(params.parent);
+};
+
+ButtonEditBuilder.prototype.applyMetadata = function (params) {
+    TextBoxBuilder.prototype.applyMetadata.call(this, params);
+
+    /** @type {ButtonEdit} **/
+    var element = params.element;
+    var metadata = params.metadata;
+
+    this.initBindingToProperty(params, 'Icon');
+    this.initBindingToProperty(params, 'ReadOnly', true);
+    this.initBindingToProperty(params, 'ShowClear', true);
+
+    this.buildOnButtonClick(params);
+    this.buildButtonAction(params);
+};
+
+
+/**
+ * @protected
+ * @param params
+ */
+ButtonEditBuilder.prototype.buildButtonAction = function (params) {
+    /** @type {ButtonEdit} **/
+    var element = params.element;
+    var metadata = params.metadata;
+    var builder = params.builder;
+
+    if (!metadata.Action) {
+        return;
+    }
+
+    var args = {
+        parentView: params.parentView,
+        parent: element,
+        basePathOfProperty: params.basePathOfProperty
+    };
+    var action = builder.build(metadata.Action, args);
+    element.onButtonClick(function(){
+        action.execute();
+    });
+};
+
+/**
+ * @protected
+ * @param params
+ */
+ButtonEditBuilder.prototype.buildOnButtonClick = function (params) {
+    /** @type {ButtonEdit} **/
+    var element = params.element;
+    var metadata = params.metadata;
+
+    var onButtonClick = metadata.OnButtonClick;
+    if (!onButtonClick) {
+        return;
+    }
+
+    element.onButtonClick(function (args) {
+        new ScriptExecutor(element.getScriptsStorage()).executeScript(onButtonClick.Name || onButtonClick, args);
+    });
+
+};
+
+
+
 //####app/new/elements/checkBox/checkBox.js
 /**
  *
@@ -15943,6 +17745,7 @@ _.extend(CheckBoxBuilder.prototype, {
  * @augments ListEditorBase
  * @param parent
  * @constructor
+ * @mixes labelTextElementMixin
  */
 function ComboBox(parent) {
     _.superClass(ComboBox, this, parent);
@@ -15950,16 +17753,10 @@ function ComboBox(parent) {
 
 _.inherit(ComboBox, ListEditorBase);
 
+_.extend(ComboBox.prototype, labelTextElementMixin);
+
 ComboBox.prototype.createControl = function () {
     return new ComboBoxControl();
-};
-
-ComboBox.prototype.getLabelText = function () {
-    return this.control.get('labelText');
-};
-
-ComboBox.prototype.setLabelText = function (value) {
-    this.control.set('labelText', value);
 };
 
 ComboBox.prototype.setValueTemplate = function (value) {
@@ -15968,14 +17765,6 @@ ComboBox.prototype.setValueTemplate = function (value) {
 
 ComboBox.prototype.getValueTemplate = function () {
     return this.control.get('valueTemplate');
-};
-
-ComboBox.prototype.setValueFormat = function (value) {
-    this.control.set('valueFormat', value);
-};
-
-ComboBox.prototype.getValueFormat = function () {
-    return this.control.get('valueFormat');
 };
 
 ComboBox.prototype.getAutocomplete = function () {
@@ -16155,7 +17944,7 @@ _.extend(ComboBoxBuilder.prototype, /** @lends ComboBoxBuilder.prototype */{
             label.setHorizontalAlignment('Left');
             label.setDisplayFormat(format);
             //var labelBinding = new DataBinding(this);
-            //labelBinding.setMode(BindingModes.toElement);
+            //labelBinding.setMode(InfinniUI.BindingModes.toElement);
             //
             //var source = binding.getSource();
             //var property = binding.getSourceProperty();
@@ -16194,7 +17983,7 @@ _.extend(ComboBoxBuilder.prototype, /** @lends ComboBoxBuilder.prototype */{
 
             //if (binding) {
                 //var labelBinding = new DataBinding(this);
-                //labelBinding.setMode(BindingModes.toElement);
+                //labelBinding.setMode(InfinniUI.BindingModes.toElement);
                 //
                 //var source = binding.getSource();
                 //var property = binding.getSourceProperty();
@@ -16296,10 +18085,15 @@ _.extend(DataGridBuilder.prototype, /** @lends DataGridBuilder.prototype */{
 
     buildItemProperty: function (itemsBinding, itemPropertyMetadata, params) {
         var dataGrid = params.element;
+        var builder = this;
 
         return function (context, args) {
-            var index = args.index;
             var row = dataGrid.createRow();
+            row.setGrid(dataGrid);
+
+            ['RowStyle', 'RowBackground', 'RowForeground', 'RowTextStyle']
+                .forEach(initBindingToRowProperty.bind(null, row, args.index));
+
             var columns = dataGrid.getColumns();
 
             var cellItemTemplates = columns.toArray().map(function (column, index) {
@@ -16312,6 +18106,20 @@ _.extend(DataGridBuilder.prototype, /** @lends DataGridBuilder.prototype */{
             row.setShowSelectors(dataGrid.getShowSelectors());
             return row;
         };
+
+        function initBindingToRowProperty(row, index, propertyName) {
+            var basePathOfProperty = params.basePathOfProperty || new BasePathOfProperty('');
+            var argumentForBuilder = {
+                element: row,
+                parent: dataGrid,
+                builder: params.builder,
+                metadata: params.metadata,
+                parentView: params.parentView
+            };
+            argumentForBuilder.basePathOfProperty = basePathOfProperty.buildChild('', index);
+
+            builder.initBindingToProperty(argumentForBuilder, propertyName);
+        }
     }
 
 });
@@ -16350,6 +18158,14 @@ DataGridColumn.prototype.setHeaderTemplate = function (value) {
 
 DataGridColumn.prototype.getHeaderTemplate = function () {
     return this.getProperty('cellHeaderTemplate');
+};
+
+DataGridColumn.prototype.setWidth = function (value) {
+    this.setProperty('width', value);
+};
+
+DataGridColumn.prototype.getWidth = function (value) {
+    return this.getProperty('width');
 };
 
 
@@ -16407,12 +18223,24 @@ _.extend(DataGridColumnBuilder.prototype, displayFormatBuilderMixin);
 DataGridColumnBuilder.prototype.build = function (element, metadata, params) {
     var column = new DataGridColumn();
 
+
     this
         .buildHeader(column, metadata, params)
         .buildHeaderTemplate(column, metadata, params)
-        .buildCellTemplate(column, metadata, params);
+        .buildCellTemplate(column, metadata, params)
+        .buildWidth(column, metadata);
 
     return column;
+};
+
+DataGridColumnBuilder.prototype.buildWidth = function (column, metadata) {
+    var width = metadata.Width;
+
+    if (width !== null && typeof width !== 'undefined') {
+        column.setWidth(width);
+    }
+
+    return this;
 };
 
 /**
@@ -16498,7 +18326,7 @@ DataGridColumnBuilder.prototype.buildCellTemplateByFormat = function (params, ce
 
             var sourceProperty = itemsBinding.getSourceProperty();
             var source = itemsBinding.getSource();
-            var binding = new DataBinding(this);
+            var binding = new DataBinding();
 
             sourceProperty = index.toString();
             if (itemsBinding.getSourceProperty() != '') {
@@ -16547,7 +18375,7 @@ DataGridColumnBuilder.prototype.buildCellTemplateByDefault = function (params, c
 
             var sourceProperty;
             var source = itemsBinding.getSource();
-            var binding = new DataBinding(this);
+            var binding = new DataBinding();
 
             sourceProperty = index.toString();
             if (itemsBinding.getSourceProperty() != '') {
@@ -16660,6 +18488,12 @@ DataGridColumnBuilder.prototype.buildHeaderTemplateByDefault = function (params)
 function DataGridRow() {
     _.superClass(DataGridRow, this);
 
+    this._transformRowProperties({
+        rowBackground: 'background',
+        rowForeground: 'foreground',
+        rowTextStyle: 'textStyle',
+        rowStyle: 'style'
+    });
 }
 
 _.inherit(DataGridRow, Element);
@@ -16693,6 +18527,64 @@ _.extend(DataGridRow.prototype, {
 
     onToggle: function (handler) {
         this.control.onToggle(handler);
+    },
+
+    /** RowBackground **/
+    setRowBackground: function (value) {
+        this.control.set('rowBackground', value);
+    },
+
+    getRowBackground: function () {
+        return this.control.get('rowBackground');
+    },
+
+    /** RowForeground **/
+    setRowForeground: function (value) {
+        this.control.set('rowForeground', value);
+    },
+
+    getRowForeground: function () {
+        return this.control.get('rowForeground');
+    },
+
+    /** RowTextStyle */
+    setRowTextStyle: function (value) {
+        this.control.set('rowTextStyle', value);
+    },
+
+    getRowTextStyle: function () {
+        return this.control.get('rowTextStyle');
+    },
+
+    /** RowStyle */
+    setRowStyle: function (value) {
+        this.control.set('rowStyle', value);
+    },
+
+    getRowStyle: function () {
+        return this.control.get('rowStyle');
+    },
+
+    setGrid: function (grid) {
+        this.control.set('grid', grid);
+    },
+
+    _transformRowProperties: function (properties) {
+
+        for(var name in properties) {
+            if (!properties.hasOwnProperty(name)) {
+                continue;
+            }
+
+            this.setProperty(properties[name], this.getProperty(name));
+
+            this.onPropertyChanged(name, (function (row, prop) {
+                return function (context, args) {
+                    row.setProperty(prop, args.newValue);
+                }
+            })(this, properties[name]));
+        }
+
     }
 
 });
@@ -16793,14 +18685,10 @@ _.extend(DataNavigationBuilder.prototype, {
     findDataSource: function (params) {
         var
             name = params.metadata.DataSource,
-            parent = params.parent,
-            view,
+            view = params.parentView,
             context,
             dataSource;
-
-        if (parent) {
-            view = parent.getView()
-        }
+        
         if (name && view) {
             context = view.getContext();
             dataSource = context.dataSources[name];
@@ -16810,108 +18698,13 @@ _.extend(DataNavigationBuilder.prototype, {
     }
 
 });
-//####app/new/elements/datePicker/datePicker.js
-/**
- *
- * @param parent
- * @constructor
- * @augments TextEditorBase
- */
-function DatePicker(parent) {
-    _.superClass(DatePicker, this, parent);
-}
-
-_.inherit(DatePicker, TextEditorBase);
-
-DatePicker.prototype.createControl = function (parent) {
-    return new DatePickerControl(parent);
-};
-
-DatePicker.prototype.getMinValue = function () {
-    return this.control.get('minValue');
-};
-
-DatePicker.prototype.setMinValue = function (value) {
-    this.control.set('minValue', value);
-};
-
-DatePicker.prototype.getMaxValue = function () {
-    return this.control.get('maxValue');
-};
-
-DatePicker.prototype.setMaxValue = function (value) {
-    this.control.set('maxValue', value);
-};
-
-DatePicker.prototype.getMode = function () {
-    return this.control.get('mode');
-};
-
-DatePicker.prototype.setMode = function (value) {
-    this.control.set('mode', value);
-};
-
-DatePicker.prototype.setDateFormat = function (value) {
-    this.control.set('format', value);
-};
-
-
-
-//####app/new/elements/datePicker/datePickerBuilder.js
-/**
- *
- * @constructor
- * @augments TextEditorBaseBuilder
- */
-function DatePickerBuilder() {
-    _.superClass(DatePickerBuilder, this);
-}
-
-_.inherit(DatePickerBuilder, TextEditorBaseBuilder);
-
-DatePickerBuilder.prototype.createElement = function (params) {
-    return new DatePicker(params.parent);
-};
-
-DatePickerBuilder.prototype.applyMetadata = function (params) {
-    var element = params.element;
-    var metadata = params.metadata;
-    this.applyDefaultMetadata(params);
-    TextEditorBaseBuilder.prototype.applyMetadata.call(this, params);
-
-    element.setMinValue(metadata.MinValue);
-    element.setMaxValue(metadata.MaxValue);
-    element.setMode(metadata.Mode);
-
-
-    //var format = params.builder.buildType(params.parent, 'DateFormat', {}, null);
-    //element.setDateFormat(format);
-};
-
-DatePickerBuilder.prototype.applyDefaultMetadata = function (params) {
-    var metadata = params.metadata;
-
-    var defaultFormat = {
-            Date: '{:d}',
-            DateTime: '{:g}',
-            Time: '{:t}'
-        },
-        defaultEditMask = {
-            Date: {DateTimeEditMask: {Mask: 'd'}},
-            DateTime: {DateTimeEditMask: {Mask: 'g'}},
-            Time: {DateTimeEditMask: {Mask: 't'}}
-        };
-
-    _.defaults(metadata, {Mode: 'Date'});
-    _.defaults(metadata, {DisplayFormat: defaultFormat[metadata.Mode], EditMask: defaultEditMask[metadata.Mode]});
-};
-
 //####app/new/elements/fileBox/fileBox.js
 /**
  *
  * @param parent
  * @augments Element
  * @mixes editorBaseMixin
+ * @mixes labelTextElementMixin
  * @constructor
  */
 function FileBox(parent) {
@@ -17002,7 +18795,10 @@ _.extend(FileBox.prototype, {
     //    return this.control.get('url');
     //}
 
-}, editorBaseMixin);
+},
+    editorBaseMixin,
+    labelTextElementMixin
+);
 //####app/new/elements/fileBox/fileBoxBuilder.js
 /**
  *
@@ -17037,6 +18833,8 @@ _.extend(FileBoxBuilder.prototype, {
             element.setMaxSize(metadata.MaxSize);
         }
 
+        this.initBindingToProperty(params, 'LabelText');
+
         // Привязка данных односторонняя т.к.:
         // 1. по значению из источника данных - сформировать URL изображения.
         // 2. при выборе в элементе файла на загрузку - добавить выбранный файл в очередь на загрузку
@@ -17054,10 +18852,10 @@ _.extend(FileBoxBuilder.prototype, {
                 if (value) {
                     if (value.Info && value.Info.ContentId && fileProvider) {
                         url = fileProvider.getFileUrl(null, null, value.Info.ContentId);
-                        //element.setFileName(info.Name)
-                        //    .setFileSize(info.Size)
-                        //    .setFileTime(info.Time)
-                        //    .setFileType(info.Type);
+                        element.setFileName(value.Info.Name)
+                            .setFileSize(value.Info.Size)
+                            .setFileTime(value.Info.Time)
+                            .setFileType(value.Info.Type);
 
                     } else if (typeof value === 'string') {
                         //@TODO Добавить проверку на валидность URI
@@ -17079,13 +18877,15 @@ _.extend(FileBoxBuilder.prototype, {
         var binding = data.valueBinding;
 
         if (binding) {
-            binding.setMode(BindingModes.toElement);
+            binding.setMode(InfinniUI.BindingModes.toElement);
             var ds = binding.getSource();
 
             params.element.onPropertyChanged('file', function (context, args) {
                 var file = args.newValue;
 
-                if (file instanceof File) {
+                if (file === null) {
+                    ds.setProperty(binding.getSourceProperty(), null)
+                } else  if (file instanceof File) {
                     ds.setProperty(binding.getSourceProperty(), args.newValue)
                 }
             })
@@ -17147,6 +18947,56 @@ _.extend(FrameBuilder.prototype, {
     },
     editorBaseBuilderMixin
 );
+//####app/new/elements/GridPanel/gridPanel.js
+/**
+ * @param parent
+ * @constructor
+ * @augments Container
+ */
+function GridPanel(parent) {
+    _.superClass(GridPanel, this, parent);
+}
+
+_.inherit(GridPanel, Container);
+
+_.extend(GridPanel.prototype, {
+    createControl: function () {
+        return new GridPanelControl();
+    }
+});
+//####app/new/elements/GridPanel/gridPanelBuilder.js
+/**
+ * @constructor
+ * @augments ContainerBuilder
+ */
+function GridPanelBuilder() {
+    _.superClass(GridPanelBuilder, this);
+}
+
+_.inherit(GridPanelBuilder, ContainerBuilder);
+
+_.extend(GridPanelBuilder.prototype,
+    /** @lends GridPanelBuilder.prototype*/
+    {
+        createElement: function (params) {
+            return new GridPanel(params.parent);
+        },
+
+        /**
+         * @param {Object} params
+         * @param {TablePanel} params.element
+         * @param {Object} params.metadata
+         */
+        applyMetadata: function (params) {
+            var
+                metadata = params.metadata,
+                element = params.element;
+
+            ContainerBuilder.prototype.applyMetadata.call(this, params);
+        }
+
+    });
+
 //####app/new/elements/icon/icon.js
 function Icon(parent) {
     _.superClass(Icon, this, parent);
@@ -17346,7 +19196,7 @@ _.extend(ImageBoxBuilder.prototype, {
 
         var binding = data.valueBinding;
         if (binding) {
-            binding.setMode(BindingModes.toElement);
+            binding.setMode(InfinniUI.BindingModes.toElement);
 
             var ds = binding.getSource();
 
@@ -17434,9 +19284,28 @@ _.extend(Label.prototype, {
         
         getDisplayValue: function () {
             return this.control.getDisplayValue();
-        }
+        },
 
-    },
+        /**
+         * @description Возвращает режим отображения HTML разметки
+         * @returns {Boolean}
+         */
+        getEscapeHtml: function () {
+            return this.control.get('escapeHtml');
+        },
+
+        /**
+         * @description Устанавливает режим отображения HTML разметки
+         * @param {Boolean} value
+         */
+        setEscapeHtml: function (value) {
+            if (_.isBoolean(value)) {
+                this.control.set('escapeHtml', value);
+            }
+        }
+    }
+
+    ,
     editorBaseMixin
     //formatPropertyMixin,
     //elementHorizontalTextAlignmentMixin,
@@ -17461,6 +19330,7 @@ function LabelBuilder() {
 _.inherit(LabelBuilder, ElementBuilder);
 _.extend(LabelBuilder.prototype, {
     applyMetadata: function(params){
+        /** @type Label **/
         var element = params.element;
         ElementBuilder.prototype.applyMetadata.call(this, params);
         this.applyMetadata_editorBaseBuilder(params);
@@ -17468,6 +19338,7 @@ _.extend(LabelBuilder.prototype, {
         element.setLineCount(params.metadata.LineCount);
         element.setTextWrapping(params.metadata.TextWrapping);
         element.setTextTrimming(params.metadata.TextTrimming);
+        element.setEscapeHtml(params.metadata.EscapeHtml);
         
         this.initDisplayFormat(params);
         this.initScriptsHandlers(params);
@@ -17531,8 +19402,28 @@ _.inherit(MenuBar, Container);
 
 _.extend(MenuBar.prototype, {
     createControl: function (viewMode) {
+        window.ololo = this;
         return new MenuBarControl(viewMode);
+    },
+
+    /**
+     * @description Устанавливает/снимает выделение элемента меню с заданным именем
+     * @param {String|*} name Имя выделяемого элемента меню
+     */
+    highlightItem: function (name) {
+        (function highlight(element) {
+            var childElements = element.getChildElements();
+            childElements.forEach(function (childElement) {
+                var highlight = _.isString(name) && childElement.getName() === name;
+                var control = childElement.control;
+
+                if (control) {
+                    control.setHighlight(highlight);
+                }
+            });
+        })(this);
     }
+
 });
 //####app/new/elements/menuBar/menuBarBuilder.js
 /**
@@ -17595,6 +19486,24 @@ NumericBox.prototype.setIncrement = function (value) {
     this.control.set('increment', value);
 };
 
+/**
+ * @public
+ * @description Устанваливает начальное значение
+ * @param {Number} value
+ */
+NumericBox.prototype.setStartValue = function (value) {
+    this.control.set('startValue', value);
+};
+
+/**
+ * @public
+ * @description Возвращает начальное значение
+ * @returns {Number}
+ */
+NumericBox.prototype.getStartValue = function () {
+    return this.control.get('startValue');
+};
+
 //####app/new/elements/numericBox/numericBoxBuilder.js
 /**
  *
@@ -17614,12 +19523,14 @@ NumericBoxBuilder.prototype.createElement = function (params) {
 NumericBoxBuilder.prototype.applyMetadata = function (params) {
     TextEditorBaseBuilder.prototype.applyMetadata.call(this, params);
 
+    /** @type NumericBox **/
     var element = params.element;
     var metadata = params.metadata;
 
     element.setMinValue(metadata.MinValue);
     element.setMaxValue(metadata.MaxValue);
     element.setIncrement(metadata.Increment);
+    element.setStartValue(metadata.StartValue);
 };
 
 
@@ -17809,25 +19720,25 @@ _.extend(PanelBuilder.prototype, /** @lends PanelBuilder.prototype*/ {
         if (metadata.OnExpanding) {
             element.onExpanding(function (context, args) {
                 return createScriptExecutor()
-                    .executeScript(metadata.OnExpanding.Name, args);
+                    .executeScript(metadata.OnExpanding.Name || metadata.OnExpanding, args);
             });
         }
         if (metadata.OnExpanded) {
             element.onExpanded(function (context, args) {
                 return createScriptExecutor()
-                    .executeScript(metadata.OnExpanded.Name, args);
+                    .executeScript(metadata.OnExpanded.Name || metadata.OnExpanded, args);
             });
         }
         if (metadata.OnCollapsing) {
             element.onCollapsing(function (context, args) {
                 return createScriptExecutor()
-                    .executeScript(metadata.OnCollapsing.Name, args);
+                    .executeScript(metadata.OnCollapsing.Name || metadata.OnCollapsing, args);
             });
         }
         if (metadata.OnCollapsed) {
             element.onCollapsed(function (context, args) {
                 return createScriptExecutor()
-                    .executeScript(metadata.OnCollapsed.Name, args);
+                    .executeScript(metadata.OnCollapsed.Name || metadata.OnCollapsed, args);
             });
         }
 
@@ -17896,6 +19807,7 @@ _.extend(PanelBuilder.prototype, /** @lends PanelBuilder.prototype*/ {
  * @constructor
  * @augments Element
  * @mixes editorBaseMixin
+ * @mixes labelTextElementMixin
  */
 function PasswordBox(parent) {
     _.superClass(PasswordBox, this, parent);
@@ -17906,14 +19818,6 @@ _.inherit(PasswordBox, Element);
 
 _.extend(PasswordBox.prototype, /* @lends PasswordBox.prototype */ {
 
-        getLabelText: function () {
-            return this.control.get('labelText');
-        },
-
-        setLabelText: function (value) {
-            this.control.set('labelText', value);
-        },
-
         getPasswordChar: function () {
             return this.control.get('passwordChar');
         },
@@ -17922,12 +19826,24 @@ _.extend(PasswordBox.prototype, /* @lends PasswordBox.prototype */ {
             this.control.set('passwordChar', value);
         },
 
+        setAutocomplete: function (value) {
+            if (typeof value === 'undefined' || value === null) {
+                return;
+            }
+            this.control.set('autocomplete', !!value);
+        },
+
+        getAutocomplete: function () {
+            return this.control.get('autocomplete');
+        },
+
         createControl: function () {
             return new PasswordBoxControl();
         }
 
     },
-    editorBaseMixin
+    editorBaseMixin,
+    labelTextElementMixin
 );
 
 //####app/new/elements/passwordBox/passwordBoxBuilder.js
@@ -17952,8 +19868,9 @@ _.extend(PasswordBoxBuilder.prototype, /** @lends PasswordBoxBuilder.prototype *
             var metadata = params.metadata,
                 element = params.element;
 
-            element.setLabelText(metadata.LabelText);
+            this.initBindingToProperty(params, 'LabelText');
             element.setPasswordChar(metadata.PasswordChar);
+            element.setAutocomplete(metadata.Autocomplete);
         },
 
         createElement: function (params) {
@@ -18153,8 +20070,8 @@ _.extend(ScrollPanelBuilder.prototype, /** @lends ScrollPanelBuilder.prototype*/
  * @constructor
  * @augments Container
  */
-function StackPanel(parent) {
-    _.superClass(StackPanel, this, parent);
+function StackPanel(parent, viewMode) {
+    _.superClass(StackPanel, this, parent, viewMode);
 }
 
 _.inherit(StackPanel, Container);
@@ -18169,8 +20086,8 @@ StackPanel.prototype.setOrientation = function (value) {
     }
 };
 
-StackPanel.prototype.createControl = function () {
-    return new StackPanelControl();
+StackPanel.prototype.createControl = function (viewMode) {
+    return new StackPanelControl(viewMode);
 };
 //####app/new/elements/stackPanel/stackPanelBuilder.js
 /**
@@ -18187,7 +20104,7 @@ _.extend(StackPanelBuilder.prototype,
     /** @lends StackPanelBuilder.prototype*/
     {
         createElement: function (params) {
-            return new StackPanel(params.parent);
+            return new StackPanel(params.parent, params.metadata['ViewMode']);
         },
 
         /**
@@ -18200,8 +20117,170 @@ _.extend(StackPanelBuilder.prototype,
                 metadata = params.metadata,
                 element = params.element;
 
-            ContainerBuilder.prototype.applyMetadata.call(this, params);
+            var result = ContainerBuilder.prototype.applyMetadata.call(this, params);
             element.setOrientation(metadata.Orientation);
+
+            return result;
+        }
+
+    });
+
+//####app/new/elements/tablePanel/cell/cell.js
+/**
+ * @param parent
+ * @constructor
+ * @augments Container
+ */
+function Cell(parent) {
+    _.superClass(Cell, this, parent);
+}
+
+_.inherit(Cell, Container);
+
+_.extend(Cell.prototype, {
+    createControl: function () {
+        return new CellControl();
+    },
+
+    getColumnSpan: function(){
+        return this.control.get('columnSpan');
+    },
+
+    setColumnSpan: function(newColumnSpan){
+        this.control.set('columnSpan', newColumnSpan);
+    }
+});
+//####app/new/elements/tablePanel/cell/cellBuilder.js
+/**
+ * @constructor
+ * @augments ContainerBuilder
+ */
+function CellBuilder() {
+    _.superClass(CellBuilder, this);
+}
+
+_.inherit(CellBuilder, ContainerBuilder);
+
+_.extend(CellBuilder.prototype,
+    /** @lends CellBuilder.prototype*/
+    {
+        createElement: function (params) {
+            return new Cell(params.parent);
+        },
+
+        /**
+         * @param {Object} params
+         * @param {CellBuilder} params.element
+         * @param {Object} params.metadata
+         */
+        applyMetadata: function (params) {
+            var
+                metadata = params.metadata,
+                element = params.element;
+
+            ContainerBuilder.prototype.applyMetadata.call(this, params);
+
+            params.element.setColumnSpan(metadata.ColumnSpan);
+        }
+
+    });
+
+//####app/new/elements/tablePanel/row/row.js
+/**
+ * @param parent
+ * @constructor
+ * @augments Container
+ */
+function Row(parent) {
+    _.superClass(Row, this, parent);
+}
+
+_.inherit(Row, Container);
+
+_.extend(Row.prototype, {
+    createControl: function () {
+        return new RowControl();
+    }
+});
+//####app/new/elements/tablePanel/row/RowBuilder.js
+/**
+ * @constructor
+ * @augments ContainerBuilder
+ */
+function RowBuilder() {
+    _.superClass(RowBuilder, this);
+}
+
+_.inherit(RowBuilder, ContainerBuilder);
+
+_.extend(RowBuilder.prototype,
+    /** @lends RowBuilder.prototype*/
+    {
+        createElement: function (params) {
+            return new Row(params.parent);
+        },
+
+        /**
+         * @param {Object} params
+         * @param {RowBuilder} params.element
+         * @param {Object} params.metadata
+         */
+        applyMetadata: function (params) {
+            var
+                metadata = params.metadata,
+                element = params.element;
+
+            ContainerBuilder.prototype.applyMetadata.call(this, params);
+        }
+
+    });
+
+//####app/new/elements/tablePanel/tablePanel.js
+/**
+ * @param parent
+ * @constructor
+ * @augments Container
+ */
+function TablePanel(parent) {
+    _.superClass(TablePanel, this, parent);
+}
+
+_.inherit(TablePanel, Container);
+
+_.extend(TablePanel.prototype, {
+    createControl: function () {
+        return new TablePanelControl();
+    }
+});
+//####app/new/elements/tablePanel/tablePanelBuilder.js
+/**
+ * @constructor
+ * @augments ContainerBuilder
+ */
+function TablePanelBuilder() {
+    _.superClass(TablePanelBuilder, this);
+}
+
+_.inherit(TablePanelBuilder, ContainerBuilder);
+
+_.extend(TablePanelBuilder.prototype,
+    /** @lends TablePanelBuilder.prototype*/
+    {
+        createElement: function (params) {
+            return new TablePanel(params.parent);
+        },
+
+        /**
+         * @param {Object} params
+         * @param {TablePanel} params.element
+         * @param {Object} params.metadata
+         */
+        applyMetadata: function (params) {
+            var
+                metadata = params.metadata,
+                element = params.element;
+
+            ContainerBuilder.prototype.applyMetadata.call(this, params);
         }
 
     });
@@ -18544,238 +20623,13 @@ _.extend(TabPanelBuilder.prototype, /** @lends TabPanelBuilder.prototype*/ {
         if (metadata.OnSelectedItemChanged) {
             element.onSelectedItemChanged(function (context, args) {
                 return new ScriptExecutor(params.parentView)
-                    .executeScript(metadata.OnSelectedItemChanged.Name, args);
+                    .executeScript(metadata.OnSelectedItemChanged.Name || metadata.OnSelectedItemChanged, args);
             });
         }
     }
 
 
 });
-
-//####app/new/elements/tablePanel/cell/cell.js
-/**
- * @param parent
- * @constructor
- * @augments Container
- */
-function Cell(parent) {
-    _.superClass(Cell, this, parent);
-}
-
-_.inherit(Cell, Container);
-
-_.extend(Cell.prototype, {
-    createControl: function () {
-        return new CellControl();
-    },
-
-    getColumnSpan: function(){
-        return this.control.get('columnSpan');
-    },
-
-    setColumnSpan: function(newColumnSpan){
-        this.control.set('columnSpan', newColumnSpan);
-    }
-});
-//####app/new/elements/tablePanel/cell/cellBuilder.js
-/**
- * @constructor
- * @augments ContainerBuilder
- */
-function CellBuilder() {
-    _.superClass(CellBuilder, this);
-}
-
-_.inherit(CellBuilder, ContainerBuilder);
-
-_.extend(CellBuilder.prototype,
-    /** @lends CellBuilder.prototype*/
-    {
-        createElement: function (params) {
-            return new Cell(params.parent);
-        },
-
-        /**
-         * @param {Object} params
-         * @param {CellBuilder} params.element
-         * @param {Object} params.metadata
-         */
-        applyMetadata: function (params) {
-            var
-                metadata = params.metadata,
-                element = params.element;
-
-            ContainerBuilder.prototype.applyMetadata.call(this, params);
-
-            params.element.setColumnSpan(metadata.ColumnSpan);
-        }
-
-    });
-
-//####app/new/elements/tablePanel/row/RowBuilder.js
-/**
- * @constructor
- * @augments ContainerBuilder
- */
-function RowBuilder() {
-    _.superClass(RowBuilder, this);
-}
-
-_.inherit(RowBuilder, ContainerBuilder);
-
-_.extend(RowBuilder.prototype,
-    /** @lends RowBuilder.prototype*/
-    {
-        createElement: function (params) {
-            return new Row(params.parent);
-        },
-
-        /**
-         * @param {Object} params
-         * @param {RowBuilder} params.element
-         * @param {Object} params.metadata
-         */
-        applyMetadata: function (params) {
-            var
-                metadata = params.metadata,
-                element = params.element;
-
-            ContainerBuilder.prototype.applyMetadata.call(this, params);
-        }
-
-    });
-
-//####app/new/elements/tablePanel/row/row.js
-/**
- * @param parent
- * @constructor
- * @augments Container
- */
-function Row(parent) {
-    _.superClass(Row, this, parent);
-}
-
-_.inherit(Row, Container);
-
-_.extend(Row.prototype, {
-    createControl: function () {
-        return new RowControl();
-    }
-});
-//####app/new/elements/tablePanel/tablePanel.js
-/**
- * @param parent
- * @constructor
- * @augments Container
- */
-function TablePanel(parent) {
-    _.superClass(TablePanel, this, parent);
-}
-
-_.inherit(TablePanel, Container);
-
-_.extend(TablePanel.prototype, {
-    createControl: function () {
-        return new TablePanelControl();
-    }
-});
-//####app/new/elements/tablePanel/tablePanelBuilder.js
-/**
- * @constructor
- * @augments ContainerBuilder
- */
-function TablePanelBuilder() {
-    _.superClass(TablePanelBuilder, this);
-}
-
-_.inherit(TablePanelBuilder, ContainerBuilder);
-
-_.extend(TablePanelBuilder.prototype,
-    /** @lends TablePanelBuilder.prototype*/
-    {
-        createElement: function (params) {
-            return new TablePanel(params.parent);
-        },
-
-        /**
-         * @param {Object} params
-         * @param {TablePanel} params.element
-         * @param {Object} params.metadata
-         */
-        applyMetadata: function (params) {
-            var
-                metadata = params.metadata,
-                element = params.element;
-
-            ContainerBuilder.prototype.applyMetadata.call(this, params);
-        }
-
-    });
-
-//####app/new/elements/textBox/textBox.js
-/**
- *
- * @param parent
- * @constructor
- * @augments TextEditorBase
- */
-function TextBox(parent) {
-    _.superClass(TextBox, this, parent);
-}
-
-_.inherit(TextBox, TextEditorBase);
-
-TextBox.prototype.createControl = function (parent) {
-    return new TextBoxControl(parent);
-};
-
-TextBox.prototype.getMultiline = function () {
-    return this.control.get('multiline');
-};
-
-TextBox.prototype.setMultiline = function (value) {
-    this.control.set('multiline', value);
-};
-
-TextBox.prototype.getLineCount = function () {
-    return this.control.get('lineCount');
-};
-
-TextBox.prototype.setLineCount = function (value) {
-    this.control.set('lineCount', value);
-};
-
-
-
-//####app/new/elements/textBox/textBoxBuilder.js
-/**
- *
- * @constructor
- * @augments TextEditorBaseBuilder
- */
-function TextBoxBuilder() {
-    _.superClass(TextBoxBuilder, this);
-}
-
-_.inherit(TextBoxBuilder, TextEditorBaseBuilder);
-
-TextBoxBuilder.prototype.createElement = function (params) {
-    return new TextBox(params.parent);
-};
-
-TextBoxBuilder.prototype.applyMetadata = function (params) {
-    TextEditorBaseBuilder.prototype.applyMetadata.call(this, params);
-
-    var element = params.element;
-    var metadata = params.metadata;
-    var lineCount = metadata.LineCount;
-    element.setMultiline(metadata.Multiline);
-    if (metadata.Multiline && lineCount === null || typeof lineCount === 'undefined') {
-        lineCount = 2;
-    }
-    element.setLineCount(lineCount);
-};
-
 
 //####app/new/elements/toggleButton/toggleButton.js
 /**
@@ -18888,6 +20742,116 @@ _.extend(ToolBarBuilder.prototype, /** @lends ToolBarBuilder.prototype */{
     }
 
 });
+//####app/new/elements/treeView/treeView.js
+/**
+ * @param parent
+ * @constructor
+ */
+function TreeView(parent) {
+    _.superClass(TreeView, this, parent);
+}
+
+_.inherit(TreeView, ListEditorBase);
+
+TreeView.prototype.createControl = function () {
+    return new TreeViewControl();
+};
+
+/**
+ *
+ * @returns Function}
+ */
+TreeView.prototype.getKeySelector = function () {
+    return this.control.get('keySelector');
+};
+
+/**
+ *
+ * @param {Function} value
+ */
+TreeView.prototype.setKeySelector = function (value) {
+    this.control.set('keySelector', value);
+};
+
+/**
+ *
+ * @returns {Function}
+ */
+TreeView.prototype.getParentSelector = function () {
+    return this.control.get('parentSelector');
+};
+
+/**
+ *
+ * @param {Function} value
+ */
+TreeView.prototype.setParentSelector = function (value) {
+    this.control.set('parentSelector', value);
+};
+//####app/new/elements/treeView/treeViewBuilder.js
+function TreeViewBuilder() {
+    _.superClass(TreeViewBuilder, this);
+}
+
+_.inherit(TreeViewBuilder, ListEditorBaseBuilder);
+
+_.extend(TreeViewBuilder.prototype, /** @lends TreeViewBuilder.prototype */{
+
+    createElement: function (params) {
+        return new TreeView(params.parent);
+    },
+
+    applyMetadata: function (params) {
+        var data = ListEditorBaseBuilder.prototype.applyMetadata.call(this, params);
+
+        this._initKeySelector(params);
+        this._initParentSelector(params);
+    },
+
+    _initKeySelector: function (params) {
+        var element = params.element;
+        var metadata = params.metadata;
+        var keySelector;
+
+        if (metadata.KeySelector) {
+            keySelector = function (context, args) {
+                var scriptExecutor = new ScriptExecutor(element.getScriptsStorage());
+                return scriptExecutor.executeScript(metadata.KeySelector.Name || metadata.KeySelector, args)
+            }
+        } else if (metadata.KeyProperty) {
+            keySelector = function (context, args) {
+                return InfinniUI.ObjectUtils.getPropertyValue(args.value, metadata.KeyProperty);
+            }
+        } else {
+            keySelector = function (context, args) {
+                return args.value;
+            }
+        }
+        element.setKeySelector(keySelector);
+    },
+
+    _initParentSelector: function (params) {
+        var element = params.element;
+        var metadata = params.metadata;
+        var parentSelector;
+
+        if (metadata.ParentSelector) {
+            parentSelector = function (context, args) {
+                var scriptExecutor = new ScriptExecutor(element.getScriptsStorage());
+                return scriptExecutor.executeScript(metadata.ParentSelector.Name || metadata.ParentSelector, args)
+            }
+        } else if (metadata.ParentProperty) {
+            parentSelector = function (context, args) {
+                return InfinniUI.ObjectUtils.getPropertyValue(args.value, metadata.ParentProperty);
+            }
+        } else {
+            parentSelector = function (context, args) {
+                return args.value;
+            }
+        }
+        element.setParentSelector(parentSelector);
+    }
+});
 //####app/new/elements/view/view.js
 /**
  * @param parent
@@ -18909,7 +20873,8 @@ function View(parent) {
 
     this.handlers = {
         onBeforeLoaded: $.Deferred(),
-        onLoaded: $.Deferred()
+        onLoaded: $.Deferred(),
+        onSelectedElementChange: null
     };
 
     this._initContext();
@@ -18939,6 +20904,8 @@ _.inherit(View, Container);
 
 _.extend(View.prototype,
     {
+
+        isView: true,
 
         _initDataSourceHandlers: function(){
             var that = this;
@@ -19181,9 +21148,9 @@ _.extend(View.prototype,
          * @description Устанавливает флаг видитмости кнопки закрытия
          * @param {boolean} value
          */
-        setCloseButton: function (value) {
+        setCloseButtonVisibility: function (value) {
             if (typeof value === 'boolean') {
-                this.control.set('closeButton', value);
+                this.control.set('closeButtonVisibility', value);
             }
         },
 
@@ -19191,8 +21158,8 @@ _.extend(View.prototype,
          * @description Возвращает флаг видимости кнопки закрытия
          * @returns {boolean}
          */
-        getCloseButton: function () {
-            return this.control.get('closeButton');
+        getCloseButtonVisibility: function () {
+            return this.control.get('closeButtonVisibility');
         },
 
         noDataSourceOnView: function(){
@@ -19219,6 +21186,8 @@ _.extend(View.prototype,
 
             return this.membersDeferreds[memberName];
         }
+
+
     }
 );
 //####app/new/elements/view/viewBuilder.js
@@ -19237,6 +21206,8 @@ _.extend(ViewBuilder.prototype, {
         return new View(params.parent);
     },
 
+
+
     applyMetadata: function (params) {
 
         var parentView = params.parentView;
@@ -19245,10 +21216,12 @@ _.extend(ViewBuilder.prototype, {
         params = _.extend({}, params);
         params.parentView = params.element;
 
-        var
+        var that = this,
             metadata = params.metadata,
             element = params.element,
             builder = params.builder;
+
+
 
         var scripts = element.getScripts();
         var parameters = element.getParameters();
@@ -19267,6 +21240,8 @@ _.extend(ViewBuilder.prototype, {
                 scripts.add(script);
             }
         }
+
+        this.triggerStartCreatingEvent(params);
 
         if (metadata.Parameters) {
             var passedParams = params.params || {};
@@ -19298,8 +21273,8 @@ _.extend(ViewBuilder.prototype, {
             }
         }
 
-        if (metadata.DataSources) {
-            var dataSources = builder.buildMany(metadata.DataSources, {parentView: element});
+        if (metadata.DataSources && metadata.DataSources.length) {
+            var dataSources = builder.buildMany(metadata.DataSources, {parentView: element, suspended: params.suspended});
 
             element.getDataSources()
                 .set(dataSources);
@@ -19314,7 +21289,7 @@ _.extend(ViewBuilder.prototype, {
         }
 
         element.setHeaderTemplate(this.buildHeaderTemplate(element, params));
-        element.setCloseButton(metadata.CloseButton);
+        element.setCloseButtonVisibility(metadata.CloseButtonVisibility);
 
         if(metadata.OnOpening){
             element.onOpening(function() {
@@ -19341,6 +21316,17 @@ _.extend(ViewBuilder.prototype, {
         }
 
         ContainerBuilder.prototype.applyMetadata.call(this, params);
+    },
+
+    triggerStartCreatingEvent: function (params) {
+        var
+            element = params.element,
+            metadata = params.metadata,
+            onStartCreating = metadata.OnStartCreating;
+
+        if (onStartCreating) {
+            new ScriptExecutor(element).executeScript(onStartCreating.Name || onStartCreating, {});
+        }
     }
 },
     viewBuilderHeaderTemplateMixin
@@ -19411,17 +21397,22 @@ _.extend(BaseEditAction.prototype, {
 
         this.setProperty('editDataSource', editDataSource);
         this.setProperty('destinationDataSource', destinationDataSource);
-        this.setSelectedItem();
 
-        editView.open();
+        var isSuccessfulPreset = this.setSelectedItem();
 
-        editView.onClosed(function(){
-            var dialogResult = editView.getDialogResult();
+        if( isSuccessfulPreset ) {
+            editView.open();
 
-            if (dialogResult == DialogResult.accepted) {
-                that.handleClosingView();
-            }
-        });
+            editView.onClosed(function(){
+                var dialogResult = editView.getDialogResult();
+
+                if (dialogResult == DialogResult.accepted) {
+                    that.handleClosingView();
+                }
+            });
+        } else {
+            editView.close();
+        }
     },
 
     handleClosingView: function(){
@@ -19487,12 +21478,14 @@ _.extend(AddAction.prototype, {
                 editDataSource.createItem();
             });
         }
+
+        return true;
     },
 
     save: function(){
         var editDataSource = this.getProperty('editDataSource'),
             destinationDataSource = this.getProperty('destinationDataSource'),
-            destinationProperty = this.getProperty('destinationProperty');
+            destinationProperty = this.getProperty('destinationProperty')  || "";
 
         if( this._isObjectDataSource(editDataSource) ) {
             var items = destinationDataSource.getProperty(destinationProperty) || [],
@@ -19522,13 +21515,11 @@ function AddActionBuilder(){
 		action.setProperty('sourceSource', metadata.SourceValue.Source);
         action.setProperty('destinationSource', metadata.DestinationValue.Source);
 
-        if( !_.isEmpty(metadata.DestinationValue.Property) ){
-            var destinationProperty = (args.basePathOfProperty != null) ?
-                                        args.basePathOfProperty.resolveProperty( metadata.DestinationValue.Property ) :
-                                        metadata.DestinationValue.Property;
+        var destinationProperty = (args.basePathOfProperty != null) ?
+            args.basePathOfProperty.resolveProperty( metadata.DestinationValue.Property ) :
+            metadata.DestinationValue.Property;
 
-            action.setProperty('destinationProperty', metadata.DestinationValue.Property);
-        }
+        action.setProperty('destinationProperty', destinationProperty);
 
         return action;
     }
@@ -19676,17 +21667,34 @@ _.extend(EditAction.prototype, {
 
         var selectedItem = destinationDataSource.getProperty(destinationProperty);
 
+        if( selectedItem == null ){
+
+            var logger = window.InfinniUI.global.logger;
+            var message = stringUtils.format('EditAction: edit item has not been found. {0} does not have item by path "{1}"', [destinationDataSource.getName(), destinationProperty]);
+            logger.error(message);
+
+            return false;
+        }
+
         if( this._isObjectDataSource(editDataSource) ) {
             this.setItem(editDataSource, selectedItem);
         } else {
             this.setDocument(editDataSource, selectedItem);
         }
+
+        return true;
+    },
+
+    resumeUpdateEditDataSource: function () {
+        var editDataSource = this.getProperty('editDataSource');
+        editDataSource.resumeUpdate('EditAction');
     },
 
     setDocument: function (editDataSource, selectedItem){
         var selectedItemId = editDataSource.idOfItem( selectedItem );
 
         var criteria = [ { CriteriaType:1, Property: "Id", Value:  selectedItemId  } ];
+        this.resumeUpdateEditDataSource();
         editDataSource.setFilter( criteria );
     },
 
@@ -19696,7 +21704,7 @@ _.extend(EditAction.prototype, {
         if(item === undefined || item === null){
             item = {};
         }
-
+        this.resumeUpdateEditDataSource();
         editDataSource.setItems( [item] );
         editDataSource.setSelectedItem( item );
     },
@@ -19727,7 +21735,15 @@ function EditActionBuilder(){
 
         var action = new EditAction(parentView);
 
-        var linkView = builder.build(metadata['LinkView'], {parent: args.parent, parentView: parentView, basePathOfProperty: args.basePathOfProperty});
+        var suspended = {};
+        suspended[metadata.DestinationValue.Source] = 'EditAction';
+
+        var linkView = builder.build(metadata['LinkView'], {
+            parent: args.parent,
+            parentView: parentView,
+            basePathOfProperty: args.basePathOfProperty,
+            suspended: suspended
+        });
         action.setProperty('linkView', linkView);
 
         action.setProperty('sourceSource', metadata.SourceValue.Source);
@@ -19996,7 +22012,7 @@ _.extend(SaveAction.prototype, {
         var canClose = this.getProperty('canClose');
 
         var onSuccessSave = function(context, args){
-            if(canClose){
+            if(canClose !== false){
                 parentView.setDialogResult(DialogResult.accepted);
                 parentView.close();
             }
@@ -20015,12 +22031,11 @@ function SaveActionBuilder() {
     this.build = function (context, args) {
         var parentView = args.parentView;
         var dataSource = parentView.getContext().dataSources[args.metadata.DestinationValue.Source];
-        var canClose = (args.metadata.CanClose !== false);
 
         var action = new SaveAction(parentView);
 
         action.setProperty('dataSource', dataSource);
-        action.setProperty('canClose', canClose);
+        action.setProperty('canClose', args.metadata.CanClose);
 
         return action;
     }
@@ -20035,13 +22050,14 @@ _.inherit(SelectAction, BaseAction);
 
 _.extend(SelectAction.prototype, {
     execute: function(callback){
+        var parentView = this.parentView;
         var linkView = this.getProperty('linkView');
 
-        var srcDataSourceName = this.getProperty('srcDataSourceName');
-        var srcPropertyName = this.getProperty('srcPropertyName');
+        var srcDataSourceName = this.getProperty('sourceSource');
+        var srcPropertyName = this.getProperty('sourceProperty');
 
-        var dstDataSourceName = this.getProperty('dstDataSourceName');
-        var dstPropertyName = this.getProperty('dstPropertyName');
+        var dstDataSourceName = this.getProperty('destinationSource');
+        var dstPropertyName = this.getProperty('destinationProperty');
 
         linkView.createView(function(createdView){
 
@@ -20050,10 +22066,10 @@ _.extend(SelectAction.prototype, {
 
                 if (dialogResult == DialogResult.accepted) {
                     var srcDataSource = createdView.getContext().dataSources[srcDataSourceName];
-                    var dstDataSource = createdView.getContext().dataSources[dstDataSourceName];
+                    var dstDataSource = parentView.getContext().dataSources[dstDataSourceName];
 
                     var value = srcDataSource.getProperty(srcPropertyName);
-                    dstDataSource.setProperty(srcPropertyName, value);
+                    dstDataSource.setProperty(dstPropertyName, value);
 
                     if (callback) {
                         callback(value);
@@ -20076,10 +22092,10 @@ function SelectActionBuilder() {
         var linkView = builder.build(metadata['LinkView'], {parentView: parentView});
 
         action.setProperty('linkView', linkView);
-        action.setProperty('srcDataSourceName', metadata.SourceValue.Source);
-        action.setProperty('srcPropertyName', metadata.SourceValue.Property);
-        action.setProperty('dstDataSourceName', metadata.DestinationValue.Source);
-        action.setProperty('dstPropertyName', metadata.DestinationValue.Property);
+        action.setProperty('sourceSource', metadata.SourceValue.Source);
+        action.setProperty('sourceProperty', metadata.SourceValue.Property);
+        action.setProperty('destinationSource', metadata.DestinationValue.Source);
+        action.setProperty('destinationProperty', metadata.DestinationValue.Property);
 
         return action;
     }
@@ -20345,7 +22361,6 @@ _.extend(ApplicationBuilder.prototype, {
 
         builder.register('View', new ViewBuilder());
         builder.register('InlineView', new InlineViewBuilder());
-        builder.register('ChildView', new ChildViewBuilder());
         builder.register('AutoView', new MetadataViewBuilder());
         builder.register('ExistsView', new MetadataViewBuilder());
 
@@ -20375,25 +22390,25 @@ _.extend(ApplicationBuilder.prototype, {
         builder.register('FileBox', new FileBoxBuilder());
         builder.register('Label', new LabelBuilder());
         builder.register('Icon', new IconBuilder());
-        builder.register('LinkLabel', new LinkLabelBuilder());
+        builder.register('DateTimePicker', new DateTimePickerBuilder());
         builder.register('DatePicker', new DatePickerBuilder());
+        builder.register('TimePicker', new TimePickerBuilder());
         builder.register('ToggleButton', new ToggleButtonBuilder());
         builder.register('NumericBox', new NumericBoxBuilder());
         builder.register('Button', new ButtonBuilder());
         builder.register('ToolBar', new ToolBarBuilder());
         builder.register('ToolBarButton', new ButtonBuilder());
-        //builder.register('ToolBarSeparator', new ToolBarSeparatorBuilder());
         builder.register('ComboBox', new ComboBoxBuilder());
         builder.register('RadioGroup', new RadioGroupBuilder());
-        builder.register('SearchPanel', new SearchPanelBuilder());
         builder.register('ExtensionPanel', new ExtensionPanelBuilder());
-        builder.register('FilterPanel', new FilterPanelBuilder());
         builder.register('PopupButton', new PopupButtonBuilder());
         builder.register('DataNavigation', new DataNavigationBuilder());
         builder.register('DocumentViewer', new DocumentViewerBuilder());
         builder.register('PdfViewer', new PdfViewerBuilder());
         builder.register('TreeView', new TreeViewBuilder());
         builder.register('Frame', new FrameBuilder());
+        builder.register('ButtonEdit', new ButtonEditBuilder());
+
 
         builder.register('DocumentDataSource', new DocumentDataSourceBuilder());
         builder.register('DataBinding', new DataBindingBuilder());
@@ -20429,8 +22444,6 @@ _.extend(ApplicationBuilder.prototype, {
         builder.register('RegexEditMask', new RegexEditMaskBuilder());
 
         builder.register('Comparator', new ComparatorBuilder());
-        builder.register('GlobalNavigationBar', new GlobalNavigationBarBuilder());
-        builder.register('ActionBar', new ActionBarBuilder());
 
         builder.register('Script', new ScriptBuilder());
 
@@ -20532,198 +22545,6 @@ function Builder() {
     };
 }
 
-//####app/controls/abstractGridPanel/abstractGridPanel.js
-var AbstractGridPanelControl = function(){
-    _.superClass(AbstractGridPanelControl, this);
-};
-
-_.inherit(AbstractGridPanelControl, Control);
-
-_.extend(AbstractGridPanelControl.prototype, {
-
-    addRow: function(row){
-        this.controlModel.addRow(row);
-    },
-
-    getRows: function(){
-        return this.controlModel.getRows();
-    }
-
-});
-//####app/controls/abstractGridPanel/abstractGridPanelModel.js
-var AbstractGridPanelModel = ControlModel.extend({
-
-    defaults: _.defaults({
-        rows: null
-    }, ControlModel.prototype.defaults),
-
-    initialize: function(){
-        this.set('rows', [])
-
-        ControlModel.prototype.initialize.apply(this);
-    },
-
-    addRow: function(row){
-        this.get('rows').push(row);
-        this.trigger('rowsIsChange', this.get('rows'));
-        this.initRowHandlers(row);
-    },
-
-    getRows: function(){
-        return this.get('rows');
-    },
-
-    initRowHandlers: function(row){
-        var self = this;
-
-        row.onCellsChange( function(){
-            self.trigger('cellsIsChange');
-        });
-
-        row.onItemsChange( function(){
-            self.trigger('itemsIsChange');
-        });
-    }
-
-});
-//####app/controls/abstractGridPanel/abstractGridPanelView.js
-var AbstractGridPanelView = ControlView.extend({
-
-    templates: {
-        row: null,
-        cell: null
-    },
-
-    initialize: function () {
-        ControlView.prototype.initialize.apply(this);
-        this.listenTo(this.model, 'rowsIsChange', this.rerender);
-        this.listenTo(this.model, 'cellsIsChange', this.rerender);
-        this.listenTo(this.model, 'itemsIsChange', this.rerender);
-    },
-
-    render: function () {
-        var $row;
-        this.prerenderingActions();
-
-        this.$el
-            .empty();
-
-        _.each(this.model.getRows(), function(row){
-            $row = this.renderRow(row);
-            this.$el
-                .append($row);
-        }, this);
-
-        this.postrenderingActions();
-        return this;
-    },
-
-    renderRow: function(row){
-        var $row = $(this.templates.row({})),
-            $cell;
-
-        _.each(row.getCells(), function(cell){
-            $cell = this.renderCell(cell);
-            $row.append($cell);
-        }, this);
-
-        return $row;
-    },
-
-    renderCell: function(cell){
-        var $cell = $(this.templates.cell({colSpan: cell.colSpan})),
-            $item;
-
-        _.each(cell.getItems(), function(item){
-            $item = this.renderItem(item);
-            $cell.append($item);
-        }, this);
-
-        return $cell;
-    },
-
-    renderItem: function(item){
-        return item.render();
-    }
-
-});
-//####app/controls/actionBar/actioinBarControl.js
-var ActionBarControl = function () {
-    _.superClass(ActionBarControl, this);
-};
-
-_.inherit(ActionBarControl, Control);
-
-_.extend(ActionBarControl.prototype, {
-    createControlModel: function () {
-        return new ActionBarModel();
-    },
-
-    createControlView: function (model) {
-        return new ActionBarView({model: model});
-    }
-});
-
-//####app/controls/actionBar/actionBarModel.js
-var ActionBarModel = ControlModel.extend({
-
-    initialize: function () {
-        this.set('pages', []);
-        ControlModel.prototype.initialize.apply(this);
-    }
-
-});
-
-//####app/controls/actionBar/actionBarView.js
-var ActionBarView = ControlView.extend({
-
-    className: 'pl-action-bar',
-
-    template: {
-        //panel: InfinniUI.Template["controls/filterPanel/template/template.tpl.html"],
-    },
-
-    initialize: function () {
-        ControlView.prototype.initialize.apply(this);
-        this.listenTo(this.model, 'change:pages', this.onPagesChange);
-    },
-
-    render: function () {
-        this.renderButtons();
-        return this;
-    },
-
-    renderButtons: function () {
-        var pages = this.model.get('pages');
-        var buttons = _.map(pages, function (pageView) {
-            var button = new ActionBarButtonView({
-                key: pageView.getGuid(),
-                text: pageView.getText()
-            });
-        }, this);
-    },
-
-    onPagesChange: function () {
-
-        var pages = this.model.get('pages');
-        console.log(pages);
-        for (var i = 0, ln = pages.length; i < ln; i = i + 1) {
-
-        }
-    }
-
-});
-//####app/controls/actionBar/buttons/actionBarButton.js
-var ActionBarButtonModel = Backbone.Model.extend({
-
-});
-
-var ActionBarButtonView = Backbone.Model.extend({
-
-    initialize: function (options) {
-        this.model = new ActionBarButtonModel(options);
-    }
-});
 //####app/controls/application/activeBar/activeBar.js
 var ActiveBarModel = Backbone.Model.extend({
 	
@@ -21704,6 +23525,294 @@ var GlobalNavigationPopup = Backbone.View.extend({
     }
 
 });
+//####app/controls/application/statusBar/authentication/authenticationProvider.js
+/**
+  * Провайдер аутентификации.
+  *
+  * @constructor
+  */
+function AuthenticationProvider(baseAddress) {
+    this.baseAddress = baseAddress;
+}
+
+
+_.extend(AuthenticationProvider.prototype, {
+    handlers: {
+        onActiveRoleChanged: $.Callbacks(),
+        onSignInInternal: $.Callbacks(),
+        onSignOut: $.Callbacks()
+    },
+
+    /**
+          * Возвращает информацию о текущем пользователе.
+          *
+          * @public
+          */
+    getCurrentUser: function(resultCallback, errorCallback) {
+        this.sendPostRequest('/Auth/GetCurrentUser', {}, resultCallback, errorCallback);
+    },
+
+    /**
+          * Изменяет пароль текущего пользователя.
+          *
+          * @public
+          */
+    changePassword: function (oldPassword, newPassword, resultCallback, errorCallback) {
+        var changePasswordForm = {
+            OldPassword: oldPassword,
+            NewPassword: newPassword
+        };
+
+        this.sendPostRequest('/Auth/ChangePassword', changePasswordForm, resultCallback, errorCallback);
+    },
+
+    /**
+          * Изменяет персональную информацию текущего пользователя.
+          *
+          * @public
+          */
+    changeProfile: function (displayName, description, resultCallback, errorCallback) {
+        var changeProfileForm = {
+            DisplayName: displayName,
+            Description: description
+        };
+
+        this.sendPostRequest('/Auth/ChangeProfile', changeProfileForm, resultCallback, errorCallback);
+    },
+
+    /**
+          * Изменяет активную роль текущего пользователя.
+          *
+          * @public
+          */
+    changeActiveRole: function (activeRole, resultCallback, errorCallback) {
+        var changeActiveRoleForm = {
+            ActiveRole: activeRole
+        };
+
+        this.sendPostRequest('/Auth/ChangeActiveRole', changeActiveRoleForm, function(){
+            var args = _.toArray(arguments);
+            args.push(activeRole);
+            if(resultCallback){
+                resultCallback.apply(this, args);
+            }
+
+            this.handlers.onActiveRoleChanged.fire.apply(this.handlers.onActiveRoleChanged, args);
+        }, errorCallback);
+    },
+
+    /**
+          * Осуществляет вход пользователя в систему через внутренний провайдер.
+          *
+          * @public
+          */
+    signInInternal: function (userName, password, remember, resultCallback, errorCallback) {
+        var signInInternalForm = {
+            UserName: userName,
+            Password: password,
+            Remember: remember
+        };
+
+        this.sendPostRequest('/Auth/SignInInternal', signInInternalForm, resultCallback, errorCallback);
+    },
+
+    /**
+          * Возвращает форму входа пользователя в систему через внешний провайдер.
+          *
+          * @public
+          */
+    getSignInExternalForm: function (successUrl, failureUrl, resultCallback, errorCallback) {
+        this.getExternalLoginForm('/Auth/SignInExternal', successUrl, failureUrl, resultCallback, errorCallback);
+    },
+
+    /**
+          * Возвращает форму добавления текущему пользователю имени входа у внешнего провайдера.
+          *
+          * @public
+          */
+    getLinkExternalLoginForm: function (successUrl, failureUrl, resultCallback, errorCallback) {
+        this.getExternalLoginForm('/Auth/LinkExternalLogin', successUrl, failureUrl, resultCallback, errorCallback);
+    },
+
+    /**
+          * Удаляет у текущего пользователя имя входа у внешнего провайдера.
+          *
+          * @public
+          */
+    unlinkExternalLogin: function (provider, providerKey, resultCallback, errorCallback) {
+        var unlinkExternalLoginForm = {
+            Provider: provider,
+            ProviderKey: providerKey
+        };
+
+        this.sendPostRequest('/Auth/UnlinkExternalLogin', unlinkExternalLoginForm, resultCallback, errorCallback);
+    },
+
+    addClaim: function(userName, claimName, claimValue, resultCallback, errorCallback) {
+        var claim = {
+            "id" : null,
+            "changesObject" : {
+                "UserName" : userName,
+                "ClaimType": claimName,
+                "ClaimValue": claimValue
+            },
+            "replace" : false
+        };
+
+        this.sendPostRequest('/RestfulApi/StandardApi/authorization/setsessiondata', claim, resultCallback, errorCallback);
+    },
+
+    setSessionData: function(claimType, claimValue, resultCallback, errorCallback) {
+        var claim = {
+            "id" : null,
+            "changesObject" : {
+                "ClaimType": claimType,
+                "ClaimValue": claimValue
+            },
+            "replace" : false
+        };
+
+        this.sendPostRequest('/RestfulApi/StandardApi/authorization/setsessiondata', claim, resultCallback, errorCallback);
+    },
+
+    getSessionData: function(claimType, resultCallback, errorCallback) {
+        var claim = {
+            "id" : null,
+            "changesObject" : {
+                "ClaimType": claimType,
+            },
+            "replace" : false
+        };
+
+        this.sendPostRequest('/RestfulApi/StandardApi/authorization/getsessiondata', claim, resultCallback, errorCallback);
+    },
+
+    /**
+          * Выход пользователя из системы.
+          *
+          * @public
+          */
+    signOut: function (resultCallback, errorCallback) {
+        var signOutInternalForm = {
+            "id" : null,
+            "changesObject" : {},
+            "replace" : false
+        };
+
+        this.sendPostRequest('/Auth/SignOut', null, function(){
+            InfinniUI.user.onReadyDeferred = $.Deferred();
+            InfinniUI.user.onReadyDeferred.resolve(null);
+
+            var args = _.toArray(arguments);
+            if(resultCallback){
+                resultCallback.apply(this, args);
+            }
+
+            this.handlers.onSignOut.fire.apply(this.handlers.onSignOut, args);
+
+        }.bind(this), errorCallback);
+    },
+
+    getExternalLoginForm: function (requestUri, successUrl, failureUrl, resultCallback, errorCallback) {
+        var url = this.baseAddress + requestUri;
+        this.sendPostRequest('/Auth/GetExternalProviders', {},
+            function (result) {
+                var formElement = $(document.createElement('form'));
+                formElement.attr('method', 'POST');
+                formElement.attr('action', url);
+
+                var successUrlElement = $(document.createElement('input'));
+                successUrlElement.attr('type', 'hidden');
+                successUrlElement.attr('name', 'SuccessUrl');
+                successUrlElement.attr('value', successUrl);
+                formElement.append(successUrlElement);
+
+                var failureUrlElement = $(document.createElement('input'));
+                failureUrlElement.attr('type', 'hidden');
+                failureUrlElement.attr('name', 'FailureUrl');
+                failureUrlElement.attr('value', failureUrl);
+                formElement.append(failureUrlElement);
+
+                if (result !== null && result !== undefined) {
+                    for (var i = 0; i < result.length; ++i) {
+                        var providerInfo = result[i];
+                        var providerType = providerInfo.Type;
+                        var providerName = providerInfo.Name;
+
+                        var loginButton = $(document.createElement('button'));
+                        loginButton.attr('type', 'submit');
+                        loginButton.attr('name', 'Provider');
+                        loginButton.attr('value', providerType);
+                        loginButton.text(providerName);
+                        formElement.append(loginButton);
+                    }
+                }
+
+                resultCallback(formElement);
+            },
+            errorCallback
+        );
+    },
+
+    sendGetRequest: function (requestUri, resultCallback, errorCallback) {
+        $.ajax(this.baseAddress + requestUri, {
+            type: 'GET',
+            xhrFields: {
+                withCredentials: true
+            },
+            beforeSend: this.onBeforeRequest(),
+            success: this.onSuccessRequest(resultCallback),
+            error: this.onErrorRequest(function (error) {
+                if(errorCallback) {
+                    errorCallback(error.responseJSON);
+                }
+            })
+        });
+    },
+
+    sendPostRequest: function (requestUri, requestData, resultCallback, errorCallback) {
+        var that = this;
+
+        if (requestData !== null) {
+            requestData = JSON.stringify(requestData);
+        }
+        $.ajax(this.baseAddress + requestUri, {
+            type: 'POST',
+            xhrFields: {
+                withCredentials: true
+            },
+            data: requestData,
+            contentType: 'application/json',
+            beforeSend: this.onBeforeRequest(),
+            success: this.onSuccessRequest(resultCallback),
+            error: this.onErrorRequest(function (error) {
+                if(error.status != 200) {
+                    if(errorCallback) {
+                        errorCallback(error.responseJSON);
+                    }
+                } else {
+                    that.onSuccessRequest(resultCallback).apply(that, arguments);
+                }
+            })
+        });
+    },
+
+    onActiveRoleChanged: function(handler){
+        this.handlers.onActiveRoleChanged.add(handler);
+    },
+
+    onSignInInternal: function(handler){
+        this.handlers.onSignInInternal.add(handler);
+    },
+
+    onSignOut: function(handler){
+        this.handlers.onSignOut.add(handler);
+    }
+});
+
+_.extend(AuthenticationProvider.prototype, ajaxRequestMixin);
+
+InfinniUI.global.session = new AuthenticationProvider(InfinniUI.config.serverUrl);
 //####app/controls/application/statusBar/authentication/SignInSuccessView.js
 jQuery(document).ready(function () {
     InfinniUI.user = {
@@ -21931,284 +24040,6 @@ function showObject(element, object) {
 function formatObject(object) {
     return JSON.stringify(object, null, 4);
 }
-//####app/controls/application/statusBar/authentication/authenticationProvider.js
-/**
-  * Провайдер аутентификации.
-  *
-  * @constructor
-  */
-function AuthenticationProvider(baseAddress) {
-    this.baseAddress = baseAddress;
-}
-
-
-_.extend(AuthenticationProvider.prototype, {
-    handlers: {
-        onActiveRoleChanged: $.Callbacks(),
-        onSignInInternal: $.Callbacks(),
-        onSignOut: $.Callbacks()
-    },
-
-    /**
-          * Возвращает информацию о текущем пользователе.
-          *
-          * @public
-          */
-    getCurrentUser: function(resultCallback, errorCallback) {
-        this.sendPostRequest('/Auth/GetCurrentUser', {}, resultCallback, errorCallback);
-    },
-
-    /**
-          * Изменяет пароль текущего пользователя.
-          *
-          * @public
-          */
-    changePassword: function (oldPassword, newPassword, resultCallback, errorCallback) {
-        var changePasswordForm = {
-            OldPassword: oldPassword,
-            NewPassword: newPassword
-        };
-
-        this.sendPostRequest('/Auth/ChangePassword', changePasswordForm, resultCallback, errorCallback);
-    },
-
-    /**
-          * Изменяет персональную информацию текущего пользователя.
-          *
-          * @public
-          */
-    changeProfile: function (displayName, description, resultCallback, errorCallback) {
-        var changeProfileForm = {
-            DisplayName: displayName,
-            Description: description
-        };
-
-        this.sendPostRequest('/Auth/ChangeProfile', changeProfileForm, resultCallback, errorCallback);
-    },
-
-    /**
-          * Изменяет активную роль текущего пользователя.
-          *
-          * @public
-          */
-    changeActiveRole: function (activeRole, resultCallback, errorCallback) {
-        var changeActiveRoleForm = {
-            ActiveRole: activeRole
-        };
-
-        this.sendPostRequest('/Auth/ChangeActiveRole', changeActiveRoleForm, function(){
-            var args = _.toArray(arguments);
-            args.push(activeRole);
-            if(resultCallback){
-                resultCallback.apply(this, args);
-            }
-
-            this.handlers.onActiveRoleChanged.fire.apply(this.handlers.onActiveRoleChanged, args);
-        }, errorCallback);
-    },
-
-    /**
-          * Осуществляет вход пользователя в систему через внутренний провайдер.
-          *
-          * @public
-          */
-    signInInternal: function (userName, password, remember, resultCallback, errorCallback) {
-        var signInInternalForm = {
-            UserName: userName,
-            Password: password,
-            Remember: remember
-        };
-
-        this.sendPostRequest('/Auth/SignInInternal', signInInternalForm, resultCallback, errorCallback);
-    },
-
-    /**
-          * Возвращает форму входа пользователя в систему через внешний провайдер.
-          *
-          * @public
-          */
-    getSignInExternalForm: function (successUrl, failureUrl, resultCallback, errorCallback) {
-        this.getExternalLoginForm('/Auth/SignInExternal', successUrl, failureUrl, resultCallback, errorCallback);
-    },
-
-    /**
-          * Возвращает форму добавления текущему пользователю имени входа у внешнего провайдера.
-          *
-          * @public
-          */
-    getLinkExternalLoginForm: function (successUrl, failureUrl, resultCallback, errorCallback) {
-        this.getExternalLoginForm('/Auth/LinkExternalLogin', successUrl, failureUrl, resultCallback, errorCallback);
-    },
-
-    /**
-          * Удаляет у текущего пользователя имя входа у внешнего провайдера.
-          *
-          * @public
-          */
-    unlinkExternalLogin: function (provider, providerKey, resultCallback, errorCallback) {
-        var unlinkExternalLoginForm = {
-            Provider: provider,
-            ProviderKey: providerKey
-        };
-
-        this.sendPostRequest('/Auth/UnlinkExternalLogin', unlinkExternalLoginForm, resultCallback, errorCallback);
-    },
-
-    addClaim: function(userName, claimName, claimValue, resultCallback, errorCallback) {
-        var claim = {
-            "id" : null,
-            "changesObject" : {
-                "UserName" : userName,
-                "ClaimType": claimName,
-                "ClaimValue": claimValue
-            },
-            "replace" : false
-        };
-
-        this.sendPostRequest('/RestfulApi/StandardApi/authorization/setsessiondata', claim, resultCallback, errorCallback);
-    },
-
-    setSessionData: function(claimType, claimValue, resultCallback, errorCallback) {
-        var claim = {
-            "id" : null,
-            "changesObject" : {
-                "ClaimType": claimType,
-                "ClaimValue": claimValue
-            },
-            "replace" : false
-        };
-
-        this.sendPostRequest('/RestfulApi/StandardApi/authorization/setsessiondata', claim, resultCallback, errorCallback);
-    },
-
-    getSessionData: function(claimType, resultCallback, errorCallback) {
-        var claim = {
-            "id" : null,
-            "changesObject" : {
-                "ClaimType": claimType,
-            },
-            "replace" : false
-        };
-
-        this.sendPostRequest('/RestfulApi/StandardApi/authorization/getsessiondata', claim, resultCallback, errorCallback);
-    },
-
-    /**
-          * Выход пользователя из системы.
-          *
-          * @public
-          */
-    signOut: function (resultCallback, errorCallback) {
-        var signOutInternalForm = {
-            "id" : null,
-            "changesObject" : {},
-            "replace" : false
-        };
-
-        this.sendPostRequest('/Auth/SignOut', null, function(){
-            var args = _.toArray(arguments);
-            if(resultCallback){
-                resultCallback.apply(this, args);
-            }
-
-            this.handlers.onSignOut.fire.apply(this.handlers.onSignOut, args);
-        }.bind(this), errorCallback);
-    },
-
-    getExternalLoginForm: function (requestUri, successUrl, failureUrl, resultCallback, errorCallback) {
-        var url = this.baseAddress + requestUri;
-        this.sendPostRequest('/Auth/GetExternalProviders', {},
-            function (result) {
-                var formElement = $(document.createElement('form'));
-                formElement.attr('method', 'POST');
-                formElement.attr('action', url);
-
-                var successUrlElement = $(document.createElement('input'));
-                successUrlElement.attr('type', 'hidden');
-                successUrlElement.attr('name', 'SuccessUrl');
-                successUrlElement.attr('value', successUrl);
-                formElement.append(successUrlElement);
-
-                var failureUrlElement = $(document.createElement('input'));
-                failureUrlElement.attr('type', 'hidden');
-                failureUrlElement.attr('name', 'FailureUrl');
-                failureUrlElement.attr('value', failureUrl);
-                formElement.append(failureUrlElement);
-
-                if (result !== null && result !== undefined) {
-                    for (var i = 0; i < result.length; ++i) {
-                        var providerInfo = result[i];
-                        var providerType = providerInfo.Type;
-                        var providerName = providerInfo.Name;
-
-                        var loginButton = $(document.createElement('button'));
-                        loginButton.attr('type', 'submit');
-                        loginButton.attr('name', 'Provider');
-                        loginButton.attr('value', providerType);
-                        loginButton.text(providerName);
-                        formElement.append(loginButton);
-                    }
-                }
-
-                resultCallback(formElement);
-            },
-            errorCallback
-        );
-    },
-
-    sendGetRequest: function (requestUri, resultCallback, errorCallback) {
-        $.ajax(this.baseAddress + requestUri, {
-            type: 'GET',
-            xhrFields: {
-                withCredentials: true
-            },
-            beforeSend: this.onBeforeRequest(),
-            success: this.onSuccessRequest(resultCallback),
-            error: this.onErrorRequest(function (error) {
-                if(errorCallback) {
-                    errorCallback(error.responseJSON);
-                }
-            })
-        });
-    },
-
-    sendPostRequest: function (requestUri, requestData, resultCallback, errorCallback) {
-        if (requestData !== null) {
-            requestData = JSON.stringify(requestData);
-        }
-        $.ajax(this.baseAddress + requestUri, {
-            type: 'POST',
-            xhrFields: {
-                withCredentials: true
-            },
-            data: requestData,
-            contentType: 'application/json',
-            beforeSend: this.onBeforeRequest(),
-            success: this.onSuccessRequest(resultCallback),
-            error: this.onErrorRequest(function (error) {
-                if(errorCallback) {
-                    errorCallback(error.responseJSON);
-                }
-            })
-        });
-    },
-
-    onActiveRoleChanged: function(handler){
-        this.handlers.onActiveRoleChanged.add(handler);
-    },
-
-    onSignInInternal: function(handler){
-        this.handlers.onSignInInternal.add(handler);
-    },
-
-    onSignOut: function(handler){
-        this.handlers.onSignOut.add(handler);
-    }
-});
-
-_.extend(AuthenticationProvider.prototype, ajaxRequestMixin);
-
-InfinniUI.global.session = new AuthenticationProvider(InfinniUI.config.serverUrl);
 //####app/controls/application/statusBar/statusBar.js
 var StatusBarControl = function () {
     _.superClass(StatusBarControl, this);
@@ -22481,710 +24312,22 @@ var ExtensionPanelView = ContainerView.extend({
         this.extensionObject = new window[extensionName](context, {$el: this.$el, parameters: parameters, itemTemplate: itemTemplate, items: items});
     }
 });
-//####app/controls/filterPanel/filterPanel.js
-var FilterPanelControl = function () {
-    _.superClass(FilterPanelControl, this);
-};
-
-_.inherit(FilterPanelControl, Control);
-
-_.extend(FilterPanelControl.prototype, {
-    createControlModel: function () {
-        return new FilterPanelModel();
-    },
-
-    createControlView: function (model) {
-        return new FilterPanelView({model: model});
-    },
-
-    onValueChanged: function (handler) {
-        this.controlView.on('onValueChanged', handler);
-    },
-
-    filter: function () {
-        this.controlView.trigger('applyFilter');
-    }
-
-});
-//####app/controls/filterPanel/filterPanelModel.js
-var FilterPanelModel = ControlModel.extend({
-    defaults: _.defaults({
-    }, ControlModel.prototype.defaults),
-
-    initialize: function(){
-        ControlModel.prototype.initialize.apply(this);
-        this.set({
-            text: 'Найти'
-        }, {silent: true});
-    }
-});
-//####app/controls/filterPanel/filterPanelView.js
-var FilterPanelView = ControlView.extend({
-    className: 'pl-filter-panel',
-
-    template: {
-        panel: InfinniUI.Template["controls/filterPanel/template/template.tpl.html"],
-        item: InfinniUI.Template["controls/filterPanel/template/item.tpl.html"]
-    },
-
-
-    controlsPerLine: 6,
-
-    events: {
-        'click .btn_reset': 'onButtonResetClickHandler',
-        'submit form': 'submitFormHandler'
-    },
-
-    initialize: function () {
-        ControlView.prototype.initialize.apply(this);
-
-        this.listenTo(this.model, 'change:enabled', this.updateEnabled);
-        this.on('applyFilter', this.onApplyFilterHandler);
-    },
-
-    render: function () {
-        this.prerenderingActions();
-        var filters = this.model.get('filters');
-        var $item;
-
-        this.$el.html(this.template.panel({
-            text: this.model.get('text')
-        }));
-        var $controls = this.$('.pl-filter-controls');
-
-        for (var i = 0; i < filters.length; i = i + 1) {
-            $item = $(this.template.item());
-            $('.pl-filter-panel-label', $item).append(filters[i].text.render());
-            for (var j = 0; j < filters[i].operators.length; j++) {
-                $('.pl-filter-panel-control', $item).append(filters[i].operators[j].el.render());
-            }
-
-            $controls.append($item);
-        }
-
-        this.updateEnabled();
-
-        this.postrenderingActions();
-        return this;
-    },
-
-    onApplyFilterHandler: function () {
-        this.$el.find('.pl-text-box').trigger('synchValue');
-        this.onButtonSearchClickHandler();
-    },
-
-    submitFormHandler: function(event){
-        event.preventDefault();
-        this.trigger('applyFilter');
-    },
-
-    onButtonSearchClickHandler: function () {
-        var query = this.collectFormQuery();
-
-        if(this.model.get('value') !== undefined && JSON.stringify(this.model.get('value')) == JSON.stringify(query)) {
-            return;
-        }
-
-        this.model.set('value', query);
-        this.trigger('onValueChanged', this.model.get('value'));
-    },
-
-    filter:function(){
-        this.onButtonSearchClickHandler();
-    },
-
-    onButtonResetClickHandler: function () {
-        var filters = this.model.get('filters');
-        var value = [];
-
-        for (var i = 0; i < filters.length; i++) {
-            for (var j = 0; j < filters[i].operators.length; j++) {
-                filters[i].operators[j].el.control.set('value', null);
-            }
-        }
-
-        this.model.set('value', value);
-        this.trigger('onValueChanged', this.model.get('value'));
-
-        this.$el.find('.dropdown').one('hidden.bs.dropdown', function(){
-            $(this).children('button.dropdown-toggle').focus();
-        })
-    },
-
-    collectFormQuery: function(){
-        var query = [];
-        var filters = this.model.get('filters');
-
-        for (var i = 0; i < filters.length; i++) {
-            for (var j = 0; j < filters[i].operators.length; j++) {
-                var val = filters[i].operators[j].el.getValue();
-                if(val) {
-                    var obj = {};
-                    obj.Property = filters[i].property;
-                    if(obj.Property) {
-                        obj.CriteriaType = toEnum(filters[i].operators[j].operator);
-
-                        if (typeof val == 'object' && !(val instanceof Date)) {
-                            obj.Value = val.Id;
-                        } else {
-                            obj.Value = val;
-                        }
-                        query.push(obj);
-                    }
-                }
-            }
-        }
-        query.push.apply(query, this.model.get('query'));
-        //console.log(query);
-        return query;
-    },
-
-    updateEnabled: function(){
-        this.$el.find('input, button').prop('disabled', !this.model.get('enabled'));
-    }
-});
-//####app/controls/globalNavigationBar/buttons/globalNavigationBarButton.js
-var GlobalNavigationBarButtonModel = Backbone.Model.extend({
-    defaults: {
-        key: '',
-        text: '',
-        active: false,
-        description: ''
-    }
-});
-
-var GlobalNavigationBarButtonView = Backbone.View.extend({
-
-    //className: 'pl-global-navigation-bar-button',
-    className: 'pl-gn-button',
-
-    activeClass: 'pl-active',
-
-    template: InfinniUI.Template["controls/globalNavigationBar/buttons/template/template.tpl.html"],
-    //template: _.template('<a data-key="<%=key%>"><%=text%><i class="fa fa-times"></i></a>'),
-
-    events: {
-        'click .pl-gn-button-link': 'onClickHandler',
-        'click .pl-gn-button-close': 'onClickCloseHandler'
-    },
-
-    initialize: function (options) {
-        this.model = new GlobalNavigationBarButtonModel(options);
-        this.listenTo(this.model, 'change:text', this.render);
-        this.listenTo(this.model, 'change:active', this.onChangeActiveHandler);
-    },
-
-    render: function () {
-        this.$el.html(this.template(this.model.toJSON()));
-        return this;
-    },
-
-    setText: function (text) {
-        this.model.set('text', text);
-    },
-
-    setActive: function (active) {
-        var activate = this.model.get('key') == active;
-        this.model.set('active', activate);
-    },
-
-    getKey: function () {
-        return this.model.get('key');
-    },
-
-    onClickHandler: function (event) {
-        event.preventDefault();
-
-        this.trigger('application:activate', this.model.get('key'));
-    },
-
-    onClickCloseHandler: function (event) {
-        event.preventDefault();
-        this.trigger('application:closing');
-    },
-
-    onClick: function (handler) {
-        this.on('click', handler)
-    },
-
-    onChangeActiveHandler: function () {
-        var active = this.model.get('active');
-
-        this.$el.toggleClass(this.activeClass, active);
-    }
-
-});
-//####app/controls/globalNavigationBar/globalNavigationBarControl.js
-var GlobalNavigationBarControl = function () {
-    _.superClass(GlobalNavigationBarControl, this);
-};
-
-_.inherit(GlobalNavigationBarControl, Control);
-
-_.extend(GlobalNavigationBarControl.prototype, {
-    createControlModel: function () {
-        return new GlobalNavigationBarModel();
-    },
-
-    createControlView: function (model) {
-        return new GlobalNavigationBarView({model: model});
-    },
-
-    addApplicationView: function (view) {
-        var model = this.controlModel;
-        var applications = model.get('applications').slice();
-        if (applications.indexOf(view) === -1) {
-            applications.push(view);
-            model.set('applications', applications);
-        }
-        model.set('active', view.getGuid());
-    },
-
-    removeApplicationView: function (view) {
-        var model = this.controlModel;
-        var applications = model.get('applications').slice();
-        var i = applications.indexOf(view);
-        if (i === -1) {
-            return;
-        }
-        var active = model.get('active');
-        if (active === view.getGuid()) {
-            model.set('active', null);
-        }
-        applications.splice(i, 1);
-        model.set('applications', applications);
-    },
-
-    onActivateApplication: function (handler) {
-        this.controlView.on('application:activate', handler);
-    },
-
-    onClosingApplication: function (handler) {
-        this.controlView.on('application:closing', handler)
-    },
-
-    onCloseApplication: function (handler) {
-        this.controlView.on('application:close', handler);
-    },
-
-    setApplications: function (applications) {
-        this.set('applications', applications.slice());
-    },
-
-    setApplicationText: function (view) {
-        var applications = this.controlModel.get('applications');
-
-        if (applications.indexOf(view) === -1) {
-            return;
-        }
-
-        this.controlModel.trigger('application:text', {
-            key: view.getGuid(),
-            text: view.getText()
-        });
-
-
-    }
-
-});
-//####app/controls/globalNavigationBar/globalNavigationBarModel.js
-var GlobalNavigationBarModel = ControlModel.extend({
-
-    initialize: function () {
-        ControlModel.prototype.initialize.apply(this);
-        this.set('applications', []);
-    }
-
-});
-
-//####app/controls/globalNavigationBar/globalNavigationBarView.js
-var GlobalNavigationBarView = ControlView.extend({
-
-    className: 'pl-global-navigation-bar',
-
-    UI: {
-        buttons: '.pl-gn-buttons'
-    },
-
-    template: InfinniUI.Template["controls/globalNavigationBar/template/template.tpl.html"],
-
-    initialize: function () {
-        ControlView.prototype.initialize.apply(this);
-
-        this.listenTo(this.model, 'change:applications', this.onChangeApplicationsHandler);
-        this.listenTo(this.model, 'change:active', this.onChangeActiveHandler);
-        this.model.set('buttons', []);
-        this.model.set('list', []);
-    },
-
-    onChangeApplicationsHandler: function () {
-        //@TODO Обновить список приложений (кнопки выбора и список)
-        var applications = this.model.get('applications');
-        this.renderApplications();
-    },
-
-    onChangeActiveHandler: function () {
-        var buttons = this.model.get('buttons');
-
-        var active = this.model.get('active');
-
-        var index = _.findIndex(buttons, function (button) {
-            return button.getKey() == active;
-        });
-
-        var button;
-        for (var i = 0, ln = buttons.length; i < ln; i = i + 1) {
-            button = buttons[i];
-            button.$el.toggleClass('pl-before-active', i + 1 === index);
-            button.$el.toggleClass('pl-after-active', i === index + 1);
-            button.$el.toggleClass('last', i === ln - 1);
-        }
-    },
-
-    render: function () {
-
-        this.$el.html(this.template({}));
-        this.bindUIElements();
-
-        this.renderApplications();
-        return this;
-    },
-
-    renderApplications: function () {
-        this.renderButtons();
-        this.renderList();
-    },
-
-    renderButtons: function () {
-        //@TODO Рендеринг список кнопок выбора приложений
-        var applications = this.model.get('applications');
-
-        var control = this;
-
-        var buttons = this.model.get('buttons');
-
-        _.forEach(buttons, function (button) {
-            button.remove();
-        });
-
-
-        if (_.isEmpty(applications)) {
-            return;
-        }
-
-        var active = this.model.get('active');
-
-
-        buttons = _.map(applications, function (app){
-            var button = new GlobalNavigationBarButtonView({
-                key: app.getGuid(),
-                text: app.getText() || app.getGuid(),
-                active: app.getGuid() === active
-            });
-
-            button.listenTo(this.model, 'application:text', function (data) {
-                if (app.getGuid() === data.key) {
-                    this.setText(data.text);
-                }
-            });
-
-            button.listenTo(this.model, 'change:active', function (model, active) {
-                button.setActive(active);
-            });
-
-            this.listenTo(button, 'application:closing', function () {
-                control.trigger('application:closing', app);
-            });
-
-            this.listenTo(button, 'application:activate', function () {
-                control.trigger('application:activate', app);
-            });
-
-
-
-
-            button.onClick(this.onActivateApplicationHandler);
-            //this.$el.append(button.render().$el);
-            this.ui.buttons.append(button.render().$el);
-            return button;
-        }, this);
-
-        this.model.set('buttons', buttons);
-
-    },
-
-    onActivateApplicationHandler: function (key) {
-        var applications = this.model.get('applications');
-
-        var app = _.find(applications, function (app) {
-            return app.getGuid() === key;
-        });
-
-        if (typeof app !== 'undefined') {
-            this.trigger('application:activate', app);
-        }
-    },
-
-
-    renderList: function () {
-        //@TODO Рендеринг выпадающего списка приложений
-    }
-
-});
-//####app/controls/linkLabel/linkLabelControl.js
-var LinkLabelControl = function () {
-    _.superClass(LinkLabelControl, this);
-};
-
-_.inherit(LinkLabelControl, Control);
-
-_.extend(LinkLabelControl.prototype, {
-
-    createControlModel: function () {
-        return new LinkLabelModel();
-    },
-
-    createControlView: function (model) {
-        return new LinkLabelView({model: model});
-    },
-
-    onClick: function(handler){
-        this.controlView.onClick(handler);
-    }
-
-}, controlValuePropertyMixin);
-//####app/controls/linkLabel/linkLabelModel.js
-var LinkLabelModel = ControlModel.extend({
-    defaults: _.defaults({
-        horizontalTextAlignment: 'Left'
-    }, ControlModel.prototype.defaults)
-});
-//####app/controls/linkLabel/linkLabelView.js
-var LinkLabelView = ControlView.extend({
-    className: 'pl-link-label TextWrapping',
-
-    template: InfinniUI.Template["controls/linkLabel/template/linkLabel.tpl.html"],
-
-    UI: {
-        link: 'a',
-        label: 'label',
-        container: 'div'
-    },
-
-    events: {
-        'click a': 'onClickHandler'
-    },
-
-    initialize: function () {
-        ControlView.prototype.initialize.apply(this);
-        this.updateLinkText = _.debounce(this._updateLinkText, 50);
-        this.initModelHandlers();
-    },
-
-    updateReferenceHandler: function (model, value) {
-        this.updateReference();
-    },
-
-    updateReference: function () {
-        if(!this.wasRendered){
-            return;
-        }
-        var href = this.model.get('reference');
-        if(href == null || href == undefined || href == ''){
-            this.ui.link.prop('href', 'javascript:;');
-        }else{
-            this.ui.link.prop('href', href);
-        }
-    },
-
-    initModelHandlers: function () {
-        this.listenTo(this.model, 'change:value', this.updateLinkText);
-        this.listenTo(this.model, 'change:reference', this.updateReferenceHandler);
-        this.listenTo(this.model, 'change:textTrimming', this.updateLinkText);
-        //this.listenTo(this.model, 'change:textWrapping', this.updateLinkText);
-        this.initHorizontalAlignment();
-        this.initHorizontalTextAlignment();
-        this.initForeground();
-        this.initBackground();
-        this.initTextStyle();
-        this.initUpdateLineCount();
-        this.initTextWrapping();
-    },
-
-    render: function () {
-        this.prerenderingActions();
-
-        this.$el
-            .html(this.template({}));
-
-        this.bindUIElements();
-        this.updateLineCount();
-        this.updateTextWrapping();
-        this.updateLinkText();
-        this.updateHorizontalTextAlignment();
-        this.updateBackground();
-        this.updateForeground();
-        this.updateTextStyle();
-
-        this.updateReference();
-
-        this.postrenderingActions();
-        return this;
-    },
-
-    /**
-     * @private
-     */
-    _updateLinkText: function () {
-        var text;
-
-        if(!this.wasRendered){
-            return;
-        }
-
-        var link = this.ui.link;
-        var $container = this.ui.container;
-
-        var model = this.model;
-        var textTrimming = this.model.get('textTrimming');
-        //var textWrapping = this.model.get('textWrapping');
-
-        text = this.getTextLabel();
-
-        //this.$el.toggleClass('TextWrapping', textWrapping);
-        //this.$el.toggleClass('NoTextWrapping', !textWrapping);
-
-
-        this.model.set('lineHeight', this.ui.label.innerHeight());
-
-        /*
-        @TODO Режим ellipsis не применяем т.к.
-        setTimeout(function () {
-            var txt = '';
-            var txt2 = '';
-            var ellipsis = ' ...';
-            var lineCount = model.get('lineCount');
-
-            if (textWrapping) {
-                if (typeof lineCount === 'undefined' || lineCount === null) {
-                    link.text(text);
-                    return;
-                }
-            } else {
-                if (!textTrimming) {
-                    link.text(text);
-                    return;
-                }
-            }
-
-            var chars = [" ", "\n"];
-            var fromPosition = 0;
-
-            var maxWidth = $container.innerWidth();
-            var lineHeight = model.get('lineHeight');
-
-            var pos;
-            while(fromPosition < text.length) {
-                pos = Math.min.apply(Math, _.map(chars, function (char) {
-                    var index = text.indexOf(char, fromPosition);
-                    return index === -1 ? text.length : index;
-                }));
-
-                txt2 = text.substring(0, pos);
-
-                if (textTrimming && pos < text.length) {
-                    txt2 = txt2 + ellipsis;
-                }
-                link.text(txt2);
-
-                if (textWrapping) {
-                    if (link.innerHeight() > lineHeight * lineCount) {
-                        break;
-                    } else {
-                        txt = txt2;
-                    }
-                } else {
-                    if (link.innerWidth() > maxWidth) {
-                        break;
-                    } else {
-                        txt = txt2;
-                    }
-                }
-                fromPosition = pos + 1;
-            }
-
-            link.text(txt);
-        }, 150);//Trimming применяется с задержкой
-        */
-
-        link.text(text);//Устанавливаем текст, Trimming примениться позже (см. setTimeOut выше)
-        link.attr('title', text);
-
-    },
-
-    /**
-     * @private
-     * Возвращает текст для контрола.
-     * @returns {String}
-     */
-    getTextLabel: function () {
-        var text = this.model.get('value');
-        var format = this.model.get('format');
-
-        if (typeof text !== 'undefined' && text !== null) {
-            if (typeof format !== 'undefined' && format !== null) {
-                text = format.format(text);
-            }
-        }else{
-            text = this.model.get('text');
-            if (typeof text === 'undefined' || text == null) {
-                text = '';
-            }
-        }
-
-        return text;
-    },
-
-    /**
-     * @description Обработчик щелчка. Если один из обработчиков вернул false - переход по ссылке отменяется
-     * @private
-     * @param event
-     */
-    onClickHandler: function (event) {
-        var cancel = false;
-
-        var enabled = this.model.get('enabled');
-
-        if (!enabled) {
-            event.preventDefault();
-            return;
-        }
-
-        this.callEventHandler('OnClick', function (response) {
-            if (response === false) {
-                cancel = true;
-            }
-        });
-
-        if (cancel) {
-            event.preventDefault();
-        }
-    }
-
-});
-
-_.extend(LinkLabelView.prototype,
-    foregroundPropertyMixin,
-    backgroundPropertyMixin,
-    textStylePropertyMixin,
-    lineCountPropertyMixin,
-    textWrappingPropertyMixin
-    //horizontalTextAlignmentPropertyMixin
-);
-
 //####app/controls/loaderIndicator/loaderIndicator.js
 (function () {
     var template = InfinniUI.Template["controls/loaderIndicator/template.tpl.html"];
+
+    InfinniUI.loaderIndicator = {
+        show: function(){
+            $.blockUI({
+                message: $(template()),
+                ignoreIfBlocked: true,
+                baseZ: 99999
+            });
+        },
+        hide: function(){
+            $.unblockUI();
+        }
+    };
 
     if (!InfinniUI.config.useLoaderIndicator) {
         return;
@@ -23254,424 +24397,6 @@ var PdfViewerView = PdfViewerViewBase.extend({
         this.listenTo(this.model, 'change:url', renderFrame);
     }
 });
-//####app/controls/searchPanel/searchPanel.js
-var SearchPanelControl = function () {
-    _.superClass(SearchPanelControl, this);
-};
-
-_.inherit(SearchPanelControl, Control);
-
-_.extend(SearchPanelControl.prototype, {
-    createControlModel: function () {
-        return new SearchPanelModel();
-    },
-
-    createControlView: function (model) {
-        return new SearchPanelView({model: model});
-    },
-
-    onValueChanged: function (handler) {
-        this.controlView.on('onValueChanged', handler);
-    }
-});
-//####app/controls/searchPanel/searchPanelModel.js
-var SearchPanelModel = ControlModel.extend({
-    defaults: _.extend({
-        value: null
-    }, ControlModel.prototype.defaults),
-
-    initialize: function(){
-        ControlModel.prototype.initialize.apply(this);
-        this.set({
-            text: 'Найти'
-        }, {silent: true});
-    }
-});
-//####app/controls/searchPanel/searchPanelView.js
-var SearchPanelView = ControlView.extend({
-    className: 'pl-search-panel',
-
-    template: InfinniUI.Template["controls/searchPanel/template/template.tpl.html"],
-
-    events: {
-        'submit form': 'submitFormHandler',
-        'click .btn_remove': 'onButtonRemoveClickHandler',
-        'input .form-control': 'onUpdateUIValue'
-    },
-
-    initialize: function () {
-        ControlView.prototype.initialize.apply(this);
-        this.listenTo(this.model, 'change:value', this.updateValue);
-    },
-
-    render: function () {
-        this.prerenderingActions();
-
-        this.$el
-            .html(this.template({
-                placeholder: this.model.get('text')
-            }));
-
-        this.updateValue();
-        this.updateEnabled();
-
-        this.postrenderingActions();
-        return this;
-    },
-
-    submitFormHandler: function(event){
-        event.preventDefault();
-        this.trigger('onValueChanged',this.model.get('value'));
-    },
-
-    updateEnabled: function () {
-        ControlView.prototype.updateEnabled.apply(this);
-
-        if (this.wasRendered) {
-            var isEnabled = this.model.get('enabled'),
-                $control = this.$el.find('.form-control'),
-                $button_search = this.$el.find('.btn_search'),
-                $button_remove = this.$el.find('.btn_remove');
-            $control.prop('disabled', !isEnabled);
-            $button_search.prop('disabled', !isEnabled);
-            $button_remove.prop('disabled', !isEnabled);
-        }
-    },
-
-    updateValue : function () {
-
-        if (this.wasRendered) {
-            this.$el.find('.form-control').val(this.model.get('value'));
-        }
-    },
-
-    onUpdateUIValue : function(e){
-        var newVal = $(e.target).val();
-        this.model.set('value', newVal);
-    },
-
-    onButtonRemoveClickHandler: function() {
-        this.model.set('value','');
-        this.render();
-        this.trigger('onValueChanged',this.model.get('value'));
-    }
-});
-//####app/controls/treeView/treeViewControl.js
-var TreeViewControl = function () {
-    _.superClass(TreeViewControl, this);
-};
-
-_.inherit(TreeViewControl, Control);
-
-_.extend(TreeViewControl.prototype, {
-
-    createControlModel: function () {
-        return new TreeViewModel();
-    },
-
-    createControlView: function (model) {
-        return new TreeViewView({model: model});
-    },
-
-    getSelectedItem: function () {
-        return this.controlView.getSelectedItem();
-    }
-
-    //onChangeTerm: function (handler) {
-    //    var fn = function (model, value) {
-    //        handler(value);
-    //    };
-    //    this.controlModel.on('change:term', fn);
-    //},
-    //
-    //setOpenListFunction: function(f){
-    //    this.controlView.setOpenListFunction(f);
-    //},
-    //
-    //onFirstOpening: function(handler){
-    //    this.controlView.on('firstOpening', handler);
-    //}
-
-}, controlValuePropertyMixin);
-//####app/controls/treeView/treeViewModel.js
-var TreeViewModel = ControlModel.extend({
-    defaults: _.extend({
-        multiSelect: false,
-        showNodeImages: false,
-        keyProperty: '',
-        parentProperty: '',
-        imageProperty: '',
-        verticalAlignment: 'Stretch',
-        /** Inherited from BaseListElement */
-        readOnly: false,
-        items: []
-    }, ControlModel.prototype.defaults)
-});
-
-//####app/controls/treeView/treeViewView.js
-var TreeViewView = ControlView.extend({
-
-    className: 'pl-treeview',
-
-    template: InfinniUI.Template["controls/treeView/template/treeview.tpl.html"],
-
-    UI: {
-        container: 'div'
-    },
-
-    initialize: function () {
-        this.listenTo(this.model, 'change:value', this.onUpdateValueHandler);
-        this.listenTo(this.model, 'change:items', this.onUpdateItemsHandler);
-        this.listenTo(this.model, 'change:readOnly', this.onUpdateMultipleHandler);
-    },
-
-    render: function () {
-        this.prerenderingActions();
-        var html = this.template();
-
-        this.$el.html(html);
-        this.bindUIElements();
-
-        this.renderData();
-        this.bindTreeEvent();
-
-        this.postrenderingActions();
-        return this;
-    },
-
-    /**
-     * @descroption Конвертирует данные из источника данных в формат, подходящий для используемого плагина TreeView
-     * @param {Array} data
-     * @returns *
-     */
-    convertData: function (data) {
-        var parentProperty = this.model.get('parentProperty');
-        var keyProperty = this.model.get('keyProperty');
-        var displayProperty = this.model.get('displayProperty');
-        var disabled = this.model.get('readOnly');
-        var roots = _.pluck(data, keyProperty);
-        roots = _.unique(roots);
-
-        return _.map(data, function (item) {
-            var id = InfinniUI.ObjectUtils.getPropertyValue(item, keyProperty);
-            var result = {
-                id: id,
-                parent: "#",
-                text: this.getDisplayNameValue(item),//item[displayProperty],
-                state: {
-                    disabled: disabled
-                }
-            };
-            var parentValue;
-
-            if (typeof parentProperty !== 'undefined' && parentProperty !== null) {
-                parentValue = InfinniUI.ObjectUtils.getPropertyValue(item, parentProperty);
-
-                if (typeof parentValue !== 'undefined' && parentValue !== null && _.contains(roots, parentValue)) {
-                    result.parent = parentValue;
-                }
-            }
-
-            return result;
-        }, this);
-    },
-
-    getSelectedItem: function () {
-        var items = this.model.get('items');
-        var value = this.model.get('value');
-        var keyProperty = this.model.get('keyProperty');
-
-        if (value === null || typeof value === 'undefined') {
-            return;
-        }
-
-        var condition;
-        var result;
-
-        var f = function (value) {
-            (condition = {})[keyProperty] = value.Id;
-            return _.findWhere(items, condition);
-        };
-
-        result = (value.constructor === Array) ? _.map(value, f) : f(value);
-
-        return result;
-    },
-
-    /**
-     * @description Рендеринг дерева
-     */
-    renderData: function () {
-        var $el = this.ui.container;
-        var data = this.model.get('items');
-        var multiple = this.model.get('multiSelect');
-
-        var plugins = ['wholerow'];
-        if (multiple) {
-            plugins.push('checkbox');
-        }
-        $el.jstree({
-            plugins: plugins,
-            checkbox: {
-                three_state: false
-            },
-            core: {
-                multiple: multiple,
-                data: this.convertData(data),
-                themes: {
-                    name: 'proton',
-                    responsive: true
-                }
-            }
-        });
-        this.updateTree();
-    },
-
-
-    /**
-     * @description Конвертирование информации об элементе из плагина jsTree в значение контрола
-     * @param data
-     * @returns {*}
-     */
-    buildValueFromTreeData: function (data) {
-        var convertData = function (item) {
-            var data;
-            if (item !== null && typeof item !== 'undefined') {
-                data = {
-                    Id: item.id,
-                    DisplayName: item.text
-                };
-            }
-
-            return data;
-        };
-
-        return (_.isArray(data)) ? _.map(data, convertData) : convertData(data);
-    },
-
-    /**
-     * @description Обработка выборки элемента
-     */
-    bindTreeEvent: function () {
-        var $el = this.ui.container;
-
-        $el.on('changed.jstree', function() {
-            var model = this.model;
-            var multiple = model.get('multiSelect');
-            var value;
-
-            var data;
-
-            if (multiple) {
-                data = $el.jstree("get_checked", true);
-            } else {
-                data = $el.jstree("get_selected", true);
-                if (_.isArray(data) && data.length > 0) {
-                    data = data[0];
-                }
-            }
-
-            value = this.buildValueFromTreeData(data);
-
-            model.set('value', value);
-        }.bind(this));
-    },
-
-
-    /**
-     * @description Обновляет дерево данными из модели
-     */
-    updateTree: function () {
-        if (!this.wasRendered) {
-            return;
-        }
-
-        var $el = this.ui.container;
-        var data = this.model.get('items');
-
-        if (typeof data === 'undefined' || data === null) {
-            data = [];
-        }
-        $el.jstree(true).settings.core.data = this.convertData(data);
-        $el.jstree(true).refresh();
-        this.updateTreeState();
-    },
-
-    /**
-     * @description Обработчик установки значения. Отмечает соотвествующие элементы в TreeView
-     */
-    onUpdateValueHandler: function (/*model, value*/) {
-        this.updateTreeState();
-    },
-
-    /**
-     * @description Возвращает текстовое значение элемента из дерева.
-     * Приоритет: ItemTemplate, ItemFormat, DisplayProperty, toString()
-     * @param {Object} item
-     */
-    getDisplayNameValue: function (item) {
-        var itemFormat = this.model.get('itemFormat');
-        var displayProperty = this.model.get('displayProperty');
-        var result = '' + item;//Вариант по умолчанию - toString()
-
-        /**
-         * @TODO Необходимо реализовать поддержку ItemTemplate
-         */
-        if (typeof itemFormat !== 'undefined' && itemFormat !== null) {
-            result = itemFormat.format(item);
-        } else if (typeof displayProperty !== 'undefined' && displayProperty !== null){
-            result = InfinniUI.ObjectUtils.getPropertyValue(item, displayProperty);
-        }
-
-        return result;
-    },
-
-    /**
-     * @private
-     * @description Отмечает выбранные элементы в дереве, по значениям Value компонента
-     */
-    updateTreeState: function () {
-        if (!this.wasRendered) {
-            return;
-        }
-
-        var value = this.model.get('value');
-        var $el = this.ui.container;
-        var selected = $el.jstree(true).get_selected();
-        var data;
-        var deselect;
-
-        if (_.isArray(value)) {
-            data = _.pluck(value, 'Id');
-
-            deselect = _.difference(selected, data);
-            var select = _.difference(data, selected);
-            if (deselect.length > 0) {
-                $el.jstree(true).deselect_node(deselect, true);
-            }
-            if (select.length > 0) {
-                $el.jstree(true).select_node(select, true);
-            }
-        } else {
-            deselect = _.without(selected, value);
-            $el.jstree(true).deselect_node(deselect, true);
-
-            if (typeof value !== 'undefined' && value !== null) {
-                $el.jstree(true).select_node(value.Id, true);
-            }
-        }
-    },
-
-    onUpdateItemsHandler: function (/*model, value*/) {
-        this.updateTree();
-    },
-
-    onUpdateMultipleHandler: function () {
-        this.updateTree();
-    }
-
-});
-
 //####app/controls/viewPanel/viewPanelControl.js
 var ViewPanelControl = function () {
     _.superClass(ViewPanelControl, this);
@@ -24158,7 +24883,7 @@ FilterCriteriaType.prototype.getCriteriaByCode = function (code) {
 
 
 //####app/data/dataBinding/dataBinding.js
-var BindingModes = {
+InfinniUI.BindingModes = {
     twoWay: 'TwoWay',
     toSource: 'ToSource',
     toElement: 'ToElement'
@@ -24167,7 +24892,7 @@ var BindingModes = {
 
 var DataBinding = Backbone.Model.extend({
     defaults: {
-        mode: BindingModes.twoWay,
+        mode: InfinniUI.BindingModes.twoWay,
         converter: null,
         source: null,
         sourceProperty: null,
@@ -24206,7 +24931,7 @@ var DataBinding = Backbone.Model.extend({
         var element = this.getElement();
 
         if(this.get('source') != null){
-            var message = stringUtils.format('DataBinding. bindSource: повторная инициализация. {0} заменен на {1}', [this.get('source').getName(), source.getName()])
+            var message = stringUtils.format('DataBinding. bindSource: повторная инициализация. {0} заменен на {1}', [this.get('source').getName(), source.getName()]);
             logger.warn(message);
         }
 
@@ -24220,7 +24945,7 @@ var DataBinding = Backbone.Model.extend({
         }
 
         source.onPropertyChanged(property, function(context, argument){
-            that.onSourcePropertyChangedHandler(context, argument);
+            that._onSourcePropertyChangedHandler(context, argument);
         });
 
         if( this._isWorkingWithSelectedItems(source) ){
@@ -24243,7 +24968,7 @@ var DataBinding = Backbone.Model.extend({
                     property: sourceProperty,
                     newValue: source.getProperty(sourceProperty)
                 };
-                that.onSourcePropertyChangedHandler(context, args);
+                that._onSourcePropertyChangedHandler(context, args);
             });
         }
     },
@@ -24273,11 +24998,11 @@ var DataBinding = Backbone.Model.extend({
         this.set('element', element);
         this.set('elementProperty', property);
 
-        this._initPropertyOnElement();
-
         element.onPropertyChanged(property, function(context, argument){
-            that.onElementPropertyChangedHandler(context, argument);
+            that._onElementPropertyChangedHandler(context, argument);
         });
+
+        this._initPropertyOnElement();
     },
 
     _initPropertyOnElement: function(){
@@ -24286,7 +25011,7 @@ var DataBinding = Backbone.Model.extend({
         var that = this;
         var value;
 
-        if(this.shouldRefreshElement(this.get('mode')) && source){
+        if(this._shouldRefreshElement(this.get('mode')) && source){
             if(typeof source.isDataReady == 'function' && !source.isDataReady()){
                 if(typeof source.tryInitData == 'function'){
                     if(this.getDefaultValue() !== null){
@@ -24314,12 +25039,12 @@ var DataBinding = Backbone.Model.extend({
     /**
      * @description Обработчик события изменения значения элемента
      */
-    onElementPropertyChangedHandler: function (context, argument) {
+    _onElementPropertyChangedHandler: function (context, argument) {
         var mode = this.get('mode');
         var element = this.get('element');
         var elementProperty = this.get('elementProperty');
 
-        if(this.shouldRefreshSource(mode) && argument.property == elementProperty){
+        if(this._shouldRefreshSource(mode) && argument.property == elementProperty){
             this._setValueToSource(argument.newValue, context);
         }
     },
@@ -24330,7 +25055,9 @@ var DataBinding = Backbone.Model.extend({
         var sourceProperty = this.get('sourceProperty');
         var converter = this.get('converter');
 
-        if(converter != null && converter.toSource != null){
+        if(converter != null
+            && converter.hasOwnProperty('toSource') //Mozilla's Object.prototype has method "toSource"!!
+        ){
             value = converter.toSource(context, {value: value, binding: this, source: element});
         }
 
@@ -24342,11 +25069,11 @@ var DataBinding = Backbone.Model.extend({
     /**
      * @description Обработчик события изменения значения источника
      */
-    onSourcePropertyChangedHandler: function (context, argument) {
+    _onSourcePropertyChangedHandler: function (context, argument) {
         var mode = this.get('mode');
         var sourceProperty = this.get('sourceProperty');
 
-        if(this.shouldRefreshElement(mode) && argument.property == sourceProperty){
+        if(this._shouldRefreshElement(mode) && argument.property == sourceProperty){
             this._setValueToElement(argument.newValue);
         }
     },
@@ -24375,12 +25102,12 @@ var DataBinding = Backbone.Model.extend({
         return context;
     },
 
-    shouldRefreshSource: function(mode){
-        return mode == BindingModes.twoWay || mode == BindingModes.toSource;
+    _shouldRefreshSource: function(mode){
+        return mode == InfinniUI.BindingModes.twoWay || mode == InfinniUI.BindingModes.toSource;
     },
 
-    shouldRefreshElement: function(mode){
-        return mode == BindingModes.twoWay || mode == BindingModes.toElement;
+    _shouldRefreshElement: function(mode){
+        return mode == InfinniUI.BindingModes.twoWay || mode == InfinniUI.BindingModes.toElement;
     }
 });
 //####app/data/dataBinding/dataBindingBuilder.js
@@ -24458,6 +25185,357 @@ DataBindingBuilder.prototype.scriptByNameOrBody = function(nameOrBody, context){
     }
 
 };
+
+//####app/data/dataProviders/dataProviderRegister.js
+function DataProviderRegister() {
+    var dataProviders = {};
+
+    this.register = function (metadataType, dataProviderConstructor) {
+        dataProviders[metadataType] = dataProviderConstructor;
+    };
+
+    this.build = function (metadataType, props) {
+        var dataProvider = dataProviders[metadataType];
+        if (dataProvider !== undefined && dataProvider !== null) {
+            return new dataProviders[metadataType](props);
+        }
+        return null;
+    };
+}
+
+
+window.providerRegister = new DataProviderRegister();
+
+//####app/data/dataProviders/file/dataProviderUpload.js
+var DataProviderUpload = function (urlConstructor, successCallback, failCallback) {
+    this.urlConstructor = urlConstructor;
+    this.successCallback = successCallback;
+    this.failCallback = failCallback;
+};
+
+DataProviderUpload.prototype.uploadFile = function (fieldName, instanceId, file, resultCallback) {
+    var requestData = this.urlConstructor.constructUploadFileRequest(fieldName, instanceId, file);
+    new RequestExecutor(resultCallback, this.successCallback, this.failCallback).makeRequestRaw(requestData);
+};
+
+DataProviderUpload.prototype.getFileUrl = function (fieldName, instanceId) {
+    return this.urlConstructor.getFileUrl(fieldName, instanceId);
+};
+//####app/data/dataProviders/file/document/documentFileProvider.js
+/**
+ *
+ * @param {DocumentUploadQueryConstructor} urlConstructor
+ * @param {Function} [successCallback]
+ * @param {Function} [failCallback]
+ * @constructor
+ */
+var DocumentFileProvider = function (urlConstructor, successCallback, failCallback) {
+    this.urlConstructor = urlConstructor;
+    this.successCallback = successCallback;
+    this.failCallback = failCallback;
+};
+
+/**
+ * @description Загружает файл для указанного поля документа
+ * @param {string} fieldName
+ * @param {string} instanceId
+ * @param {*} file
+ * @param {Function} resultCallback
+ */
+DocumentFileProvider.prototype.uploadFile = function (fieldName, instanceId, file, resultCallback) {
+    var deferred = $.Deferred();
+    var requestData = this.urlConstructor.constructUploadFileRequest(fieldName, instanceId, file);
+    new RequestExecutor(resultCallback, function () {
+        deferred.resolve();
+        if (this.successCallback) {
+            this.successCallback();
+        }
+    }.bind(this), function (err) {
+        deferred.reject(err);
+        if (this.failCallback) {
+            this.failCallback();
+        }
+    }.bind(this)).makeRequestRaw(requestData);
+
+    return deferred.promise();
+};
+
+/**
+ * Возвращает URL ранее загруженного файла
+ * @param {string} fieldName
+ * @param {string} instanceId
+ * @returns {String}
+ */
+DocumentFileProvider.prototype.getFileUrl = function (fieldName, instanceId, contentId) {
+    return this.urlConstructor.getFileUrl(fieldName, instanceId, contentId);
+};
+
+//####app/data/dataProviders/file/document/documentFileQueryConstructor.js
+/**
+ * @param {string} host
+ * @param {Object} params
+ * @param {string} params.configId
+ * @param {string} params.documentId
+ * @constructor
+ */
+var DocumentUploadQueryConstructor = function (host, params) {
+    this.host = host;
+    this.configId = params.configId;
+    this.documentId = params.documentId;
+};
+
+DocumentUploadQueryConstructor.prototype.template = {
+    download: _.template('<%= host %>/RestfulApi/UrlEncodedData/configuration/downloadbinarycontent/?Form=<%= form %>'),
+    upload: _.template('<%= host %>/RestfulApi/Upload/configuration/uploadbinarycontent/?linkedData=<%= data %>')
+};
+
+DocumentUploadQueryConstructor.prototype.normalizeFieldName = function (fieldName) {
+    return String(fieldName).replace(/^[\d\$]+\./, '');
+};
+
+/**
+ * @public
+ * @param fieldName
+ * @param instanceId
+ * @param file
+ * @returns {{requestUrl: {String}, args: (FormData|*)}}
+ */
+DocumentUploadQueryConstructor.prototype.constructUploadFileRequest = function (fieldName, instanceId, file) {
+    return {
+        requestUrl: this.getUploadUrl(fieldName, instanceId),
+        args: this.getUploadParams(file)
+    };
+};
+
+/**
+ * @public
+ * @description Возвращает ссылку на загруженный ранее файл
+ * @param instanceId
+ * @param fieldName
+ * @returns {String}
+ */
+DocumentUploadQueryConstructor.prototype.getFileUrl = function (fieldName, instanceId, contentId) {
+
+    //if (typeof instanceId === 'undefined' || instanceId === null) {
+    //    return null;
+    //}
+
+    var data = {
+        Configuration: this.configId,
+        Metadata: this.documentId,
+        DocumentId: instanceId,
+        ContentId: contentId,
+        FieldName: this.normalizeFieldName(fieldName)
+    };
+    var template = this.template.download;
+
+    return template({
+        host: this.host,
+        form: JSON.stringify((data))
+    });
+};
+
+/**
+ * @description Возвращает URL для запроса загрузки файла
+ * @protected
+ * @param instanceId
+ * @param fieldName
+ * @returns {String}
+ */
+DocumentUploadQueryConstructor.prototype.getUploadUrl = function (fieldName, instanceId) {
+    var data = {
+        "Configuration": this.configId,
+        "Metadata": this.documentId,
+        "DocumentId": instanceId,
+        "FieldName": this.normalizeFieldName(fieldName)
+    };
+
+    var template = this.template.upload;
+
+    return template({
+        host: this.host,
+        data: JSON.stringify(data)
+    });
+};
+
+
+/**
+ * @protected
+ * @param file
+ * @returns {FormData}
+ */
+DocumentUploadQueryConstructor.prototype.getUploadParams = function (file) {
+    var data = new FormData();
+    data.append('file', file);
+    return data;
+};
+
+
+//####app/data/dataProviders/file/queryConstructorUpload.js
+/**
+ * @class QueryConstructorUpload
+ * @param host
+ * @param metadata
+ * @constructor
+ */
+var QueryConstructorUpload = function (host, metadata) {
+    this.host = host;
+    this.metadata = metadata;
+};
+
+/**
+ * @public
+ * @memberOf QueryConstructorUpload.prototype
+ * @param fieldName
+ * @param instanceId
+ * @param file
+ * @returns {{requestUrl: {String}, args: (FormData|*)}}
+ */
+QueryConstructorUpload.prototype.constructUploadFileRequest = function (fieldName, instanceId, file) {
+    return {
+        requestUrl: this.getUploadUrl(instanceId, fieldName),
+        args: this.getUploadParams(file)
+    };
+};
+
+/**
+ * @public
+ * @description Возвращает ссылкц на загруженный ранее файл
+ * @memberOf QueryConstructorUpload.prototype
+ * @param instanceId
+ * @param fieldName
+ * @returns {String}
+ */
+QueryConstructorUpload.prototype.getFileUrl = function (fieldName, instanceId) {
+
+    if (typeof instanceId === 'undefined' || instanceId === null) {
+        return null;
+    }
+
+    var data = {
+        "Configuration": this.metadata.ConfigId,
+        "Metadata": this.metadata.DocumentId,
+        "DocumentId": instanceId,
+        "FieldName": fieldName
+    };
+    var urlTemplate = '{0}/RestfulApi/UrlEncodedData/configuration/downloadbinarycontent/?Form={1}';
+
+    return stringUtils.format(urlTemplate, [this.host, JSON.stringify(data)]);
+};
+
+/**
+ * @protected
+ * @memberOf QueryConstructorUpload.prototype
+ * @param instanceId
+ * @param fieldName
+ * @returns {String}
+ */
+QueryConstructorUpload.prototype.getUploadUrl = function (instanceId, fieldName) {
+    var data = {
+        "Configuration": this.metadata.ConfigId,
+        "Metadata": this.metadata.DocumentId,
+        "DocumentId": instanceId,
+        "FieldName": fieldName
+    };
+    var urlTemplate = '{0}/RestfulApi/Upload/configuration/uploadbinarycontent/?linkedData={1}';
+
+    return stringUtils.format(urlTemplate, [this.host, JSON.stringify(data)]);
+};
+
+
+/**
+ * @protected
+ * @memberOf QueryConstructorUpload.prototype
+ * @param file
+ * @returns {FormData}
+ */
+QueryConstructorUpload.prototype.getUploadParams = function (file) {
+    var data = new FormData();
+    data.append('file', file);
+    return data;
+};
+
+
+//####app/data/dataProviders/objectDataProvider.js
+var ObjectDataProvider = function (items, idProperty) {
+    this.items = items || [];
+    this.idProperty = idProperty || 'Id';
+};
+
+_.extend(ObjectDataProvider.prototype, {
+
+    setItems: function (items) {
+        this.items = items;
+    },
+
+    getItems: function (criteriaList, pageNumber, pageSize, sorting, resultCallback) {
+        var filter = new FilterCriteriaType();
+        var callback = filter.getFilterCallback(criteriaList);
+        resultCallback(this.items.filter(callback));
+    },
+
+    createItem: function (resultCallback) {
+        var item = this.createLocalItem(this.idProperty);
+        resultCallback(item);
+    },
+
+    saveItem: function (item, resultCallback) {
+        var items = this.items,
+            itemIndex = this._getIndexOfItem(item),
+            result = {
+                isValid: true
+            };
+
+        if (itemIndex == -1) {
+            items.push(item);
+        } else {
+            items[itemIndex] = item;
+        }
+
+        resultCallback(result);
+    },
+
+    deleteItem: function (item, resultCallback) {
+        var items = this.items,
+            itemIndex = this._getIndexOfItem(item),
+            result = {
+                isValid: true
+            };
+
+        if (itemIndex == -1) {
+            result.isValid = false;
+            result.message = 'Удаляемый элемент не найден';
+        } else {
+            items.splice(itemIndex, 1);
+        }
+
+        resultCallback(result);
+    },
+
+    createIdFilter: function (id) {
+        return [{
+            "Property": "Id",
+            "Value": id,
+            "CriteriaType": 1
+        }];
+    },
+
+    _getIndexOfItem: function (item) {
+        return  _.indexOf(this.items, item);
+    },
+
+    createLocalItem: function (idProperty) {
+        var result = {};
+
+        result[idProperty] = this._generateLocalId();
+
+        return result;
+    },
+
+    _generateLocalId: function () {
+        return guid();
+    }
+});
 
 //####app/data/dataProviders/REST/dataProviderREST.js
 function DataProviderREST(urlConstructor, successCallback, failCallback) {
@@ -25143,357 +26221,6 @@ function RequestExecutor(resultCallback, successCallback, failCallback, cache) {
     };
 
 }
-//####app/data/dataProviders/dataProviderRegister.js
-function DataProviderRegister() {
-    var dataProviders = {};
-
-    this.register = function (metadataType, dataProviderConstructor) {
-        dataProviders[metadataType] = dataProviderConstructor;
-    };
-
-    this.build = function (metadataType, props) {
-        var dataProvider = dataProviders[metadataType];
-        if (dataProvider !== undefined && dataProvider !== null) {
-            return new dataProviders[metadataType](props);
-        }
-        return null;
-    };
-}
-
-
-window.providerRegister = new DataProviderRegister();
-
-//####app/data/dataProviders/file/dataProviderUpload.js
-var DataProviderUpload = function (urlConstructor, successCallback, failCallback) {
-    this.urlConstructor = urlConstructor;
-    this.successCallback = successCallback;
-    this.failCallback = failCallback;
-};
-
-DataProviderUpload.prototype.uploadFile = function (fieldName, instanceId, file, resultCallback) {
-    var requestData = this.urlConstructor.constructUploadFileRequest(fieldName, instanceId, file);
-    new RequestExecutor(resultCallback, this.successCallback, this.failCallback).makeRequestRaw(requestData);
-};
-
-DataProviderUpload.prototype.getFileUrl = function (fieldName, instanceId) {
-    return this.urlConstructor.getFileUrl(fieldName, instanceId);
-};
-//####app/data/dataProviders/file/document/documentFileProvider.js
-/**
- *
- * @param {DocumentUploadQueryConstructor} urlConstructor
- * @param {Function} [successCallback]
- * @param {Function} [failCallback]
- * @constructor
- */
-var DocumentFileProvider = function (urlConstructor, successCallback, failCallback) {
-    this.urlConstructor = urlConstructor;
-    this.successCallback = successCallback;
-    this.failCallback = failCallback;
-};
-
-/**
- * @description Загружает файл для указанного поля документа
- * @param {string} fieldName
- * @param {string} instanceId
- * @param {*} file
- * @param {Function} resultCallback
- */
-DocumentFileProvider.prototype.uploadFile = function (fieldName, instanceId, file, resultCallback) {
-    var deferred = $.Deferred();
-    var requestData = this.urlConstructor.constructUploadFileRequest(fieldName, instanceId, file);
-    new RequestExecutor(resultCallback, function () {
-        deferred.resolve();
-        if (this.successCallback) {
-            this.successCallback();
-        }
-    }.bind(this), function (err) {
-        deferred.reject(err);
-        if (this.failCallback) {
-            this.failCallback();
-        }
-    }.bind(this)).makeRequestRaw(requestData);
-
-    return deferred.promise();
-};
-
-/**
- * Возвращает URL ранее загруженного файла
- * @param {string} fieldName
- * @param {string} instanceId
- * @returns {String}
- */
-DocumentFileProvider.prototype.getFileUrl = function (fieldName, instanceId, contentId) {
-    return this.urlConstructor.getFileUrl(fieldName, instanceId, contentId);
-};
-
-//####app/data/dataProviders/file/document/documentFileQueryConstructor.js
-/**
- * @param {string} host
- * @param {Object} params
- * @param {string} params.configId
- * @param {string} params.documentId
- * @constructor
- */
-var DocumentUploadQueryConstructor = function (host, params) {
-    this.host = host;
-    this.configId = params.configId;
-    this.documentId = params.documentId;
-};
-
-DocumentUploadQueryConstructor.prototype.template = {
-    download: _.template('<%= host %>/RestfulApi/UrlEncodedData/configuration/downloadbinarycontent/?Form=<%= form %>'),
-    upload: _.template('<%= host %>/RestfulApi/Upload/configuration/uploadbinarycontent/?linkedData=<%= data %>')
-};
-
-DocumentUploadQueryConstructor.prototype.normalizeFieldName = function (fieldName) {
-    return String(fieldName).replace(/^[\d\$]+\./, '');
-};
-
-/**
- * @public
- * @param fieldName
- * @param instanceId
- * @param file
- * @returns {{requestUrl: {String}, args: (FormData|*)}}
- */
-DocumentUploadQueryConstructor.prototype.constructUploadFileRequest = function (fieldName, instanceId, file) {
-    return {
-        requestUrl: this.getUploadUrl(fieldName, instanceId),
-        args: this.getUploadParams(file)
-    };
-};
-
-/**
- * @public
- * @description Возвращает ссылку на загруженный ранее файл
- * @param instanceId
- * @param fieldName
- * @returns {String}
- */
-DocumentUploadQueryConstructor.prototype.getFileUrl = function (fieldName, instanceId, contentId) {
-
-    //if (typeof instanceId === 'undefined' || instanceId === null) {
-    //    return null;
-    //}
-
-    var data = {
-        Configuration: this.configId,
-        Metadata: this.documentId,
-        DocumentId: instanceId,
-        ContentId: contentId,
-        FieldName: this.normalizeFieldName(fieldName)
-    };
-    var template = this.template.download;
-
-    return template({
-        host: this.host,
-        form: JSON.stringify((data))
-    });
-};
-
-/**
- * @description Возвращает URL для запроса загрузки файла
- * @protected
- * @param instanceId
- * @param fieldName
- * @returns {String}
- */
-DocumentUploadQueryConstructor.prototype.getUploadUrl = function (fieldName, instanceId) {
-    var data = {
-        "Configuration": this.configId,
-        "Metadata": this.documentId,
-        "DocumentId": instanceId,
-        "FieldName": this.normalizeFieldName(fieldName)
-    };
-
-    var template = this.template.upload;
-
-    return template({
-        host: this.host,
-        data: JSON.stringify(data)
-    });
-};
-
-
-/**
- * @protected
- * @param file
- * @returns {FormData}
- */
-DocumentUploadQueryConstructor.prototype.getUploadParams = function (file) {
-    var data = new FormData();
-    data.append('file', file);
-    return data;
-};
-
-
-//####app/data/dataProviders/file/queryConstructorUpload.js
-/**
- * @class QueryConstructorUpload
- * @param host
- * @param metadata
- * @constructor
- */
-var QueryConstructorUpload = function (host, metadata) {
-    this.host = host;
-    this.metadata = metadata;
-};
-
-/**
- * @public
- * @memberOf QueryConstructorUpload.prototype
- * @param fieldName
- * @param instanceId
- * @param file
- * @returns {{requestUrl: {String}, args: (FormData|*)}}
- */
-QueryConstructorUpload.prototype.constructUploadFileRequest = function (fieldName, instanceId, file) {
-    return {
-        requestUrl: this.getUploadUrl(instanceId, fieldName),
-        args: this.getUploadParams(file)
-    };
-};
-
-/**
- * @public
- * @description Возвращает ссылкц на загруженный ранее файл
- * @memberOf QueryConstructorUpload.prototype
- * @param instanceId
- * @param fieldName
- * @returns {String}
- */
-QueryConstructorUpload.prototype.getFileUrl = function (fieldName, instanceId) {
-
-    if (typeof instanceId === 'undefined' || instanceId === null) {
-        return null;
-    }
-
-    var data = {
-        "Configuration": this.metadata.ConfigId,
-        "Metadata": this.metadata.DocumentId,
-        "DocumentId": instanceId,
-        "FieldName": fieldName
-    };
-    var urlTemplate = '{0}/RestfulApi/UrlEncodedData/configuration/downloadbinarycontent/?Form={1}';
-
-    return stringUtils.format(urlTemplate, [this.host, JSON.stringify(data)]);
-};
-
-/**
- * @protected
- * @memberOf QueryConstructorUpload.prototype
- * @param instanceId
- * @param fieldName
- * @returns {String}
- */
-QueryConstructorUpload.prototype.getUploadUrl = function (instanceId, fieldName) {
-    var data = {
-        "Configuration": this.metadata.ConfigId,
-        "Metadata": this.metadata.DocumentId,
-        "DocumentId": instanceId,
-        "FieldName": fieldName
-    };
-    var urlTemplate = '{0}/RestfulApi/Upload/configuration/uploadbinarycontent/?linkedData={1}';
-
-    return stringUtils.format(urlTemplate, [this.host, JSON.stringify(data)]);
-};
-
-
-/**
- * @protected
- * @memberOf QueryConstructorUpload.prototype
- * @param file
- * @returns {FormData}
- */
-QueryConstructorUpload.prototype.getUploadParams = function (file) {
-    var data = new FormData();
-    data.append('file', file);
-    return data;
-};
-
-
-//####app/data/dataProviders/objectDataProvider.js
-var ObjectDataProvider = function (items, idProperty) {
-    this.items = items || [];
-    this.idProperty = idProperty || 'Id';
-};
-
-_.extend(ObjectDataProvider.prototype, {
-
-    setItems: function (items) {
-        this.items = items;
-    },
-
-    getItems: function (criteriaList, pageNumber, pageSize, sorting, resultCallback) {
-        var filter = new FilterCriteriaType();
-        var callback = filter.getFilterCallback(criteriaList);
-        resultCallback(this.items.filter(callback));
-    },
-
-    createItem: function (resultCallback) {
-        var item = this.createLocalItem(this.idProperty);
-        resultCallback(item);
-    },
-
-    saveItem: function (item, resultCallback) {
-        var items = this.items,
-            itemIndex = this._getIndexOfItem(item),
-            result = {
-                isValid: true
-            };
-
-        if (itemIndex == -1) {
-            items.push(item);
-        } else {
-            items[itemIndex] = item;
-        }
-
-        resultCallback(result);
-    },
-
-    deleteItem: function (item, resultCallback) {
-        var items = this.items,
-            itemIndex = this._getIndexOfItem(item),
-            result = {
-                isValid: true
-            };
-
-        if (itemIndex == -1) {
-            result.isValid = false;
-            result.message = 'Удаляемый элемент не найден';
-        } else {
-            items.splice(itemIndex, 1);
-        }
-
-        resultCallback(result);
-    },
-
-    createIdFilter: function (id) {
-        return [{
-            "Property": "Id",
-            "Value": id,
-            "CriteriaType": 1
-        }];
-    },
-
-    _getIndexOfItem: function (item) {
-        return  _.indexOf(this.items, item);
-    },
-
-    createLocalItem: function (idProperty) {
-        var result = {};
-
-        result[idProperty] = this._generateLocalId();
-
-        return result;
-    },
-
-    _generateLocalId: function () {
-        return guid();
-    }
-});
-
 //####app/data/dataProviders/serverAction/queryConstructorServerAction.js
 function QueryConstructorServerAction (host, metadata) {
     var defaults = {
@@ -25789,7 +26516,7 @@ var BaseDataSource = Backbone.Model.extend({
         if (!this.get('view')) {
             throw 'BaseDataSource.initialize: При создании объекта не была задана view.'
         }
-
+        this.set('suspended', []);
         this._onPropertyChangesList = [];
     },
 
@@ -25801,7 +26528,7 @@ var BaseDataSource = Backbone.Model.extend({
         this.on('change:pageNumber', handler);
     },
 
-    onPageNumberSize: function (handler) {
+    onPageSizeChanged: function (handler) {
         this.on('change:pageSize', handler);
     },
 
@@ -25811,13 +26538,13 @@ var BaseDataSource = Backbone.Model.extend({
 
     onPropertyChanged: function (property, handler) {
         var list = this._onPropertyChangesList;
-        if (list.indexOf(property) === -1) {
-            list.push(property);
-        }
         if (typeof property == 'function') {
             handler = property;
             this.on('onPropertyChanged', handler);
         } else {
+            if (list.indexOf(property) === -1) {
+                list.push(property);
+            }
             this.on('onPropertyChanged:' + property, handler);
         }
 
@@ -25987,12 +26714,33 @@ var BaseDataSource = Backbone.Model.extend({
         this.set('fillCreatedItem', fillCreatedItem);
     },
 
-    suspendUpdate: function () {
-        this.set('isUpdateSuspended', true);
+    suspendUpdate: function (name) {
+        var reason = name || 'default';
+
+        var suspended = this.get('suspended');
+        if (suspended.indexOf(reason) === -1) {
+            suspended = suspended.slice(0);
+            suspended.push(reason);
+            this.set('suspended', suspended);
+        }
     },
 
-    resumeUpdate: function () {
-        this.set('isUpdateSuspended', false);
+    resumeUpdate: function (name) {
+        var reason = name || 'default';
+
+        var suspended = this.get('suspended');
+        var index = suspended.indexOf(reason);
+
+        if (index !== -1) {
+            suspended = suspended.slice(0);
+            suspended.splice(index, 1);
+            this.set('suspended', suspended);
+        }
+    },
+
+    isUpdateSuspended: function () {
+        var suspended = this.get('suspended');
+        return suspended.length > 0;
     },
 
     getPageNumber: function () {
@@ -26024,6 +26772,14 @@ var BaseDataSource = Backbone.Model.extend({
             this.set('pageSize', pageSize);
             this.updateItems();
         }
+    },
+
+    getSorting: function () {
+        return this.get('sorting');
+    },
+
+    setSorting: function (sortingValue) {
+        this.set('sorting', sortingValue);
     },
 
     isModifiedItems: function () {
@@ -26169,21 +26925,22 @@ var BaseDataSource = Backbone.Model.extend({
         this._notifyAboutPropertyChanged(property, value, oldValue);
     },
 
-    prepareAndGetProperty: function(property, onReady){
-        var that = this;
-
-        if (this.get('isDataReady')){
-            onReady( this.getProperty(property) );
-        }else{
-            if (!this.get('isRequestInProcess')){
-                this.updateItems();
-            }
-
-            this.once('onItemsUpdated', function(){
-                onReady( that.getProperty(property) );
-            });
-        }
-    },
+    // UNUSED?
+    //prepareAndGetProperty: function(property, onReady){
+    //    var that = this;
+    //
+    //    if (this.get('isDataReady')){
+    //        onReady( this.getProperty(property) );
+    //    }else{
+    //        if (!this.get('isRequestInProcess')){
+    //            this.updateItems();
+    //        }
+    //
+    //        this.once('onItemsUpdated', function(){
+    //            onReady( that.getProperty(property) );
+    //        });
+    //    }
+    //},
 
     tryInitData: function(){
         if (!this.get('isDataReady') && !this.get('isRequestInProcess')){
@@ -26211,6 +26968,10 @@ var BaseDataSource = Backbone.Model.extend({
          */
         this._onPropertyChangesList
             .filter(function (name) {
+                if(typeof name != 'string'){
+                    return false;
+                }
+
                 var prop, matched = false;
                 var template = property + '.';
                 if (property === name) {
@@ -26295,30 +27056,14 @@ var BaseDataSource = Backbone.Model.extend({
             return;
         }
 
-        ds.extractFiles(item, function (files, itemWithoutFiles) {
-
-            dataProvider.saveItem(itemWithoutFiles, function (data) {
-                if (!('isValid' in data) || data.isValid === true) {
-                    //@TODO Что приходит в ответ на сохранение?????
-                    ds.uploadFiles(data.Id, files)
-                        .then(function () {
-                            ds._excludeItemFromModifiedSet(item);
-                            ds._notifyAboutItemSaved(item, data, success);
-                        }, function (err) {
-                            logger.error(err);
-                            if (error) {
-                                error(err);
-                            }
-                        });
-                } else {
-                    ds._notifyAboutFailValidationBySaving(item, data, error);
-                }
-            });
 
 
-        });
+        if (typeof success === 'function') {
+            var context = this.getContext(),
+                argument = this._getArgumentTemplate();
 
-
+            success.call(null, context, argument);
+        }
     },
 
     _notifyAboutItemSaved: function (item, result, successHandler) {
@@ -26350,7 +27095,7 @@ var BaseDataSource = Backbone.Model.extend({
         }
 
         dataProvider.deleteItem(item, function (data) {
-            if (!('isValid' in data) || data.isValid === true) {
+            if (!('IsValid' in data) || data['IsValid'] === true) {
                 that._handleDeletedItem(item, success);
             } else {
                 that._notifyAboutFailValidationByDeleting(item, data, error);
@@ -26413,9 +27158,7 @@ var BaseDataSource = Backbone.Model.extend({
         argument.value = item;
         argument.error = errorData;
 
-        if (errorHandler) {
-            errorHandler(context, argument);
-        }
+        this._notifyAboutValidation(errorData, errorHandler);
     },
 
     isDataReady: function () {
@@ -26436,7 +27179,7 @@ var BaseDataSource = Backbone.Model.extend({
     },
 
     updateItems: function (onSuccess, onError) {
-        if (!this.get('isUpdateSuspended')) {
+        if (!this.isUpdateSuspended()) {
             var filters = this.getFilter(),
                 pageNumber = this.get('pageNumber'),
                 pageSize = this.get('pageSize'),
@@ -26485,7 +27228,7 @@ var BaseDataSource = Backbone.Model.extend({
     },
 
     addNextItems: function (success, error) {
-        if (!this.get('isUpdateSuspended')) {
+        if (!this.isUpdateSuspended()) {
             var filters = this.getFilter(),
                 pageNumber = this.get('pageNumber'),
                 pageSize = this.get('pageSize'),
@@ -26579,6 +27322,7 @@ var BaseDataSource = Backbone.Model.extend({
 
     setFilter: function (value, onSuccess, onError) {
         var filterManager = this.getFilterManager();
+        var filter = _.clone(value);
 
         filterManager.clean();
 
@@ -26587,8 +27331,7 @@ var BaseDataSource = Backbone.Model.extend({
                 this._setCriteriaList(newCriteriaList, onSuccess, onError);
             }
         }.bind(this));
-
-        filterManager.addFilter(value);
+        filterManager.addFilter(filter);
     },
 
     _setCriteriaList: function(criteriaList, onSuccess, onError){
@@ -26784,6 +27527,7 @@ _.extend(BaseDataSourceBuilder.prototype, /** @lends BaseDataSourceBuilder.proto
         this.applyMetadata(args.builder, args.parentView, args.metadata, dataSource);
         this.initFileProvider(dataSource, args.metadata);
 
+        this.applySuspended(dataSource, args.suspended);
         dataSource.resumeUpdate();
 
         /*if(args.parentView.onLoading){
@@ -26799,6 +27543,21 @@ _.extend(BaseDataSourceBuilder.prototype, /** @lends BaseDataSourceBuilder.proto
         return dataSource;
     },
 
+    applySuspended: function (dataSource, suspended) {
+        if (!suspended) {
+            return;
+        }
+
+        for (var name in suspended) {
+            if (!suspended.hasOwnProperty(name) || dataSource.getName() !== name) {
+                continue;
+            }
+
+            dataSource.suspendUpdate(suspended[name]);
+        }
+
+    },
+
     applyMetadata: function (builder, parentView, metadata, dataSource) {
         var idProperty = metadata.IdProperty;
         if (idProperty) {
@@ -26810,9 +27569,13 @@ _.extend(BaseDataSourceBuilder.prototype, /** @lends BaseDataSourceBuilder.proto
         dataSource.setPageSize(metadata.PageSize || 15);
         dataSource.setPageNumber(metadata.PageNumber || 0);
 
+        if('Sorting' in metadata){
+            dataSource.setSorting(metadata['Sorting']);
+        }
+
         var queryMetadata;
         if('Query' in metadata){
-            dataSource.setFilter(metadata.Query);
+            dataSource.setFilter(metadata['Query']);
         }
 
         if('IsLazy' in metadata){
@@ -26866,6 +27629,12 @@ _.extend(BaseDataSourceBuilder.prototype, /** @lends BaseDataSourceBuilder.proto
         if (parentView && metadata.OnSelectedItemModified) {
             dataSource.onSelectedItemModified(function () {
                 new ScriptExecutor(parentView).executeScript(metadata.OnSelectedItemModified.Name || metadata.OnSelectedItemModified);
+            });
+        }
+
+        if (parentView && metadata.OnPropertyChanged) {
+            dataSource.onPropertyChanged(function (context, args) {
+                new ScriptExecutor(parentView).executeScript(metadata.OnPropertyChanged.Name || metadata.OnPropertyChanged, args);
             });
         }
 
@@ -27198,6 +27967,38 @@ var DocumentDataSource = BaseDataSource.extend({
 
         dataProvider.setDeleteAction(deleteActionName);
         this.set('deleteActionName', deleteActionName);
+    },
+
+    saveItem: function (item, success, error) {
+        var
+            dataProvider = this.get('dataProvider'),
+            ds = this;
+
+        BaseDataSource.prototype.saveItem.call(this, item, function () {
+            uploadFiles(success, error);
+        }, error);
+
+        function uploadFiles (success, error) {
+            ds.extractFiles(item, function (files, itemWithoutFiles) {
+                dataProvider.saveItem(itemWithoutFiles, function (data) {
+                    if (!('isValid' in data) || data.isValid === true) {
+                        //@TODO Что приходит в ответ на сохранение?????
+                        ds.uploadFiles(data.Id, files)
+                            .then(function () {
+                                ds._excludeItemFromModifiedSet(item);
+                                ds._notifyAboutItemSaved(item, data, success);
+                            }, function (err) {
+                                logger.error(err);
+                                if (error) {
+                                    error(err);
+                                }
+                            });
+                    } else {
+                        ds._notifyAboutFailValidationBySaving(item, data, error);
+                    }
+                });
+            });
+        }
     }
 
 });
@@ -27321,69 +28122,6 @@ _.extend(FilterManager.prototype, {
 
 _.extend(FilterManager.prototype, Backbone.Events);
 
-//####app/data/dataSource/metadataDataSource.js
-function MetadataDataSource(view, metadata) {
-
-    var  provider = window.providerRegister.build('MetadataInfoDataSource', metadata);
-
-    var baseDataSource = new BaseDataSource(view, metadata.IdProperty, provider);
-
-    baseDataSource.getRegisteredConfigList = function (resultCallback) {
-        provider.getRegisteredConfigList(resultCallback);
-    };
-
-    baseDataSource.getConfigurationMetadata = function (resultCallback) {
-        provider.getConfigurationMetadata(resultCallback);
-    };
-
-    baseDataSource.getDocumentListMetadata = function (resultCallback) {
-        provider.getDocumentListMetadata(resultCallback);
-    };
-
-    baseDataSource.getDocumentMetadata = function (resultCallback) {
-        provider.getDocumentMetadata(resultCallback);
-    };
-
-    baseDataSource.getDocumentElementListMetadata = function (resultCallback) {
-        provider.getDocumentElementListMetadata(resultCallback);
-    };
-
-    baseDataSource.getMenuListMetadata = function (resultCallback) {
-        provider.getMenuListMetadata(resultCallback);
-    };
-
-    baseDataSource.getMenuMetadata = function (resultCallback) {
-        provider.getMenuMetadata(resultCallback);
-    };
-
-    baseDataSource.getValidationWarningMetadata = function (resultCallback) {
-        provider.getValidationWarningMetadata(resultCallback);
-    };
-
-    baseDataSource.getValidationErrorMetadata = function (resultCallback) {
-        provider.getValidationErrorMetadata(resultCallback);
-    };
-
-
-
-    return baseDataSource;
-}
-
-//####app/data/dataSource/metadataDataSourceBuilder.js
-function MetadataDataSourceBuilder() {
-
-    this.build = function (context, args) {
-
-        var idProperty = args.metadata.IdProperty || 'Id';
-
-        var dataSource = new MetadataDataSource(args.view, args.metadata);
-        new BaseDataSourceBuilder().build(context,
-                                            _.extend(args, {dataSource: dataSource}));
-
-        return dataSource;
-    }
-}
-
 //####app/data/dataSource/objectDataSource.js
 var ObjectDataSource = BaseDataSource.extend({
 
@@ -27423,7 +28161,7 @@ _.extend(ObjectDataSourceBuilder.prototype, {
                     parentView: parent
                 });
 
-                binding.setMode(BindingModes.toElement);
+                binding.setMode(InfinniUI.BindingModes.toElement);
 
                 binding.bindElement(dataSource, '');
             }
@@ -27657,7 +28395,16 @@ function ParameterBuilder() {
             }else{
                 parameter.setValue(metadata['Value']);
             }
+
+            if (metadata.OnPropertyChanged) {
+                parameter.onPropertyChanged('', function (context, args) {
+                    var scriptExecutor = new ScriptExecutor(parentView);
+                    return scriptExecutor.executeScript(metadata.OnPropertyChanged.Name || metadata.OnPropertyChanged, args);
+                });
+            }
         }
+
+
 
         return parameter;
     };
@@ -29495,11 +30242,6 @@ function combinePropertyPath(parent, property) {
 
     return result;
 }
-//####app/dialogResult.js
-window.dialogResult = {
-    accept: 'Accepted',
-    cancel: 'Canceled'
-};
 //####app/element/_mixins/builder/builderBackgroundMixin.js
 var builderBackgroundMixin = {
 
@@ -29554,14 +30296,6 @@ var builderHintTextMixin = {
     }
 
 };
-//####app/element/_mixins/builder/builderLabelTextMixin.js
-var builderLabelTextMixin = {
-
-    initLabelText: function (params) {
-        params.element.setLabelText(params.metadata.LabelText);
-    }
-};
-
 //####app/element/_mixins/builder/builderLayoutPanelMixin.js
 var builderLayoutPanelMixin = {
     registerLayoutPanel: function (params) {
@@ -29755,332 +30489,6 @@ _.extend(DocumentViewerBuilder.prototype, {
     }
 }, builderValuePropertyMixin);
 
-//####app/element/dataElement/filterPanel/filterPanel.js
-function FilterPanel(parentView) {
-    _.superClass(FilterPanel, this, parentView);
-}
-
-_.inherit(FilterPanel, Element);
-
-_.extend(FilterPanel.prototype, {
-
-    createControl: function () {
-        return new FilterPanelControl();
-    },
-
-    setView: function (view) {
-        return this.control.set('view', view);
-    },
-
-    getView: function () {
-        return this.control.get('view');
-    },
-
-    setDataSource: function (dataSource) {
-        return this.control.set('dataSource', dataSource);
-    },
-
-    getDataSource: function () {
-        return this.control.get('dataSource');
-    },
-
-    setFilters: function(filters){
-        return this.control.set('filters', filters);
-    },
-
-    getFilters: function(){
-        return this.control.get('filters');
-    },
-
-    setQuery: function(query){
-        return this.control.set('query', query);
-    },
-
-    getQuery: function(){
-        if(!this.control.get('value')) {
-            return this.control.get('query');
-        }else{
-            return this.control.get('value');
-        }
-    },
-
-//    setProperty: function(property){
-//        return this.control.set('property', property)
-//    },
-
-    getOrientation: function () {
-        return this.control.get('orientation');
-    },
-
-    setOrientation: function (orientation) {
-        if (typeof orientation == 'string') {
-            this.control.set('orientation', orientation);
-        }
-    },
-
-    getHeight: function () {
-        return 44;
-    },
-
-    /**
-     * @see {@link http://jira.infinnity.lan/browse/UI-772}
-     */
-    filter: function () {
-        this.control.filter();
-    }
-
-}, valuePropertyMixin);
-//####app/element/dataElement/filterPanel/filterPanelBuilder.js
-function FilterPanelBuilder() {
-}
-
-_.inherit(FilterPanelBuilder, ElementBuilder);
-
-_.extend(FilterPanelBuilder.prototype, {
-
-    applyMetadata: function (params) {
-        ElementBuilder.prototype.applyMetadata.call(this, params);
-
-        this.initValueProperty(params);
-        this.initScriptsHandlers(params);
-
-        params.element.setDataSource(params.metadata.DataSource);
-        params.element.setView(params.view);
-        //params.metadata.Query = [
-        //        {
-        //            CriteriaType: 1,
-        //            Property: "MedicalWorker.Id",
-        //            Value: "9f7df52a-229a-4b6c-978f-83e19573d510"
-        //        }
-        //];
-        params.element.setQuery(params.metadata.Query);
-
-        var array = [];
-        _.each(params.metadata.GeneralProperties, function (metadataProperty) {
-            var obj = {};
-            var label = params.builder.build(params.view, {Label: {}});
-            label.setValue(metadataProperty.Text);
-
-            obj.text = label;
-            obj.property = metadataProperty.Property;
-            obj.operators = [];
-
-            _.each(metadataProperty.Operators, function (metadataOperator) {
-                var operator = {};
-                operator.operator = metadataOperator.Operator;
-                operator.el = params.builder.build(params.view, metadataOperator.Editor);
-                obj.operators.push(operator);
-            });
-
-            array.push(obj);
-        });
-        params.element.setFilters(array);
-
-        this.initDataSource(params);
-    },
-
-    createElement: function (params) {
-        return new FilterPanel(params.view);
-    },
-
-    initScriptsHandlers: function(params){
-        var metadata = params.metadata;
-
-        //Скриптовые обработчики на события
-        if (params.view && metadata.OnLoaded){
-            params.element.onLoaded(function() {
-                new ScriptExecutor(params.view).executeScript(metadata.OnLoaded.Name);
-            });
-        }
-
-        if (params.view && metadata.OnValueChanged){
-            params.element.onValueChanged(function() {
-                new ScriptExecutor(params.view).executeScript(metadata.OnValueChanged.Name);
-            });
-        }
-    },
-
-    initDataSource: function (params) {
-        var self = params;
-
-        params.element.onValueChanged(function (value) {
-            var args = {
-                source: self.element,
-                dataSource: self.metadata.DataSource,
-                value: value
-            };
-
-            var view = self.element.getView();
-            var exchange = view.getExchange();
-            exchange.send(messageTypes.onSetPropertyFilters, args);
-        });
-    }
-
-}, builderValuePropertyMixin);
-
-//####app/element/dataElement/linkLabel/linkLabel.js
-function LinkLabel() {
-    _.superClass(LinkLabel, this);
-}
-
-_.inherit(LinkLabel, Element);
-
-_.extend(LinkLabel.prototype, {
-
-        createControl: function () {
-            return new LinkLabelControl();
-        },
-
-        getReference: function () {
-            return this.control.get('reference');
-        },
-
-        setReference: function (value) {
-            this.control.set('reference', value);
-        },
-
-        onClick: function (handler) {
-            this.control.controlView.addEventHandler('OnClick', handler);
-        },
-
-        getTextTrimming: function () {
-            return this.control.get('textTrimming');
-        },
-
-        setTextTrimming: function (value) {
-            this.control.set('textTrimming', value);
-        },
-
-        getTextWrapping: function () {
-            return this.control.get('textWrapping');
-        },
-
-        setTextWrapping: function (value) {
-            this.control.set('textWrapping', value);
-        },
-
-        getLineCount: function () {
-            return this.control.get('lineCount');
-        },
-
-        setLineCount: function (value) {
-            this.control.set('lineCount', value);
-        },
-        getAction: function () {
-            return this.control.get('action');
-        },
-
-        setAction: function (action) {
-            this.control.set('action', action);
-
-            this.onClick(function () {
-                var action = this.getAction();
-                if (action) {
-                    action.execute();
-                }
-            }.bind(this));
-        }
-
-    },
-    valuePropertyMixin,
-    formatPropertyMixin,
-    elementHorizontalTextAlignmentMixin,
-    elementBackgroundMixin,
-    elementForegroundMixin,
-    elementTextStyleMixin
-);
-//####app/element/dataElement/linkLabel/linkLabelBuilder.js
-function LinkLabelBuilder() {
-}
-
-_.inherit(LinkLabelBuilder, ElementBuilder);
-
-_.extend(LinkLabelBuilder.prototype,
-    {
-        defaults: {
-            Foreground: "Black",
-            Background: "Transparent",
-            HorizontalTextAlignment: "Left",
-            TextStyle: "Body1",
-            TextTrimming: true,
-            TextWrapping: true
-        },
-
-        applyDefaults: function (metadata) {
-            var defaults = this.defaults;
-
-            for (var i in defaults) {
-                if (typeof metadata[i] === 'undefined') {
-                    metadata[i] = defaults[i];
-                }
-            }
-        },
-
-        applyMetadata: function (params) {
-            this.applyDefaults(params.metadata);
-            var metadata = params.metadata;
-            var element = params.element;
-
-            ElementBuilder.prototype.applyMetadata.call(this, params);
-
-            element.setTextWrapping(metadata.TextWrapping);
-            element.setTextTrimming(metadata.TextTrimming);
-            element.setLineCount(metadata.LineCount);
-
-            this.initHorizontalTextAlignmentProperty(params);
-            this.initForeground(params);
-            this.initBackground(params);
-            this.initTextStyle(params);
-            this.initFormatProperty(params);
-            this.initValueProperty(params);
-            this.initBindingToProperty(params, metadata.Reference, 'Reference');
-            this.initScriptsHandlers(params);
-
-            if(params.metadata.Action) {
-                params.element.setAction(params.builder.build(params.view, params.metadata.Action, params.collectionProperty));
-            }
-        },
-
-        initScriptsHandlers: function (params) {
-            var metadata = params.metadata;
-
-            //Скриптовые обработчики на события
-            if (params.view && metadata.OnLoaded) {
-                params.element.onLoaded(function () {
-                    new ScriptExecutor(params.view).executeScript(metadata.OnLoaded.Name);
-                });
-            }
-
-            if (params.view && metadata.OnValueChanged) {
-                params.element.onValueChanged(function () {
-                    new ScriptExecutor(params.view).executeScript(metadata.OnValueChanged.Name);
-                });
-            }
-
-            if (params.view && metadata.OnClick) {
-                params.element.onClick(function () {
-                    var script = new ScriptExecutor(params.view);
-                    return script.executeScript(metadata.OnClick.Name);
-                });
-            }
-        },
-
-        createElement: function (params) {
-            var linkLabel = new LinkLabel(params.view);
-            linkLabel.getHeight = function () {
-                return 34;
-            };
-            return linkLabel;
-        }
-
-    },
-    builderValuePropertyMixin,
-    builderFormatPropertyMixin,
-    //builderHorizontalTextAlignmentPropertyMixin,
-    builderBackgroundMixin,
-    builderForegroundMixin,
-    builderTextStyleMixin
-);
 //####app/element/dataElement/pdfViewer/pdfViewer.js
 function PdfViewer(parentView) {
     _.superClass(PdfViewer, this, parentView);
@@ -30131,427 +30539,6 @@ _.extend(PdfViewerBuilder.prototype, {
     }
 }, builderValuePropertyMixin);
 
-//####app/element/dataElement/searchPanel/searchPanel.js
-function SearchPanel(parentView) {
-    _.superClass(SearchPanel, this, parentView);
-}
-
-_.inherit(SearchPanel, Element);
-
-_.extend(SearchPanel.prototype, {
-
-    createControl: function () {
-        return new SearchPanelControl();
-    },
-
-    setDataSource: function (dataSource) {
-        return this.control.set('dataSource', dataSource);
-    },
-
-    getDataSource: function () {
-        return this.control.get('dataSource');
-    },
-
-    setView: function (view) {
-        return this.control.set('view', view);
-    },
-
-    getView: function () {
-        return this.control.get('view');
-    },
-
-    getHeight: function () {
-        return 44;
-    }
-
-}, valuePropertyMixin);
-//####app/element/dataElement/searchPanel/searchPanelBuilder.js
-function SearchPanelBuilder() {
-}
-
-_.inherit(SearchPanelBuilder, ElementBuilder);
-
-_.extend(SearchPanelBuilder.prototype, {
-
-    applyMetadata: function (params) {
-        ElementBuilder.prototype.applyMetadata.call(this, params);
-
-        this.initScriptsHandlers(params);
-        this.initValueProperty(params);
-        this.initDataSource(params);
-
-        params.element.setDataSource(params.metadata.DataSource);
-        params.element.setView(params.view);
-    },
-
-    createElement: function (params) {
-        return new SearchPanel(params.view);
-    },
-
-    initScriptsHandlers: function(params){
-        var metadata = params.metadata;
-
-        //Скриптовые обработчики на события
-        if (params.view && metadata.OnLoaded){
-            params.element.onLoaded(function() {
-                new ScriptExecutor(params.view).executeScript(metadata.OnLoaded.Name);
-            });
-        }
-
-        if (params.view && metadata.OnValueChanged){
-            params.element.onValueChanged(function() {
-                new ScriptExecutor(params.view).executeScript(metadata.OnValueChanged.Name);
-            });
-        }
-    },
-
-    initDataSource: function (params) {
-        var self = params;
-
-        params.element.onValueChanged(function (value) {
-            var args = {
-                source: self.element,
-                dataSource: self.metadata.DataSource,
-                value: value
-            };
-            var view = self.element.getView();
-            var exchange = view.getExchange();
-            exchange.send(messageTypes.onSetTextFilter, args);
-        });
-    }
-
-}, builderValuePropertyMixin);
-
-//####app/element/dataElement/treeView/treeView.js
-function TreeView() {
-    _.superClass(TreeView, this);
-}
-
-_.inherit(TreeView, Element);
-
-_.extend(TreeView.prototype, {
-
-        createControl: function () {
-            return new TreeViewControl();
-        },
-
-        /**
-         * Возвращает значение, определяющее, разрешен ли выбор нескольких элементов.
-         * @returns {Boolean}
-         */
-        getMultiSelect: function () {
-            return this.control.get('multiSelect');
-        },
-
-        /**
-         * Устанавливает значение, определяющее, разрешен ли выбор нескольких элементов.
-         * @param {Boolean} value
-         */
-        setMultiSelect: function (value) {
-            this.control.set('multiSelect', value);
-        },
-
-        /**
-         * Возвращает значение, определяющее, запрещено ли редактирование значения.
-         * @return {Boolean}
-         */
-        getReadOnly: function () {
-            return this.control.get('readOnly');
-        },
-
-        /**
-         * Устанавливает значение, определяющее, запрещено ли редактирование значения.
-         * @param {Boolean} value
-         */
-        setReadOnly: function (value) {
-            this.control.set('readOnly', value);
-        },
-
-        getValueProperty: function () {
-            return this.control.get('valueProperty');
-        },
-
-        setValueProperty: function (value) {
-            this.control.set('valueProperty', value);
-        },
-
-        getKeyProperty: function () {
-            return this.control.get('keyProperty');
-        },
-
-        setKeyProperty: function (value) {
-            this.control.set('keyProperty', value);
-        },
-
-        getParentProperty: function () {
-            return this.control.get('parentProperty');
-        },
-
-        setParentProperty: function (value) {
-            this.control.set('parentProperty', value);
-        },
-
-        getDisplayProperty: function () {
-            return this.control.get('displayProperty');
-        },
-
-        setDisplayProperty: function (value) {
-            this.control.set('displayProperty', value);
-        },
-
-        getFormat: function () {
-            return this.control.get('itemFormat');
-        },
-
-        setFormat: function (itemFormat) {
-            this.control.set('itemFormat', itemFormat);
-        },
-
-        getItemTemplate: function () {
-
-        },
-
-        setItemTemplate: function () {
-
-        },
-
-        addItem: function () {
-
-        },
-
-        removeItem: function () {
-
-        },
-
-        /**
-         * Возвращает список элементов.
-         * @returns {Object[]}
-         */
-        getItems: function () {
-            return this.control.get('items');
-        },
-
-        /**
-         * Устанавливает список элементов.
-         * @param {Object[]}items
-         */
-        setItems: function (items) {
-            this.control.set('items', items);
-            this.control.controlView.trigger('afterchange:items');
-        },
-
-        getDataNavigation: function () {
-
-        },
-
-        setDataNavigation: function () {
-
-        },
-
-        getSelectedItem: function () {
-            return this.control.controlView.getSelectedItem();
-        }
-
-    },
-    valuePropertyMixin
-);
-
-//####app/element/dataElement/treeView/treeViewBuilder.js
-function TreeViewBuilder () {
-
-}
-
-_.inherit(TreeViewBuilder, ElementBuilder);
-
-_.extend(TreeViewBuilder.prototype, {
-
-    applyMetadata: function (params) {
-
-        ElementBuilder.prototype.applyMetadata.call(this, params);
-
-        this.initFormatProperty(params);
-        this.initValueProperty(params);
-        this.initScriptsHandlers(params);
-
-        var element = params.element,
-            builder = params.builder,
-            metadata = params.metadata,
-            view = params.view,
-            that = this;
-
-        element.setMultiSelect(metadata.MultiSelect);
-        element.setReadOnly(metadata.ReadOnly);
-        element.setDisplayProperty(metadata.DisplayProperty);
-        element.setValueProperty(metadata.ValueProperty);
-        element.setKeyProperty(metadata.KeyProperty);
-        element.setParentProperty(metadata.ParentProperty);
-        this.initFormatProperty(params);
-
-        if (metadata.Items) {
-            // Привязка списка значений элемента к источнику данных
-            var binding = builder.build(view, metadata.Items);
-
-            binding.onPropertyValueChanged(function (dataSourceName, value) {
-                element.setItems(value.value);
-            });
-
-            element.onValueChanged(function (context, args) {
-                view.getExchange().send(messageTypes.onSetSelectedItem, {
-                    dataSource: binding.getDataSource(),
-                    property: '',
-                    value: element.getSelectedItem()
-                });
-            });
-
-            var items = binding.getPropertyValue();
-            if (items) {
-                element.setItems(items);
-            }
-        }
-    },
-
-    initScriptsHandlers: function(params){
-        var metadata = params.metadata;
-
-        //Скриптовые обработчики на события
-        if (params.view && metadata.OnLoaded){
-            params.element.onLoaded(function() {
-                new ScriptExecutor(params.view).executeScript(metadata.OnLoaded.Name);
-            });
-        }
-
-        if (params.view && metadata.OnValueChanged){
-            params.element.onValueChanged(function() {
-                new ScriptExecutor(params.view).executeScript(metadata.OnValueChanged.Name);
-            });
-        }
-    },
-
-    createElement: function (params) {
-        return new TreeView(params.view);
-    }
-
-}, builderValuePropertyMixin, builderFormatPropertyMixin, builderFormatPropertyMixin);
-
-//####app/element/layoutPanel/abstractGridPanel/abstractGridPanel.js
-function AbstractGridPanel(parentView) {
-    _.superClass(AbstractGridPanel, this, parentView);
-}
-
-_.inherit(AbstractGridPanel, Element);
-
-_.extend(AbstractGridPanel.prototype, {
-
-    addRow: function(){
-        var row = new GridRow();
-        this.control.addRow(row);
-        return row;
-    },
-
-    getRows: function(){
-        return this.control.getRows();
-    }
-
-});
-
-//####app/element/layoutPanel/abstractGridPanel/abstractGridPanelBuilder.js
-function AbstractGridPanelBuilder() {
-}
-
-_.inherit(AbstractGridPanelBuilder, ElementBuilder);
-
-_.extend(AbstractGridPanelBuilder.prototype, {
-
-    applyMetadata: function(params){
-        ElementBuilder.prototype.applyMetadata.call(this, params);
-
-        var metadata = params.metadata,
-            gridPanel = params.element,
-            row, cell, item;
-
-        _.each(metadata.Rows, function (metadataItem, rowIndex) {
-            row = gridPanel.addRow();
-
-            if (metadataItem.Cells) {
-                _.each(metadataItem.Cells, function (cellMetadata, cellIndex) {
-                    cell = row.addCell(cellMetadata.ColumnSpan);
-
-                    if (cellMetadata.Items) {
-                        _.each(cellMetadata.Items, function (itemMetadata) {
-                            item = params.builder.build(params.view, itemMetadata, params.collectionProperty);
-                            cell.addItem(item);
-                        }, this);
-                    }
-                }, this);
-            }
-        }, this);
-    }
-
-});
-//####app/element/layoutPanel/abstractGridPanel/gridCell.js
-var GridCell = function(colSpan){
-    this.items = [];
-    this.colSpan = colSpan || 1;
-    this.handlers = {
-        onItemsChange: $.Callbacks()
-    };
-};
-
-_.extend(GridCell.prototype, {
-
-    addItem: function(item){
-        this.items.push(item);
-        this.handlers.onItemsChange.fire();
-    },
-
-    getItems: function(){
-        return this.items;
-    },
-
-    onItemsChange: function(handler){
-        this.handlers.onItemsChange.add(handler);
-    }
-
-});
-//####app/element/layoutPanel/abstractGridPanel/gridRow.js
-var GridRow = function(){
-    this.cells = [];
-    this.handlers = {
-        onCellsChange: $.Callbacks(),
-        onItemsChange: $.Callbacks()
-    };
-};
-
-_.extend(GridRow.prototype, {
-
-    addCell: function(colSpan){
-        var cell = new GridCell(colSpan);
-        this.cells.push(cell);
-        this.handlers.onCellsChange.fire();
-        this.initCellHandlers(cell);
-        return cell;
-    },
-
-    getCells: function(){
-        return this.cells;
-    },
-
-    onCellsChange: function(handler){
-        this.handlers.onCellsChange.add(handler);
-    },
-
-    onItemsChange: function(handler){
-        this.handlers.onItemsChange.add(handler);
-    },
-
-    initCellHandlers: function(cell){
-        var self = this;
-        cell.onItemsChange(function(){
-            self.handlers.onItemsChange.fire();
-        });
-    }
-
-});
 //####app/element/layoutPanel/extensionPanel/extensionPanel.js
 function ExtensionPanel(parentView) {
     _.superClass(ExtensionPanel, this, parentView);
@@ -30571,6 +30558,10 @@ _.extend(ExtensionPanel.prototype, {
 
     setParameters: function (parameters) {
         return this.control.set('parameters', parameters);
+    },
+
+    getParameters: function () {
+        return this.control.get('parameters');
     },
 
     setContext: function (context) {
@@ -30770,292 +30761,6 @@ _.extend(ViewPanelBuilder.prototype, {
 
 InfinniUI.global.containers = {};
 
-//####app/element/systemElement/actionBar/actionBar.js
-function ActionBar(parent) {
-    _.superClass(ActionBar, this, parent);
-}
-
-_.inherit(ActionBar, Element);
-
-_.extend(ActionBar.prototype, {
-
-    createControl: function () {
-        return new ActionBarControl();
-    },
-
-    //setApplicationView: function (applicationView) {
-    //    this.control.set('applicationView', applicationView);
-    //},
-    //
-    //getApplicationView: function () {
-    //    return this.control.get('applicationView');
-    //},
-
-    setPages: function (pages) {
-        this.control.set('pages', pages);
-    },
-
-    getPages: function () {
-        return this.control.get('pages');
-    },
-
-    refresh: function (pages) {
-        //var view = this.getApplicationView();
-
-        //console.log('ApplicationView', view);
-
-        //var pages = InfinniUI.global.openMode.getPageViews(view);
-        for (var i = 0, ln = pages.length; i < ln; i = i + 1) {
-            console.log(pages[i]);
-        }
-    }
-
-});
-//####app/element/systemElement/actionBar/actionBarBuilder.js
-function ActionBarBuilder() {
-
-}
-
-_.inherit(ActionBarBuilder, ElementBuilder);
-
-_.extend(ActionBarBuilder.prototype, {
-
-    applyMetadata: function (params) {
-        ElementBuilder.prototype.applyMetadata.call(this, params);
-
-
-        //var applicationView = params.parent.getApplicationView();
-        //params.element.setApplicationView(applicationView);
-
-
-        var exchange = window.InfinniUI.global.messageBus;
-
-        exchange.subscribe(messageTypes.onViewOpened, this.onViewOpened.bind(this, params));
-
-        exchange.subscribe(messageTypes.onViewClosed, this.onViewClosed.bind(this, params));
-
-    },
-
-    createElement: function (params) {
-        return new ActionBar(params.view);
-    },
-
-    onViewOpened: function (params, message) {
-        var applicationView = params.view.getApplicationView();
-        if (message.openMode === 'Page' && applicationView === message.view.getApplicationView()) {
-            //Открывается страница текущего приложения
-            console.log('ActionBar.onViewOpened', message);
-            //console.log(InfinniUI.global.openMode.getPageViews(message.view.getApplicationView()));
-            this.updatePages(params);
-        }
-    },
-
-    updatePages: function (params) {
-        var applicationView = params.view.getApplicationView();
-        var pageViews = InfinniUI.global.openMode.getPageViews(applicationView);
-        params.element.setPages(pageViews.slice());
-    },
-
-    onViewClosed: function (params, message) {
-        var applicationView = params.view.getApplicationView();
-        if (applicationView === message.view.getApplicationView()) {
-            //Закрыта страница текущего приложения
-            console.log('ActionBar.onViewClosed', message);
-            this.updatePages(params);
-        }
-    }
-
-});
-//####app/element/systemElement/globalNavigationBar.js
-function GlobalNavigationBar(parent) {
-    _.superClass(GlobalNavigationBar, this, parent);
-}
-
-_.inherit(GlobalNavigationBar, Element);
-
-_.extend(GlobalNavigationBar.prototype, {
-
-    createControl: function () {
-        return new GlobalNavigationBarControl();
-    },
-
-    addApplicationView: function (view) {
-        this.control.addApplicationView(view);
-    },
-
-    removeApplicationView: function (view) {
-        this.control.removeApplicationView(view);
-    },
-
-    onActivateApplication: function (handler) {
-        this.control.onActivateApplication(handler);
-    },
-
-    onClosingApplication: function (handler) {
-        this.control.onClosingApplication(handler);
-    },
-
-    onCloseApplication: function (handler) {
-        this.control.onCloseApplication(handler);
-    },
-
-    setApplicationText: function (view, text) {
-        this.control.setApplicationText(view, text);
-    },
-
-    setApplications: function (applications) {
-        this.control.setApplications(applications);
-    }
-
-
-});
-//####app/element/systemElement/globalNavigationBarBuilder.js
-function GlobalNavigationBarBuilder() {
-
-}
-
-_.inherit(GlobalNavigationBarBuilder, ElementBuilder);
-
-_.extend(GlobalNavigationBarBuilder.prototype, {
-
-    applyMetadata: function (params) {
-        ElementBuilder.prototype.applyMetadata.call(this, params);
-
-        var element = params.element;
-
-        element.setApplications(InfinniUI.global.openMode.getApplicationViews());
-        var exchange = this.getGlobalMessageBus();
-        exchange.subscribe(messageTypes.onViewOpened, this.onViewOpenedHandler.bind(this, params));
-
-        exchange.subscribe(messageTypes.onViewClosed, this.onViewClosedHandler.bind(this, params));
-        exchange.subscribe(messageTypes.onViewTextChange, this.onViewTextChangeHandler.bind(this, params));
-
-
-        element.onActivateApplication(this.onActivateApplicationHandler.bind(this, params));
-        element.onClosingApplication(this.onClosingApplicationHandler.bind(this, params));
-    },
-
-    getGlobalMessageBus: function () {
-        return window.InfinniUI.global.messageBus;
-    },
-
-    /**
-     * @description Обработчик запроса на закрытие представления от панели навигации
-     * @param params
-     * @param view
-     */
-    onClosingApplicationHandler: function (params, view) {
-        view.close();
-    },
-
-    /**
-     * @description Обработчик события переключения на другое приложение
-     * @param params
-     */
-    onActivateApplicationHandler: function (params, view) {
-        //@TODO Отправить в шину сообщение о необходимости активировать указанное приложение
-        var exchange = this.getGlobalMessageBus();
-        exchange.send(messageTypes.onShowView, {source: this, view: view});
-    },
-
-    /**
-     * @description Обработчик события открытия представления
-     */
-    onViewOpenedHandler: function (params, message) {
-        var element = params.element;
-
-        if (message.openMode !== 'Application') {
-            return;
-        }
-
-        console.log('messageTypes.onViewOpened', arguments);
-        element.addApplicationView(message.view)
-
-    },
-
-    /**
-     * @description Обработчик события закрытия представления
-     */
-    onViewClosedHandler: function (params, message) {
-        console.log('messageTypes.onViewClosing', message);
-        params.element.removeApplicationView(message.view)
-    },
-
-    /**
-     * @description При изменении заголовка представления, уведомляем об этом компонент навигации
-     * @param params
-     */
-    onViewTextChangeHandler: function (params, message) {
-        params.element.setApplicationText(message.source, message.value);
-    },
-
-    createElement: function (params) {
-        return new GlobalNavigationBar(params.view);
-    }
-
-});
-//####app/eventStore.js
-function EventStore() {
-    var handlers = {};
-
-    this.addEvent = function (name, action) {
-        var event = handlers[name];
-        if (event === undefined) {
-            event = { actions: [] };
-            handlers[name] = event;
-        }
-
-        event.actions.push(action);
-        return {
-            unsubscribe: this.removeEvent.bind(this, name, action)
-        };
-    };
-
-    this.removeEvent = function (name, action) {
-        var events = handlers[name];
-        if (typeof events === 'undefined') {
-            return;
-        }
-        var actions = events.actions;
-        var i;
-        while(true) {
-            i = actions.indexOf(action);
-            if (i === -1) {
-                break;
-            }
-            actions.splice(i, 1);
-        }
-    };
-
-    this.executeEvent = function (name) {
-        var event = handlers[name],
-            response = [],
-            args = _.toArray(arguments).slice(1);
-
-        if (event !== undefined) {
-            response = _.map(event.actions, function (action) {
-                return action.apply(null, args);
-            });
-        }
-        return response;
-    };
-
-    this.executeEventAsync = function (name) {
-        var args = Array.prototype.slice.call(arguments);
-        var callback;
-        if (typeof args[args.length - 1] === 'function') {
-            callback = args.pop();
-        }
-        var response = this.executeEvent.apply(this, args);
-        $.when.apply($, response)
-            .done(function() {
-                var results = [];
-                if (typeof callback === 'function') {
-                    callback(Array.prototype.push.apply(results, arguments));
-                }
-            });
-    };
-}
 //####app/formats/displayFormat/_common/formatMixin.js
 /**
  * @description Методы для форматоирования
@@ -31067,6 +30772,14 @@ var formatMixin = {
      * @description Разделитель для форматирования коллекций
      */
     separator: ", ",
+
+    setOptions: function (options) {
+        this.options = _.defaults({}, options);
+    },
+
+    getOptions: function () {
+        return this.options || {};
+    },
 
     /**
      * Форматирование объекта или коллекции объектов.
@@ -31251,7 +30964,7 @@ _.extend(DateTimeFormat.prototype, {
 
         culture = culture || new Culture(InfinniUI.config.lang);
 
-        var date = new Date(originalDate);
+        var date = this.createDate(originalDate);
 
         format = format||this.getFormat();
 
@@ -31270,6 +30983,14 @@ _.extend(DateTimeFormat.prototype, {
         });
     },
 
+    createDate: function (originalDate) {
+        var date;
+        var options = this.getOptions();
+
+        date = InfinniUI.DateUtils.createDate(originalDate);
+
+        return InfinniUI.DateUtils.changeTimezoneOffset(date, options.TimeZone);//apply timezoneOffset
+    },
 
     rg: new RegExp(
         '"[\\s\\S]*"|' + "'[\\s\\S]*'"+
@@ -31585,28 +31306,6 @@ function DateTimeFormatBuilder () {
     }
 
 }
-//####app/formats/displayFormat/number/NumberFormatBuilder.js
-/**
- * @description Билдер NumberFormat
- * @class NumberFormatBuilder
- */
-function NumberFormatBuilder () {
-
-    /**
-     * @description Создает и инициализирует экземпляр {@link NumberFormat}
-     * @memberOf NumberFormatBuilder
-     * @param context
-     * @param args
-     * @returns {NumberFormat}
-     */
-    this.build = function (context, args) {
-        var format = new NumberFormat();
-
-        format.setFormat(args.metadata.Format);
-
-        return format;
-    }
-}
 //####app/formats/displayFormat/number/numberFormat.js
 /**
  * @description Формат отображения числового значения.
@@ -31773,6 +31472,28 @@ _.extend(NumberFormat.prototype, {
         return splitter + result + postfix;
     }
 }, formatMixin);
+//####app/formats/displayFormat/number/NumberFormatBuilder.js
+/**
+ * @description Билдер NumberFormat
+ * @class NumberFormatBuilder
+ */
+function NumberFormatBuilder () {
+
+    /**
+     * @description Создает и инициализирует экземпляр {@link NumberFormat}
+     * @memberOf NumberFormatBuilder
+     * @param context
+     * @param args
+     * @returns {NumberFormat}
+     */
+    this.build = function (context, args) {
+        var format = new NumberFormat();
+
+        format.setFormat(args.metadata.Format);
+
+        return format;
+    }
+}
 //####app/formats/displayFormat/object/objectFormat.js
 /**
  * @description Формат отображения объекта
@@ -31799,10 +31520,6 @@ _.extend(ObjectFormat.prototype, {
      */
     formatValue: function (originalValue, culture, format) {
 
-        if (typeof originalValue === 'undefined' || originalValue === null) {
-            return '';
-        }
-
         culture = culture || new Culture(InfinniUI.config.lang);
         format = format || this.getFormat();
 
@@ -31810,9 +31527,7 @@ _.extend(ObjectFormat.prototype, {
         var trim = /^{|}$/g;
         var value = '';
 
-        if (typeof originalValue !== 'undefined' && originalValue !== null) {
-            value = format.replace(regexp, this.formatIterator.bind(this, originalValue, culture));
-        }
+        value = format.replace(regexp, this.formatIterator.bind(this, originalValue, culture));
         
         return value;
 
@@ -31848,6 +31563,8 @@ _.extend(ObjectFormat.prototype, {
             for (var i = 0, ln = this.formatters.length; i < ln; i = i + 1) {
                 //Пытаемся по очереди отформатировать значение разными форматами
                 formatter = new this.formatters[i](parts[1]);
+                formatter.setOptions(this.getOptions());
+
                 text = formatter.format(value, culture);
                 if (text !== parts[1]) {
                     //Если формат отформатировал строку - оставляем ее
@@ -32025,7 +31742,13 @@ function ObjectFormatBuilder () {
      * @returns {string}
      */
     getText: function () {
-        return this.value.toString();
+        var text;
+
+        if (this.value !== null && typeof this.value !== 'undefined') {
+            text = String(this.value);
+        }
+
+        return text;
     },
 
     /**
@@ -32695,6 +32418,8 @@ function DateTimeEditMask() {
     this.format = null;
 }
 
+_.extend(DateTimeEditMask.prototype, editMaskMixin);
+
 _.extend(DateTimeEditMask.prototype, {
 
     /**
@@ -32956,6 +32681,10 @@ _.extend(DateTimeEditMask.prototype, {
         var width;
         var index;
         var result = null;
+
+        if (!Array.isArray(template)) {
+            return null;
+        }
         for (var i = 0, ln = template.length; i < ln; i = i + 1) {
             item = template[i];
             if (typeof item === 'string') {
@@ -33126,13 +32855,17 @@ _.extend(DateTimeEditMask.prototype, {
 
     /**
      * Получить представление значения для MaskedEdit
-     * @returns {string}
+     * @returns {string|*}
      */
     getText: function () {
         var template = this.template;
         var item;
         var result = [];
         var placeholder;
+
+        if (!Array.isArray(template)) {
+            return;
+        }
 
         for (var i = 0, ln = template.length; i < ln; i = i + 1) {
             item = template[i];
@@ -33208,17 +32941,21 @@ _.extend(DateTimeEditMask.prototype, {
         return template;
     },
 
-
     /**
      * Вернуть введеный результат
      * @returns {*}
      */
     getValue: function () {
+        var formatOptions = this.format.getOptions();
         var template = this.template;
         var item;
         var mask;
-        var value = this.value;
+        var value =  InfinniUI.DateUtils.changeTimezoneOffset(this.value, formatOptions.TimeZone );
         var done = true;
+
+        if (!Array.isArray(template)) {
+            return;
+        }
 
         for (var i = 0; i < template.length; i = i + 1) {
             item = template[i];
@@ -33233,6 +32970,10 @@ _.extend(DateTimeEditMask.prototype, {
             }
         }
 
+        if (done && value instanceof Date) {
+            //value.setHours(0, 0, 0, 0);
+            value =  InfinniUI.DateUtils.restoreTimezoneOffset(value, formatOptions.TimeZone);
+        }
 
         return done ? value : null;
     },
@@ -33242,7 +32983,9 @@ _.extend(DateTimeEditMask.prototype, {
      * @returns {String}
      */
     getData: function () {
-        return InfinniUI.DateUtils.toISO8601(this.getValue());
+        var formatOptions = this.format.getOptions();
+
+        return InfinniUI.DateUtils.toISO8601(this.getValue(), {timezoneOffset: formatOptions.TimeZone});
     },
 
     /**
@@ -33256,12 +32999,7 @@ _.extend(DateTimeEditMask.prototype, {
         if (typeof value !== 'undefined' && value !== null && value !== '') {
             //Если переданное значение является датой - инициалищируем этим значением
             try {
-                if(value instanceof Date){
-                    date = value;
-                }else {
-                    date = new Date(value);
-                }
-
+                date = InfinniUI.DateUtils.createDate(value);
             } catch (e) {
                 date = null;
             }
@@ -33352,6 +33090,8 @@ _.extend(DateTimeEditMask.prototype, {
 function DateTimeEditMaskBuilder () {
     this.build = function (context, args) {
 
+        var formatOptions = args.formatOptions;
+
         var editMask = new DateTimeEditMask();
         var culture = new Culture(InfinniUI.config.lang);
         var mask;
@@ -33365,7 +33105,7 @@ function DateTimeEditMaskBuilder () {
         editMask.mask = mask;
 
         editMask.format = args.builder.buildType('DateTimeFormat', {Format: args.metadata.Mask}, {parentView: args.parentView});
-
+        editMask.format.setOptions(formatOptions);
         return editMask;
     }
 }
@@ -33490,6 +33230,10 @@ _.extend(NumberEditMask.prototype, {
     getText: function () {
         var result = [];
         var item;
+
+        if (!Array.isArray(this.template)) {
+            return;
+        }
 
         for (var i = 0, ln = this.template.length; i < ln; i = i + 1) {
             item = this.template[i];
@@ -33826,25 +33570,29 @@ _.extend(NumberEditMask.prototype, {
         var txt = text.slice(0, index);
 
         var i = (/\d/.test(txt)) ? txt.length - txt.split('').reverse().join('').search(/\d/) - 1 : 0;
-        if (item.value === 0) {
+        
+        item.value = this.parseText(text.slice(0, i) + text.slice(i + 1), item.value);
+        item.text = this.formatMask(item.value, item.mask);
+
+        position = fractional ? position - 1 : position + item.text.length - text.length;
+
+        if (item.value === 0 && position <= 1) {
             item.value = null;
             item.text = this.formatMask(item.value, item.mask);
             position = left;
-        } else {
-            item.value = this.parseText(text.slice(0, i) + text.slice(i + 1), item.value);
-            item.text = this.formatMask(item.value, item.mask);
-            position = fractional ? position - 1 : position + item.text.length - text.length;
-
         }
-
 
         return position;
     },
 
     getValue: function () {
+        var value;
         var itemTemplate = this.getItemTemplate();
 
-        return itemTemplate.item.value;
+        if (itemTemplate) {
+            value = itemTemplate.item.value;
+        }
+        return value;
     },
 
     /**
@@ -33906,6 +33654,10 @@ _.extend(NumberEditMask.prototype, {
         var item;
         var left = 0;
         var result = null;
+
+        if (!Array.isArray(template)) {
+            return null;
+        }
         for (var i = 0, ln = template.length; i < ln; i = i + 1) {
             item = template[i];
             if (typeof item === 'string') {
@@ -34249,12 +34001,16 @@ _.extend(TemplateEditMask.prototype, {
 
     /**
      * Получение введенного значения
-     * @returns {string}
+     * @returns {string|*}
      */
     getValue: function () {
         var template = this.template;
         var result = [];
         var text;
+
+        if (!Array.isArray(template)) {
+            return;
+        }
         for (var i = 0, ln = template.length; i < ln; i = i + 1) {
             if (typeof template[i] === 'string' && this.maskSaveLiteral) {
                 result.push(template[i]);
@@ -34344,6 +34100,11 @@ _.extend(TemplateEditMask.prototype, {
         var width;
         var index;
         var result = null;
+
+        if (!Array.isArray(template)) {
+            return null;
+        }
+
         for (var i = 0, ln = template.length; i < ln; i = i + 1) {
             item = template[i];
             if (typeof item === 'string') {
@@ -34759,30 +34520,19 @@ function TemplateEditMaskBuilder () {
         return editMask;
     }
 }
-//####app/linkView/childViewBuilder.js
-function ChildViewBuilder() {
-    this.build = function (context, args) {
-        var linkView = args.parentView.getChildView(args.metadata.Name);
-        linkView.setOpenMode(args.metadata.OpenMode);
-        linkView.setContainer(args.metadata.Container);
-        if (['Application', 'Page', 'Dialog'].indexOf(args.metadata.OpenMode) > -1) {
-            InfinniUI.views.appendView(null, args.metadata, linkView);
-        }
-
-        return linkView;
-    };
-}
 //####app/linkView/inlineViewBuilder.js
 function InlineViewBuilder() {
     this.build = function (context, args){
         var that = this,
             metadata = args.metadata;
 
-        var linkView = new LinkView(args.parentView);
+        var parentView = this.getParentViewByOpenMode(args, metadata.OpenMode);
+
+        var linkView = new LinkView(parentView);
 
         linkView.setViewTemplate(function(onViewReadyHandler){
 
-            that.buildViewByMetadata(args, args.metadata['View'], function (view) {
+            that.buildViewByMetadata(args, args.metadata['View'], parentView, function (view) {
                 return onViewReadyHandler.call(null, view);
             });
         });
@@ -34804,14 +34554,18 @@ function InlineViewBuilder() {
 
 
 
-    this.buildViewByMetadata = function(params, viewMetadata, onViewReadyHandler){
+    this.buildViewByMetadata = function(params, viewMetadata, parentView, onViewReadyHandler){
         var builder = params.builder;
-        var parentView = params.parentView;
         var parameters = this.buildParameters(params);
 
         if (viewMetadata !== null) {
 
-            var view = builder.buildType("View", viewMetadata, {parentView: parentView, parent: params.parent, params: parameters});
+            var view = builder.buildType("View", viewMetadata, {
+                parentView: parentView,
+                parent: parentView,
+                params: parameters,
+                suspended: params.suspended
+            });
 
             onViewReadyHandler(view);
         } else {
@@ -34830,13 +34584,21 @@ function InlineViewBuilder() {
         if (typeof parametersMetadata !== 'undefined' && parametersMetadata !== null) {
             for (var i = 0; i < parametersMetadata.length; i++) {
                 if (parametersMetadata[i].Value !== undefined) {
-                    parameter = builder.buildType('Parameter', parametersMetadata[i], {parentView: parentView, basePathOfProperty: params.basePathOfProperty})
+                    parameter = builder.buildType('Parameter', parametersMetadata[i], {parentView: parentView, basePathOfProperty: params.basePathOfProperty});
                     result[parameter.getName()] = parameter;
                 }
             }
         }
         return result;
    };
+
+    this.getParentViewByOpenMode = function(params, mode) {
+        if( mode == null || mode == "Default" ) {
+            return params.parentView.getApplicationView();
+        }
+
+        return params.parentView;
+    };
 }
 
 
@@ -34905,6 +34667,8 @@ _.extend(LinkView.prototype, {
             this.parent.addChild(view);
         }
 
+        window.InfinniUI.global.messageBus.send('onViewCreated', {openMode: openMode, view: view});
+
         switch(openMode){
             case 'Container': {
                 container = InfinniUI.global.containers[this.containerName];
@@ -34935,57 +34699,60 @@ function MetadataViewBuilder() {
 
 _.extend(MetadataViewBuilder.prototype, {
 
-    build: function (context, args){
+    build: function (context, args) {
         var metadata = args.metadata;
-        var viewTemplate = this.buildViewTemplate(args);
-        var linkView = new LinkView(args.parent);
+        var parentView = this.getParentViewByOpenMode(args, metadata.OpenMode);
+
+        var viewTemplate = this.buildViewTemplate(args, parentView);
+        var linkView = new LinkView(parentView);
 
         linkView.setViewTemplate(viewTemplate);
 
-        if('OpenMode' in metadata){
+        if ('OpenMode' in metadata) {
             linkView.setOpenMode(metadata.OpenMode);
         }
 
-        if('Container' in metadata){
+        if ('Container' in metadata) {
             linkView.setContainer(metadata.Container);
         }
 
-        if('DialogWidth' in metadata){
+        if ('DialogWidth' in metadata) {
             linkView.setDialogWidth(metadata.DialogWidth);
         }
 
         return linkView;
     },
 
-    buildViewTemplate: function(params, cb){
+    buildViewTemplate: function (params, parentView) {
         var metadata = params.metadata;
         var that = this;
 
-        return function(onViewReadyHandler){
+        return function (onViewReadyHandler) {
             var metadataProvider = window.providerRegister.build('MetadataDataSource', metadata);
 
-            metadataProvider.getViewMetadata( function(viewMetadata){
-                that.buildViewByMetadata(params, viewMetadata, onReady);
+            metadataProvider.getViewMetadata(function (viewMetadata) {
+                that.buildViewByMetadata(params, viewMetadata, parentView, onReady);
                 function onReady() {
                     var args = Array.prototype.slice.call(arguments);
-                    if (cb) {
-                        cb.apply(null, args);
-                    }
                     onViewReadyHandler.apply(null, args);
                 }
             });
         };
     },
 
-    buildViewByMetadata: function(params, viewMetadata, onViewReadyHandler){
+    buildViewByMetadata: function (params, viewMetadata, parentView, onViewReadyHandler) {
         var builder = params.builder;
-        var parentView = params.parentView;
         var logger = InfinniUI.global.logger;
         var parameters = this.buildParameters(params);
 
         if (viewMetadata !== null) {
 
-            var view = builder.buildType("View", viewMetadata, {parentView: parentView, parent: params.parent, params: parameters});
+            var view = builder.buildType("View", viewMetadata, {
+                parentView: parentView,
+                parent: parentView,
+                params: parameters,
+                suspended: params.suspended
+            });
 
             onViewReadyHandler(view);
         } else {
@@ -34993,7 +34760,7 @@ _.extend(MetadataViewBuilder.prototype, {
         }
     },
 
-    buildParameters: function(params){
+    buildParameters: function (params) {
         var parametersMetadata = params.metadata['Parameters'];
         var builder = params.builder;
         var parentView = params.parentView;
@@ -35003,130 +34770,25 @@ _.extend(MetadataViewBuilder.prototype, {
         if (typeof parametersMetadata !== 'undefined' && parametersMetadata !== null) {
             for (var i = 0; i < parametersMetadata.length; i++) {
                 if (parametersMetadata[i].Value !== undefined) {
-                    parameter = builder.buildType('Parameter', parametersMetadata[i], {parentView: parentView, basePathOfProperty: params.basePathOfProperty})
+                    parameter = builder.buildType('Parameter', parametersMetadata[i], {
+                        parentView: parentView,
+                        basePathOfProperty: params.basePathOfProperty
+                    });
                     result[parameter.getName()] = parameter;
                 }
             }
         }
         return result;
+    },
+
+    getParentViewByOpenMode: function(params, mode) {
+        if( mode == null || mode == "Default" ) {
+            return params.parentView.getApplicationView();
+        }
+
+        return params.parentView;
     }
 });
-//####app/linkView/openMode/openMode.js
-var OpenMode = function () {
-
-    var applications = [];
-    var pages = [];
-
-    this.getStrategy = function (linkView) {
-        var openMode = linkView.openMode;
-
-        var openModeStrategy = {
-            Application: OpenModeApplicationStrategy,
-            Container: OpenModeContainerStrategy,
-            Page: OpenModePageStrategy,
-            Dialog: OpenModeDialogStrategy
-        };
-
-        if (typeof openModeStrategy[openMode] === 'undefined') {
-            throw new Error("Несуществующий OpenMode: " + openMode);
-        }
-
-        return new openModeStrategy[openMode](linkView);
-    };
-
-    this.getRootContainer = function () {
-        return InfinniUI.config.$rootContainer || $('body');
-    };
-
-    this.resolveContainer = function (list, callback) {
-        var name, layout;
-        _.find(list, function (i) {
-            if (_.isEmpty(i)) return false;
-            name = i;
-            layout = layoutPanelRegistry.getLayoutPanel(name);
-            return !_.isEmpty(layout);
-        });
-
-        callback(name, layout);
-    };
-
-    this.registerPage = function (applicationView, view, openMethod) {
-        pages.push({
-            applicationView: applicationView,
-            view: view,
-            openMethod: openMethod
-        });
-    };
-
-    this.registerApplication = function (applicationView, openMethod) {
-        applications.push({
-            applicationView: applicationView,
-            openMethod: openMethod
-        });
-    };
-
-    this.getApplicationViews = function () {
-        return _.pluck(applications, 'view');
-    };
-
-    this.closeApplicationView = function (applicationView) {
-        var i = _.findIndex(applications, function (app) {
-            return app.applicationView === applicationView;
-        });
-
-        if (i !== -1) {
-            applications.splice(i, 1);
-        }
-
-        //Получаем следущее доступное приложение
-        var ln = applications.length;
-        if (ln > 0) {
-            var next = (i < ln) ? applications[i] : applications[ln - 1];
-            return next.applicationView;
-        }
-    };
-
-    this.closePageView = function (view) {
-        var applicationView;
-        var next;
-        var i, ln;
-
-        for (i = 0, ln = pages.length; i < ln; i = i + 1) {
-            if (pages[i].view === view) {
-                var data = pages.splice(i,1).pop();
-                applicationView = data.applicationView;
-                break;
-            }
-        }
-
-        if (applicationView) {
-            for (i = 0, ln = pages.length; i < ln; i = i + 1) {
-                if (pages[i].applicationView === applicationView) {
-                    next = pages[i].view;
-                    break;
-                }
-            }
-        }
-        return next;
-    };
-
-    this.getApplication = function (applicationView) {
-        return _.findWhere(applications, {applicationView: applicationView});
-    };
-
-    this.getPageViews = function (applicationView) {
-        return _.chain(pages)
-            .filter(function (data) {
-                return data.applicationView === applicationView;
-            })
-            .pluck('view')
-            .value();
-    };
-
-};
-
-InfinniUI.global.openMode = new OpenMode();
-
 //####app/linkView/openMode/strategy/openModeContainerStrategy.js
 var OpenModeContainerStrategy = function () {
 };
@@ -35199,6 +34861,11 @@ _.extend(OpenModeDialogStrategy.prototype, {
     },
 
     open: function(){
+        // чтобы пользователь случайно не обратился к элементу в фокусе,
+        // пока диалоговое окно создается и ещё не перехватило фокус,
+        // необходимо старую фокусировку снять
+        $(document.activeElement).blur();
+
         var modalParams = {dialogWidth: this.dialogWidth};
         var $template = $(this.template(modalParams));
         var $closeButton = $('button', $template);
@@ -35227,13 +34894,17 @@ _.extend(OpenModeDialogStrategy.prototype, {
 
         var
             headerTemplate = view.getHeaderTemplate();
-        $closeButton.toggleClass('hidden', !view.getCloseButton());
+        $closeButton.toggleClass('hidden', !view.getCloseButtonVisibility());
         $header.append(headerTemplate().render());
 
         $modal.find('.pl-close-modal').on('click', function(){
             view.close();
         });
 
+        InfinniUI.ModalWindowService.modalWasOpened({
+            modal: this.$modal,
+            background: $('.modal-backdrop').last()
+        });
     },
 
     _initBehaviorFocusingInModal: function($modal, $modalBody){
@@ -35259,6 +34930,8 @@ _.extend(OpenModeDialogStrategy.prototype, {
         if (this.$modal) {
             this.$modal.modal('hide');
             this.$modal.remove();
+
+            InfinniUI.ModalWindowService.modalWasClosed(this.$modal);
         }
 
     }
@@ -35551,6 +35224,67 @@ var AjaxLoaderIndicatorView = Backbone.View.extend({
     }
 
 });
+//####app/services/autoHeightService.js
+/**
+ * @description При изменении размеров окна пересчитывает высоту элементов представления
+ */
+InfinniUI.AutoHeightService = (function () {
+    var TIMEOUT = 40;
+    var WAIT = 50;
+    var resizeTimeout;
+
+    $(window).resize(function () {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(_.debounce(onWindowResize, WAIT), TIMEOUT);
+    });
+
+    function onWindowResize() {
+        layoutManager.init();
+    }
+
+})();
+//####app/services/modalWindowService.js
+InfinniUI.ModalWindowService = (function () {
+    var modalQueue = [];
+
+    return {
+        modalWasOpened: function (obj) {
+            if (modalQueue.length != 0) {
+                var previous = modalQueue[modalQueue.length - 1];
+
+                previous.modal.hide();
+                previous.background.hide();
+            }
+
+            modalQueue.push(obj);
+        },
+
+        modalWasClosed: function (modal) {
+            for (var i = 0, length = modalQueue.length; i < length; i++) {
+                if (modalQueue[i].modal == modal) {
+                    // Если последний
+                    if (i == length - 1 && i != 0) {
+                        var previous = modalQueue[i - 1];
+
+                        previous.modal.show();
+                        previous.background.show();
+                        notifyLayoutChange();
+                    }
+
+                    modalQueue.splice(i, 1);
+                    break;
+                }
+            }
+
+        }
+    };
+
+    function notifyLayoutChange () {
+        var exchange = window.InfinniUI.global.messageBus;
+        exchange.send('OnChangeLayout', {});
+    }
+})();
+
 //####app/services/notifyService.js
 /**
  * @description Отображает всплывающие сообщения на событие onNotifyUser.
@@ -35614,7 +35348,9 @@ InfinniUI.ToolTipService = (function () {
         $element
             .tooltip({
                 html: true,
-                title:content
+                title:content,
+                container: 'body'
+
             })
             .tooltip('show');
     }
@@ -35653,6 +35389,49 @@ function ExcelButton() {
         target.append($button);
     }
 }
+//####extensions/loginForm/loginForm.js
+function LoginForm(context, args) {
+
+    var EVENT_NAME_LOGIN = 'SignIn';
+    var exchange = context.messageBus;
+    var template = InfinniUI.Template["extensions/loginForm/template/loginForm.tpl.html"];
+    var uid = guid();
+    var username = 'Электронная почта';
+    var password = 'Пароль';
+    var submit = 'Войти';
+
+    var $form;
+    this.render = render;
+
+    function render() {
+
+        var html = template({
+            uid: uid,
+            username: username,
+            password: password,
+            submit: submit
+        });
+
+        $form = $(html);
+
+        args.$el.append($form);
+
+        initFormEventsHandler();
+
+    }
+
+    function initFormEventsHandler() {
+        $("button[type=submit]", $form).on('click', onSubmitHandler);
+    }
+
+    function onSubmitHandler() {
+        var username = $("input[type=text]", $form).val();
+        var password = $("input[type=password]", $form).val();
+
+        exchange.send(EVENT_NAME_LOGIN, {value: {username: username, password: password}});
+    }
+}
+
 //####extensions/testt/testt.js
 function Testt(context, args) {
     this.context = args.context;

@@ -14,9 +14,9 @@ dataBinding.setMode(value)
 
 ## Parameters
 
-|Name|Type|Required|Description|
-|----|----|:--:|-----------|
-|value|[`BindingMode`](../BindingMode/)|+|Направление обмена данными в привязке|
+|Name|Type|Description|
+|----|----|-----------|
+|value|[`BindingMode`](../BindingMode/)|Направление обмена данными в привязке|
 
 ## Returns
 
@@ -26,7 +26,7 @@ dataBinding.setMode(value)
 # Examples
 
 ```js
-dataBinding.setMode(BindingModes.twoWay);
+dataBinding.setMode(InfinniUI.BindingModes.twoWay);
 ```
 
 # See Also

@@ -4,33 +4,34 @@ title: "BaseDataSource.isModified()"
 position: 27
 ---
 
-Проверяет, есть ли несохраненные элементы.
+Проверяет, является ли элемент несохраненным.
 
 # Syntax
 
 ```js
-BaseDataSource.isModified([item])
+BaseDataSource.isModified(item)
 ```
 
 ## Parameters
 
-`item`
-
-Необязательный. Элемент источника данных. Если указан, на наличие изменений проверяется только
-указанный элемент; если не указан, на наличие изменений проверяются все элементы.
+|Name|Description|
+|----|-----------|
+|item|(Необязательный) Элемент источника данных. Если указан, на наличие изменений проверяется только
+указанный элемент; если не указан, на наличие изменений проверяются все элементы|
 
 ## Returns
 
-Возвращает `true`, если есть несохраненные изменения, иначе возвращается `false`.
+Возвращает `true`, если элемент был изменен, иначе возвращает `false`.
 
 # Examples
 
 ```js
-var isModified = BaseDataSource.isModified();
+var selectedItem = BaseDataSource.getSelectedItem();
+var selectedIsModified = BaseDataSource.isModified(selectedItem);
 ```
 
 # See Also
 
+* [`isModifiedItems()`](../BaseDataSource.isModifiedItems/)
 * [`saveItem()`](../BaseDataSource.saveItem/)
 * [`updateItems()`](../BaseDataSource.updateItems/)
-* [`addNextItems()`](../BaseDataSource.addNextItems/)

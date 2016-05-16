@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.setName()"
-position: 3
+position: 4
 ---
 
 Устанавливает наименование источника данных.
@@ -14,9 +14,13 @@ BaseDataSource.setName(value)
 
 ## Parameters
 
-`value`
+|Name|Description|
+|----|-----------|
+|value|Наименование источника данных|
 
-Наименование источника данных.
+## Returns
+
+Метод ничего не возвращает.
 
 # Examples
 

@@ -4,7 +4,7 @@ title: "ViewContext.view"
 position: 0
 ---
 
-Возвращает [представление](../../View/) контекста.
+Возвращает [представление](../../Elements/View/) контекста.
 
 # Syntax
 
@@ -20,4 +20,4 @@ var view = ViewContext.view;
 
 # See Also
 
-* [`View`](../../View/)
+* [`View`](../../Elements/View/)

@@ -1,10 +1,10 @@
 ---
 layout: doc
 title: "BaseDataSource.onItemSaved"
-position: 106
+position: 103
 ---
 
-Устанавливает [обработчик события](../../../KeyConcepts/Script/) о том, что элемент сохранен.
+Устанавливает [обработчик события](../../../Script/) о том, что элемент сохранен.
 
 # Description
 
@@ -20,17 +20,15 @@ BaseDataSource.onItemSaved(callback)
 
 ## Parameters
 
-`callback`
-
-[Обработчик события](../../../KeyConcepts/Script/) о том, что элемент сохранен. В параметре `argument`
-передается информация о произошедшем событии. Свойство `argument.value` содержит ссылку на сохраненный
-элемент.
+|Name|Type|Description|
+|----|----|-----------|
+|callback|[Script](../../../Script/)|Обработчик события о том, что элемент сохранен. Параметр `args` данного обработчика содержит поля: source - ссылка на [источник данных](../), value -  сохраненный элемент,  result - информация о сохранении|
 
 # Examples
 
 ```js
 BaseDataSource.onItemSaved(
-  function(context, argument) { alert('Item is saved!'); }
+  function(context, args) { alert('Item is saved!'); }
 );
 ```
 

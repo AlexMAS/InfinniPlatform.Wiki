@@ -4,7 +4,7 @@ title: "Button.getAction"
 position: 3
 ---
 
-Возвращает [`действие`](../../../Core/Action/) при нажатии на кнопку.
+Возвращает [`действие`](../../../Core/Actions/) при нажатии на кнопку.
 
 # Syntax
 
@@ -18,7 +18,7 @@ button.getAction()
 
 ## Returns
 
-[`Действие`](../../../Core/Action/) при нажатии на кнопку.
+[`Действие`](../../../Core/Actions/) при нажатии на кнопку.
 
 # Examples
 

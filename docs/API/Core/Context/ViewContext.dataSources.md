@@ -4,7 +4,7 @@ title: "ViewContext.dataSources"
 position: 5
 ---
 
-Возвращает ассоциативный список [источников данных представления](../../../DataSources/BaseDataSource/).
+Возвращает ассоциативный список [источников данных представления](../../DataSources/BaseDataSource/).
 
 # Syntax
 
@@ -21,4 +21,4 @@ var dataSource2 = ViewContext.dataSources['myDataSource']; // dataSource2 === da
 
 # See Also
 
-* [`BaseDataSource`](../../../DataSources/BaseDataSource/)
+* [`BaseDataSource`](../../DataSources/BaseDataSource/)

@@ -12,30 +12,12 @@ position: 1003
 
 # Properties
 
-## [`view`](ViewContext.view/)
-
-Возвращает [представление](../View/) контекста.
-
-## [`global`](ViewContext.global/)
-
-Возвращает [глобальный контекст приложения](../GlobalContext/).
-
-## [`messageBus`](ViewContext.messageBus/)
-
-Возвращает [шину сообщений представления](../MessageBus/).
-
-## [`scripts`](ViewContext.scripts/)
-
-Возвращает ассоциативный список [скриптов представления](../Script/).
-
-## [`parameters`](ViewContext.parameters/)
-
-Возвращает ассоциативный список [параметров представления](../Parameters/).
-
-## [`dataSources`](ViewContext.dataSources/)
-
-Возвращает ассоциативный список [источников данных представления](../../DataSources/BaseDataSource/).
-
-## [`controls`](ViewContext.controls/)
-
-Возвращает ассоциативный список [визуальных элементов представления](../Element/).
+|Name|Description|
+|----|---------|
+|[`view`](ViewContext.view/)|Возвращает [представление](../Elements/View/) контекста|
+|[`global`](ViewContext.global/)|Возвращает [глобальный контекст приложения](../GlobalContext/)|
+|[`messageBus`](ViewContext.messageBus/)|Возвращает [шину сообщений представления](../MessageBus/)|
+|[`scripts`](ViewContext.scripts/)|Возвращает ассоциативный список [скриптов представления](../Script/)|
+|[`parameters`](ViewContext.parameters/)|Возвращает ассоциативный список [параметров представления](../Parameters/)|
+|[`dataSources`](ViewContext.dataSources/)|Возвращает ассоциативный список [источников данных представления](../DataSources/BaseDataSource/)|
+|[`controls`](ViewContext.controls/)|Возвращает ассоциативный список [визуальных элементов представления](../Elements/Element/)|

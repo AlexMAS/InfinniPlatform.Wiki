@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.validateOnErrors()"
-position: 34
+position: 35
 ---
 
 Осуществляет проверку на ошибки.
@@ -15,37 +15,36 @@ position: 34
 # Syntax
 
 ```js
-BaseDataSource.validateOnErrors([item[, callback]])
+BaseDataSource.validateOnErrors(item, callback)
 ```
 
 ## Parameters
 
-`item`
+|Name|Type|Description|
+|----|----|-----------|
+|item| |(Необязательный) Элемент источника данных. Если указан, на наличие ошибок проверяется только указанный
+элемент; если не указан на наличие ошибок проверяются все элементы|
+|callback|[Script](../../../Script/)|(Необязательный) Обработчик события о том, что проверка на ошибки завершена. Параметр args данного обработчика в поле value содержит результаты проверки в [предопределенном формате](../ValidationResult/)|
 
-Необязательный. Элемент источника данных. Если указан, на наличие ошибок проверяется только указанный
-элемент; если не указан на наличие ошибок проверяются все элементы.
+## Returns
 
-`callback`
-
-Необязательный. [Обработчик события](../../../KeyConcepts/Script/) о том, что проверка на ошибки
-завершена. В параметре `argument` передается информация о произошедшем событии. Свойство
-`argument.value` содержит результаты проверки в [предопределенном формате](../ValidationResult/).
+[Результат](../ValidationResult/) проверки на ошибки
 
 # Examples
 
 ```js
 BaseDataSource.validateOnErrors(
   BaseDataSource.getSelectedItem(),
-  function(context, argument) {
-    alert('Selected item does not have any errors: ' + argument.value.isValid);
+  function(context, args) {
+    alert('Selected item does not have any errors: ' + args.value.isValid);
   }
 );
 ```
 
 # See Also
 
-* [`onErrorValidator`](../BaseDataSource.onErrorValidator/)
 * [`validateOnWarnings()`](../BaseDataSource.validateOnWarnings/)
+* [`onErrorValidator`](../BaseDataSource.onErrorValidator/)
 * [`getErrorValidator()`](../BaseDataSource.getErrorValidator/)
 * [`setErrorValidator()`](../BaseDataSource.setErrorValidator/)
 * [`saveItem()`](../BaseDataSource.saveItem/)
