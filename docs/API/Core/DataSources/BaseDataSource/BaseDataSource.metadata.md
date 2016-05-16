@@ -17,9 +17,9 @@ position: 0
 |ValidationErrors|[`Script`](../../../Script/)|Функция проверки элемента на ошибки|
 |ValidationWarnings|[`Script`](../../../Script/)|Функция проверки элемента на предупреждения|
 |OnSelectedItemChanged|[`Script`](../../../Script/)|Обработчик события о том, что выделенный элемент изменился|
-|onPropertyChanged|[`Script`](../../../Script/)|Обработчик события о том, что одно из свойств источника изменилось|
-|onItemDeleted|[`Script`](../../../Script/)|Обработчик события о том, что элемент удален|
-|onItemsUpdated|[`Script`](../../../Script/)|Обработчик события о том, что список элементов обновлен|
+|OnPropertyChanged|[`Script`](../../../Script/)|Обработчик события о том, что одно из свойств источника изменилось|
+|OnItemDeleted|[`Script`](../../../Script/)|Обработчик события о том, что элемент удален|
+|OnItemsUpdated|[`Script`](../../../Script/)|Обработчик события о том, что список элементов обновлен|
 
 # Exampes
 
@@ -31,7 +31,8 @@ position: 0
 	    "Name": "DocumentTypes",
 	    "IdProperty": "_id",
 	    "IsLazy": false,
-	    "onPropertyChanged": "{ alert('Property ' + args.property + ' is changed!'); }"
+	    "ValidationErrors": "{ return { IsValid: (args.Name != null) }; }",
+	    "OnPropertyChanged": "{ alert('Property ' + args.property + ' is changed!'); }"
 	}
 }
 

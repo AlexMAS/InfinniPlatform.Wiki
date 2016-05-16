@@ -11,11 +11,11 @@ position: 1
 |Name|Description|
 |----|---------|
 |[getItems](DataProvider.getItems/)|Запрашивает список элементов|
-|[createItem](DataProvider.createItem/)|Создает новый элемент|
-|[createLocalItem](DataProvider.createLocalItem/)|Создает новый элемент, но не сохраняет его|
+|[createItem](DataProvider.createItem/)|Асинхронно создает новый элемент|
+|[createLocalItem](DataProvider.createLocalItem/)|Синхронно создает новый элемент|
 |[saveItem](DataProvider.saveItem/)|Сохраняет элемент|
 |[deleteItem](DataProvider.deleteItem/)|Удаляет элемент|
-|[createIdFilter](DataProvider.createIdFilter/)|Создает фильтр по идентификатору элемента|
+|[createIdFilter](DataProvider.createIdFilter/)|Возвращает фильтр по идентификатору элемента|
 
 # Events
 
