@@ -32,6 +32,8 @@ new ListEditorBase([parent])
 |[`setValueSelector`](ListEditorBase.setValueSelector/)|Устанавливает [функцию](../../Core/Script/) выборки из элемента коллекции значимой части.|
 |[`getSelectedItem`](ListEditorBase.getSelectedItem/)|Возвращает выделенный элемент коллекции.|
 |[`setSelectedItem`](ListEditorBase.setSelectedItem/)|Устанавливает выделенный элемент коллекции.|
+|[`getDisabledItemCondition`](ListEditorBase.getDisabledItemCondition/)|Возвращает [функцию](../../Core/Script/), определяющую запрет на выбор элемента.|
+|[`setDisabledItemCondition`](ListEditorBase.setDisabledItemCondition/)|Устанавливает [функцию](../../Core/Script/), определяющую запрет на выбор элемента.|
 |[`setValueItem`](ListEditorBase.setValueItem/)|Устанавливает значение элемента по элементу коллекции.|
 
 # Events

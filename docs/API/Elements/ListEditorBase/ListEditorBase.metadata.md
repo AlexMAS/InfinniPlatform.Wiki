@@ -16,6 +16,7 @@ position: 0
 |ItemSelector|[`Script`](../../../Core/Script/)||Функция выборки из элемента коллеции значения для отображения|
 |ItemProperty|`String`||Свойство элемента коллекции со значением для отображения|
 |ItemFormat|`String`||Правила форматирования элемента коллекции для отображения|
+|DisabledItemCondition|[`Script`](../../../Core/Script/)||Функция, определяющая запрет на выбор элемента|
 |OnSelectedItemChanged|[`Script`](../../../Core/Script/)||Обработчик события о том, что элемент был выделен|
 
 # Examples
@@ -24,6 +25,7 @@ position: 0
 {
     "MultiSelect": true,
     "ValueProperty": "id",
-    "ItemFormat": "{FirstName} {LastName}, {BirthDate:d}"
+    "ItemFormat": "{FirstName} {LastName}, {BirthDate:d}",
+    "DisabledItemCondition": "{ return (args.value.Id == 3); }"
 }
 ```

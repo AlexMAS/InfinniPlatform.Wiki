@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ListEditorBase.setValueItem"
-position: 10
+position: 13
 ---
 
 
