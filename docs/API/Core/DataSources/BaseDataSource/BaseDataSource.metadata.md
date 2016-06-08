@@ -14,6 +14,7 @@ position: 0
 |IdProperty|`String`|Свойство с идентификатором элемента|
 |FillCreatedItem|`Boolean`|Логическое значение, указывающее, нужно ли предзаполнение новых элементов на сервере|
 |IsLazy|`Boolean`|Логическое значение, определяющее, будет ли прогрузка данных в источнике "ленивой" или нет|
+|ResolvePriority|`Number`|Приоритет прогрузки источника данных. Чем выше приоритет, тем раньше источник будет прогружен. По умолчанию равен 0|
 |ValidationErrors|[`Script`](../../../Script/)|Функция проверки элемента на ошибки|
 |ValidationWarnings|[`Script`](../../../Script/)|Функция проверки элемента на предупреждения|
 |OnSelectedItemChanged|[`Script`](../../../Script/)|Обработчик события о том, что выделенный элемент изменился|
@@ -34,6 +35,31 @@ position: 0
 	    "ValidationErrors": "{ return { IsValid: (args.Name != null) }; }",
 	    "OnPropertyChanged": "{ alert('Property ' + args.property + ' is changed!'); }"
 	}
+}
+
+```
+
+Допустим возникла зависимость между источниками данных, и для корректной работы MainDataSource необходим загруженный TerminologyDataSource. Для решения этой проблемы достаточно указать ResolvePriority для TerminologyDataSource выше, чем для MainDataSource.
+
+```json
+{
+	"DataSources": [
+	    {
+	        "DocumentDataSource": {
+	            "Name": "MainDataSource",
+	            "ConfigId": "configuration",
+	            "DocumentId": "patients"
+	        }
+	    },
+	    {
+	        "DocumentDataSource": {
+	            "Name": "TerminologyDataSource",
+	            "ConfigId": "configuration",
+	            "DocumentId": "diseases",
+	            "ResolvePriority": 1
+	        }
+	    }
+	]
 }
 
 ```
