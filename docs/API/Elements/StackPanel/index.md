@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "StackPanel"
-position: 103
+position: 0
 ---
 
 Контейнер в виде стека элементов.

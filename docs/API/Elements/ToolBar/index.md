@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ToolBar"
-position: 1005
+position: 0
 ---
 
 Панель инструментов.

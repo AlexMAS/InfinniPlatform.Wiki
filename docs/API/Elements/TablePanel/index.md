@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TablePanel"
-position: 104
+position: 0
 ---
 
 Контейнер в виде таблицы.

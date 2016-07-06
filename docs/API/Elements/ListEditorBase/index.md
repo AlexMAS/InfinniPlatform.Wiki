@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ListEditorBase"
-position: 1002
+position: 0
 ---
 
 Базовый тип редакторов коллекций данных.

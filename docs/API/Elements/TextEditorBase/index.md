@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TextEditorBase"
-position: 1001
+position: 0
 ---
 
 Базовый тип редакторов текстовых значений.

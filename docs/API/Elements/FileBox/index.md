@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "FileBox"
-position: 1012
+position: 0
 ---
 
 Редактор файлов.

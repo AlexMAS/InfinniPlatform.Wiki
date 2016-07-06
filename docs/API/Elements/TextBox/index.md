@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TextBox"
-position: 1013
+position: 0
 ---
 
 Редактор неформатированного текста.

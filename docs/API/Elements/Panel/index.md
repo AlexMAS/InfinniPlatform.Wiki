@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Panel"
-position: 100
+position: 0
 ---
 
 Контейнер в виде прямоугольной области.

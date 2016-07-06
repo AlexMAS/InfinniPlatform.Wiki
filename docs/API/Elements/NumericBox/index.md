@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "NumericBox"
-position: 1014
+position: 0
 ---
 
 Редактор чисел.

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ButtonEdit"
-position: 1000
+position: 0
 ---
 
 Текстовое поле с кнопкой.

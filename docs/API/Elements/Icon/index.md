@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Icon"
-position: 1010
+position: 0
 ---
 
 Элемент для отображения изображения. 

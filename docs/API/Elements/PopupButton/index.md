@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "PopupButton"
-position: 1004
+position: 0
 ---
 
 Кнопка со всплывающим контейнером.

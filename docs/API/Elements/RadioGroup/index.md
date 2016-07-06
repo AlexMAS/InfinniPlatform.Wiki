@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "RadioGroup"
-position: 1019
+position: 0
 ---
 
 Список радиокнопок. Один из режимов отображения [`ListBox`](../ListBox/).
