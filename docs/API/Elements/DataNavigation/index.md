@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DataNavigation"
-position: 1022
+position: 0
 ---
 
 Панель навигации по данным.

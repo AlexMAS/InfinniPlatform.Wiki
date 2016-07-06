@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "GridPanel"
-position: 105
+position: 0
 ---
 
 Контейнер в виде сетки из столбцов и строк.

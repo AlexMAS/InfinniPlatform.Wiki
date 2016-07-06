@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ToggleButton"
-position: 1009
+position: 0
 ---
 
 Переключатель в виде кнопки.

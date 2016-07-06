@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TabPanel"
-position: 101
+position: 0
 ---
 
 Контейнер в виде набора закладок.

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "MenuBar"
-position: 1006
+position: 0
 ---
 
 Меню.
