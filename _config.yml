@@ -7,7 +7,7 @@ copyright:   "Infinnity Solutions Ltd"
 
 url:       "http://localhost:4000"
 baseUrl:   ""
-sourceUrl: "https://github.com/InfinniPlatform/InfinniUI-schema/blob/master/"
+sourceUrl: "https://github.com/InfinniPlatform/InfinniPlatform.github.io/blob/master/"
 
 # Services
 disqus:          "docs-infinnity-ru"
@@ -46,6 +46,6 @@ paginate_path: "/blog/page:num/"
 
 # GitHub
 github:
- name:  "InfinniPlatform"
- owner: "InfinniPlatform"
- repo:  "InfinniPlatform"
+ name:  "InfinniUI-schema"
+ owner: "InfinniUI-schema"
+ repo:  "InfinniUI-schema"
