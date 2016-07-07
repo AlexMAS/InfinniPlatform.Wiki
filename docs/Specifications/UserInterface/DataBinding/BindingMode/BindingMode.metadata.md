@@ -8,4 +8,4 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/DataBinding/BindingMode.resjson" lang="json" %}
+{% include github.html path="DataBinding/BindingMode.json" lang="json" %}

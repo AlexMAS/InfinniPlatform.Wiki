@@ -8,4 +8,4 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/LayoutPanel/TabPanel/TabHeaderLocation.resjson" lang="json" %}
+{% include github.html path="LayoutPanel/TabPanel/TabHeaderLocation.json" lang="json" %}

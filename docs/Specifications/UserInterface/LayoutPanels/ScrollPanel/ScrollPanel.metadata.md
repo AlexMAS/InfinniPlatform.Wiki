@@ -8,7 +8,7 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/LayoutPanel/ScrollPanel/ScrollPanel.resjson" lang="json" %}
+{% include github.html path="LayoutPanel/ScrollPanel/ScrollPanel.json" lang="json" %}
 
 # Examples
 

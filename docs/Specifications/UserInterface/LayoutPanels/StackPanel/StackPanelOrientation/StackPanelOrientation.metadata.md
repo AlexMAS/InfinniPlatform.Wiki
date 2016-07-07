@@ -8,4 +8,4 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/LayoutPanel/StackPanel/StackPanelOrientation.resjson" lang="json" %}
+{% include github.html path="LayoutPanel/StackPanel/StackPanelOrientation.json" lang="json" %}

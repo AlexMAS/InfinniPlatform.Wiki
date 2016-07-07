@@ -8,7 +8,7 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Components/ToolBar/ToolBar.resjson" lang="json" %}
+{% include github.html path="Components/ToolBar/ToolBar.json" lang="json" %}
 
 # Examples
 

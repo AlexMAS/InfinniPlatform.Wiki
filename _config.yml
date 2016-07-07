@@ -46,6 +46,6 @@ paginate_path: "/blog/page:num/"
 
 # GitHub
 github:
- name:  "InfinniUI-schema"
- owner: "InfinniUI-schema"
+ owner: "InfinniPlatform"
  repo:  "InfinniUI-schema"
+ name:  "InfinniUI"

@@ -8,7 +8,7 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Components/DataGrid/DataGrid.resjson" lang="json" %}
+{% include github.html path="Components/DataGrid/DataGrid.json" lang="json" %}
 
 # Examples
 

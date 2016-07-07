@@ -8,7 +8,7 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Components/CheckBox/CheckBox.resjson" lang="json" %}
+{% include github.html path="Components/CheckBox/CheckBox.json" lang="json" %}
 
 # Examples
 

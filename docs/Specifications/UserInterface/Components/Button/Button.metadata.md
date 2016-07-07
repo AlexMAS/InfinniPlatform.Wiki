@@ -8,7 +8,7 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Components/Button/Button.resjson" lang="json" %}
+{% include github.html path="Components/Button/Button.json" lang="json" %}
 
 # Examples
 

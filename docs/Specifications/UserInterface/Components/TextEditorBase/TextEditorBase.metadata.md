@@ -8,4 +8,4 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/Components/TextEditorBase/TextEditorBase.resjson" lang="json" %}
+{% include github.html path="Components/TextEditorBase/TextEditorBase.json" lang="json" %}

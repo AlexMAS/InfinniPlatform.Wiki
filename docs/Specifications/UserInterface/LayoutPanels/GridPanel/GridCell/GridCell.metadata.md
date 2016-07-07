@@ -8,7 +8,7 @@ position: 0
 
 # Schema
 
-{% include github.html path="InfinniPlatform.Api/MetadataSchema/UI/LayoutPanel/GridPanel/GridCell.resjson" lang="json" %}
+{% include github.html path="LayoutPanel/GridPanel/GridCell.json" lang="json" %}
 
 # Example
 
