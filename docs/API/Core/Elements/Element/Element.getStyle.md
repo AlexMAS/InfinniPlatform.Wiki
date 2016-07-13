@@ -24,14 +24,15 @@ Element.getStyle()
 # Examples
 
 ```js
-var texture = Element.getStyle();
+var styleName = Element.getStyle();
 ```
 
 # See Also
 
-* [`setTexture()`](../Element.setStyle/)
+* [`setStyle()`](../Element.setStyle/)
+* [`getTextStyle()`](../Element.getTextStyle/)
+* [`setTextStyle()`](../Element.setTextStyle/)
 * [`getForeground()`](../Element.getForeground/)
 * [`setForeground()`](../Element.setForeground/)
 * [`getBackground()`](../Element.getBackground/)
 * [`setBackground()`](../Element.setBackground/)
-* [`ColorStyle`](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/)

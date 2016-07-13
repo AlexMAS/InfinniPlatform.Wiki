@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.onClick"
-position: 103
+position: 104
 ---
 
 Устанавливает [обработчик события](../../../Script/) о том, что по элементу сделали одинарный клик мыши.
@@ -9,29 +9,24 @@ position: 103
 # Syntax
 
 ```js
-Element.onClick(callback)
+element.onClick(callback)
 ```
 
 ## Parameters
 
 |Name|Type|Description|
 |----|----|-----------|
-|`callback`|[Обработчик события](../../../Script/)|[Обработчик события](../../../Script/) о том, что по элементу сделали одинарный клик мыши. В параметре `argument` передается информация о произошедшем событии - объект типа [`MouseEvent`](../MouseEvent/).|
+|`callback`|[Script](../../../Script/)|Обработчик события о том, что по элементу сделали одинарный клик мыши. В параметре `args` передается информация о произошедшем событии - объект типа [`MouseEvent`](../MouseEvent/).|
 
 # Examples
 
 ```js
-Element.onClick(
-  function(context, argument) { alert('onClick'); }
+element.onClick(
+  function(context, args) { alert('onClick'); }
 );
 ```
 
 # See Also
 
-* [`onMouseDown`](Element.onMouseDown/)
-* [`onMouseUp`](Element.onMouseUp/)
-* [`onMouseWheel`](Element.onMouseWheel/)
-* [`onMouseEnter`](Element.onMouseEnter/)
-* [`onMouseLeave`](Element.onMouseLeave/)
-* [`onMouseMove`](Element.onMouseMove/)
-* [`MouseEvent`](../MouseEvent/)
+* [`onBeforeClick`](../Element.onBeforeClick/)
+* [`onDoubleClick`](../Element.onDoubleClick/)

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.onMouseEnter"
-position: 107
+position: 109
 ---
 
 Устанавливает [обработчик события](../../../Script/) о том, что указатель мыши вошел в границы элемента.
@@ -16,13 +16,13 @@ Element.onMouseEnter(callback)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`callback`|[Обработчик события](../../../Script/)|[Обработчик события](../../../Script/) о том, что указатель мыши вошел в границы элемента. В параметре `argument` передается информация о произошедшем событии - объект типа [`MouseEvent`](../MouseEvent/).|
+|`callback`|[Script](../../../Script/)|Обработчик события о том, что указатель мыши вошел в границы элемента. В параметре `args` передается информация о произошедшем событии - объект типа [`MouseEvent`](../MouseEvent/).|
 
 # Examples
 
 ```js
 Element.onMouseEnter(
-  function(context, argument) { alert('onMouseEnter'); }
+  function(context, args) { alert('onMouseEnter'); }
 );
 ```
 

@@ -52,8 +52,8 @@ $elementForExample.append($button);
 |[getParent](Element.getParent/)|Возвращает родительский [элемент]()|
 |[setParent](Element.setParent/)|Устанавливает родительский [элемент]()|
 |[getChildElements](Element.getChildElements/)|Возвращает список дочерних [элементов](). Речь идет о непосредственных потомках, дочерние дочерних элементов в этот список не входят. В отличии от следующих методов|
-|[findAllChildrenByType](Element.findAllChildrenByType/)|Возвращает список потомков (дочерних, их дочерних и т. д.) [элементов]() с заданным типом (Button, Label и др.).|
-|[findAllChildrenByName](Element.findAllChildrenByName/)|Возвращает список потомков (дочерних, их дочерних и т. д.) [элементов]() с заданным именем.|
+|[findAllChildrenByType](Element.findAllChildrenByType/)|Возвращает список потомков (дочерних, их дочерних и т. д.) [элементов]() с заданным типом (Button, Label и др.)|
+|[findAllChildrenByName](Element.findAllChildrenByName/)|Возвращает список потомков (дочерних, их дочерних и т. д.) [элементов]() с заданным именем|
 |[addChild](Element.addChild/)|Добавляет заданный элемент в качестве дочернего|
 |[removeChild](Element.removeChild/)|Удаляет заданный элемент из списка дочерних|
 |[getProperty](Element.getProperty/)|Возвращает значение указанного свойства элемента. Например 'text', 'visible' 'value', и др.|
@@ -74,23 +74,21 @@ $elementForExample.append($button);
 |[setVisible](Element.setVisible/)|Устанавливает значение, определяющее, отображается ли элемент в интерфейсе|
 |[getHorizontalAlignment](Element.getHorizontalAlignment/)|Возвращает [горизонтальное выравнивание](ElementHorizontalAlignment/) в родительском элементе|
 |[setHorizontalAlignment](Element.setHorizontalAlignment/)|Устанавливает [горизонтальное выравнивание](ElementHorizontalAlignment/) в родительском элементе|
-|[getVerticalAlignment](Element.getVerticalAlignment/)|Возвращает [вертикальное выравнивание](ElementVerticalAlignment/) в родительском элементе|
-|[setVerticalAlignment](Element.setVerticalAlignment/)|Устанавливает [вертикальное выравнивание](ElementVerticalAlignment/) в родительском элементе|
 |[getTextHorizontalAlignment](Element.getTextHorizontalAlignment/)|Возвращает [горизонтальное выравнивание текста](TextHorizontalAlignment/) в элементе|
 |[setTextHorizontalAlignment](Element.setTextHorizontalAlignment/)|Устанавливает [горизонтальное выравнивание текста](TextHorizontalAlignment/) в элементе|
 |[getToolTip](Element.getToolTip/)|Возвращает устанавленное всплывающее сообщение элемента|
 |[setToolTip](Element.setToolTip/)|Устанавливает всплывающее сообщение для элемента|
-|[getValidationState](Element.getValidationState/)|Возвращает валидационный статус элемента
-|[setValidationState](Element.setValidationState/)|Устанавливает заданный валидационный статус и валидационное сообщение сообщение
-|[getTextStyle](Element.getTextStyle/)|Возвращает [стиль текста](/docs/Specifications/UserInterface/KeyConcepts/Style/TextStyle/) элемента
-|[setTextStyle](Element.setTextStyle/)|Устанавливает [стиль текста](/docs/Specifications/UserInterface/KeyConcepts/Style/TextStyle/) элемента
-|[getForeground](Element.getForeground/)|Возвращает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) текста элемента
-|[setForeground](Element.setForeground/)|Устанавливает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) текста элемента
-|[getBackground](Element.getBackground/)|Возвращает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) фона элемента
-|[setBackground](Element.setBackground/)|Устанавливает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) фона элемента
+|[getValidationState](Element.getValidationState/)|Возвращает валидационный статус элемента|
+|[setValidationState](Element.setValidationState/)|Устанавливает заданный валидационный статус и валидационное сообщение|
+|[getTextStyle](Element.getTextStyle/)|Возвращает [стиль текста](/docs/API/Core/Style/TextStyle/) элемента|
+|[setTextStyle](Element.setTextStyle/)|Устанавливает [стиль текста](/docs/API/Core/Style/TextStyle/) элемента|
+|[getForeground](Element.getForeground/)|Возвращает [цвет](/docs/API/Core/Style/ColorStyle/) текста элемента|
+|[setForeground](Element.setForeground/)|Устанавливает [цвет](/docs/API/Core/Style/ColorStyle/) текста элемента|
+|[getBackground](Element.getBackground/)|Возвращает [цвет](/docs/API/Core/Style/ColorStyle/) фона элемента|
+|[setBackground](Element.setBackground/)|Устанавливает [цвет](/docs/API/Core/Style/ColorStyle/) фона элемента|
 |[getStyle](Element.getStyle/)|Возвращает кастомный стиль элемента (на деле это класс, стили которых могут быть заданы в подключаемых на страницу стилях)|
 |[setStyle](Element.setStyle/)|Устанавливает элементу кастомный стиль (на деле устанавливает ему одноименный класс, стили которого можно задать самому в подключаемых на страницу стилях). Этот способ кастомизации внешнего вида череват разными последствиями, поскольку примененные к классу css-правила могут противоречить правилам задуманным InfinniUI, в следствии чего верстка может "поехать" неожиданным образом. Следует применять эту возможность как можно реже и как можно аккуратнее|
-|[render](Element.render/)|Создает DOM-представления элемента|
+|[render](Element.render/)|Создает DOM-представление элемента|
 |[remove](Element.remove/)|Удаляет элемент и его DOM-представление|
 |[isLoaded](Element.isLoaded/)|Проверяет, готов ли элемент. Возвращает соответствующее значение|
 
@@ -99,19 +97,18 @@ $elementForExample.append($button);
 
 |Name|Description|
 |----|---------|
-|[onLoaded](Element.onLoaded/)|Устанавливает [обработчик события](../Script/) о том, что элемент был загружен.|
-|[onGotFocus](Element.onGotFocus/)|Устанавливает [обработчик события](../Script/) о том, что элемент получил фокус ввода|
-|[onLostFocus](Element.onLostFocus/)|Устанавливает [обработчик события](../Script/) о том, что элемент потерял фокус ввода|
-|[onClick](Element.onClick/)|Устанавливает [обработчик события](../Script/) о том, что по элементу сделали одинарный клик мыши|
-|[onDoubleClick](Element.onDoubleClick/)|Устанавливает [обработчик события](../Script/) о том, что по элементу сделали двойной клик мыши|
-|[onBeforeClick](Element.onBeforeClick/)|Устанавливает [обработчик события](../Script/) клика мыши, который будет срабатывать при захвате события на элементе|
-|[onClick](Element.onClick/)|Устанавливает [обработчик события](../Script/) клика мыши|
-|[onMouseDown](Element.onMouseDown/)|Устанавливает [обработчик события](../Script/) о том, что на элементе произвели двойное нажатие кнопкой мыши|
-|[onMouseUp](Element.onMouseUp/)|Устанавливает [обработчик события](../Script/) о том, что на элементе отпустили кнопку мыши|
-|~~[onMouseWheel](Element.onMouseWheel/)~~|Устанавливает [обработчик события](../Script/) о том, что на элементе прокрутили колесо мыши|
-|[onMouseEnter](Element.onMouseEnter/)|Устанавливает [обработчик события](../Script/) о том, что указатель мыши вошел в границы элемента|
-|[onMouseLeave](Element.onMouseLeave/)|Устанавливает [обработчик события](../Script/) о том, что указатель мыши покинул границы элемента|
-|[onMouseMove](Element.onMouseMove/)|Устанавливает [обработчик события](../Script/) о том, что указатель мыши двигался внутри элемента|
-|[onKeyDown](Element.onKeyDown/)|Устанавливает [обработчик события](../Script/) о том, что на элементе нажали клавишу клавиатуры|
-|[onKeyUp](Element.onKeyUp/)|Устанавливает [обработчик события](../Script/) о том, что на элементе отпустили клавишу клавиатуры|
-|[onPropertyChanged](Element.onPropertyChanged/)|Устанавливает [обработчик события](../Script/) о том, что одно из свойств элемента изменилось|
+|[onLoaded](Element.onLoaded/)|Устанавливает [обработчик события](../../Script/) о том, что элемент был загружен.|
+|[onGotFocus](Element.onGotFocus/)|Устанавливает [обработчик события](../../Script/) о том, что элемент получил фокус ввода|
+|[onLostFocus](Element.onLostFocus/)|Устанавливает [обработчик события](../../Script/) о том, что элемент потерял фокус ввода|
+|[onBeforeClick](Element.onBeforeClick/)|Устанавливает [обработчик события](../../Script/) клика мыши, который будет срабатывать при захвате события на элементе|
+|[onClick](Element.onClick/)|Устанавливает [обработчик события](../../Script/) о том, что по элементу сделали одинарный клик мыши|
+|[onDoubleClick](Element.onDoubleClick/)|Устанавливает [обработчик события](../../Script/) о том, что по элементу сделали двойной клик мыши|
+|[onMouseDown](Element.onMouseDown/)|Устанавливает [обработчик события](../../Script/) о том, что на элементе произвели двойное нажатие кнопкой мыши|
+|[onMouseUp](Element.onMouseUp/)|Устанавливает [обработчик события](../../Script/) о том, что на элементе отпустили кнопку мыши|
+|[onMouseWheel](Element.onMouseWheel/)|Устанавливает [обработчик события](../Script/) о том, что на элементе прокрутили колесо мыши|
+|[onMouseEnter](Element.onMouseEnter/)|Устанавливает [обработчик события](../../Script/) о том, что указатель мыши вошел в границы элемента|
+|[onMouseLeave](Element.onMouseLeave/)|Устанавливает [обработчик события](../../Script/) о том, что указатель мыши покинул границы элемента|
+|[onMouseMove](Element.onMouseMove/)|Устанавливает [обработчик события](../../Script/) о том, что указатель мыши двигался внутри элемента|
+|[onKeyDown](Element.onKeyDown/)|Устанавливает [обработчик события](../../Script/) о том, что на элементе нажали клавишу клавиатуры|
+|[onKeyUp](Element.onKeyUp/)|Устанавливает [обработчик события](../../Script/) о том, что на элементе отпустили клавишу клавиатуры|
+|[onPropertyChanged](Element.onPropertyChanged/)|Устанавливает [обработчик события](../../Script/) о том, что одно из свойств элемента изменилось|

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.onMouseUp"
-position: 105
+position: 107
 ---
 
 Устанавливает [обработчик события](../../../Script/) о том, что на элементе отпустили кнопку мыши.
@@ -16,13 +16,13 @@ Element.onMouseUp(callback)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`callback`|[Обработчик события](../../../Script/)|[Обработчик события](../../../Script/) о том, что на элементе отпустили кнопку мыши. В параметре `argument` передается информация о произошедшем событии - объект типа [`MouseEvent`](../MouseEvent/).|
+|`callback`|[Script](../../../Script/)|Обработчик события о том, что на элементе отпустили кнопку мыши. В параметре `args` передается информация о произошедшем событии - объект типа [`MouseEvent`](../MouseEvent/).|
 
 # Examples
 
 ```js
 Element.onMouseUp(
-  function(context, argument) { alert('onMouseUp'); }
+  function(context, args) { alert('onMouseUp'); }
 );
 ```
 

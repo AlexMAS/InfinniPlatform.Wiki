@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.onMouseDown"
-position: 104
+position: 106
 ---
 
 Устанавливает [обработчик события](../../../Script/) о том, что на элементе нажали кнопку мыши.
@@ -16,13 +16,13 @@ Element.onMouseDown(callback)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`callback`|[Обработчик события](../../../Script/)|[Обработчик события](../../../Script/) о том, что на элементе нажали кнопку мыши. В параметре `argument` передается информация о произошедшем событии - объект типа [`MouseEvent`](../MouseEvent/).|
+|`callback`|[Script](../../../Script/)|Обработчик события о том, что на элементе нажали кнопку мыши. В параметре `args` передается информация о произошедшем событии - объект типа [`MouseEvent`](../MouseEvent/).|
 
 # Examples
 
 ```js
 Element.onMouseDown(
-  function(context, argument) { alert('onMouseDown'); }
+  function(context, args) { alert('onMouseDown'); }
 );
 ```
 

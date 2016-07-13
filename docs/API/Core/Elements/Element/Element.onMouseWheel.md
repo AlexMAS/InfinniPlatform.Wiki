@@ -1,12 +1,10 @@
 ---
 layout: doc
 title: "Element.onMouseWheel"
-position: 106
+position: 108
 ---
 
 Устанавливает [обработчик события](../../../Script/) о том, что на элементе прокрутили колесо мыши.
-
-P.S. **Данное событие не реализовано**
 
 # Syntax
 
@@ -18,13 +16,13 @@ Element.onMouseWheel(callback)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`callback`|[Обработчик события](../../../Script/)|[Обработчик события](../../../Script/) о том, что на элементе прокрутили колесо мыши. В параметре `argument` передается информация о произошедшем событии - объект типа [`MouseEvent`](../MouseEvent/).|
+|`callback`|[Script](../../../Script/)|Обработчик события о том, что на элементе прокрутили колесо мыши. В параметре `args` передается информация о произошедшем событии - объект типа [`MouseEvent`](../MouseEvent/).|
 
 # Examples
 
 ```js
 Element.onMouseWheel(
-  function(context, argument) { alert('onMouseWheel'); }
+  function(context, args) { alert('onMouseWheel'); }
 );
 ```
 

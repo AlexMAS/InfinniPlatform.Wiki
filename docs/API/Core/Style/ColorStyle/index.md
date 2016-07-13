@@ -32,6 +32,7 @@ ColorStyle = {
   background1: 'Background1', // Цвет фона 1
   background2: 'Background2', // Цвет фона 2
   background3: 'Background3', // Цвет фона 3
+  background4: "Background4", // Цвет фона 4
   white: 'White',             // Белый цвет
   black: 'Black'              // Черный цвет
 }

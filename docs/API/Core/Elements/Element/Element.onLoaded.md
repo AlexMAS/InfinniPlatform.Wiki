@@ -16,12 +16,12 @@ Element.onLoaded(callback)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`callback`|[Обработчик события](../../../Script/)|[Обработчик события](../../../Script/) о том, что элемент был загружен.|
+|`callback`|[Script](../../../Script/)|Обработчик события о том, что элемент был загружен.|
 
 # Examples
 
 ```js
 Element.onLoaded(
-  function(context, argument) { alert('Element is loaded!'); }
+  function(context, args) { alert('Element is loaded!'); }
 );
 ```

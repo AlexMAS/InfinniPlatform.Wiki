@@ -4,7 +4,7 @@ title: "Element.getTextStyle()"
 position: 33
 ---
 
-Возвращает [стиль текста](../Style/TextStyle/) элемента.
+Возвращает [стиль текста](/docs/API/Core/Style/TextStyle/) элемента.
 
 # Syntax
 
@@ -19,7 +19,7 @@ Element.getBackground()
 
 ## Returns
 
-[Стиль текста](../../Style/TextStyle/) элемента.
+[Стиль текста](/docs/API/Core/Style/TextStyle/) элемента.
 
 # Examples
 
@@ -34,4 +34,6 @@ var textStyle = Element.getTextStyle();
 * [`setForeground()`](../Element.setForeground/)
 * [`getBackground()`](../Element.getBackground/)
 * [`setBackground()`](../Element.setBackground/)
-* [`TextStyle`](../../Style/TextStyle/)
+* [`getStyle()`](../Element.getStyle/)
+* [`setStyle()`](../Element.setStyle/)
+* [`TextStyle`](/docs/API/Core/Style/TextStyle/)

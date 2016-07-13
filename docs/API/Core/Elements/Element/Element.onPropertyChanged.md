@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.onPropertyChanged"
-position: 112
+position: 114
 ---
 
 Устанавливает [обработчик события](../../../Script/) о том, что одно из свойств элемента изменилось.
@@ -23,13 +23,13 @@ Element.onPropertyChanged(callback)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`callback`|[Обработчик события](../../../Script/)|[Обработчик события](../../../Script/) о том, что одно из свойств элемента изменилось. В параметре `argument` передается информация о произошедшем событии. Свойство `property` содержит путь к свойству, `argument.oldValue` - предыдущее значение, `argument.newValue` - новое значение.|
+|`callback`|[Script](../../../Script/)|Обработчик события о том, что одно из свойств элемента изменилось. В параметре `args` передается информация о произошедшем событии. Свойство `property` содержит путь к свойству, `argument.oldValue` - предыдущее значение, `argument.newValue` - новое значение.|
 
 # Examples
 
 ```js
 Element.onPropertyChanged(
-  function(context, argument) { alert('Property ' + argument.property + ' is changed!'); }
+  function(context, args) { alert('Property ' + args.property + ' is changed!'); }
 );
 ```
 

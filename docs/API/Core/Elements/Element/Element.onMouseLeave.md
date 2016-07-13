@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.onMouseLeave"
-position: 108
+position: 110
 ---
 
 Устанавливает [обработчик события](../../../Script/) о том, что указатель мыши покинул границы элемента.
@@ -16,13 +16,13 @@ Element.onMouseLeave(callback)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`callback`|[Обработчик события](../../../Script/)|[Обработчик события](../../../Script/) о том, что указатель мыши покинул границы элемента. В параметре `argument` передается информация о произошедшем событии - объект типа [`MouseEvent`](../MouseEvent/).|
+|`callback`|[Script](../../../Script/)|Обработчик события о том, что указатель мыши покинул границы элемента. В параметре `args` передается информация о произошедшем событии - объект типа [`MouseEvent`](../MouseEvent/).|
 
 # Examples
 
 ```js
 Element.onMouseLeave(
-  function(context, argument) { alert('onMouseLeave'); }
+  function(context, args) { alert('onMouseLeave'); }
 );
 ```
 

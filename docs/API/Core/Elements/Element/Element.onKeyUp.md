@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.onKeyUp"
-position: 111
+position: 113
 ---
 
 Устанавливает [обработчик события](../../../Script/) о том, что на элементе отпустили клавишу клавиатуры.
@@ -16,13 +16,13 @@ Element.onKeyUp(callback)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`callback`|[Обработчик события](../../../Script/)|[Обработчик события](../../../Script/) о том, что на элементе отпустили клавишу клавиатуры. В параметре `argument` передается информация о произошедшем событии - объект типа [`KeyboardEvent`](../KeyboardEvent/).|
+|`callback`|[Script](../../../Script/)|Обработчик события о том, что на элементе отпустили клавишу клавиатуры. В параметре `args` передается информация о произошедшем событии - объект типа [`KeyboardEvent`](../KeyboardEvent/).|
 
 # Examples
 
 ```js
 Element.onKeyUp(
-  function(context, argument) { alert('onKeyUp'); }
+  function(context, args) { alert('onKeyUp'); }
 );
 ```
 

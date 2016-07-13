@@ -4,7 +4,7 @@ title: "Element.getBackground()"
 position: 37
 ---
 
-Возвращает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) фона элемента.
+Возвращает [цвет](/docs/API/Core/Style/ColorStyle/) фона элемента.
 
 # Syntax
 
@@ -18,7 +18,7 @@ Element.getBackground()
 
 ## Returns
 
-[Цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) фона элемента.
+[Цвет](/docs/API/Core/Style/ColorStyle/) фона элемента.
 
 # Examples
 
@@ -29,8 +29,10 @@ var background = Element.getBackground();
 # See Also
 
 * [`setBackground()`](../Element.setBackground/)
-* [`getTextStyle()`](../Element.getTextStyle/)
-* [`setTextStyle()`](../Element.setTextStyle/)
 * [`getForeground()`](../Element.getForeground/)
 * [`setForeground()`](../Element.setForeground/)
-* [`ColorStyle`](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/)
+* [`getTextStyle()`](../Element.getTextStyle/)
+* [`setTextStyle()`](../Element.setTextStyle/)
+* [`getStyle()`](../Element.getStyle/)
+* [`setStyle()`](../Element.setStyle/)
+* [`ColorStyle`](/docs/API/Core/Style/ColorStyle/)

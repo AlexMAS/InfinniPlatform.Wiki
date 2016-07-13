@@ -4,7 +4,7 @@ title: "Element.setTextStyle()"
 position: 34
 ---
 
-Устанавливает [стиль текста](../Style/TextStyle/) элемента.
+Устанавливает [стиль текста](/docs/API/Core/Style/TextStyle/) элемента.
 
 # Syntax
 
@@ -17,7 +17,7 @@ Element.setTextStyle(value)
 
 |Name|Type|Description|
 |----|----|-----------|
-|value|`String`|[Стиль текста](../Style/TextStyle/) элемента.|
+|value|`String`|[Стиль текста](/docs/API/Core/Style/TextStyle/) элемента.|
 
 ## Returns
 
@@ -36,4 +36,6 @@ Element.setTextStyle(TextStyle.body1);
 * [`setForeground()`](../Element.setForeground/)
 * [`getBackground()`](../Element.getBackground/)
 * [`setBackground()`](../Element.setBackground/)
-* [`TextStyle`](../../Style/TextStyle/)
+* [`getStyle()`](../Element.getStyle/)
+* [`setStyle()`](../Element.setStyle/)
+* [`TextStyle`](/docs/API/Core/Style/TextStyle/)

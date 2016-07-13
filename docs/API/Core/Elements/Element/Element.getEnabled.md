@@ -54,4 +54,4 @@ buttonForToggling.onClick(function(){
 
 # See Also
 
-* [`setVisible()`](../Element.setEnabled/)
+* [`setEnabled()`](../Element.setEnabled/)

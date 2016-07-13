@@ -15,23 +15,24 @@ position: 0
 |Focusable|`Boolean`| true |Значение, определяющее, может ли элемент получить фокус.|
 |Enabled|`Boolean`| true |Значение, определяющее, значение, возможен ли доступ к элементу.|
 |Visible|`Boolean`| true |Значение, определяющее видимость элемента.|
-|HorizontalAlignment|[`HorizontalAlignment`](../TextHorizontalAlignment)| 'Justify' |Горизонтальное выравнивание элемента.|
-|TextHorizontalAlignment|[`HorizontalAlignment`](../TextHorizontalAlignment)| 'Left' |Горизонтальное выравнивание внутри элемента.|
-|TextStyle|`String`| '' |Имя кастомного стиля (на деле это одноименный класс, стили которого можно задать самому в подключаемых на страницу стилях)|
-|Foreground|[`Color`](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/)| '' |Цвет текста.|
-|Background|[`Color`](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/)| '' |Цвет Фона.|
+|HorizontalAlignment|[`HorizontalAlignment`](../ElementHorizontalAlignment)| 'Stretch' |Горизонтальное выравнивание элемента.|
+|TextHorizontalAlignment|[`TextHorizontalAlignment`](../TextHorizontalAlignment)| 'Left' |Горизонтальное выравнивание внутри элемента.|
+|Style|`String`| '' |Имя кастомного стиля (на деле это одноименный класс, стили которого можно задать самому в подключаемых на страницу стилях)|
+|TextStyle|[`TextStyle`](../../../Style/TextStyle/)| '' |Устанавливает стиль текста элемента|
+|Foreground|[`Color`](/docs/API/Core/Style/ColorStyle/)| '' |Цвет текста.|
+|Background|[`Color`](/docs/API/Core/Style/ColorStyle/)| '' |Цвет Фона.|
 |ToolTip|`String`, [`Element`](..)| null |Всплывающая над элементом подсказка.|
 |Tag|*| null |Произвольное значение, которое можно привязать к элементу.|
 |OnLoaded|[`Script`](../../../Script/)| null |Устанавливает обработчик готовности элемента.|
 |onGotFocus|[`Script`](../../../Script/)| null |Устанавливает обработчик получения фокуса элементом.|
 |OnLostFocus|[`Script`](../../../Script/)| null |Устанавливает обработчик потери фокуса у элемента.|
 |OnClick|[`Script`](../../../Script/)| null |Устанавливает обработчик клика мышью по элементу.|
-|OnMouseDoubleClick|[`Script`](../../../Script/)| null |Устанавливает обработчик двойного клика мышью по элементу.|
+|OnDoubleClick|[`Script`](../../../Script/)| null |Устанавливает обработчик двойного клика мышью по элементу.|
 |OnMouseDown|[`Script`](../../../Script/)| null |Устанавливает обработчик нажатия кнопки мыши над элементом (обычный клик срабатывает после отпускания кнопки мыши).|
 |OnMouseUp|[`Script`](../../../Script/)| null |Устанавливает обработчик поднятия кнопки мыши над элементом (обычный клик срабатывает позже).|
 |OnMouseWheel|[`Script`](../../../Script/)| null |Устанавливает обработчик прокрутки скролла над элементом.|
 |OnMouseEnter|[`Script`](../../../Script/)| null |Устанавливает обработчик появления курсора над элементом.|
-|OnMouseEnter|[`Script`](../../../Script/)| null |Устанавливает обработчик выхода курсора из области элемента.|
+|onMouseLeave|[`Script`](../../../Script/)| null |Устанавливает обработчик выхода курсора из области элемента.|
 |OnMouseMove|[`Script`](../../../Script/)| null |Устанавливает обработчик движения курсора в области элемента.|
 |OnKeyDown|[`Script`](../../../Script/)| null |Устанавливает обработчик нажатия клавиши клавиатуры, в момент когда фокус находится на текущем элементе.|
 |OnKeyUp|[`Script`](../../../Script/)| null |Устанавливает обработчик поднятия клавиши клавиатуры, в момент когда фокус находится на текущем элементе.|

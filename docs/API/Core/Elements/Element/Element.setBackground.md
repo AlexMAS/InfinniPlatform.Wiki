@@ -4,7 +4,7 @@ title: "Element.setBackground()"
 position: 38
 ---
 
-Устанавливает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) фона элемента.
+Устанавливает [цвет](/docs/API/Core/Style/ColorStyle/) фона элемента.
 
 # Syntax
 
@@ -16,7 +16,7 @@ Element.setBackground(value)
 
 |Name|Type|Description|
 |----|----|-----------|
-|value|`String`|[Цвет](../../Style/ColorStyle/) фона элемента.|
+|value|`String`|[Цвет](/docs/API/Core/Style/ColorStyle/) фона элемента.|
 
 # Examples
 
@@ -27,8 +27,10 @@ Element.setBackground(ColorStyle.primary1);
 # See Also
 
 * [`getBackground()`](../Element.getBackground/)
-* [`getTextStyle()`](../Element.getTextStyle/)
-* [`setTextStyle()`](../Element.setTextStyle/)
 * [`getForeground()`](../Element.getForeground/)
 * [`setForeground()`](../Element.setForeground/)
-* [`ColorStyle`](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/)
+* [`getTextStyle()`](../Element.getTextStyle/)
+* [`setTextStyle()`](../Element.setTextStyle/)
+* [`getStyle()`](../Element.getStyle/)
+* [`setStyle()`](../Element.setStyle/)
+* [`ColorStyle`](/docs/API/Core/Style/ColorStyle/)

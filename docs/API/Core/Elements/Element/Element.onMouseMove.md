@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Element.onMouseMove"
-position: 109
+position: 111
 ---
 
 Устанавливает [обработчик события](../../../Script/) о том, что указатель мыши двигался внутри элемента.
@@ -16,13 +16,13 @@ Element.onMouseMove(callback)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`callback`|[Обработчик события](../../../Script/)|[Обработчик события](../../../Script/) о том, что указатель мыши двигался внутри элемента. В параметре `argument` передается информация о произошедшем событии - объект типа [`MouseEvent`](../MouseEvent/).|
+|`callback`|[Script](../../../Script/)|Обработчик события о том, что указатель мыши двигался внутри элемента. В параметре `args` передается информация о произошедшем событии - объект типа [`MouseEvent`](../MouseEvent/).|
 
 # Examples
 
 ```js
 Element.onMouseMove(
-  function(context, argument) { alert('onMouseMove'); }
+  function(context, args) { alert('onMouseMove'); }
 );
 ```
 

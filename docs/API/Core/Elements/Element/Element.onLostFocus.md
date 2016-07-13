@@ -16,13 +16,13 @@ Element.onLostFocus(callback)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`callback`|[Обработчик события](../../../Script/)|[Обработчик события](../../../Script/) о том, что элемент потерял фокус ввода.|
+|`callback`|[Script](../../../Script/)|Обработчик события о том, что элемент потерял фокус ввода.|
 
 # Examples
 
 ```js
 Element.onLostFocus(
-  function(context, argument) { alert('Element lost focus!'); }
+  function(context, args) { alert('Element lost focus!'); }
 );
 ```
 

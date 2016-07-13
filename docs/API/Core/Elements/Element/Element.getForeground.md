@@ -4,7 +4,7 @@ title: "Element.getForeground()"
 position: 35
 ---
 
-Возвращает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) текста элемента.
+Возвращает [цвет](/docs/API/Core/Style/ColorStyle/) текста элемента.
 
 # Syntax
 
@@ -19,7 +19,7 @@ Element.getForeground()
 
 ## Returns
 
-[Цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) текста элемента.
+[Цвет](/docs/API/Core/Style/ColorStyle/) текста элемента.
 
 # Examples
 
@@ -30,8 +30,10 @@ var foreground = Element.getForeground();
 # See Also
 
 * [`setForeground()`](../Element.setForeground/)
-* [`getTextStyle()`](../Element.getTextStyle/)
-* [`setTextStyle()`](../Element.setTextStyle/)
 * [`getBackground()`](../Element.getBackground/)
 * [`setBackground()`](../Element.setBackground/)
-* [`ColorStyle`](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/)
+* [`getTextStyle()`](../Element.getTextStyle/)
+* [`setTextStyle()`](../Element.setTextStyle/)
+* [`getStyle()`](../Element.getStyle/)
+* [`setStyle()`](../Element.setStyle/)
+* [`ColorStyle`](/docs/API/Core/Style/ColorStyle/)

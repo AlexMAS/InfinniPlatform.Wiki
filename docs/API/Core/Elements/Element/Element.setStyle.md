@@ -35,9 +35,10 @@ Element.setStyle('toolbar_button');
 
 # See Also
 
-* [`getTexture()`](../Element.getStyle/)
+* [`getStyle()`](../Element.getStyle/)
+* [`getTextStyle()`](../Element.getTextStyle/)
+* [`setTextStyle()`](../Element.setTextStyle/)
 * [`getForeground()`](../Element.getForeground/)
 * [`setForeground()`](../Element.setForeground/)
 * [`getBackground()`](../Element.getBackground/)
 * [`setBackground()`](../Element.setBackground/)
-* [`ColorStyle`](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/)
