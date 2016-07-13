@@ -36,6 +36,4 @@ Element.setTextStyle(TextStyle.body1);
 * [`setForeground()`](../Element.setForeground/)
 * [`getBackground()`](../Element.getBackground/)
 * [`setBackground()`](../Element.setBackground/)
-* [`getTexture()`](../Element.getTexture/)
-* [`setTexture()`](../Element.setTexture/)
 * [`TextStyle`](../../Style/TextStyle/)

@@ -88,8 +88,6 @@ $elementForExample.append($button);
 |[setForeground](Element.setForeground/)|Устанавливает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) текста элемента
 |[getBackground](Element.getBackground/)|Возвращает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) фона элемента
 |[setBackground](Element.setBackground/)|Устанавливает [цвет](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/) фона элемента
-|[getTexture](Element.getTexture/)|Возвращает текстуру элемента
-|[setTexture](Element.setTexture/)|Устанавливает текстуру элемента
 |[getStyle](Element.getStyle/)|Возвращает кастомный стиль элемента (на деле это класс, стили которых могут быть заданы в подключаемых на страницу стилях)|
 |[setStyle](Element.setStyle/)|Устанавливает элементу кастомный стиль (на деле устанавливает ему одноименный класс, стили которого можно задать самому в подключаемых на страницу стилях). Этот способ кастомизации внешнего вида череват разными последствиями, поскольку примененные к классу css-правила могут противоречить правилам задуманным InfinniUI, в следствии чего верстка может "поехать" неожиданным образом. Следует применять эту возможность как можно реже и как можно аккуратнее|
 |[render](Element.render/)|Создает DOM-представления элемента|

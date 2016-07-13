@@ -36,6 +36,4 @@ Element.setForeground(ColorStyle.primary1);
 * [`setTextStyle()`](../Element.setTextStyle/)
 * [`getBackground()`](../Element.getBackground/)
 * [`setBackground()`](../Element.setBackground/)
-* [`getTexture()`](../Element.getTexture/)
-* [`setTexture()`](../Element.setTexture/)
 * [`ColorStyle`](/docs/Specifications/UserInterface/KeyConcepts/Style/ColorStyle/)

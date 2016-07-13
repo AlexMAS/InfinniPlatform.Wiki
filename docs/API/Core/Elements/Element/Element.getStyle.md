@@ -30,8 +30,6 @@ var texture = Element.getStyle();
 # See Also
 
 * [`setTexture()`](../Element.setStyle/)
-* [`getTexture()`](../Element.getTexture/)
-* [`setTexture()`](../Element.setTexture/)
 * [`getForeground()`](../Element.getForeground/)
 * [`setForeground()`](../Element.setForeground/)
 * [`getBackground()`](../Element.getBackground/)
