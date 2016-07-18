@@ -13,9 +13,7 @@ position: 2
 |OpenMode|`String`|Название стратегии отображения представления|
 |DialogWidth|`String`|Ширина диалогового окна (актуально в случае OpenMode = 'Dialog')|
 |Container|`String`|Название контейнера (актуально в случае OpenMode = 'Container')|
-|ConfigId|`String`|Название конфигурации|
-|DocumentId|`String`|Название документа|
-|MetadataName|`String`|Название представления|
+|Path|`String`|Путь до метаданных. Полный путь до метаданных будет выглядеть так: [InfinniUI.config](/docs/API/Core/InfinniUI/InfinniUI.config/).serverUrl + '/' + Path.|
 |Parameters|`Array`|Коллекция [параметров представления](../../../../../Parameters/)|
 
 # Examples
@@ -26,9 +24,7 @@ position: 2
 		"AutoView": {
 			"OpenMode": "Dialog",
 			"DialogWidth": "Small",
-			"ConfigId": "Hospital",
-			"DocumentId": "Patient",
-			"MetadataName": "EditView",
+			"Path": "content/metadata/Views/PersonalAccount/EditView.json",
 			"Parameters": [
 				{
 					"Name": "RefreshInfo",

@@ -11,23 +11,14 @@ position: 1
 |Name|Type|Description|
 |----|----|-----------|
 |`serverUrl`|`String`|Адрес сервера.|
-|`configId`|`String`|Имя конфигурации.|
 |`configName`|`String`|Название конфигурации.|
-|`homePage`|`Object`|Конфигурация для получения домашней страницы.|
-|`homePage.ConfigId`|`String`|Идентификатор конфигурации домашней страницы.|
-|`homePage.DocumentId`|`String`|Идентификатор документа домашней страницы.|
-|`homePage.MetadataName`|`String`|Название метаданных домашней страницы.|
+|`homePage`|`String`|Путь для получения домашней страницы.|
 
 # Example
 
 ```js
 window.InfinniUI.config.serverUrl = 'http://localhost:9900';
-window.InfinniUI.config.configId = 'PTA';
 window.InfinniUI.config.configName = 'Хабинет';
-window.InfinniUI.config.homePage = {
-    ConfigId: InfinniUI.config.configId, 
-    DocumentId: 'Common', 
-    MetadataName: 'HomePage'
-};
+window.InfinniUI.config.homePage = 'content/metadata/Views/common/homePage.json';
 ```
  
