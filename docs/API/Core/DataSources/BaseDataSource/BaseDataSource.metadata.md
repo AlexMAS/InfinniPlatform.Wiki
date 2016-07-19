@@ -16,7 +16,7 @@ position: 0
 |IsLazy|`Boolean`|Логическое значение, определяющее, будет ли прогрузка данных в источнике "ленивой" или нет|
 |ResolvePriority|`Number`|Приоритет прогрузки источника данных. Чем выше приоритет, тем раньше источник будет прогружен. По умолчанию равен 0|
 |ValidationErrors|[`Script`](../../../Script/)|Функция проверки элемента на ошибки|
-|ValidationWarnings|[`Script`](../../../Script/)|Функция проверки элемента на предупреждения|
+|OnErrorValidator|[`Script`](../../../Script/)|Обработчик события о том, что проверка на ошибки завершена|
 |OnSelectedItemChanged|[`Script`](../../../Script/)|Обработчик события о том, что выделенный элемент изменился|
 |OnPropertyChanged|[`Script`](../../../Script/)|Обработчик события о том, что одно из свойств источника изменилось|
 |OnItemDeleted|[`Script`](../../../Script/)|Обработчик события о том, что элемент удален|
@@ -32,7 +32,7 @@ position: 0
 	    "Name": "DocumentTypes",
 	    "IdProperty": "_id",
 	    "IsLazy": false,
-	    "ValidationErrors": "{ return { IsValid: (args.Name != null) }; }",
+	    "ValidationErrors": "{ return { IsValid: (args.Name != null), Items: [{Message: 'Name is required'}] }; }",
 	    "OnPropertyChanged": "{ alert('Property ' + args.property + ' is changed!'); }"
 	}
 }
