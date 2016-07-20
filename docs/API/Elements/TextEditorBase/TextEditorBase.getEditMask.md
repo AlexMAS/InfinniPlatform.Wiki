@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TextEditorBase.getEditMask"
-position: 4
+position: 7
 ---
 
 Возвращает [маску ввода данных](../EditMaskBase/).

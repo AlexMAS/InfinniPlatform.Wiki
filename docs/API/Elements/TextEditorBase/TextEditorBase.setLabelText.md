@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TextEditorBase.setLabelText"
-position: 7
+position: 2
 ---
 
 Устанавливает текст метки.

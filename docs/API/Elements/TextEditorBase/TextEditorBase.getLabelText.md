@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TextEditorBase.getLabelText"
-position: 8
+position: 1
 ---
 
 Возвращает текст метки.

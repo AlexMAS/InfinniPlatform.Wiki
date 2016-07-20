@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TextEditorBase.getLabelFloating"
-position: 6
+position: 3
 ---
 
 Устанавливает значение, определяющее, является ли метка плавающей.

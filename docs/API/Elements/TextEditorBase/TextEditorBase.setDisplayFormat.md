@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TextEditorBase.setDisplayFormat"
-position: 1
+position: 6
 ---
 
 Устанавливает [функцию](../../../Core/Script/) форматирования [значения](../../EditorBase/EditorBase.getValue/) для отображения.

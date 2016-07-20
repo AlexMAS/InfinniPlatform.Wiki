@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TextEditorBase.setEditMask"
-position: 3
+position: 8
 ---
 
 Устанавливает [маску ввода данных](../EditMaskBase/).
