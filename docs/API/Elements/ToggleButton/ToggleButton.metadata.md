@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "ToggleButton.metadata"
-position: 5
+position: 0
 ---
 
 Метаданные типа [`ToggleButton`](../).

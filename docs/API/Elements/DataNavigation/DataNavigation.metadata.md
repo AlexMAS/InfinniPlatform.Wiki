@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DataNavigation.metadata"
-position: 8
+position: 0
 ---
 
 Метаданные типа [`DataNavigation`](../).

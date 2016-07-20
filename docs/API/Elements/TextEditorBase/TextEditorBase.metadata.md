@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TextEditorBase.metadata"
-position: 9
+position: 0
 ---
 
 Метаданные типа [`TextEditorBase`](../).

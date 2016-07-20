@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "NumericBox.metadata"
-position: 9
+position: 0
 ---
 
 Метаданные типа [`NumericBox`](../).

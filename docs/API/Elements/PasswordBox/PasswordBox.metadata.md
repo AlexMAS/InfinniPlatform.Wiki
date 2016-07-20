@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "PasswordBox.metadata"
-position: 7
+position: 0
 ---
 
 Метаданные типа [`PasswordBox`](../).

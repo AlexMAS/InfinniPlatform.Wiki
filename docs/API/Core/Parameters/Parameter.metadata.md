@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Parameter.metadata"
-position: 8
+position: 0
 ---
 
 Метаданные типа [`Parameter`](../).

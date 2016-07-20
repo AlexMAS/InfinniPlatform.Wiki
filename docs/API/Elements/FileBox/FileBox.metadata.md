@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "FileBox.metadata"
-position: 5
+position: 0
 ---
 
 Метаданные типа [`FileBox`](../).

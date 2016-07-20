@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "TreeView.metadata"
-position: 5
+position: 0
 ---
 
 Метаданные типа [`TreeView`](../).
