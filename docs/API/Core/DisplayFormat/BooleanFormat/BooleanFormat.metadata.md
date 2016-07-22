@@ -10,8 +10,8 @@ position: 0
 
 Name|Type|Default|Description
 ----|----|-------|-----------
-TrueText|`String`|`"True"`|Наименование параметра.
-FalseText|`String`|`"False"`|Значение параметра.
+TrueText|`String`|`"True"`|Текст для отображения истинного значения
+FalseText|`String`|`"False"`|Текст для отображения ложного значения
 
 
 # Examples
