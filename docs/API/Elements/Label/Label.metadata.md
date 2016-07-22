@@ -13,6 +13,7 @@ position: 0
 |DisplayFormat|`DisplayFormatMetadata`||Форматирование значения для отображения|
 |TextTrimming|`Boolean`|true|Значение, определяющее, усекается ли текст при переполнении|
 |TextWrapping|`Boolean`|true|Значение, определяющее, переносится ли текст при переполнении|
+|EscapeHtml|`Boolean`|true|Значение, определяющее, экранируется ли HTML-разметка|
 
 # Examples
 
@@ -23,5 +24,12 @@ position: 0
         "Source": "dataSource1",
         "Property": "$.Person"
     }
+}
+```
+
+```json
+{
+    "Text": "<b>Полужирный</b> <i>курсив</i>",
+    "EscapeHtml": false
 }
 ```
