@@ -32,5 +32,5 @@ new TextEditorBase([parent])
 |[`setLabelFloating`](TextEditorBase.setLabelFloating/)|Устанавливает значение, определяющее, является ли метка плавающей.|
 |[`getDisplayFormat`](TextEditorBase.getDisplayFormat/)|Возвращает [функцию](../../Core/Script/) форматирования [значения](../EditorBase/EditorBase.getValue/) для отображения.|
 |[`setDisplayFormat`](TextEditorBase.setDisplayFormat/)|Устанавливает [функцию](../../Core/Script/) форматирования [значения](../EditorBase/EditorBase.getValue/) для отображения.|
-|[`getEditMask`](TextEditorBase.getEditMask/)|Возвращает [маску ввода данных](EditMaskBase/).|
-|[`setEditMask`](TextEditorBase.setEditMask/)|Устанавливает [маску ввода данных](EditMaskBase/).|
+|[`getEditMask`](TextEditorBase.getEditMask/)|Возвращает [маску ввода данных](/docs/API/Core/EditMask/).|
+|[`setEditMask`](TextEditorBase.setEditMask/)|Устанавливает [маску ввода данных](/docs/API/Core/EditMask/).|

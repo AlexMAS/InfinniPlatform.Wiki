@@ -4,7 +4,7 @@ title: "TextEditorBase.setEditMask"
 position: 8
 ---
 
-Устанавливает [маску ввода данных](../EditMaskBase/).
+Устанавливает [маску ввода данных](/docs/API/Core/EditMask/).
 
 # Syntax
 
@@ -16,7 +16,7 @@ TextEditorBase.setEditMask(value)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`value`|[EditMaskBase](../EditMaskBase/)|[Маска ввода данных](../EditMaskBase/).|
+|`value`|[EditMask](/docs/API/Core/EditMask/)|Маска ввода данных.|
 
 # Examples
 

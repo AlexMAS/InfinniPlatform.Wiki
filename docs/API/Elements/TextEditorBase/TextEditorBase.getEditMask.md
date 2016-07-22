@@ -4,7 +4,7 @@ title: "TextEditorBase.getEditMask"
 position: 7
 ---
 
-Возвращает [маску ввода данных](../EditMaskBase/).
+Возвращает [маску ввода данных](/docs/API/Core/EditMask/).
 
 # Syntax
 
@@ -14,7 +14,7 @@ TextEditorBase.getEditMask()
 
 ## Returns
 
-[Маска ввода данных](../EditMaskBase/).
+[Маска ввода данных](/docs/API/Core/EditMask/).
 
 # Examples
 
@@ -25,4 +25,4 @@ var editMask = TextEditorBase.getEditMask();
 # See Also
 
 * [`setEditMask()`](../TextEditorBase.setEditMask/)
-* [`EditMaskBase`](../EditMaskBase/)
+* [`EditMask`](/docs/API/Core/EditMask/)

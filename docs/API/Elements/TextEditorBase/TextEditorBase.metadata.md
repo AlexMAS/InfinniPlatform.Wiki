@@ -13,7 +13,7 @@ position: 0
 |`LabelText`|`String`||Текст метки|
 |`LabelFloating`|`Boolean`|`false`|Является ли метка плавающей|
 |`DisplayFormat`|`String`||Формат отображения значения|
-|`EditMask`|`EditMask`||Маска ввода значения|
+|`EditMask`|[`EditMask`](/docs/API/Core/EditMask/)||Маска ввода значения|
 
 # Examples
 
