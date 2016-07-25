@@ -6,6 +6,13 @@ position: 0
 
 Переключатель в виде флажка.
 
+# Description
+
+Для отображения переключателя в виде флажка можно использовать CheckBox и [IndeterminateCheckbox](../IndeterminateCheckbox/).   
+Отличие в том, что [IndeterminateCheckbox](../IndeterminateCheckbox/) поддерживает ещё и неопределенное состояние.   
+CheckBox может принимать значение `false`/`true`,   
+[IndeterminateCheckbox](../IndeterminateCheckbox/) - `"unchecked"`/`"checked"`/`"indeterminate"`.
+
 # Extends
 
 [`Element`](../../Core/Elements/Element), [`EditorBase`](../EditorBase/)
@@ -18,6 +25,6 @@ new CheckBox([parent])
 
 ## Parameters
 
-Name|Type|Default|Description
-----|----|-------|-----------
-`parent`|[`Element`](../../Core/Elements/Element)|-|Родительский [элемент](../../Core/Elements/Element)
+Name|Type|Description
+----|----|-----------
+`parent`|[`Element`](../../Core/Elements/Element)|Родительский [элемент](../../Core/Elements/Element)
