@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "IndeterminateCheckbox"
+title: "IndeterminateCheckBox"
 position: 0
 ---
 
@@ -8,10 +8,10 @@ position: 0
 
 # Description
 
-Для отображения переключателя в виде флажка можно использовать [CheckBox](../CheckBox/) и IndeterminateCheckbox.   
-Отличие в том, что IndeterminateCheckbox поддерживает ещё и неопределенное состояние.   
+Для отображения переключателя в виде флажка можно использовать [CheckBox](../CheckBox/) и IndeterminateCheckBox.   
+Отличие в том, что IndeterminateCheckBox поддерживает ещё и неопределенное состояние.   
 [CheckBox](../CheckBox/) может принимать значение `false`/`true`,   
-IndeterminateCheckbox - `"unchecked"`/`"checked"`/`"indeterminate"`.
+IndeterminateCheckBox - `"unchecked"`/`"checked"`/`"indeterminate"`.
 
 # Extends
 
@@ -20,7 +20,7 @@ IndeterminateCheckbox - `"unchecked"`/`"checked"`/`"indeterminate"`.
 # Syntax
 
 ```js
-new IndeterminateCheckbox([parent])
+new IndeterminateCheckBox([parent])
 ```
 
 ## Parameters

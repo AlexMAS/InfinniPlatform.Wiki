@@ -1,10 +1,10 @@
 ---
 layout: doc
-title: "IndeterminateCheckbox.metadata"
+title: "IndeterminateCheckBox.metadata"
 position: 0
 ---
 
-Метаданные типа [`IndeterminateCheckbox`](../).
+Метаданные типа [`IndeterminateCheckBox`](../).
 
 
 # Examples

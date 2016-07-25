@@ -8,10 +8,10 @@ position: 0
 
 # Description
 
-Для отображения переключателя в виде флажка можно использовать CheckBox и [IndeterminateCheckbox](../IndeterminateCheckbox/).   
-Отличие в том, что [IndeterminateCheckbox](../IndeterminateCheckbox/) поддерживает ещё и неопределенное состояние.   
+Для отображения переключателя в виде флажка можно использовать CheckBox и [IndeterminateCheckBox](../IndeterminateCheckBox/).   
+Отличие в том, что [IndeterminateCheckBox](../IndeterminateCheckBox/) поддерживает ещё и неопределенное состояние.   
 CheckBox может принимать значение `false`/`true`,   
-[IndeterminateCheckbox](../IndeterminateCheckbox/) - `"unchecked"`/`"checked"`/`"indeterminate"`.
+[IndeterminateCheckBox](../IndeterminateCheckBox/) - `"unchecked"`/`"checked"`/`"indeterminate"`.
 
 # Extends
 
