@@ -8,9 +8,9 @@ position: 0
 
 # Schema
 
-|Name|Type|Description|
-|----|----|-----------|
-|ColumnSpan|`Integer`|(Необязательное) Размер ячейки|
+|Name|Type|Default|Description|
+|----|----|:-----:|-----------|
+|ColumnSpan|`Integer`|1|(Необязательное) Размер ячейки|
 
 # Example
 

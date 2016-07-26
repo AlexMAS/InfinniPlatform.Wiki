@@ -8,12 +8,12 @@ position: 1
 
 # Schema
 
-|Name|Type|Description|
-|----|----|-----------|
-|OpenMode|`String`|Название стратегии отображения представления|
-|DialogWidth|`String`|Ширина диалогового окна (актуально в случае OpenMode = 'Dialog')|
-|Container|`String`|Название контейнера (актуально в случае OpenMode = 'Container')|
-|View|`Object`|Шаблон содержимого [представления](../../../)|
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+|OpenMode|`String`|'Default'|Название [стратегии отображения](../../OpenMode) представления|
+|DialogWidth|`String`| |Ширина диалогового окна (актуально в случае OpenMode = 'Dialog')|
+|Container|`String`| |Название контейнера (актуально в случае OpenMode = 'Container')|
+|View|`Object`| |Шаблон содержимого [представления](../../../)|
 
 # Examples
 

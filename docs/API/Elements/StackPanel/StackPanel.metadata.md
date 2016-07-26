@@ -8,10 +8,10 @@ position: 0
 
 # Schema
 
-|Name|Type|Description|
-|----|----|-----------|
-|ViewMode|`String`|(Необязательное) [Режим отображения](../../../Core/viewMode/). Может принимать значения: 'Base', 'FormGroup'.|
-|Orientation|[`StackPanelOrientation`](../StackPanelOrientation/)|(Необязательное) Ориентация стека элементов|
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+|ViewMode|`String`| |(Необязательное) [Режим отображения](../../../Core/viewMode/). Может принимать значения: 'Base', 'FormGroup'.|
+|Orientation|[`StackPanelOrientation`](../StackPanelOrientation/)|'Vertical'|(Необязательное) Ориентация стека элементов|
 
 # Examples
 

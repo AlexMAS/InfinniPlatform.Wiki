@@ -8,14 +8,14 @@ position: 0
 
 # Schema
 
-|Name|Type|Description|
-|----|----|-----------|
-|Origin|`String`<sup>*</sup>|Базовая часть url запроса|
-|Path|`String`<sup>*</sup>|Уточняющая часть url запроса|
-|Method|`String`|(Необязательное) Метод запроса|
-|ContentType|`String`|(Необязательное) Тип данных|
-|Data|`Object`<sup>*</sup>|(Необязательное) Данные запроса|
-|Params|`Object`|(Необязательное) Параметры запроса|
+|Name|Type|Default|Description|
+|----|----|:-----:|-----------|
+|Origin|`String`<sup>*</sup>| |Базовая часть url запроса|
+|Path|`String`<sup>*</sup>| |Уточняющая часть url запроса|
+|Method|`String`|'GET'|(Необязательное) Метод запроса|
+|ContentType|`String`|'application/x-www-form-urlencoded; charset=utf-8'|(Необязательное) Тип данных|
+|Data|`Object`<sup>*</sup>| |(Необязательное) Данные запроса|
+|Params|`Object`| |(Необязательное) Параметры запроса|
 
 <sup>*</sup> [Шаблонизируемая величина](../#parameters-templating).
 

@@ -8,10 +8,10 @@ position: 0
 
 # Schema
 
-|Name|Type|Description|
-|----|----|-----------|
-|HeaderLocation|[`TabHeaderLocation`](../TabHeaderLocation/)|(Необязательное) Расположение закладок|
-|OnSelectedItemChanged|[Script](../../../Core/Script/)|(Необязательное) Обработчик события о том, что выделенный элемент изменился|
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+|HeaderLocation|[`TabHeaderLocation`](../TabHeaderLocation/)|'Top'|(Необязательное) Расположение закладок|
+|OnSelectedItemChanged|[Script](../../../Core/Script/)| |(Необязательное) Обработчик события о том, что выделенный элемент изменился|
 
 # Examples
 

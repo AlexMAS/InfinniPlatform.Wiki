@@ -8,19 +8,19 @@ position: 0
 
 # Schema
 
-|Name|Type|Description|
-|----|----|-----------|
-|Name|`String`|Наименование источника данных|
-|IdProperty|`String`|Свойство с идентификатором элемента|
-|FillCreatedItem|`Boolean`|Логическое значение, указывающее, нужно ли предзаполнение новых элементов на сервере|
-|IsLazy|`Boolean`|Логическое значение, определяющее, будет ли прогрузка данных в источнике "ленивой" или нет|
-|ResolvePriority|`Integer`|Приоритет прогрузки источника данных. Чем выше приоритет, тем раньше источник будет прогружен. По умолчанию равен 0|
-|ValidationErrors|[`Script`](../../../Script/)|Функция проверки элемента на ошибки|
-|OnErrorValidator|[`Script`](../../../Script/)|Обработчик события о том, что проверка на ошибки завершена|
-|OnSelectedItemChanged|[`Script`](../../../Script/)|Обработчик события о том, что выделенный элемент изменился|
-|OnPropertyChanged|[`Script`](../../../Script/)|Обработчик события о том, что одно из свойств источника изменилось|
-|OnItemDeleted|[`Script`](../../../Script/)|Обработчик события о том, что элемент удален|
-|OnItemsUpdated|[`Script`](../../../Script/)|Обработчик события о том, что список элементов обновлен|
+|Name|Type|Default|Description|
+|----|----|:-----:|-----------|
+|Name|`String`| |Наименование источника данных|
+|IdProperty|`String`|'_id'|Свойство с идентификатором элемента|
+|FillCreatedItem|`Boolean`|true|Логическое значение, указывающее, нужно ли предзаполнение новых элементов на сервере|
+|IsLazy|`Boolean`|true|Логическое значение, определяющее, будет ли прогрузка данных в источнике "ленивой" или нет|
+|ResolvePriority|`Integer`|0|Приоритет прогрузки источника данных. Чем выше приоритет, тем раньше источник будет прогружен|
+|ValidationErrors|[`Script`](../../../Script/)| |Функция проверки элемента на ошибки|
+|OnErrorValidator|[`Script`](../../../Script/)| |Обработчик события о том, что проверка на ошибки завершена|
+|OnSelectedItemChanged|[`Script`](../../../Script/)| |Обработчик события о том, что выделенный элемент изменился|
+|OnPropertyChanged|[`Script`](../../../Script/)| |Обработчик события о том, что одно из свойств источника изменилось|
+|OnItemDeleted|[`Script`](../../../Script/)| |Обработчик события о том, что элемент удален|
+|OnItemsUpdated|[`Script`](../../../Script/)| |Обработчик события о том, что список элементов обновлен|
 
 # Exampes
 
@@ -30,7 +30,7 @@ position: 0
 {
     "ObjectDataSource": {
 	    "Name": "DocumentTypes",
-	    "IdProperty": "_id",
+	    "IdProperty": "guid",
 	    "IsLazy": false,
 	    "ValidationErrors": "{ return { IsValid: (args.Name != null), Items: [{Message: 'Name is required'}] }; }",
 	    "OnPropertyChanged": "{ alert('Property ' + args.property + ' is changed!'); }"

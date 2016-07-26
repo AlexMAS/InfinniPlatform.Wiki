@@ -8,10 +8,10 @@ position: 0
 
 # Schema
 
-|Name|Type|Default|Description|
-|----|----|----|-----------|
-|AcceptTypes|`Array`||Список допустимых форматов данных.|
-|MaxSize|`Number`||Максимальный размер данных в байтах.|
+|Name|Type|Description|
+|----|----|-----------|
+|AcceptTypes|`Array`|Список допустимых форматов данных.|
+|MaxSize|`Number`|Максимальный размер данных в байтах.|
 
 # Examples
 

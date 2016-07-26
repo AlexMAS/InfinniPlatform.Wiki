@@ -8,10 +8,10 @@ position: 0
 
 # Schema
 
-|Name|Type|Default|Description|
-|----|----|:--:|-----------|
-|Name|`String`| - |Имя скрипта, по которому он будет доступен в представлении.|
-|Body|`String`| - |Содержимое скрипта (на javascript).|
+|Name|Type|Description|
+|----|----|-----------|
+|Name|`String`|Имя скрипта, по которому он будет доступен в представлении.|
+|Body|`String`|Содержимое скрипта (на javascript).|
 
 # Exampes
 

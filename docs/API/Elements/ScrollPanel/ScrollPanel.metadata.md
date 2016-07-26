@@ -8,10 +8,10 @@ position: 0
 
 # Schema
 
-|Name|Type|Description|
-|----|----|-----------|
-|HorizontalScroll|[`ScrollVisibility`](../ScrollVisibility/)|(Необязательное) Видимость полосы прокрутки по горизонтали|
-|VerticalScroll|[`ScrollVisibility`](../ScrollVisibility/)|(Необязательное) Видимость полосы прокрутки по вертикали|
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+|HorizontalScroll|[`ScrollVisibility`](../ScrollVisibility/)|'Auto'|(Необязательное) Видимость полосы прокрутки по горизонтали|
+|VerticalScroll|[`ScrollVisibility`](../ScrollVisibility/)|'Auto'|(Необязательное) Видимость полосы прокрутки по вертикали|
 
 # Examples
 

@@ -8,14 +8,14 @@ position: 0
 
 # Schema
 
-|Name|Type|Default|Description|
-|----|----|-------|-----------|
-|Value|[`BindingMetadata`](../../../Core/DataBinding/DataBinding.metadata/)|Нет|Значение|
-|HintText|`String`||Текст с подсказкой для ввода|
-|ErrorText|`String`||Текст с информацией об ошибке|
-|WarningText|`String`||Текст с информацией о предупреждении|
-|OnValueChanging|[Script](../../../Core/Script/)||Обработчик события о том, что значение изменяется|
-|OnValueChanged|[Script](../../../Core/Script/)||Обработчик события о том, что значение было изменено|
+|Name|Type|Description|
+|----|----|-----------|
+|Value|[`BindingMetadata`](../../../Core/DataBinding/DataBinding.metadata/)|Значение|
+|HintText|`String`|Текст с подсказкой для ввода|
+|ErrorText|`String`|Текст с информацией об ошибке|
+|WarningText|`String`|Текст с информацией о предупреждении|
+|OnValueChanging|[Script](../../../Core/Script/)|Обработчик события о том, что значение изменяется|
+|OnValueChanged|[Script](../../../Core/Script/)|Обработчик события о том, что значение было изменено|
 
 # Examples
 

@@ -8,15 +8,15 @@ position: 0
 
 # Schema
 
-|Name|Type|Default|Description|
-|----|----|----|-----------|
-|HeaderTemplate|[`Element`](../../../Core/Elements/Element/)||Шаблон отображения заголовка колонки.|
-|Header|`String`||Заголовок колонки.|
-|CellSelector|[`Script`](../../../Core/Script/)||Функция выборки из элемента коллеции значения для ячейки.|
-|CellProperty|`String`||Свойство элемента коллекции со значением для ячейки.|
-|CellFormat|`String`&#124;[`Format`](../../../Core/DisplayFormat/)||Правила форматирования элемента коллекции для ячейки.|
-|CellTemplate|[`Element`](../../../Core/Elements/Element/)||Шаблон отображения элемента коллекции для ячейки.|
-|Width|`String`||Ширина колонки (напр. "100px", "25%").|
+|Name|Type|Description|
+|----|----|-----------|
+|HeaderTemplate|[`Element`](../../../Core/Elements/Element/)|Шаблон отображения заголовка колонки.|
+|Header|`String`|Заголовок колонки.|
+|CellSelector|[`Script`](../../../Core/Script/)|Функция выборки из элемента коллеции значения для ячейки.|
+|CellProperty|`String`|Свойство элемента коллекции со значением для ячейки.|
+|CellFormat|`String`&#124;[`Format`](../../../Core/DisplayFormat/)|Правила форматирования элемента коллекции для ячейки.|
+|CellTemplate|[`Element`](../../../Core/Elements/Element/)|Шаблон отображения элемента коллекции для ячейки.|
+|Width|`String`|Ширина колонки (напр. "100px", "25%").|
 
 
 # Examples
