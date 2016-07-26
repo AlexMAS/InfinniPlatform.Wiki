@@ -10,7 +10,7 @@ position: 0
 
 |Name|Type|Description|
 |----|----|-----------|
-|ColumnSpan|`Number`|(Необязательное) Размер ячейки|
+|ColumnSpan|`Integer`|(Необязательное) Размер ячейки|
 
 # Example
 

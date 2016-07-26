@@ -13,8 +13,8 @@ position: 0
 |DocumentId|`String`|Идентификатор документа|
 |Filter|`String`<sup>*</sup>|Правило фильтрации документов|
 |FilterParams|`Object`|Параметры фильтра|
-|PageNumber|`Number`|Номер страницы|
-|PageSize|`Number`|Размер страницы|
+|PageNumber|`Integer`|Номер страницы|
+|PageSize|`Integer`|Размер страницы|
 |Search|`String`|Строка полнотекстового поиска|
 |Select|`String`|Правило отображения документов|
 |Order|`String`|Правило сортировки документов|

@@ -32,7 +32,7 @@ new Collection([items[, idProperty[, comparator]]])
 
 |Name|Type|Description|
 |----|----|-----------|
-|[`length`](Collection.length/)|`Number`|Возвращает количество элементов в коллекции.|
+|[`length`](Collection.length/)|`Integer`|Возвращает количество элементов в коллекции.|
 |[`idProperty`](Collection.idProperty/)|`String`|Возвращает свойство с идентификатором элемента коллекции.|
 |[`comparator`](Collection.comparator/)|[comparator](Comparator/)|Возвращает [функцию сравнения элементов коллекции](Comparator/).
 
