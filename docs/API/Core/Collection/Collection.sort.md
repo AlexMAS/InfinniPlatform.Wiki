@@ -16,14 +16,14 @@ position: 41
 # Syntax
 
 ```js
-Collection.sort([comparator])
+Collection.sort(comparator)
 ```
 
 ## Parameters
 
 |Name|Type|Description|
 |----|----|-----------|
-|`comparator`|`Function`|Необязательный. [Функция сравнения элементов коллекции](../Comparator/). Если не указана, то используется функция [Collection.comparator](../Collection.comparator/), которая была указана при создании коллекции.|
+|`comparator`|`Function`|[Функция сравнения элементов коллекции](../Comparator/). Если не указана, то используется функция [Collection.comparator](../Collection.comparator/), которая была указана при создании коллекции.|
 
 ## Returns
 

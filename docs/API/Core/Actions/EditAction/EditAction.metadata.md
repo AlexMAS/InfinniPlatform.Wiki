@@ -6,15 +6,16 @@ position: 0
 
 Метаданные типа [`EditAction`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Description|
 |----|----|-----------|
-|LinkView|[`LinkView.metadata`](../../../Elements/View/LinkView/LinkView.metadata/)|Объект, который будет создавать и настраивать [представление](../../../Elements/View/)|
-|SourceValue.Source|`String`|Название редактируемого источника данных на представлении редактирования|
-|DestinationValue.Source|`String`|Название редактируемого источника данных, на представлении, откуда редактирование было вызвано|
-|DestinationValue.Property|`String`|Путь до поля в источнике данных, которое будет редактироваться|
+|LinkView<sup>*</sup>|[`LinkView.metadata`](../../../Elements/View/LinkView/LinkView.metadata/)|Объект, который будет создавать и настраивать [представление](../../../Elements/View/)|
+|SourceValue.Source<sup>*</sup>|`String`|Название редактируемого источника данных на представлении редактирования|
+|DestinationValue.Source<sup>*</sup>|`String`|Название редактируемого источника данных, на представлении, откуда редактирование было вызвано|
+|DestinationValue.Property<sup>*</sup>|`String`|Путь до поля в источнике данных, которое будет редактироваться|
 
+<sup>*</sup> Обязательное свойство.
 
 # Examples
 

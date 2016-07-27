@@ -17,16 +17,16 @@ position: 1012
 # Syntax
 
 ```js
-new Collection([items[, idProperty[, comparator]]])
+new Collection(items, idProperty, comparator)
 ```
 
 ## Parameters
 
 |Name|Type|Description|
 |----|----|-----------|
-|`items`|`Array`|Необязательный. Массив для инициализации коллекции.|
-|`idProperty`|`String`|Необязательный. Свойство с идентификатором элемента коллекции.|
-|`comparator`|[comparator](Comparator/)|Необязательный. [Функция сравнения элементов коллекции](Comparator/).|
+|`items`|`Array`|Массив для инициализации коллекции.|
+|`idProperty`|`String`|Свойство с идентификатором элемента коллекции.|
+|`comparator`|[comparator](Comparator/)|[Функция сравнения элементов коллекции](Comparator/).|
 
 # Properties
 

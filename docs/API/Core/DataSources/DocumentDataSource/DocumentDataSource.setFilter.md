@@ -21,9 +21,9 @@ DocumentDataSource.setFilter(value)
 
 |Name|Type|Description|
 |----|----|-----------|
-|value|`String`<sup>*</sup>|Правило фильтрации документов|
+|value|`String`<sup>1</sup>|Правило фильтрации документов|
 
-<sup>*</sup> [Шаблонизируемая величина](../../RestDataSource/#parameters-templating). Для определения параметров используйте метод [setFilterParams()](../DocumentDataSource.setFilterParams/).
+<sup>1</sup> [Шаблонизируемая величина](../../RestDataSource/#parameters-templating). Для определения параметров используйте метод [setFilterParams()](../DocumentDataSource.setFilterParams/).
 
 ## Returns
 

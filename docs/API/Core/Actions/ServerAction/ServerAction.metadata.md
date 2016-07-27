@@ -6,18 +6,19 @@ position: 0
 
 Метаданные типа [`ServerAction`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Default|Description|
 |----|----|:-----:|-----------|
-|Origin|`String`<sup>*</sup>| |Базовая часть url запроса|
-|Path|`String`<sup>*</sup>| |Уточняющая часть url запроса|
-|Method|`String`|'GET'|(Необязательное) Метод запроса|
-|ContentType|`String`|'application/x-www-form-urlencoded; charset=utf-8'|(Необязательное) Тип данных|
-|Data|`Object`<sup>*</sup>| |(Необязательное) Данные запроса|
-|Params|`Object`| |(Необязательное) Параметры запроса|
+|Origin|`String`<sup>1</sup>| |Базовая часть url запроса|
+|Path<sup>*</sup>|`String`<sup>1</sup>| |Уточняющая часть url запроса|
+|Method|`String`|'GET'|Метод запроса|
+|ContentType|`String`|'application/x-www-form-urlencoded; charset=utf-8'|Тип данных|
+|Data|`Object`<sup>1</sup>| |Данные запроса|
+|Params|`Object`| |Параметры запроса|
 
-<sup>*</sup> [Шаблонизируемая величина](../#parameters-templating).
+<sup>*</sup> Обязательное свойство.   
+<sup>1</sup> [Шаблонизируемая величина](../#parameters-templating).
 
 # Examples
 

@@ -6,16 +6,17 @@ position: 0
 
 Метаданные типа [`SelectAction`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Description|
 |----|----|-----------|
-|LinkView|[`LinkView.metadata`](../../../Elements/View/LinkView/LinkView.metadata/)|Объект, который будет создавать и настраивать [представление](../../../Elements/View/)|
-|SourceValue.Source|`String`|Название источника данных, из которого будет заполняться редактируемый источник данных|
-|SourceValue.Property|`String`|Путь до поля в источнике данных, которое будет копироваться|
-|DestinationValue.Source|`String`|Название редактируемого источника данных|
-|DestinationValue.Property|`String`|Путь до поля в источнике данных, которое будет редактироваться|
+|LinkView<sup>*</sup>|[`LinkView.metadata`](../../../Elements/View/LinkView/LinkView.metadata/)|Объект, который будет создавать и настраивать [представление](../../../Elements/View/)|
+|SourceValue.Source<sup>*</sup>|`String`|Название источника данных, из которого будет заполняться редактируемый источник данных|
+|SourceValue.Property<sup>*</sup>|`String`|Путь до поля в источнике данных, которое будет копироваться|
+|DestinationValue.Source<sup>*</sup>|`String`|Название редактируемого источника данных|
+|DestinationValue.Property<sup>*</sup>|`String`|Путь до поля в источнике данных, которое будет редактироваться|
 
+<sup>*</sup> Обязательное свойство.
 
 # Examples
 

@@ -6,14 +6,16 @@ position: 0
 
 Метаданные типа [`DataBinding`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Default|Description|
 |----|----|----|-----------|
-|Source|`String`| |Наименование источника данных привязки|
-|Property|`String`| |(Необязательное) Путь к свойству источника данных привязки|
-|Mode|[BindingMode](../BindingMode/)|`TwoWay`|(Необязательное) Направление потока данных в привязке|
-|Converter|[BindingConverter](../BindingConverter/)| |(Необязательное) Преобразователь данных между элементом и источником|
+|Source<sup>*</sup>|`String`| |Наименование источника данных привязки|
+|Property|`String`| |Путь к свойству источника данных привязки|
+|Mode|[BindingMode](../BindingMode/)|`TwoWay`|Направление потока данных в привязке|
+|Converter|[BindingConverter](../BindingConverter/)| |Преобразователь данных между элементом и источником|
+
+<sup>*</sup> Обязательное свойство.
 
 # Examples
 

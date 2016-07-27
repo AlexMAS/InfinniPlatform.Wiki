@@ -13,11 +13,11 @@ position: 0
 # Syntax
 
 ```js
-new ToolBar([parent])
+new ToolBar(parent)
 ```
 
 ## Parameters
 
 |Name|Type|Description|
 |----|----|-----------|
-|`parent`|[элемент](../../Core/Elements/Element)|Необязательный. Родительский [элемент](../../Core/Elements/Element/).|
+|`parent`|[элемент](../../Core/Elements/Element)|Родительский [элемент](../../Core/Elements/Element/).|

@@ -15,15 +15,15 @@ tags: [ element ]
 # Syntax
 
 ```js
-new Element([parent], [viewMode]);
+new Element(parent, viewMode);
 ```
 
 ## Parameters
 
 |Name|Type|Description|
 |----|----------|---------|
-|parent|[`Element`]()|(необязательный) Родительский [элемент]()|
-|viewMode|`String`|(необязательный) Строка со значением [режима отображения](../../viewMode)|
+|parent|[`Element`]()|Родительский [элемент]()|
+|viewMode|`String`|Строка со значением [режима отображения](../../viewMode)|
 
 # Usage
 Создать экземпляр Element нельзя, однако можно создать, к примеру, экземпляр кнопки, которая наследуется от Element. Сделаем это, а так же зададим кнопке текст.

@@ -16,7 +16,7 @@ position: 1008
 # Syntax
 
 ```js
-new Logger([level])
+new Logger(level)
 ```
 
 ## Parameters
@@ -24,7 +24,7 @@ new Logger([level])
 
 |Name|Type|Description|
 |----|----|-----------|
-|`level`|[LogLevel](LogLevel/)|Необязательный. Минимальный [уровень регистрируемых сообщений](LogLevel/).|
+|`level`|[LogLevel](LogLevel/)|Минимальный [уровень регистрируемых сообщений](LogLevel/).|
 
 
 # Methods

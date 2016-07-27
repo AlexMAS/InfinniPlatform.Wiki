@@ -6,12 +6,12 @@ position: 0
 
 Метаданные типа [`TabPanel`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
-|HeaderLocation|[`TabHeaderLocation`](../TabHeaderLocation/)|'Top'|(Необязательное) Расположение закладок|
-|OnSelectedItemChanged|[Script](../../../Core/Script/)| |(Необязательное) Обработчик события о том, что выделенный элемент изменился|
+|HeaderLocation|[`TabHeaderLocation`](../TabHeaderLocation/)|'Top'|Расположение закладок|
+|OnSelectedItemChanged|[Script](../../../Core/Script/)| |Обработчик события о том, что выделенный элемент изменился|
 
 # Examples
 

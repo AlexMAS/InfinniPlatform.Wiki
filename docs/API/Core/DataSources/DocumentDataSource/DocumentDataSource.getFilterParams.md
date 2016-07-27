@@ -16,7 +16,7 @@ DocumentDataSource.getFilterParams(value)
 
 |Name|Description|
 |----|---------|
-|value|(Необязательный) Название параметра|
+|value|Название параметра|
 
 ## Returns
 

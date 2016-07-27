@@ -6,14 +6,14 @@ position: 0
 
 Метаданные типа [`SaveAction`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Default|Description|
 |----|----|----|-----------|
-|DestinationValue.Source|`String`| |Название источника данных|
-|CanClose|`Boolean`|true| (Необязательное) Значение, определяющее, нужно ли закрыть родительское представление после сохранения|
+|DestinationValue.Source<sup>*</sup>|`String`| |Название источника данных|
+|CanClose|`Boolean`|true|Значение, определяющее, нужно ли закрыть родительское представление после сохранения|
 
-
+<sup>*</sup> Обязательное свойство.
 
 # Examples
 

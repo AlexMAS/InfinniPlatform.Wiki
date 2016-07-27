@@ -6,7 +6,7 @@ position: 0
 
 Метаданные типа [`DateTimePicker`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Default|Description|
 |----|----|-------|-----------|

@@ -6,7 +6,7 @@ position: 0
 
 Метаданные типа [`Row`](../).
 
-# Schema
+# Properties
 
 Нет
 

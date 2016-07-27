@@ -16,9 +16,9 @@ buttonEdit.setIcon(value)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`value`|`String`<sup>*</sup>|Название иконки|
+|`value`|`String`<sup>1</sup>|Название иконки|
 
-<sup>*</sup> Полный список доступных названий и соответсвующих отображений: [Icons](http://fontawesome.io/icons/).
+<sup>1</sup> Полный список доступных названий и соответсвующих отображений: [Icons](http://fontawesome.io/icons/).
 
 ## Returns
 

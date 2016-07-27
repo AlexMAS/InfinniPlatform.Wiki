@@ -6,7 +6,7 @@ position: 0
 
 Метаданные описывающие настройки [`Element`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Default|Description|
 |----|----|:--:|-----------|

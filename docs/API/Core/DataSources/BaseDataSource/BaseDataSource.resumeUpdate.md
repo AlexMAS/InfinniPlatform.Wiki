@@ -16,7 +16,7 @@ BaseDataSource.resumeUpdate(value)
 
 |Name|Description|
 |----|-----------|
-|value|(Необязательный) Причина запрета на обновление|
+|value|Причина запрета на обновление|
 
 Обратите внимание, что причина запрета, указанная в resumeUpdate должна совпадать с той, что была указана в [`suspendUpdate()`](../BaseDataSource.suspendUpdate/). Пока не будут вызваны resumeUpdate для всех тех причин, которые указывались при вызовах [`suspendUpdate()`](../BaseDataSource.suspendUpdate/), обновление списка элементов будет запрещено. Узнать, есть ли запрет на обновление списка элементов можно с помощью метода [`isUpdateSuspended()`](../BaseDataSource.isUpdateSuspended/).
 

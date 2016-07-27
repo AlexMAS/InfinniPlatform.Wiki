@@ -6,7 +6,7 @@ position: 0
 
 Метаданные [RestDataSource](../).
 
-# Schema
+# Properties
 
 |Name|Type|Description|
 |----|----|-----------|

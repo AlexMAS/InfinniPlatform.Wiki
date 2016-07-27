@@ -6,7 +6,7 @@ position: 0
 
 Метаданные [ObjectDataSource](../).
 
-# Schema
+# Properties
 
 |Name|Type|Description|
 |----|----|-----------|

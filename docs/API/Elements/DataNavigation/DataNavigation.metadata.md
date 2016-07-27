@@ -6,7 +6,7 @@ position: 0
 
 Метаданные типа [`DataNavigation`](../).
 
-# Schema
+# Properties
 
 Name|Type|Default|Description
 ----|----|-------|-----------

@@ -6,12 +6,12 @@ position: 0
 
 Метаданные источника данных представления для документов InfinniPlatform.
 
-# Schema
+# Properties
 
 |Name|Type|Default|Description|
 |----|----|:-----:|-----------|
 |DocumentId|`String`| |Идентификатор документа|
-|Filter|`String`<sup>*</sup>| |Правило фильтрации документов|
+|Filter|`String`<sup>1</sup>| |Правило фильтрации документов|
 |FilterParams|`Object`| |Параметры фильтра|
 |PageNumber|`Integer`|0|Номер страницы|
 |PageSize|`Integer`|15|Размер страницы|
@@ -20,7 +20,7 @@ position: 0
 |Order|`String`| |Правило сортировки документов|
 |NeedTotalCount|`Boolean`| |Необходимость подсчета количества|
 
-<sup>*</sup> [Шаблонизируемая величина](../../RestDataSource/#parameters-templating). Заполняется значениями из FilterParams.
+<sup>1</sup> [Шаблонизируемая величина](../../RestDataSource/#parameters-templating). Заполняется значениями из FilterParams.
 
 # Examples
 

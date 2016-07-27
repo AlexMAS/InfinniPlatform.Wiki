@@ -28,7 +28,7 @@ new View(parent)
 
 |Name|Type|Description|
 |----|----|-----------|
-|parent|[Element](../Element/)| (Необязательный) Родительский элемент|
+|parent|[Element](../Element/)|Родительский элемент|
 
 
 # Methods

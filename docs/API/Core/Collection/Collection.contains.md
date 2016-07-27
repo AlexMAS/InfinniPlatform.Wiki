@@ -9,15 +9,17 @@ position: 33
 # Syntax
 
 ```js
-Collection.contains(item[, fromIndex = 0])
+Collection.contains(item, fromIndex)
 ```
 
 ## Parameters
 
-|Name|Type|Description|
-|----|----|-----------|
-|`item`|&#42;|Искомый элемент коллекции.|
-|`fromIndex`|`Integer`|Необязательный. Индекс элемента, с которого необходимо начать поиск.|
+|Name|Type|Default|Description|
+|----|----|:-----:|-----------|
+|`item`<sup>*</sup>|&#42;| |Искомый элемент коллекции.|
+|`fromIndex`|`Integer`|0|Индекс элемента, с которого необходимо начать поиск.|
+
+<sup>*</sup> Обязательный аргумент.
 
 ## Returns
 

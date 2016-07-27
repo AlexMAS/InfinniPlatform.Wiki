@@ -17,11 +17,11 @@ position: 0
 * Нажатие клавиш `↑` и `↓` увеличивает или уменьшает на 1 значение цифры слева от каретки.
    
 
-# Schema
+# Properties
 
-Name|Type|Default|Description
-----|----|-------|-----------
-Mask|`String`||Маска редактирования
+Name|Type|Description
+----|----|-----------
+Mask|`String`|Маска редактирования
 
 # Examples
 

@@ -6,11 +6,11 @@ position: 0
 
 Метаданные типа [`Cell`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Default|Description|
 |----|----|:-----:|-----------|
-|ColumnSpan|`Integer`|1|(Необязательное) Размер ячейки|
+|ColumnSpan|`Integer`|1|Размер ячейки|
 
 # Example
 

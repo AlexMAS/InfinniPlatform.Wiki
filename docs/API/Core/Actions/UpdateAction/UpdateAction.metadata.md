@@ -6,13 +6,13 @@ position: 0
 
 Метаданные типа [`UpdateAction`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Description|
 |----|----|-----------|
-|DestinationValue.Source|`String`|Название источника данных|
+|DestinationValue.Source<sup>*</sup>|`String`|Название источника данных|
 
-
+<sup>*</sup> Обязательное свойство.
 
 # Examples
 

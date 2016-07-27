@@ -16,7 +16,7 @@ action.execute(callback);
 
 |Name|Type|Description|
 |----|----|---------|
-|callback|[`Script`](../../../Script/)| (Необязательное) Обработчик события о том, что Action был выполнен|
+|callback|[`Script`](../../../Script/)|Обработчик события о том, что Action был выполнен|
 
 ## Returns
 

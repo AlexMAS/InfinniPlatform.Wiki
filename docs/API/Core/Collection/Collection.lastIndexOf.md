@@ -9,15 +9,17 @@ position: 31
 # Syntax
 
 ```js
-Collection.lastIndexOf(item[, fromIndex = Collection.length - 1])
+Collection.lastIndexOf(item, fromIndex)
 ```
 
 ## Parameters
 
-|Name|Type|Description|
-|----|----|-----------|
-|`item`|&#42;|Искомый элемент коллекции.|
-|`fromIndex`|`Index`|Необязательный. Индекс элемента, с которого необходимо начать поиск.|
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+|`item`<sup>*</sup>|&#42;| |Искомый элемент коллекции.|
+|`fromIndex`|`Index`|Collection.length - 1|Индекс элемента, с которого необходимо начать поиск.|
+
+<sup>*</sup> Обязательный аргумент.
 
 ## Returns
 

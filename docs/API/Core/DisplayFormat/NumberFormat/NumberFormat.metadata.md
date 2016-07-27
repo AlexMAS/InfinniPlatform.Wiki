@@ -6,7 +6,7 @@ position: 5
 
 Метаданные типа [`NumberFormat`](../).
 
-# Schema
+# Properties
 
 Name|Type|Default|Description
 ----|----|-------|-----------

@@ -6,7 +6,7 @@ position: 0
 
 Метаданные типа [`TreeView`](../).
 
-# Schema
+# Properties
 
 Name|Type|Description
 ----|----|-----------

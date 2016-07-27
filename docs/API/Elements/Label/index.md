@@ -13,15 +13,15 @@ position: 0
 # Syntax
 
 ```js
-new Label([parent])
+new Label(parent, viewMode)
 ```
 
 ## Parameters
 
 |Name|Type|Description|
 |----|----------|---------|
-|parent|[`Element`](../../Core/Elements/Element)|Необязательный. Родительский [элемент](../../Core/Elements/Element)|
-|viewMode|`String`|(необязательный) Строка со значением [режима отображения](../../viewMode)|
+|parent|[`Element`](../../Core/Elements/Element)|Родительский [элемент](../../Core/Elements/Element)|
+|viewMode|`String`|Строка со значением [режима отображения](../../viewMode)|
 
 
 # Methods

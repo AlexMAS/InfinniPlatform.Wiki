@@ -13,14 +13,14 @@ position: 0
 # Syntax
 
 ```js
-new MenuBar([parent])
+new MenuBar(parent)
 ```
 
 ## Parameters
 
 |Name|Type|Description|
 |----|----|-----------|
-|`parent`|[элемент](../../Core/Elements/Element)|Необязательный. Родительский [элемент](../../Core/Elements/Element).|
+|`parent`|[элемент](../../Core/Elements/Element)|Родительский [элемент](../../Core/Elements/Element).|
 
 # Methods
 

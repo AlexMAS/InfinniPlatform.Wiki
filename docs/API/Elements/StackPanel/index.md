@@ -43,8 +43,8 @@ new StackPanel(parent, viewMode)
 
 |Name|Type|Default|Description|
 |----|----|----|-----------|
-|parent|[`Element`](../../Core/Elements/Element)| | (Необязательный) Родительский элемент|
-|viewMode|`String`|'Base'| (Необязательный) Строка со значением [режима отображения](../../Core/viewMode). Возможные значения: 'Base', 'FormGroup'. Отличие 'FormGroup' от 'Base' в том, что между элементами добавляются отступы|
+|parent|[`Element`](../../Core/Elements/Element)| |Родительский элемент|
+|viewMode|`String`|'Base'|Строка со значением [режима отображения](../../Core/viewMode). Возможные значения: 'Base', 'FormGroup'. Отличие 'FormGroup' от 'Base' в том, что между элементами добавляются отступы|
 
 # Methods
 

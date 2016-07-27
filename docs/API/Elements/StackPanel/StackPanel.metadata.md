@@ -6,12 +6,12 @@ position: 0
 
 Метаданные типа [`StackPanel`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
-|ViewMode|`String`| |(Необязательное) [Режим отображения](../../../Core/viewMode/). Может принимать значения: 'Base', 'FormGroup'.|
-|Orientation|[`StackPanelOrientation`](../StackPanelOrientation/)|'Vertical'|(Необязательное) Ориентация стека элементов|
+|ViewMode|`String`| |[Режим отображения](../../../Core/viewMode/). Может принимать значения: 'Base', 'FormGroup'.|
+|Orientation|[`StackPanelOrientation`](../StackPanelOrientation/)|'Vertical'|Ориентация стека элементов|
 
 # Examples
 

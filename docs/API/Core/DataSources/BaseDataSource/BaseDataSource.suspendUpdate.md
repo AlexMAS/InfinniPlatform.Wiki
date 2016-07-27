@@ -15,7 +15,7 @@ BaseDataSource.suspendUpdate(value)
 
 |Name|Description|
 |----|-----------|
-|value|(Необязательный) Причина запрета на обновление|
+|value|Причина запрета на обновление|
 
 ## Returns
 

@@ -6,11 +6,11 @@ position: 0
 
 Метаданные типа [`ListBox`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Default|Description|
 |----|----|----|-----------|
-|ViewMode|`String`|`common`|(Необязательное) [Режим отображения](../../../Core/viewMode/) списка. Может принимать значения: 'common', 'base', 'checking'.|
+|ViewMode|`String`|`common`|[Режим отображения](../../../Core/viewMode/) списка. Может принимать значения: 'common', 'base', 'checking'.|
 
 # Examples
 

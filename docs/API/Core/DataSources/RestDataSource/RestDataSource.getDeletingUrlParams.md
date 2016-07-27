@@ -16,7 +16,7 @@ RestDataSource.getDeletingUrlParams(propertyName)
 
 |Name|Description|
 |----|-----------|
-|propertyName|(Необязательный) Название параметра|
+|propertyName|Название параметра|
 
 ## Returns
 

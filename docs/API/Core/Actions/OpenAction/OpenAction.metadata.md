@@ -6,13 +6,13 @@ position: 0
 
 Метаданные типа [`OpenAction`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Description|
 |----|----|-----------|
-|LinkView|[`LinkView.metadata`](../../../Elements/View/LinkView/LinkView.metadata/)|Объект, который будет создавать и настраивать [представление](../../../Elements/View/)|
+|LinkView<sup>*</sup>|[`LinkView.metadata`](../../../Elements/View/LinkView/LinkView.metadata/)|Объект, который будет создавать и настраивать [представление](../../../Elements/View/)|
 
-
+<sup>*</sup> Обязательное свойство.
 
 # Examples
 

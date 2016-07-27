@@ -6,7 +6,7 @@ position: 0
 
 Метаданные типа [`DataGridColumn`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Description|
 |----|----|-----------|

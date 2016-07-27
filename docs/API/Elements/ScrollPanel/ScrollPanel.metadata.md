@@ -6,12 +6,12 @@ position: 0
 
 Метаданные типа [`ScrollPanel`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
-|HorizontalScroll|[`ScrollVisibility`](../ScrollVisibility/)|'Auto'|(Необязательное) Видимость полосы прокрутки по горизонтали|
-|VerticalScroll|[`ScrollVisibility`](../ScrollVisibility/)|'Auto'|(Необязательное) Видимость полосы прокрутки по вертикали|
+|HorizontalScroll|[`ScrollVisibility`](../ScrollVisibility/)|'Auto'|Видимость полосы прокрутки по горизонтали|
+|VerticalScroll|[`ScrollVisibility`](../ScrollVisibility/)|'Auto'|Видимость полосы прокрутки по вертикали|
 
 # Examples
 

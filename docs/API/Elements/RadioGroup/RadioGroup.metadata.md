@@ -6,7 +6,7 @@ position: 0
 
 Метаданные типа [`RadioGroup`](../).
 
-# Schema
+# Properties
 
 Метаданные строятся по той же схеме, что и [`ListBox.metadata`](../../ListBox/ListBox.metadata/).
 

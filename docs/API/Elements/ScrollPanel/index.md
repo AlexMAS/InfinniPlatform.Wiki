@@ -27,7 +27,7 @@ new ScrollPanel(parent)
 
 |Name|Type|Description|
 |----|----|-----------|
-|parent|[`Element`](../../Core/Elements/Element)| (Необязательный) Родительский элемент|
+|parent|[`Element`](../../Core/Elements/Element)|Родительский элемент|
 
 # Methods
 

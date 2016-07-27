@@ -23,15 +23,16 @@ new ServerAction(parentView)
 
 |Name|Type|Default|Description|
 |----|----|----|-----------|
-|origin|`String`<sup>*</sup>| |Хост и порт|
-|path|`String`<sup>*</sup>| |Строка пути (относительно хоста)|
-|data|`Object`<sup>*</sup>| |(Необязательное) Данные запроса|
-|contentType|`String`|'application/x-www-form-urlencoded; charset=utf-8'|(Необязательное) Тип данных|
-|method|`String`|'GET'|(Необязательное) Метод запроса|
+|origin<sup>*</sup>|`String`<sup>1</sup>| |Хост и порт|
+|path<sup>*</sup>|`String`<sup>1</sup>| |Строка пути (относительно хоста)|
+|data|`Object`<sup>1</sup>| |Данные запроса|
+|contentType|`String`|'application/x-www-form-urlencoded; charset=utf-8'|Тип данных|
+|method|`String`|'GET'|Метод запроса|
 
 Url запроса определяется конкатинацией свойств origin и path.
 
-<sup>*</sup> [Шаблонизируемая величина](#parameters-templating)
+<sup>*</sup> Обязательное свойство.   
+<sup>1</sup> [Шаблонизируемая величина](#parameters-templating)
 
 # Parameters Templating
 

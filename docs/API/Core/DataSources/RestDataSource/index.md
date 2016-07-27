@@ -44,13 +44,13 @@ new RestDataSource(parameters)
 
 |Name|Type|Description|
 |----|----|---------|
-|origin|`String`<sup>*</sup>|Хост и порт|
-|path|`String`<sup>*</sup>|Строка пути (относительно хоста)|
+|origin|`String`<sup>1</sup>|Хост и порт|
+|path|`String`<sup>1</sup>|Строка пути (относительно хоста)|
 |method|`String`|Метод запроса|
-|data|`Object`<sup>*</sup>|Данные запроса|
+|data|`Object`<sup>1</sup>|Данные запроса|
 |params|`Object`|Параметры запроса|
 
-<sup>*</sup> [Шаблонизируемая величина](#parameters-templating).
+<sup>1</sup> [Шаблонизируемая величина](#parameters-templating).
 
 # Parameters Templating
 

@@ -6,12 +6,14 @@ position: 0
 
 Метаданные описывающие типа [`Script`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Description|
 |----|----|-----------|
-|Name|`String`|Имя скрипта, по которому он будет доступен в представлении.|
-|Body|`String`|Содержимое скрипта (на javascript).|
+|Name<sup>*</sup>|`String`|Имя скрипта, по которому он будет доступен в представлении.|
+|Body<sup>*</sup>|`String`|Содержимое скрипта (на javascript).|
+
+<sup>*</sup> Обязательное свойство.
 
 # Exampes
 

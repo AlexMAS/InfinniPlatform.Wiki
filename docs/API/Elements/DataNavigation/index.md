@@ -13,14 +13,14 @@ position: 0
 # Syntax
 
 ```js
-new DataNavigation([parent])
+new DataNavigation(parent)
 ```
 
 ## Parameters
 
 Name|Type|Description
 ----|----------|---------
-parent|[`Element`](../../Core/Elements/Element)|Необязательный. Родительский [элемент](../../Core/Elements/Element)
+parent|[`Element`](../../Core/Elements/Element)|Родительский [элемент](../../Core/Elements/Element)
 
 # Methods
 

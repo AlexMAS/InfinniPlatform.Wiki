@@ -6,7 +6,7 @@ position: 0
 
 Метаданные типа [`EditorBase`](../).
 
-# Schema
+# Properties
 
 |Name|Type|Description|
 |----|----|-----------|
