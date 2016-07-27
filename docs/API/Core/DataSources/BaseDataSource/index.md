@@ -54,8 +54,6 @@ new BaseDataSource(parameters)
 |[setFillCreatedItem](BaseDataSource.setFillCreatedItem/)|Устанавливает, нужно ли предзаполнение новых элементов на сервере|
 |[getErrorValidator](BaseDataSource.getErrorValidator/)|Возвращает [функцию](../../Script/) проверки элемента на ошибки|
 |[setErrorValidator](BaseDataSource.setErrorValidator/)|Устанавливает [функцию](../../Script/) проверки элемента на ошибки|
-|[getWarningValidator](BaseDataSource.getWarningValidator/)|Возвращает [функцию](../../Script/) проверки элемента на предупреждения|
-|[setWarningValidator](BaseDataSource.setWarningValidator/)|Устанавливает [функцию](../../Script/) проверки элемента на предупреждения|
 |[isUpdateSuspended](BaseDataSource.isUpdateSuspended/)|Возвращает значение, указывающее, запрещено ли обновление списка элементов|
 |[suspendUpdate](BaseDataSource.suspendUpdate/)|Запрещает обновление списка элементов|
 |[resumeUpdate](BaseDataSource.resumeUpdate/)|Разрешает обновление списка элементов|
@@ -76,7 +74,6 @@ new BaseDataSource(parameters)
 |[tryInitData](BaseDataSource.tryInitData/)|Пытается обновить список элементов источника. Делает это только в случае, если до этого источник не был прогружен данными|
 |[getItems](BaseDataSource.getItems/)|Возвращает список элементов источника данных|
 |[validateOnErrors](BaseDataSource.validateOnErrors/)|Осуществляет проверку на ошибки|
-|[validateOnWarnings](BaseDataSource.validateOnWarnings/)|Осуществляет проверку на предупреждения|
 |[initDataProvider](BaseDataSource.initDataProvider/)|Определяет обязательное свойство [`dataProvider`](../../DataProviders/). Наследники BaseDataSource должны переопределять этот метод!|
 |[beforeDeleteItem](BaseDataSource.beforeDeleteItem/)|Вы можете переопределить этот метод в наследнике BaseDataSource, если есть необходимость выполнять некие действия перед удалением элемента|
 
@@ -92,4 +89,3 @@ new BaseDataSource(parameters)
 |[onItemDeleted](BaseDataSource.onItemDeleted/)|Устанавливает [обработчик события](../../Script/) о том, что элемент удален|
 |[onItemsUpdated](BaseDataSource.onItemsUpdated/)|Устанавливает [обработчик события](../../Script/) о том, что список элементов обновлен|
 |[onErrorValidator](BaseDataSource.onErrorValidator/)|Устанавливает [обработчик события](../../Script/) о том, что проверка на ошибки завершена|
-|[onWarningValidator](BaseDataSource.onWarningValidator/)|Устанавливает [обработчик события](../../Script/) о том, что проверка на предупреждения завершена|
