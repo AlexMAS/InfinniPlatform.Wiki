@@ -11,16 +11,16 @@ position: 0
 |Name|Type|Default|Description|
 |----|----|:--:|-----------|
 |Name|`String`| null |Имя элемента (строка). Желательно делать его уникальным внутри представления.|
-|Text|`String`| '' |Текст элемента. В разных потомках Element, поле text используется по разному. Например, во View это заголовок представления, а в ImageBox это текст кнопки, инициирующей выбор загружаемого изображения.|
-|Focusable|`Boolean`| true |Значение, определяющее, может ли элемент получить фокус.|
-|Enabled|`Boolean`| true |Значение, определяющее, значение, возможен ли доступ к элементу.|
-|Visible|`Boolean`| true |Значение, определяющее видимость элемента.|
-|HorizontalAlignment|[`HorizontalAlignment`](../ElementHorizontalAlignment)| 'Stretch' |Горизонтальное выравнивание элемента.|
-|TextHorizontalAlignment|[`TextHorizontalAlignment`](../TextHorizontalAlignment)| 'Left' |Горизонтальное выравнивание внутри элемента.|
-|Style|`String`| '' |Имя кастомного стиля (на деле это одноименный класс, стили которого можно задать самому в подключаемых на страницу стилях)|
-|TextStyle|[`TextStyle`](../../../Style/TextStyle/)| '' |Устанавливает стиль текста элемента|
-|Foreground|[`Color`](/docs/API/Core/Style/ColorStyle/)| '' |Цвет текста.|
-|Background|[`Color`](/docs/API/Core/Style/ColorStyle/)| '' |Цвет Фона.|
+|Text|`String`(&hArr;)| '' |Текст элемента. В разных потомках Element, поле text используется по разному. Например, во View это заголовок представления, а в ImageBox это текст кнопки, инициирующей выбор загружаемого изображения.|
+|Focusable|`Boolean`(&hArr;)| true |Значение, определяющее, может ли элемент получить фокус.|
+|Enabled|`Boolean`(&hArr;)| true |Значение, определяющее, значение, возможен ли доступ к элементу.|
+|Visible|`Boolean`(&hArr;)| true |Значение, определяющее видимость элемента.|
+|HorizontalAlignment|[`HorizontalAlignment`](../ElementHorizontalAlignment)(&hArr;)| 'Stretch' |Горизонтальное выравнивание элемента.|
+|TextHorizontalAlignment|[`TextHorizontalAlignment`](../TextHorizontalAlignment)(&hArr;)| 'Left' |Горизонтальное выравнивание внутри элемента.|
+|Style|`String`(&hArr;)| '' |Имя кастомного стиля (на деле это одноименный класс, стили которого можно задать самому в подключаемых на страницу стилях)|
+|TextStyle|[`TextStyle`](../../../Style/TextStyle/)(&hArr;)| '' |Стиль текста элемента|
+|Foreground|[`Color`](/docs/API/Core/Style/ColorStyle/)(&hArr;)| '' |Цвет текста.|
+|Background|[`Color`](/docs/API/Core/Style/ColorStyle/)(&hArr;)| '' |Цвет фона.|
 |ToolTip|`String`, [`Element`](..)| null |Всплывающая над элементом подсказка.|
 |Tag|*| null |Произвольное значение, которое можно привязать к элементу.|
 |OnLoaded|[`Script`](../../../Script/)| null |Устанавливает обработчик готовности элемента.|
@@ -37,6 +37,8 @@ position: 0
 |OnKeyDown|[`Script`](../../../Script/)| null |Устанавливает обработчик нажатия клавиши клавиатуры, в момент когда фокус находится на текущем элементе.|
 |OnKeyUp|[`Script`](../../../Script/)| null |Устанавливает обработчик поднятия клавиши клавиатуры, в момент когда фокус находится на текущем элементе.|
 |OnPropertyChanged|[`Script`](../../../Script/)| null |Устанавливает обработчик изменения одного из свойств элемента (value, visible и др.).|
+
+(&hArr;) Свойство может быть задано, как [`DataBinding`](../../../DataBinding/DataBinding.metadata/).
 
 # Exampes
 
