@@ -12,7 +12,6 @@ position: 0
 |----|----|----|-----------|
 |AcceptTypes|`Array`||Список допустимых форматов данных.|
 |MaxSize|`Number`||Максимальный размер данных в байтах.|
-|ReadOnly|`Boolean`|`false`|Значение, определяющее, возможено ли изменение изображения.|
 
 # Examples
 
@@ -26,6 +25,15 @@ position: 0
   "Value": {
     "Source": "dataSource1",
     "Property": "$.Photo"
+  }
+}
+```
+
+```json
+{
+  "ImageBox": {
+    "Enabled": false,
+    "Value": "\\img\\notice.png"
   }
 }
 ```

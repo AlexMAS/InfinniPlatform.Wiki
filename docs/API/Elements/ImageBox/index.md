@@ -30,6 +30,4 @@ new ImageBox([parent])
 |[`setMaxSize`](ImageBox.setMaxSize/)|Устанавливает максимальный размер данных в байтах.|
 |[`getAcceptTypes`](ImageBox.getAcceptTypes/)|Возвращает [коллекцию](../../Core/Collection/) допустимых форматов данных.|
 |[`setAcceptTypes`](ImageBox.setAcceptTypes/)|Устанавливает список допустимых форматов данных.|
-|[`setReadOnly`](ImageBox.setReadOnly/)|Устанавливает значение, определяющее, возможено ли изменение изображения.|
-|[`getReadOnly`](ImageBox.getReadOnly/)|Возвращает значение, определяющее, возможено ли изменение изображения.|
 
