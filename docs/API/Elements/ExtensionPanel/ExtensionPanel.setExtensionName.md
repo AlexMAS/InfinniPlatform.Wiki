@@ -1,15 +1,15 @@
 ---
 layout: doc
-title: "Element.setName()"
-position: 14
+title: "Element.setExtensionName()"
+position: 1
 ---
 
-Устанавливает наименование элемента.
+Устанавливает название прикладного элемента. Элемент должен быть глобальным объектом.
 
 # Syntax
 
 ```js
-Element.setName(value)
+Element.setExtensionName(value)
 ```
 
 ## Parameters
@@ -25,10 +25,5 @@ Element.setName(value)
 # Examples
 
 ```js
-Element.setName('button1');
+Element.setExtensionName('YandexMapExtension');
 ```
-
-# See Also
-
-* [`getName()`](../Element.getName/)
-* [`name`](../Element.name/)
