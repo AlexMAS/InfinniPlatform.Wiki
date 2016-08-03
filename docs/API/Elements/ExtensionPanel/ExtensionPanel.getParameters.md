@@ -4,7 +4,7 @@ title: "ExtensionPanel.getParameters()"
 position: 4
 ---
 
-Возвращает значения параметров.
+Возвращает параметры, передаваемые в прикладной элемент.
 
 # Syntax
 
