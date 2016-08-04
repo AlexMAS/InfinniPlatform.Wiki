@@ -31,13 +31,13 @@ countingRhyme.setItemTemplate(function(context, args){
 	label.setValue(args.item.text);
 	return label;
 });
-countingRhyme.setProperty('items', [
+countingRhyme.getProperty('items').reset( [
 									{text: "One, two. How are you? "}, 
 									{text: "Three, four. Who's at the door? "},
 									{text: "Five, six. My name is Fix."},
 									{text: "Seven, eght. Sorry, I'm late."},
 									{text: "Nine, ten. Say it again."}
-								]);
+								] );
 
 viewPanel.setLayout(countingRhyme);
 ```

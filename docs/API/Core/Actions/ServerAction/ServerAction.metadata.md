@@ -34,7 +34,10 @@ position: 0
     "Params": {
       "port": "9900",
       "document": "GetCompanyProfile988Response",
-      "_id": "73eba46a-0c6f-42d3-8a7b-2962f0fbf06d"
+      "_id": {
+        "Source": "MainDataSource",
+        "Property": "$._id"
+      }
     }
   }
 }
