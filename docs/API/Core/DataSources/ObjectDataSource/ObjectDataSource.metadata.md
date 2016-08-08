@@ -10,7 +10,9 @@ position: 0
 
 |Name|Type|Description|
 |----|----|-----------|
-|Items|`Array`|Массив элементов источника данных|
+|Items|`Array`(&hArr;)|Массив элементов источника данных|
+
+(&hArr;) Свойство может быть задано, как [`DataBinding`](../../../DataBinding/DataBinding.metadata/).
 
 # Examples
 
@@ -23,6 +25,22 @@ position: 0
 	    { "Id": 2, "Display": "3G" },
 	    { "Id": 3, "Display": "2G" }
 	  ]
+	}
+}
+```
+
+```json
+{
+	"ObjectDataSource": {
+	  "Name": "convertedDataSource",
+	  "Items": {
+		  "Source": "MainDataSource",
+		  "Property": "",
+		  "Mode": "ToElement",
+		  "Converter": {
+			  "ToElement": "{ return args.value.map(function(item){return {FullName: item.LastName + ' ' + item.FirstName, Birthday: item.Birthday}; }); }"
+			}
+		}
 	}
 }
 ```
