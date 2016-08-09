@@ -16,6 +16,8 @@ position: 0
 |ContentType|`String`|'application/x-www-form-urlencoded; charset=utf-8'|Тип данных|
 |Data|`Object`<sup>1</sup>| |Данные запроса|
 |Params|`Object`| |Параметры запроса|
+|OnSuccess|[`Script`](../../../Script/)| |Устанавливает обработчик успешного завершения действия|
+|OnError|[`Script`](../../../Script/)| |Устанавливает обработчик завершения действия с ошибкой|
 
 <sup>*</sup> Обязательное свойство.   
 <sup>1</sup> [Шаблонизируемая величина](../#parameters-templating).
@@ -38,7 +40,9 @@ position: 0
         "Source": "MainDataSource",
         "Property": "$._id"
       }
-    }
+    },
+    "OnSuccess": "{ alert('onSuccess'); }",
+    "OnError": "{ alert('onError'); }"
   }
 }
 ```

@@ -12,6 +12,9 @@ position: 0
 |----|----|----|-----------|
 |DestinationValue.Source<sup>*</sup>|`String`| |Название источника данных|
 |CanClose|`Boolean`|true|Значение, определяющее, нужно ли закрыть родительское представление после сохранения|
+|OnSuccess|[`Script`](../../../Script/)| |Устанавливает обработчик успешного завершения действия|
+|OnError|[`Script`](../../../Script/)| |Устанавливает обработчик завершения действия с ошибкой|
+
 
 <sup>*</sup> Обязательное свойство.
 
@@ -23,7 +26,9 @@ position: 0
 		"DestinationValue": {
 			"Source": "DataSource1"
 		},
-		"CanClose": false
+		"CanClose": false,
+		"OnSuccess": "{ alert('onSuccess'); }",
+		"OnError": "{ alert('onError'); }"
 	}
 }
 ```
