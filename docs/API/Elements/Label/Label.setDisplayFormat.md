@@ -14,10 +14,6 @@ Label.setDisplayFormat(format)
 
 ## Parameters
 
-Нет
-
-## Parameters
-
 |Name|Type|Description|
 |----|----------|---------|
 |format|[функция](../../Core/Script/)|[Функция](../../Core/Script/) форматирования [значения](../EditorBase/EditorBase.getValue/) для отображения.|

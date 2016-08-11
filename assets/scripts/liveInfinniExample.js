@@ -77,34 +77,14 @@ moment.locale('ru');
 
     var host = InfinniUI.config.serverUrl;
 
-    //Регистрация провайдера для работы с прикрепленными к документам файлами
-    window.providerRegister.register('DocumentFileProvider', function (metadata) {
-        var params = {
-            documentId: metadata.documentId,
-            configId: metadata.configId
-        };
-        var urlConstructor = new DocumentUploadQueryConstructor(host, params);
-        return new DocumentFileProvider(urlConstructor);
-    });
+    InfinniUI.providerRegister.register('ObjectDataSource', ObjectDataProvider);
 
-    window.providerRegister.register('UploadDocumentDataSource', function (metadataValue) {
-        return new DataProviderUpload(new QueryConstructorUpload(host, metadataValue));
-    });
-
-    window.providerRegister.register('ObjectDataSource', ObjectDataProvider);
-
-    window.providerRegister.register('MetadataDataSource', function (metadataValue) {
+    InfinniUI.providerRegister.register('MetadataDataSource', function (metadataValue) {
         var $pageContent = $('body');
         return new MetadataProviderREST(new QueryConstructorMetadata(host, metadataValue));
     });
 
-    window.providerRegister.register('DocumentDataSource', function (metadataValue) {
-        return new DataProviderREST(new QueryConstructorStandard(host, metadataValue));
-    });
-
-    window.providerRegister.register('MetadataInfoDataSource', function (metadataValue) {
-        return new MetadataDataSourceProvider(new QueryConstructorMetadataDataSource(host, metadataValue));
-    });
+    InfinniUI.providerRegister.register('DocumentDataSource', RestDataProvider);
 
 })();
 
