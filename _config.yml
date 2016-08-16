@@ -22,8 +22,8 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 exclude:      ["*.confluence", ".git", ".idea", "docs/_obsolete"]
 
 # Conversion
-markdown:    redcarpet
-highlighter: pygments
+markdown:    kramdown
+highlighter: rouge
 
 # Serving
 detach: false
@@ -36,9 +36,11 @@ relative_permalinks: false
 # Outputting
 permalink: pretty
 
-# RedCarpet
-redcarpet:
- extensions: ["no_intra_emphasis","tables","autolink","fenced_code_blocks","space_after_headers","with_toc_data","strikethrough","underline"]
+# kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
 
 # Pagination
 paginate: 10
