@@ -16,7 +16,7 @@ DataGrid.setShowSelectors(value)
 
 Name|Type|Description
 ----|----|-----------
-`value`|`Boolean`|Значение, определяющее показывать ли колонку с CheckBox/Radio для выбора элементов.
+value|`Boolean`|Значение, определяющее показывать ли колонку с CheckBox/Radio для выбора элементов.
 
 ## Returns
 
@@ -30,4 +30,4 @@ dataGrid.setShowSelectors(true);
 
 # See Also
 
-* [`getShowSelectors`](../DataGrid.getShowSelectors/)
+* [`getShowSelectors()`](../DataGrid.getShowSelectors/)

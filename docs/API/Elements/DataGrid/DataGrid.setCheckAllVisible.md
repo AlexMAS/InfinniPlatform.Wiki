@@ -16,7 +16,7 @@ DataGrid.setCheckAllVisible(value)
 
 Name|Type|Description
 ----|----|-----------
-`value`|`Boolean`|Значение, определяющее виден ли элемент "Выбрать все" в шапке таблицы.
+value|`Boolean`|Значение, определяющее виден ли элемент "Выбрать все" в шапке таблицы.
 
 ## Returns
 
@@ -30,7 +30,8 @@ dataGrid.setCheckAllVisible(true);
 
 # See Also
 
-* [`getCheckAllVisible`](../DataGrid.getCheckAllVisible/)
-* [`getCheckAll`](../DataGrid.getCheckAll/)
-* [`setShowSelectors`](../DataGrid.setShowSelectors/)
-* [`getShowSelectors`](../DataGrid.getShowSelectors/)
+* [`getCheckAllVisible()`](../DataGrid.getCheckAllVisible/)
+* [`getCheckAll()`](../DataGrid.getCheckAll/)
+* [`getShowSelectors()`](../DataGrid.getShowSelectors/)
+* [`setShowSelectors()`](../DataGrid.setShowSelectors/)
+

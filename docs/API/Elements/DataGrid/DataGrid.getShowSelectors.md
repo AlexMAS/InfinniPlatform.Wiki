@@ -28,4 +28,4 @@ var showSelectors = dataGrid.getShowSelectors();
 
 # See Also
 
-* [`setShowSelectors`](../DataGrid.setShowSelectors/)
+* [`setShowSelectors()`](../DataGrid.setShowSelectors/)

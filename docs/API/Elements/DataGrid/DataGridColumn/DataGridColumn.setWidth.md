@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DataGridColumn.setWidth"
-position: 1
+position: 16
 ---
 
 Устанавливает ширину колонки. Значение ширины может задаваться как в абсолютных величинах (напр. "150px") так и в относительных (напр. "33%").
@@ -16,7 +16,7 @@ DataGridColumn.setWidth(value)
 
 |Name|Type|Description|
 |----|----|-----------|
-|value|[`String`]|Ширина колонки таблицы|
+|value|`String`|Ширина колонки таблицы|
 
 ## Returns
 
@@ -30,4 +30,4 @@ column.setWidth("50%");
 
 # See Also
 
-* [`getWidth`](../DataGridColumn.getWidth/)
+* [`getWidth()`](../DataGridColumn.getWidth/)

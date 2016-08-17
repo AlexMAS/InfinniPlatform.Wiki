@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DataGridColumn.setHeader"
-position: 3
+position: 6
 ---
 
 Устанавливает заголовок колонки таблицы.
@@ -30,4 +30,4 @@ column.setHeader("Id");
 
 # See Also
 
-* [`getHeader`](../DataGridColumn.getHeader/)
+* [`getHeader()`](../DataGridColumn.getHeader/)

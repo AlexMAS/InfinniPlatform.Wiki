@@ -23,10 +23,9 @@ DataGrid.getColumns()
 # Examples
 
 ```js
-var action = button.getAction();
+var columns = DataGrid.getColumns();
 ```
 
 # See Also
 
 * [`DataGridColumn`](../DataGridColumn/)
-* [`setAction`](../Button.setAction/)

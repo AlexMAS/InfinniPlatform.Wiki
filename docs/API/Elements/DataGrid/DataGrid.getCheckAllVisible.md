@@ -30,5 +30,5 @@ var isVisible = dataGrid.getCheckAllVisible();
 
 * [`setCheckAllVisible`](../DataGrid.setCheckAllVisible/)
 * [`getCheckAll`](../DataGrid.getCheckAll/)
-* [`setShowSelectors`](../DataGrid.setShowSelectors/)
 * [`getShowSelectors`](../DataGrid.getShowSelectors/)
+* [`setShowSelectors`](../DataGrid.setShowSelectors/)

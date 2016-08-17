@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DataGridColumn.getHeader"
-position: 4
+position: 5
 ---
 
 Возвращает заголовок колонки.
@@ -28,4 +28,4 @@ var header = DataGridColumn.getHeader();
 
 # See Also
 
-* [`setHeader`](../Button.setHeader/)
+* [`setHeader()`](../DataGridColumn.setHeader/)

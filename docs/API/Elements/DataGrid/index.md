@@ -38,3 +38,5 @@ Name|Description
 Name|Description
 ----|-----------
 [`onCheckAllChanged`](DataGrid.onCheckAllChanged/)|Устанавливает [обработчик события](../../Core/Script/) о том, что состоняие элемента "Выбрать все" в шапке таблицы изменилось.
+[`onRowClick`](DataGrid.onRowClick/)|Устанавливает [обработчик события](../../Core/Script/) на клик по элементам DataGrid.
+[`onRowDoubleClick`](DataGrid.onRowDoubleClick/)|Устанавливает [обработчик события](../../Core/Script/) на двойной клик по элементам DataGrid.

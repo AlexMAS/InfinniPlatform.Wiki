@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DataGridColumn.getWidth"
-position: 2
+position: 15
 ---
 
 Возвращает ширину колонки таблицы.
@@ -28,4 +28,4 @@ var width = DataGridColumn.getWidth();
 
 # See Also
 
-* [`setWidth`](../Button.setWidth/)
+* [`setWidth()`](../DataGridColumn.setWidth/)

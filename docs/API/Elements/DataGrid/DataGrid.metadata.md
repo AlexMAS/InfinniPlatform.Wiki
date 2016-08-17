@@ -18,6 +18,8 @@ RowBackground|[`Color`](/docs/API/Core/Style/ColorStyle/)(&hArr;)| |Цвет ф�
 RowForeground|[`Color`](/docs/API/Core/Style/ColorStyle/)(&hArr;)| |Цвет текста строки
 RowTextStyle|[`TextStyle`](../../../Style/TextStyle/)(&hArr;)| |Стиль текста строки
 RowStyle|`String`(&hArr;)| |Имя кастомного стиля, применяемого к строке
+onRowClick|[`Script`](../../../Core/Script/)| |Устанавливает [обработчик события](../../Core/Script/) на клик по элементам DataGrid.
+onRowDoubleClick|[`Script`](../../../Core/Script/)| |Устанавливает [обработчик события](../../Core/Script/) на двойной клик по элементам DataGrid.
 
 (&hArr;) Свойство может быть задано, как [`DataBinding`](../../../Core/DataBinding/DataBinding.metadata/).
 
@@ -29,7 +31,10 @@ RowStyle|`String`(&hArr;)| |Имя кастомного стиля, примен
     "Columns": [
       {
         "Header": "Name",
-        "CellProperty": "Name"
+        "CellProperty": "Name",
+        "Sortable": true,
+        "SortedDefault": "asc",
+        "SortFunction": "{ console.log(args.sortDirection) }"
       },
       {
         "Header": "Family",
@@ -43,6 +48,8 @@ RowStyle|`String`(&hArr;)| |Имя кастомного стиля, примен
     "Items": {
       "Source": "peopleDataSource"
     },
+    "OnRowClick": "{ console.log(args.source) }",
+    "OnRowDoubleClick": "{ console.log(args.source) }",
     "RowBackground": {
       "Source": "RowStyleDataSource",
       "Property": "#",

@@ -21,17 +21,10 @@ encoding:     "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 exclude:      ["*.confluence", ".git", ".idea", "docs/_obsolete"]
 
-# Conversion
-markdown:    kramdown
-highlighter: rouge
-
 # Serving
 detach: false
 port:   4000
 host:   127.0.0.1
-
-# Backwards-compatibility
-relative_permalinks: false
 
 # Outputting
 permalink: pretty
@@ -39,7 +32,6 @@ permalink: pretty
 # kramdown
 kramdown:
   input: GFM
-  auto_ids: true
   syntax_highlighter: rouge
 
 # Pagination
@@ -51,3 +43,5 @@ github:
  owner: "InfinniPlatform"
  repo:  "InfinniUI-schema"
  name:  "InfinniUI"
+
+gems: [jekyll-paginate, jekyll-gist]

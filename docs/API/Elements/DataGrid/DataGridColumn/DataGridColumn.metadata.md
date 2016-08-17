@@ -17,6 +17,9 @@ position: 0
 |CellFormat|`String`&#124;[`Format`](../../../Core/DisplayFormat/)|Правила форматирования элемента коллекции для ячейки.|
 |CellTemplate|[`Element`](../../../Core/Elements/Element/)|Шаблон отображения элемента коллекции для ячейки.|
 |Width|`String`|Ширина колонки (напр. "100px", "25%").|
+|Sortable|`Boolean`|Возможность сортировки колонки.|
+|SortedDefault|`String`|Направление сортировки колонки по умолчанию (напр. "asc" или "desc").|
+|SortFunction|`Script`|Функция сортировки колонки.|
 
 
 # Examples
@@ -24,6 +27,9 @@ position: 0
 ```json
 {
   "Header": "Kingdom",
-  "CellProperty": "Kingdom"
+  "CellProperty": "Kingdom",
+  "Sortable": true,
+  "SortedDefault": "asc",
+  "SortFunction": "{ console.log( args.sortDirection ) }"
 }
 ```
