@@ -10,12 +10,12 @@ position: 0
 
 |Name|Type|Description|
 |----|----|-----------|
-|HeaderTemplate|[`Element`](../../../Core/Elements/Element/)|Шаблон отображения заголовка колонки.|
+|HeaderTemplate|[`Element`](../../../../Core/Elements/Element/)|Шаблон отображения заголовка колонки.|
 |Header|`String`|Заголовок колонки.|
-|CellSelector|[`Script`](../../../Core/Script/)|Функция выборки из элемента коллеции значения для ячейки.|
+|CellSelector|[`Script`](../../../../Core/Script/)|Функция выборки из элемента коллеции значения для ячейки.|
 |CellProperty|`String`|Свойство элемента коллекции со значением для ячейки.|
-|CellFormat|`String`&#124;[`Format`](../../../Core/DisplayFormat/)|Правила форматирования элемента коллекции для ячейки.|
-|CellTemplate|[`Element`](../../../Core/Elements/Element/)|Шаблон отображения элемента коллекции для ячейки.|
+|CellFormat|`String`&#124;[`Format`](../../../../Core/DisplayFormat/)|Правила форматирования элемента коллекции для ячейки.|
+|CellTemplate|[`Element`](../../../../Core/Elements/Element/)|Шаблон отображения элемента коллекции для ячейки.|
 |Width|`String`|Ширина колонки (напр. "100px", "25%").|
 |Sortable|`Boolean`|Возможность сортировки колонки.|
 |SortedDefault|`String`|Направление сортировки колонки по умолчанию (напр. "asc" или "desc").|

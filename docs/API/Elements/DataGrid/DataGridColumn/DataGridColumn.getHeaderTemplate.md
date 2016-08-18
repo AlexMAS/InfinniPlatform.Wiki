@@ -4,7 +4,7 @@ title: "DataGridColumn.getHeaderTemplate"
 position: 7
 ---
 
-Возвращает [функцию](../../../Core/Script/) шаблонизации ячейки заголовка DataGrid.
+Возвращает [функцию](../../../../Core/Script/) шаблонизации ячейки заголовка DataGrid.
 
 # Syntax
 
@@ -18,7 +18,7 @@ DataGridColumn.getHeaderTemplate();
 
 ## Returns
 
-[Функция](../../../Core/Script/) шаблонизации ячейки заголовка DataGrid. Результатом работы функции должен быть [визуальный элемент](../../../Core/Elements/Element/).
+[Функция](../../../../Core/Script/) шаблонизации ячейки заголовка DataGrid. Результатом работы функции должен быть [визуальный элемент](../../../../Core/Elements/Element/).
 
 # Examples
 

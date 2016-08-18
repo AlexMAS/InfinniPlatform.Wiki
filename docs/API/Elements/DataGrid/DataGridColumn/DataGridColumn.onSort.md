@@ -4,7 +4,7 @@ title: "DataGridColumn.onSort"
 position: 18
 ---
 
-Устанавливает [обработчик события](../../../Core/Script/) на событие 'onSort'
+Устанавливает [обработчик события](../../../../Core/Script/) на событие 'onSort'
 
 # Description
 
@@ -20,7 +20,7 @@ DataGridColumn.onSort(callback);
 
 Name|Type|Description
 ----|----|-----------
-callback|[Обработчик события](../../../Core/Script/)|[Обработчик события](../../../Core/Script/) о том, что необходимо изменить сортировку элементов DataGrid.
+callback|[Обработчик события](../../../../Core/Script/)|[Обработчик события](../../../../Core/Script/) о том, что необходимо изменить сортировку элементов DataGrid.
 
 ## Returns
 
