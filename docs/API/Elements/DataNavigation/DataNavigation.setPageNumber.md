@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DataNavigation.setPageNumber"
-position: 5
+position: 9
 ---
 
 Устанавливает номер текущей страницы.

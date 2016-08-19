@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DataNavigation.getPageSize"
-position: 6
+position: 10
 ---
 
 Возвращает размер страницы.

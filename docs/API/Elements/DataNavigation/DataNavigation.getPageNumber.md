@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DataNavigation.getPageNumber"
-position: 4
+position: 8
 ---
 
 Возвращает номер текущей страницы.

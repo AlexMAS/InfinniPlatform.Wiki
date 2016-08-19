@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DataNavigation.getDataSource"
-position: 1
+position: 2
 ---
 
 Возвращает [источник данных](../../../Core/DataSources/BaseDataSource/).

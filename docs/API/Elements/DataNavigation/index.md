@@ -33,4 +33,13 @@ Name|Description
 [`setPageNumber`](DataNavigation.setPageNumber)|Устанавливает номер текущей страницы.
 [`getPageSize`](DataNavigation.getPageSize)|Возвращает размер страницы.
 [`setPageSize`](DataNavigation.setPageSize)|Устанавливает размер страницы.
+[`getPageCount`](DataNavigation.getPageCount)|Возвращает количество страниц.
+[`setPageCount`](DataNavigation.setPageCount)|Устанавливает количество страниц.
+[`getIsDataReady`](DataNavigation.getIsDataReady)|Возвращает значение о том, готовы данные или нет.
+[`setIsDataReady`](DataNavigation.setIsDataReady)|Устанавливает значение о том, готовы данные или нет.
+
+# Events
+
+[`onPageSizeChanged`](DataNavigation.onPageSizeChanged)|[Обработчик события](../../Core/Script/) о том, что размер страницы изменился.
+[`onPageNumberChanged`](DataNavigation.onPageNumberChanged)|[Обработчик события](../../Core/Script/) о том, что номер страницы изменился.
 

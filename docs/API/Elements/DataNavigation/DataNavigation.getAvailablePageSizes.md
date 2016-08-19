@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DataNavigation.getAvailablePageSizes"
-position: 3
+position: 1
 ---
 
 Возвращает [коллекцию](../../../Core/Collection/) доступных размеров страниц.

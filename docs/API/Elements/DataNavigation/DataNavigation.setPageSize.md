@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DataNavigation.setPageSize"
-position: 7
+position: 11
 ---
 
 Устанавливает размер страницы.

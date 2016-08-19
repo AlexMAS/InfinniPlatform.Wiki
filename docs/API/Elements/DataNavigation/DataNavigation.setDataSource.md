@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "DataNavigation.setDataSource"
-position: 2
+position: 3
 ---
 
 Устанавливает [источник данных](../../../Core/DataSources/BaseDataSource/).
