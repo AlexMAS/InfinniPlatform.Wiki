@@ -4,7 +4,7 @@ title: "NotificationSubscriptions.stopConnection"
 position: 4
 ---
 
-Разрывает соединение signalR не удаляя подписки
+Разрывает соединение с сервером. Подписки при этом сохраняются.
 
 # Description
 

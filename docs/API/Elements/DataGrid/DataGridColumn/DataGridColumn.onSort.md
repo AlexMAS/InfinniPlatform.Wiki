@@ -8,7 +8,7 @@ position: 18
 
 # Description
 
-Новое значение переключателя передаётся в параметре `args.sortDirection`.
+Новое значение направления передаётся в параметре `args.sortDirection`.
 
 # Syntax
 

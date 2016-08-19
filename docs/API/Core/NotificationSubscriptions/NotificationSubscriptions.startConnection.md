@@ -4,7 +4,7 @@ title: "NotificationSubscriptions.startConnection"
 position: 3
 ---
 
-SignalR устанавливает соединение с сервером и создает hub proxy по заданому hubName. Так же осуществляется подписка по всем routingKey которые были добавлены через метод subscribe или были указаны в метаданных.
+Устанавливает соединение с сервером по заданому hubName. Так же осуществляется подписка по всем routingKey которые были добавлены через метод subscribe или были указаны в метаданных.
 
 # Description
 
