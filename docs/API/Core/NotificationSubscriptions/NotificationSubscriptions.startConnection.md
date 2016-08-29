@@ -13,7 +13,7 @@ position: 3
 # Syntax
 
 ```js
-NotificationSubscriptions.startConnection(hubName, onSuccessCallback, onErrorCallback)
+NotificationSubscriptions.startConnection(hubName[, onSuccessCallback[, onErrorCallback]])
 ```
 
 ## Parameters
