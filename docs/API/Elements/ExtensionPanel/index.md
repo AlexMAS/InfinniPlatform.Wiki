@@ -30,7 +30,7 @@ function MyExtensionPanel(context, args) {
 |Name|Type|Description|
 |----|----|-----------|
 |context|[`ViewContext`](/docs/API/Core/Context)|Контекст представления|
-|args|`Object`|Объект с полями: <ul><li>$el - элемент выделенный под ExtensionPanel,</li> <li>parameters - [параметры](ExtensionPanel.getParameters/),</li> <li>builder - [построитель элементов](/docs/Api/Core/Builders/),</li> <li>itemTemplate - [функция шаблонизации дочерних элементов](/docs/API/Core/Elements/Container/Container.getItemTemplate/),</li> <li>items - [коллекция дочерних элементов](/docs/API/Core/Elements/Container/Container.getItems/)</li></ul>|
+|args|`Object`|Объект с полями: <br> &#9679; $el - элемент выделенный под ExtensionPanel,<br> &#9679; parameters - [параметры](ExtensionPanel.getParameters/),<br> &#9679; builder - [построитель элементов](/docs/Api/Core/Builders/),<br> &#9679; itemTemplate - [функция шаблонизации дочерних элементов](/docs/API/Core/Elements/Container/Container.getItemTemplate/),<br> &#9679; items - [коллекция дочерних элементов](/docs/API/Core/Elements/Container/Container.getItems/)|
 
 ## Examples
 
