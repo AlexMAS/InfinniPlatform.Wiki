@@ -63,7 +63,7 @@ LiveInfinniExample.prototype.clearExampleText = function(text){
 };
 
 LiveInfinniExample.prototype.clipText = function($el){
-    var $code = $el.find('pre code');
+    var $code = $el.find('code');
     var s = $code.get(0).innerHTML.replace(/<span class="c1">[\s\S]*\/\/infinni-ui-demo<\/span>\s*/, '');
     s = s.replace(/^[\s\S]*\/\/infinni-ui-display-begin<\/span>\s*/, '');
     s = s.replace(/\s*<span class="c1">\/\/infinni-ui-display-end[\s\S]*$/, '');
