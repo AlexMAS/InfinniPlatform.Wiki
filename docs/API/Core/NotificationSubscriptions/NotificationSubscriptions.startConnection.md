@@ -13,7 +13,7 @@ position: 3
 # Syntax
 
 ```js
-NotificationSubscriptions.startConnection(hubName)
+NotificationSubscriptions.startConnection(hubName, onSuccessCallback, onErrorCallback)
 ```
 
 ## Parameters
@@ -21,6 +21,8 @@ NotificationSubscriptions.startConnection(hubName)
 |Name|Type|Description|
 |----|----|-----------|
 |hubName|`String`|Имя hub proxy. При работе с InfinniPlatform оно равно SignalRPushNotificationServiceHub|
+|onSuccessCallback|[Script](../../Script)|Обработчик события успешного соединения|
+|onErrorCallback|[Script](../../Script)|Обработчик события о том, что при соединений возникла ошибка|
 
 # Examples
 
