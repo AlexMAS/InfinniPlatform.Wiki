@@ -22,7 +22,8 @@ position: 1001
 
 # Examples
 
-```js
+<!-- js отображает некрасиво, пришлось поменять -->
+```objc
 {
     toSource: function(context, args) {
         return parseInt(args.value); // string to integer
