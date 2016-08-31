@@ -20,3 +20,4 @@ position: 0
 |[SaveAction](SaveAction/)|Сохраняет изменения для текущего элемента в [источнике данных](../DataSources)|
 |[SelectAction](SelectAction/)|Заполняет поле элемента в [источнике данных](../DataSources) данными из другого элемента [источника данных](../DataSources)|
 |[ServerAction](ServerAction/)|Отправляет http запрос|
+|[RouteToAction](RouteToAction/)|Переходит по заданному маршруту|
