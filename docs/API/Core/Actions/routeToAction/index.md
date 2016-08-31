@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "RouteToAction"
-position: 9
+position: 12
 ---
 
 Переходит по заданному маршруту определенному в [InfinniUI.config.Routes](../../InfinniUI/InfinniUI.config.Routes).
