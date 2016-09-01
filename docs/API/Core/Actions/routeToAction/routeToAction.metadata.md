@@ -10,7 +10,7 @@ position: 0
 
 |Name|Type|Description|
 |----|----|-----------|
-|Name<sup>*</sup>|`String`|Уникальное имя маршрута определенное в [InfinniUI.config.Routes](../../../InfinniUI/InfinniUI.config.Routes)|
+|Name<sup>*</sup>|`String`|Имя маршрута. Имя должно быть однозначно определенно в [InfinniUI.config.Routes](../../../InfinniUI/InfinniUI.config.Routes)|
 |Params|`Object`|Массив с параметрами маршрута, которые будут переданы в callback. Где Name - имя параметра, а Value - значение параметра. Значение параметра можно задать как через `String`, так и через [`DataBinding`](../../../DataBinding)|
 |Query|`Object`|Массив с параметрами запроса, которые будут переданы в callback. Где Name - имя параметра запроса, а Value - значение параметра запроса. Значение параметра можно задать как через `String`, так и через [`DataBinding`](../../../DataBinding)|
 

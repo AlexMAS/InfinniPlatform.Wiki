@@ -4,7 +4,7 @@ title: "RouteToAction"
 position: 12
 ---
 
-Переходит по заданному маршруту определенному в [InfinniUI.config.Routes](../../InfinniUI/InfinniUI.config.Routes).
+Производит переход по указанному имени маршрута. Путь соотвествующий имени определен в [InfinniUI.config.Routes](../../InfinniUI/InfinniUI.config.Routes).
 
 # Syntax
 
