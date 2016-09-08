@@ -53,7 +53,7 @@ DocumentDataSource.setFilter(value)
 |regex(propertyName, pattern[, arg1, arg2, ...])|Вернёт элементы, в которых свойство propertyName соответсвут шаблону pattern. В качестве arg1, arg2, ... можно передать настройки regex. Возможны следующие настройки: *IgnoreCase* - Игнорирует регистр символов. *Singleline* - Указывает однострочный режим. Изменяет значение точки (.) так, что она соответствует любому символу (вместо любого символа, кроме "\n"). *Multiline* - Многострочный режим. Изменяет значение символов "^" и "$" так, что они совпадают, соответственно, в начале и конце любой строки, а не только в начале и конце целой строки.|
 ||**Функции фильтрации по содержимому массивов, хранящихся в элементах**|
 ||*Обозначим через arrayProperty - свойство ссылающееся на массив*|
-|match(arrayProperty, f_1)|Все элементы из массива удовлетворяют условию f_1|
+|match(arrayProperty, f_1)|Хотя бы один из элементов массива удовлетворяет условию f_1|
 |all(arrayProperty, arg1, arg2, ...)|Все элементы из массива входят в множество [arg1, arg2, ...]|
 |anyIn(arrayProperty, arg1, arg2, ...)|Хотя бы один из элементов массива входит в множество [arg1, arg2, ...]|
 |anyNotIn(arrayProperty, arg1, arg2, ...)|Хотя бы один из элементов массива не входит в множество [arg1, arg2, ...]|
@@ -71,28 +71,40 @@ DocumentDataSource.setFilter(value)
 
 # Examples
 
+Вернет элементы, в которых поле '_id' равно 123:
+
 ```js
 BaseDataSource.setFilter("eq(_id,123)");
 ```
+
+Вернет элементы, в которых 'birthday' > '2012-01-26T13:51:50.417Z':
 
 ```js
 BaseDataSource.setFilter("gt(birthday,date('2012-01-26T13:51:50.417Z'))");
 ```
 
+Вернет элементы, в которых 'FirstName' соответсвует маске '^И(ван|рина)$' (не зависит от регистра):
+
 ```js
 BaseDataSource.setFilter("regex(FirstName, '^И(ван|рина)$', IgnoreCase)");
 ```
+
+Вернет элементы, в которых хотя бы один из элементов массива props содержит значение 'font' в поле name:
 
 ```js
 BaseDataSource.setFilter("match(props, eq(name,'font'))");
 ```
 
+Вернет элементы, в которых хотя бы один из элементов массива items не входит в множество [true, 34535, 'hello']:
+
 ```js
 BaseDataSource.setFilter("anyNotIn(items, true, 34535, 'hello')");
 ```
 
+Вернет элементы, в которых либо id=423434, либо id=231 и isActive=true:
+
 ```js
-BaseDataSource.setFilter("or(and(eq(id,231),eq(id,342342)),eq(id,423434))");
+BaseDataSource.setFilter("or(and(eq(id,231),eq(isActive,true)),eq(id,423434))");
 ```
 
 # See Also
