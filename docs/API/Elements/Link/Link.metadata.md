@@ -17,17 +17,20 @@ position: 0
 
 |Name|Type|Description|
 |----|----|-----------|
-|Name|`String`|Название маршрута из [InfinniUI.config.Routes](/docs/API/Core/InfinniUI/InfinniUI.config.Routes/).|
+|Name<sup>*</sup>|`String`|Название маршрута из [InfinniUI.config.Routes](/docs/API/Core/InfinniUI/InfinniUI.config.Routes/).|
 |Params|`Array`.<[`Href.paramObject`](#hrefparamobject)>|Параметры запроса.|
 |Query|`Array`.<[`Href.paramObject`](#hrefparamobject)>|Параметры поиска.|
+
+<sup>*</sup> Обязательное свойство.
 
 ## Href.paramObject
 
 |Name|Type|Description|
 |----|----|-----------|
-|Name|`String`|Название параметра.|
-|Value|`String`&#124;[`DataBinding`](/docs/API/Core/DataBinding/DataBinding.metadata/)|Значение параметра.|
+|Name<sup>*</sup>|`String`|Название параметра.|
+|Value<sup>*</sup>|`String`&#124;[`DataBinding`](/docs/API/Core/DataBinding/DataBinding.metadata/)|Значение параметра.|
 
+<sup>*</sup> Обязательное свойство.
 
 # Examples
 
