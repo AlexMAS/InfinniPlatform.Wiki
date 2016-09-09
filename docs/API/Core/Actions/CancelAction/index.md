@@ -6,6 +6,10 @@ position: 4
 
 Устанавливает в качестве результата работы родительского [представления](../../Elements/View/) значение [DialogResult.canceled](../../Elements/View/DialogResult/).
 
+# Extends
+
+## [`BaseAction`](../BaseAction/)
+
 # Syntax
 
 ```js

@@ -6,11 +6,16 @@ position: 11
 
 Отправляет http запрос.
 
+# Extends
+
+## [`BaseAction`](../BaseAction/)
+
 # Syntax
 
 ```js
 new ServerAction(parentView)
 ```
+
 ## Parameters
 
 |Name|Type|Description|

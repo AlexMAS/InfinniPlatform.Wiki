@@ -6,11 +6,16 @@ position: 10
 
 Заполняет поле элемента в [источнике данных](../../DataSources) данными из другого элемента [источника данных](../../DataSources).
 
+# Extends
+
+## [`BaseAction`](../BaseAction/)
+
 # Syntax
 
 ```js
 new SelectAction(parentView)
 ```
+
 ## Parameters
 
 |Name|Type|Description|

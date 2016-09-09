@@ -6,6 +6,10 @@ position: 3
 
 Устанавливает в качестве результата работы родительского [представления](../../Elements/View/) значение [DialogResult.accepted](../../Elements/View/DialogResult/).
 
+# Extends
+
+## [`BaseAction`](../BaseAction/)
+
 # Syntax
 
 ```js

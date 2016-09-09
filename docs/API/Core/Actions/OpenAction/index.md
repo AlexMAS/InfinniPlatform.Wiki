@@ -6,11 +6,16 @@ position: 2
 
 Открывает [представление](../../Elements/View/).
 
+# Extends
+
+## [`BaseAction`](../BaseAction/)
+
 # Syntax
 
 ```js
 new OpenAction(parentView)
 ```
+
 ## Parameters
 
 |Name|Type|Description|

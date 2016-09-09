@@ -6,11 +6,16 @@ position: 9
 
 Обновляет список элементов [источника данных](../../DataSources).
 
+# Extends
+
+## [`BaseAction`](../BaseAction/)
+
 # Syntax
 
 ```js
 new SaveAction(parentView)
 ```
+
 ## Parameters
 
 |Name|Type|Description|

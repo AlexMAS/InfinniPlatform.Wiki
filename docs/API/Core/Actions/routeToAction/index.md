@@ -6,6 +6,10 @@ position: 12
 
 Производит переход по указанному имени маршрута. Путь соотвествующий имени определен в [InfinniUI.config.Routes](../../InfinniUI/InfinniUI.config.Routes).
 
+# Extends
+
+## [`BaseAction`](../BaseAction/)
+
 # Syntax
 
 ```js

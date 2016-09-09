@@ -6,11 +6,16 @@ position: 7
 
 Удаляет элемент из [источника данных](../../DataSources).
 
+# Extends
+
+## [`BaseAction`](../BaseAction/)
+
 # Syntax
 
 ```js
 new DeleteAction(parentView)
 ```
+
 ## Parameters
 
 |Name|Type|Description|

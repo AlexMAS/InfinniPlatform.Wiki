@@ -6,11 +6,16 @@ position: 6
 
 Редактирует элемент из [источника данных](../../DataSources).
 
+# Extends
+
+## [`BaseAction`](../BaseAction/)
+
 # Syntax
 
 ```js
 new EditAction(parentView)
 ```
+
 ## Parameters
 
 |Name|Type|Description|

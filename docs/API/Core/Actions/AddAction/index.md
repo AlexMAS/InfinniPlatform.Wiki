@@ -6,11 +6,16 @@ position: 5
 
 Создает новый элемент в [источнике данных](../../DataSources).
 
+# Extends
+
+## [`BaseAction`](../BaseAction/)
+
 # Syntax
 
 ```js
 new AddAction(parentView)
 ```
+
 ## Parameters
 
 |Name|Type|Description|
