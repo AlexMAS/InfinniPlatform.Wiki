@@ -26,7 +26,7 @@ position: 0
 |Name|Type|Description|
 |----|----|-----------|
 |Name|`String`|Название параметра.|
-|Value|`BaseType`&#124;[`DataBinding`](/docs/API/Core/DataBinding/DataBinding.metadata/)|Значение параметра.|
+|Value|`String`&#124;[`DataBinding`](/docs/API/Core/DataBinding/DataBinding.metadata/)|Значение параметра.|
 
 
 # Examples
