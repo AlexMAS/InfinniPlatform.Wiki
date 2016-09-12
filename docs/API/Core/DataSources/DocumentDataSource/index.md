@@ -50,6 +50,8 @@ new DocumentDataSource(parameters)
 |order| |Правило сортировки документов|
 |needTotalCount|false|Необходимость подсчета общего количества документов|
 
+Изменение параметров `filter`, `filterParams`, `pageSize`, `search`, `order` приводит к обнулению `pageNumber`.
+
 # Methods
 
 |Name|Description|
