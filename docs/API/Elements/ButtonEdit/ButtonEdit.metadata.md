@@ -24,7 +24,7 @@ OnButtonClick сработает раньше, чем Action.
 
 ButtonEdit удобно использовать для редактирования полей-объектов (вроде адреса).
 
-```js
+```json
 {
 	"ButtonEdit": {
 		"ShowClear": false,
@@ -36,7 +36,7 @@ ButtonEdit удобно использовать для редактирован
 	    "DisplayFormat": "{City}, {Street} st., {House}",
 		"Action": {
 			"EditAction": {
-				/** ... **/
+				...
 			}
 		}
 	}

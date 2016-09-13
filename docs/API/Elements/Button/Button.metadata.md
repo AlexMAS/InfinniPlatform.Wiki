@@ -17,7 +17,7 @@ position: 0
 
 # Examples
 
-```js
+```json
 {
 	"ContentTemplate": {
 		"Icon": {
@@ -26,7 +26,7 @@ position: 0
 	},
 	"Action": {
 		"EditAction": {
-			/** ... **/
+			...
 		}
 	}
 }
