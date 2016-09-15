@@ -16,8 +16,10 @@ position: 1003
 |`logger`|[`Logger`](../Logger/)|[Сервис регистрации сообщений](../Logger/).|
 |`messageBus`|[`MessageBus`](../MessageBus/)|[Шина сообщений](../MessageBus/) приложения.|
 |`session`|[`Session`](../Session/)|Провайдер для работы [сессией пользователя](../Session/).|
+|`notificationSubsription`|[`NotificationSubscriptions`](../NotificationSubscriptions/)|Сервис, позволяющий подписаться на уведомления от сервера.|
 
 # Methods
+
 |Name|Description|
 |----|-----------|
 |[`executeAction`](GlobalContext.executeAction/)|Запускает выполнение указанного [действия](../Actions/).|
