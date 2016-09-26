@@ -22,3 +22,6 @@ position: 1011
 |[`unsubscribe`](NotificationSubscriptions.unsubscribe/)|Удаляет подписку на событие|
 |[`startConnection`](NotificationSubscriptions.startConnection/)|Устанавливает соединение с сервером и добавляет слушателей по заданым ключам|
 |[`stopConnection`](NotificationSubscriptions.stopConnection/)|Разрывает соединение с сервером|
+|[`reconnection`](NotificationSubscriptions.reconnection/)|Повторно устанавливает соединение с сервером с ранее указанными параметрами|
+|[`isDisconnected`](NotificationSubscriptions.isDisconnected/)|Проверяет, разорвано ли соединение с сервером|
+|[`on`](NotificationSubscriptions.on/)|Выполняет подписку на события signalR|
