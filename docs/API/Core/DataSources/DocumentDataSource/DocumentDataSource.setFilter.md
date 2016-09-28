@@ -49,8 +49,10 @@ DocumentDataSource.setFilter(value)
 |gte(propertyName, value)|Вернёт элементы, в которых свойство propertyName принимает значение, которое больше либо равно value|
 |lt(propertyName, value)|Вернёт элементы, в которых свойство propertyName принимает значение меньшее, чем value|
 |lte(propertyName, value)|Вернёт элементы, в которых свойство propertyName принимает значение, которое меньше либо равно value|
-|text(search[, language[, caseSensitive[, diacriticSensitive]]])|Вернёт элементы, в которых содержится строка search. Если указать language(напр, 'ru'), то поиск будет осуществляться с учётом особенностей данного языка. Если в параметрах caseSensitive и diacriticSensitive передать значение true, то поиск будет осуществляться с учётом регистра и диакритических знаков|
 |regex(propertyName, pattern[, arg1, arg2, ...])|Вернёт элементы, в которых свойство propertyName соответсвут шаблону pattern. В качестве arg1, arg2, ... можно передать настройки regex. Возможны следующие настройки: *IgnoreCase* - Игнорирует регистр символов. *Singleline* - Указывает однострочный режим. Изменяет значение точки (.) так, что она соответствует любому символу (вместо любого символа, кроме "\n"). *Multiline* - Многострочный режим. Изменяет значение символов "^" и "$" так, что они совпадают, соответственно, в начале и конце любой строки, а не только в начале и конце целой строки.|
+|startsWith(propertyName, value[, ignoreCase = true])|Вернёт элементы, в которых свойство propertyName начинается подстрокой value|
+|endsWith(propertyName, value[, ignoreCase = true])|Вернёт элементы, в которых свойство propertyName заканчивается подстрокой value|
+|contains(propertyName, value[, ignoreCase = true])|Вернёт элементы, в которых свойство propertyName содержит подстроку value|
 ||**Функции фильтрации по содержимому массивов, хранящихся в элементах**|
 ||*Обозначим через arrayProperty - свойство ссылающееся на массив*|
 |match(arrayProperty, f_1)|Хотя бы один из элементов массива удовлетворяет условию f_1|
@@ -68,6 +70,8 @@ DocumentDataSource.setFilter(value)
 |sizeGte(arrayProperty, size)|Число элементов массива больше либо равно size|
 |sizeLt(arrayProperty, size)|Число элементов массива меньше чем size|
 |sizeLte(arrayProperty, size)|Число элементов массива меньше либо равно size|
+||**Полнотекстовый поиск**|
+|text(search[, language = null[, caseSensitive = false[, diacriticSensitive = false]]])|Вернёт элементы, в которых содержится строка search. Если указать language(напр, 'ru'), то поиск будет осуществляться с учётом особенностей данного языка. Если в параметрах caseSensitive и diacriticSensitive передать значение true, то поиск будет осуществляться с учётом регистра и диакритических знаков|
 
 # Examples
 
