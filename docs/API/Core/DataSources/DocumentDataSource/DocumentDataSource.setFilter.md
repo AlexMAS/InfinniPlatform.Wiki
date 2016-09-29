@@ -87,10 +87,16 @@ BaseDataSource.setFilter("eq(_id,123)");
 BaseDataSource.setFilter("gt(birthday,date('2012-01-26T13:51:50.417Z'))");
 ```
 
-Вернет элементы, в которых 'FirstName' соответсвует маске '^И(ван|рина)$' (не зависит от регистра):
+Вернет элементы, в которых 'FirstName' соответсвует маске '^И(ван\|рина)$' (не зависит от регистра):
 
 ```js
 BaseDataSource.setFilter("regex(FirstName, '^И(ван|рина)$', IgnoreCase)");
+```
+
+Вернет элементы, в которых 'FirstName' начинается с 'Але' (с учётом регистра):
+
+```js
+BaseDataSource.setFilter("startsWith(FirstName, 'Але', false)");
 ```
 
 Вернет элементы, в которых хотя бы один из элементов массива props содержит значение 'font' в поле name:
@@ -109,6 +115,12 @@ BaseDataSource.setFilter("anyNotIn(items, true, 34535, 'hello')");
 
 ```js
 BaseDataSource.setFilter("or(and(eq(id,231),eq(isActive,true)),eq(id,423434))");
+```
+
+Сработает регистрозависимый полнотекстовый поиск:
+
+```js
+BaseDataSource.setFilter("text('Иванов Иван Иванович', null, true)");
 ```
 
 # See Also
