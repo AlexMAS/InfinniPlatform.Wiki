@@ -10,7 +10,7 @@ position: 0
 
 |Name|Type|Default|Description|
 |----|----|:--:|-----------|
-|DisplayFormat|`DisplayFormatMetadata`||Форматирование значения для отображения|
+|DisplayFormat|`DisplayFormatMetadata`| |Форматирование значения для отображения|
 |TextTrimming|`Boolean`|true|Значение, определяющее, усекается ли текст при переполнении|
 |TextWrapping|`Boolean`|true|Значение, определяющее, переносится ли текст при переполнении|
 |EscapeHtml|`Boolean`|true|Значение, определяющее, экранируется ли HTML-разметка|

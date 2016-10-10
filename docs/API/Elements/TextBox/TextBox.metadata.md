@@ -11,7 +11,7 @@ position: 0
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
 |`Multiline`|`Boolean`|`false`|Разрешен ли многострочный текст|
-|`LineCount`|`Integer`||Максимально видимое количество строк|
+|`LineCount`|`Integer`| |Максимально видимое количество строк|
 
 # Examples
 

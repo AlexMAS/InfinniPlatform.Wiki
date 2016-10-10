@@ -16,7 +16,7 @@ TreeView.setKeySelector(value)
 
 |Name|Type|Description|
 |----|----|-----------|
-`value`|[`Script`](../../../Core/Script/)|[Функция](../../../Core/Script/) выборки из элемента коллекции идентификатора.
+|`value`|[`Script`](../../../Core/Script/)|[Функция](../../../Core/Script/) выборки из элемента коллекции идентификатора.|
 
 ## Returns
 

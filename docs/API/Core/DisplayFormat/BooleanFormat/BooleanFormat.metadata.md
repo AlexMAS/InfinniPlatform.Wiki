@@ -8,10 +8,10 @@ position: 0
 
 # Properties
 
-Name|Type|Default|Description
-----|----|-------|-----------
-TrueText|`String`|`"True"`|Текст для отображения истинного значения
-FalseText|`String`|`"False"`|Текст для отображения ложного значения
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+|TrueText|`String`|`"True"`|Текст для отображения истинного значения|
+|FalseText|`String`|`"False"`|Текст для отображения ложного значения|
 
 
 # Examples

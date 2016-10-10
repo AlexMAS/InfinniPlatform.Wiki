@@ -90,13 +90,13 @@ new ExtensionPanel(parent)
 
 # Methods
 
-Name|Description
-----|-----------
-[setExtensionName](ExtensionPanel.setExtensionName/)|Устанавливает название прикладного элемента
-[setContext](ExtensionPanel.setContext/)|Устанавливает [контекст представления](/docs/Api/Core/Context/)
-[setBuilder](ExtensionPanel.setBuilder/)|Устанавливает [Builder](/docs/Api/Core/Builders/)
-[getParameters](ExtensionPanel.getParameters/)|Возвращает [параметры](/docs/Api/Core/Parameters/), передаваемые в прикладной элемент
-[setParameters](ExtensionPanel.setParameters/)|Устанавливает [параметры](/docs/Api/Core/Parameters/), передаваемые в прикладной элемент
+|Name|Description|
+|----|-----------|
+|[setExtensionName](ExtensionPanel.setExtensionName/)|Устанавливает название прикладного элемента|
+|[setContext](ExtensionPanel.setContext/)|Устанавливает [контекст представления](/docs/Api/Core/Context/)|
+|[setBuilder](ExtensionPanel.setBuilder/)|Устанавливает [Builder](/docs/Api/Core/Builders/)|
+|[getParameters](ExtensionPanel.getParameters/)|Возвращает [параметры](/docs/Api/Core/Parameters/), передаваемые в прикладной элемент|
+|[setParameters](ExtensionPanel.setParameters/)|Устанавливает [параметры](/docs/Api/Core/Parameters/), передаваемые в прикладной элемент|
 
 # Events
 

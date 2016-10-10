@@ -8,9 +8,9 @@ position: 0
 
 # Properties
 
-Name|Type|Default|Description
-----|----|-------|-----------
-Format|`String`||[Строка форматирования объекта](../ObjectFormat.format).
+|Name|Type|Description|
+|----|----|-----------|
+|Format|`String`|[Строка форматирования объекта](../ObjectFormat.format).|
 
 
 # Examples

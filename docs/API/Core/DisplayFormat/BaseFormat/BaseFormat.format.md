@@ -14,9 +14,9 @@ Format.format(value);
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-`value`|&#42;|Форматируемое значение.
+|Name|Type|Description|
+|----|----|-----------|
+|`value`|&#42;|Форматируемое значение.|
 
 # Returns
 

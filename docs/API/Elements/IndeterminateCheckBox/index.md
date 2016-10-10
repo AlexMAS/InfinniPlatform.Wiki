@@ -25,6 +25,6 @@ new IndeterminateCheckBox([parent])
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-`parent`|[`Element`](../../Core/Elements/Element)|Родительский [элемент](../../Core/Elements/Element)
+|Name|Type|Description|
+|----|----|-----------|
+|`parent`|[`Element`](../../Core/Elements/Element)|Родительский [элемент](../../Core/Elements/Element)|

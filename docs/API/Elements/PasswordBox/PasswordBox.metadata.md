@@ -8,11 +8,11 @@ position: 0
 
 # Properties
 
-Name|Type|Default|Description
-----|----|-------|-----------
-LabelText|`String`||Текст метки
-LabelFloating|`Boolean`|`false`|Является ли метка плавающей
-Autocomplete|`Boolean`|`true`|Автоподстановка сохраненных в браузере паролей
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+|LabelText|`String`| |Текст метки|
+|LabelFloating|`Boolean`|`false`|Является ли метка плавающей|
+|Autocomplete|`Boolean`|`true`|Автоподстановка сохраненных в браузере паролей|
 
 # Examples
 

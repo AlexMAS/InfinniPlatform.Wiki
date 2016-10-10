@@ -23,9 +23,9 @@ EditorBase.setValue(value)
 
 ## Parameters
 
-|Name|Type|Description|
-|----|----|-----------|
-|`value`||Значение редактора.|
+|Name|Description|
+|----|-----------|
+|`value`|Значение редактора.|
 
 ## Returns
 

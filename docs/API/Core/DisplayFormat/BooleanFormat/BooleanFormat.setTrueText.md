@@ -14,9 +14,9 @@ Format.setTrueText(value);
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-`value`|`String`|Текст для отображения истинного значения.
+|Name|Type|Description|
+|----|----|-----------|
+|`value`|`String`|Текст для отображения истинного значения.|
 
 # Returns
 

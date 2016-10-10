@@ -14,9 +14,9 @@ DataGridColumn.setHeader(value);
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-value|`String`|Заголовок колонки таблицы.
+|Name|Type|Description|
+|----|----|-----------|
+|value|`String`|Заголовок колонки таблицы.|
 
 ## Returns
 

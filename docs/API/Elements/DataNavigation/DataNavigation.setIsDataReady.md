@@ -14,9 +14,9 @@ DataNavigation.setIsDataReady(value)
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-value|`Boolean`|Готовность данных.
+|Name|Type|Description|
+|----|----|-----------|
+|value|`Boolean`|Готовность данных.|
 
 ## Returns
 

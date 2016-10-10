@@ -8,18 +8,18 @@ position: 0
 
 # Properties
 
-Name|Type|Default|Description
-----|----|----|-----------
-Columns|Array.<[`DataGridColumn`](../DataGridColumn/)>||Список колонок таблицы.
-ShowSelectors|Boolean|`true`|Определяет показывать ли колонку с CheckBox/Radio для выбора элементов.
-CheckAllVisible|Boolean|`false`|Определяет виден ли элемент "Выбрать все" в шапке таблицы.
-OnCheckAllChanged|[`Script`](../../../Core/Script/)||Устанавливает обработчик изменения состоняие элемента "Выбрать все" в шапке таблицы.
-RowBackground|[`Color`](/docs/API/Core/Style/ColorStyle/)(&hArr;)| |Цвет фона строки
-RowForeground|[`Color`](/docs/API/Core/Style/ColorStyle/)(&hArr;)| |Цвет текста строки
-RowTextStyle|[`TextStyle`](../../../Style/TextStyle/)(&hArr;)| |Стиль текста строки
-RowStyle|`String`(&hArr;)| |Имя кастомного стиля, применяемого к строке
-onRowClick|[`Script`](../../../Core/Script/)| |Устанавливает [обработчик события](../../Core/Script/) на клик по элементам DataGrid.
-onRowDoubleClick|[`Script`](../../../Core/Script/)| |Устанавливает [обработчик события](../../Core/Script/) на двойной клик по элементам DataGrid.
+|Name|Type|Default|Description|
+|----|----|----|-----------|
+|Columns|Array.<[`DataGridColumn`](../DataGridColumn/)>| |Список колонок таблицы.|
+|ShowSelectors|Boolean|`true`|Определяет показывать ли колонку с CheckBox/Radio для выбора элементов.|
+|CheckAllVisible|Boolean|`false`|Определяет виден ли элемент "Выбрать все" в шапке таблицы.|
+|OnCheckAllChanged|[`Script`](../../../Core/Script/)| |Устанавливает обработчик изменения состоняие элемента "Выбрать все" в шапке таблицы.|
+|RowBackground|[`Color`](/docs/API/Core/Style/ColorStyle/)(&hArr;)| |Цвет фона строки|
+|RowForeground|[`Color`](/docs/API/Core/Style/ColorStyle/)(&hArr;)| |Цвет текста строки|
+|RowTextStyle|[`TextStyle`](../../../Style/TextStyle/)(&hArr;)| |Стиль текста строки|
+|RowStyle|`String`(&hArr;)| |Имя кастомного стиля, применяемого к строке|
+|onRowClick|[`Script`](../../../Core/Script/)| |Устанавливает [обработчик события](../../Core/Script/) на клик по элементам DataGrid.|
+|onRowDoubleClick|[`Script`](../../../Core/Script/)| |Устанавливает [обработчик события](../../Core/Script/) на двойной клик по элементам DataGrid.|
 
 (&hArr;) Свойство может быть задано, как [`DataBinding`](../../../Core/DataBinding/DataBinding.metadata/).
 

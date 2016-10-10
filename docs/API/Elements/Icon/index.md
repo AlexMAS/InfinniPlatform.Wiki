@@ -24,7 +24,7 @@ new Icon([parent])
 
 ## Parameters
 
-Name|Type|Default|Description
-----|----|-------|-----------
-`parent`|[`Element`](../../Core/Elements/Element)|-|Родительский элемент
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+|`parent`|[`Element`](../../Core/Elements/Element)|-|Родительский элемент|
 

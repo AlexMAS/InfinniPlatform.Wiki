@@ -18,9 +18,9 @@ DataNavigation.onPageSizeChanged(callback);
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-callback|[Обработчик события](../../../Core/Script/)|[Обработчик события](../../../Core/Script/) о том, что размер страницы был изменен.
+|Name|Type|Description|
+|----|----|-----------|
+|callback|[Обработчик события](../../../Core/Script/)|[Обработчик события](../../../Core/Script/) о том, что размер страницы был изменен.|
 
 ## Returns
 

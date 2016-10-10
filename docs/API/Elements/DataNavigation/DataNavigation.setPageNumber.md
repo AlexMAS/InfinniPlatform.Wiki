@@ -14,9 +14,9 @@ DataNavigation.setPageNumber(value);
 
 ## Parameters
 
-Name|Type|Description
-----|----------|---------
-`value`|`Integer`|Номер текущей страницы.
+|Name|Type|Description|
+|----|----------|---------|
+|`value`|`Integer`|Номер текущей страницы.|
 
 ## Returns
 

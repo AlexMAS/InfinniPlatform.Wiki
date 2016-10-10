@@ -16,7 +16,7 @@ textbox.setMultiline(value)
 
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
-|`value`|`Boolean`||Значение, определяющее, разрешен ли многострочный текст.|
+|`value`|`Boolean`| |Значение, определяющее, разрешен ли многострочный текст.|
 
 ## Returns
 

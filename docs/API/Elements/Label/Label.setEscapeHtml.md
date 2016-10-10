@@ -14,9 +14,9 @@ Label.setEscapeHtml(value)
 
 ## Parameters
 
-Name|Type|Description
-----|----------|---------
-value|`Boolean`|Значение, определяющее, экранируется ли HTML-разметка.
+|Name|Type|Description|
+|----|----------|---------|
+|value|`Boolean`|Значение, определяющее, экранируется ли HTML-разметка.|
 
 ## Returns
 

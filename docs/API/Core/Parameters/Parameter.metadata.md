@@ -8,12 +8,12 @@ position: 0
 
 # Properties
 
-|Name|Type|Default|Description|
-|----|----|-------|-----------|
-|`Name`<sup>*</sup>|`String`||Наименование параметра|
-|`Value`<sup>*</sup>|`String`&#124;[`DataBinding`](../../../Core/DataBinding/DataBinding.metadata/)||Значение параметра|
-|`DefaultValue`|&#42;||Значение по умолчанию|
-|`OnPropertyChanged`|[Script](../../../Core/Script/)||Обработчик события о том, что значение было изменено|
+|Name|Type|Description|
+|----|----|-----------|
+|`Name`<sup>*</sup>|`String`|Наименование параметра|
+|`Value`<sup>*</sup>|`String`&#124;[`DataBinding`](../../../Core/DataBinding/DataBinding.metadata/)|Значение параметра|
+|`DefaultValue`|&#42;|Значение по умолчанию|
+|`OnPropertyChanged`|[Script](../../../Core/Script/)|Обработчик события о том, что значение было изменено|
 
 <sup>*</sup> Обязательное свойство.
 

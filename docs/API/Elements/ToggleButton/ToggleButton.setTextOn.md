@@ -14,9 +14,9 @@ toggleButton.setTextOn(value)
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-`value`|`string`|текст на включенное состояние.
+|Name|Type|Description|
+|----|----|-----------|
+|`value`|`string`|текст на включенное состояние.|
 
 ## Returns
 

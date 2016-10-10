@@ -14,9 +14,9 @@ DataNavigation.setPageCount(value)
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-value|`Number`|Количество страниц.
+|Name|Type|Description|
+|----|----|-----------|
+|value|`Number`|Количество страниц.|
 
 ## Returns
 

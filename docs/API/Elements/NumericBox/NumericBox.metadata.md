@@ -10,10 +10,10 @@ position: 0
 
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
-|MinValue|`Number`||Минимальное значение|
-|MaxValue|`Number`||Максимальное значение|
+|MinValue|`Number`| |Минимальное значение|
+|MaxValue|`Number`| |Максимальное значение|
 |Increment|`Number`|1|Приращение значения|
-|StartValue|`Number`||Начальное значение по умолчанию|
+|StartValue|`Number`| |Начальное значение по умолчанию|
 
 # Examples
 

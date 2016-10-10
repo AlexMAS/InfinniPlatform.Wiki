@@ -14,9 +14,9 @@ view.setFocusOnControl(value)
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-`value`|`string`|Имя элемента представления, который получит фокус при открытии представления.
+|Name|Type|Description|
+|----|----|-----------|
+|`value`|`string`|Имя элемента представления, который получит фокус при открытии представления.|
 
 ## Returns
 

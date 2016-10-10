@@ -14,9 +14,9 @@ DataNavigation.setDataSource(value)
 
 ## Parameters
 
-Name|Type|Description
-----|----------|---------
-`value`|[`BaseDataSource`](../../../Core/DataSources/BaseDataSource/)|Устанавливает источник данных.
+|Name|Type|Description|
+|----|----------|---------|
+|`value`|[`BaseDataSource`](../../../Core/DataSources/BaseDataSource/)|Устанавливает источник данных.|
 
 ## Returns
 

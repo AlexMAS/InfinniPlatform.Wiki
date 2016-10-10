@@ -8,10 +8,10 @@ position: 0
 
 # Properties
 
-Name|Type|Default|Description
-----|----|-------|-----------
-TextOn|`String`|'ON'|Текст на включенное состояние.
-TextOff|`String`|'OFF'|Текст на выключенное состояние.
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+|TextOn|`String`|'ON'|Текст на включенное состояние.|
+|TextOff|`String`|'OFF'|Текст на выключенное состояние.|
 
 # Examples
 

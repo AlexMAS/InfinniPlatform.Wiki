@@ -14,9 +14,9 @@ PasswordBox.setAutocomplete(value)
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-`value`|`Boolean`|Значение, определяющее, будет ли срабатывать стандартная автоподстановка пароля.
+|Name|Type|Description|
+|----|----|-----------|
+|`value`|`Boolean`|Значение, определяющее, будет ли срабатывать стандартная автоподстановка пароля.|
 
 ## Returns
 

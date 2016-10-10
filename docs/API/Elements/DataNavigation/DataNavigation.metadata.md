@@ -8,10 +8,10 @@ position: 0
 
 # Properties
 
-Name|Type|Default|Description
-----|----|-------|-----------
-AvailablePageSizes|`Array.<Integer>`||Список доступных размеров страниц
-DataSource|`String`||Наименование источника данных
+|Name|Type|Description|
+|----|----|-----------|
+|AvailablePageSizes|`Array.<Integer>`|Список доступных размеров страниц|
+|DataSource|`String`|Наименование источника данных|
 
 # Examples
 

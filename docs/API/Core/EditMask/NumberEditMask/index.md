@@ -19,9 +19,9 @@ position: 0
 
 # Properties
 
-Name|Type|Description
-----|----|-----------
-Mask|`String`|Маска редактирования
+|Name|Type|Description|
+|----|----|-----------|
+|Mask|`String`|Маска редактирования|
 
 # Examples
 

@@ -14,9 +14,9 @@ MenuBar.highlightItem([name])
 
 ## Parameters
 
-Name|Type|Description
-----|----------|---------
-name|`String`|Имя выделяемого элемента. Если не указано - для снятия выделения.
+|Name|Type|Description|
+|----|----------|---------|
+|name|`String`|Имя выделяемого элемента. Если не указано - для снятия выделения.|
 
 ## Returns
 

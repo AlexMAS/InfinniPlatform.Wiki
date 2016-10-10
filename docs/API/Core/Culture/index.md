@@ -10,9 +10,9 @@ position: 1008
 
 # Properties
 
-Name|Type|Description
-----|----|-----------
-name|`String`|[Наименование культуры](http://tools.ietf.org/html/rfc5646).
-caption|`String`|Отображаемое наименование культуры.
-dateTimeFormatInfo|[`DateTimeFormatInfo`](Culture.dateTimeFormatInfo/)|Сведения о формате представления даты и времени.
-numberFormatInfo|[`NumberFormatInfo`](Culture.numberFormatInfo/)|Сведения о формате представления числовых значений.
+|Name|Type|Description|
+|----|----|-----------|
+|name|`String`|[Наименование культуры](http://tools.ietf.org/html/rfc5646).|
+|caption|`String`|Отображаемое наименование культуры.|
+|dateTimeFormatInfo|[`DateTimeFormatInfo`](Culture.dateTimeFormatInfo/)|Сведения о формате представления даты и времени.|
+|numberFormatInfo|[`NumberFormatInfo`](Culture.numberFormatInfo/)|Сведения о формате представления числовых значений.|

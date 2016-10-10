@@ -18,9 +18,9 @@ comboBox.setAutocompleteValue(value)
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-value||Значение, для поиска в выпадающем списке значений
+|Name|Description|
+|----|-----------|
+|value|Значение, для поиска в выпадающем списке значений|
 
 ## Returns
 

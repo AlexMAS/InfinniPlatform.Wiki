@@ -8,9 +8,9 @@ position: 0
 
 # Properties
 
-Name|Type|Default|Description
-----|----|-------|-----------
-Format|`String`|`"G"`|[Строка форматирования даты/времени](../../../Culture/Culture.dateTimeFormatting).
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+|Format|`String`|`"G"`|[Строка форматирования даты/времени](../../../Culture/Culture.dateTimeFormatting).|
 
 
 # Examples

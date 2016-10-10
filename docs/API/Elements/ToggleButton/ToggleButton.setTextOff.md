@@ -14,9 +14,9 @@ toggleButton.setTextOff(value)
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-`value`|`string`|текст на выключенное состояние.
+|Name|Type|Description|
+|----|----|-----------|
+|`value`|`string`|текст на выключенное состояние.|
 
 ## Returns
 

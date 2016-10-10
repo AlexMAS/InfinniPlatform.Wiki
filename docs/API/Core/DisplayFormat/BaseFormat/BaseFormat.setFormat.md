@@ -14,9 +14,9 @@ Format.setFormat(value);
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-`value`|`String`|Строка форматирования значения.
+|Name|Type|Description|
+|----|----|-----------|
+|`value`|`String`|Строка форматирования значения.|
 
 # Returns
 

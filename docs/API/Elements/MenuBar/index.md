@@ -24,7 +24,7 @@ new MenuBar(parent)
 
 # Methods
 
-Name|Description
-----|-----------
-[`highlightItem`](MenuBar.highlightItem/)|Устанавливает/снимает выделение элемента меню с указанным именем
+|Name|Description|
+|----|-----------|
+|[`highlightItem`](MenuBar.highlightItem/)|Устанавливает/снимает выделение элемента меню с указанным именем|
 

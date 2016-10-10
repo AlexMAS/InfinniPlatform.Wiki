@@ -16,7 +16,7 @@ TreeView.setParentSelector(value)
 
 |Name|Type|Description|
 |----|----|-----------|
-`value`|[`Script`](../../../Core/Script/)|[Функция](../../../Core/Script/) выборки из элемента коллекции идентификатора родителя.
+|`value`|[`Script`](../../../Core/Script/)|[Функция](../../../Core/Script/) выборки из элемента коллекции идентификатора родителя.|
 
 ## Returns
 

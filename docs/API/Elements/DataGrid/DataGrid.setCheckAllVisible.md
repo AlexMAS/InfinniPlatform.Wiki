@@ -14,9 +14,9 @@ DataGrid.setCheckAllVisible(value)
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-value|`Boolean`|Значение, определяющее виден ли элемент "Выбрать все" в шапке таблицы.
+|Name|Type|Description|
+|----|----|-----------|
+|value|`Boolean`|Значение, определяющее виден ли элемент "Выбрать все" в шапке таблицы.|
 
 ## Returns
 

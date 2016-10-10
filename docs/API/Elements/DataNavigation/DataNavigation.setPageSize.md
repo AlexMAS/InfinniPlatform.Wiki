@@ -14,9 +14,9 @@ DataNavigation.setPageSize(value);
 
 ## Parameters
 
-Name|Type|Description
-----|----------|---------
-`value`|`Integer`|Размер страницы.
+|Name|Type|Description|
+|----|----------|---------|
+|`value`|`Integer`|Размер страницы.|
 
 ## Returns
 

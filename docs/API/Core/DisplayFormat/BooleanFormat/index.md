@@ -8,12 +8,12 @@ position: 1020
 
 # Methods
 
-Name|Description
-----|-----------
-[`getFalseText`](BooleanFormat.getFalseText/)|Возвращает текст для отображения ложного значения.
-[`setFalseText`](BooleanFormat.setFalseText/)|Устанавливает текст для отображения ложного значения.
-[`getTrueText`](BooleanFormat.getTrueText/)|Возвращает текст для отображения истинного значения.
-[`setTrueText`](BooleanFormat.setTrueText/)|Устанавливает текст для отображения истинного значения.
+|Name|Description|
+|----|-----------|
+|[`getFalseText`](BooleanFormat.getFalseText/)|Возвращает текст для отображения ложного значения.|
+|[`setFalseText`](BooleanFormat.setFalseText/)|Устанавливает текст для отображения ложного значения.|
+|[`getTrueText`](BooleanFormat.getTrueText/)|Возвращает текст для отображения истинного значения.|
+|[`setTrueText`](BooleanFormat.setTrueText/)|Устанавливает текст для отображения истинного значения.|
 
 # Example
 

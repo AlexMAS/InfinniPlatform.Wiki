@@ -40,6 +40,6 @@ new ButtonEdit(parent)
 
 # Events
 
-Name|Description
-----|-----------
-[onButtonClick](ButtonEdit.onButtonClick/)|Устанавливает [обработчик события](../../Core/Script/) нажатия на кнопку
+|Name|Description|
+|----|-----------|
+|[onButtonClick](ButtonEdit.onButtonClick/)|Устанавливает [обработчик события](../../Core/Script/) нажатия на кнопку|

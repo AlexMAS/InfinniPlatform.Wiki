@@ -20,14 +20,14 @@ new ViewPanel(parent)
 
 |Name|Type|Description|
 |----|----|-----------|
-`parent`|[Element](../../Core/Elements/Element)|Родительский [элемент](../../Core/Elements/Element/).
+|`parent`|[Element](../../Core/Elements/Element)|Родительский [элемент](../../Core/Elements/Element/).|
 
 # Methods
 
 |Name|Description|
 |----|-----------|
-[`getLayout`](ViewPanel.getLayout/)|Возвращает [`представление`](../../Core/Elements/View), которое отображается внутри ViewPanel.
-[`setLayout`](ViewPanel.setLayout/)|Устанавливает [`представление`](../../Core/Elements/View), которое нужно отображать внутри ViewPanel.
+|[`getLayout`](ViewPanel.getLayout/)|Возвращает [`представление`](../../Core/Elements/View), которое отображается внутри ViewPanel.|
+|[`setLayout`](ViewPanel.setLayout/)|Устанавливает [`представление`](../../Core/Elements/View), которое нужно отображать внутри ViewPanel.|
 
 # Events
 

@@ -8,9 +8,9 @@ position: 5
 
 # Properties
 
-Name|Type|Default|Description
-----|----|-------|-----------
-Format|`String`|`"n"`|[Строка форматирования числовых значений](../../../Culture/Culture.numberFormatting/).
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+|Format|`String`|`"n"`|[Строка форматирования числовых значений](../../../Culture/Culture.numberFormatting/).|
 
 
 # Examples

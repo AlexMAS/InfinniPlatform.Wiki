@@ -21,9 +21,9 @@ DataGridColumn.setSortDirection(value);
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-value|`String`|Направление сортировки.
+|Name|Type|Description|
+|----|----|-----------|
+|value|`String`|Направление сортировки.|
 
 ## Returns
 

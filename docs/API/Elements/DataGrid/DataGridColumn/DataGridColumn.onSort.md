@@ -18,9 +18,9 @@ DataGridColumn.onSort(callback);
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-callback|[Обработчик события](../../../../Core/Script/)|[Обработчик события](../../../../Core/Script/) о том, что необходимо изменить сортировку элементов DataGrid.
+|Name|Type|Description|
+|----|----|-----------|
+|callback|[Обработчик события](../../../../Core/Script/)|[Обработчик события](../../../../Core/Script/) о том, что необходимо изменить сортировку элементов DataGrid.|
 
 ## Returns
 

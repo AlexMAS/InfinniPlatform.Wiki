@@ -14,9 +14,9 @@ DataGridColumn.setSortable(value);
 
 ## Parameters
 
-Name|Type|Description
-----|----|-----------
-value|`Boolean`|Возможность сортировки колонки.
+|Name|Type|Description|
+|----|----|-----------|
+|value|`Boolean`|Возможность сортировки колонки.|
 
 ## Returns
 

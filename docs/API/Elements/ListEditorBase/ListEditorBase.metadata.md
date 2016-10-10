@@ -11,10 +11,10 @@ position: 0
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
 |MultiSelect|`Boolean`|false|Разрешен ли выбор нескольких элементов коллекции|
-|ValueSelector|[`Script`](../../../Core/Script/)||Функция выборки из элемента коллекции значения для выбора|
-|ValueProperty|`String`||Свойство элемента коллекции со значением для выбора|
-|DisabledItemCondition|[`Script`](../../../Core/Script/)||Функция, определяющая запрет на выбор элемента|
-|OnSelectedItemChanged|[`Script`](../../../Core/Script/)||Обработчик события о том, что элемент был выделен|
+|ValueSelector|[`Script`](../../../Core/Script/)| |Функция выборки из элемента коллекции значения для выбора|
+|ValueProperty|`String`| |Свойство элемента коллекции со значением для выбора|
+|DisabledItemCondition|[`Script`](../../../Core/Script/)| |Функция, определяющая запрет на выбор элемента|
+|OnSelectedItemChanged|[`Script`](../../../Core/Script/)| |Обработчик события о том, что элемент был выделен|
 
 # Examples
 

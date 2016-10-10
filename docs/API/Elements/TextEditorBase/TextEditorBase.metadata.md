@@ -10,10 +10,10 @@ position: 0
 
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
-|`LabelText`|`String`||Текст метки|
+|`LabelText`|`String`| |Текст метки|
 |`LabelFloating`|`Boolean`|`false`|Является ли метка плавающей|
-|`DisplayFormat`|`String`||Формат отображения значения|
-|`EditMask`|[`EditMask`](/docs/API/Core/EditMask/)||Маска ввода значения|
+|`DisplayFormat`|`String`| |Формат отображения значения|
+|`EditMask`|[`EditMask`](/docs/API/Core/EditMask/)| |Маска ввода значения|
 
 # Examples
 
