@@ -10,16 +10,16 @@ position: 0
 
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
-|Scripts|`Array`| |Коллекция [скриптов представления](../../../Script/)|
-|Parameters|`Array`| |Коллекция [параметров представления](../../../Parameters/)|
-|DataSources|`Array`| |Коллекция [источников данных представления](../../../DataSources/BaseDataSource/)|
-|HeaderTemplate|[ElementMetadata](../../Element/Element.metadata/)| |Шаблон заголовка представления|
+|Scripts|`Array`|–|Коллекция [скриптов представления](../../../Script/)|
+|Parameters|`Array`|–|Коллекция [параметров представления](../../../Parameters/)|
+|DataSources|`Array`|–|Коллекция [источников данных представления](../../../DataSources/BaseDataSource/)|
+|HeaderTemplate|[ElementMetadata](../../Element/Element.metadata/)|–|Шаблон заголовка представления|
 |CloseButtonVisibility|`Boolean`|true|Флаг видимости кнопки закрытия|
-|NotificationSubsriptions|`Object`| |Объект подписок для signalR|
-|OnOpening|[`Script`](../../../Script/)| |Обработчик события о том, что представление открывается|
-|OnOpened|[`Script`](../../../Script/)| |Обработчик события о том, что представление было открыто|
-|OnClosing|[`Script`](../../../Script/)| |Обработчик события о том, что представление закрывается|
-|OnClosed|[`Script`](../../../Script/)| |Обработчик события о том, что представление было закрыто|
+|NotificationSubsriptions|`Object`|–|Объект подписок для signalR|
+|OnOpening|[`Script`](../../../Script/)|–|Обработчик события о том, что представление открывается|
+|OnOpened|[`Script`](../../../Script/)|–|Обработчик события о том, что представление было открыто|
+|OnClosing|[`Script`](../../../Script/)|–|Обработчик события о том, что представление закрывается|
+|OnClosed|[`Script`](../../../Script/)|–|Обработчик события о том, что представление было закрыто|
 
 # Examples
 

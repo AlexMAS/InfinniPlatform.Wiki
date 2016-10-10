@@ -14,7 +14,7 @@ position: 5
 |onViewBuildError|Ошибка при создании [view](../../Elements/View/)|{error: `string`, metadata: {[`путь до метаданных`](../../Elements/View/LinkView/LinkView.metadata/AutoView/)}}|
 |onViewCreated|Создана [view](../../Elements/View/)|{openMode: [`openMode`](../../Elements/View/LinkView/OpenMode/), view: [`view`](../../Elements/View/)}|
 |onNotifyUser|Оповещение пользователя|{messageText: `string`, messageType: `string`}|
-|onDataLoading|Отправлен запрос| |
+|onDataLoading|Отправлен запрос|–|
 |onDataLoaded|Полечен результат запроса|{success: `boolean`}|
 
 

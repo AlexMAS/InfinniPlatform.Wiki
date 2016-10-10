@@ -10,11 +10,11 @@ position: 0
 
 |Name|Type|Default|Description|
 |----|----|----|-----------|
-|Icon|`String`<sup>1</sup>| |Иконка, отображаемая на кнопке|
+|Icon|`String`<sup>1</sup>|–|Иконка, отображаемая на кнопке|
 |ReadOnly|`Boolean`|true|Значение, определяющее, возможно ли редактирование текстового поля|
 |ShowClear|`Boolean`|true|Значение, определяющее наличие кнопки, очищающей указанное значение|
-|OnButtonClick|[`Script`](../../../Core/Script/)| |Обработчик события нажатия на кнопку|
-|Action|[`ActionMetadata`](../../../Core/Actions/)| |Основное действие кнопки|
+|OnButtonClick|[`Script`](../../../Core/Script/)|–|Обработчик события нажатия на кнопку|
+|Action|[`ActionMetadata`](../../../Core/Actions/)|–|Основное действие кнопки|
 
 OnButtonClick сработает раньше, чем Action.
 

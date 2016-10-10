@@ -10,7 +10,7 @@ position: 0
 
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
-|LabelText|`String`| |Текст метки|
+|LabelText|`String`|–|Текст метки|
 |LabelFloating|`Boolean`|`false`|Является ли метка плавающей|
 |Autocomplete|`Boolean`|`true`|Автоподстановка сохраненных в браузере паролей|
 

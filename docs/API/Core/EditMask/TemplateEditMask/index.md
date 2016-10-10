@@ -47,7 +47,7 @@ position: 0
 
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
-|Mask|`String`| |Маска редактирования|
+|Mask|`String`|–|Маска редактирования|
 |MaskSaveLiteral|`Boolean`|`true`|Сохранять литералы в редактируемом значении.|
 |MaskPlaceHolder|`String`|`_`|Символ заполнителя для метасимволов.|
   

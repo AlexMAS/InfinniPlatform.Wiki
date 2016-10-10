@@ -10,14 +10,14 @@ position: 0
 
 |Name|Type|Default|Description|
 |----|----|:-----:|-----------|
-|Origin|`String`<sup>1</sup>| |Базовая часть url запроса|
-|Path<sup>*</sup>|`String`<sup>1</sup>| |Уточняющая часть url запроса|
+|Origin|`String`<sup>1</sup>|–|Базовая часть url запроса|
+|Path<sup>*</sup>|`String`<sup>1</sup>|–|Уточняющая часть url запроса|
 |Method|`String`|'GET'|Метод запроса|
 |ContentType|`String`|'application/x-www-form-urlencoded; charset=utf-8'|Тип данных|
-|Data|`Object`<sup>1</sup>| |Данные запроса|
-|Params|`Object`| |Параметры запроса|
-|OnSuccess|[`Script`](../../../Script/)| |Устанавливает обработчик успешного завершения действия|
-|OnError|[`Script`](../../../Script/)| |Устанавливает обработчик завершения действия с ошибкой|
+|Data|`Object`<sup>1</sup>|–|Данные запроса|
+|Params|`Object`|–|Параметры запроса|
+|OnSuccess|[`Script`](../../../Script/)|–|Устанавливает обработчик успешного завершения действия|
+|OnError|[`Script`](../../../Script/)|–|Устанавливает обработчик завершения действия с ошибкой|
 
 <sup>*</sup> Обязательное свойство.   
 <sup>1</sup> [Шаблонизируемая величина](../#parameters-templating).

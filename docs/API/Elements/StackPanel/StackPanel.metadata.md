@@ -10,7 +10,7 @@ position: 0
 
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
-|ViewMode|`String`| |[Режим отображения](../../../Core/viewMode/). Может принимать значения: 'Base', 'FormGroup'.|
+|ViewMode|`String`|–|[Режим отображения](../../../Core/viewMode/). Может принимать значения: 'Base', 'FormGroup'.|
 |Orientation|[`StackPanelOrientation`](../StackPanelOrientation/)|'Vertical'|Ориентация стека элементов|
 
 # Examples

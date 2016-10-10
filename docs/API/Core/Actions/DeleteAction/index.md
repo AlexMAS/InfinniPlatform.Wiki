@@ -28,8 +28,8 @@ new DeleteAction(parentView)
 
 |Name|Type|Default|Description|
 |----|----|----|-----------|
-|destinationSource<sup>*</sup>|`String`| |Название источника данных, из которого производится удаление|
-|destinationProperty<sup>*</sup>|`String`| |Путь до документа в источнике данных, который будет удалятся|
+|destinationSource<sup>*</sup>|`String`|–|Название источника данных, из которого производится удаление|
+|destinationProperty<sup>*</sup>|`String`|–|Путь до документа в источнике данных, который будет удалятся|
 |canClose|`Boolean`|true|Значение, определяющее, нужно ли перед удалением спросить согласие пользователя на удаление|
 
 <sup>*</sup> Обязательное свойство.

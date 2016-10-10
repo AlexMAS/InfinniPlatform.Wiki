@@ -11,7 +11,7 @@ position: 0
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
 |HeaderLocation|[`TabHeaderLocation`](../TabHeaderLocation/)|'Top'|Расположение закладок|
-|OnSelectedItemChanged|[Script](../../../Core/Script/)| |Обработчик события о том, что выделенный элемент изменился|
+|OnSelectedItemChanged|[Script](../../../Core/Script/)|–|Обработчик события о том, что выделенный элемент изменился|
 
 # Examples
 

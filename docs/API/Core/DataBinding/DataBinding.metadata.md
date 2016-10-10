@@ -10,10 +10,10 @@ position: 0
 
 |Name|Type|Default|Description|
 |----|----|----|-----------|
-|Source<sup>*</sup>|`String`| |Наименование источника данных привязки|
-|Property|`String`| |Путь к свойству источника данных привязки|
+|Source<sup>*</sup>|`String`|–|Наименование источника данных привязки|
+|Property|`String`|–|Путь к свойству источника данных привязки|
 |Mode|[BindingMode](../BindingMode/)|`TwoWay`|Направление потока данных в привязке|
-|Converter|[BindingConverter](../BindingConverter/)| |Преобразователь данных между элементом и источником|
+|Converter|[BindingConverter](../BindingConverter/)|–|Преобразователь данных между элементом и источником|
 
 <sup>*</sup> Обязательное свойство.
 

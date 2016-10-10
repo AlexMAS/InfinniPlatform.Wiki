@@ -28,9 +28,9 @@ new ServerAction(parentView)
 
 |Name|Type|Default|Description|
 |----|----|----|-----------|
-|origin<sup>*</sup>|`String`<sup>1</sup>| |Хост и порт|
-|path<sup>*</sup>|`String`<sup>1</sup>| |Строка пути (относительно хоста)|
-|data|`Object`<sup>1</sup>| |Данные запроса|
+|origin<sup>*</sup>|`String`<sup>1</sup>|–|Хост и порт|
+|path<sup>*</sup>|`String`<sup>1</sup>|–|Строка пути (относительно хоста)|
+|data|`Object`<sup>1</sup>|–|Данные запроса|
 |contentType|`String`|'application/x-www-form-urlencoded; charset=utf-8'|Тип данных|
 |method|`String`|'GET'|Метод запроса|
 

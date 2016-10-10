@@ -28,7 +28,7 @@ new SaveAction(parentView)
 
 |Name|Type|Default|Description|
 |----|----|----|-----------|
-|dataSource|[`DataSource`](../../DataSources/)| |Источник данных, который будет сохранятся|
+|dataSource|[`DataSource`](../../DataSources/)|–|Источник данных, который будет сохранятся|
 |canClose|`Boolean`|true|Значение, определяющее, нужно ли закрыть родительское представление после сохранения|
 
 # Метод execute

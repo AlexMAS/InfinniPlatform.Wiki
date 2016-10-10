@@ -16,7 +16,7 @@ Collection.lastIndexOf(item, fromIndex)
 
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
-|`item`<sup>*</sup>|&#42;| |Искомый элемент коллекции.|
+|`item`<sup>*</sup>|&#42;|–|Искомый элемент коллекции.|
 |`fromIndex`|`Index`|Collection.length - 1|Индекс элемента, с которого необходимо начать поиск.|
 
 <sup>*</sup> Обязательный аргумент.

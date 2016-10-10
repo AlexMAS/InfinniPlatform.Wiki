@@ -36,12 +36,12 @@ position: 1
 
 |Формат|Форматируемое значение|Результат форматирования (en-US)|
 |------|----------------------|--------------------------------|
-|_Простые типы данных_| | |
+|_Простые типы данных_|_|_|
 |"Hello, {}!"|"Ivan"|"Hello, Ivan!"|
 |"Birth date: {:d}"|"2014-09-04T12:34:56"|"Birth date: 9/4/2014"|
 |"Birth time: {:T}"|"2014-09-04T12:34:56"|"Birth time: 12:34:56 AM"|
 |"Weight: {:n2} kg"|123.456|"Weight: 123.46 kg"|
-|_Сложные типы данных_| | |
+|_Сложные типы данных_|_|_|
 |"Hello, {FirstName} {MiddleName}!"|{ FirstName: "Ivan", MiddleName: "Ivanovich" }|"Hello, Ivan Ivanovich!"|
 |"Birth date: {BirthDate:d}"|{ BirthDate: "2014-09-04T12:34:56" }|"Birth date: 9/4/2014"|
 |"Birth time: {BirthDate:T}"|{ BirthDate: "2014-09-04T12:34:56" }|"Birth time: 12:34:56 AM"|
