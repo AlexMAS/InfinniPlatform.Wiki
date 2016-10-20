@@ -16,7 +16,7 @@ position: 1
 |`disableLayoutManager`|`Boolean`|Отключение LayoutManager.|
 |`disableGetCurrentUser`|`Boolean`|Отключение отправки запроса на получение текущего пользователя.|
 |`disableSignInExternalForm`|`Boolean`|Отключение отправки запроса на получение SignInExternalForm.|
-|`HistoryAPI`|`Object`|Параметры History API для запуска роутинга. Принимает такие же параметры как и Backbone.history.start()|
+|`HistoryAPI`|`Object`|Параметры History API для запуска роутинга. Принимает такие же параметры как и [Backbone.history.start()](http://backbonejs.org/#History-start)|
 |`Routes`|`Array`|[Массив объектов конфигурации роутинга приложения.](../InfinniUI.config.Routes)|
 
 # Example
