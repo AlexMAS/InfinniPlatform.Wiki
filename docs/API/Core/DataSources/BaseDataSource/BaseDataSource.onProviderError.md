@@ -4,7 +4,7 @@ title: "BaseDataSource.onProviderError"
 position: 107
 ---
 
-Обработчик события о том, что [поставщик данных](/docs/API/Core/DataProviders/) вернул ошибку.
+Устанавливает обработчик события о том, что [поставщик данных](/docs/API/Core/DataProviders/) вернул ошибку. Узнать (только получить, но не переопределить!) текущий обработчик можно с помощью свойства [onProviderErrorHandler](../BaseDataSource.onProviderErrorHandler/).
 
 # Syntax
 
@@ -31,3 +31,4 @@ BaseDataSource.onProviderError(
 # See Also
 
 * [`DataProvider`](/docs/API/Core/DataProviders/)
+* [`onProviderErrorHandler`](../BaseDataSource.onProviderErrorHandler/)

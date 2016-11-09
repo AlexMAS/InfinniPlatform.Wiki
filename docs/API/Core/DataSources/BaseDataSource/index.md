@@ -29,6 +29,7 @@ new BaseDataSource(parameters)
 |Name|Type|Description|
 |----|----|-----------|
 |[name](BaseDataSource.name/)|`String`|Содержит наименование источника данных|
+|[onProviderErrorHandler](BaseDataSource.onProviderErrorHandler/)|`Function`|Содержит [обработчик события](../../Script/) о том, что [поставщик данных](/docs/API/Core/DataProviders/) вернул ошибку|
 
 # Specific Properties
 
