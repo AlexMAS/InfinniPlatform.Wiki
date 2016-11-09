@@ -89,3 +89,4 @@ new BaseDataSource(parameters)
 |[onItemDeleted](BaseDataSource.onItemDeleted/)|Устанавливает [обработчик события](../../Script/) о том, что элемент удален|
 |[onItemsUpdated](BaseDataSource.onItemsUpdated/)|Устанавливает [обработчик события](../../Script/) о том, что список элементов обновлен|
 |[onErrorValidator](BaseDataSource.onErrorValidator/)|Устанавливает [обработчик события](../../Script/) о том, что проверка на ошибки завершена|
+|[onProviderError](BaseDataSource.onProviderError/)|Устанавливает [обработчик события](../../Script/) о том, что [поставщик данных](/docs/API/Core/DataProviders/) вернул ошибку|

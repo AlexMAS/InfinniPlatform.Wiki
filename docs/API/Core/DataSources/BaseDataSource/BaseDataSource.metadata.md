@@ -21,6 +21,7 @@ position: 0
 |OnPropertyChanged|[`Script`](../../../Script/)| |Обработчик события о том, что одно из свойств источника изменилось|
 |OnItemDeleted|[`Script`](../../../Script/)| |Обработчик события о том, что элемент удален|
 |OnItemsUpdated|[`Script`](../../../Script/)| |Обработчик события о том, что список элементов обновлен|
+|OnProviderError|[`Script`](../../../Script/)| |Обработчик события о том, что [поставщик данных](/docs/API/Core/DataProviders/) вернул ошибку|
 
 # Exampes
 
