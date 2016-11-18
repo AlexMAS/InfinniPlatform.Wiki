@@ -23,7 +23,6 @@ position: 0
     {
       "TabPanel": {
         "HeaderLocation": "Bottom",
-        "OnSelectedItemChanged": "{ debugger; var s = args.value; }",
         "Items": [
         //infinni-ui-display-begin
 {

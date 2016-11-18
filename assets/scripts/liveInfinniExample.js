@@ -54,8 +54,6 @@ LiveInfinniExample.prototype.runPlatformWithMetadata = function(metadata, $el){
 
     var action = builder.buildType('OpenAction', metadata, {parentView: rootView});
     action.execute();
-
-    var view = 1;
 };
 
 LiveInfinniExample.prototype.clearExampleText = function(text){
