@@ -12,7 +12,7 @@ position: 0
 ```json
 {
     "Icon": {
-        "Value": "fa-star"
+        "Value": "star"
     }
 }
 ```
