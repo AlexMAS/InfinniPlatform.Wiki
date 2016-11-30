@@ -49,7 +49,6 @@ panel.setHeaderTemplate(function(context, args) {
   });
   return header;
 });
-panel.setValue
 
 panel.setCollapsible(true);
 panel.setCollapseChanger('icon_1');
