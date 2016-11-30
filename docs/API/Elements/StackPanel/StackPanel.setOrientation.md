@@ -25,7 +25,7 @@ stackPanel.setOrientation(value)
 # Examples
 
 ```js
-stackPanel.setOrientation(StackPanelOrientation.horizontal);
+stackPanel.setOrientation(InfinniUI.StackPanelOrientation.horizontal);
 ```
 
 # See Also
