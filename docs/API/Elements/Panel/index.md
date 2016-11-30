@@ -39,6 +39,8 @@ new Panel(parent)
 |[setHeaderTemplate](Panel.setHeaderTemplate/)|Устанавливает [функцию](../../Core/Script/) шаблонизации заголовка панели|
 |[getHeader](Panel.getHeader/)|Возвращает заголовок панели|
 |[setHeader](Panel.setHeader/)|Устанавливает заголовок панели|
+|[getCollapseChanger](Panel.getCollapseChanger/)|Возвращает имя элемента, при клике на который раскрывается панель|
+|[setCollapseChanger](Panel.setCollapseChanger/)|Устанавливает имя элемента, при клике на который раскрывается панель|
 
 # Events
 

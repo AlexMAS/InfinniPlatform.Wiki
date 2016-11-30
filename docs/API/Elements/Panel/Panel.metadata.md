@@ -14,6 +14,7 @@ position: 0
 |Collapsed|`Boolean`|false|Значение, определяющее, свернута ли панель|
 |HeaderTemplate|[`Element`](../../../Core/Elements/Element/)| |Шаблон отображения заголовка панели|
 |Header|`String`/[`BindingMetadata`](../../../Core/DataBinding/DataBinding.metadata/)| |Заголовок панели|
+|CollapseChanger|`String`| |[Имя элемента](../../../Core/Elements/Element/Element.metadata/), при нажатии на который панель будет сворачиваться/разворачиваться|
 |OnExpanding|[Script](../../../Core/Script/)| |Обработчик события о том, что панель разворачивается|
 |OnExpanded|[Script](../../../Core/Script/)| |Обработчик события о том, что панель была развернута|
 |OnCollapsing|[Script](../../../Core/Script/)| |Обработчик события о том, что панель сворачивается|
