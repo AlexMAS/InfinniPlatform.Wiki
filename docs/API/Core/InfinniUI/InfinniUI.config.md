@@ -8,15 +8,15 @@ position: 1
 
 # Properties
 
-|Name|Type|Description|
-|----|----|-----------|
-|`serverUrl`|`String`|Адрес сервера.|
-|`configName`|`String`|Название конфигурации.|
-|`homePage`|`String`|Путь для получения домашней страницы.|
-|`enableAutoHeightService`|`Boolean`|Флаг, определяющий запуск AutoHeightService (по умолчанию сервис не запущен).|
-|`enableGetCurrentUser`|`Boolean`|Отключение отправки запроса на получение текущего пользователя.|
-|`HistoryAPI`|`Object`|Параметры History API для запуска роутинга. Принимает такие же параметры как и [Backbone.history.start()](http://backbonejs.org/#History-start)|
-|`Routes`|`Array`|[Массив объектов конфигурации роутинга приложения.](../InfinniUI.config.Routes)|
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+|`serverUrl`|`String`||Адрес сервера.|
+|`configName`|`String`||Название конфигурации.|
+|`homePage`|`String`||Путь для получения домашней страницы.|
+|`enableAutoHeightService`|`Boolean`|false|Флаг, определяющий запуск сервиса, регулирующего высоту элементов. Если сервис не запущен, [ScrollPanel](/docs/API/Elements/ScrollPanel/) не прокручивается.|
+|`enableGetCurrentUser`|`Boolean`|false|Отключение отправки запроса на получение текущего пользователя.|
+|`HistoryAPI`|`Object`||Параметры History API для запуска роутинга. Принимает такие же параметры как и [Backbone.history.start()](http://backbonejs.org/#History-start)|
+|`Routes`|`Array`||[Массив объектов конфигурации роутинга приложения.](../InfinniUI.config.Routes)|
 
 # Example
 
