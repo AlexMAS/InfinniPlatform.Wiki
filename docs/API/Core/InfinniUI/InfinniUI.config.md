@@ -15,7 +15,6 @@ position: 1
 |`homePage`|`String`|Путь для получения домашней страницы.|
 |`enableAutoHeightService`|`Boolean`|Флаг, определяющий запуск AutoHeightService (по умолчанию сервис не запущен).|
 |`enableGetCurrentUser`|`Boolean`|Отключение отправки запроса на получение текущего пользователя.|
-|`enableSignInExternalForm`|`Boolean`|Отключение отправки запроса на получение SignInExternalForm.|
 |`HistoryAPI`|`Object`|Параметры History API для запуска роутинга. Принимает такие же параметры как и [Backbone.history.start()](http://backbonejs.org/#History-start)|
 |`Routes`|`Array`|[Массив объектов конфигурации роутинга приложения.](../InfinniUI.config.Routes)|
 
@@ -27,7 +26,6 @@ window.InfinniUI.config.configName = 'Хабинет';
 window.InfinniUI.config.homePage = 'content/metadata/Views/common/homePage.json';
 window.InfinniUI.config.enableAutoHeightService = true;
 window.InfinniUI.config.enableGetCurrentUser = true;
-window.InfinniUI.config.enableSignInExternalForm = false;
 window.InfinniUI.config.HistoryAPI = {
   pushState: true
 };
