@@ -38,7 +38,7 @@ window.InfinniUI.config.Routes = [
   {
     Name: "UserPageRoute",
     Path: "/user/<% userId %>",
-    Action: "{ routeCallback3(context, args) }"
+    Action: "{ routeCallback2(context, args) }"
   }
 ];
 ```
