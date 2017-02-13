@@ -8,9 +8,11 @@ position: 1
 
 # Properties
 
-|Name|Type|Default|Description|
-|----|----|-------|-----------|
-|Size|`String`| |Размер иконки, значения аналогичны свойству [`TextStyle`](../../../Core/Style/TextStyle/)|
+|Name|Type|Description|
+|----|----|-----------|
+|Size|[`TextStyle`](../../../Core/Style/TextStyle/)<sup>*</sup>|Размер иконки|
+
+<sup>*</sup> в данном случае [`TextStyle`](../../../Core/Style/TextStyle/) определяет только размер шрифта.
 
 # Examples
 

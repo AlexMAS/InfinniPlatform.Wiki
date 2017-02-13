@@ -12,14 +12,18 @@ position: 3
 Icon.getSize()
 ```
 
+## Parameters
+
+Нет
+
 ## Returns
 
-Нет.
+[`TextStyle`](../../../Core/Style/TextStyle/).
 
 # Examples
 
 ```js
-Icon.getSize();
+var size = Icon.getSize();
 ```
 
 # See Also

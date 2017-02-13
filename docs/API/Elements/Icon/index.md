@@ -28,3 +28,9 @@ Name|Type|Default|Description
 ----|----|-------|-----------
 `parent`|[`Element`](../../Core/Elements/Element)|-|Родительский элемент
 
+# Methods
+
+|Name|Description|
+|----|-----------|
+|[getSize](Icon.getSize/)|Возвращает размер иконк|
+|[setSize](Icon.setSize/)|Устанавливает размер иконки|

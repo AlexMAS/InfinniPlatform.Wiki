@@ -4,7 +4,7 @@ title: "Icon.setSize"
 position: 4
 ---
 
-Устанавливает размер иконки. Значения соответствуют свойству [`TextStyle`](../../../Core/Style/TextStyle/).
+Устанавливает размер иконки. 
 
 # Syntax
 
@@ -16,7 +16,9 @@ Icon.setSize(value)
 
 |Name|Type|Description|
 |----|----|-----------|
-|`value`|`string`|Значения соответствующие свойству [`TextStyle`](../../../Core/Style/TextStyle/).|
+|`value`|[`TextStyle`](../../../Core/Style/TextStyle/)<sup>*</sup>|Размер иконки|
+
+<sup>*</sup> в данном случае [`TextStyle`](../../../Core/Style/TextStyle/) определяет только размер шрифта.
 
 ## Returns
 
@@ -25,7 +27,7 @@ Icon.setSize(value)
 # Examples
 
 ```js
-Icon.setSize('display1');
+Icon.setSize(TextStyle.display1);
 ```
 
 # See Also
