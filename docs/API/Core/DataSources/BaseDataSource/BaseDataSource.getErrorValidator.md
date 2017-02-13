@@ -35,6 +35,6 @@ var errorValidator = BaseDataSource.getErrorValidator();
 # See Also
 
 * [`setErrorValidator()`](../BaseDataSource.setErrorValidator/)
-* [`validateOnErrors()`](../BaseDataSource.validateOnErrors/)
+* [`getValidationResult()`](../BaseDataSource.getValidationResult/)
 * [`saveItem()`](../BaseDataSource.saveItem/)
 * [`ValidationResult`](../ValidationResult/)
