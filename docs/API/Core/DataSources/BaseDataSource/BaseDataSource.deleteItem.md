@@ -24,8 +24,8 @@ BaseDataSource.deleteItem(item, success, error)
 |Name|Description|
 |----|-----------|
 |item<sup>*</sup>|Элемент источника данных|
-|success|[Обработчик события](../../../Script/) о том, что элемент удален. Параметр `args` данного обработчика содержит поля: source - ссылка на [источник данных](../), value - удаленный элемент|
-|error|[Обработчик события](../../../Script/) о том, что при удалении элемента произошла ошибка. Параметр `args` данного обработчика содержит поля: item - удаляемый элемент, validationResult - [результат валидации](../ValidationResult/) (чтобы данное поле было заполнено, запрашиваемый сервис должен реализовать интерфейс IDocumentStorageInterceptor), originalResponse - ответ сервера|
+|success|[Обработчик события](../../../Script/) о том, что элемент удален. Параметр `args` данного обработчика содержит поля: item - сохраненный элемент, validationResult - [результат валидации](../ValidationResult/) (чтобы данное поле было заполнено, запрашиваемый сервис должен реализовать интерфейс [`IDocumentStorageInterceptor`](http://infinniplatform.readthedocs.io/api/reference/InfinniPlatform.Sdk.Documents.Interceptors.IDocumentStorageInterceptor.html) ), originalResponse - ответ сервера|
+|error|[Обработчик события](../../../Script/) о том, что при удалении элемента произошла ошибка. Параметр `args` данного обработчика содержит поля: item - удаляемый элемент, validationResult - [результат валидации](../ValidationResult/) (чтобы данное поле было заполнено, запрашиваемый сервис должен реализовать интерфейс [`IDocumentStorageInterceptor`](http://infinniplatform.readthedocs.io/api/reference/InfinniPlatform.Sdk.Documents.Interceptors.IDocumentStorageInterceptor.html)), originalResponse - ответ сервера|
 
 <sup>*</sup> Обязательный аргумент.
 
