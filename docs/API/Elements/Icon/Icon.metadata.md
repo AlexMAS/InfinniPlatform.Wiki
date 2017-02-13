@@ -1,18 +1,24 @@
 ---
 layout: doc
 title: "Icon.metadata"
-position: 0
+position: 1
 ---
 
 Метаданные типа [`Icon`](../).
 
+# Properties
+
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+|Size|`String`| |Размер иконки, значения аналогичны свойству [`TextStyle`](../../../Core/Style/TextStyle/)|
 
 # Examples
 
 ```json
 {
     "Icon": {
-        "Value": "star"
+        "Value": "star",
+        "Size": "display1"
     }
 }
 ```
