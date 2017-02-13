@@ -39,7 +39,4 @@ position: 1000
 
 * [`getErrorValidator()`](../BaseDataSource.getErrorValidator/)
 * [`setErrorValidator()`](../BaseDataSource.setErrorValidator/)
-* [`getWarningValidator()`](../BaseDataSource.getWarningValidator/)
-* [`setWarningValidator()`](../BaseDataSource.setWarningValidator/)
 * [`validateOnErrors()`](../BaseDataSource.validateOnErrors/)
-* [`validateOnWarnings()`](../BaseDataSource.validateOnWarnings/)

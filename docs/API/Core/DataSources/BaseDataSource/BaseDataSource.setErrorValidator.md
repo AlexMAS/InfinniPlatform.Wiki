@@ -56,8 +56,6 @@ BaseDataSource.setErrorValidator(
 # See Also
 
 * [`getErrorValidator()`](../BaseDataSource.getErrorValidator/)
-* [`getWarningValidator()`](../BaseDataSource.getWarningValidator/)
-* [`setWarningValidator()`](../BaseDataSource.setWarningValidator/)
 * [`validateOnErrors()`](../BaseDataSource.validateOnErrors/)
 * [`saveItem()`](../BaseDataSource.saveItem/)
 * [`ValidationResult`](../ValidationResult/)
