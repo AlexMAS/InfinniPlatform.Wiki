@@ -12,4 +12,4 @@ position: 1003
 |----|----|-----------|
 |[`config`](InfinniUI.config)|`Object`|Параметры конфигурации приложения|
 |`global`|[`GlobalContext`](../GlobalContext)|Глобальный контекст приложения.|
-|`localizations`|||
+|[`localizations`](InfinniUI.localizations)|`Object`|Параметры локализации приложения|

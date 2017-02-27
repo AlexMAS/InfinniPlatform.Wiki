@@ -58,3 +58,4 @@ function routerCallback2(context, args) {
 # See Also
 
 * [`InfinniUI.config`](../InfinniUI.config)
+* [`InfinniUI.localizations`](../InfinniUI.localizations)

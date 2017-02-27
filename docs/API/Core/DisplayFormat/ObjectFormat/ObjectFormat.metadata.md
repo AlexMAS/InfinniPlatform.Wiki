@@ -17,18 +17,18 @@ Format|`String`||[Строка форматирования объекта](../O
 
 ```json
 {
-  "Format": "{:n2}"
+  "Format": "${:n2}"
 }
 ```
 
 ```json
 {
-  "Format": "Birth date: {BirthDate:d}"
+  "Format": "Birth date: ${BirthDate:d}"
 }
 ```
 
 ```json
 {
-   "Format": "Weight: {Weight:n2} kg"
+   "Format": "Weight: ${Weight:n2} kg"
 }
 ```
