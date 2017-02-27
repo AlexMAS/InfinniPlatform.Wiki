@@ -74,7 +74,7 @@ new BaseDataSource(parameters)
 |[updateItems](BaseDataSource.updateItems/)|Обновляет список элементов источника данных|
 |[tryInitData](BaseDataSource.tryInitData/)|Пытается обновить список элементов источника. Делает это только в случае, если до этого источник не был прогружен данными|
 |[getItems](BaseDataSource.getItems/)|Возвращает список элементов источника данных|
-|[validateOnErrors](BaseDataSource.validateOnErrors/)|Осуществляет проверку на ошибки|
+|[getValidationResult](BaseDataSource.getValidationResult/)|Возвращает результат проверки на ошибки|
 |[initDataProvider](BaseDataSource.initDataProvider/)|Определяет обязательное свойство [`dataProvider`](../../DataProviders/). Наследники BaseDataSource должны переопределять этот метод!|
 |[beforeDeleteItem](BaseDataSource.beforeDeleteItem/)|Вы можете переопределить этот метод в наследнике BaseDataSource, если есть необходимость выполнять некие действия перед удалением элемента|
 
@@ -89,5 +89,5 @@ new BaseDataSource(parameters)
 |[onItemSaved](BaseDataSource.onItemSaved/)|Устанавливает [обработчик события](../../Script/) о том, что элемент сохранен|
 |[onItemDeleted](BaseDataSource.onItemDeleted/)|Устанавливает [обработчик события](../../Script/) о том, что элемент удален|
 |[onItemsUpdated](BaseDataSource.onItemsUpdated/)|Устанавливает [обработчик события](../../Script/) о том, что список элементов обновлен|
-|[onErrorValidator](BaseDataSource.onErrorValidator/)|Устанавливает [обработчик события](../../Script/) о том, что проверка на ошибки завершена|
+|[onErrorValidator](BaseDataSource.onErrorValidator/)|Устанавливает [обработчик события](../../Script/) о том, что произошла ошибка валидации|
 |[onProviderError](BaseDataSource.onProviderError/)|Устанавливает [обработчик события](../../Script/) о том, что [поставщик данных](/docs/API/Core/DataProviders/) вернул ошибку|

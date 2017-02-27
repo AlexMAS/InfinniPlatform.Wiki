@@ -35,16 +35,16 @@ BaseDataSource.setErrorValidator(
   function(context, args) {
     if (/^[a-z]+$/i.test(args.FirstName)) {
       return {
-        isValid: true
+        IsValid: true
       };
     }
     else {
       return {
-        isValid: false,
-        items: [
+        IsValid: false,
+        Items: [
           {
-            property: 'FirstName',
-            message: 'First name should contains Latin symbols only'
+            Property: 'FirstName',
+            Message: 'First name should contains Latin symbols only'
           }
         ]
       };
@@ -56,8 +56,6 @@ BaseDataSource.setErrorValidator(
 # See Also
 
 * [`getErrorValidator()`](../BaseDataSource.getErrorValidator/)
-* [`getWarningValidator()`](../BaseDataSource.getWarningValidator/)
-* [`setWarningValidator()`](../BaseDataSource.setWarningValidator/)
-* [`validateOnErrors()`](../BaseDataSource.validateOnErrors/)
+* [`getValidationResult()`](../BaseDataSource.getValidationResult/)
 * [`saveItem()`](../BaseDataSource.saveItem/)
 * [`ValidationResult`](../ValidationResult/)
