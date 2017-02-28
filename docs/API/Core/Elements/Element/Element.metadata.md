@@ -11,7 +11,7 @@ position: 0
 |Name|Type|Default|Description|
 |----|----|:--:|-----------|
 |Name|`String`| null |Имя элемента (строка). Желательно делать его уникальным внутри представления.|
-|Text|`String`(&hArr;)| '' |Текст элемента. В разных потомках Element, поле text используется по разному. Например, во View это заголовок представления, а в ImageBox это текст кнопки, инициирующей выбор загружаемого изображения.|
+|Text|`String`(&hArr;)(&#402;)| '' |Текст элемента. В разных потомках Element, поле text используется по разному. Например, во View это заголовок представления, а в ImageBox это текст кнопки, инициирующей выбор загружаемого изображения.|
 |Focusable|`Boolean`(&hArr;)| true |Значение, определяющее, может ли элемент получить фокус.|
 |Enabled|`Boolean`(&hArr;)| true |Значение, определяющее, значение, возможен ли доступ к элементу.|
 |Visible|`Boolean`(&hArr;)| true |Значение, определяющее видимость элемента.|
@@ -21,7 +21,7 @@ position: 0
 |TextStyle|[`TextStyle`](../../../Style/TextStyle/)(&hArr;)| '' |Стиль текста элемента|
 |Foreground|[`Color`](/docs/API/Core/Style/ColorStyle/)(&hArr;)| '' |Цвет текста.|
 |Background|[`Color`](/docs/API/Core/Style/ColorStyle/)(&hArr;)| '' |Цвет фона.|
-|ToolTip|`String`, [`Element`](..)| null |Всплывающая над элементом подсказка.|
+|ToolTip|`String`, [`Element`](..)(&#402;)| null |Всплывающая над элементом подсказка.|
 |Tag|*| null |Произвольное значение, которое можно привязать к элементу.|
 |OnLoaded|[`Script`](../../../Script/)| null |Устанавливает обработчик готовности элемента.|
 |onGotFocus|[`Script`](../../../Script/)| null |Устанавливает обработчик получения фокуса элементом.|
@@ -39,6 +39,8 @@ position: 0
 |OnPropertyChanged|[`Script`](../../../Script/)| null |Устанавливает обработчик изменения одного из свойств элемента (value, visible и др.).|
 
 (&hArr;) Свойство может быть задано, как [`DataBinding`](../../../DataBinding/DataBinding.metadata/).
+
+(&#402;) Свойство может быть задано, как [`JSExpression`](../../../JSExpression).
 
 # Exampes
 

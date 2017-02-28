@@ -8,6 +8,12 @@ position: 1003
 
 # Syntax
 
+```
+"{= (JS-expression) }"
+```
+
+# Example
+
 ```js
 InfinniUI.localizations['ru-RU'].strings.customMessages = {
   button: {

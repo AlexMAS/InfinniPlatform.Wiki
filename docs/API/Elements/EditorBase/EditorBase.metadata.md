@@ -11,11 +11,13 @@ position: 0
 |Name|Type|Description|
 |----|----|-----------|
 |Value|[`BindingMetadata`](../../../Core/DataBinding/DataBinding.metadata/)|Значение|
-|HintText|`String`|Текст с подсказкой для ввода|
-|ErrorText|`String`|Текст с информацией об ошибке|
-|WarningText|`String`|Текст с информацией о предупреждении|
+|HintText|`String`(&#402;)|Текст с подсказкой для ввода|
+|ErrorText|`String`(&#402;)|Текст с информацией об ошибке|
+|WarningText|`String`(&#402;)|Текст с информацией о предупреждении|
 |OnValueChanging|[Script](../../../Core/Script/)|Обработчик события о том, что значение изменяется|
 |OnValueChanged|[Script](../../../Core/Script/)|Обработчик события о том, что значение было изменено|
+
+(&#402;) Свойство может быть задано, как [`JSExpression`](../../../Core/JSExpression).
 
 # Examples
 
