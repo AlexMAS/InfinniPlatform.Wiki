@@ -13,7 +13,7 @@ position: 2
 |OpenMode|`String`|'Default'|Название [стратегии отображения](../../OpenMode) представления|
 |DialogWidth|`String`| |Ширина диалогового окна (актуально в случае OpenMode = 'Dialog')|
 |Container|`String`| |Название контейнера (актуально в случае OpenMode = 'Container')|
-|Path|`String`| |Путь до метаданных. Полный путь до метаданных будет выглядеть так: [InfinniUI.config](/docs/API/Core/InfinniUI/InfinniUI.config/).serverUrl + '/' + Path.|
+|Path|`String`| |Путь до метаданных. Полный путь до метаданных будет выглядеть так: [InfinniUI.config](/docs/API/Core/Config/).serverUrl + '/' + Path.|
 |Parameters|`Array`| |Коллекция [параметров представления](../../../../../Parameters/)|
 
 # Examples

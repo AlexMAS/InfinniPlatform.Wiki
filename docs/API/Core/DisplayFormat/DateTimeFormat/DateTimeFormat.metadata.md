@@ -10,7 +10,7 @@ position: 0
 
 Name|Type|Default|Description
 ----|----|-------|-----------
-Format|`String`|`"G"`|[Строка форматирования даты/времени](../../../Culture/Culture.dateTimeFormatting).
+Format|`String`|`"G"`|[Строка форматирования даты/времени](../../../Localizations/Localizations.dateTimeFormatting).
 
 
 # Examples

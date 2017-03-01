@@ -15,13 +15,13 @@ position: 1003
 # Example
 
 ```js
-InfinniUI.localizations['ru-RU'].strings.customMessages = {
+InfinniUI.localizations['ru-RU'].strings.custom = {
   button: {
     name: "Текст для кнопки"
   }
 };
 
-InfinniUI.localizations['en-US'].strings.customMessages = {
+InfinniUI.localizations['en-US'].strings.custom = {
   button: {
     name: "Text for button"
   }
@@ -30,7 +30,7 @@ InfinniUI.localizations['en-US'].strings.customMessages = {
 var metadata = [
   {
     "Button": {
-      "Text": "{= InfinniUI.localizations[InfinniUI.config.lang].strings.customMessages.button.name }" // Text for button
+      "Text": "{= InfinniUI.localized.strings.custom.button.name }" // Text for button
     }
   },
   {
@@ -43,5 +43,5 @@ var metadata = [
 
 # See Also
 
-* [`InfinniUI.config`](../InfinniUI/InfinniUI.config)
-* [`InfinniUI.localizations`](../InfinniUI/InfinniUI.localizations)
+* [`Config`](../Config)
+* [`Localizations`](../Localizations)

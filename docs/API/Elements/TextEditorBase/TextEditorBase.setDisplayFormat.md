@@ -30,7 +30,7 @@ TextEditorBase.setDisplayFormat(value)
 ```js
 TextEditorBase.setDisplayFormat(
   function(context, argument) {
-    return context.global.culture.dateTimeFormatInfo.format("g", argument.value);
+    return localized.dateTimeFormatInfo.format("g", argument.value);
   }
 );
 ```

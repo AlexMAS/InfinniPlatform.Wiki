@@ -8,7 +8,7 @@ position: 2
 
 # Description
 
-Запускает роутер с описанными в [InfinniUI.config.Routes](../../InfinniUI/InfinniUI.config) маршрутами.
+Запускает роутер с описанными в [InfinniUI.config.Routes](../../Routes) маршрутами.
 
 # Syntax
 

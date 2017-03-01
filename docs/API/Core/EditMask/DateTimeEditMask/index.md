@@ -8,8 +8,8 @@ position: 0
 
 ![](../assets/DateTimeEditMask_Ex_00.png) ![](../assets/DateTimeEditMask_Ex_01.png) ![](../assets/DateTimeEditMask_Ex_02.png)
 
-Маска должна записываться в формате, который описан в разделе [DateTimeFormatting](../../Culture/Culture.dateTimeFormatting/).
-   
+Маска должна записываться в формате, который описан в разделе [DateTimeFormatting](../../Localizations/Localizations.dateTimeFormatting/).
+
 Поведение маски ввода:
 
 * Нажатие клавиши "пробел" выделяет следующий раздел маски, который можно редактировать.
@@ -31,15 +31,15 @@ Mask|`String`|Маска редактирования
         "Mask": "d"
     }
 }
-```   
- 
+```
+
 ```json
 {
     "DateTimeEditMask": {
         "Mask": "d MMMM yyyy"
     }
 }
-```  
+```
 
 ```js
 //js-demo

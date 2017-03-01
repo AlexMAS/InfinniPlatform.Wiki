@@ -1,10 +1,12 @@
 ---
 layout: doc
-title: "InfinniUI.config.Routes"
+title: "Routes"
 position: 2
 ---
 
 Массив конфигураций маршрутов приложения. Каждый маршрут описывается объектом с обязательными параметрами Name, Path, Action.
+
+Массив конфигурации роутинга доступен через [`InfinniUI.config`](../../Config)
 
 # Syntax
 
@@ -57,5 +59,5 @@ function routerCallback2(context, args) {
 
 # See Also
 
-* [`InfinniUI.config`](../InfinniUI.config)
-* [`InfinniUI.localizations`](../InfinniUI.localizations)
+* [`Config`](../../Config)
+* [`Localizations`](../../Localizations)

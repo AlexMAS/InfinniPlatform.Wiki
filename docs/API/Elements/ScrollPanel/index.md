@@ -4,8 +4,8 @@ title: "ScrollPanel"
 position: 0
 ---
 
-Контейнер в виде прокручиваемой области.   
-Для корректной работы параметр [InfinniUI.config.enableAutoHeightService](../../Core/InfinniUI/InfinniUI.config) должен иметь значение true, либо нужно задать высоту панели самостоятельно с помощью [стилей](../../Core/Elements/Element/Element.metadata).
+Контейнер в виде прокручиваемой области.
+Для корректной работы параметр [InfinniUI.config.enableAutoHeightService](../../Core/Config) должен иметь значение true, либо нужно задать высоту панели самостоятельно с помощью [стилей](../../Core/Elements/Element/Element.metadata).
 
 # Description
 

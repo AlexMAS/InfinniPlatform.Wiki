@@ -6,11 +6,13 @@ position: 1011
 
 RouterService позволяет настроить маршрутизацию для Single Page Application
 
+Объект RouterService доступен через InfinniUI.RouterService
+
 # Description
 
 RouterService предоставляет возможность настройки маршрутизации на стороне клиента, а также связывания этих действий с событиями. Для браузеров, которые не поддерживают History API, RouterService проделает то же самое, используя фрагментарную структуру URL.
 
-Во время загрузки страницы, после того, как ваше приложение откроет HomePage view и будут созданы все роуты описанные в [InfinniUI.config.Routes](../InfinniUI/InfinniUI.config), автоматически будет запущен роутер используя настройки History API из [InfinniUI.config.HistoryAPI](../InfinniUI/InfinniUI.config). RouterService представляет собой обертку над [Backbone.Router](http://backbonejs.org/#Router).
+Во время загрузки страницы, после того, как ваше приложение откроет HomePage view и будут созданы все роуты описанные в [InfinniUI.config.Routes](../../Config), автоматически будет запущен роутер используя настройки History API из [InfinniUI.config.HistoryAPI](../../Config). RouterService представляет собой обертку над [Backbone.Router](http://backbonejs.org/#Router).
 
 ## Parameters
 

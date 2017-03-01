@@ -10,7 +10,7 @@ position: 1
 
 Путь к свойству объекта записывается в формате, который описан в разделе [DotNotation](../../DotNotation/).
 
-Строка форматирования для даты и времени записываться в формате, который описан в разделе [`dateTimeFormatFormatting`](../../../Culture/Culture.dateTimeFormatting/).
+Строка форматирования для даты и времени записываться в формате, который описан в разделе [`dateTimeFormatFormatting`](../../../Localizations/Localizations.dateTimeFormatting/).
 
 Строка форматирования для числовых значений записываться в формате, который описан в разделе [`NumberFormat.format`](../../NumberFormat.format/).
 

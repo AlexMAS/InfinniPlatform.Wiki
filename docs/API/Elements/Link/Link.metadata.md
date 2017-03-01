@@ -17,7 +17,7 @@ position: 0
 
 |Name|Type|Description|
 |----|----|-----------|
-|Name<sup>*</sup>|`String`|Название маршрута из [InfinniUI.config.Routes](/docs/API/Core/InfinniUI/InfinniUI.config.Routes/).|
+|Name<sup>*</sup>|`String`|Название маршрута из [InfinniUI.config.Routes](/docs/API/Core/Routing/Routes/).|
 |Params|`Array`.<[`Href.paramObject`](#hrefparamobject)>|Параметры запроса.|
 |Query|`Array`.<[`Href.paramObject`](#hrefparamobject)>|Параметры поиска.|
 
@@ -54,7 +54,7 @@ position: 0
 ```
 
 Рассмотрим случай, когда ссылка должна изменяться в зависимости от неких параметров.
-Тогда в массив [InfinniUI.config.Routes](/docs/API/Core/InfinniUI/InfinniUI.config.Routes/) необходимо добавить соответсвующий путь.
+Тогда в массив [InfinniUI.config.Routes](/docs/API/Core/Routing/Routes/) необходимо добавить соответсвующий путь.
 Пусть
 
 ```js

@@ -10,7 +10,7 @@ position: 5
 
 Name|Type|Default|Description
 ----|----|-------|-----------
-Format|`String`|`"n"`|[Строка форматирования числовых значений](../../../Culture/Culture.numberFormatting/).
+Format|`String`|`"n"`|[Строка форматирования числовых значений](../../../Localizations/Localizations.numberFormatting/).
 
 
 # Examples
