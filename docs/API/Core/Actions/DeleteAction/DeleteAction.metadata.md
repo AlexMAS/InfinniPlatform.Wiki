@@ -15,7 +15,8 @@ position: 0
 |Accept|`Boolean`|true|Значение, определяющее, нужно ли перед удалением спросить согласие пользователя на удаление|
 |OnSuccess|[`Script`](../../../Script/)| |Устанавливает обработчик успешного завершения действия|
 |OnError|[`Script`](../../../Script/)| |Устанавливает обработчик завершения действия с ошибкой|
-
+|AcceptMessage|`String`| |Устанавливает произвольный текст для сообщения во всплывающем окне|
+|AcceptMessageType|`String`|`default`|Устанавливает тип всплывающего окна. Доступные варианты: `error`, `warning`|
 
 <sup>*</sup> Обязательное свойство.
 
@@ -23,26 +24,30 @@ position: 0
 
 ```json
 {
-	"DeleteAction": {
-		"DestinationValue": {
-		  "Source": "DataSource1",
-		  "Property": "$"
-		},
-		"Accept": false,
-		"OnSuccess": "{ alert('onSuccess'); }",
-		"OnError": "{ alert('onError'); }"
-	}
+  "DeleteAction": {
+    "AcceptMessage": "Do you really want to delete it?",
+    "AcceptMessageType": "error",
+    "DestinationValue": {
+      "Source": "DataSource1",
+      "Property": "$"
+    },
+    "Accept": false,
+    "OnSuccess": "{ alert('onSuccess'); }",
+    "OnError": "{ alert('onError'); }"
+  }
 }
 ```
 
 ```json
 {
-	"DeleteAction": {
-		"DestinationValue": {
-		  "Source": "DataSource1",
-		  "Property": "$.Hospitalizations.0"
-		},
-		"Accept": false
-	}
+  "DeleteAction": {
+    "AcceptMessage": "Do you seriously want to delete it?",
+    "AcceptMessageType": "warning",
+    "DestinationValue": {
+      "Source": "DataSource1",
+      "Property": "$.Hospitalizations.0"
+    },
+    "Accept": false
+  }
 }
 ```
