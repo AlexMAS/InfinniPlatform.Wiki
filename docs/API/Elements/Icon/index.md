@@ -32,5 +32,5 @@ Name|Type|Default|Description
 
 |Name|Description|
 |----|-----------|
-|[getSize](Icon.getSize/)|Возвращает размер иконк|
+|[getSize](Icon.getSize/)|Возвращает размер иконки|
 |[setSize](Icon.setSize/)|Устанавливает размер иконки|
