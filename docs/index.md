@@ -1,5 +1,5 @@
 ---
 layout: doc
-title: "InfinniPlatform Documentation"
+title: "InfinniUI Documentation"
 tags: 
 ---
