@@ -6,15 +6,15 @@ position: 1003
 
 Глобальный контекст приложения. Контекст предоставляет доступ (API) к совместно используемым методам и свойствам приложения.
 
-Объект глобального контекста доступен через InfinniUI.global
+Объект глобального контекста доступен через `InfinniUI.global`
 
 # Properties
 
 |Name|Type|Description|
 |----|----|-----------|
 |`containers`|`Object`|Список доступных контейнеров для открытия представлений в режиме `OpenMode="Container"`.|
-|`localizations`|[`Localizations`](../Localizations/)|Языковые и региональные настройки, для разных локалей.|
-|`localized`|`Object`|Языковые и региональные настройки текущей локали.|
+|`localizations`|`Object`|Ассоциативные массив, где ключ - это название локали, а значение - [локаль](../Localizations/)|
+|`localized`|[`Localization`](../Localizations/)|Языковые и региональные настройки текущей локали. Текущая локаль определяется |
 |`factory`|[`ApplicationBuilder`](../Builders/)|Общий [билдер](../Builders/) приложения.|
 |`logger`|[`Logger`](../Logger/)|[Сервис регистрации сообщений](../Logger/).|
 |`messageBus`|[`MessageBus`](../MessageBus/)|[Шина сообщений](../MessageBus/) приложения.|

@@ -12,7 +12,7 @@ position: 0
 |----|----|:-----:|-----------|
 |Name|`String`| |Наименование источника данных|
 |Filter|`String`| |Строка фильтра, возможно содержание параметров|
-|FilterParams|`Object`(&hArr;)| |Объект со значениями параметров.|
+|FilterParams|`Object`| |Объект со значениями параметров. Параметр может быть задан как  [`DataBinding`](../../../DataBinding/DataBinding.metadata/).|
 |IdProperty|`String`|'_id'|Свойство с идентификатором элемента|
 |FillCreatedItem|`Boolean`|true|Логическое значение, указывающее, нужно ли предзаполнение новых элементов на сервере|
 |IsLazy|`Boolean`|true|Логическое значение, определяющее, будет ли прогрузка данных в источнике "ленивой" или нет|
@@ -24,8 +24,6 @@ position: 0
 |OnItemDeleted|[`Script`](../../../Script/)| |Обработчик события о том, что элемент удален|
 |OnItemsUpdated|[`Script`](../../../Script/)| |Обработчик события о том, что список элементов обновлен|
 |OnProviderError|[`Script`](../../../Script/)| |Обработчик события о том, что [поставщик данных](/docs/API/Core/DataProviders/) вернул ошибку|
-
-(&hArr;) Свойство может быть задано, как [`DataBinding`](../../../DataBinding/DataBinding.metadata/).
 
 # Exampes
 

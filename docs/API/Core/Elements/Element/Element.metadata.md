@@ -21,7 +21,7 @@ position: 0
 |TextStyle|[`TextStyle`](../../../Style/TextStyle/)(&hArr;)| '' |Стиль текста элемента|
 |Foreground|[`Color`](/docs/API/Core/Style/ColorStyle/)(&hArr;)| '' |Цвет текста.|
 |Background|[`Color`](/docs/API/Core/Style/ColorStyle/)(&hArr;)| '' |Цвет фона.|
-|ToolTip|`String`, [`Element`](..)(&#402;)| null |Всплывающая над элементом подсказка.|
+|ToolTip|`String`(&#402;), [`Element`](..)| null |Всплывающая над элементом подсказка.|
 |Tag|*| null |Произвольное значение, которое можно привязать к элементу.|
 |OnLoaded|[`Script`](../../../Script/)| null |Устанавливает обработчик готовности элемента.|
 |onGotFocus|[`Script`](../../../Script/)| null |Устанавливает обработчик получения фокуса элементом.|

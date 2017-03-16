@@ -6,7 +6,7 @@ position: 1
 
 Параметры конфигурации приложения.
 
-Объект доступен через InfinniUI.config
+Объект доступен через `InfinniUI.config`
 
 # Properties
 

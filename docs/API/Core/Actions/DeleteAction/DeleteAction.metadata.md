@@ -13,10 +13,10 @@ position: 0
 |DestinationValue.Source<sup>*</sup>|`String`| |Название источника данных, из которого производится удаление|
 |DestinationValue.Property<sup>*</sup>|`String`| |Путь до документа в источнике данных, который будет удалятся|
 |Accept|`Boolean`|true|Значение, определяющее, нужно ли перед удалением спросить согласие пользователя на удаление|
+|AcceptMessage|`String`| |Текст для сообщения во всплывающем окне|
+|AcceptMessageType|`String`|default|Тип всплывающего окна. Доступные варианты: default, error, warning|
 |OnSuccess|[`Script`](../../../Script/)| |Устанавливает обработчик успешного завершения действия|
 |OnError|[`Script`](../../../Script/)| |Устанавливает обработчик завершения действия с ошибкой|
-|AcceptMessage|`String`| |Устанавливает произвольный текст для сообщения во всплывающем окне|
-|AcceptMessageType|`String`|default|Устанавливает тип всплывающего окна. Доступные варианты: error, warning|
 
 <sup>*</sup> Обязательное свойство.
 

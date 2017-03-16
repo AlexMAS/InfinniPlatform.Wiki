@@ -4,9 +4,9 @@ title: "RouterService"
 position: 1011
 ---
 
-RouterService позволяет настроить маршрутизацию для Single Page Application
+RouterService позволяет настроить маршрутизацию для Single Page Application.
 
-Объект RouterService доступен через InfinniUI.RouterService
+Объект RouterService доступен через `InfinniUI.RouterService`.
 
 # Description
 
