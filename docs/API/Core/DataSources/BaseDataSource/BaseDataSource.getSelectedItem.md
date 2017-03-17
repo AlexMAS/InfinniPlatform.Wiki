@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getSelectedItem()"
-position: 19
+position: 15
 ---
 
 Возвращает выделенный элемент.

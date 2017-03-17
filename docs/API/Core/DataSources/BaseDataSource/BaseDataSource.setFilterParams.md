@@ -1,14 +1,10 @@
 ---
 layout: doc
 title: "BaseDataSource.setFilterParams()"
-position: 42
+position: 26
 ---
 
 Устанавливает значение параметра фильтра.
-
-# Description
-
-Вызов метода устанавливает значение параметра фильтра.
 
 # Syntax
 
@@ -20,25 +16,25 @@ BaseDataSource.setFilterParams(paramName, value)
 
 |Name|Description|
 |----|-----------|
-|paramName|Имя параметра|
+|paramName|Название параметра|
 |value|Значение параметра|
 
 ## Returns
 
-Нет.
+Метод ничего не возвращает.
 
 # Examples
 
 ```js
 var filter = 'and(contains(Name, <%filterName%>),contains(currency, <%filterPrice%>))';
-BaseDataSource.setFilter(filter);
+dataSource.setFilter(filter);
 
-BaseDataSource.setFilterParams('filterName', 'name');
-BaseDataSource.setFilterParams('filterPrice', '999');
+dataSource.setFilterParams('filterName', 'name');
+dataSource.setFilterParams('filterPrice', '999');
 ```
 
 # See Also
 
+* [`getFilterParams()`](../BaseDataSource.getFilterParams/)
 * [`getFilter()`](../BaseDataSource.getFilter/)
 * [`setFilter()`](../BaseDataSource.setFilter/)
-* [`getFilterParams()`](../BaseDataSource.getFilterParams/)

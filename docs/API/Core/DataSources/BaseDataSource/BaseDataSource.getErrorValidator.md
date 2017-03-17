@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getErrorValidator()"
-position: 12
+position: 32
 ---
 
 Возвращает [функцию](../../../Script/) проверки элемента на ошибки.

@@ -41,8 +41,6 @@ new DocumentDataSource(parameters)
 |Name|Default|Description|
 |----|:-----:|---------|
 |documentId| |Идентификатор документа|
-|filter| |Правило фильтрации документов|
-|filterParams| |Параметры фильтра|
 |pageNumber|0|Номер страницы|
 |pageSize|15|Размер страницы|
 |search| |Строка полнотекстового поиска|
@@ -50,7 +48,7 @@ new DocumentDataSource(parameters)
 |order| |Правило сортировки документов|
 |needTotalCount|false|Необходимость подсчета общего количества документов|
 
-Изменение параметров `filter`, `filterParams`, `pageSize`, `search`, `order` приводит к обнулению `pageNumber`.
+Изменение параметров [`filter`](../BaseDataSource/#specific-properties), [`filterParams`](../BaseDataSource/#specific-properties), `pageSize`, `search`, `order` приводит к обнулению `pageNumber`.
 
 # Methods
 
@@ -58,11 +56,7 @@ new DocumentDataSource(parameters)
 |----|---------|
 |[getDocumentId](DocumentDataSource.getDocumentId/)|Возвращает идентификатор документа|
 |[setDocumentId](DocumentDataSource.setDocumentId/)|Устанавливает идентификатор документа|
-|[getFilter](DocumentDataSource.getFilter/)|Возвращает правило фильтрации документов|
-|[setFilter](DocumentDataSource.setFilter/)|Устанавливает правило фильтрации документов|
 |[setIdFilter](DocumentDataSource.setIdFilter/)|Устанавливает фильтр элементов по идентификатору|
-|[getFilterParams](DocumentDataSource.getFilterParams/)|Возвращает параметры фильтра|
-|[setFilterParams](DocumentDataSource.setFilterParams/)|Устанавливает параметры фильтра|
 |[getPageNumber](DocumentDataSource.getPageNumber/)|Возвращает номер страницы|
 |[setPageNumber](DocumentDataSource.setPageNumber/)|Устанавливает номер страницы|
 |[getPageSize](DocumentDataSource.getPageSize/)|Возвращает размер страницы|

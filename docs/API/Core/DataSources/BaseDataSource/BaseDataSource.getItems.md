@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getItems()"
-position: 34
+position: 11
 ---
 
 Возвращает список элементов источника данных.

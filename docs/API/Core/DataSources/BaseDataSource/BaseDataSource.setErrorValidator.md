@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.setErrorValidator()"
-position: 13
+position: 33
 ---
 
 Устанавливает [функцию](../../../Script/) проверки элемента на ошибки.

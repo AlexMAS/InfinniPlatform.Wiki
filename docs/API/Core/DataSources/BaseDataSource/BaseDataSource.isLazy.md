@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.isLazy()"
-position: 24
+position: 19
 ---
 
 Возвращает значение, является ли прогрузка данных в источнике "ленивой" или нет.

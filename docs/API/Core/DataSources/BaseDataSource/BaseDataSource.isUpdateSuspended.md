@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.isUpdateSuspended()"
-position: 16
+position: 7
 ---
 
 Возвращает значение, указывающее, запрещено ли обновление списка элементов.

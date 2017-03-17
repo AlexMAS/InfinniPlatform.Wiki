@@ -1,14 +1,10 @@
 ---
 layout: doc
 title: "BaseDataSource.getFilterParams()"
-position: 41
+position: 25
 ---
 
 Возвращает значение параметра фильтра.
-
-# Description
-
-Вызов метода возвращает значение параметра фильтра.
 
 # Syntax
 
@@ -20,22 +16,21 @@ BaseDataSource.getFilterParams(paramName)
 
 |Name|Description|
 |----|-----------|
-|paramName|Имя параметра|
+|paramName|Название параметра|
 
 ## Returns
 
-Значение параметра.
+Значение указанного параметра, либо объект со всеми параметрами, если метод вызывался без названия параметра.
 
 # Examples
 
 ```js
-
-BaseDataSource.getFilterParams('filterName'); // name
-BaseDataSource.getFilterParams('filterPrice'); // 999
+var filterParams = dataSource.getFilterParams();
+var name = dataSource.getFilterParams('filterName');
 ```
 
 # See Also
 
+* [`setFilterParams()`](../BaseDataSource.setFilterParams/)
 * [`getFilter()`](../BaseDataSource.getFilter/)
 * [`setFilter()`](../BaseDataSource.setFilter/)
-* [`setFilterParams()`](../BaseDataSource.setFilterParams/)

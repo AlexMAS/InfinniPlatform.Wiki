@@ -30,8 +30,8 @@ DocumentDataSource.setIdFilter('dd4d1bb3-5571-453c-9686-d04d4d0f0316');
 
 # See Also
 
-* [`getFilter()`](../DocumentDataSource.getFilter/)
-* [`setFilter()`](../DocumentDataSource.setFilter/)
+* [`getFilter()`](../../BaseDataSource/BaseDataSource.getFilter/)
+* [`setFilter()`](../../BaseDataSource/BaseDataSource.setFilter/)
 * [`updateItems()`](../../BaseDataSource/BaseDataSource.updateItems/)
 * [`suspendUpdate()`](../../BaseDataSource/BaseDataSource.suspendUpdate/)
 * [`resumeUpdate()`](../../BaseDataSource/BaseDataSource.resumeUpdate/)

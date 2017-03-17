@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.setIdProperty()"
-position: 6
+position: 28
 ---
 
 Устанавливает наименование свойства с идентификатором элемента.

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.isModified()"
-position: 27
+position: 21
 ---
 
 Проверяет, является ли элемент несохраненным.

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.isDataReady()"
-position: 23
+position: 10
 ---
 
 Возвращает значение, указывающее, загрузились ли данные в источник или нет.

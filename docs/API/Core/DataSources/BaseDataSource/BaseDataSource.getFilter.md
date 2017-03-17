@@ -1,14 +1,10 @@
 ---
 layout: doc
 title: "BaseDataSource.getFilter()"
-position: 39
+position: 23
 ---
 
-Возвращает строку фильтра.
-
-# Description
-
-Вызов метода возвращает строку фильтра в ее первоначальном состоянии, с параметрами.
+Возвращает правило фильтрации документов.
 
 # Syntax
 
@@ -22,12 +18,12 @@ BaseDataSource.getFilter()
 
 ## Returns
 
-Строка фильтра.
+Правило фильтрации документов (см. [формат](../BaseDataSource.setFilter/#filter-format))
 
 # Examples
 
 ```js
-var filter = BaseDataSource.getFilter();
+var filter = dataSource.getFilter();
 ```
 
 # See Also

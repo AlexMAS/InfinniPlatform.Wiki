@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.resumeUpdate()"
-position: 18
+position: 6
 ---
 
 Разрешает обновление списка элементов.

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getProperty()"
-position: 21
+position: 17
 ---
 
 Возвращает значение указанного свойства источника.

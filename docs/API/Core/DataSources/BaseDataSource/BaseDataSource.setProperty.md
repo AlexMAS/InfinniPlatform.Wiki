@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.setProperty()"
-position: 22
+position: 18
 ---
 
 Устанавливает значение указанного свойства источника.

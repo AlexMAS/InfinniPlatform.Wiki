@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.setSelectedItem()"
-position: 20
+position: 16
 ---
 
 Устанавливает выделенный элемент.

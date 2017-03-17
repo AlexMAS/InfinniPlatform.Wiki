@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.setFillCreatedItem()"
-position: 8
+position: 31
 ---
 
 Устанавливает, нужно ли предзаполнение новых элементов на сервере.

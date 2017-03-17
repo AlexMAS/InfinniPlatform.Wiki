@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.deleteItem()"
-position: 31
+position: 14
 ---
 
 Удаляет элемент в источнике данных.

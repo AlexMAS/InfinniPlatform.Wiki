@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.suspendUpdate()"
-position: 17
+position: 5
 ---
 
 Запрещает обновление списка элементов.

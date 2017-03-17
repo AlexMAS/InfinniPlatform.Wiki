@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.getIdProperty()"
-position: 5
+position: 27
 ---
 
 Возвращает наименование свойства с идентификатором элемента.

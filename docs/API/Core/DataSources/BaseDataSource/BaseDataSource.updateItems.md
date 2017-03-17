@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.updateItems()"
-position: 32
+position: 8
 ---
 
 Обновляет список элементов источника данных.

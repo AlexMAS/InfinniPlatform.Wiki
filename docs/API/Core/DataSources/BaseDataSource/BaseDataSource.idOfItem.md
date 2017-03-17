@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "BaseDataSource.idOfItem()"
-position: 26
+position: 29
 ---
 
 Возвращает значение идентификатора по переданному элементу item.
