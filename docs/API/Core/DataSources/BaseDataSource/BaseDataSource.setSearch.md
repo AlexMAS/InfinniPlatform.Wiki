@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: "DocumentDataSource.setSearch()"
-position: 13
+title: "BaseDataSource.setSearch()"
+position: 40
 ---
 
 Устанавливает строку полнотекстового поиска.
@@ -9,7 +9,7 @@ position: 13
 # Syntax
 
 ```js
-DocumentDataSource.setSearch(value)
+BaseDataSource.setSearch(value)
 ```
 
 ## Parameters
@@ -31,4 +31,4 @@ BaseDataSource.setSearch("Иванов Иван Иванович");
 
 # See Also
 
-* [`getSearch()`](../DocumentDataSource.getSearch/)
+* [`getSearch()`](../BaseDataSource.getSearch/)

@@ -10,7 +10,7 @@ position: 3
 
 Для работы с документами, хранящимися в InfinniPlatform, следует использовать источник данных
 `DocumentDataSource`. Для определения источника данных достаточно указать идентификатор документа, с которым будет
-осуществляться работа. 
+осуществляться работа.
 
 # Extends
 
@@ -35,7 +35,7 @@ new DocumentDataSource(parameters)
 
 # Specific Properties
 
-Для работы с данными свойствами используйте методы [getProperty](../BaseDataSource/BaseDataSource.getProperty/) и [setProperty](../BaseDataSource/BaseDataSource.setProperty/).  
+Для работы с данными свойствами используйте методы [getProperty](../BaseDataSource/BaseDataSource.getProperty/) и [setProperty](../BaseDataSource/BaseDataSource.setProperty/).
 Обратите внимание, что для работы с данными свойствами необходимо [указывать точку в названии](../BaseDataSource/BaseDataSource.getProperty/#path-rules).
 
 |Name|Default|Description|
@@ -43,12 +43,11 @@ new DocumentDataSource(parameters)
 |documentId| |Идентификатор документа|
 |pageNumber|0|Номер страницы|
 |pageSize|15|Размер страницы|
-|search| |Строка полнотекстового поиска|
 |select| |Правило отображения документов|
 |order| |Правило сортировки документов|
 |needTotalCount|false|Необходимость подсчета общего количества документов|
 
-Изменение параметров [`filter`](../BaseDataSource/#specific-properties), [`filterParams`](../BaseDataSource/#specific-properties), `pageSize`, `search`, `order` приводит к обнулению `pageNumber`.
+Изменение параметров [`filter`](../BaseDataSource/#specific-properties), [`filterParams`](../BaseDataSource/#specific-properties), `pageSize`, [`search`](../BaseDataSource/#specific-properties), `order` приводит к обнулению `pageNumber`.
 
 # Methods
 
@@ -61,8 +60,6 @@ new DocumentDataSource(parameters)
 |[setPageNumber](DocumentDataSource.setPageNumber/)|Устанавливает номер страницы|
 |[getPageSize](DocumentDataSource.getPageSize/)|Возвращает размер страницы|
 |[setPageSize](DocumentDataSource.setPageSize/)|Устанавливает размер страницы|
-|[getSearch](DocumentDataSource.getSearch/)|Возвращает строку полнотекстового поиска|
-|[setSearch](DocumentDataSource.setSearch/)|Устанавливает строку полнотекстового поиска|
 |[getSelect](DocumentDataSource.getSelect/)|Возвращает правило отображения документов|
 |[setSelect](DocumentDataSource.setSelect/)|Устанавливает правило отображения документов|
 |[getOrder](DocumentDataSource.getOrder/)|Возвращает правило сортировки документов|

@@ -8,7 +8,7 @@ position: 0
 
 # Description
 
-Источники данных, представленные в InfinniUI, являются потомками BaseDataSource.  
+Источники данных, представленные в InfinniUI, являются потомками BaseDataSource.
 В BaseDataSource реализованы базовые API, которые предоставлят все источники данных InfinniUI.
 
 # Syntax
@@ -33,7 +33,7 @@ new BaseDataSource(parameters)
 
 # Specific Properties
 
-Для работы с данными свойствами используйте методы [getProperty](BaseDataSource.getProperty/) и [setProperty](BaseDataSource.setProperty/).  
+Для работы с данными свойствами используйте методы [getProperty](BaseDataSource.getProperty/) и [setProperty](BaseDataSource.setProperty/).
 Обратите внимание, что для работы с данными свойствами необходимо [указывать точку в названии](BaseDataSource.getProperty/#path-rules).
 
 |Name|Description|
@@ -42,6 +42,7 @@ new BaseDataSource(parameters)
 |selectedItem|Выделенный элемент|
 |filter|Правило фильтрации документов|
 |filterParams|Параметры фильтра|
+|search|Строка полнотекстового поиска|
 
 # Methods
 
@@ -73,6 +74,8 @@ new BaseDataSource(parameters)
 |[setFilter](BaseDataSource.setFilter/)|Устанавливает правило фильтрации документов|
 |[getFilterParams](BaseDataSource.getFilterParams/)|Возвращает параметры фильтра|
 |[setFilterParams](BaseDataSource.setFilterParams/)|Устанавливает параметры фильтра|
+|[getSearch](BaseDataSource.getSearch/)|Возвращает строку полнотекстового поиска|
+|[setSearch](BaseDataSource.setSearch/)|Устанавливает строку полнотекстового поиска|
 |[getIdProperty](BaseDataSource.getIdProperty/)|Возвращает наименование свойства с идентификатором элемента (по умолчанию Id)|
 |[setIdProperty](BaseDataSource.setIdProperty/)|Устанавливает наименование свойства с идентификатором элемента|
 |[idOfItem](BaseDataSource.idOfItem/)|Возвращает значение идентификатора по переданному элементу item|
